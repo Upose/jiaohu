@@ -90,8 +90,6 @@
     		font-size: 12px;
     	}
     </style>
-	<script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
-	<script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js""></script>
 </head>
 <body>
 	<div class="cus-body">
@@ -121,6 +119,9 @@
 			<div id="feed-page"></div>
 		</div>
 	</div>
+	<script src="/ProjectDelivery/Public/Doc/js/common.js"></script>
+	<script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
+	<script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js""></script>
 	<script>
 		var addFeed = document.getElementById('add-feed');
 		var pageIndex = 1, limit = 10;
@@ -173,7 +174,7 @@
 				var laypage = layui.laypage;
 				laypage.render({
 					elem: 'feed-page',
-					limit: 2,
+					limit: 10,
 					curr: pageIndex,
 					count: limit * 1,
 					jump: function(obj, first) {

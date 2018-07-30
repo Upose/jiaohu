@@ -33,6 +33,22 @@
 <script>
     var login = document.getElementById('login');
 
+    // 设置cookie
+    function setCookie(c_name,value,expireseconds){
+        var exdate=new Date();
+        exdate.setTime(exdate.getTime()+expireseconds * 1000);
+        document.cookie=c_name+ "=" +escape(value)+
+        ((expireseconds==null) ? "" : ";expires="+exdate.toGMTString())
+    }
+
+    // 设置cookie
+    function setCookie(key, value, iDay) {
+        var oDate = new Date();
+        oDate.setDate(oDate.getDate() + iDay);
+        document.cookie = key + '=' + value + ';expires=' + oDate;
+
+    }
+
     login.onclick = function() {
         var name = $('#name').val();
         var pass = $('#pass').val();
@@ -64,6 +80,7 @@
                         layui.layer.alert('密码错误!');
                     })
                 } else {
+                    // setCookie("isLogin", data.data[0].id, 3600 * 24);
                     window.location.href = "http://localhost/ProjectDelivery/index.php";
                 }
             },

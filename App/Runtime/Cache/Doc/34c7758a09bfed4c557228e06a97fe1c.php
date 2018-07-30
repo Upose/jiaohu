@@ -7,7 +7,9 @@
     <title>Tea Party</title>
     <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/build/css/app.css" media="all">
+    <script src="/ProjectDelivery/Public/Doc/js/common.js"></script>
     <script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js""></script>
 </head>
 
 <body>
@@ -35,7 +37,7 @@
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
                     <dd><a href="javascript:;">修改密码</a></dd>
-                    <dd><a href="javascript:;">安全退出</a></dd>
+                    <dd><a href="javascript:;" id="exitlogin">安全退出</a></dd>
                 </dl>
                 </li>
                 <li class="layui-nav-item"><a href="javascript:;"><i class="fa fa-sign-out" aria-hidden="true"></i>  </a></li>
@@ -128,23 +130,44 @@
             <div style="padding: 15px;">主体内容加载中,请稍等...</div>
         </div>
     </div>
-
-    <script>
-        var message;
-        layui.config({
-            base: 'Public/Doc/doclay/build/js/'
-        }).use(['app', 'message'], function () {
-            var app = layui.app,
-                $ = layui.jquery,
-                layer = layui.layer;
-            //将message设置为全局以便子页面调用
-            message = layui.message;
-            //主入口
-            app.set({
-                type: 'iframe'
-            }).init();
-        });
-    </script>
 </body>
+<script>
+    var message;
+    layui.config({
+        base: 'Public/Doc/doclay/build/js/'
+    }).use(['app', 'message'], function () {
+        var app = layui.app,
+            $ = layui.jquery,
+            layer = layui.layer;
+        //将message设置为全局以便子页面调用
+        message = layui.message;
+        //主入口
+        app.set({
+            type: 'iframe'
+        }).init();
+    });
 
+    $('#exitlogin').on('click', function() {
+        layui.use('layer', function() {
+            layer.confirm('确定退出登录?', {title:'提示'}, function(index){
+                // 退出登录接口
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "<?php echo U('Feedback/logout');?>",
+                    dataType: "json",
+                    data: {},
+                    success: function(res) {
+                        removeCookie("isLogin");
+                        layer.close(index);
+                        window.location.href = 'http://localhost/ProjectDelivery/Doc/Login/login';
+                    },
+                    fail: function(err) {
+                        console.log(err);
+                    }
+                });
+            });
+        })
+    })
+</script>
 </html>
