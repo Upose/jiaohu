@@ -2,7 +2,7 @@
 namespace Doc\Controller;
 use Think\Controller;
 use think\Session;
-
+session_start();
 //解决跨域
 header("Access-Control-Allow-Origin:*");
 
@@ -20,6 +20,14 @@ mysql_query('set names utf8');
  * 2018.7.25 
  */
 class FeedbackController extends BaseController {
+
+	public function construct(){
+		if(isset($_SESSION['user_name'])){
+
+		}else{
+		   echo "<script>alert('请先登录' ); window.location.href = 'http://localhost/ProjectDelivery/Doc/Login/login'; </script>";
+		}
+	}
 
 	//输出首页
     public function index(){
@@ -415,35 +423,6 @@ class FeedbackController extends BaseController {
     	$this->Response(0,$res,'');
     }
 
-    //登录接口
-    public function loginn (){
-    	//获取用户名密码
-    	$name=I('name');
-    	$password=md5(I('password'));
-    	//判断用户名是否存在
-    	$sql="SELECT * FROM person where name = '$name' ";
-    	$res = M()->query($sql);
-    	if(count($res)==0){
-    		//用户名不存在返回1
-    		$this->Response(1,'');
-    	}
-        //判断用户名密码是否正确
-    	$usql="select * from person where name = '$name' and password= '$password'";
-    	$ures = M()->query($usql);
-    	if(count($ures)==0){
-    		//用户名或密码错误返回2
-    		$this->Response(2,'');
-    	}else{
-    		//登陆成功,将用户信息保存在session
-    		session_start();
-    		$_SESSION['user_name']=$name;
-    		$_SESSION['user_id']=$ures[0]['id'];
-    		//var_dump($_SESSION);die;
-    		$this->Response(0,$ures,'登录成功');
-    		
-    	}	
-       
-    }
 
     //产品添加接口
     public function addProduct(){
@@ -564,11 +543,11 @@ class FeedbackController extends BaseController {
 	public function logout(){
      //var_dump($_SESSION);die;
      if(isset($_COOKIE[session_name()])){  
-                //判断客户端的cookie文件是否存在,存在的话将其设置为过期.
-                setcookie(session_name(),'',time()-1,'/');
-            }
-       session_destroy();
-      $this->Response(0,'退出登录','');
+	        //判断客户端的cookie文件是否存在,存在的话将其设置为过期.
+	        setcookie(session_name(),'',time()-1,'/');
+	    }
+       	session_destroy();
+      	$this->Response(0,'退出登录','');
 	}
  }
 

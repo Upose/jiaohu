@@ -7,9 +7,9 @@
     <title>Tea Party</title>
     <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/build/css/app.css" media="all">
-    <script src="/ProjectDelivery/Public/Doc/js/common.js"></script>
     <script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
     <script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js""></script>
+    <script src="/ProjectDelivery/Public/Doc/js/jquery.cookie.js"></script>
 </head>
 
 <body>
@@ -132,41 +132,48 @@
     </div>
 </body>
 <script>
-    var message;
-    layui.config({
-        base: 'Public/Doc/doclay/build/js/'
-    }).use(['app', 'message'], function () {
-        var app = layui.app,
-            $ = layui.jquery,
-            layer = layui.layer;
-        //将message设置为全局以便子页面调用
-        message = layui.message;
-        //主入口
-        app.set({
-            type: 'iframe'
-        }).init();
-    });
+    $(document).ready(function() {
+        // 登录状态验证
+        /*if(!$.cookie('isLogin')) {
+            window.location.href = "http://localhost/ProjectDelivery/Doc/Login/login";
+        }*/
 
-    $('#exitlogin').on('click', function() {
-        layui.use('layer', function() {
-            layer.confirm('确定退出登录?', {title:'提示'}, function(index){
-                // 退出登录接口
-                $.ajax({
-                    cache: false,
-                    type: "POST",
-                    url: "<?php echo U('Feedback/logout');?>",
-                    dataType: "json",
-                    data: {},
-                    success: function(res) {
-                        // removeCookie("isLogin");
-                        layer.close(index);
-                        window.location.href = 'http://localhost/ProjectDelivery/Doc/Login/login';
-                    },
-                    fail: function(err) {
-                        console.log(err);
-                    }
+        var message;
+        layui.config({
+            base: 'Public/Doc/doclay/build/js/'
+        }).use(['app', 'message'], function () {
+            var app = layui.app,
+                $ = layui.jquery,
+                layer = layui.layer;
+            //将message设置为全局以便子页面调用
+            message = layui.message;
+            //主入口
+            app.set({
+                type: 'iframe'
+            }).init();
+        });
+
+        $('#exitlogin').on('click', function() {
+            layui.use('layer', function() {
+                layer.confirm('确定退出登录?', {title:'提示'}, function(index){
+                    // 退出登录接口
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "<?php echo U('Feedback/logout');?>",
+                        dataType: "json",
+                        data: {},
+                        success: function(res) {
+                            // $.removeCookie("isLogin");
+                            layer.close(index);
+                            window.location.href = 'http://localhost/ProjectDelivery/Doc/Login/login';
+                        },
+                        fail: function(err) {
+                            console.log(err);
+                        }
+                    });
                 });
-            });
+            })
         })
     })
 </script>

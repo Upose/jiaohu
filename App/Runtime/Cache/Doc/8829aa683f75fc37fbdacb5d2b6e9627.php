@@ -119,7 +119,6 @@
 			<div id="feed-page"></div>
 		</div>
 	</div>
-	<script src="/ProjectDelivery/Public/Doc/js/common.js"></script>
 	<script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
 	<script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js""></script>
 	<script>

@@ -29,25 +29,10 @@
     </div>
 </body>
 <script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js"></script>
+<script src="/ProjectDelivery/Public/Doc/js/jquery.cookie.js"></script>
 <script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
 <script>
     var login = document.getElementById('login');
-
-    // 设置cookie
-    function setCookie(c_name,value,expireseconds){
-        var exdate=new Date();
-        exdate.setTime(exdate.getTime()+expireseconds * 1000);
-        document.cookie=c_name+ "=" +escape(value)+
-        ((expireseconds==null) ? "" : ";expires="+exdate.toGMTString())
-    }
-
-    // 设置cookie
-    function setCookie(key, value, iDay) {
-        var oDate = new Date();
-        oDate.setDate(oDate.getDate() + iDay);
-        document.cookie = key + '=' + value + ';expires=' + oDate;
-
-    }
 
     login.onclick = function() {
         var name = $('#name').val();
@@ -64,7 +49,7 @@
         $.ajax({
             cache: false,
             type: "POST",
-            url: "<?php echo U('Feedback/loginn');?>",
+            url: "<?php echo U('Login/loginn');?>",
             dataType: "json",
             data: {
                 name: name,
@@ -80,7 +65,8 @@
                         layui.layer.alert('密码错误!');
                     })
                 } else {
-                    // setCookie("isLogin", data.data[0].id, 3600 * 24);
+                    // 登录成功后设置cookie
+                    // $.cookie('isLogin', data.data[0].id, {expires: 1});
                     window.location.href = "http://localhost/ProjectDelivery/index.php";
                 }
             },
