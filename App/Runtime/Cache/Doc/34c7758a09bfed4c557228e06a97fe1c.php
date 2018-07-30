@@ -134,9 +134,9 @@
 <script>
     $(document).ready(function() {
         // 登录状态验证
-        /*if(!$.cookie('isLogin')) {
-            window.location.href = "http://localhost/ProjectDelivery/Doc/Login/login";
-        }*/
+        if(!window.sessionStorage["isLogin"]) {
+            window.location.href = "<?php echo U('Login/login');?>";
+        }
 
         var message;
         layui.config({
@@ -164,9 +164,9 @@
                         dataType: "json",
                         data: {},
                         success: function(res) {
-                            // $.removeCookie("isLogin");
+                            window.sessionStorage.removeItem("searchIndex");
                             layer.close(index);
-                            window.location.href = 'http://localhost/ProjectDelivery/Doc/Login/login';
+                            window.location.href = "<?php echo U('Login/login');?>";
                         },
                         fail: function(err) {
                             console.log(err);

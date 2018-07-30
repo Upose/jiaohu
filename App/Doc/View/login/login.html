@@ -29,7 +29,6 @@
     </div>
 </body>
 <script src="__STATIC__/jquery-2.0.3.min.js"></script>
-<script src="__JS__/jquery.cookie.js"></script>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
     var login = document.getElementById('login');
@@ -65,8 +64,8 @@
                         layui.layer.alert('密码错误!');
                     })
                 } else {
-                    // 登录成功后设置cookie
-                    // $.cookie('isLogin', data.data[0].id, {expires: 1});
+                    // 登录成功后设置session
+                    window.sessionStorage["isLogin"] = data.data[0].id;
                     window.location.href = "http://localhost/ProjectDelivery/index.php";
                 }
             },

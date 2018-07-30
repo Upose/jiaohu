@@ -65,8 +65,8 @@
                         layui.layer.alert('密码错误!');
                     })
                 } else {
-                    // 登录成功后设置cookie
-                    // $.cookie('isLogin', data.data[0].id, {expires: 1});
+                    // 登录成功后设置session
+                    window.sessionStorage["isLogin"] = data.data[0].id;
                     window.location.href = "http://localhost/ProjectDelivery/index.php";
                 }
             },
