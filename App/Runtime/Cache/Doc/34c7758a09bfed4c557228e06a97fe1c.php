@@ -158,7 +158,7 @@
                     dataType: "json",
                     data: {},
                     success: function(res) {
-                        removeCookie("isLogin");
+                        // removeCookie("isLogin");
                         layer.close(index);
                         window.location.href = 'http://localhost/ProjectDelivery/Doc/Login/login';
                     },

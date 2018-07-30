@@ -80,7 +80,7 @@
                         layui.layer.alert('密码错误!');
                     })
                 } else {
-                    setCookie("isLogin", data.data[0].id, 3600 * 24);
+                    // setCookie("isLogin", data.data[0].id, 3600 * 24);
                     window.location.href = "http://localhost/ProjectDelivery/index.php";
                 }
             },
