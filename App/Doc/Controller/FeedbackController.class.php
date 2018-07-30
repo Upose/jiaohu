@@ -416,7 +416,7 @@ class FeedbackController extends BaseController {
     }
 
     //登录接口
-    public function login (){
+    public function loginn (){
     	//获取用户名密码
     	$name=I('name');
     	$password=md5(I('password'));
@@ -425,21 +425,21 @@ class FeedbackController extends BaseController {
     	$res = M()->query($sql);
     	if(count($res)==0){
     		//用户名不存在返回1
-    		$this->Response(0,1,'');
+    		$this->Response(1,'');
     	}
         //判断用户名密码是否正确
     	$usql="select * from person where name = '$name' and password= '$password'";
     	$ures = M()->query($usql);
     	if(count($ures)==0){
     		//用户名或密码错误返回2
-    		$this->Response(0,2,'');
+    		$this->Response(2,'');
     	}else{
     		//登陆成功,将用户信息保存在session
     		session_start();
     		$_SESSION['user_name']=$name;
     		$_SESSION['user_id']=$ures[0]['id'];
     		//var_dump($_SESSION);die;
-    		$this->Response(0,$ures,'');
+    		$this->Response(0,'登陆成功','');
     		
     	}	
        
