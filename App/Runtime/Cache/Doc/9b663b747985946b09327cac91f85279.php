@@ -4,94 +4,94 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>config</title>
-    <link rel="stylesheet" href="/DeliveryApplication/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <style>
-    	/**
-    	 * 全局样式
-    	 */
-    	* {
-    		box-sizing: border-box;
-    	}
+    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+	<style>
+		/**
+		 * 全局样式
+		 */
+		* {
+			box-sizing: border-box;
+		}
 
-    	html, body {
-    		font: inherit;
-    		color: inherit;
-    		font-family: PingFangSC;
-    	}
+		html, body {
+			font: inherit;
+			color: inherit;
+			font-family: PingFangSC;
+		}
 
-    	/**
-    	 * 自定义样式
-    	 */
-    	.cus-body {
-    		height: 100%;
-    		widows: 100%;
-    		padding: 0px 74px;
-    	}
+		/**
+		 * 自定义样式
+		 */
+		.cus-body {
+			height: 100%;
+			widows: 100%;
+			padding: 0px 74px;
+		}
 
-    	.cus-btn {
-    		padding: 4px 8px;
-    		border-radius: 4px;
-    		border: 1px solid rgba(7, 200, 141, 1);
-    		background: rgba(7, 200, 141, 1);
-    		color: #fff;
-    		cursor: pointer;
-    		margin-top: 10px;
-    	}
+		.cus-btn {
+			padding: 4px 8px;
+			border-radius: 4px;
+			border: 1px solid rgba(7, 200, 141, 1);
+			background: rgba(7, 200, 141, 1);
+			color: #fff;
+			cursor: pointer;
+			margin-top: 10px;
+		}
 
-    	.cus-fixed-btn {
-    		position: fixed;
-    		bottom: 30px;
-    		right: 20px;
-    	}
+		.cus-fixed-btn {
+			position: fixed;
+			bottom: 30px;
+			right: 20px;
+		}
 
-    	.btn-cancle {
-    		background: #fff;
-    		border: 1px solid rgba(217, 217, 217, 1);
-    		color: #000;
-    	}
+		.btn-cancle {
+			background: #fff;
+			border: 1px solid rgba(217, 217, 217, 1);
+			color: #000;
+		}
 
-    	.cus-tr-bold > th {
-    		font-weight: bold;
-    	}
+		.cus-tr-bold > th {
+			font-weight: bold;
+		}
 
-    	.cus-enable {
-    		color: #4A90E2;
-    		cursor: pointer;
-    	}
+		.cus-enable {
+			color: #4A90E2;
+			cursor: pointer;
+		}
 
-    	.cus-disable {
-    		color: rgba(236, 65, 65, 0.65);
-    		cursor: pointer;
-    	}
+		.cus-disable {
+			color: rgba(236, 65, 65, 0.65);
+			cursor: pointer;
+		}
 
-    	.cus-enable span, .cus-disable span {
-    		margin: 0px 5px;
-    		cursor: pointer;
-    	}
+		.cus-enable span, .cus-disable span {
+			margin: 0px 5px;
+			cursor: pointer;
+		}
 
-    	.cus-model {
-    		padding: 10px;
-    		font-size: 12px;
-    	}
+		.cus-model {
+			padding: 10px;
+			font-size: 12px;
+		}
 
-    	.cus-fontbold {
-    		font-weight: bold;
-    	}
+		.cus-fontbold {
+			font-weight: bold;
+		}
 
-    	/**
-    	 * 对layui的样式重置
-    	 */
-    	.layui-form-label, .layui-layer-title {
-    		font-size: 14px;
-    		font-weight: bold;
-    	}
+		/**
+		 * 对layui的样式重置
+		 */
+		.layui-form-label, .layui-layer-title {
+			font-size: 14px;
+			font-weight: bold;
+		}
 
-    	.layui-form-radio > span, .layui-layer-btn, .cus-btn, .cus-tr-bold > th, .cus-table > tbody > tr > td {
-    		font-size: 12px;
-    	}
-    </style>
-	<script src="/DeliveryApplication/Public/Doc/doclay/plugins/layui/layui.js"></script>
-	<script src="/DeliveryApplication/Public/static/jquery-2.0.3.min.js""></script>
+		.layui-form-radio > span, .layui-layer-btn, .cus-btn, .cus-tr-bold > th, .cus-table > tbody > tr > td {
+			font-size: 12px;
+		}
+	</style>
+	<script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
+	<script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js""></script>
 </head>
 <body>
 	<div class="cus-body">

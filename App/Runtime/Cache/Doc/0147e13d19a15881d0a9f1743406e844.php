@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>fankui</title>
-    <link rel="stylesheet" href="/DeliveryApplication/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/DeliveryApplication/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/build/css/app.css" media="all">
     <!--<link rel="stylesheet" href="../Public/Doc/doclay/plugins/layui/css/layui.css" media="all">-->
-    <link rel="stylesheet" href="/DeliveryApplication/Public/static/bootstrap.min.css" media="all">
-    <script src="/DeliveryApplication/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/DeliveryApplication/Public/static/vue.min.js"></script> 
+    <link rel="stylesheet" href="/ProjectDelivery/Public/static/bootstrap.min.css" media="all">
+    <script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/ProjectDelivery/Public/static/vue.min.js"></script> 
     <style>
         body {
             padding: 8vh 4vw;
@@ -359,8 +359,8 @@
                 <p class="title_color">附件</p>
                 <p class="files">
                     <span><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533114638&di=3a7af6f9941e594742631db6f5053c6e&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.25pp.com%2Fuploadfile%2Fsoft%2Fimages%2F2012%2F1104%2F20121104021248181.jpg" alt=""></span>
-                    <span><img src="/DeliveryApplication/Public/Doc/images/b.jpg" alt=""></span>
-                    <span><img src="/DeliveryApplication/Public/Doc/images/b.jpg" alt=""></span>
+                    <span><img src="/ProjectDelivery/Public/Doc/images/b.jpg" alt=""></span>
+                    <span><img src="/ProjectDelivery/Public/Doc/images/b.jpg" alt=""></span>
                     <span>照片</span>
                     <span>照片</span>
                     <span>照片</span>
@@ -405,13 +405,17 @@
             <input class="shuru_input" type="text" placeholder="请输入评论">
         </div>
 
-        <ul class="content_text" v-for="(auth, idx) in authList" :key="idx">
-            <li>{{ auth.content }}</li>
-            <li><span style="margin-right:2vw;">{{ auth.author }}</span><span>{{ auth.update_time | dateFormat }}</span></li>
+        <ul class="content_text">
+            <li>我是一句很长，超级长的文案，我是一句很长</li>
+            <li><span style="margin-right:2vw;">研发老哥666</span><span>2018/7/20 12:00</span></li>
+        </ul>
+        <ul class="content_text">
+            <li>我是一句很长，超级长的文案，我是一句很长</li>
+            <li><span style="margin-right:2vw;">研发老哥666</span><span>2018/7/20 12:00</span></li>
         </ul>
     </div>
 </body>
-  <script src="/DeliveryApplication/Public/Doc/doclay/plugins/layui/layui.js"></script> 
+  <script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script> 
 <script>
     var app = new Vue({
         el: '.news',
@@ -429,7 +433,6 @@
             child_product_name:'',//
             product_name:'',//
             name:'',//反馈名称
-            authList: [], // 回复列表
         },
         created: function () {
             // 获取上个页面传递回来的ID
@@ -530,25 +533,18 @@
              //回复
             replys(){
                 var inpVla= $('.shuru_input').val();
-                // console.log('111',inpVla);
-                var that = this;
+                console.log('111',inpVla);
                 $.ajax({
-                    cache: false,
-                    type: "POST",
-                    url: "<?php echo U('Feedback/auth');?>",
-                    dataType: "json",
-                    data: this.message,
-                    success: function (res) {
-                        that.authList = res.data;
-                        console.log(that.authList);
-                    }
-                })
+                        cache: false,
+                        type: "POST",
+                        url: '',
+                        dataType: "json",
+                        data: this.message,
+                        success: function (res) {
+                            
+                        }
+                    })
             },
-            dateFormat(date) {
-                var arr = date.split('-');
-
-                return arr[0] + '/' + arr[1] + '/' + arr[2];
-            }
         },
     })
     //按钮选择样式

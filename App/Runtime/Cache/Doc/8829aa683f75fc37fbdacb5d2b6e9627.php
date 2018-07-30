@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>feedback</title>
-    <link rel="stylesheet" href="/DeliveryApplication/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <style>
     	/**
     	 * 全局样式
@@ -90,8 +90,8 @@
     		font-size: 12px;
     	}
     </style>
-	<script src="/DeliveryApplication/Public/Doc/doclay/plugins/layui/layui.js"></script>
-	<script src="/DeliveryApplication/Public/static/jquery-2.0.3.min.js""></script>
+	<script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
+	<script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js""></script>
 </head>
 <body>
 	<div class="cus-body">
@@ -137,7 +137,6 @@
 		
 		// 渲染列表数据
 		function tableInit(data) {
-			console.log(data);
 			var tBody = document.getElementById('feed-tbody');
 			var str = '';
 			ares = JSON.parse(JSON.stringify(data.ares));
@@ -166,7 +165,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '400px'],
-					content: "<?php echo U('feedback/addproduct');?>",
+					content: "<?php echo U('feedback/addproducts');?>",
 					success: function(layero, idx) {
 						var body = layui.layer.getChildFrame('body', idx);
 						var iptblock = $(body).find('#parent-level').hide();

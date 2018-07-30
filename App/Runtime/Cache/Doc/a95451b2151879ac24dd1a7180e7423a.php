@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>fankui</title>
-    <link rel="stylesheet" href="/DeliveryApplication/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/DeliveryApplication/Public/Doc/doclay/build/css/app.css" media="all">
-    <script src="/DeliveryApplication/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/DeliveryApplication/Public/Doc/doclay/plugins/layui/layui.js"></script> 
-    <script src="/DeliveryApplication/Public/static/vue.min.js"></script>
+    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/build/css/app.css" media="all">
+    <script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script> 
+    <script src="/ProjectDelivery/Public/static/vue.min.js"></script>
     <style>
         body {
             padding: 8vh 4vw;
@@ -150,7 +150,7 @@
     <div id="test3"></div>
    </div>
 </body>
-  <!--<script src="/DeliveryApplication/Public/Doc/doclay/plugins/layui/layui.js"></script> -->
+  <!--<script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script> -->
 <script>
     var app = new Vue({
         el: '.new',

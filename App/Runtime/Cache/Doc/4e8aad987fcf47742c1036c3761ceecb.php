@@ -94,7 +94,7 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">名称:</label>
 				<div class="layui-input-block">
-					<input type="text" name="feedName" required lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input" id="product_name" />
+					<input type="text" name="feedName" required lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input" id="product_name" max="20" />
 				</div>
 			</div>			
 			<div class="layui-form-item">
@@ -103,11 +103,19 @@
 					<textarea name="desc" placeholder="请输入描述" class="layui-textarea" id="product_describe"></textarea>
 				</div>
 			</div>
-			<div class="layui-form-item">
-				<label class="layui-form-label">状态:</label>
+			<div class="layui-form-item" id="level">
+				<label class="layui-form-label">层级:</label>
 				<div class="layui-input-block">
-					<input type="radio" name="sex" value="启用" title="启用" checked class="layer">
-					<input type="radio" name="sex" value="禁用" title="禁用" class="layer">
+					<input type="radio" name="sex" value="1" title="父级" checked class="layer">
+					<input type="radio" name="sex" value="2" title="子级" class="layer" id="child-level">
+				</div>
+			</div>
+			<div class="layui-form-item" id="parent-level">
+				<label class="layui-form-label">父级:</label>
+				<div class="layui-input-block">
+					<section name="city" lay-verify="required">
+						
+					</section>
 				</div>
 			</div>
 			<div class="layui-form-item cus-fixed-btn">
@@ -121,7 +129,7 @@
 	<script>
 		var submitForm = document.getElementById('submitForm');
 		var submitCancle = document.getElementById('submitCancle');
-		
+
 		// form表单初始化
 		layui.use('form', function() {
 			var form = layui.form;
@@ -132,6 +140,7 @@
 			var product_name = $('#product_name').val();
 			var product_describe = $('#product_describe').val();
 			
+			// 表单验证
 			if(product_name == '' || product_describe === '') {
 				layui.use('layer', function() {
 					layui.layer.alert('名称或描述不能为空!');
@@ -152,12 +161,13 @@
 				cache: false,
 				async: false,
 				type: "POST",
-				url: "<?php echo U('Feedback/addproblem');?>",
+				url: "<?php echo U('Feedback/addProduct');?>",
 				dataType: "json",
 				data: {
 					name: $('#product_name').val(),
 					summary: $('#product_describe').val(),
-					status: $('.layer:checked').val()
+					level: $('.layer:checked').val(),
+					f_id: $('#parent-level select').val()
 				},
 				success: function(res) {
 		    		window.parent.location.reload();
@@ -166,12 +176,48 @@
 					console.log(err);
 				}
 			});
-		}
-
+		};
+		
 		// 点击取消按钮
 		submitCancle.onclick = function() {
 		    window.parent.location.reload();
 		};
+		
+		// 点击选择层级
+		$('#level').on('click', function() {
+			if($('#child-level').is(":checked")) {
+				$.ajax({
+					cache: false,
+					async: false,
+					type: "POST",
+					url: "<?php echo U('Feedback/ParentProduct');?>",
+					dataType: "json",
+					data: {},
+					success: function(res) {
+						$('#parent-level .layui-input-block').html('');
+						var select = $('<select name="city" lay-verify="required"></select>')
+						var str = '';
+
+						res.data.forEach(function(item, idx) {
+							str += '<option value="'+ item.id +'">'+ item.name +'</option>'
+						});
+
+						select.html(str);
+						
+						$('#parent-level .layui-input-block').append(select);
+						layui.use('form', function() {
+							layui.form.render();
+						})
+						$('#parent-level').show();
+					},
+					fail: function(err) {
+						console.log(err);
+					}
+				});
+			} else {
+				$('#parent-level').hide();
+			}
+		})
 	</script>
 </body>
 </html>
