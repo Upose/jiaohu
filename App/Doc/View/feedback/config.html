@@ -116,15 +116,7 @@
 						<th>操作</th>
 					</tr>
 				</thead>
-				<tbody id="feed-tbody">
-					<tr>
-						<td>1</td>
-						<td>我是内容</td>
-						<td>我是描述</td>
-						<td class="cus-enable">启用</td>
-						<td class="cus-enable">编辑</td>
-					</tr>
-				</tbody>
+				<tbody id="feed-tbody"></tbody>
 			</table>
 			<div id="feed-page"></div>
 		</div>

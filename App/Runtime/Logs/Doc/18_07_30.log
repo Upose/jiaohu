@@ -2615,3 +2615,498 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000692s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000736s ]
 
+[ 2018-07-30T11:45:04+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/feedback/products.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000537s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000884s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000948s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000114s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000184s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011580s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011654s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000545s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000804s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000860s ]
+
+[ 2018-07-30T11:45:06+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000724s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000784s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: select id,name,level,summary from product where is_delete = 0 [ RunTime:0.0198s ]
+SQL: SELECT
+					product.name AS aname,product_s.id,product_s.name,product_s.summary,product_s.status,
+					product_s.f_id
+				FROM
+					product 
+				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit 0,10  [ RunTime:0.0802s ]
+SQL: select count(*) as count from product_s where is_delete='0' [ RunTime:0.0169s ]
+
+[ 2018-07-30T11:45:13+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/softdelete.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000707s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000767s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: update product_s set is_delete = 1 where id='2' [ RunTime:0.2390s ]
+
+[ 2018-07-30T11:45:14+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/feedback/products.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000747s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000828s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000110s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000179s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010246s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010335s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000513s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000590s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001092s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001169s ]
+
+[ 2018-07-30T11:45:15+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000835s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000759s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000822s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: select id,name,level,summary from product where is_delete = 0 [ RunTime:0.0029s ]
+SQL: SELECT
+					product.name AS aname,product_s.id,product_s.name,product_s.summary,product_s.status,
+					product_s.f_id
+				FROM
+					product 
+				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit 0,10  [ RunTime:0.0119s ]
+SQL: select count(*) as count from product_s where is_delete='0' [ RunTime:0.0033s ]
+
+[ 2018-07-30T11:45:21+08:00 ] ::1 /ProjectDelivery/Doc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000700s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000762s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000125s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000186s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027341s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027437s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000434s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001145s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001225s ]
+
+[ 2018-07-30T11:45:25+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/feedback/products.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000569s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000919s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000986s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000114s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000182s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010666s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010756s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000852s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000948s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001316s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001393s ]
+
+[ 2018-07-30T11:45:26+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000717s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000777s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: select id,name,level,summary from product where is_delete = 0 [ RunTime:0.0042s ]
+SQL: SELECT
+					product.name AS aname,product_s.id,product_s.name,product_s.summary,product_s.status,
+					product_s.f_id
+				FROM
+					product 
+				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit 0,10  [ RunTime:0.0032s ]
+SQL: select count(*) as count from product_s where is_delete='0' [ RunTime:0.0097s ]
+
+[ 2018-07-30T11:45:31+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/softdelete.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000716s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000775s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: update product_s set is_delete = 1 where id='3' [ RunTime:0.2175s ]
+
+[ 2018-07-30T11:45:32+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/feedback/products.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000674s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000784s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000849s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000214s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012822s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012926s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000393s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000438s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000696s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000742s ]
+
+[ 2018-07-30T11:45:33+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000651s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000832s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000963s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: select id,name,level,summary from product where is_delete = 0 [ RunTime:0.2513s ]
+SQL: SELECT
+					product.name AS aname,product_s.id,product_s.name,product_s.summary,product_s.status,
+					product_s.f_id
+				FROM
+					product 
+				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit 0,10  [ RunTime:0.0034s ]
+SQL: select count(*) as count from product_s where is_delete='0' [ RunTime:0.0040s ]
+
+[ 2018-07-30T11:46:02+08:00 ] ::1 /ProjectDelivery/Doc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000536s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001396s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000120s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000184s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025740s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025826s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000589s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001585s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001727s ]
+
+[ 2018-07-30T11:46:05+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/feedback/products.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000587s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000917s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000989s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000194s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000310s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043227s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043297s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000533s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000579s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000837s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000886s ]
+
+[ 2018-07-30T11:46:07+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000714s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000776s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: select id,name,level,summary from product where is_delete = 0 [ RunTime:0.0041s ]
+SQL: SELECT
+					product.name AS aname,product_s.id,product_s.name,product_s.summary,product_s.status,
+					product_s.f_id
+				FROM
+					product 
+				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit 0,10  [ RunTime:0.0031s ]
+SQL: select count(*) as count from product_s where is_delete='0' [ RunTime:0.0121s ]
+
+[ 2018-07-30T11:46:08+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/feedback/addproducts.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000737s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001141s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001244s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000128s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000199s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012045s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012123s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000378s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000444s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000712s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000759s ]
+
+[ 2018-07-30T11:47:41+08:00 ] ::1 /ProjectDelivery/Doc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000591s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000920s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000986s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000192s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028618s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028708s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000703s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000772s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001441s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001543s ]
+
+[ 2018-07-30T11:47:47+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/feedback/products.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000694s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001662s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000192s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034243s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034349s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000541s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000628s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000799s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000849s ]
+
+[ 2018-07-30T11:47:48+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000805s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001145s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001272s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: select id,name,level,summary from product where is_delete = 0 [ RunTime:0.0038s ]
+SQL: SELECT
+					product.name AS aname,product_s.id,product_s.name,product_s.summary,product_s.status,
+					product_s.f_id
+				FROM
+					product 
+				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit 0,10  [ RunTime:0.0107s ]
+SQL: select count(*) as count from product_s where is_delete='0' [ RunTime:0.0034s ]
+
+[ 2018-07-30T11:48:27+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/softdelete.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000540s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000973s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001054s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: update product_s set is_delete = 1 where id='2' [ RunTime:0.0858s ]
+
+[ 2018-07-30T11:48:28+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/feedback/products.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000610s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001374s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000141s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000216s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013774s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013856s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000628s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000699s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000923s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000980s ]
+
+[ 2018-07-30T11:48:29+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000778s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000734s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000824s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: select id,name,level,summary from product where is_delete = 0 [ RunTime:0.0031s ]
+SQL: SELECT
+					product.name AS aname,product_s.id,product_s.name,product_s.summary,product_s.status,
+					product_s.f_id
+				FROM
+					product 
+				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit 0,10  [ RunTime:0.0068s ]
+SQL: select count(*) as count from product_s where is_delete='0' [ RunTime:0.0028s ]
+
+[ 2018-07-30T11:48:50+08:00 ] ::1 /ProjectDelivery/Doc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000802s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001108s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000192s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000291s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033382s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033498s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000457s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000543s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001133s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001220s ]
+
+[ 2018-07-30T11:48:58+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/feedback/products.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000833s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001006s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001108s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000121s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000186s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034356s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034429s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000527s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000574s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000807s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000855s ]
+
+[ 2018-07-30T11:48:59+08:00 ] ::1 /ProjectDelivery/index.php?s=/Doc/Feedback/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000768s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001218s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001341s ]
+NOTIC: [2] mysql_query(): Access denied for user ''@'localhost' (using password: NO) C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+NOTIC: [2] mysql_query(): A link to the server could not be established C:\deliver\ProjectDelivery\App\Doc\Controller\FeedbackController.class.php 第 16 行.
+SQL: select id,name,level,summary from product where is_delete = 0 [ RunTime:0.0029s ]
+SQL: SELECT
+					product.name AS aname,product_s.id,product_s.name,product_s.summary,product_s.status,
+					product_s.f_id
+				FROM
+					product 
+				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit 0,10  [ RunTime:0.0064s ]
+SQL: select count(*) as count from product_s where is_delete='0' [ RunTime:0.0029s ]
+
+[ 2018-07-30T11:49:53+08:00 ] ::1 /ProjectDelivery/Doc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000563s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001486s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000198s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000294s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032234s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032330s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000526s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000570s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001111s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001179s ]
+
+[ 2018-07-30T11:50:06+08:00 ] ::1 /ProjectDelivery/Doc
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000590s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001406s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000132s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000195s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033677s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033759s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000685s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000753s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001409s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001507s ]
+
