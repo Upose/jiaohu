@@ -1,0 +1,77 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+/* 最外层框 */
+.con{
+    width: device-width;
+    height: 100vh;
+    /* border: 1px solid blue; */
+}
+/* 左边背景图 */
+.con>img{
+    display: inline-block;
+    float: left;
+    width: 60vw;
+    /* border: 1px solid black; */
+}
+/* 右边输入内容 */
+.login{
+    display: inline-block;
+    float: right;
+    padding: 5vh 0 0 2vw;
+    width: 33vw;
+    height: 95vh;
+    /* border: 1px solid blue; */
+    position: relative;
+}
+
+/* 标题图 */
+.login img{
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    display: inline-block;
+    width: 20vw;
+}
+
+/* 账号 密码 文字 */
+.login p{
+    font-size: .8vw;
+    color: #313131;
+}
+/* 输入框 */
+.login input:hover{
+    border: 2px solid #00BE71;
+}
+.login input{
+    display: inline-block;
+    outline-style: none;
+    width: 20vw;
+    height: 5vh;
+    font-size: 1.2vw;
+    border-radius:4px;
+    border: 2px solid #E1E1E1;
+    padding-left: .5vw;
+    margin-bottom: 3vh;
+}
+
+/* 登录按钮 */
+.login button{
+    display: inline-block;
+    width: 21vw;
+    height: 6vh;
+    list-style: none;
+    color: white;
+    border-style: none;
+    border-radius:4px;
+    background:rgba(0,190,113,1);
+}
+
+/* 最下方文字 */
+.login>div{
+    font-size: 0.5vw;
+    position: absolute;
+    color: #000;
+    left: 6vw;
+    bottom: 3vh;
+}
