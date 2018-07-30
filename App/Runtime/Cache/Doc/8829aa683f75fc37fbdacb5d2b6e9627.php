@@ -132,13 +132,14 @@
 			var tBody = document.getElementById('feed-tbody');
 			var str = '';
 			ares = JSON.parse(JSON.stringify(data.ares));
+			limit = data.count;
 
 			// 处理数据
 			data.ares.forEach(function(item, idx) {
 				str += '<tr><td colspan="4" style="font-weight: bold; font-size: 14px;">'+ item.name +'</td><td class="cus-enable delete" _id="'+ item.id +'">删除</td></tr>';
 				data.res.forEach(function(_item, _idx) {
 					if(_item.aname === item.name) {
-						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td class="cus-disable">'+ item.name +'</td><td class="cus-enable"><span>编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ item.id +'" style="color: rgba(236, 65, 65, 0.65);">删除</span></td></tr>';
+						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td class="cus-disable">'+ item.name +'</td><td class="cus-enable"><span>编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ _item.id +'" style="color: rgba(236, 65, 65, 0.65);">删除</span></td></tr>';
 					}
 				});
 			});
@@ -172,9 +173,9 @@
 				var laypage = layui.laypage;
 				laypage.render({
 					elem: 'feed-page',
-					limit: limit,
-					curr: 1,
-					count: 10,
+					limit: 2,
+					curr: pageIndex,
+					count: limit * 1,
 					jump: function(obj, first) {
 						if(first) {
 							return false;
@@ -200,8 +201,7 @@
 				url: "<?php echo U('Feedback/Product');?>",
 				dataType: "json",
 				data: {
-					pageIndex: pageIndex,
-					limit: limit
+					page: pageIndex
 				},
 				success: function(res) {
 					tableInit(res.data);
@@ -224,9 +224,6 @@
 			} else {
 				data.f_id = $(this).attr('_f_id');
 			}
-
-			console.log(data);
-			return
 
 			$.ajax({
 				cache: false,

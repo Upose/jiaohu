@@ -165,9 +165,9 @@
 				var laypage = layui.laypage;
 				laypage.render({
 					elem: 'feed-page',
-					limit: limit,
-					curr: 1,
-					count: 10,
+					limit: 10,
+					curr: pageIndex,
+					count: limit * 1,
 					jump: function(obj, first) {
 						if(first) {
 							return false;
@@ -193,7 +193,7 @@
 				url: "{:U('Feedback/problem')}",
 				dataType: "json",
 				data: {
-					pageIndex: pageIndex,
+					page: pageIndex,
 					limit: limit
 				},
 				success: function(res) {

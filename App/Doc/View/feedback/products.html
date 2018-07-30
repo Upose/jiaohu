@@ -132,6 +132,7 @@
 			var tBody = document.getElementById('feed-tbody');
 			var str = '';
 			ares = JSON.parse(JSON.stringify(data.ares));
+			limit = data.count;
 
 			// 处理数据
 			data.ares.forEach(function(item, idx) {
@@ -172,9 +173,9 @@
 				var laypage = layui.laypage;
 				laypage.render({
 					elem: 'feed-page',
-					limit: limit,
-					curr: 1,
-					count: 10,
+					limit: 10,
+					curr: pageIndex,
+					count: limit * 1,
 					jump: function(obj, first) {
 						if(first) {
 							return false;
@@ -200,8 +201,7 @@
 				url: "{:U('Feedback/Product')}",
 				dataType: "json",
 				data: {
-					pageIndex: pageIndex,
-					limit: limit
+					page: pageIndex
 				},
 				success: function(res) {
 					tableInit(res.data);

@@ -528,7 +528,7 @@ class FeedbackController extends BaseController {
 
 	public function Product(){
 
-		$page=I('page');
+		$page=Intval(I('page'));
 		//var_dump($_SESSION);die;
 		$asql="select id,name,level,summary from product where is_delete = 0";
 		$ares=M()->query($asql);
@@ -540,7 +540,7 @@ class FeedbackController extends BaseController {
 					product_s.f_id
 				FROM
 					product 
-				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit 0,10 ";
+				LEFT JOIN product_s ON product.id = product_s.f_id  where product.is_delete = 0 and product_s.is_delete = 0 limit $page,2 ";
 		$res = M()->query($sql);
 		$result=array();
 		$result['res']=$res;
