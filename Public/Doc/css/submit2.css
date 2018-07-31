@@ -1,0 +1,83 @@
+
+        body {
+            padding: 8vh 4vw;
+            color: #4A4A4A;
+        }
+
+        .btn-sub {
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 8px;
+            background-color: #009688;
+            color: #fff;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 14px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            opacity: .9;
+        }
+
+        td a {
+            color: #4A90E2;
+        }
+
+        .zhaungtai {
+            position: relative;
+        }
+
+        .zhaungtai span {
+            position: relative;
+            top: 0vh;
+            padding-left: 5px;
+        }
+
+        .yiban::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            display: inline-block;
+            background: #4A90E2;
+            left: -1vw;
+            top: .8vh;
+            border-radius: 50%;
+        }
+
+        .zhongyao::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            display: inline-block;
+            background: #F5A623;
+            left: -1vw;
+            top: .8vh;
+            border-radius: 50%;
+        }
+
+        .jinji::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            display: inline-block;
+            background: #FF4242;
+            left: -1vw;
+            top: .8vh;
+            border-radius: 50%;
+        }
+
+        .youhua::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            display: inline-block;
+            background: #7ED321;
+            left: -1vw;
+            top: .8vh;
+            border-radius: 50%;
+        }

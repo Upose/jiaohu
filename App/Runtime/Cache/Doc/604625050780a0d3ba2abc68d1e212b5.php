@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/css/login.css">
+    <link rel="stylesheet" href="/Public/Doc/css/login.css">
 </head>
 
 <body>
     <!-- 最外层框 -->
     <div class="con">
         <!-- 左边背景图 -->
-        <img src="/ProjectDelivery/Public/Doc/images/ct.jpg" alt="">
+        <img src="/Public/Doc/images/ct.jpg" alt="">
         <!-- 右边输入内容 -->
         <div class="login">
             <form>
-                <img src="/ProjectDelivery/Public/Doc/images/logo.png" alt="">
+                <img src="/Public/Doc/images/logo.png" alt="">
                 <p>账号</p>
                 <input type="text" id="name">
                 <p>密码</p>
@@ -28,9 +28,9 @@
         </div>
     </div>
 </body>
-<script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js"></script>
-<script src="/ProjectDelivery/Public/Doc/js/jquery.cookie.js"></script>
-<script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
+<script src="/Public/static/jquery-2.0.3.min.js"></script>
+<script src="/Public/Doc/js/jquery.cookie.js"></script>
+<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 <script>
     var login = document.getElementById('login');
 
@@ -65,8 +65,8 @@
                         layui.layer.alert('密码错误!');
                     })
                 } else {
-                    // 登录成功后设置session
-                    window.sessionStorage["isLogin"] = data.data[0].id;
+                    // 登录成功后设置cookie
+                    // $.cookie('isLogin', data.data[0].id, {expires: 1});
                     window.location.href = "http://localhost/ProjectDelivery/index.php";
                 }
             },

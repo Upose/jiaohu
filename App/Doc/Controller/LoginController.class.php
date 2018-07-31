@@ -2,7 +2,7 @@
 namespace Doc\Controller;
 use Think\Controller;
 use think\Session;
-session_start();
+
 /**
  * 登陆模块控制器
  * @author fang.yu
@@ -16,7 +16,8 @@ class LoginController extends BaseController{
     }
 
      //登录接口
-    public function loginn (){
+    public function dologin(){
+       
     	//获取用户名密码
     	$name=I('name');
     	$password=md5(I('password'));

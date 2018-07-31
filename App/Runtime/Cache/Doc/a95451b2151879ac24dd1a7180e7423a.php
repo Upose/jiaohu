@@ -7,116 +7,32 @@
     <title>fankui</title>
     <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/css/submit2.css" media="all">
     <script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js"></script>
     <script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script> 
     <script src="/ProjectDelivery/Public/static/vue.min.js"></script>
-    <style>
-        body {
-            padding: 8vh 4vw;
-            color: #4A4A4A;
-        }
-
-        .btn-sub {
-            display: inline-block;
-            height: 38px;
-            line-height: 38px;
-            padding: 0 8px;
-            background-color: #009688;
-            color: #fff;
-            white-space: nowrap;
-            text-align: center;
-            font-size: 14px;
-            border: none;
-            border-radius: 2px;
-            cursor: pointer;
-            opacity: .9;
-        }
-
-        td a {
-            color: #4A90E2;
-        }
-
-        .zhaungtai {
-            position: relative;
-        }
-
-        .zhaungtai span {
-            position: relative;
-            top: 0vh;
-            padding-left: 5px;
-        }
-
-        .yiban::after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            position: absolute;
-            display: inline-block;
-            background: #4A90E2;
-            left: -1vw;
-            top: .8vh;
-            border-radius: 50%;
-        }
-
-        .zhongyao::after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            position: absolute;
-            display: inline-block;
-            background: #F5A623;
-            left: -1vw;
-            top: .8vh;
-            border-radius: 50%;
-        }
-
-        .jinji::after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            position: absolute;
-            display: inline-block;
-            background: #FF4242;
-            left: -1vw;
-            top: .8vh;
-            border-radius: 50%;
-        }
-
-        .youhua::after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            position: absolute;
-            display: inline-block;
-            background: #7ED321;
-            left: -1vw;
-            top: .8vh;
-            border-radius: 50%;
-        }
-    </style>
 </head>
-
 <body>
    <div class="new">
         <form class="layui-form" action="">
         <div class="layui-form-item">
             <label class="layui-form-label">提交时间</label>
             <div class="layui-input-inline" style="width:13vw">
-                <input type="text" name="starTime" class="layui-input" id="test1" placeholder="yyyy-MM-dd">
+                <input type="text" v-model="message.starTime" name="starTime" class="layui-input" id="test1" placeholder="yyyy-MM-dd">
             </div>
             <label class="layui-form-label" style="padding:9px 5px; margin-left:-10px;">至</label>
             <div class="layui-input-inline" style="width:13vw">
-                <input type="text" name="endTime" class="layui-input" id="test2" placeholder="yyyy-MM-dd">
+                <input type="text" v-model="message.endTime" name="endTime" class="layui-input" id="test2" placeholder="yyyy-MM-dd">
             </div>
             <div class="layui-input-inline">
-                <input type="text" name="keywords" lay-verify="title" autocomplete="off" placeholder="关键字" class="layui-input">
+                <input type="text" v-model="message.keywords"  name="keywords" lay-verify="title" autocomplete="off" placeholder="关键字" class="layui-input">
             </div>
             <!--<button class="layui-btn layui-btn-normal">默认按钮</button>-->
-            <span class="btn-sub" lay-submit lay-filter="formDemo">搜索</span>
+            <span class="btn-sub" @click="searchInput()">搜索</span>
         </div>
     </form>
  
-    <table class="layui-table ">
+    <table class="layui-table">
         <thead>
             <tr>
                 <th>编号</th>
@@ -143,7 +59,7 @@
                     <span v-show="item.priority=='优化'" class='youhua'>{{item.priority}}</span>
                     <span v-show="item.priority=='重要'" class='zhongyao'>{{item.priority}}</span>
                     </td>
-                <td @click="openNew(item.id)"><span>查看</span></td>
+                <td style="cursor:pointer;" @click="openNew(item.id)"><span style="color:rgba(74,144,226,1);">查看</span></td>
             </tr>
         </tbody>
     </table>
@@ -157,26 +73,29 @@
         data: {
             arrList: [],
             pageIndex:1,
-            limit:10
+            limit:10,
+            message:{},
+            counts:''
         },
         created:function() {
-            this.getList();
-            this.layPage();
+            this.getList(); //进入页面获取数据
         },
         methods: {
             //进入页面获取数据
             getList () {
-                console.log('-----------')
-                var that =this
+                // console.log('-----------')
+                var that =this  
                 $.ajax({
                     cache: false,
                     type: "POST",
                     url: "<?php echo U('Feedback/FeedbackList');?>",
                     dataType: "json",
-                    data: { pageIndex: that.pageIndex || 1,limit:that.limit || 10},
+                    data: { page: that.pageIndex || 1,limit:that.limit || 10},
                     success: function (res) {
-                        // console.log('333', res.data)
+                        console.log('333', res.data);
                         that.arrList = res.data;
+                        that.counts=res.count;
+                        that.layPage(); //分页
                     }
                 })
             },
@@ -187,7 +106,9 @@
                     var laypage = layui.laypage;
                     laypage.render({
                         elem: 'test3'
-                        , count: 70 //数据总数，从服务端得到
+                        , count:_this.counts
+                        , limit:10
+                        , curr:_this.pageIndex
                         , jump: function (obj, first) {
                             //obj包含了当前分页的所有参数
                             //首次不执行
@@ -207,28 +128,20 @@
             },
             //搜索按钮
             searchInput(){
-                var _this = this;
-                layui.use('form', function () {
-                var form = layui.form;
-                //监听提交
-                form.on('submit(formDemo)', function (data) {
-                    // layer.msg(JSON.stringify(data.field));
-                    console.log(data.field);
+                var _this= this
+                console.log('11',this.message);
                     $.ajax({
-                            cache: false,
-                            type: "POST",
-                            url: "<?php echo U('Feedback/SearchFeedbackList');?>",
-                            dataType: "json",
-                            data:data.field,
-                            success: function (res) {
-                                console.log('查询', res.data);
-                                // this.arrList= res.data;
-                            }
-                        });
-                    return false;
-                });
-             });
-           }
+                        cache: false,
+                        type: "POST",
+                        url: "<?php echo U('Feedback/SearchFeedbackList');?>",
+                        dataType: "json",
+                        data:this.message,
+                        success: function (res) {
+                            console.log('查询', res.data);
+                            _this.arrList= res.data;
+                        }
+                    });
+            }
         },
     });
     layui.use(['laydate'], function () {
@@ -243,7 +156,8 @@
             ,type: 'datetime'   
         });
     });
+    layui.use('form', function(){
+        var form = layui.form;
+    });
 </script>
-
-
 </html>

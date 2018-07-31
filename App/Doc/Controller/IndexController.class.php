@@ -9,11 +9,6 @@ class IndexController extends BaseController {
     	$this->display();
     }
 
-    public function test(){
-    	$a = 1;
-    	var_dump($a);
-    }
-
-
+    
 
 }

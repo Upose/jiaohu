@@ -1,0 +1,84 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+body{
+    padding: 1.5vh 1vw 1vh 1vw;
+    background:rgba(242,242,242,1);
+}
+.new{
+    width: device-width;
+    /*height: 100vh;*/
+}
+
+/*小标题样式*/
+.tit{
+    display: inline-block;
+    margin: 2vh 0 0 1.5vw;
+    font-weight: 700;
+}
+/*上部内容框样式*/
+.new_up{
+    height: 60vh;
+}
+/*提交项目 问题处理情况 处理周期 样式*/
+.new_up>div{
+    display: inline-block;
+    float: left;
+    width: 31.1vw;
+    height: 60vh;
+    margin: 0 .5vw;
+    background: white;
+}
+/*下部内容框样式*/
+.new_down{
+    height: 90vh;
+    padding: 1vw .5vw 0 .5vw;
+    /*border: 1px solid blue;*/
+}
+/*下部 左边内容框样式*/
+.newdown_left{
+    float: left;
+    width: 63vw;
+    height: 90vh;
+    margin-right: 1vw;
+    /*border: 1px solid black*/
+}
+
+.left_up{
+    width: 63vw;
+    height: 44vh;
+    margin-bottom: 1vw;
+    /*border: 1px solid black;*/
+}
+/*紧急程度 样式*/
+.up_child1{
+    float: left;
+    width: 31vw;
+    height: 44vh;
+    margin-right: 1vw;
+    background: white;
+}
+/*处理进度 样式*/
+.up_child2{
+    float: right;
+    width: 31vw;
+    height: 44vh;
+    background: white;
+}
+/*问题类型 样式*/
+.left_down{
+    width: 63vw;
+    height: 44vh;
+    /*border: 1px solid black;*/
+    background: white;
+}
+/*处理方式 样式*/
+.newdown_right{
+    float: right;
+    width: 31.1vw;
+    height: 90vh;
+    margin-right: .1vw;
+    /*border: 1px solid black;*/
+    background: white;
+}

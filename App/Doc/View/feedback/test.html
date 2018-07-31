@@ -4,10 +4,13 @@
 	<title>fy文件上传</title>
 </head>
 <body>
-		<form action="{:U('Feedback/fileUpload')}" enctype="multipart/form-data" method="post" >
+
+		<form action="{:U('Feedback/FeedbackSubmit')}" enctype="multipart/form-data" method="post" >
 		<input type="text" name="name" />
 		<input type="file" name="photo" />
 		<input type="submit" value="提交" >
 		</form>
+
+
 </body>
 </html>
