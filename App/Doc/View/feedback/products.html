@@ -137,7 +137,6 @@
 		
 		// 渲染列表数据
 		function tableInit(data) {
-			console.log(data);
 			var tBody = document.getElementById('feed-tbody');
 			var str = '';
 			ares = JSON.parse(JSON.stringify(data.ares));
@@ -147,7 +146,7 @@
 				str += '<tr><td colspan="4" style="font-weight: bold; font-size: 14px;">'+ item.name +'</td><td class="cus-enable delete" _id="'+ item.id +'">删除</td></tr>';
 				data.res.forEach(function(_item, _idx) {
 					if(_item.aname === item.name) {
-						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td class="cus-disable">'+ item.name +'</td><td class="cus-enable"><span>编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ item.id +'" style="color: rgba(236, 65, 65, 0.65);">删除</span></td></tr>';
+						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td class="cus-disable">'+ item.name +'</td><td class="cus-enable"><span>编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ _item.id +'" style="color: rgba(236, 65, 65, 0.65);">删除</span></td></tr>';
 					}
 				});
 			});
@@ -242,9 +241,15 @@
 				data: data,
 				success: function(res) {
 					// 刷新页面, 会写数据
-					window.location.reload();	
+					layui.use('layer', function() {
+					    layui.layer.alert('删除成功!');
+						window.location.reload();
+					})
 				},
 				fail: function(err) {
+					layui.use('layer', function() {
+					    layui.layer.alert('删除失败!');
+					})
 					console.log(err);
 				}
 			});

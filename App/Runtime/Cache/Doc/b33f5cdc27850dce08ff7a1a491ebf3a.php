@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/Public/Doc/css/ProductUse.css" media="all">
-    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
-    <script src="/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/Public/static/vue.min.js"></script>
+    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/css/ProductUse.css" media="all">
+    <script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/ProjectDelivery/Public/static/vue.min.js"></script>
 </head>
 
 <body class="new">
@@ -19,7 +19,7 @@
             <strong>{{item.name}}</strong>
             <div class="separate_line line1"></div>
             <div class="feedback_div" v-for="val in item.child">
-                <img src="/Public/Doc/images/2icon@2x.png" alt="">{{val.name}}
+                <img src="/ProjectDelivery/Public/Doc/images/2icon@2x.png" alt="">{{val.name}}
                 <button id="feedback_button" @click="openNew(val.id,item.id)">反馈</button>
             </div>
         </div>
