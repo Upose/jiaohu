@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>fankui</title>
-    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/build/css/app.css" media="all">
-    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/css/submit2.css" media="all">
-    <script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script> 
-    <script src="/ProjectDelivery/Public/static/vue.min.js"></script>
+    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/jfyy/Public/Doc/css/submit2.css" media="all">
+    <script src="/jfyy/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script> 
+    <script src="/jfyy/Public/static/vue.min.js"></script>
 </head>
 <body>
    <div class="new">
@@ -25,7 +25,7 @@
                 <input type="text" v-model="message.endTime" name="endTime" class="layui-input" id="test2" placeholder="yyyy-MM-dd">
             </div>
             <div class="layui-input-inline">
-                <input type="text" v-model="message.keywords"  name="keywords" lay-verify="title" autocomplete="off" placeholder="关键字" class="layui-input">
+                <input type="text" v-model="message.keywords"  name="keywords" lay-verify="title" autocomplete="off" placeholder="关键字" id="keywords" class="layui-input">
             </div>
             <!--<button class="layui-btn layui-btn-normal">默认按钮</button>-->
             <span class="btn-sub" @click="searchInput()">搜索</span>
@@ -66,7 +66,7 @@
     <div id="test3"></div>
    </div>
 </body>
-  <!--<script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script> -->
+  <!--<script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script> -->
 <script>
     var app = new Vue({
         el: '.new',
@@ -95,6 +95,7 @@
                         console.log('333', res.data);
                         that.arrList = res.data;
                         that.counts=res.count;
+                        console.log('330099993', res);
                         that.layPage(); //分页
                     }
                 })
@@ -128,17 +129,26 @@
             },
             //搜索按钮
             searchInput(){
-                var _this= this
-                console.log('11',this.message);
+                var _this= this;
+                var starTime = $("#test1").val();
+                var endTime = $("#test2").val();
+                var keywords = $("#keywords").val();
                     $.ajax({
                         cache: false,
                         type: "POST",
                         url: "<?php echo U('Feedback/SearchFeedbackList');?>",
                         dataType: "json",
-                        data:this.message,
+                data:{starTime:starTime,
+                    endTime:endTime,
+                    keywords:keywords,page: _this.pageIndex || 1,limit:_this.limit || 10},
                         success: function (res) {
-                            console.log('查询', res.data);
                             _this.arrList= res.data;
+                            _this.counts=res.count;
+                            console.log(res.count)
+                            _this.layPage(); //分页
+
+
+
                         }
                     });
             }

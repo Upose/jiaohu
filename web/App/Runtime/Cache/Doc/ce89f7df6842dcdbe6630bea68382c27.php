@@ -5,37 +5,56 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Tea Party</title>
-    <link rel="stylesheet" href="/DeliveryApplication/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/DeliveryApplication/Public/Doc/doclay/build/css/app.css" media="all">
-    <script src="/DeliveryApplication/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <script src="/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
 
 <body>
-    <div class="layui-layout layui-layout-admin kit-layout-admin">
+     <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo">Tea Party</div>
-            <div class="layui-logo kit-logo-mobile">K</div>
-            <ul class="layui-nav layui-layout-left kit-nav">
-                <li class="layui-nav-item"><a href="https://www.baidu.com/">其他模块</a></li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">其它模块</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">xx管理</a></dd>
-                        <dd><a href="javascript:;">yy管理</a></dd>
-                        <dd><a href="javascript:;">zz管理</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a style="background-color: #009688;" href="javascript:;"> 文档模块</a></li>
-            </ul>
+            <div class="layui-logo">德拓交付应用系统</div>
+            <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
+            <div class="layui-col-md-offset2">
+                <ul class="layui-nav layui-col-md10" lay-filter="">
+                    <li class="layui-nav-item">
+                        <a  href="#"><cite>体系综合</cite></a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a  href="#">项目管理</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a  href="#">个人管理</a>
+                    </li>
+                    
+                    <li class="layui-nav-item layui-this">
+                        <a href="<?php echo U('feedback/index');?>">问题反馈</a>
+                    </li>
+                    </a>
+                     
+                    <li class="layui-nav-item">
+                        <a href="<?php echo U('KnowledgeSharing/index');?>">知识共享</a>
+                    </li>
+                   
+                    <li class="layui-nav-item">
+                        <a  href="#">共同成长</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="<?php echo U('BackstageManagement/index');?>">后台管理</a>
+                    </li>
+                </ul>
+            </div>
+
             <ul class="layui-nav layui-layout-right kit-nav">
                 <li class="layui-nav-item">
                 <a href=" ">
-                <img src="http://m.zhengjinfan.cn/images/0.jpg" class="layui-nav-img">Yukari
+                <img src="http://m.zhengjinfan.cn/images/0.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
                     <dd><a href="javascript:;">修改密码</a></dd>
-                    <dd><a href="javascript:;">安全退出</a></dd>
+                    <dd><a href="javascript:;" id="exitlogin">安全退出</a></dd>
                 </dl>
                 </li>
                 <li class="layui-nav-item"><a href="javascript:;"><i class="fa fa-sign-out" aria-hidden="true"></i>  </a></li>
@@ -49,71 +68,57 @@
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>流程规范</span></a>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>开发规范</span></a>
-                        <dl class="layui-nav-child">
-                            <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'Mdhtml/HtmlStandard.html',icon:'&#xe658;',title:'前端规范',id:'HtmlStandard'}"><i class="layui-icon">&#xe658;</i><span>前端规范</span></a>
-                            </dd>
-                            <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'Mdhtml/PHPStandard.html',icon:'&#xe658;',title:'PHP规范',id:'PHPStandard'}"><i class="layui-icon">&#xe658;</i><span>PHP规范</span></a>
-                            </dd>
-                            <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'Mdhtml/database.html',icon:'&#xe658;',title:'数据库规范',id:'database'}"><i class="layui-icon">&#xe658;</i><span>数据库规范</span></a>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>环境搭建</span></a>
-                        <dl class="layui-nav-child">
-                            <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'Mdhtml/MarkdownPadInstall.html',icon:'&#xe658;',title:'Markdown安装配置',id:'MarkdownPadInstall'}"><i class="layui-icon">&#xe658;</i><span> Markdown安装配置</span></a>
-                            </dd>
-                            <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'Mdhtml/PsConf.html',icon:'&#xe658;',title:'Ps安装配置',id:'PsConf'}"><i class="layui-icon">&#xe658;</i><span> Ps安装配置</span></a>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>使用教程</span></a>
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>产品使用</span></a>
                         <dl class="layui-nav-child">
 
                             <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'Mdhtml/MarkdownPadUse.html',icon:'',title:'基本使用',id:'2'}"><span> Markdown基本使用</span></a>
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/allmap');?>',icon:'',title:'综合分析',id:'3'}">
+                            <span>综合分析</span>
+                                </a>
                             </dd>
+                            
                             <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'Mdhtml/companyPHP.html',icon:'&#xe658;',title:'公司PHP框架简介',id:'6'}"><i class="layui-icon">&#xe658;</i><span>公司PHP框架简介</span></a>
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/submit2');?>',icon:'',title:'我的反馈',id:'2'}">
+                            <span>我的反馈</span>
+                                </a>
                             </dd>
+
                             <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'one.html',icon:'&#xe658;',title:'kettle使用简介',id:'7'}"><i class="layui-icon">&#xe658;</i><span>kettle使用简介</span></a>
+                                 <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/productuse');?>',icon:'',title:'提交反馈',id:'1'}">
+                            <span>提交反馈</span>
+                                 </a>
                             </dd>
-                            <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'one.html',icon:'',title:'RAP使用简介',id:'8'}"><span>RAP使用简介</span></a>
-                            </dd>
+
+                            
+                          
                         </dl>
                     </li>
+
+
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>知识分享</span></a>
-                        <dl class="layui-nav-child">
-                            <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'one.html',icon:'&#xe658;',title:'机器学习入门',id:'9'}"><i class="layui-icon">&#xe658;</i><span>机器学习入门</span></a>
-                            </dd>
-                            <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'one.html',icon:'',title:'聚类算法',id:'10'}"><span>聚类算法</span></a>
-                            </dd>
-                            <dd>
-                                <a href="javascript:;" kit-target data-options="{url:'Mdhtml/submit2.html',icon:'',title:'回归算法',id:'11'}"><span>回归算法</span></a>
-                            </dd>
-                        </dl>
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>技术疑难</span></a>
+                        
                     </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/submit2');?>',icon:'',title:'回归算法',id:'12'}"><span>回归算法</span></a>
+
+
+
+                     <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>平台优化</span></a>
+                        
                     </li>
-                      <li class="layui-nav-item">
-                        <a href="javascript:;" kit-target data-options="{url:'Mdhtml/submit3.html',icon:'',title:'回归',id:'13'}"><span>回归</span></a>
+
+
+                     <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>体系信箱</span></a>
+                        
                     </li>
+
+
+                   
+                    
+               
+                  
+                   
                 </ul>
             </div>
         </div>
@@ -123,7 +128,15 @@
         </div>
     </div>
 
-    <script>
+   <script>
+    $(document).ready(function() {
+        // 登录状态验证
+        if(!window.sessionStorage["isLogin"]) {
+            window.location.href = "<?php echo U('Login/index');?>";
+        }
+
+        $('#user-name').html(window.sessionStorage.getItem('name'));
+
         var message;
         layui.config({
             base: 'Public/Doc/doclay/build/js/'
@@ -138,7 +151,32 @@
                 type: 'iframe'
             }).init();
         });
-    </script>
+
+        $('#exitlogin').on('click', function() {
+            layui.use('layer', function() {
+                layer.confirm('确定退出登录?', {title:'提示'}, function(index){
+                    // 退出登录接口
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "<?php echo U('Feedback/logout');?>",
+                        dataType: "json",
+                        data: {},
+                        success: function(res) {
+                            window.sessionStorage.removeItem("isLogin");
+                            window.sessionStorage.removeItem("name");
+                            layer.close(index);
+                            window.location.href = "<?php echo U('Login/index');?>";
+                        },
+                        fail: function(err) {
+                            console.log(err);
+                        }
+                    });
+                });
+            })
+        })
+    })
+</script>
 </body>
 
 </html>

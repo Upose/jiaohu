@@ -79,10 +79,14 @@ class FeedbackController extends BaseController {
      */
     public function ProductList(){
 		
-		$sql = 	"select ps.id as psid,ps.name as psname,
+		$sql =
+		"select ps.id as psid,ps.name as psname,
 		p.id as pid,p.name as pname 
 		from product_s ps inner join product p 
-		on ps.f_id = p.id";
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id";
 		$sql_res = M()->query($sql);
 		$res = array();
 
@@ -137,6 +141,7 @@ class FeedbackController extends BaseController {
      */
 	public function FeedbackSubmit()
 	{
+
 		//优先级
 		$priority = I('priority');
 		//$priority = 4;
@@ -146,13 +151,13 @@ class FeedbackController extends BaseController {
 
 		//所属项目id
 		$ps_id  = I('ps_id');
-		
+		 
 		//父级id
 		$pd_id  = I('pd_id');
-
+		 
 		//子级id
 		$pds_id  = I('pds_id');
-
+		
 		//名称
 		$name = I('name');
 
@@ -172,19 +177,19 @@ class FeedbackController extends BaseController {
 		$data['priority'] = $priority;
 		$data['pc_id'] = $pc_id;
 		$data['pd_id'] = $pd_id;
+		$data['pds_id'] = $pds_id;
 		$data['ps_id'] = $ps_id;
 		$data['describe'] = $describe;
+		$data['submit_person_id'] =$_SESSION['user_id'];
 		$data['submit_time'] = $Currytime;
 		$data['deadline'] = $deadline;
-
+                           
 		$result = $Model->add($data);
-
-
+		
 		//上传附件
 		$upload =  new \Think\Upload();// 实例化上传类
 
 		//以图片格式上传
-		
 		//设置附件上传大小
 	  	$upload->maxSize=3145728;
 	  	// 设置附件上传类型
@@ -195,25 +200,32 @@ class FeedbackController extends BaseController {
         $upload->savePath = 'Image/'; 
 
 	    $info =  $upload->upload();
+	   
+	    
 	    if($info)
 	    {
-
-	    	$type  = $info['photo']['type'];
-	    	$name  = $info['photo']['name'];
-	    	$savename  = $info['photo']['savename'];
-	    	$path  = "Updata/".$info['photo']['savepath'];
+			for($i = 0;$i<count($info);$i++)
+			{
+			$type  = $info[$i]['type'];
+	    	$name  = $info[$i]['name'];
+	    	$savename  = $info[$i]['savename'];
+	    	$path  = "Updata/".$info[$i]['savepath'];
 	    	$newpath = "$path$savename";
 	    	
-	    	$f_id =5;
 	    	$Model = D('file');
-	    	$data['id'] = '';
-	    	$data['name'] = $name;
-			$data['type'] = $type;
-			$data['path'] = $newpath;
-			$data['f_id'] = $f_id;
-			$result = $Model->add($data);
-	    	
+	    	$data1['id'] = '';
+	    	$data1['name'] = $name;
+			$data1['type'] = $type;
+			$data1['path'] = $newpath;
+			$data1['f_id'] = $result;
+			$res = $Model->add($data1);
+
+			}
+		
+			
 	    }
+	    
+		$this->redirect('feedback/submit2');
 
 	}
 
@@ -260,18 +272,16 @@ class FeedbackController extends BaseController {
 	public function SearchFeedbackList()
 	{
 
-		//产品id
-		// $pd_id = I('pd_id');
-
-		//时间选择范围
-		$time1 =I('startTime');
+		$page=intval(I('page'));
+		$pag=($page-1)*10;
+		$time1 =I('starTime');
 		$time2 = I('endTime');
-
-		//关键词
+		
+		 //关键词
 		$keywords = I('keywords');
 		
-		//根据前端具体传来的条件进行where查询
-		$sql = "SELECT fb.id,fb.name,ps.name as project_name,
+
+	    $sql = "SELECT fb.id,fb.name,ps.name as project_name,
 		pd.name as product_name,pc.name as classification_name,
 		fb.submit_time,pr.name as priority 
 		from feedback fb 
@@ -279,13 +289,42 @@ class FeedbackController extends BaseController {
 		JOIN product pd on fb.pd_id = pd.id 
 		JOIN problem_classification pc on fb.pc_id = pc.id 
 		JOIN priority pr on fb.priority = pr.id 
-		where fb.submit_time BETWEEN '$time1'and '$time2' 
-		 or fb.name like '%$keywords%' 
-		ORDER BY fb.id limit 10 ";
-
-		$res = M()->query($sql);
+		where fb.name like '%$keywords%'";
+			 if(!empty($time1) && !empty($time2))
+			 {
+	          $sql.="and fb.submit_time BETWEEN '$time1'and '$time2'";
+	          $sql.="limit ".$pag.",10 ";
+			 }
+			 else
+			 {
+				$sql.="";
+				$sql.="limit ".$pag.",10";
+			 }
+			$res = M()->query($sql);
+		    
+    	$usql="SELECT count(*) as count  from feedback ";
 		
-		$this->Response(0,$res,'');
+    	if($keywords){
+                 $usql .=" where name like '%$keywords%'";
+		          if(!empty($time1) && !empty($time2)){
+		    	      $usql.=" and submit_time BETWEEN '$time1' and '$time2'"; 	
+		    		}else{
+		    		  $usql.="";
+    	            }  
+    	 }
+    	else{
+                   if(!empty($time1) && !empty($time2)){
+		    	      $usql.="where submit_time BETWEEN '$time1'and '$time2'"; 	
+		    		}else{
+		    		  $usql.="";
+    	            }  
+    	}
+    	
+		$ures = M()->query($usql);
+		$count =$ures[0]['count'];
+		$response = array('data' => $res,'count' =>$count);
+        $this->ajaxReturn($response);
+
 	}
 
 
@@ -358,6 +397,14 @@ class FeedbackController extends BaseController {
 		$problem_classification = M()->query($sql8);		
 		$problem_classification = $problem_classification[0]['problem_classification'];
 
+		$sql9 = "SELECT p.NAME as submit_person_name
+				FROM feedback fb
+				JOIN person p
+				ON fb.submit_person_id = p.id
+				WHERE fb.id = '$id'";
+		$submit_person_name = M()->query($sql9);		
+		$submit_person_name = $submit_person_name[0]['submit_person_name'];
+
 
 		//获取图片路径
 		$filesql = "select path as img 
@@ -373,6 +420,7 @@ class FeedbackController extends BaseController {
 		$final['statue'] =$statue;
 		$final['deadline'] =$deadline;
 		$final['project_name'] =$project_name;
+		$final['submit_person_name']=$submit_person_name;
 		$final['name'] =$name;
 		$final['describe'] =$describe;
 		$final['product_name'] =$product_name;
@@ -398,11 +446,13 @@ class FeedbackController extends BaseController {
 		//暂停理由
 		$suspend_reason =I('content');
 
+		$type_id = I('id');
 		//存入数据库
 		$Model = D('suspend_information');
 		$data['id'] = '';
 		$data['suspend_person'] = $suspend_person;
 		$data['suspend_reason'] = $suspend_reason;
+		$data['type_id'] = $type_id;
 		$result = $Model->add($data);
 		
 	}
@@ -419,12 +469,16 @@ class FeedbackController extends BaseController {
 		$solve_person =I('name');
 		
 		//解决手段
-		$resolvent = I('content');;
+		$resolvent = I('content');
+
+		$type_id = I('id');
+
 
 		$Model = D('solve_information');
 		$data['id'] = '';
 		$data['solve_person'] = $solve_person;
 		$data['resolvent'] = $resolvent;
+		$data['type_id'] = $type_id;
 		$result = $Model->add($data);
 
 	}

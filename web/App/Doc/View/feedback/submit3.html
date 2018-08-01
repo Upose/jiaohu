@@ -42,6 +42,10 @@
             <p>{{project_name}}</p>
         </div>
         <div>
+            <p class="title_color">提交人</p >
+            <p>{{subPerName}}</p >
+        </div>
+        <div>
             <p class="title_color">反馈名称</p>
             <p>{{name}}</p>
         </div>
@@ -72,6 +76,12 @@
             <div class="window_ok_title">问题解决</div>
             <div>
                 <p style="margin-top: 2vh;"><span style="margin-left: 2.7vw;">解决人：</span> <input v-model="message.name" class="rel_pel" type="text"><br/></p>
+                <p class="labels">
+                    <input class="input" type="radio" name="sex" value="1" v-model="message.id" checked>
+                    <label style="margin-bottom: 0;" for="man">BUG修复</label>
+                    <input class="input" type="radio" name="sex" v-model="message.id" value="2" >
+                    <label style="margin-bottom: 0;" for="female">操作指导</label>
+                </p>
                 <p><span style="margin-left: 1.5vw;">解决方法：</span> <textarea v-model="message.content" class="rel_fun" placeholder=""></textarea></p>
             </div>
             <div class="window_ok_botttom">
@@ -84,6 +94,12 @@
             <div class="window_ok_title">暂停原因</div>
             <div>
                 <p style="margin-top: 2vh;"><span style="margin-left: 2.7vw;">解决人：</span> <input v-model="message.name" class="rel_pel" type="text"><br/></p>
+                <p class="labels">
+                    <input class="input" type="radio" name="sex" value="1" v-model="message.id" checked>
+                    <label style="margin-bottom: 0;" for="man">BUG修复</label>
+                    <input class="input" type="radio" name="sex" v-model="message.id" value="2" >
+                    <label style="margin-bottom: 0;" for="female">操作指导</label>
+                </p>
                 <p><span style="margin-left: 1.5vw;">解决方法：</span> <textarea v-model="message.content" class="rel_fun" placeholder=""></textarea></p>
             </div>
             <div class="window_ok_botttom">
@@ -115,6 +131,7 @@
             Uid:'',
             Allitem:{},
             statue:'', // 状态
+            subPerName:'',//发起人
             project_name:'',//所属项目
             deadline:'',//截止时间
             describe:'',//描述
@@ -161,6 +178,7 @@
                         that.child_product_name=res.data.child_product_name;
                         that.product_name=res.data.product_name;
                         that.name=res.data.name;
+                        that.subPerName=res.data.submit_person_name;
                         //  $.each(res.data, function(i,item) {
                         //   console.log('页面元素',item)
                         //   that.statue=item.statue;

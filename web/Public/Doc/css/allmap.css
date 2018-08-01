@@ -1,84 +1,153 @@
 *{
-    margin: 0 auto;
+    margin: 0 ;
     padding: 0;
 }
 body{
-    padding: 1.5vh 1vw 1vh 1vw;
+    padding: 4vh 2vw;
     background:rgba(242,242,242,1);
 }
-.new{
-    width: device-width;
-    /*height: 100vh;*/
-}
-
 /*小标题样式*/
 .tit{
-    display: inline-block;
-    margin: 2vh 0 0 1.5vw;
-    font-weight: 700;
+    margin: 2vh 0 1vh 1vw;
+    font-weight: 600;
+    color: #3C3C3C;
 }
-/*上部内容框样式*/
+/*echar内容框样式*/
+.echar_div{
+    padding-left: 1vw;
+}
 .new_up{
-    height: 60vh;
+    margin-bottom: 2vh;
 }
-/*提交项目 问题处理情况 处理周期 样式*/
 .new_up>div{
     display: inline-block;
-    float: left;
-    width: 31.1vw;
+    width: 32%;
     height: 60vh;
     margin: 0 .5vw;
     background: white;
+    position: relative;
+    vertical-align: top;
 }
-/*下部内容框样式*/
-.new_down{
-    height: 90vh;
-    padding: 1vw .5vw 0 .5vw;
-    /*border: 1px solid blue;*/
+#echar_div1{
+    position: absolute;
+    left: -.5vw;
+    top: 0;
+    height:60vh;
+    width:95%;
 }
-/*下部 左边内容框样式*/
-.newdown_left{
-    float: left;
-    width: 63vw;
-    height: 90vh;
-    margin-right: 1vw;
-    /*border: 1px solid black*/
+#echar_div2{
+    position: absolute;
+    left: -.5vw;
+    top: 6vh;
+    height:53vh;
+    width:95%;
 }
-
-.left_up{
-    width: 63vw;
-    height: 44vh;
-    margin-bottom: 1vw;
-    /*border: 1px solid black;*/
+#echar_div3{
+    position: absolute;
+    left: -.5vw;
+    top: 0;
+    height:60vh;
+    width:95%;
 }
-/*紧急程度 样式*/
-.up_child1{
-    float: left;
-    width: 31vw;
-    height: 44vh;
-    margin-right: 1vw;
-    background: white;
+#echar_div4{
+    position: absolute;
+    left: -.5vw;
+    top: 0;
+    height:40vh;
+    width:95%;
 }
-/*处理进度 样式*/
-.up_child2{
+#echar_div5{
+    position: absolute;
+    left: -.5vw;
+    top: 0;
+    height:40vh;
+    width:95%;
+}
+#echar_div6{
+    position: absolute;
+    left: -.5vw;
+    top: 0;
+    height:40vh;
+    width:95%;
+}
+#echar_div7{
+    position: absolute;
+    left: -.5vw;
+    top: 0;
+    height:40vh;
+    width:95%;
+}
+#echar_div8{
+    position: absolute;
+    right: -.5vw;
+    top: 0;
+    height:40vh;
+    width:95%;
+}
+.new_up .right_box{
     float: right;
-    width: 31vw;
-    height: 44vh;
-    background: white;
 }
-/*问题类型 样式*/
-.left_down{
-    width: 63vw;
-    height: 44vh;
-    /*border: 1px solid black;*/
-    background: white;
-}
-/*处理方式 样式*/
-.newdown_right{
-    float: right;
-    width: 31.1vw;
+.new_bottom .bottom_left{
+    width: 65.5%;
+    display: inline-block;
     height: 90vh;
-    margin-right: .1vw;
-    /*border: 1px solid black;*/
+    margin: 0 .5vw;
+}
+.bottom_left .bottom_left_top{
+    margin-bottom: 2vh;
+}
+.bottom_left_top .bottom_left_top_left{
+    display: inline-block;
+    width: 49%;
+    height: 43vh;
+    position: relative;
     background: white;
 }
+.bottom_left_top .bottom_left_top_right{
+    float:right;
+    width: 48.5%;
+    height: 43vh;
+    position: relative;
+    background: white;
+}
+.bottom_left .bottom_left_bottom{
+    padding-top: 1vh;
+    height: 43vh;
+    position: relative;
+    background: white;
+}
+.new_bottom .bottom_right{
+    width: 32%;
+    float:right;
+    background: white;
+    height: 89vh;
+    margin: 0px 0.5vw;
+}
+.bottom_right_top{
+   height: 38vh;
+   position: relative;
+}
+.bottom_right_top .biao1, .biao2{
+    display: inline-block;
+    width: 48%;
+}
+.bottom_right_bottom li{
+    list-style: none;
+    display: inline-block;
+    width: 30%;
+    height: 15vh;
+    text-align: center;
+    /*border: 1px solid gray;*/
+} 
+.bottom_right_bottom li p:nth-child(1){
+    /*text-align: center;*/
+    font-family:PingFangSC-Regular;
+    color:rgba(60,60,60,1);
+    font-size: 14px;
+}  
+.bottom_right_bottom li p:nth-child(2) span{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;    
+    color:#3C3C3C;
+} 

@@ -170,10 +170,7 @@
 					f_id: $('#parent-level select').val()
 				},
 				success: function(res) {
-					layui.use('layer', function() {
-					    layui.layer.alert('添加成功!');
-		    			window.parent.location.reload();
-					})
+		    		window.parent.location.reload();
 				},
 				fail: function(err) {
 					console.log(err);

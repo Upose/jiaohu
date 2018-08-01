@@ -38,7 +38,7 @@
             left: 50%;
             position: absolute;
             width: 32vw;
-            height: 38vh;
+            height: 42vh;
             background: rgba(255, 255, 255, 1);
             box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
             border-radius: 4px;
@@ -302,4 +302,14 @@
         .bot_line .active {
             background: #07C88D;
             color: #fff;
+        }
+
+        .labels{
+            margin-left: 8.5vw;
+        }
+        .lables .input{
+            width: 1.5vw;
+            height: 1.5vw;
+            position: relative;
+            top: .5vh;
         }

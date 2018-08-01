@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>config</title>
-    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <style>
     	/**
     	 * 全局样式
@@ -90,8 +90,8 @@
     		font-size: 12px;
     	}
     </style>
-	<script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
-	<script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js""></script>
+	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
+	<script src="/Public/static/jquery-2.0.3.min.js""></script>
 </head>
 <body>
 	<div class="cus-body">

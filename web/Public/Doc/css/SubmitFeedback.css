@@ -6,6 +6,9 @@ body{
     padding: 5vh 4vw 0 4vw;
     background: rgb(242, 242, 242)
 }
+.color1{
+    color: green;
+}
 /* 标题样式 */
 .tit{
     display: block;
@@ -100,15 +103,20 @@ textarea{
     opacity: 0.3;
 }
 /* 按钮样式 */
-.button1{
+.but{
+    cursor: pointer;
     border-style:none; 
-    width:8vw;
-    height:6vh;
-    background:rgba(255,255,255,1);
+    width: 7vw;
+    height: 5vh;
+    line-height: 5vh;
+    display: inline-block;
+    text-align: center;
     border-radius:4px;
+    margin-right: 1vw; 
+    margin-top: 2vh;
     border:1px solid rgba(217,217,217,1);
 }
-.button1:hover{
+.but:hover{
     background:rgba(7,200,141,1);
     color: white;
 }
@@ -122,3 +130,46 @@ textarea{
     border:1px solid rgba(217,217,217,1);
 }
 
+/*file*/
+
+.cus-files {
+    height: 107px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 2px solid #999;
+    position: relative;
+}
+
+.cus-files-input {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#cus-ul {
+    padding: 10px 5px;
+}
+
+#cus-ul li {
+    display: inline-block;
+    height: 40px;
+    margin: 0px 5px;
+    width: 20%;
+    text-align: center;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px dashed #979797;
+}
+
+.cus-img {
+   height: 40px;
+   width: 40px;
+   margin: 5px 10px;
+   border: 1px dashed #979797; 
+}

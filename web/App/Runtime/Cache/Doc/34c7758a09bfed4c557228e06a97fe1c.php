@@ -5,27 +5,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Tea Party</title>
-    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/ProjectDelivery/Public/Doc/doclay/build/css/app.css" media="all">
-    <script src="/ProjectDelivery/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/ProjectDelivery/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/build/css/app.css" media="all">
+    <script src="/jfyy/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
 
 <body>
-    <div class="layui-layout layui-layout-admin kit-layout-admin">
+     <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo">交付应用系统</div>
-            <div class="layui-logo kit-logo-mobile">K</div>
-        
-            <!-- <ul class="layui-nav layui-layout-right kit-nav">
-                <li class="layui-nav-item">
-                <a href=" ">
-                <img src="http://m.zhengjinfan.cn/images/0.jpg" class="layui-nav-img">系统管理员
-                </a>
-               
-                </li>
-                <li class="layui-nav-item"><a href="javascript:;"><i class="fa fa-sign-out" aria-hidden="true"></i>  </a></li>
-            </ul> -->
+            <div class="layui-logo">德拓交付应用系统</div>
+            <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
+            <div class="layui-col-md-offset2">
+                <ul class="layui-nav layui-col-md10" lay-filter="">
+                    <li class="layui-nav-item">
+                        <a  href="#"><cite>体系综合</cite></a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a  href="#">项目管理</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a  href="#">个人管理</a>
+                    </li>
+                    
+                    <li class="layui-nav-item layui-this">
+                        <a href="<?php echo U('feedback/index');?>">问题反馈</a>
+                    </li>
+                    </a>
+                     
+                    <li class="layui-nav-item">
+                        <a href="<?php echo U('KnowledgeSharing/index');?>">知识共享</a>
+                    </li>
+                   
+                    <li class="layui-nav-item">
+                        <a  href="#">共同成长</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="<?php echo U('BackstageManagement/index');?>">后台管理</a>
+                    </li>
+                </ul>
+            </div>
 
             <ul class="layui-nav layui-layout-right kit-nav">
                 <li class="layui-nav-item">
@@ -48,32 +67,57 @@
                 <!-- 标志 点赞 &#xe6c6 重要 &#xe658;-->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
-
-                      <li class="layui-nav-item">
-                        <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/productuse');?>',icon:'',title:'产品使用',id:'1'}">
-                            <span>产品使用</span>
-                        </a>
-                    </li>
                     <li class="layui-nav-item">
-                        <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/submitfeedback');?>',icon:'',title:'提交反馈',id:'2'}">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>产品使用</span></a>
+                        <dl class="layui-nav-child">
+
+                            <dd>
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/allmap');?>',icon:'',title:'综合分析',id:'3'}">
+                            <span>综合分析</span>
+                                </a>
+                            </dd>
+                            
+                            <dd>
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/submit2');?>',icon:'',title:'我的反馈',id:'2'}">
+                            <span>我的反馈</span>
+                                </a>
+                            </dd>
+
+                            <dd>
+                                 <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/productuse');?>',icon:'',title:'提交反馈',id:'1'}">
                             <span>提交反馈</span>
-                        </a>
+                                 </a>
+                            </dd>
+
+                            
+                          
+                        </dl>
                     </li>
-                    
+
 
                     <li class="layui-nav-item">
-                        <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/submit2');?>',icon:'',title:'我的反馈',id:'3'}"><span>我的反馈</span></a>
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>技术疑难</span></a>
+                        
                     </li>
+
+
+
+                     <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>平台优化</span></a>
+                        
+                    </li>
+
+
+                     <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>体系信箱</span></a>
+                        
+                    </li>
+
 
                    
-
-                    <li class="layui-nav-item">
-                        <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/products');?>',icon:'',title:'产品配置',id:'4'}"><span>产品配置</span></a>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/config');?>',icon:'',title:'问题反馈配置',id:'5'}"><span>问题反馈配置</span></a>
-                    </li>
-
+                    
+               
+                  
                    
                 </ul>
             </div>
