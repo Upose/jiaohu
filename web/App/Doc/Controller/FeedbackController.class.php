@@ -25,56 +25,17 @@ class FeedbackController extends BaseController {
 	 * 2018.7.25 
 	 */
     public function index(){
+    	
     	$this->display();
+
     }
 
-     /**
-     * 登录接口
-     * @author zan.qun
-     * 2018-07-30
-     */
-    public function login()
-    {
-    	//获取用户名密码
-    	$name=I('name');
-    	$password=md5(I('password'));
-
-    	//判断用户名是否存在
-    	$sql="SELECT * FROM person 
-    	where name = '$name' ";
-    	$res = M()->query($sql);
-
-    	if(count($res)==0)
-    	{
-    		//用户名不存在返回1
-    		$this->Response(1,'');
-    	}
-
-        //判断用户名密码是否正确
-    	$usql="select * from person 
-    	where name = '$name' 
-    	and password= '$password'";
-    	$ures = M()->query($usql);
-    	if(count($ures)==0)
-    	{
-    		//用户名或密码错误返回2
-    		$this->Response(2,'');
-    	}
-    	else
-    	{
-    		//登陆成功,将用户信息保存在session
-    		
-    		$_SESSION['user_name']=$name;
-    		$_SESSION['user_id']=$ures[0]['id'];
-    		$this->Response(0,'登陆成功','');	
-    	}	
-       
-    }
+  
 
     /**
      * 获取产品信息接口
      * 以每个父产品对应旗下所有字产品的形式返回
-     * @author zan.qun
+     * @author zhou.long
      * 2018-07-26
      */
     public function ProductList(){
@@ -88,6 +49,7 @@ class FeedbackController extends BaseController {
 		and ps.is_delete = 0 
 		ORDER BY ps.id";
 		$sql_res = M()->query($sql);
+
 		$res = array();
 
 		foreach ($sql_res as $v) {
@@ -101,7 +63,7 @@ class FeedbackController extends BaseController {
 			$child['name'] = $v['psname'];
 			array_push($res[$v['pid']]['child'], $child);
 		}
-		
+	
         $this->Response(0,$res,'');
 
 	}
@@ -225,7 +187,7 @@ class FeedbackController extends BaseController {
 			
 	    }
 	    
-		$this->redirect('feedback/submit2');
+		$this->redirect('Feedback/submit2');
 
 	}
 
@@ -411,11 +373,7 @@ class FeedbackController extends BaseController {
 		from file where f_id = '$id'";
 		$path = M()->query($filesql);
 
-		//回复列表
-		$replysql = "SELECT rp.author,rp.update_time as time, 
-		rp.content FROM reply rp join feedback fb 
-		on rp.f_id = fb.id where  fb.id = '$id'";
-		$reply = M()->query($replysql);
+		
 
 		$final['statue'] =$statue;
 		$final['deadline'] =$deadline;
@@ -427,7 +385,7 @@ class FeedbackController extends BaseController {
 		$final['child_product_name'] =$child_product_name;
 		$final['problem_classification'] =$problem_classification;
 		$final['img'] = $path;
-		$final['reply'] = $reply;
+		
 		
 		$this->Response(0,$final,'');
 	}
@@ -552,9 +510,8 @@ class FeedbackController extends BaseController {
 			
 		$result = $Model->add($data);
 
-  		//获取回复列表
-		$replysql = "SELECT rp.author,rp.content,
-		rp.update_time as time,
+  		$replysql = "SELECT rp.author,rp.content,
+		rp.update_time as time
 		FROM reply rp join feedback  fb 
 		on rp.f_id = fb.id where  fb.id = '$id'";
 
@@ -566,201 +523,26 @@ class FeedbackController extends BaseController {
 
 	}
 
-
-	/**
-	 * 获取反馈信息接口
-     * @author zan.qun
-     * 2018-07-30
-     */
-    public function select()
-    {
-    	$id=I('id');
-    	$sql="SELECT * FROM feedback as a  
-    	left join priority as b  on a.priority = b.id 
-    	WHERE a.id= ".$id;
-    	$res = M()->query($sql);
-    	$this->Response(0,$res,'');
-    }
-
-	/**
-	 * 产品添加接口
-     * @author zan.qun
-     * 2018-07-30
-     */
-    public function addProduct()
-    {
-    	$name=I('name');
-    	$level=intval(I('level'));
-    	$summary=I('summary');
-    	$f_id=intval(I('f_id'));
-
-    	//父级产品level为1
-    	if($level=='1')
-    	{
-           $sql="insert into product (name,level,summary,is_delete) 
-           values ('$name','$level','$summary','0')";
-           $res = M()->execute($sql);
-           $this->Response(0,'添加成功','');
-    	}
-
-    	//子级产品level为2
-    	else if($level=='2')
-    	{
-           $sql="insert into product_s (name,level,summary,f_id,is_delete) values ('$name','$level','$summary','$f_id','0')";
-           $res = M()->execute($sql);
-           $this->Response(0,'添加成功','');
-    	}
-    	else
-    	{
-    	   $this->Response(0,'添加失败','');
-    	}
-    }
-
-
-    /**
-	 * 父级id,name接口
-     * @author zan.qun
-     * 2018-07-30
-     */
-    public function ParentProduct()
-    {
-    	$sql="select id, name from product";
-    	$res = M()->query($sql);
-    	$this->Response(0,$res,'');
-    }
-
-
-	/**
-	 * 软删除产品接口
-     * @author zan.qun
-     * 2018-07-30
-     */
-    public function softdelete()
-    {
-
-    	$f_id=intval(I('f_id'));
-    	$id=intval(I('id'));
-
-    	//f_id为0是父级产品,不为0为子级产品
-    	if($f_id==0)
-    	{
-           $sql="update product set is_delete = 1 
-           where id='$id'";
-           $res = M()->execute($sql);
-           $usql="update product_s set is_delete = 1 
-           where f_id='$id'";
-           $ures = M()->execute($usql);
-           $this->Response(0,'删除成功','');
-    	}
-    	else if($f_id!==0)
-    	{
-           $sql="update product_s set is_delete = 1 
-           where id='$id'";
-           $res = M()->execute($sql);
-           $this->Response(0,'删除成功','');
-    	}
-    	else
-    	{
-    	   $this->Response(0,'删除失败','');
-    	}
-
-    }
-   
-
-   /**
-	 * 问题分类接口
-     * @author zan.qun
-     * 2018-07-30
-     */
-	public function problem()
+	public function ReplyList()
 	{
-      $sql=" select * from problem_classification";
-      $res = M()->query($sql);
-      $this->Response(0,$res,'');
+		$id = I('id');
+
+		//获取回复列表
+		$replysql = "SELECT rp.author,rp.content,
+		rp.update_time as time
+		FROM reply rp join feedback  fb 
+		on rp.f_id = fb.id where  fb.id = '$id' ORDER BY update_time desc";
+
+		$reply = M()->query($replysql);
+
+		$final['reply'] = $reply;
+		
+		$this->Response(0,$final,'');
 	}
 
-	/**
-	 * 添加问题分类接口
-     * @author zan.qun
-     * 2018-07-30
-     */
-  	public function addproblem()
-  	{
-        $name=I('name');
-    	$summary=I('summary');
-    	$status=I('status');
-
-    	if(empty($name) ||empty($summary) ||empty($status))
-    	{
-           $this->Response(0,'添加失败','');
-    	}
-    	else
-    	{
-    	   $sql="insert into problem_classification (name,summary,status) 
-    	   values ('$name','$summary','$status')";
-
-           $res = M()->execute($sql);
-           $this->Response(0,'添加成功','');
-    	}	    
-  	}
 
 
-  	public function auth()
-  	{
-  	  $sql="select * from reply";
-      $res = M()->query($sql);
-      $this->Response(0,$res,'');
-  	}
-
-	public function Product()
-	{
-
-		$page=Intval(I('page'));
-		
-		$asql="select id,name,level,summary 
-		from product where is_delete = 0";
-		$ares=M()->query($asql);
-		
-		$sql = "SELECT
-				product.name AS aname,
-				product_s.id,product_s.name,
-				product_s.summary,
-				product_s.status,
-				product_s.f_id
-				FROM product 
-				LEFT JOIN product_s 
-				ON product.id = product_s.f_id  
-				where product.is_delete = 0 
-				and product_s.is_delete = 0 
-				limit $page,10 ";
-
-		$res = M()->query($sql);
-		$result=array();
-		$result['res']=$res;
-		$result['ares']=$ares;
-		
-        $usql="select count(*) 
-        as count from product_s
-         where is_delete='0'";
-        $ures = M()->query($usql);
-        
-        $result['count']=$ures[0]['count'];
-        $this->Response(0,$result,'');
-
-	}
-
-	public function logout()
-	{
-     
-	    if(isset($_COOKIE[session_name()]))
-	    {  
-	        //判断客户端的cookie文件是否存在
-	        //存在的话将其设置为过期.
-	       setcookie(session_name(),'',time()-1,'/');
-	    }
-	       session_destroy();
-	      $this->Response(0,'退出登录','');
-	}
+	
 
 
  }

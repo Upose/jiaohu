@@ -166,7 +166,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '400px'],
-					content: "{:U('feedback/addproducts')}",
+					content: "{:U('BackstageManagement/addproducts')}",
 					success: function(layero, idx) {
 						var body = layui.layer.getChildFrame('body', idx);
 						var iptblock = $(body).find('#parent-level').hide();
@@ -206,7 +206,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "{:U('Feedback/Product')}",
+				url: "{:U('BackstageManagement/Product')}",
 				dataType: "json",
 				data: {
 					pageIndex: pageIndex,
@@ -237,7 +237,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "{:U('Feedback/softdelete')}",
+				url: "{:U('BackstageManagement/softdelete')}",
 				dataType: "json",
 				data: data,
 				success: function(res) {

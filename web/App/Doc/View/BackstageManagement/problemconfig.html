@@ -162,7 +162,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '350px'],
-					content: "{:U('feedback/addconfig')}"
+					content: "{:U('BackstageManagement/addproblems')}"
 				});
 			})
 		};
@@ -198,7 +198,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "{:U('Feedback/problem')}",
+				url: "{:U('BackstageManagement/problem')}",
 				dataType: "json",
 				data: {
 					pageIndex: pageIndex,

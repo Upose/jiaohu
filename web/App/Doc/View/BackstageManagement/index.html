@@ -10,11 +10,16 @@
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 </head>
+<style>
 
+.layui-logo img{
+width: 80%;
+}
+</style>
 <body>
      <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo">德拓交付应用系统</div>
+            <div class="layui-logo"><img src="__IMG__/logo@2x.png" alt=""></div>
             <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
             <div class="layui-col-md-offset2">
                 <ul class="layui-nav layui-col-md10" lay-filter="">
@@ -88,6 +93,8 @@
                         </dl>
                     </li>
 
+                    
+
                    
                    
                 </ul>
@@ -130,7 +137,7 @@
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "{:U('Feedback/logout')}",
+                        url: "{:U('Login/logout')}",
                         dataType: "json",
                         data: {},
                         success: function(res) {

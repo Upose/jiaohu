@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>feedback</title>
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <style>
     	/**
     	 * 全局样式
@@ -90,8 +90,8 @@
     		font-size: 12px;
     	}
     </style>
-	<script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script>
-	<script src="/jfyy/Public/static/jquery-2.0.3.min.js""></script>
+	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
+	<script src="/Public/static/jquery-2.0.3.min.js""></script>
 </head>
 <body>
 	<div class="cus-body">
@@ -166,7 +166,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '400px'],
-					content: "<?php echo U('feedback/addproducts');?>",
+					content: "<?php echo U('BackstageManagement/addproducts');?>",
 					success: function(layero, idx) {
 						var body = layui.layer.getChildFrame('body', idx);
 						var iptblock = $(body).find('#parent-level').hide();
@@ -206,7 +206,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "<?php echo U('Feedback/Product');?>",
+				url: "<?php echo U('BackstageManagement/Product');?>",
 				dataType: "json",
 				data: {
 					pageIndex: pageIndex,
@@ -237,7 +237,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "<?php echo U('Feedback/softdelete');?>",
+				url: "<?php echo U('BackstageManagement/softdelete');?>",
 				dataType: "json",
 				data: data,
 				success: function(res) {

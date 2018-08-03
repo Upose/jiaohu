@@ -155,6 +155,7 @@
             }
             this.Uid = theRequest.id;
             this.getEle();
+            this.gethuifu();
         },
         methods: {
             // 获取页面元素
@@ -169,7 +170,7 @@
                     success: function (res) {
                         // console.log('>>>',res);
                         that.Imglist =res.data.img; // 返回图片数组 
-                        that.replyList =res.data.reply;
+                        // that.replyList =res.data.reply;
                         that.statue=res.data.statue;
                         that.project_name=res.data.project_name;
                         that.deadline=res.data.deadline;
@@ -185,7 +186,21 @@
                         // });
                     }
                 })    
-            },    
+            },  
+            gethuifu(){
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "{:U('Feedback/ReplyList')}",
+                    dataType: "json",
+                    data: {id:this.Uid},
+                    success: function (res) {
+                        console.log('>>9999>',res); 
+                        that.replyList =res.data.reply;
+                    }
+                }) 
+            },  
             // 返回上一层
             return(){window.history.go(-1)},
             // 已解决确定按钮
@@ -240,19 +255,20 @@
             },
              //回复
             replys(){
+                var that = this;
                 var inpVla= $('.shuru_input').val();
-                console.log('111',inpVla);
                 $.ajax({
                         cache: false,
                         type: "POST",
                         url: "{:U('Feedback/addReply')}",
                         dataType: "json",
-                        data: {content:inpVla,id:1},
+                        data: {content:inpVla,id:this.Uid},
                         success: function (res) {
-                            console.log('回复按钮');
+                            that.replyList =res.data.reply;
+                            console.log('回复按钮',res);
                             inpVla=''
-                        }
-                    })
+                    }
+                })
             },
         },
     })
