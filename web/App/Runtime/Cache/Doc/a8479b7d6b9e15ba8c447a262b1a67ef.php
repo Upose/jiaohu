@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>config</title>
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <style>
     	/**
     	 * 全局样式
@@ -90,8 +90,8 @@
     		font-size: 12px;
     	}
     </style>
-	<script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script>
-	<script src="/jfyy/Public/static/jquery-2.0.3.min.js""></script>
+	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
+	<script src="/Public/static/jquery-2.0.3.min.js""></script>
 </head>
 <body>
 	<div class="cus-body">
@@ -162,7 +162,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '350px'],
-					content: "<?php echo U('feedback/addconfig');?>"
+					content: "<?php echo U('BackstageManagement/addproblems');?>"
 				});
 			})
 		};
@@ -198,7 +198,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "<?php echo U('Feedback/problem');?>",
+				url: "<?php echo U('BackstageManagement/problem');?>",
 				dataType: "json",
 				data: {
 					pageIndex: pageIndex,

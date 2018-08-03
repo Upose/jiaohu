@@ -10,11 +10,16 @@
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 </head>
+<style>
 
+.layui-logo img{
+width: 80%;
+}
+</style>
 <body>
      <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo">德拓交付应用系统</div>
+            <div class="layui-logo"><img src="__IMG__/logo@2x.png" alt=""></div>
             <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
             <div class="layui-col-md-offset2">
                 <ul class="layui-nav layui-col-md10" lay-filter="">
@@ -29,12 +34,12 @@
                     </li>
                     
                     <li class="layui-nav-item layui-this">
-                        <a href="{:U('feedback/index')}">问题反馈</a>
+                        <a href="{:U('Feedback/index')}">问题反馈</a>
                     </li>
                     </a>
                      
                     <li class="layui-nav-item">
-                        <a href="{:U('KnowledgeSharing/index')}">知识共享</a>
+                        <a href="{:U('KnowledgeSharing/index')} fid=1">知识共享</a>
                     </li>
                    
                     <li class="layui-nav-item">
@@ -72,19 +77,19 @@
                         <dl class="layui-nav-child">
 
                             <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'{:U('feedback/allmap')}',icon:'',title:'综合分析',id:'3'}">
+                               <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/allmap')}',icon:'',title:'综合分析',id:'3'}">
                             <span>综合分析</span>
                                 </a>
                             </dd>
                             
                             <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'{:U('feedback/submit2')}',icon:'',title:'我的反馈',id:'2'}">
+                               <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/submit2')}',icon:'',title:'我的反馈',id:'2'}">
                             <span>我的反馈</span>
                                 </a>
                             </dd>
 
                             <dd>
-                                 <a href="javascript:;" kit-target data-options="{url:'{:U('feedback/productuse')}',icon:'',title:'提交反馈',id:'1'}">
+                                 <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/productuse')}',icon:'',title:'提交反馈',id:'1'}">
                             <span>提交反馈</span>
                                  </a>
                             </dd>
@@ -112,7 +117,6 @@
                         <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>体系信箱</span></a>
                         
                     </li>
-
 
                    
                 </ul>
@@ -155,7 +159,7 @@
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "{:U('Feedback/logout')}",
+                        url: "{:U('Login/logout')}",
                         dataType: "json",
                         data: {},
                         success: function(res) {

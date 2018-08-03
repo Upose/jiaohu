@@ -5,16 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Tea Party</title>
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/build/css/app.css" media="all">
-    <script src="/jfyy/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <script src="/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
-
+<style>
+.layui-header .layui-nav{
+position: relative;
+top: -1vh;
+} 
+.layui-logo img{
+width: 80%;
+}
+</style>
 <body>
      <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo">德拓交付应用系统</div>
+            <div class="layui-logo"><img src="/Public/Doc/images/logo@2x.png" alt=""></div>
             <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
             <div class="layui-col-md-offset2">
                 <ul class="layui-nav layui-col-md10" lay-filter="">
@@ -29,7 +37,7 @@
                     </li>
                     
                     <li class="layui-nav-item layui-this">
-                        <a href="<?php echo U('feedback/index');?>">问题反馈</a>
+                        <a href="<?php echo U('Feedback/index');?>">问题反馈</a>
                     </li>
                     </a>
                      
@@ -72,19 +80,19 @@
                         <dl class="layui-nav-child">
 
                             <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/allmap');?>',icon:'',title:'综合分析',id:'3'}">
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/allmap');?>',icon:'',title:'综合分析',id:'3'}">
                             <span>综合分析</span>
                                 </a>
                             </dd>
                             
                             <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/submit2');?>',icon:'',title:'我的反馈',id:'2'}">
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/submit2');?>',icon:'',title:'我的反馈',id:'2'}">
                             <span>我的反馈</span>
                                 </a>
                             </dd>
 
                             <dd>
-                                 <a href="javascript:;" kit-target data-options="{url:'<?php echo U('feedback/productuse');?>',icon:'',title:'提交反馈',id:'1'}">
+                                 <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/productuse');?>',icon:'',title:'提交反馈',id:'1'}">
                             <span>提交反馈</span>
                                  </a>
                             </dd>
@@ -159,7 +167,7 @@
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "<?php echo U('Feedback/logout');?>",
+                        url: "<?php echo U('Login/logout');?>",
                         dataType: "json",
                         data: {},
                         success: function(res) {
