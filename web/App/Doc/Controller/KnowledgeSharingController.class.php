@@ -44,11 +44,18 @@ class KnowledgeSharingController extends BaseController {
             array_push($res[$v['pid']]['child'], $child);
              array_push($ch,$child);
            }
+<<<<<<< HEAD
+=======
+   
+>>>>>>> 5cd15ff2bf0b50d0e75a0666cebfb9ab30b6ba64
          $this->assign('res', $res);
            
            
             $this->display();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5cd15ff2bf0b50d0e75a0666cebfb9ab30b6ba64
        
     }
 
@@ -120,4 +127,12 @@ class KnowledgeSharingController extends BaseController {
 
     }
 
+<<<<<<< HEAD
+=======
+
+   
+
+
+
+>>>>>>> 5cd15ff2bf0b50d0e75a0666cebfb9ab30b6ba64
 }
