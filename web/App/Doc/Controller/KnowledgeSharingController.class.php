@@ -44,10 +44,13 @@ class KnowledgeSharingController extends BaseController {
             array_push($res[$v['pid']]['child'], $child);
              array_push($ch,$child);
            }
+
+
          $this->assign('res', $res);
            
            
             $this->display();
+
 
        
     }
@@ -119,5 +122,6 @@ class KnowledgeSharingController extends BaseController {
        $this->ajaxReturn($response);
 
     }
+
 
 }
