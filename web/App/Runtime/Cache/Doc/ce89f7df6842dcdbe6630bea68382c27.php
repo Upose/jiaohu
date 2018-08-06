@@ -39,7 +39,7 @@ width: 80%;
                     </a>
                      
                     <li class="layui-nav-item">
-                        <a href="<?php echo U('KnowledgeSharing/index');?> fid=1">知识共享</a>
+                        <a href="<?php echo U('KnowledgeSharing/index');?>">知识共享</a>
                     </li>
                    
                     <li class="layui-nav-item">

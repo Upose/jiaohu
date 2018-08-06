@@ -38,7 +38,7 @@
             <!-- 置顶按钮 -->
             <button class="topping">置顶</button>
             <!-- 项目名称 -->
-            <span class="poj_name"><a href="/mdhtml/database.html">{{item1.name}}</a></span>
+            <span class="poj_name"><a :href="item1.href">{{item1.name}}</a></span>
             <!-- 项目标签 -->
             <button class="poj_label" v-for="val in iem1.keywords">{{val}}</button>
             <!-- 设置按钮 -->
