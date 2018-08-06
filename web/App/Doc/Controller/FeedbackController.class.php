@@ -490,30 +490,36 @@ class FeedbackController extends BaseController {
 
 		//回复人
 		$author = $_SESSION['user_name'];
-		
 
+
+		$uid = $_SESSION['user_id'];
+	
 		//内容
 		$content = I('content');
-		
 		//当前时间
 		$Currytime = date('Y-m-d H:i:s',time());
 
 		//反馈单id
 		$id = I('id');
-
 		$Model = D('reply');
 		    	$data['id'] = '';
-		    	$data['author'] = $author;
+		    	$data['person_id'] = $uid;
 				$data['content'] = $content;
 				$data['update_time'] = $Currytime;
 				$data['f_id'] = $id;
+				
 			
 		$result = $Model->add($data);
 
-  		$replysql = "SELECT rp.author,rp.content,
-		rp.update_time as time
-		FROM reply rp join feedback  fb 
-		on rp.f_id = fb.id where  fb.id = '$id'";
+  		$replysql = "SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '$id' ";
 
 		$reply = M()->query($replysql);
 
@@ -525,18 +531,24 @@ class FeedbackController extends BaseController {
 
 	public function ReplyList()
 	{
-		$id = I('id');
+		$fb_id = I('id');
 
 		//获取回复列表
-		$replysql = "SELECT rp.author,rp.content,
-		rp.update_time as time
-		FROM reply rp join feedback  fb 
-		on rp.f_id = fb.id where  fb.id = '$id' ORDER BY update_time desc";
+		$replysql = "SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '$fb_id' 
+		ORDER BY update_time desc";
 
 		$reply = M()->query($replysql);
 
 		$final['reply'] = $reply;
-		
+	
 		$this->Response(0,$final,'');
 	}
 
