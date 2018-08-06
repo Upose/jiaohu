@@ -238,7 +238,10 @@ class FeedbackController extends BaseController {
 		$pag=($page-1)*10;
 		$time1 =I('starTime');
 		$time2 = I('endTime');
+
+
 		
+
 		 //关键词
 		$keywords = I('keywords');
 		
@@ -254,38 +257,96 @@ class FeedbackController extends BaseController {
 		where fb.name like '%$keywords%'";
 			 if(!empty($time1) && !empty($time2))
 			 {
-	          $sql.="and fb.submit_time BETWEEN '$time1'and '$time2'";
-	          $sql.="limit ".$pag.",10 ";
+	          $sql.="and fb.submit_time BETWEEN '$time1'and '$time2' ORDER BY id ";
+
+	          $sql.=" limit ".$pag.",10 ";
 			 }
 			 else
 			 {
-				$sql.="";
-				$sql.="limit ".$pag.",10";
+				$sql.="ORDER BY id ";
+				$sql.=" limit ".$pag.",10";
 			 }
-			$res = M()->query($sql);
+			
 		    
-    	$usql="SELECT count(*) as count  from feedback ";
+    	
 		
     	if($keywords){
                  $usql .=" where name like '%$keywords%'";
 		          if(!empty($time1) && !empty($time2)){
-		    	      $usql.=" and submit_time BETWEEN '$time1' and '$time2'"; 	
+		    	      $usql.=" and submit_time BETWEEN '$time1' and '$time2'"; 
+		    	     
 		    		}else{
 		    		  $usql.="";
     	            }  
     	 }
     	else{
                    if(!empty($time1) && !empty($time2)){
-		    	      $usql.="where submit_time BETWEEN '$time1'and '$time2'"; 	
+		    	      $usql.="where submit_time BETWEEN '$time1'and '$time2'"; 
+		    	      
 		    		}else{
 		    		  $usql.="";
     	            }  
     	}
+    	$res = M()->query($sql);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    	$sql = "SELECT count(*) as count 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id 
+		where fb.name like '%$keywords%'";
+			 if(!empty($time1) && !empty($time2))
+			 {
+	          $sql.="and fb.submit_time BETWEEN '$time1'and '$time2'";
+
+	         
+			 }
+			 else
+			 {
+				$sql.="";
+				
+			 }
+			
+		    
     	
-		$ures = M()->query($usql);
-		$count =$ures[0]['count'];
-		$response = array('data' => $res,'count' =>$count);
-        $this->ajaxReturn($response);
+		
+    	if($keywords){
+                 $usql .=" where name like '%$keywords%'";
+		          if(!empty($time1) && !empty($time2)){
+		    	      $usql.=" and submit_time BETWEEN '$time1' and '$time2'"; 
+		    	     
+		    		}else{
+		    		  $usql.="";
+    	            }  
+    	 }
+    	else{
+                   if(!empty($time1) && !empty($time2)){
+		    	      $usql.="where submit_time BETWEEN '$time1'and '$time2'"; 
+		    	      
+		    		}else{
+		    		  $usql.="";
+    	            }  
+    	}
+    	$count = M()->query($sql);
+ 
+
+
+		$response = array('data' => $res,'count' =>$count[0]['count']);
+		
+	$this->ajaxReturn($response);
 
 	}
 
