@@ -527,10 +527,6 @@ class FeedbackController extends BaseController {
 	{
 		$id = I('id');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5cd15ff2bf0b50d0e75a0666cebfb9ab30b6ba64
 		//获取回复列表
 		$replysql = "SELECT rp.author,rp.content,
 		rp.update_time as time
@@ -544,9 +540,4 @@ class FeedbackController extends BaseController {
 		$this->Response(0,$final,'');
 	}
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 5cd15ff2bf0b50d0e75a0666cebfb9ab30b6ba64
  }
