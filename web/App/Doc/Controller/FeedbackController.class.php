@@ -488,10 +488,7 @@ class FeedbackController extends BaseController {
 	public function addReply()
 	{
 
-		//回复人
-		$author = $_SESSION['user_name'];
-
-
+		//回复人id
 		$uid = $_SESSION['user_id'];
 	
 		//内容
@@ -501,6 +498,7 @@ class FeedbackController extends BaseController {
 
 		//反馈单id
 		$id = I('id');
+
 		$Model = D('reply');
 		    	$data['id'] = '';
 		    	$data['person_id'] = $uid;
@@ -508,9 +506,10 @@ class FeedbackController extends BaseController {
 				$data['update_time'] = $Currytime;
 				$data['f_id'] = $id;
 				
-			
+		//添加至数据库
 		$result = $Model->add($data);
-
+		
+		//及时更新回复列表
   		$replysql = "SELECT rp.person_id,
 		p.name as author,rp.content,
 		rp.update_time as time,p.img

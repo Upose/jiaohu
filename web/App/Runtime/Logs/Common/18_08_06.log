@@ -868,3 +868,21 @@ INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
 INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
 ERR: 无法加载模块:Public
 
+[ 2018-08-06T16:45:10+08:00 ] ::1 /Updata/Image/2018-08-01/5b61411f5fb42.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Updata
+
+[ 2018-08-06T16:45:10+08:00 ] ::1 /Updata/Image/2018-08-01/5b61411f60ae2.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Updata
+
+[ 2018-08-06T16:45:10+08:00 ] ::1 /Updata/Image/2018-08-01/5b61411f5f372.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Updata
+
