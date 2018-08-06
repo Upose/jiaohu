@@ -71,7 +71,7 @@ class KnowledgeSharingController extends BaseController {
 
         $kw =I('key');
 
-    
+  
     	
 		switch ($typeid)
 		{
@@ -118,8 +118,8 @@ class KnowledgeSharingController extends BaseController {
     	}
 
     	$response = array('top' => $topres,'not_top' =>$not_topres);
-        
-       $this->ajaxReturn($response);
+      // print_r($response);
+    $this->ajaxReturn($response);
 
     }
 

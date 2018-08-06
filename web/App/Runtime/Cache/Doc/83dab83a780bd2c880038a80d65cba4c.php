@@ -11,10 +11,7 @@
     <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
 <style>
-.layui-header .layui-nav{
-position: relative;
-top: -1vh;
-} 
+
 .layui-logo img{
 width: 80%;
 }

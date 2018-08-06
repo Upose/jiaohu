@@ -22,6 +22,11 @@ body{
     /* border: 1px solid black; */
     position: relative;
 }
+
+.container-fluid .list{
+position: relative;
+top: 1.5vh;
+}
 /* 置顶按钮 */
 .topping{
     padding: .2vh .7vw;
@@ -37,7 +42,6 @@ body{
 .poj_name{
     cursor: pointer;
     font-size: 1.6vw;
-    color:rgba(63,63,63,.1);
     font-family:PingFangSC-Medium;
     font-weight: 600;
     position: relative;

@@ -40,7 +40,7 @@
                 <button class="topping">置顶</button>
                 <!-- 项目名称 -->
                 <span class="poj_name">
-                    <a href="">{{item1.name}}</a>
+                    <a href="{{item1.href}}">{{item1.name}}</a>
                 </span>
                 <!-- 项目标签 -->
                 <button class="poj_label" v-for="val in item1.keywords">{{val}}</button>
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="option col-md-12" v-for="item2 in datalist2">
-                <span class="poj_name">{{item2.name}}</span>
+                 <span class="poj_name"><a href="{{item2.href}}">{{item2.name}}</a></span>
                 <button class="poj_label" v-for="val in item2.keywords">{{val}}</button>
                 <div class="icon1">
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
@@ -88,12 +88,23 @@
             listTitle1: '',
             datalist1: [],
             datalist2: [],
+
         },
         created: function () {
-            this.getList(0);
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1); //substr()方法返回从参数值开始到结束的字符串；
+                var strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            this.Uid = theRequest.f_id;
+            this.getList(0,this.Uid);
         },
         methods: {
-            getList(typeID) {
+            getList(typeID,Uid) {
                 var that = this;
                 var keyword = $(".form-control").val();
                 $.ajax({
@@ -101,12 +112,12 @@
                     type: "post",
                     url: "{:U('KnowledgeSharing/articlesList')}",
                     dataType: "json",
-                    data: { f_id: "1", typeid: typeID, key: keyword },
+                    data: { f_id:Uid, typeid: typeID, key: keyword },
                     success: function (data) {
                         that.datalist1 = data.top;
                         that.datalist2 = data.not_top;
-                        // console.log(that.datalist1);
-                        // console.log(that.datalist2);
+                         console.log(that.datalist1);
+                        console.log(that.datalist2);
                     }
                 })
             },
