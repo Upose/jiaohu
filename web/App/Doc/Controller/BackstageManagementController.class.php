@@ -96,7 +96,6 @@ class BackstageManagementController extends BaseController{
 				product.name AS aname,
 				product_s.id,product_s.name,
 				product_s.summary,
-				product_s.status,
 				product_s.f_id
 				FROM product 
 				LEFT JOIN product_s 

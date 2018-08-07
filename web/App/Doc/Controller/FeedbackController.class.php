@@ -192,7 +192,6 @@ class FeedbackController extends BaseController {
 	
 	    }
 
-		$this->redirect('Feedback/MyFeedback');
 
 	}
 
