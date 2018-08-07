@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>fankui</title>
-    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
-    <link rel="stylesheet" href="__CSS__/submit2.css" media="all">
-    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
-    <script src="__DOCLAY__/plugins/layui/layui.js"></script> 
-    <script src="__STATIC__/vue.min.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/css/submit2.css" media="all">
+    <script src="/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script> 
+    <script src="/Public/static/vue.min.js"></script>
 </head>
 <body>
    <div class="new">
@@ -66,7 +66,7 @@
     <div id="test3"></div>
    </div>
 </body>
-  <!--<script src="__DOCLAY__/plugins/layui/layui.js"></script> -->
+  <!--<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script> -->
 <script>
     var app = new Vue({
         el: '.new',
@@ -91,7 +91,7 @@
                 $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "{:U('Feedback/FeedbackList')}",
+                    url: "<?php echo U('Feedback/FeedbackList');?>",
                     dataType: "json",
                     data: {starTime:starTime,
                     endTime:endTime,
@@ -130,7 +130,7 @@
             },
             //跳转页面
             openNew(val){
-            window.location.href = "{:U('Feedback/submit3')}"+"&id="+val
+            window.location.href = "<?php echo U('Feedback/MyFeedbackCheck');?>"+"&id="+val
             },
             //搜索按钮
             searchInput(){
@@ -142,7 +142,7 @@
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "{:U('Feedback/FeedbackList')}",
+                        url: "<?php echo U('Feedback/FeedbackList');?>",
                         dataType: "json",
                 data:{starTime:starTime,
                     endTime:endTime,
