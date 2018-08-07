@@ -162,7 +162,7 @@ class FeedbackController extends BaseController {
         $upload->savePath = 'Image/'; 
 
 	    $info =  $upload->upload();
-	  
+
 	    if($info)
 	    {
 			for($i = 0;$i<count($info);$i++)
@@ -179,6 +179,8 @@ class FeedbackController extends BaseController {
 			$data1['type'] = $type;
 			$data1['path'] = $newpath;
 			$data1['f_id'] = $result;
+			$data1['update_time'] = $Currytime;
+			$data1['submit_person_id'] =$_SESSION['user_id'];
 			$res = $Model->add($data1);
 
 			}
