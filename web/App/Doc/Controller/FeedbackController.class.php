@@ -163,7 +163,7 @@ class FeedbackController extends BaseController {
 
 	    $info =  $upload->upload();
 	   
-	   file_put_contents("111.txt",json_encode($info));
+	   //file_put_contents("111.txt",json_encode($info));
 	    if($info)
 	    {
 			for($i = 0;$i<count($info);$i++)
