@@ -3,6 +3,10 @@ namespace Doc\Controller;
 use Think\Controller;
 use think\Session;
 
+
+//php环境默认时差与北京时间相差8小时，
+//获取正确的时间就必须设置
+date_default_timezone_set('prc');
 /**
  * 后台管理模块控制器
  * @author fang.yu
@@ -37,15 +41,18 @@ class BackstageManagementController extends BaseController{
         $name=I('name');
     	$summary=I('summary');
     	$status=I('status');
-
+      $Currytime = date('Y-m-d H:i:s',time());
+      $update_time = $Currytime;
+      $submit_person_id=$_SESSION['user_id'];
+    
     	if(empty($name) ||empty($summary) ||empty($status))
     	{
            $this->Response(0,'添加失败','');
     	}
     	else
     	{
-    	   $sql="insert into problem_classification (name,summary,status) 
-    	   values ('$name','$summary','$status')";
+    	   $sql="insert into problem_classification (name,update_time,submit_person_id,summary,status) 
+    	   values ('$name','$update_time','$submit_person_id','$summary','$status')";
 
            $res = M()->execute($sql);
            $this->Response(0,'添加成功','');
@@ -197,18 +204,7 @@ class BackstageManagementController extends BaseController{
 
     }
 
-    //以下接口是属于知识共享一二级菜单动态更改
     
-     /**
-     * 查询所有一二级菜单接口
-     * @author fang.yu
-     * 2018-08-02
-     */
-    public function menuQuery()
-    {
-      
-      
-    }
 
 
 }

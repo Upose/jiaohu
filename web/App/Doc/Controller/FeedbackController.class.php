@@ -154,6 +154,7 @@ class FeedbackController extends BaseController {
 		//以图片格式上传
 		//设置附件上传大小
 	  	$upload->maxSize=3145728;
+	  	$upload->saveName = time()."dt".rand(0,10); //保持文件名不变
 	  	// 设置附件上传类型
 	    $upload->exts=array('jpg','gif','png','jpeg');
 	    // 设置附件上传根目录
@@ -162,7 +163,8 @@ class FeedbackController extends BaseController {
         $upload->savePath = 'Image/'; 
 
 	    $info =  $upload->upload();
-	  
+	    file_put_contents("11112.txt", json_encode($info));
+	    file_put_contents("11113.txt", json_encode($upload));
 	    if($info)
 	    {
 			for($i = 0;$i<count($info);$i++)
@@ -179,12 +181,15 @@ class FeedbackController extends BaseController {
 			$data1['type'] = $type;
 			$data1['path'] = $newpath;
 			$data1['f_id'] = $result;
+			$data1['update_time'] = $Currytime;
+			$data1['submit_person_id'] =$_SESSION['user_id'];
 			$res = $Model->add($data1);
 
 			}
-		
-			
+	
 	    }
+
+	   
 	    
 		$this->redirect('Feedback/submit2');
 
