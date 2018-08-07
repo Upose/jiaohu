@@ -162,8 +162,7 @@ class FeedbackController extends BaseController {
         $upload->savePath = 'Image/'; 
 
 	    $info =  $upload->upload();
-	   
-	   file_put_contents("111.txt",json_encode($info));
+	  
 	    if($info)
 	    {
 			for($i = 0;$i<count($info);$i++)
@@ -172,8 +171,8 @@ class FeedbackController extends BaseController {
 	    	$name  = $info[$i]['name'];
 	    	$savename  = $info[$i]['savename'];
 	    	$path  = "Updata/".$info[$i]['savepath'];
-	    	$newpath = "$path$savename";
-	    	
+	    	$newpath = $path.$savename;
+
 	    	$Model = D('file');
 	    	$data1['id'] = '';
 	    	$data1['name'] = $name;
@@ -200,8 +199,17 @@ class FeedbackController extends BaseController {
      */
 	public function FeedbackList()
 	{
+		//页数
 		$page=intval(I('page'));
 		$pag=($page-1)*10;
+
+		//起止时间
+		$time1 =I('starTime');
+		$time2 = I('endTime');
+
+		//关键词
+		$keywords = I('keywords');
+
 		//因为feedback表中只储存了各个关联表的外键，所以五表join查询
 		$sql = "SELECT fb.id,fb.name,ps.name as project_name,
 		pd.name as product_name,pc.name as classification_name,
@@ -210,13 +218,61 @@ class FeedbackController extends BaseController {
 		JOIN project_source ps on fb.ps_id = ps.id 
 		JOIN product pd on fb.pd_id = pd.id 
 		JOIN problem_classification pc on fb.pc_id = pc.id 
-		JOIN priority pr on fb.priority = pr.id ORDER BY fb.id limit $pag,10";
+		JOIN priority pr on fb.priority = pr.id ";
 
+		if(empty($time1)&&empty($time2)&&empty($keywords))
+		{
+			$sql.=" order by id desc limit ".$pag.",10 ";
+		}
+		if(empty($time1)&&empty($time2)&&!empty($keywords))
+		{
+			$sql.=" where fb.name like '%".$keywords."%' 
+					order by id desc limit ".$pag.",10 ";
+		}
+		if(!empty($time1)&&!empty($time2)&&empty($keywords))
+		{
+			$sql.=" where fb.submit_time BETWEEN '$time1' and '$time2' 
+					 order by id desc limit ".$pag.",10 ";
+		}
+
+		if(!empty($time1)&&!empty($time2)&&!empty($keywords))
+		{
+			$sql.=" where fb.name like '%$keywords%' 
+			and fb.submit_time BETWEEN '$time1' and '$time2'
+			 order by id desc limit ".$pag.",10 ";
+		}
+ 		
 		$res = M()->query($sql);
-		$usql="select count(*) as count from feedback";
+
+		//统计条件查询的总数 查多少统计多少
+		$usql = "SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id ";
+
+		if(empty($time1)&&empty($time2)&&empty($keywords))
+		{
+			$usql.="";
+		}
+		if(empty($time1)&&empty($time2)&&!empty($keywords))
+		{
+			$usql.=" where fb.name like '%".$keywords."%'";
+		}
+		if(!empty($time1)&&!empty($time2)&&empty($keywords))
+		{
+			$usql.=" where fb.submit_time BETWEEN '$time1' and '$time2'";
+		}
+		if(!empty($time1)&&!empty($time2)&&!empty($keywords))
+		{
+			$usql.=" where fb.name like '%$keywords%' 
+			and fb.submit_time BETWEEN '$time1' and '$time2'";
+		}
+		
 		$ures = M()->query($usql);
 		$count =$ures[0]['count'];
-
+		
 		$response = array('data' => $res,'count' =>$count);
 
     	$this->ajaxReturn($response);
@@ -224,121 +280,6 @@ class FeedbackController extends BaseController {
 
 	}
 
-
-	/**
-	 * 按条件搜索得到的反馈列表接口
-	 * 前端选择限定条件进行显示
-	 * @author fang.yu
-	 * 2018-07-26
-	 */
-	public function SearchFeedbackList()
-	{
-
-		$page=intval(I('page'));
-		$pag=($page-1)*10;
-		$time1 =I('starTime');
-		$time2 = I('endTime');
-
-
-		
-
-		 //关键词
-		$keywords = I('keywords');
-		
-
-	    $sql = "SELECT fb.id,fb.name,ps.name as project_name,
-		pd.name as product_name,pc.name as classification_name,
-		fb.submit_time,pr.name as priority 
-		from feedback fb 
-		JOIN project_source ps on fb.ps_id = ps.id 
-		JOIN product pd on fb.pd_id = pd.id 
-		JOIN problem_classification pc on fb.pc_id = pc.id 
-		JOIN priority pr on fb.priority = pr.id 
-		where fb.name like '%$keywords%'";
-			 if(!empty($time1) && !empty($time2))
-			 {
-	          $sql.="and fb.submit_time BETWEEN '$time1'and '$time2' ORDER BY id ";
-
-	          $sql.=" limit ".$pag.",10 ";
-			 }
-			 else
-			 {
-				$sql.="ORDER BY id ";
-				$sql.=" limit ".$pag.",10";
-			 }
-			
-		    
-    	
-		
-    	if($keywords){
-                 $usql .=" where name like '%$keywords%'";
-		          if(!empty($time1) && !empty($time2)){
-		    	      $usql.=" and submit_time BETWEEN '$time1' and '$time2'"; 
-		    	     
-		    		}else{
-		    		  $usql.="";
-    	            }  
-    	 }
-    	else{
-                   if(!empty($time1) && !empty($time2)){
-		    	      $usql.="where submit_time BETWEEN '$time1'and '$time2'"; 
-		    	      
-		    		}else{
-		    		  $usql.="";
-    	            }  
-    	}
-    	$res = M()->query($sql);
-
-
-
-    	$sql = "SELECT count(*) as count 
-		from feedback fb 
-		JOIN project_source ps on fb.ps_id = ps.id 
-		JOIN product pd on fb.pd_id = pd.id 
-		JOIN problem_classification pc on fb.pc_id = pc.id 
-		JOIN priority pr on fb.priority = pr.id 
-		where fb.name like '%$keywords%'";
-			 if(!empty($time1) && !empty($time2))
-			 {
-	          $sql.="and fb.submit_time BETWEEN '$time1'and '$time2'";
-
-	         
-			 }
-			 else
-			 {
-				$sql.="";
-				
-			 }
-			
-		    
-    	
-		
-    	if($keywords){
-                 $usql .=" where name like '%$keywords%'";
-		          if(!empty($time1) && !empty($time2)){
-		    	      $usql.=" and submit_time BETWEEN '$time1' and '$time2'"; 
-		    	     
-		    		}else{
-		    		  $usql.="";
-    	            }  
-    	 }
-    	else{
-                   if(!empty($time1) && !empty($time2)){
-		    	      $usql.="where submit_time BETWEEN '$time1'and '$time2'"; 
-		    	      
-		    		}else{
-		    		  $usql.="";
-    	            }  
-    	}
-    	$count = M()->query($sql);
- 
-
-
-		$response = array('data' => $res,'count' =>$count[0]['count']);
-		
-	$this->ajaxReturn($response);
-
-	}
 
 
 	/**

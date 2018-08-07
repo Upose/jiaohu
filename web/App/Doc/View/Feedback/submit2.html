@@ -91,7 +91,7 @@
                 $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "{:U('Feedback/SearchFeedbackList')}",
+                    url: "{:U('Feedback/FeedbackList')}",
                     dataType: "json",
                     data: {starTime:starTime,
                     endTime:endTime,
@@ -138,14 +138,17 @@
                 var starTime = $("#test1").val();
                 var endTime = $("#test2").val();
                 var keywords = $("#keywords").val();
+                _this.pageIndex =1;
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "{:U('Feedback/SearchFeedbackList')}",
+                        url: "{:U('Feedback/FeedbackList')}",
                         dataType: "json",
                 data:{starTime:starTime,
                     endTime:endTime,
-                    keywords:keywords,page: _this.pageIndex || 1,limit:_this.limit || 10},
+                    keywords:keywords,
+                    page: _this.pageIndex || 1,
+                    limit:_this.limit || 10},
                         success: function (res) {
                             _this.arrList= res.data;
                             _this.counts=res.count;
