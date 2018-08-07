@@ -5,16 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Tea Party</title>
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/build/css/app.css" media="all">
-    <script src="/jfyy/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <script src="/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
-
+<style>
+.layui-logo img{
+width: 80%;
+}
+</style>
 <body>
      <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo">德拓交付应用系统</div>
+            <div class="layui-logo"><img src="/Public/Doc/images/logo@2x.png" alt=""></div>
             <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
             <div class="layui-col-md-offset2">
                 <ul class="layui-nav layui-col-md10" lay-filter="">
@@ -69,28 +73,28 @@
                 <!-- 标志 点赞 &#xe6c6 重要 &#xe658;-->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
+         
 
-                      <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>知识共享</span></a>
-                        <dl class="layui-nav-child">
-                            <dd>
-                                 <a href="javascript:;" kit-target data-options="{url:'<?php echo U('/');?>',icon:'',title:'知识共享',id:'1'}">
-                            <span>知识共享</span>
-                                 </a>
-                            </dd>
-                            <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('/');?>',icon:'',title:'知识共享',id:'2'}">
-                            <span>知识共享</span>
-                                </a>
-                            </dd>
+                      <?php if(is_array($res)): foreach($res as $key=>$f): ?><li class="layui-nav-item">
+                            <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span><?php echo ($f[pname]); ?></span></a>
 
-                        </dl>
-                    </li>
-                    
 
-                  
+                            <dl class="layui-nav-child">
+                                 <?php if(is_array($f[child])): foreach($f[child] as $key=>$vo): ?><dd>
+                                   <a href="javascript:;" kit-target data-options="{url:'<?php echo U('KnowledgeSharing/document _m');?>'+'&f_id='+<?php echo ($vo[cid]); ?>,icon:'',title:'<?php echo ($vo[cname]); ?>',id:'<?php echo ($vo[cid]); ?>'}">
+                                <span><?php echo ($vo[cname]); ?></span>
+                               
+                                    </a>
+                                </dd><?php endforeach; endif; ?>
 
-                   
+
+
+
+                            </dl>
+
+                         
+                        </li><?php endforeach; endif; ?>
+
                 </ul>
             </div>
         </div>
@@ -131,7 +135,7 @@
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "<?php echo U('Feedback/logout');?>",
+                        url: "<?php echo U('Login/logout');?>",
                         dataType: "json",
                         data: {},
                         success: function(res) {

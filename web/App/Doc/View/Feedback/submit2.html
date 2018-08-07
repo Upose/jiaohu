@@ -84,15 +84,20 @@
             //进入页面获取数据
             getList () {
                 // console.log('-----------')
-                var that =this  
+                var that =this  ;
+                var starTime = $("#test1").val();
+                var endTime = $("#test2").val();
+                var keywords = $("#keywords").val();
                 $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "{:U('Feedback/FeedbackList')}",
+                    url: "{:U('Feedback/SearchFeedbackList')}",
                     dataType: "json",
-                    data: { page: that.pageIndex || 1,limit:that.limit || 10},
+                    data: {starTime:starTime,
+                    endTime:endTime,
+                    keywords:keywords,page: that.pageIndex || 1,limit:that.limit || 10},
                     success: function (res) {
-                        console.log('333', res.data);
+                        // console.log('333', res.data);
                         that.arrList = res.data;
                         that.counts=res.count;
                         console.log('330099993', res);
@@ -125,7 +130,7 @@
             },
             //跳转页面
             openNew(val){
-            window.location.href = "{:U('feedback/submit3')}"+"&id="+val
+            window.location.href = "{:U('Feedback/submit3')}"+"&id="+val
             },
             //搜索按钮
             searchInput(){
@@ -144,6 +149,7 @@
                         success: function (res) {
                             _this.arrList= res.data;
                             _this.counts=res.count;
+
                             console.log(res.count)
                             _this.layPage(); //分页
 

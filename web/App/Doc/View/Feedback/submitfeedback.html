@@ -19,10 +19,10 @@
             <label class="tit">优先级</label>
             <input type="hidden" name="pd_id" :value="oid"/>
             <input type="hidden" name="pds_id" :value="nid"/>
-            <input class="radio_input" type="radio" name="priority" id="" value="0" v-model="titVal">紧急
-            <input class="radio_input" type="radio" name="priority" id="" value="1" v-model="titVal">重要
-            <input class="radio_input" type="radio" name="priority" id="" value="2" v-model="titVal">一般
-            <input class="radio_input" type="radio" name="priority" id="" value="3" v-model="titVal">优化
+            <input class="radio_input" type="radio" name="priority" id="" value="1" v-model="titVal">紧急
+            <input class="radio_input" type="radio" name="priority" id="" value="2" v-model="titVal">重要
+            <input class="radio_input" type="radio" name="priority" id="" value="3" v-model="titVal">一般
+            <input class="radio_input" type="radio" name="priority" id="" value="4" v-model="titVal">优化
             <label class="tit">问题分类</label>
             <select name="pc_id" id="" v-model="message.type" required>
                 <option v-for="item in selectList1" :value="item.pc_id">    {{item.name}}</option>

@@ -5,16 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Tea Party</title>
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/build/css/app.css" media="all">
-    <script src="/jfyy/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <script src="/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
+<style>
 
+.layui-logo img{
+width: 80%;
+}
+</style>
 <body>
      <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo">德拓交付应用系统</div>
+            <div class="layui-logo"><img src="/Public/Doc/images/logo@2x.png" alt=""></div>
             <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
             <div class="layui-col-md-offset2">
                 <ul class="layui-nav layui-col-md10" lay-filter="">
@@ -88,6 +93,8 @@
                         </dl>
                     </li>
 
+                    
+
                    
                    
                 </ul>
@@ -130,7 +137,7 @@
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "<?php echo U('Feedback/logout');?>",
+                        url: "<?php echo U('Login/logout');?>",
                         dataType: "json",
                         data: {},
                         success: function(res) {

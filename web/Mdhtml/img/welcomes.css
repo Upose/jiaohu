@@ -1,0 +1,53 @@
+body{
+     padding: 6vh 3vw 0 3vw;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.left{
+    display: inline-block;
+    position: relative;
+    width: 35vw;
+    height: 90vh;
+}
+/*.left img{
+    width: 16vw;
+}*/
+.right{
+    background-image: url('bgc.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 55vw;
+    float: right;
+    display: inline-block;
+}
+.content{
+    position: absolute;
+    top: 0vh;
+    /*left: 3vw;*/
+}
+.content P{
+    color: rgb(44,55,101);
+    font-size: 3.5vw;
+    font-weight: 600;
+}
+.biaoqian{  
+    position: absolute;
+    top: 50vh;
+    /*left: 3vw;*/
+}
+.biaoqian a{
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid rgb(131,161,255);
+    padding:.4vh 1vw;
+    border-radius: 20px;
+    color: rgb(44,55,101);
+    cursor: pointer;
+}
+.biaoqian .choosed{
+    background: rgb(91,130,254);
+    color: #fff;
+}

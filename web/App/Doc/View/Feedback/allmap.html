@@ -116,7 +116,7 @@
                             }
                         },
                         legend: {
-                            data: ['直接访问', '邮件营销'], 
+                            data: ['已提交', '已解决'], 
                             x:"center", 
                             // y:"bottom",
                             // // margin:6
@@ -136,11 +136,11 @@
                         },
                         yAxis: {
                             type: 'category',
-                            data: ['分类四','分类三','分类二','分类一']
+                            data: ['项目四','项目三','项目二','项目一']
                         },
                         series: [
                             {
-                                name: '直接访问',
+                                name: '已提交',
                                 type: 'bar',
                                 stack: '总量',
                                 barWidth :25,
@@ -157,7 +157,7 @@
 
                             },
                             {
-                                name: '邮件营销',
+                                name: '已解决',
                                 type: 'bar',
                                 stack: '总量',
                                 label: {
@@ -604,7 +604,7 @@
                                 center: ['25%', '40%'],
                                 radius: '60%',
                                 detail: {formatter:'{value}%'},
-                                data: [{value:60, name: '完成率'}],
+                                data: [{value:60, name: 'BUG修复'}],
                                 axisLine: { // 坐标轴线
                                     lineStyle: { // 属性lineStyle控制线条样式
                                         color: [
@@ -671,7 +671,7 @@
                                 center: ['70%', '40%'],
                                 radius: '60%',
                                 detail: {formatter:'{value}%'},
-                                data: [{value:20, name: '完成率'}],
+                                data: [{value:20, name: '操作指导'}],
                                 axisLine: { // 坐标轴线
                                     lineStyle: { // 属性lineStyle控制线条样式
                                         color: [

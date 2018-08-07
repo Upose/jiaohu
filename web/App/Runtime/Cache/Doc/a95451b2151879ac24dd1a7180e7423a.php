@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>fankui</title>
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/jfyy/Public/Doc/doclay/build/css/app.css" media="all">
-    <link rel="stylesheet" href="/jfyy/Public/Doc/css/submit2.css" media="all">
-    <script src="/jfyy/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script> 
-    <script src="/jfyy/Public/static/vue.min.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/css/submit2.css" media="all">
+    <script src="/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script> 
+    <script src="/Public/static/vue.min.js"></script>
 </head>
 <body>
    <div class="new">
@@ -66,7 +66,7 @@
     <div id="test3"></div>
    </div>
 </body>
-  <!--<script src="/jfyy/Public/Doc/doclay/plugins/layui/layui.js"></script> -->
+  <!--<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script> -->
 <script>
     var app = new Vue({
         el: '.new',
@@ -84,15 +84,20 @@
             //进入页面获取数据
             getList () {
                 // console.log('-----------')
-                var that =this  
+                var that =this  ;
+                var starTime = $("#test1").val();
+                var endTime = $("#test2").val();
+                var keywords = $("#keywords").val();
                 $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "<?php echo U('Feedback/FeedbackList');?>",
+                    url: "<?php echo U('Feedback/SearchFeedbackList');?>",
                     dataType: "json",
-                    data: { page: that.pageIndex || 1,limit:that.limit || 10},
+                    data: {starTime:starTime,
+                    endTime:endTime,
+                    keywords:keywords,page: that.pageIndex || 1,limit:that.limit || 10},
                     success: function (res) {
-                        console.log('333', res.data);
+                        // console.log('333', res.data);
                         that.arrList = res.data;
                         that.counts=res.count;
                         console.log('330099993', res);
@@ -125,7 +130,7 @@
             },
             //跳转页面
             openNew(val){
-            window.location.href = "<?php echo U('feedback/submit3');?>"+"&id="+val
+            window.location.href = "<?php echo U('Feedback/submit3');?>"+"&id="+val
             },
             //搜索按钮
             searchInput(){
@@ -144,6 +149,7 @@
                         success: function (res) {
                             _this.arrList= res.data;
                             _this.counts=res.count;
+
                             console.log(res.count)
                             _this.layPage(); //分页
 
