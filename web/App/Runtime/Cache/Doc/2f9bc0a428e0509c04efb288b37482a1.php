@@ -6,91 +6,13 @@
 	<title>Document</title>
     <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <style>
-    	/**
-    	 * 全局样式
-    	 */
-    	* {
-    		box-sizing: border-box;
-    	}
-
-    	html, body {
-    		font: inherit;
-    		color: inherit;
-    		font-family: PingFangSC;
-    	}
-
-    	/**
-    	 * 自定义样式
-    	 */
-    	.cus-body {
-    		height: 100%;
-    		widows: 100%;
-    		padding: 0px 74px;
-    	}
-
-    	.cus-btn {
-    		padding: 4px 8px;
-    		border-radius: 4px;
-    		border: 1px solid rgba(7, 200, 141, 1);
-    		background: rgba(7, 200, 141, 1);
-    		color: #fff;
-    		cursor: pointer;
-    		margin-top: 10px;
-    	}
-
-    	.cus-fixed-btn {
-    		position: fixed;
-    		bottom: 30px;
-    		right: 20px;
-    	}
-
-    	.btn-cancle {
-    		background: #fff;
-    		border: 1px solid rgba(217, 217, 217, 1);
-    		color: #000;
-    	}
-
-    	.cus-tr-bold > th {
-    		font-weight: bold;
-    	}
-
-    	.cus-enable {
-    		color: #4A90E2;
-    		cursor: pointer;
-    	}
-
-    	.cus-disable {
-    		color: rgba(236, 65, 65, 0.65);
-    		cursor: pointer;
-    	}
-
-    	.cus-model {
-    		padding: 10px;
-    		font-size: 12px;
-    	}
-
-    	.cus-fontbold {
-    		font-weight: bold;
-    	}
-
-    	/**
-    	 * 对layui的样式重置
-    	 */
-    	.layui-form-label, .layui-layer-title {
-    		font-size: 14px;
-    		font-weight: bold;
-    	}
-
-    	.layui-form-radio > span, .layui-layer-btn, .cus-btn, .cus-tr-bold > th, .cus-table > tbody > tr > td {
-    		font-size: 12px;
-    	}
+    	
     </style>
 	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 	<script src="/Public/static/jquery-2.0.3.min.js""></script>
 </head>
 <body>
 	<div id="add-content" class="cus-model">
-        <input type="hidden" id="edit-id" />
 		<form action="" class="layui-form">
 			<div class="layui-form-item">
 				<label class="layui-form-label">名称:</label>
@@ -107,7 +29,7 @@
 			<div class="layui-form-item" id="level">
 				<label class="layui-form-label">层级:</label>
 				<div class="layui-input-block">
-					<input type="radio" name="sex" value="1" title="父级" checked class="layer">
+					<input type="radio" name="sex" value="1" title="父级" checked class="layer" id="parent-level">
 					<input type="radio" name="sex" value="2" title="子级" class="layer" id="child-level">
 				</div>
 			</div>
@@ -130,7 +52,6 @@
 	<script>
 		var submitForm = document.getElementById('submitForm');
 		var submitCancle = document.getElementById('submitCancle');
-        console.log($('#edit-id').val())
 
 		// form表单初始化
 		layui.use('form', function() {
@@ -141,6 +62,7 @@
 		submitForm.onclick = function() {
 			var product_name = $('#product_name').val();
 			var product_describe = $('#product_describe').val();
+            var id = $('#edit-id').val();
 			
 			// 表单验证
 			if(product_name == '' || product_describe === '') {
@@ -159,29 +81,36 @@
 				return false;
 			}
 
-			$.ajax({
-				cache: false,
-				async: false,
-				type: "POST",
-				url: "<?php echo U('BackstageManagement/addProduct');?>",
-				dataType: "json",
-				data: {
-					name: $('#product_name').val(),
-					summary: $('#product_describe').val(),
-					level: $('.layer:checked').val(),
-					f_id: $('#parent-level select').val()
-				},
-				success: function(res) {
-		    		window.parent.location.reload();
-				},
-				fail: function(err) {
-					console.log(err);
-				}
-			});
+            if(id) {
+                // 编辑
+                
+            } else {
+                // 添加
+                $.ajax({
+                    cache: false,
+                    async: false,
+                    type: "POST",
+                    url: "<?php echo U('BackstageManagement/addProduct');?>",
+                    dataType: "json",
+                    data: {
+                        name: $('#product_name').val(),
+                        summary: $('#product_describe').val(),
+                        level: $('.layer:checked').val(),
+                        f_id: $('#parent-level select').val()
+                    },
+                    success: function(res) {
+                        // window.parent.location.reload();
+                    },
+                    fail: function(err) {
+                        console.log(err);
+                    }
+                });
+            }
 		};
 		
 		// 点击取消按钮
 		submitCancle.onclick = function() {
+            $('#edit-id').val('');
 		    window.parent.location.reload();
 		};
 		

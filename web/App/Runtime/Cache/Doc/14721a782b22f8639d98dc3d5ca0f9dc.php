@@ -5,91 +5,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>feedback</title>
     <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <style>
-    	/**
-    	 * 全局样式
-    	 */
-    	* {
-    		box-sizing: border-box;
-    	}
-
-    	html, body {
-    		font: inherit;
-    		color: inherit;
-    		font-family: PingFangSC;
-    	}
-
-    	/**
-    	 * 自定义样式
-    	 */
-    	.cus-body {
-    		height: 100%;
-    		widows: 100%;
-    		padding: 0px 74px;
-    	}
-
-    	.cus-btn {
-    		padding: 4px 8px;
-    		border-radius: 4px;
-    		border: 1px solid rgba(7, 200, 141, 1);
-    		background: rgba(7, 200, 141, 1);
-    		color: #fff;
-    		cursor: pointer;
-    		margin-top: 10px;
-    	}
-
-    	.cus-fixed-btn {
-    		position: fixed;
-    		bottom: 30px;
-    		right: 20px;
-    	}
-
-    	.btn-cancle {
-    		background: #fff;
-    		border: 1px solid rgba(217, 217, 217, 1);
-    		color: #000;
-    	}
-
-    	.cus-tr-bold > th {
-    		font-weight: bold;
-    	}
-
-    	.cus-enable {
-    		color: #4A90E2;
-    		cursor: pointer;
-    	}
-
-    	.cus-disable {
-    		color: rgba(236, 65, 65, 0.65);
-    		cursor: pointer;
-    	}
-
-    	.cus-enable span, .cus-disable span {
-    		margin: 0px 5px;
-    		cursor: pointer;
-    	}
-
-    	.cus-model {
-    		padding: 10px;
-    		font-size: 12px;
-    	}
-
-    	.cus-fontbold {
-    		font-weight: bold;
-    	}
-
-    	/**
-    	 * 对layui的样式重置
-    	 */
-    	.layui-form-label, .layui-layer-title {
-    		font-size: 14px;
-    		font-weight: bold;
-    	}
-
-    	.layui-form-radio > span, .layui-layer-btn, .cus-btn, .cus-tr-bold > th, .cus-table > tbody > tr > td {
-    		font-size: 12px;
-    	}
-    </style>
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
 	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 	<script src="/Public/static/jquery-2.0.3.min.js""></script>
 </head>
@@ -138,7 +54,7 @@
 				str += '<tr><td colspan="4" style="font-weight: bold; font-size: 14px;">'+ item.name +'</td><td class="cus-enable delete" _id="'+ item.id +'">删除</td></tr>';
 				data.res.forEach(function(_item, _idx) {
 					if(_item.aname === item.name) {
-						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td class="cus-disable">'+ item.name +'</td><td class="cus-enable"><span class="cus-enable edit" _id="'+ _item.id +'">编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ _item.id +'" style="color: rgba(236, 65, 65, 0.65);">删除</span></td></tr>';
+						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td class="cus-disable">'+ item.name +'</td><td class="cus-enable"><span class="cus-enable edit" _id="'+ _item.id +'">编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ _item.id +'" style="color: rgba(236, 65, 65, 0.65); margin-left: 10px;">删除</span></td></tr>';
 					}
 				});
 			});
@@ -201,11 +117,29 @@
                     shadeClose: true,
                     closeBtn: 1,
                     area: ['500px', '400px'],
-                    content: "<?php echo U('BackstageManagement/addproducts');?>",
+                    content: "<?php echo U('BackstageManagement/EditProducts');?>",
                     success: function(layero, idx) {
                         var body = layui.layer.getChildFrame('body', idx);
-                        body.find('#edit-id').val(id);
-                        var iptblock = $(body).find('#parent-level').hide();
+                        $.ajax({
+                            cache: false,
+                            async: false,
+                            type: "POST",
+                            url: "<?php echo U('BackstageManagement/updatee');?>",
+                            dataType: "json",
+                            data: {
+                                id: id
+                            },
+                            success: function(res) {
+                                var o = res.data[0];
+                                body.find('#product_name').val(o.name);
+                                body.find('#edit_id').val(id);
+                                body.find('#product_describe').val(o.summary);
+                                body.find('#parent-level select').val(o.f_id);
+                            },
+                            fail: function(err) {
+                                console.log(err);
+                            }
+                        });
                     }
                 });
             })
