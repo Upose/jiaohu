@@ -5,91 +5,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>config</title>
     <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <style>
-    	/**
-    	 * 全局样式
-    	 */
-    	* {
-    		box-sizing: border-box;
-    	}
-
-    	html, body {
-    		font: inherit;
-    		color: inherit;
-    		font-family: PingFangSC;
-    	}
-
-    	/**
-    	 * 自定义样式
-    	 */
-    	.cus-body {
-    		height: 100%;
-    		widows: 100%;
-    		padding: 0px 74px;
-    	}
-
-    	.cus-btn {
-    		padding: 4px 8px;
-    		border-radius: 4px;
-    		border: 1px solid rgba(7, 200, 141, 1);
-    		background: rgba(7, 200, 141, 1);
-    		color: #fff;
-    		cursor: pointer;
-    		margin-top: 10px;
-    	}
-
-    	.cus-fixed-btn {
-    		position: fixed;
-    		bottom: 30px;
-    		right: 20px;
-    	}
-
-    	.btn-cancle {
-    		background: #fff;
-    		border: 1px solid rgba(217, 217, 217, 1);
-    		color: #000;
-    	}
-
-    	.cus-tr-bold > th {
-    		font-weight: bold;
-    	}
-
-    	.cus-enable {
-    		color: #4A90E2;
-    		cursor: pointer;
-    	}
-
-    	.cus-disable {
-    		color: rgba(236, 65, 65, 0.65);
-    		cursor: pointer;
-    	}
-
-    	.cus-enable span, .cus-disable span {
-    		margin: 0px 5px;
-    		cursor: pointer;
-    	}
-
-    	.cus-model {
-    		padding: 10px;
-    		font-size: 12px;
-    	}
-
-    	.cus-fontbold {
-    		font-weight: bold;
-    	}
-
-    	/**
-    	 * 对layui的样式重置
-    	 */
-    	.layui-form-label, .layui-layer-title {
-    		font-size: 14px;
-    		font-weight: bold;
-    	}
-
-    	.layui-form-radio > span, .layui-layer-btn, .cus-btn, .cus-tr-bold > th, .cus-table > tbody > tr > td {
-    		font-size: 12px;
-    	}
-    </style>
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
 	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 	<script src="/Public/static/jquery-2.0.3.min.js""></script>
 </head>
@@ -103,9 +19,9 @@
 				<colgroup>
 					<col width="80">
 					<col width="200">
-					<col width="600">
+					<col width="500">
 					<col width="80">
-					<col width="80">
+					<col width="150">
 				</colgroup>
 				<thead>
 					<tr class="cus-tr-bold">
@@ -137,13 +53,12 @@
 		function tableInit(data) {
 			var tBody = document.getElementById('feed-tbody');
 			var str = '';
-
 			// 处理数据
 			data.forEach(function(item, idx) {
 				if(item.status == '启用') {
-					str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td class="cus-enable">'+ item.status +'</td><td><span>编辑</span></td></tr>';
+					str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td class="cus-enable">'+ item.status +'</td><td><span class="cus-enable edit" _id="'+ item.id +'">编辑</span><span class="cus-disable delete" style="margin-left: 10px;" _id="'+ item.id +'">删除</span></td></tr>';
 				} else {
-					str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td class="cus-disable">'+ item.status +'</td><td><span class="cus-enable">编辑</span></td></tr>';
+					str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td class="cus-disable">'+ item.status +'</td><td><span class="cus-enable edit" _id="'+ item.id +'">编辑</span><span class="cus-disable delete" style="margin-left: 10px;" _id="'+ item.id +'">删除</span></td></tr>';
 				}
 			});
 
@@ -213,6 +128,86 @@
 				}
 			});
 		};
+
+        // 删除
+        $('#feed-tbody').on('click', '.delete', function() {
+            var id = $(this).attr('_id');
+            layui.use('layer', function() {
+                layui.layer.confirm('确定删除?', {
+                  	btn: ['确定', '取消']
+                }, function(index, layero){
+                  	$.ajax({
+                  		cache: false,
+                  		async: false,
+                  		type: "POST",
+                  		url: "<?php echo U('BackstageManagement/DeleteProblem');?>",
+                  		dataType: "json",
+                  		data: {
+                  			id: id
+                  		},
+                  		success: function(res) {
+                  			layui.layer.alert('删除成功');
+                  			getFeedList();
+                  		},
+                  		fail: function(err) {
+                  			console.log(err);
+                  		}
+                  	});
+                }, function(index){
+                  	
+                });
+            })
+        })
+
+        // 编辑
+        $('#feed-tbody').on('click', '.edit', function() {
+            var id = $(this).attr('_id');
+            layui.use('layer', function() {
+                var layer = layui.layer;
+
+                layer.open({
+                    title: '添加配置',
+                    type: 2,
+                    shadeClose: true,
+                    closeBtn: 1,
+                    area: ['500px', '350px'],
+                    content: "<?php echo U('BackstageManagement/EditProblems');?>",
+                    success: function(layero, idx) {
+                        var body = layui.layer.getChildFrame('body', idx);
+                        $.ajax({
+                            cache: false,
+                            async: false,
+                            type: "POST",
+                            url: "<?php echo U('BackstageManagement/UpdateeProblem');?>",
+                            dataType: "json",
+                            data: {
+                                id: id
+                            },
+                            success: function(res) {
+                                var o = res.data[0];
+                                body.find('#product_name').val(o.name);
+                                body.find('#edit_id').val(id);
+                                body.find('#product_describe').val(o.summary);
+                                body.find('#product_status .layui-form-radio').each(function(idx, item) {
+                                	var s = $(this).find('span').html();
+
+                                	if(s === o.status) {
+                                		$(this).addClass('layui-form-radioed');
+                                		$(this).find('i').addClass('layui-anim-scaleSpring');
+                                	} else {
+                                		$(this).removeClass('layui-form-radioed');
+                                		$(this).find('i').removeClass('layui-anim-scaleSpring');
+                                	}
+                                });
+                            },
+                            fail: function(err) {
+                                console.log(err);
+                            }
+                        });
+                    }
+                });
+            })
+        })
 
 		getFeedList(pageIndex, limit);
 	</script>
