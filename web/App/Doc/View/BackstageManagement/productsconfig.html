@@ -116,15 +116,7 @@
 						<th>操作</th>
 					</tr>
 				</thead>
-				<tbody id="feed-tbody">
-					<tr>
-						<td>1</td>
-						<td>我是内容</td>
-						<td>我是描述</td>
-						<td class="cus-enable">父级</td>
-						<td class="cus-enable">编辑</td>
-					</tr>
-				</tbody>
+				<tbody id="feed-tbody"></tbody>
 			</table>
 			<div id="feed-page"></div>
 		</div>
@@ -137,7 +129,6 @@
 		
 		// 渲染列表数据
 		function tableInit(data) {
-			console.log(data);
 			var tBody = document.getElementById('feed-tbody');
 			var str = '';
 			ares = JSON.parse(JSON.stringify(data.ares));
@@ -147,7 +138,7 @@
 				str += '<tr><td colspan="4" style="font-weight: bold; font-size: 14px;">'+ item.name +'</td><td class="cus-enable delete" _id="'+ item.id +'">删除</td></tr>';
 				data.res.forEach(function(_item, _idx) {
 					if(_item.aname === item.name) {
-						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td class="cus-disable">'+ item.name +'</td><td class="cus-enable"><span>编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ item.id +'" style="color: rgba(236, 65, 65, 0.65);">删除</span></td></tr>';
+						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td class="cus-disable">'+ item.name +'</td><td class="cus-enable"><span class="cus-enable edit" _id="'+ _item.id +'">编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ _item.id +'" style="color: rgba(236, 65, 65, 0.65);">删除</span></td></tr>';
 					}
 				});
 			});
@@ -197,6 +188,28 @@
 				})
 			})
 		}
+
+        // 编辑
+        $('#feed-tbody').on('click', '.edit', function(e) {
+            var id = $(this).attr('_id');
+
+            layui.use('layer', function() {
+
+                layer.open({
+                    title: '编辑产品配置',
+                    type: 2,
+                    shadeClose: true,
+                    closeBtn: 1,
+                    area: ['500px', '400px'],
+                    content: "{:U('BackstageManagement/addproducts')}",
+                    success: function(layero, idx) {
+                        var body = layui.layer.getChildFrame('body', idx);
+                        body.find('#edit-id').val(id);
+                        var iptblock = $(body).find('#parent-level').hide();
+                    }
+                });
+            })
+        })
 		
 		// 获取数据
 		function getFeedList(pageIndex, limit) {
@@ -242,7 +255,11 @@
 				data: data,
 				success: function(res) {
 					// 刷新页面, 会写数据
-					window.location.reload();	
+                    layui.use('layer', function() {
+                        layui.layer.alert('删除成功!');
+                    })
+
+                    getFeedList(pageIndex, limit);
 				},
 				fail: function(err) {
 					console.log(err);

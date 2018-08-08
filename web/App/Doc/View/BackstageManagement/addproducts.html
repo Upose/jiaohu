@@ -90,6 +90,7 @@
 </head>
 <body>
 	<div id="add-content" class="cus-model">
+        <input type="hidden" id="edit-id" />
 		<form action="" class="layui-form">
 			<div class="layui-form-item">
 				<label class="layui-form-label">名称:</label>
@@ -139,6 +140,7 @@
 		submitForm.onclick = function() {
 			var product_name = $('#product_name').val();
 			var product_describe = $('#product_describe').val();
+            var id = $('#edit-id').id();
 			
 			// 表单验证
 			if(product_name == '' || product_describe === '') {
@@ -157,29 +159,36 @@
 				return false;
 			}
 
-			$.ajax({
-				cache: false,
-				async: false,
-				type: "POST",
-				url: "{:U('BackstageManagement/addProduct')}",
-				dataType: "json",
-				data: {
-					name: $('#product_name').val(),
-					summary: $('#product_describe').val(),
-					level: $('.layer:checked').val(),
-					f_id: $('#parent-level select').val()
-				},
-				success: function(res) {
-		    		window.parent.location.reload();
-				},
-				fail: function(err) {
-					console.log(err);
-				}
-			});
+            if(id) {
+                // 编辑
+                
+            } else {
+                // 添加
+                $.ajax({
+                    cache: false,
+                    async: false,
+                    type: "POST",
+                    url: "{:U('BackstageManagement/addProduct')}",
+                    dataType: "json",
+                    data: {
+                        name: $('#product_name').val(),
+                        summary: $('#product_describe').val(),
+                        level: $('.layer:checked').val(),
+                        f_id: $('#parent-level select').val()
+                    },
+                    success: function(res) {
+                        // window.parent.location.reload();
+                    },
+                    fail: function(err) {
+                        console.log(err);
+                    }
+                });
+            }
 		};
 		
 		// 点击取消按钮
 		submitCancle.onclick = function() {
+            $('#edit-id').val('');
 		    window.parent.location.reload();
 		};
 		

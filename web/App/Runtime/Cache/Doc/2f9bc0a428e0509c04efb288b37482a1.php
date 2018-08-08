@@ -90,6 +90,7 @@
 </head>
 <body>
 	<div id="add-content" class="cus-model">
+        <input type="hidden" id="edit-id" />
 		<form action="" class="layui-form">
 			<div class="layui-form-item">
 				<label class="layui-form-label">名称:</label>
@@ -129,6 +130,7 @@
 	<script>
 		var submitForm = document.getElementById('submitForm');
 		var submitCancle = document.getElementById('submitCancle');
+        console.log($('#edit-id').val())
 
 		// form表单初始化
 		layui.use('form', function() {
