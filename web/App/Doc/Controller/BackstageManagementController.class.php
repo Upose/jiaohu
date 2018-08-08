@@ -203,7 +203,19 @@ class BackstageManagementController extends BaseController{
 
     }
 
-    
-
+    public function updatee(){
+      $id=intval(I('id'));
+      $sql="select name,f_id,summary from product_s where id= $id";
+      $res = M()->query($sql);
+      $this->Response(0,$res,'');
+    }
+    //  public function update(){
+    //   $id=intval(I('id'));
+    //   $name=I('name');
+    //   $summary=I('summary');
+    //   $sql="update product_s set name=$name,summary=$summary where id=$id";
+    //   $res = M()->execute($sql);
+    //   $this->Response(0,$res,'');
+    // }
 
 }
