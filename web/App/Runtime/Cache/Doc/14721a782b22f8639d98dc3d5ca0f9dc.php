@@ -171,19 +171,21 @@
 
 		// 删除
 		$('#feed-table').on('click', '.delete', function(e) {
+            var _this = this;
             layui.use('layer', function() {
                 layui.layer.confirm('确定删除?', {
                   btn: ['确定', '取消']
                 }, function(index, layero){
                     var data = {};
-                    data.id = $(this).attr('_id');
+                    data.id = $(_this).attr('_id');
                     // 判断删除的是否为父级
-                    if(!$(this).attr('_f_id')) {
+                    if(!$(_this).attr('_f_id')) {
                         // 不存在父级id则不传f_id
                         data.f_id = 0;
                     } else {
-                        data.f_id = $(this).attr('_f_id');
+                        data.f_id = $(_this).attr('_f_id');
                     }
+                    console.log(data)
 
                     $.ajax({
                         cache: false,
