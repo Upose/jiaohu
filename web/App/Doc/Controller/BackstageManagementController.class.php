@@ -209,13 +209,14 @@ class BackstageManagementController extends BaseController{
       $res = M()->query($sql);
       $this->Response(0,$res,'');
     }
-    //  public function update(){
-    //   $id=intval(I('id'));
-    //   $name=I('name');
-    //   $summary=I('summary');
-    //   $sql="update product_s set name=$name,summary=$summary where id=$id";
-    //   $res = M()->execute($sql);
-    //   $this->Response(0,$res,'');
-    // }
+     public function update(){
+      $id=intval(I('id'));
+      $name=I('name');
+      $summary=I('summary');
+      $fid=intval(I('fid'));
+      $sql="update product_s set name='$name',summary='$summary',f_id='$fid' where id='$id'";
+      $res = M()->execute($sql);
+      $this->Response(0,'修改成功','');
+    }
 
 }
