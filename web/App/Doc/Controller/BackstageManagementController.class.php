@@ -228,5 +228,22 @@ class BackstageManagementController extends BaseController{
        $res = M()->execute($sql);
        $this->Response(0,'删除成功','');
     }
+     public function UpdateeProblem(){
+      $id=intval(I('id'));
+      $sql="select name,status,summary from problem_classification where id= '$id' and is_delete=0 ";
+      $res = M()->query($sql);
+      $this->Response(0,$res,'');
+    }
+
+     public function UpdateProblem(){
+      $id=intval(I('id'));
+      $name=I('name');
+      $summary=I('summary');
+      $status=I('status');
+      $sql="update problem_classification set name='$name',summary='$summary',status='$status' where id='$id'";
+      $res = M()->execute($sql);
+      $this->Response(0,'修改成功','');
+    }
+
 
 }
