@@ -205,7 +205,7 @@ class BackstageManagementController extends BaseController{
 
     public function updatee(){
       $id=intval(I('id'));
-      $sql="select name,f_id,summary from product_s where id= $id";
+      $sql="select name,f_id,summary from product_s where id= '$id' and is_delete=0 ";
       $res = M()->query($sql);
       $this->Response(0,$res,'');
     }
