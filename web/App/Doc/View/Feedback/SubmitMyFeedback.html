@@ -116,7 +116,7 @@
     $('#cus-ipt').on('change', function() {
         // 验证
         var preview = document.querySelector(".cus-img");
-		var files = this.files;
+        var files = this.files;
         
         [].slice.call(files).forEach(function(item, idx) {
             var reader = new FileReader();

@@ -53,7 +53,7 @@
             },
             //跳转页面
             openNew(nID,oID){
-                window.location.href = "<?php echo U('Feedback/SubmitFeedback');?>"+"&nID="+ nID +"&oID=" + oID;
+                window.location.href = "<?php echo U('Feedback/SubmitMyFeedback');?>"+"&nID="+ nID +"&oID=" + oID;
             },
         },
     });

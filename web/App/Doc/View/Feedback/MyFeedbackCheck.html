@@ -127,6 +127,15 @@
                 <span @click="pauses(0)" class="choose">取消</span>
             </div>
         </div>
+        <!-- 提示弹窗 -->
+        <div class="suc_win">
+            <p class="tit"><span>提示</span><i class="layui-icon layui-icon-close">&#x1006;</i></p>
+            <div class="txt">
+                <img src="__IMG__/Shape Copy 2.png" alt=""><span>你是否确认删除？</span>
+            </div>
+            <button @click="dow()" class="suc_no">取消</button>
+            <button @click="dow()" class="suc_yes">确认</button>
+        </div>
     </div>
     <div class="two">
 
@@ -221,7 +230,7 @@
                     success: function (res) {
                         // console.log('>>9999>', res);
                         that.replyList = res.data.reply;
-                        console.log(that.replyList);
+                        // console.log(that.replyList);
                     }
                 })
             },
@@ -237,7 +246,13 @@
                     dataType: "json",
                     data: this.message,
                     success: function (res) {
-                        // console.log('已解决', res)
+                        if(res.code===1){
+                            $(".suc_win").show();
+                            $(".suc_win>.txt").html("<img src='__IMG__/correct.png'><span>提交成功！</span>");
+                        }else if(res.code===0){
+                            $(".suc_win").show();
+                            $(".suc_win .txt").html("<img src='__IMG__/wrong.png'><span>提交失败！</span>");
+                        }
                     }
                 })
                 this.solves(0);
@@ -245,7 +260,7 @@
             },
             // 暂停确定按钮
             submitPause() {
-                console.log(this.message);
+                // console.log(this.message);
                 $.ajax({
                     cache: false,
                     type: "POST",
@@ -253,7 +268,13 @@
                     dataType: "json",
                     data: this.message,
                     success: function (res) {
-                        // console.log('暂停', res);
+                        if(res.code===1){
+                            $(".suc_win").show();
+                            $(".suc_win>.txt").html("<img src='__IMG__/correct.png'><span>提交成功！</span>");
+                        }else if(res.code===0){
+                            $(".suc_win").show();
+                            $(".suc_win .txt").html("<img src='__IMG__/wrong.png'><span>提交失败！</span>");
+                        }
                     }
                 })
                 this.pauses(0);
@@ -294,6 +315,9 @@
                     }
                 })
             },
+            dow(){
+                $(".suc_win").hide();
+            }
         },
     })
     //按钮选择样式
@@ -306,6 +330,7 @@
         e.stopPropagation();
         $(this).addClass('choose').siblings().removeClass('choose');
     })
+    
 </script>
 
 </html>

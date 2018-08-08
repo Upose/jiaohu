@@ -342,3 +342,51 @@
             position: relative;
             top: .5vh;
         }
+        /* 提示弹窗 */
+        .suc_win{
+            width: 27vw;
+            height: 31vh;
+            display: none;
+            background: white;
+            position: absolute;
+            top: 25%;
+            left: 30%;
+            box-shadow:0px 2px 8px 0px rgba(0,0,0,0.2);
+        }
+        .suc_win .tit{
+            width: 100%;
+            padding: 1vh 1vw;
+            font-family:PingFangSC-Regular;
+            color:rgba(102,102,102,1);
+        }
+        .suc_win .tit>i{
+            float: right;
+        }
+        .suc_win .txt{
+            width: 100%;
+            padding: 4vh 3vw;
+            font-family:PingFangSC-Regular;
+            color:rgba(102,102,102,1);
+            border-top: 1px solid rgba(0,0,0,.15);
+            border-bottom: 1px solid rgba(0,0,0,.15);
+        }
+        .suc_win .txt>img{
+            margin-right: 1vw;
+        }
+        .suc_no,.suc_yes{
+            border-style: none;
+            font-style: none;
+            margin-top: 1vh;
+            padding: 0.4vh 1.5vw;
+            border-radius: 3px;
+            border:1px solid rgba(217,217,217,1);
+        }
+        .suc_no{
+            margin-left: 14vw;
+            color: black;
+            background: white;
+        }
+        .suc_yes{
+            color: white;
+            background:rgba(7,200,141,1);
+        }

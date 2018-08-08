@@ -11,10 +11,7 @@
     <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
 <style>
-.layui-header .layui-nav{
-position: relative;
-top: -1vh;
-} 
+
 .layui-logo img{
 width: 80%;
 }
@@ -57,7 +54,7 @@ width: 80%;
             <ul class="layui-nav layui-layout-right kit-nav">
                 <li class="layui-nav-item">
                 <a href=" ">
-                <img src="http://m.zhengjinfan.cn/images/0.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
+                <img src="/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
@@ -80,19 +77,19 @@ width: 80%;
                         <dl class="layui-nav-child">
 
                             <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/allmap');?>',icon:'',title:'综合分析',id:'3'}">
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ComprehensiveAnalysis');?>',icon:'',title:'综合分析',id:'3'}">
                             <span>综合分析</span>
                                 </a>
                             </dd>
                             
                             <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/submit2');?>',icon:'',title:'我的反馈',id:'2'}">
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/MyFeedback');?>',icon:'',title:'我的反馈',id:'2'}">
                             <span>我的反馈</span>
                                 </a>
                             </dd>
 
                             <dd>
-                                 <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/productuse');?>',icon:'',title:'提交反馈',id:'1'}">
+                                 <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ProductChoice');?>',icon:'',title:'提交反馈',id:'1'}">
                             <span>提交反馈</span>
                                  </a>
                             </dd>
@@ -120,7 +117,6 @@ width: 80%;
                         <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>体系信箱</span></a>
                         
                     </li>
-
 
                    
                 </ul>
