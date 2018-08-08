@@ -12,6 +12,7 @@
 <body>
     <div id="add-content" class="cus-model">
         <form action="" class="layui-form">
+            <input type="hidden" id="edit_id" />
             <div class="layui-form-item">
                 <label class="layui-form-label">名称:</label>
                 <div class="layui-input-block">
@@ -24,10 +25,10 @@
                     <textarea name="desc" placeholder="请输入描述" class="layui-textarea" id="product_describe"></textarea>
                 </div>
             </div>
-            <div class="layui-form-item">
+            <div class="layui-form-item" id="product_status">
                 <label class="layui-form-label">状态:</label>
                 <div class="layui-input-block">
-                    <input type="radio" name="sex" value="启用" title="启用" checked class="layer">
+                    <input type="radio" name="sex" value="启用" title="启用" class="layer">
                     <input type="radio" name="sex" value="禁用" title="禁用" class="layer">
                 </div>
             </div>
@@ -42,7 +43,6 @@
     <script>
         var submitForm = document.getElementById('submitForm');
         var submitCancle = document.getElementById('submitCancle');
-        
         // form表单初始化
         layui.use('form', function() {
             var form = layui.form;
@@ -52,6 +52,7 @@
         submitForm.onclick = function() {
             var product_name = $('#product_name').val();
             var product_describe = $('#product_describe').val();
+            var id = $('#edit_id').val();
             
             if(product_name == '' || product_describe === '') {
                 layui.use('layer', function() {
@@ -68,20 +69,24 @@
 
                 return false;
             }
-
             $.ajax({
                 cache: false,
                 async: false,
                 type: "POST",
-                url: "{:U('BackstageManagement/addproblem')}",
+                url: "{:U('BackstageManagement/UpdateProblem')}",
                 dataType: "json",
                 data: {
                     name: $('#product_name').val(),
                     summary: $('#product_describe').val(),
-                    status: $('.layer:checked').val()
+                    status: $('.layer:checked').val(),
+                    id: id
                 },
                 success: function(res) {
-                    window.parent.location.reload();
+                    layui.use('layer', function() {
+                        layui.layer.alert('修改成功!', function() {
+                            window.parent.location.reload();
+                        });
+                    })
                 },
                 fail: function(err) {
                     console.log(err);

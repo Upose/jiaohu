@@ -27,17 +27,13 @@
 			<div class="layui-form-item" id="level">
 				<label class="layui-form-label">层级:</label>
 				<div class="layui-input-block">
-					<input type="radio" name="sex" value="1" title="父级" checked class="layer" id="parent-level">
+					<input type="radio" name="sex" value="1" title="父级" checked class="layer">
 					<input type="radio" name="sex" value="2" title="子级" class="layer" id="child-level">
 				</div>
 			</div>
 			<div class="layui-form-item" id="parent-level">
 				<label class="layui-form-label">父级:</label>
-				<div class="layui-input-block">
-					<section name="city" lay-verify="required">
-						
-					</section>
-				</div>
+				<div class="layui-input-block"></div>
 			</div>
 			<div class="layui-form-item cus-fixed-btn">
 				<div class="layui-input-block">
@@ -90,7 +86,11 @@
                     f_id: $('#parent-level select').val()
                 },
                 success: function(res) {
-                    // window.parent.location.reload();
+                	layui.use('layer', function() {
+                	    layui.layer.alert('添加成功!', function() {
+                	        window.parent.location.reload();
+                	    });
+                	})
                 },
                 fail: function(err) {
                     console.log(err);

@@ -5,9 +5,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Document</title>
     <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <style>
-    	
-    </style>
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
 	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 	<script src="/Public/static/jquery-2.0.3.min.js""></script>
 </head>
@@ -29,17 +27,13 @@
 			<div class="layui-form-item" id="level">
 				<label class="layui-form-label">层级:</label>
 				<div class="layui-input-block">
-					<input type="radio" name="sex" value="1" title="父级" checked class="layer" id="parent-level">
+					<input type="radio" name="sex" value="1" title="父级" checked class="layer">
 					<input type="radio" name="sex" value="2" title="子级" class="layer" id="child-level">
 				</div>
 			</div>
 			<div class="layui-form-item" id="parent-level">
 				<label class="layui-form-label">父级:</label>
-				<div class="layui-input-block">
-					<section name="city" lay-verify="required">
-						
-					</section>
-				</div>
+				<div class="layui-input-block"></div>
 			</div>
 			<div class="layui-form-item cus-fixed-btn">
 				<div class="layui-input-block">
@@ -62,7 +56,6 @@
 		submitForm.onclick = function() {
 			var product_name = $('#product_name').val();
 			var product_describe = $('#product_describe').val();
-            var id = $('#edit-id').val();
 			
 			// 表单验证
 			if(product_name == '' || product_describe === '') {
@@ -80,32 +73,29 @@
 
 				return false;
 			}
-
-            if(id) {
-                // 编辑
-                
-            } else {
-                // 添加
-                $.ajax({
-                    cache: false,
-                    async: false,
-                    type: "POST",
-                    url: "<?php echo U('BackstageManagement/addProduct');?>",
-                    dataType: "json",
-                    data: {
-                        name: $('#product_name').val(),
-                        summary: $('#product_describe').val(),
-                        level: $('.layer:checked').val(),
-                        f_id: $('#parent-level select').val()
-                    },
-                    success: function(res) {
-                        // window.parent.location.reload();
-                    },
-                    fail: function(err) {
-                        console.log(err);
-                    }
-                });
-            }
+            $.ajax({
+                cache: false,
+                async: false,
+                type: "POST",
+                url: "<?php echo U('BackstageManagement/addProduct');?>",
+                dataType: "json",
+                data: {
+                    name: $('#product_name').val(),
+                    summary: $('#product_describe').val(),
+                    level: $('.layer:checked').val(),
+                    f_id: $('#parent-level select').val()
+                },
+                success: function(res) {
+                	layui.use('layer', function() {
+                	    layui.layer.alert('添加成功!', function() {
+                	        window.parent.location.reload();
+                	    });
+                	})
+                },
+                fail: function(err) {
+                    console.log(err);
+                }
+            });
 		};
 		
 		// 点击取消按钮
