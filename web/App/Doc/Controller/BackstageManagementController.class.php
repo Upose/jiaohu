@@ -161,7 +161,7 @@ class BackstageManagementController extends BaseController{
      */
     public function ParentProduct()
     {
-    	$sql="select id, name from product";
+    	$sql="select id, name from product where is_delete=0 ";
     	$res = M()->query($sql);
     	$this->Response(0,$res,'');
     }
