@@ -25,7 +25,7 @@ class BackstageManagementController extends BaseController{
      */
 	public function problem()
 	{
-      $sql=" select * from problem_classification";
+      $sql=" select * from problem_classification where is_delete =0 ";
       $res = M()->query($sql);
       $this->Response(0,$res,'');
 	}
@@ -51,8 +51,8 @@ class BackstageManagementController extends BaseController{
     	}
     	else
     	{
-    	   $sql="insert into problem_classification (name,update_time,submit_person_id,summary,status) 
-    	   values ('$name','$update_time','$submit_person_id','$summary','$status')";
+    	   $sql="insert into problem_classification (name,update_time,submit_person_id,summary,status,is_delete) 
+    	   values ('$name','$update_time','$submit_person_id','$summary','$status',0)";
 
            $res = M()->execute($sql);
            $this->Response(0,'添加成功','');
@@ -217,6 +217,16 @@ class BackstageManagementController extends BaseController{
       $sql="update product_s set name='$name',summary='$summary',f_id='$fid' where id='$id'";
       $res = M()->execute($sql);
       $this->Response(0,'修改成功','');
+    }
+
+
+
+    public function DeleteProblem(){
+       $id=intval(I('id'));
+       $sql="update problem_classification set is_delete = 1 
+           where id='$id'";
+       $res = M()->execute($sql);
+       $this->Response(0,'删除成功','');
     }
 
 }
