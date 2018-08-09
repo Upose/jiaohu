@@ -53,7 +53,7 @@
                     <div class="cus-files-content">
                         <div class="cus-warning">
                             <p class="cus-warning-item">最多上传文件个数: 6</p>
-                            <p class="cus-warning-item">文件大小最大为: 100M</p>
+                            <p class="cus-warning-item">文件大小最大为: 10M</p>
                             <p class="cus-warning-item">支持上传格式: .jpg,.png,.gif,.jpeg</p>
                         </div>
                     </div>

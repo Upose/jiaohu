@@ -6858,3 +6858,1704 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
 
+[ 2018-08-09T13:57:50+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T13:58:11+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+ERR: SQLSTATE[HY000] [2002] �������ӷ���һ��ʱ���û����ȷ�𸴻����ӵ�����û�з�Ӧ�����ӳ���ʧ�ܡ�
+
+
+[ 2018-08-09T13:58:11+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T13:58:11+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T13:58:15+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T13:58:15+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+ERR: 1046:No database selected
+ [ SQL语句 ] : select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id
+ERR: 1046:No database selected
+ [ SQL语句 ] : select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id
+
+[ 2018-08-09T13:58:27+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T13:58:32+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T13:58:32+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0280s ]
+NOTIC: [8] Undefined offset: 1 D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 3 D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+
+[ 2018-08-09T13:58:34+08:00 ] ::1 /index.php?s=/Doc/Feedback/SubmitMyFeedback.html&nID=2&oID=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T13:58:34+08:00 ] ::1 /index.php?s=/Doc/Feedback/DropdownBoxList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT id as pc_id,name 
+		from problem_classification [ RunTime:0.0310s ]
+SQL: SELECT id as ps_id,name 
+		from project_source [ RunTime:0.0300s ]
+
+[ 2018-08-09T13:59:03+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T13:59:05+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/productsconfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T13:59:06+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select id,name,level,summary 
+		from product where is_delete = 0 [ RunTime:0.1120s ]
+SQL: SELECT
+				product.name AS aname,
+				product_s.id,product_s.name,
+				product_s.summary,
+				product_s.f_id
+				FROM product 
+				LEFT JOIN product_s 
+				ON product.id = product_s.f_id  
+				where product.is_delete = 0 
+				and product_s.is_delete = 0 
+				limit 0,10  [ RunTime:0.0600s ]
+SQL: select count(*) 
+        as count from product_s
+         where is_delete='0' [ RunTime:0.0290s ]
+
+[ 2018-08-09T13:59:11+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problemconfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T13:59:12+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problem.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL:  select * from problem_classification where is_delete =0  [ RunTime:0.0290s ]
+
+[ 2018-08-09T13:59:24+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/EditProblems.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T13:59:24+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/UpdateeProblem.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select name,status,summary from problem_classification where id= '1' and is_delete=0  [ RunTime:0.0320s ]
+
+[ 2018-08-09T13:59:28+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/UpdateProblem.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: update problem_classification set name='网络访问失败',summary='失败',status='禁用' where id='1' [ RunTime:0.2430s ]
+
+[ 2018-08-09T13:59:29+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problemconfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T13:59:29+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problem.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL:  select * from problem_classification where is_delete =0  [ RunTime:0.0330s ]
+
+[ 2018-08-09T14:14:37+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/addproducts.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T14:14:44+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ParentProduct.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: select id, name from product where is_delete=0  [ RunTime:0.0320s ]
+
+[ 2018-08-09T14:14:47+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/addProduct.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: insert into product_s (name,level,summary,f_id,is_delete) values ('ceshi ','2','ceshichangp','1','0') [ RunTime:0.1010s ]
+
+[ 2018-08-09T14:14:48+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/productsconfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T14:14:49+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: select id,name,level,summary 
+		from product where is_delete = 0 [ RunTime:0.0320s ]
+SQL: SELECT
+				product.name AS aname,
+				product_s.id,product_s.name,
+				product_s.summary,
+				product_s.f_id
+				FROM product 
+				LEFT JOIN product_s 
+				ON product.id = product_s.f_id  
+				where product.is_delete = 0 
+				and product_s.is_delete = 0 
+				limit 0,10  [ RunTime:0.0320s ]
+SQL: select count(*) 
+        as count from product_s
+         where is_delete='0' [ RunTime:0.0290s ]
+
+[ 2018-08-09T15:36:19+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:36:21+08:00 ] ::1 /index.php?s=/Doc/Feedback/ComprehensiveAnalysis.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:36:22+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:36:22+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.0320s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0310s ]
+
+[ 2018-08-09T15:36:23+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedbackCheck.html&id=70
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:36:24+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProblemFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT pr.NAME AS statue
+				FROM feedback fb
+				JOIN priority pr 
+				ON fb.priority = pr.id
+				WHERE fb.id = '70' [ RunTime:0.0290s ]
+SQL: SELECT fb.deadline
+				FROM feedback fb
+				WHERE fb.id = '70' [ RunTime:0.0290s ]
+SQL: SELECT ps.NAME AS project_name
+				FROM feedback fb
+				JOIN project_source ps 
+				ON fb.ps_id = ps.id
+				WHERE fb.id = '70' [ RunTime:0.0290s ]
+SQL: SELECT fb.NAME
+				FROM feedback fb
+				WHERE fb.id = '70' [ RunTime:0.0280s ]
+SQL: SELECT fb.DESCRIBE
+				FROM feedback fb
+				WHERE fb.id = '70' [ RunTime:0.0280s ]
+SQL: SELECT pd.NAME AS product_name
+				FROM feedback fb
+				JOIN product pd 
+				ON fb.pd_id = pd.id
+				WHERE fb.id = '70' [ RunTime:0.0300s ]
+SQL: SELECT pds.NAME as child_product_name
+				FROM feedback fb
+				JOIN product_s pds ON fb.pds_id = pds.id
+				WHERE fb.id = '70' [ RunTime:0.0320s ]
+SQL: SELECT pc.NAME as problem_classification
+				FROM feedback fb
+				JOIN problem_classification pc 
+				ON fb.pc_id = pc.id
+				WHERE fb.id = '70' [ RunTime:0.0280s ]
+SQL: SELECT p.NAME as submit_person_name
+				FROM feedback fb
+				JOIN person p
+				ON fb.submit_person_id = p.id
+				WHERE fb.id = '70' [ RunTime:0.0280s ]
+SQL: select path as img 
+		from file where f_id = '70' [ RunTime:0.0280s ]
+
+[ 2018-08-09T15:36:24+08:00 ] ::1 /index.php?s=/Doc/Feedback/ReplyList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '70' 
+		ORDER BY update_time desc [ RunTime:0.0290s ]
+
+[ 2018-08-09T15:36:29+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:36:29+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.0300s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0290s ]
+
+[ 2018-08-09T15:36:31+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedbackCheck.html&id=66
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:36:31+08:00 ] ::1 /index.php?s=/Doc/Feedback/ReplyList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '66' 
+		ORDER BY update_time desc [ RunTime:0.0330s ]
+
+[ 2018-08-09T15:36:32+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProblemFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT pr.NAME AS statue
+				FROM feedback fb
+				JOIN priority pr 
+				ON fb.priority = pr.id
+				WHERE fb.id = '66' [ RunTime:0.0310s ]
+SQL: SELECT fb.deadline
+				FROM feedback fb
+				WHERE fb.id = '66' [ RunTime:0.0310s ]
+SQL: SELECT ps.NAME AS project_name
+				FROM feedback fb
+				JOIN project_source ps 
+				ON fb.ps_id = ps.id
+				WHERE fb.id = '66' [ RunTime:0.0300s ]
+SQL: SELECT fb.NAME
+				FROM feedback fb
+				WHERE fb.id = '66' [ RunTime:0.0300s ]
+SQL: SELECT fb.DESCRIBE
+				FROM feedback fb
+				WHERE fb.id = '66' [ RunTime:0.0300s ]
+SQL: SELECT pd.NAME AS product_name
+				FROM feedback fb
+				JOIN product pd 
+				ON fb.pd_id = pd.id
+				WHERE fb.id = '66' [ RunTime:0.0300s ]
+SQL: SELECT pds.NAME as child_product_name
+				FROM feedback fb
+				JOIN product_s pds ON fb.pds_id = pds.id
+				WHERE fb.id = '66' [ RunTime:0.0300s ]
+SQL: SELECT pc.NAME as problem_classification
+				FROM feedback fb
+				JOIN problem_classification pc 
+				ON fb.pc_id = pc.id
+				WHERE fb.id = '66' [ RunTime:0.0300s ]
+SQL: SELECT p.NAME as submit_person_name
+				FROM feedback fb
+				JOIN person p
+				ON fb.submit_person_id = p.id
+				WHERE fb.id = '66' [ RunTime:0.0300s ]
+SQL: select path as img 
+		from file where f_id = '66' [ RunTime:0.0300s ]
+
+[ 2018-08-09T15:41:19+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:41:19+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.0310s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0300s ]
+
+[ 2018-08-09T15:41:22+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:41:23+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0570s ]
+NOTIC: [8] Undefined offset: 1 D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 3 D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+
+[ 2018-08-09T15:41:24+08:00 ] ::1 /index.php?s=/Doc/Feedback/SubmitMyFeedback.html&nID=2&oID=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:41:24+08:00 ] ::1 /index.php?s=/Doc/Feedback/DropdownBoxList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT id as pc_id,name 
+		from problem_classification [ RunTime:0.0300s ]
+SQL: SELECT id as ps_id,name 
+		from project_source [ RunTime:0.0290s ]
+
+[ 2018-08-09T15:43:39+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:43:39+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.0330s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0320s ]
+
+[ 2018-08-09T15:44:10+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackSubmit.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `feedback` [ RunTime:0.0350s ]
+SQL: INSERT INTO `feedback` (`id`,`name`,`priority`,`pc_id`,`pd_id`,`pds_id`,`ps_id`,`describe`,`submit_person_id`,`submit_time`,`deadline`) VALUES ('0','测试图片上传显示','1','1','1','2','1','测试图片上传显示','1','2018-08-09 15:44:08','2018/08/09') [ RunTime:0.2270s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\deliver\ProjectDelivery\web\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\deliver\ProjectDelivery\web\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\deliver\ProjectDelivery\web\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\deliver\ProjectDelivery\web\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\deliver\ProjectDelivery\web\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\deliver\ProjectDelivery\web\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [8] Array to string conversion D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 168 行.
+NOTIC: [8] Array to string conversion D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 168 行.
+NOTIC: [8] Array to string conversion D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 168 行.
+NOTIC: [8] Array to string conversion D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 168 行.
+NOTIC: [8] Array to string conversion D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 168 行.
+NOTIC: [8] Array to string conversion D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 168 行.
+SQL: SHOW COLUMNS FROM `file` [ RunTime:0.0320s ]
+SQL: INSERT INTO `file` (`id`,`name`,`type`,`path`,`f_id`,`update_time`,`submit_person_id`) VALUES ('0','Desert.jpg','image/jpeg','Updata/Image/2018-08-09/5b6bf0c961c01.jpg','71','2018-08-09 15:44:08','1') [ RunTime:0.0590s ]
+SQL: INSERT INTO `file` (`id`,`name`,`type`,`path`,`f_id`,`update_time`,`submit_person_id`) VALUES ('0','Hydrangeas.jpg','image/jpeg','Updata/Image/2018-08-09/5b6bf0c965e6a.jpg','71','2018-08-09 15:44:08','1') [ RunTime:0.0580s ]
+SQL: INSERT INTO `file` (`id`,`name`,`type`,`path`,`f_id`,`update_time`,`submit_person_id`) VALUES ('0','Jellyfish.jpg','image/jpeg','Updata/Image/2018-08-09/5b6bf0c96857a.jpg','71','2018-08-09 15:44:08','1') [ RunTime:0.0580s ]
+SQL: INSERT INTO `file` (`id`,`name`,`type`,`path`,`f_id`,`update_time`,`submit_person_id`) VALUES ('0','Koala.jpg','image/jpeg','Updata/Image/2018-08-09/5b6bf0c96b073.jpg','71','2018-08-09 15:44:08','1') [ RunTime:0.0580s ]
+SQL: INSERT INTO `file` (`id`,`name`,`type`,`path`,`f_id`,`update_time`,`submit_person_id`) VALUES ('0','Penguins.jpg','image/jpeg','Updata/Image/2018-08-09/5b6bf0c96d783.jpg','71','2018-08-09 15:44:08','1') [ RunTime:0.2320s ]
+SQL: INSERT INTO `file` (`id`,`name`,`type`,`path`,`f_id`,`update_time`,`submit_person_id`) VALUES ('0','Tulips.jpg','image/jpeg','Updata/Image/2018-08-09/5b6bf0c96f2dc.jpg','71','2018-08-09 15:44:08','1') [ RunTime:0.0580s ]
+
+[ 2018-08-09T15:44:10+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:44:10+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.0330s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0310s ]
+
+[ 2018-08-09T15:44:13+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedbackCheck.html&id=71
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:44:13+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProblemFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT pr.NAME AS statue
+				FROM feedback fb
+				JOIN priority pr 
+				ON fb.priority = pr.id
+				WHERE fb.id = '71' [ RunTime:0.0330s ]
+SQL: SELECT fb.deadline
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0330s ]
+SQL: SELECT ps.NAME AS project_name
+				FROM feedback fb
+				JOIN project_source ps 
+				ON fb.ps_id = ps.id
+				WHERE fb.id = '71' [ RunTime:0.0330s ]
+SQL: SELECT fb.NAME
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0320s ]
+SQL: SELECT fb.DESCRIBE
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0330s ]
+SQL: SELECT pd.NAME AS product_name
+				FROM feedback fb
+				JOIN product pd 
+				ON fb.pd_id = pd.id
+				WHERE fb.id = '71' [ RunTime:0.0330s ]
+SQL: SELECT pds.NAME as child_product_name
+				FROM feedback fb
+				JOIN product_s pds ON fb.pds_id = pds.id
+				WHERE fb.id = '71' [ RunTime:0.0330s ]
+SQL: SELECT pc.NAME as problem_classification
+				FROM feedback fb
+				JOIN problem_classification pc 
+				ON fb.pc_id = pc.id
+				WHERE fb.id = '71' [ RunTime:0.0330s ]
+SQL: SELECT p.NAME as submit_person_name
+				FROM feedback fb
+				JOIN person p
+				ON fb.submit_person_id = p.id
+				WHERE fb.id = '71' [ RunTime:0.0340s ]
+SQL: select path as img 
+		from file where f_id = '71' [ RunTime:0.0330s ]
+
+[ 2018-08-09T15:44:13+08:00 ] ::1 /index.php?s=/Doc/Feedback/ReplyList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '71' 
+		ORDER BY update_time desc [ RunTime:0.0330s ]
+
+[ 2018-08-09T15:45:44+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:45:45+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0310s ]
+NOTIC: [8] Undefined offset: 1 D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 3 D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+
+[ 2018-08-09T15:45:46+08:00 ] ::1 /index.php?s=/Doc/Feedback/SubmitMyFeedback.html&nID=1&oID=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:45:46+08:00 ] ::1 /index.php?s=/Doc/Feedback/DropdownBoxList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT id as pc_id,name 
+		from problem_classification [ RunTime:0.0310s ]
+SQL: SELECT id as ps_id,name 
+		from project_source [ RunTime:0.0300s ]
+
+[ 2018-08-09T15:45:58+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:45:58+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.0320s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0310s ]
+
+[ 2018-08-09T15:46:09+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:46:10+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0330s ]
+NOTIC: [8] Undefined offset: 1 D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 3 D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+
+[ 2018-08-09T15:46:12+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedbackCheck.html&id=71
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:46:13+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProblemFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT pr.NAME AS statue
+				FROM feedback fb
+				JOIN priority pr 
+				ON fb.priority = pr.id
+				WHERE fb.id = '71' [ RunTime:0.0280s ]
+SQL: SELECT fb.deadline
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0270s ]
+SQL: SELECT ps.NAME AS project_name
+				FROM feedback fb
+				JOIN project_source ps 
+				ON fb.ps_id = ps.id
+				WHERE fb.id = '71' [ RunTime:0.0260s ]
+SQL: SELECT fb.NAME
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0280s ]
+SQL: SELECT fb.DESCRIBE
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0280s ]
+SQL: SELECT pd.NAME AS product_name
+				FROM feedback fb
+				JOIN product pd 
+				ON fb.pd_id = pd.id
+				WHERE fb.id = '71' [ RunTime:0.0280s ]
+SQL: SELECT pds.NAME as child_product_name
+				FROM feedback fb
+				JOIN product_s pds ON fb.pds_id = pds.id
+				WHERE fb.id = '71' [ RunTime:0.0290s ]
+SQL: SELECT pc.NAME as problem_classification
+				FROM feedback fb
+				JOIN problem_classification pc 
+				ON fb.pc_id = pc.id
+				WHERE fb.id = '71' [ RunTime:0.0290s ]
+SQL: SELECT p.NAME as submit_person_name
+				FROM feedback fb
+				JOIN person p
+				ON fb.submit_person_id = p.id
+				WHERE fb.id = '71' [ RunTime:0.0280s ]
+SQL: select path as img 
+		from file where f_id = '71' [ RunTime:0.0280s ]
+
+[ 2018-08-09T15:46:13+08:00 ] ::1 /index.php?s=/Doc/Feedback/ReplyList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '71' 
+		ORDER BY update_time desc [ RunTime:0.0330s ]
+
+[ 2018-08-09T15:46:22+08:00 ] ::1 /index.php?s=/Doc/Feedback/addReply.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `reply` [ RunTime:0.0310s ]
+SQL: INSERT INTO `reply` (`id`,`person_id`,`content`,`update_time`,`f_id`) VALUES ('0','1','我的天哪','2018-08-09 15:46:22','71') [ RunTime:0.0620s ]
+SQL: SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '71'  [ RunTime:0.0290s ]
+
+[ 2018-08-09T15:48:11+08:00 ] ::1 /index.php?s=/Doc/Feedback/addReply.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `reply` [ RunTime:0.0310s ]
+SQL: INSERT INTO `reply` (`id`,`person_id`,`content`,`update_time`,`f_id`) VALUES ('0','1','','2018-08-09 15:48:11','71') [ RunTime:0.0590s ]
+SQL: SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '71'  [ RunTime:0.0290s ]
+
+[ 2018-08-09T15:48:32+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:48:34+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:48:34+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.0350s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0330s ]
+
+[ 2018-08-09T15:48:35+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedbackCheck.html&id=71
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:48:36+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProblemFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT pr.NAME AS statue
+				FROM feedback fb
+				JOIN priority pr 
+				ON fb.priority = pr.id
+				WHERE fb.id = '71' [ RunTime:0.0290s ]
+SQL: SELECT fb.deadline
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0290s ]
+SQL: SELECT ps.NAME AS project_name
+				FROM feedback fb
+				JOIN project_source ps 
+				ON fb.ps_id = ps.id
+				WHERE fb.id = '71' [ RunTime:0.0290s ]
+SQL: SELECT fb.NAME
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0300s ]
+SQL: SELECT fb.DESCRIBE
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0280s ]
+SQL: SELECT pd.NAME AS product_name
+				FROM feedback fb
+				JOIN product pd 
+				ON fb.pd_id = pd.id
+				WHERE fb.id = '71' [ RunTime:0.0330s ]
+SQL: SELECT pds.NAME as child_product_name
+				FROM feedback fb
+				JOIN product_s pds ON fb.pds_id = pds.id
+				WHERE fb.id = '71' [ RunTime:0.0420s ]
+SQL: SELECT pc.NAME as problem_classification
+				FROM feedback fb
+				JOIN problem_classification pc 
+				ON fb.pc_id = pc.id
+				WHERE fb.id = '71' [ RunTime:0.0290s ]
+SQL: SELECT p.NAME as submit_person_name
+				FROM feedback fb
+				JOIN person p
+				ON fb.submit_person_id = p.id
+				WHERE fb.id = '71' [ RunTime:0.0290s ]
+SQL: select path as img 
+		from file where f_id = '71' [ RunTime:0.0280s ]
+
+[ 2018-08-09T15:48:36+08:00 ] ::1 /index.php?s=/Doc/Feedback/ReplyList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '71' 
+		ORDER BY update_time desc [ RunTime:0.0290s ]
+
+[ 2018-08-09T15:48:39+08:00 ] ::1 /index.php?s=/Doc/Feedback/addReply.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `reply` [ RunTime:0.0340s ]
+SQL: INSERT INTO `reply` (`id`,`person_id`,`content`,`update_time`,`f_id`) VALUES ('0','1','','2018-08-09 15:48:39','71') [ RunTime:0.0750s ]
+SQL: SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '71'  [ RunTime:0.0310s ]
+
+[ 2018-08-09T15:49:38+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-08-09T15:49:41+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-09T15:49:41+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.0300s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0290s ]
+
+[ 2018-08-09T15:49:42+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedbackCheck.html&id=71
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-09T15:49:42+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProblemFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT pr.NAME AS statue
+				FROM feedback fb
+				JOIN priority pr 
+				ON fb.priority = pr.id
+				WHERE fb.id = '71' [ RunTime:0.0310s ]
+SQL: SELECT fb.deadline
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0310s ]
+SQL: SELECT ps.NAME AS project_name
+				FROM feedback fb
+				JOIN project_source ps 
+				ON fb.ps_id = ps.id
+				WHERE fb.id = '71' [ RunTime:0.0300s ]
+SQL: SELECT fb.NAME
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0300s ]
+SQL: SELECT fb.DESCRIBE
+				FROM feedback fb
+				WHERE fb.id = '71' [ RunTime:0.0300s ]
+SQL: SELECT pd.NAME AS product_name
+				FROM feedback fb
+				JOIN product pd 
+				ON fb.pd_id = pd.id
+				WHERE fb.id = '71' [ RunTime:0.0300s ]
+SQL: SELECT pds.NAME as child_product_name
+				FROM feedback fb
+				JOIN product_s pds ON fb.pds_id = pds.id
+				WHERE fb.id = '71' [ RunTime:0.0300s ]
+SQL: SELECT pc.NAME as problem_classification
+				FROM feedback fb
+				JOIN problem_classification pc 
+				ON fb.pc_id = pc.id
+				WHERE fb.id = '71' [ RunTime:0.0300s ]
+SQL: SELECT p.NAME as submit_person_name
+				FROM feedback fb
+				JOIN person p
+				ON fb.submit_person_id = p.id
+				WHERE fb.id = '71' [ RunTime:0.0310s ]
+SQL: select path as img 
+		from file where f_id = '71' [ RunTime:0.0310s ]
+
+[ 2018-08-09T15:49:42+08:00 ] ::1 /index.php?s=/Doc/Feedback/ReplyList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\deliver\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT rp.person_id,
+		p.name as author,rp.content,
+		rp.update_time as time,p.img
+		FROM reply rp 
+		join feedback  fb 
+		on rp.f_id = fb.id 
+		join person  p 
+		on	rp.person_id = p.id 
+		where  fb.id = '71' 
+		ORDER BY update_time desc [ RunTime:0.0310s ]
+
