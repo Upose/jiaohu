@@ -81,7 +81,7 @@ width: 80%;
 
                             <dl class="layui-nav-child">
                                  <?php if(is_array($f[child])): foreach($f[child] as $key=>$vo): ?><dd>
-                                   <a href="javascript:;" kit-target data-options="{url:'<?php echo U('KnowledgeSharing/document _m');?>'+'&f_id='+<?php echo ($vo[cid]); ?>,icon:'',title:'<?php echo ($vo[cname]); ?>',id:'<?php echo ($vo[cid]); ?>'}">
+                                   <a href="javascript:;" kit-target data-options="{url:'<?php echo U('KnowledgeSharing/document');?>'+'&f_id='+<?php echo ($vo[cid]); ?>,icon:'',title:'<?php echo ($vo[cname]); ?>',id:'<?php echo ($vo[cid]); ?>'}">
                                 <span><?php echo ($vo[cname]); ?></span>
                                
                                     </a>

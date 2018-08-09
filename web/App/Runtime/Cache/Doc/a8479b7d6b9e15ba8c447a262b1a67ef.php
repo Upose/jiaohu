@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/Public/Doc/css/custom.css">
 	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
-	<script src="/Public/static/jquery-2.0.3.min.js"></script>
+	<script src="/Public/static/jquery-2.0.3.min.js""></script>
 </head>
 <body>
 	<div class="cus-body">
@@ -47,7 +47,11 @@
 			var str = '';
 			// 处理数据
 			data.forEach(function(item, idx) {
-				str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td style="font-weight: bold;">'+ item.status +'</td><td><span class="cus-enable edit" _id="'+ item.id +'">编辑</span><span class="cus-disable delete" style="margin-left: 10px;" _id="'+ item.id +'">删除</span></td></tr>';
+				if(item.status == '启用') {
+					str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td class="cus-enable">'+ item.status +'</td><td><span class="cus-enable edit" _id="'+ item.id +'">编辑</span><span class="cus-disable delete" style="margin-left: 10px;" _id="'+ item.id +'">删除</span></td></tr>';
+				} else {
+					str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td class="cus-disable">'+ item.status +'</td><td><span class="cus-enable edit" _id="'+ item.id +'">编辑</span><span class="cus-disable delete" style="margin-left: 10px;" _id="'+ item.id +'">删除</span></td></tr>';
+				}
 			});
 
 			tBody.innerHTML = str;
