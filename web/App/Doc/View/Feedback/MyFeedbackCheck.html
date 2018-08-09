@@ -302,6 +302,13 @@
             replys() {
                 var that = this;
                 var inpVla = $('.shuru_input').val();
+                if(inpVla === '') {
+                    layui.use('layer', function() {
+                        layui.layer.alert('请填写回复内容!');
+                    })
+
+                    return false;
+                }
                 $.ajax({
                     cache: false,
                     type: "POST",
@@ -310,8 +317,12 @@
                     data: { content: inpVla, id: this.Uid },
                     success: function (res) {
                         that.replyList = res.data.reply;
-                        // console.log('回复按钮', res);
-                        inpVla = ''
+                        
+                        // 修改 2018-08-09 崔
+                        layui.use('layer', function() {
+                            layui.layer.alert('回复成功!');
+                        })
+                        $('.shuru_input').val('');
                     }
                 })
             },
