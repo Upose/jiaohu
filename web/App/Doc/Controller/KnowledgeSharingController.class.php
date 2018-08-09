@@ -239,6 +239,8 @@ class KnowledgeSharingController extends BaseController {
 
          $ures = M()->execute($sql);     
 
+          $this->redirect('KnowledgeSharing/document _m');
+
         
     }
 
