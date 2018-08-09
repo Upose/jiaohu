@@ -55,11 +55,7 @@
 			var str = '';
 			// 处理数据
 			data.forEach(function(item, idx) {
-				if(item.status == '启用') {
-					str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td class="cus-enable">'+ item.status +'</td><td><span class="cus-enable edit" _id="'+ item.id +'">编辑</span><span class="cus-disable delete" style="margin-left: 10px;" _id="'+ item.id +'">删除</span></td></tr>';
-				} else {
-					str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td class="cus-disable">'+ item.status +'</td><td><span class="cus-enable edit" _id="'+ item.id +'">编辑</span><span class="cus-disable delete" style="margin-left: 10px;" _id="'+ item.id +'">删除</span></td></tr>';
-				}
+				str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td style="font-weight: bold;">'+ item.status +'</td><td><span class="cus-enable edit" _id="'+ item.id +'">编辑</span><span class="cus-disable delete" style="margin-left: 10px;" _id="'+ item.id +'">删除</span></td></tr>';
 			});
 
 			tBody.innerHTML = str;
