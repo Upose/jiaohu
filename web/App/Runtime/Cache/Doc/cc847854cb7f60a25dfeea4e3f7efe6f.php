@@ -51,10 +51,10 @@
                 <div class="cus-files" id="cus-form">
                     <input type="file" name="photo[]" id="cus-ipt" class="cus-files-input" multiple="multiple" accept=".jpg,.png,.gif,.jpeg" maxlength="6" />
                     <div class="cus-files-content">
-                        <div class="cus-warning" style="text-align: center; color: #979797;">
-                            <p class="cus-warning-item" style="padding: 10px 0px 5px 0px;">最多上传文件个数: 6</p>
-                            <p class="cus-warning-item" style="padding: 5px 0px;">文件大小最大为: 100M</p>
-                            <p class="cus-warning-item" style="padding: 5px 0px;">支持上传格式: .jpg,.png,.gif,.jpeg</p>
+                        <div class="cus-warning">
+                            <p class="cus-warning-item">最多上传文件个数: 6</p>
+                            <p class="cus-warning-item">文件大小最大为: 100M</p>
+                            <p class="cus-warning-item">支持上传格式: .jpg,.png,.gif,.jpeg</p>
                         </div>
                     </div>
                 </div>
@@ -124,13 +124,16 @@
         var preview = document.querySelector(".cus-img");
         var _this = this;
         var files = this.files;
-
+ 
+        // 默认显示
+        $('.cus-warning').show();
         // 文件数为0 清空之前的缩略图
         if(files.length === 0) {
-            $('.cus-warning').show();
             $('.cus-files-content').find('.cus-img').remove();
+            $('.cus-warning').show();
         }
 
+        // 判断文件数量
         if(files.length > 6) {
             $('.cus-warning').show();
             layui.use('layer', function() {
@@ -142,8 +145,23 @@
             return false;
         }
         
-        $('.cus-warning').hide();
-        [].slice.call(files).forEach(function(item, idx) {
+        // 对文件大小进行判断
+        ;[].slice.call(files).forEach(function(item, idx) {
+            if(item.size > 10485760) {
+                layui.use('layer', function() {
+                    layui.layer.alert('文件最大不能超过10M,请重新选择!');
+                    _this.value = '';
+                    var preview = document.querySelector(".cus-img");
+                })
+
+                return false;
+            } else {
+                $('.cus-warning').hide();
+            }
+        })
+
+        // 展示文件缩略图
+        ;[].slice.call(files).forEach(function(item, idx) {
             if(idx > 5) {
                 return false;
             }
@@ -163,9 +181,7 @@
             }
 
             $('.cus-files-content').append(img);
-
         })
-       
     })
 </script>
 
