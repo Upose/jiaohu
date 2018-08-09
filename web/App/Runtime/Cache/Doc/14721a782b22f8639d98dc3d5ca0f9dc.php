@@ -185,7 +185,6 @@
                     } else {
                         data.f_id = $(_this).attr('_f_id');
                     }
-                    console.log(data)
 
                     $.ajax({
                         cache: false,

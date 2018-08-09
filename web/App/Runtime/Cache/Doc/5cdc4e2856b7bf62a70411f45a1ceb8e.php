@@ -27,11 +27,7 @@
             </div>
             <div class="layui-form-item" id="parent-level">
                 <label class="layui-form-label">父级:</label>
-                <div class="layui-input-block">
-                    <section name="city" lay-verify="required">
-                        
-                    </section>
-                </div>
+                <div class="layui-input-block"></div>
             </div>
             <div class="layui-form-item cus-fixed-btn">
                 <div class="layui-input-block">

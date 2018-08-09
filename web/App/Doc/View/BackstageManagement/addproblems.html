@@ -14,25 +14,25 @@
 		<form action="" class="layui-form">
 			<div class="layui-form-item">
 				<label class="layui-form-label">名称:</label>
-				<div class="layui-input-block">
+				<div style="margin-left: 60px;" class="layui-input-block">
 					<input type="text" name="feedName" required lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input" id="product_name" />
 				</div>
 			</div>			
 			<div class="layui-form-item">
 				<label class="layui-form-label">描述:</label>
-				<div class="layui-input-block">
-					<textarea name="desc" placeholder="请输入描述" class="layui-textarea" id="product_describe"></textarea>
+				<div style="margin-left: 60px;"  class="layui-input-block">
+					<textarea style="resize:none;" name="desc" placeholder="请输入描述" class="layui-textarea" id="product_describe"></textarea>
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<label class="layui-form-label">状态:</label>
-				<div class="layui-input-block">
+				<div style="margin-left: 60px;"  class="layui-input-block">
 					<input type="radio" name="sex" value="启用" title="启用" checked class="layer">
 					<input type="radio" name="sex" value="禁用" title="禁用" class="layer">
 				</div>
 			</div>
 			<div class="layui-form-item cus-fixed-btn">
-				<div class="layui-input-block">
+				<div  class="layui-input-block">
 					<button type="button" class="cus-btn btn-cancle" id="submitCancle">取消</button>
 					<button type="button" class="cus-btn" id="submitForm">确认</button>
 				</div>
