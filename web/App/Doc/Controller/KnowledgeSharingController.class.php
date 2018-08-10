@@ -1,6 +1,7 @@
 <?php
 namespace Doc\Controller;
 use Think\Controller;
+use Doc\Model\KnowledgeSharingModel;
 
 /**
  * 知识共享模块控制器
@@ -15,23 +16,15 @@ class KnowledgeSharingController extends BaseController {
 	 * 2018.8.1
 	 */
     public function index(){
-        
-        $sql = "SELECT flm.name as pname,
-                  flm.id as pid,
-                  slm.name as psname,
-                  slm.id as psid
-                  FROM FirstLevelMenu flm 
-                  JOIN SecondLevelMenu slm 
-                  on flm.id = slm.f_id";
 
-          $sql_res = M()->query($sql);
+        $sql_res = $this->$sql_res = 
+        KnowledgeSharingModel::menu();
 
-          print_r($result);
+        $res = array();
+        $ch  = array();
 
-          $res = array();
-           $ch = array();
-            foreach ($sql_res as $v) 
-            {
+        foreach ($sql_res as $v) 
+        {
               if(!is_array($res[$v['pid']]))
               {
                 $res[$v['pid']]['pid'] = $v['pid'];
@@ -42,19 +35,15 @@ class KnowledgeSharingController extends BaseController {
             $child['cid'] = $v['psid'];
             $child['cname'] = $v['psname'];
             array_push($res[$v['pid']]['child'], $child);
-             array_push($ch,$child);
-           }
+            array_push($ch,$child);
+        }
 
-
-         $this->assign('res', $res);
+          //渲染数据至前端
+          $this->assign('res', $res);
            
-           
-            $this->display();
+          $this->display();
 
-
-       
     }
-
 
     /**
 	 * 文章列表接口
@@ -64,65 +53,19 @@ class KnowledgeSharingController extends BaseController {
     public function articlesList()
     {
 
-
+      //文档所属二级菜单id
     	$f_id = I('f_id');
-    	
+    	//排序类型 默认为0 按更新时间为1 按阅读量为2
     	$typeid = I('typeid');
-
+      //搜索框的关键字
       $kw =I('key');
 
-  		switch ($typeid)
-  		{
-  		case 0:
-  		   $type = "";
-  		    break;
-  		case 1:
-  		    $type = " ORDER BY submit_time DESC";
-  		    break;
-  		case 2:
-  		    $type = " ORDER BY read_number DESC";
-  		    break;
-          case 4:
-              $type = "";
-              break;
-  		default:
-  		die;
-  		  
-  		}
+      $response = $this->response = 
+      KnowledgeSharingModel::articlesList($f_id,$typeid,$kw);
 
-    	$topsql = "SELECT id,name,keywords,author,
-    	submit_time,read_number,comment_number,is_top,href
-    	FROM KnowledgeDocument
-		  where is_top = 1 and f_id = $f_id  
-      and name like '%$kw%'".$type;
-		
-    	$topres = M()->query($topsql);
-
-    	for($i = 0;$i<count($topres);$i++)
-    	{
-    		$topres[$i]['keywords'] = explode(",",$topres[$i]['keywords']);
-    	}
-
-
-    	$not_topsql = "SELECT id,name,keywords,author,
-    	submit_time,read_number,comment_number,is_top,href
-    	FROM KnowledgeDocument
-		  where is_top = 0 and f_id = $f_id 
-        and name like '%$kw%' ".$type;
-    	$not_topres = M()->query($not_topsql);
-
-    	for($i = 0;$i<count($not_topres);$i++)
-    	{
-    		$not_topres[$i]['keywords'] = explode(",",$not_topres[$i]['keywords']);
-    	}
-
-    	$response = array('top' => $topres,'not_top' =>$not_topres);
-      
       $this->ajaxReturn($response);
 
     }
-
-
 
   /**
    * 计数接口
@@ -135,29 +78,12 @@ class KnowledgeSharingController extends BaseController {
      
         $id = I('id');
 
-        $sql = "SELECT read_number  from KnowledgeDocument where id = $id";
-
-        $res = M()->query($sql);
-
-        $num = (int)$res[0]['read_number'];
-
-        //每访问接口一次，加一
-        $num +=1;
-
-        $usql = "UPDATE KnowledgeDocument SET read_number = $num WHERE id = $id";
-
-        $ures = M()->execute($usql);
-
-        $hsql = "SELECT href  from KnowledgeDocument where id = $id";
-
-        $hres = M()->query($hsql);
-
-        $href = $hres[0]['href'];
+        $href = $this->response = 
+        KnowledgeSharingModel::numberCount($id);
 
         $this->Response(0,$href,'');
 
     }
-
 
     /**
    * 新增文章接口
@@ -238,8 +164,8 @@ class KnowledgeSharingController extends BaseController {
           '$read_number','$comment_number','$is_top','$f_id','$href')";   
 
          $ures = M()->execute($sql);     
-
-          header("Location:Doc/KnowledgeSharing/document?f_id=$f_id");
+          $this->redirect('KnowledgeSharing/document',array('f_id'=>2));
+          //header("Location:KnowledgeSharing/document?f_id=$f_id");
        
     }
 

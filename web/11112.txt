@@ -1,0 +1,1 @@
+[{"key":"photo","name":"bgc.png","type":"image\/png","size":261517,"ext":"png","md5":"99b03fac8af0a141d697576744a2d05f","sha1":"9a386948d7cbfcdcd560dd17b0e16b43a8d4f6a7","savename":"5b6d29c8b8358.png","savepath":"Image\/2018-08-10\/"}]

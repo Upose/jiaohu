@@ -287,7 +287,7 @@
                             'display': 'none'
                         })
                     }
-                    console.log(this.Uid)
+                   // console.log(this.Uid)
         },
         methods: {
             getList(typeID, Uid) {
