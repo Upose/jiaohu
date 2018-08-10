@@ -1,11 +1,11 @@
 <?php
 namespace Doc\Model;
 class BackstageManagementModel{
-	public function info(){
-        $sql="select * from person";
-        $res = M()->query($sql);
-        return $res;
-    }
+	// public function info(){
+ //        $sql="select * from person";
+ //        $res = M()->query($sql);
+ //        return $res;
+ //    }
     public function problem(){  
       $sql=" select * from problem_classification where is_delete =0 ";
       $res = M()->query($sql);

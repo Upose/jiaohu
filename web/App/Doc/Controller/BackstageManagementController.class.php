@@ -11,11 +11,11 @@ date_default_timezone_set('prc');
  * 2018.8.1
  */
 class BackstageManagementController extends BaseController{
-  //测试接口
-	public function index(){
-       $list=$this->list=BackstageManagementModel::info();
-       $this->Response(0,$list,'');
-	}
+ //  //测试接口
+	// public function index(){
+ //       $list=$this->list=BackstageManagementModel::info();
+ //       $this->Response(0,$list,'');
+	// }
 
 
 
