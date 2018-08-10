@@ -13,6 +13,7 @@
     <div id="add-content" class="cus-model">
         <form action="" class="layui-form">
             <input type="hidden" id="edit_id" />
+            <input type="hidden" id="edit_status" />
             <div class="layui-form-item">
                 <label class="layui-form-label">名称:</label>
                 <div class="layui-input-block">
@@ -44,9 +45,22 @@
         var submitForm = document.getElementById('submitForm');
         var submitCancle = document.getElementById('submitCancle');
         // form表单初始化
-        layui.use('form', function() {
-            var form = layui.form;
-        });
+
+        window.onload = function() {
+            layui.use('form', function() {
+                var form = layui.form;
+                form.render();
+
+                $('.layer').each(function(idx, item) {
+                    if($(item).val() === $('#edit_status').val()) {
+                        $('.layer').removeAttr('checked');
+                        $(item).prop('checked', true);
+
+                        form.render();
+                    }
+                })
+            });
+        }
 
         // 提交数据
         submitForm.onclick = function() {
