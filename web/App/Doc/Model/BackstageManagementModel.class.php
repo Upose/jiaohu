@@ -1,23 +1,19 @@
 <?php
 namespace Doc\Model;
 class BackstageManagementModel{
-	// public function info(){
- //        $sql="select * from person";
- //        $res = M()->query($sql);
- //        return $res;
- //    }
+
     public function problem(){  
       $sql=" select * from problem_classification where is_delete =0 ";
       $res = M()->query($sql);
       return $res;
-	}
+	  }
     
     public function addproblem($name,$update_time,$submit_person_id,$summary,$status){  
         $sql="insert into problem_classification (name,update_time,submit_person_id,summary,status,is_delete) 
     	   values ('$name','$update_time','$submit_person_id','$summary','$status',0)";
         $res = M()->execute($sql);
        return $res;
-	}
+	  }
 
     public function select($id){
     	$sql="SELECT * FROM feedback as a  
@@ -42,12 +38,11 @@ class BackstageManagementModel{
     public function update($name,$summary,$fid,$id){
       $sql="update product_s set name='$name',summary='$summary',f_id='$fid' where id='$id'";
       $res = M()->execute($sql);
-      //var_dump($res);die;
-	      if($res){
+	    if($res){
 	      	 return 0;
-	      }else{
+	    }else{
 	      	 return 1;
-	      }
+	    }
       
     }
 
@@ -57,11 +52,11 @@ class BackstageManagementModel{
            where id='$id'";
        $res = M()->execute($sql);
        //var_dump($res);die;
-	   if($res){
-	      	 return 0;
-	      }else{
-	      	 return 1;
-	      }
+  	   if($res){
+  	      	 return 0;
+  	   }else{
+  	      	 return 1;
+  	   }
      }
 
 
@@ -131,6 +126,38 @@ class BackstageManagementModel{
       }
 
     }
+
+
+    public function Product($page){
+        $asql="select id,name,level,summary 
+        from product where is_delete = 0";
+        $ares=M()->query($asql);
+        
+        $sql = "SELECT
+            product.name AS aname,
+            product_s.id,product_s.name,
+            product_s.summary,
+            product_s.f_id
+            FROM product 
+            LEFT JOIN product_s 
+            ON product.id = product_s.f_id  
+            where product.is_delete = 0 
+            and product_s.is_delete = 0 
+            limit $page,10 ";
+
+        $res = M()->query($sql);
+        $result=array();
+        $result['res']=$res;
+        $result['ares']=$ares;
+        $usql="select count(*) 
+        as count from product_s
+         where is_delete='0'";
+        $ures = M()->query($usql);
+            
+        $result['count']=$ures[0]['count'];
+        return $result;
+    }
 }
+
 
 

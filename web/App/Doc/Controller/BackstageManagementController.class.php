@@ -17,10 +17,10 @@ class BackstageManagementController extends BaseController{
      * @author zang.qun
      * 2018-07-30
      */
-	public function problem(){
+	  public function problem(){
 	    $list=$this->list=BackstageManagementModel::problem();
       $this->Response(0,$list,'');
-	}
+	  }
 
 	/**
 	 * 添加问题分类接口
@@ -62,36 +62,9 @@ class BackstageManagementController extends BaseController{
     public function Product(){
 
     		$page=Intval(I('page'));
+    		$list=$this->list=BackstageManagementModel::Product($page);
+        $this->Response(0,$list,'');
     		
-    		$asql="select id,name,level,summary 
-    		from product where is_delete = 0";
-    		$ares=M()->query($asql);
-    		
-    		$sql = "SELECT
-    				product.name AS aname,
-    				product_s.id,product_s.name,
-    				product_s.summary,
-    				product_s.f_id
-    				FROM product 
-    				LEFT JOIN product_s 
-    				ON product.id = product_s.f_id  
-    				where product.is_delete = 0 
-    				and product_s.is_delete = 0 
-    				limit $page,10 ";
-
-    		$res = M()->query($sql);
-    		$result=array();
-    		$result['res']=$res;
-    		$result['ares']=$ares;
-    		
-            $usql="select count(*) 
-            as count from product_s
-             where is_delete='0'";
-            $ures = M()->query($usql);
-            
-            $result['count']=$ures[0]['count'];
-            $this->Response(0,$result,'');
-
 	  }
 
 	/**
@@ -193,6 +166,7 @@ class BackstageManagementController extends BaseController{
       	}
       
     }
+    
      
      // public function AddSalt(){
      //   $password=md5(I('password'));
