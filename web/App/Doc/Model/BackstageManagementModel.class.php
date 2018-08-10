@@ -69,7 +69,7 @@ class BackstageManagementModel{
     public function UpdateeProblem($id){
 	      $sql="select name,status,summary from problem_classification where id= '$id' and is_delete=0 ";
 	      $res = M()->query($sql);
-          return $res;
+        return $res;
     }
 
 
@@ -83,4 +83,54 @@ class BackstageManagementModel{
 	      }
     }
 
+
+    public function softdelete($f_id,$id){
+       //f_id为0是父级产品,不为0为子级产品
+        if($f_id==0)
+        {
+             $sql="update product set is_delete = 1 
+             where id='$id'";
+             $res = M()->execute($sql);
+             $usql="update product_s set is_delete = 1 
+             where f_id='$id'";
+             $ures = M()->execute($usql);
+             return 0;
+        }
+       if($f_id!==0)
+        {
+             $sql="update product_s set is_delete = 1 
+             where id='$id'";
+             $res = M()->execute($sql);
+             return 0;
+        }
+     
+    }
+
+
+
+    public function addProduct($name,$level,$summary,$f_id){
+      //父级产品level为1
+      if($level=='1')
+      {
+           $sql="insert into product (name,level,summary,is_delete) 
+           values ('$name','$level','$summary','0')";
+           $res = M()->execute($sql);
+           return 0;
+      }
+
+      //子级产品level为2
+      else if($level=='2')
+      {
+           $sql="insert into product_s (name,level,summary,f_id,is_delete) values ('$name','$level','$summary','$f_id','0')";
+           $res = M()->execute($sql);
+           return 0;
+      }
+      else
+      {
+           return 1;
+      }
+
+    }
 }
+
+

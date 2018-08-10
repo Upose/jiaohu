@@ -11,14 +11,7 @@ date_default_timezone_set('prc');
  * 2018.8.1
  */
 class BackstageManagementController extends BaseController{
- //  //测试接口
-	// public function index(){
- //       $list=$this->list=BackstageManagementModel::info();
- //       $this->Response(0,$list,'');
-	// }
-
-
-
+ 
  /**
 	 * 问题分类接口
      * @author zang.qun
@@ -41,14 +34,13 @@ class BackstageManagementController extends BaseController{
         $Currytime = date('Y-m-d H:i:s',time());
         $update_time = $Currytime;
         $submit_person_id=$_SESSION['user_id'];
-    
-    	if(empty($name) ||empty($summary) ||empty($status)){
-           $this->Response(0,'添加失败','');
-    	}
-    	else{
-    	   $list=$this->list=BackstageManagementModel::addproblem($name,$update_time,$submit_person_id,$summary,$status);
-           $this->Response(0,'添加成功','');
-    	}	    
+      	if(empty($name) ||empty($summary) ||empty($status)){
+             $this->Response(0,'添加失败','');
+      	}
+      	else{
+      	   $list=$this->list=BackstageManagementModel::addproblem($name,$update_time,$submit_person_id,$summary,$status);
+             $this->Response(0,'添加成功','');
+      	}	    
   	}
 
     /**
@@ -112,28 +104,13 @@ class BackstageManagementController extends BaseController{
     	$level=intval(I('level'));
     	$summary=I('summary');
     	$f_id=intval(I('f_id'));
-
-    	//父级产品level为1
-    	if($level=='1')
-    	{
-           $sql="insert into product (name,level,summary,is_delete) 
-           values ('$name','$level','$summary','0')";
-           $res = M()->execute($sql);
-           $this->Response(0,'添加成功','');
-    	}
-
-    	//子级产品level为2
-    	else if($level=='2')
-    	{
-           $sql="insert into product_s (name,level,summary,f_id,is_delete) values ('$name','$level','$summary','$f_id','0')";
-           $res = M()->execute($sql);
-           $this->Response(0,'添加成功','');
-    	}
-    	else
-    	{
-    	   $this->Response(1,'添加失败','');
-    	}
-
+      $list=$this->list=BackstageManagementModel::addProduct($name,$level,$summary,$f_id);
+       if($list===0){
+         $this->Response(0,'添加成功','');
+        }else{
+         $this->Response(1,'添加失败','');
+        }
+    	
     }
 
 
@@ -155,33 +132,11 @@ class BackstageManagementController extends BaseController{
      * 2018-07-30
      */
     public function softdelete(){
-
     	$f_id=intval(I('f_id'));
     	$id=intval(I('id'));
-
-    	//f_id为0是父级产品,不为0为子级产品
-    	if($f_id==0)
-    	{
-           $sql="update product set is_delete = 1 
-           where id='$id'";
-           $res = M()->execute($sql);
-           $usql="update product_s set is_delete = 1 
-           where f_id='$id'";
-           $ures = M()->execute($usql);
-           $this->Response(0,'删除成功','');
-    	}
-    	else if($f_id!==0)
-    	{
-           $sql="update product_s set is_delete = 1 
-           where id='$id'";
-           $res = M()->execute($sql);
-           $this->Response(0,'删除成功','');
-    	}
-    	else
-    	{
-    	   $this->Response(0,'删除失败','');
-    	}
-
+      $list=$this->list=BackstageManagementModel::softdelete($f_id,$id);
+      $this->Response(0,'删除成功','');
+    	
     }
 
     public function updatee(){
