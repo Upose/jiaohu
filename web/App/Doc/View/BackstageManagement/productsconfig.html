@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/custom.css">
 	<script src="__DOCLAY__/plugins/layui/layui.js"></script>
-	<script src="__STATIC__/jquery-2.0.3.min.js""></script>
+	<script src="__STATIC__/jquery-2.0.3.min.js"></script>
 </head>
 <body>
 	<div class="cus-body">
@@ -47,14 +47,14 @@
 		function tableInit(data) {
 			var tBody = document.getElementById('feed-tbody');
 			var str = '';
-			ares = JSON.parse(JSON.stringify(data.ares));
-
+			var ares = JSON.parse(JSON.stringify(data.ares));
+            var res = JSON.parse(JSON.stringify(data.res));
 			// 处理数据
-			data.ares.forEach(function(item, idx) {
-				str += '<tr><td colspan="4" style="font-weight: bold; font-size: 14px;">'+ item.name +'</td><td class="cus-enable delete" _id="'+ item.id +'">删除</td></tr>';
-				data.res.forEach(function(_item, _idx) {
-					if(_item.aname === item.name) {
-						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td class="cus-disable">'+ item.name +'</td><td class="cus-enable"><span class="cus-enable edit" _id="'+ _item.id +'">编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ _item.id +'" style="color: rgba(236, 65, 65, 0.65); margin-left: 10px;">删除</span></td></tr>';
+			ares.forEach(function(item, idx) {
+				str += '<tr><td colspan="4" style="font-weight: bold; font-size: 14px;">'+ item.name +'</td><td class="cus-disable delete" _id="'+ item.id +'">删除</td></tr>';
+				res.forEach(function(_item, _idx) {
+					if(_item.f_id === item.id) {
+						str += '<tr><td>'+ _item.id +'</td><td>'+ _item.name +'</td><td>'+ _item.summary +'</td><td style="font-weight: bold;">'+ item.name +'</td><td class="cus-enable"><span class="cus-enable edit" _id="'+ _item.id +'">编辑</span><span class="delete" _f_id="'+ _item.f_id +'" _id="'+ _item.id +'" style="color: rgba(236, 65, 65, 0.65); margin-left: 10px;">删除</span></td></tr>';
 					}
 				});
 			});
@@ -171,34 +171,39 @@
 
 		// 删除
 		$('#feed-table').on('click', '.delete', function(e) {
-			var data = {};
-			data.id = $(this).attr('_id');
-			// 判断删除的是否为父级
-			if(!$(this).attr('_f_id')) {
-				// 不存在父级id则不传f_id
-				data.f_id = 0;
-			} else {
-				data.f_id = $(this).attr('_f_id');
-			}
+            var _this = this;
+            layui.use('layer', function() {
+                layui.layer.confirm('确定删除?', {
+                  btn: ['确定', '取消']
+                }, function(index, layero){
+                    var data = {};
+                    data.id = $(_this).attr('_id');
+                    // 判断删除的是否为父级
+                    if(!$(_this).attr('_f_id')) {
+                        // 不存在父级id则不传f_id
+                        data.f_id = 0;
+                    } else {
+                        data.f_id = $(_this).attr('_f_id');
+                    }
 
-			$.ajax({
-				cache: false,
-				type: "POST",
-				url: "{:U('BackstageManagement/softdelete')}",
-				dataType: "json",
-				data: data,
-				success: function(res) {
-					// 刷新页面, 会写数据
-                    layui.use('layer', function() {
-                        layui.layer.alert('删除成功!');
-                    })
-
-                    getFeedList(pageIndex, limit);
-				},
-				fail: function(err) {
-					console.log(err);
-				}
-			});
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "{:U('BackstageManagement/softdelete')}",
+                        dataType: "json",
+                        data: data,
+                        success: function(res) {
+                            layui.layer.alert('删除成功!');
+                            getFeedList();
+                        },
+                        fail: function(err) {
+                            console.log(err);
+                        }
+                    });    
+                }, function(index){
+                  
+                });
+            })
 		})
 
 		getFeedList(pageIndex, limit);

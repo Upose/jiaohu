@@ -55,7 +55,7 @@ width: 80%;
             <ul class="layui-nav layui-layout-right kit-nav">
                 <li class="layui-nav-item">
                 <a href=" ">
-                <img src="http://m.zhengjinfan.cn/images/0.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
+                <img src="/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
@@ -81,7 +81,7 @@ width: 80%;
 
                             <dl class="layui-nav-child">
                                  <?php if(is_array($f[child])): foreach($f[child] as $key=>$vo): ?><dd>
-                                   <a href="javascript:;" kit-target data-options="{url:'<?php echo U('KnowledgeSharing/document _m');?>'+'&f_id='+<?php echo ($vo[cid]); ?>,icon:'',title:'<?php echo ($vo[cname]); ?>',id:'<?php echo ($vo[cid]); ?>'}">
+                                   <a href="javascript:;" kit-target data-options="{url:'<?php echo U('KnowledgeSharing/document');?>'+'&f_id='+<?php echo ($vo[cid]); ?>,icon:'',title:'<?php echo ($vo[cname]); ?>',id:'<?php echo ($vo[cid]); ?>'}">
                                 <span><?php echo ($vo[cname]); ?></span>
                                
                                     </a>

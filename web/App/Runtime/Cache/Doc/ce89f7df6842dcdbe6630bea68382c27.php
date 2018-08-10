@@ -54,7 +54,7 @@ width: 80%;
             <ul class="layui-nav layui-layout-right kit-nav">
                 <li class="layui-nav-item">
                 <a href=" ">
-                <img src="http://m.zhengjinfan.cn/images/0.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
+                <img src="/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>

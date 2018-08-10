@@ -123,7 +123,7 @@
                             }
                             _this.pageIndex = obj.curr;
                             _this.limit = obj.limit;
-                            _this.getList();
+                            _this.getList();c
                         }
                     });
                 });        

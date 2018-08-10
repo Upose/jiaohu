@@ -19,9 +19,9 @@
 				<colgroup>
 					<col width="80">
 					<col width="200">
-					<col width="600">
+					<col width="500">
 					<col width="80">
-					<col width="80">
+					<col width="150">
 				</colgroup>
 				<thead>
 					<tr class="cus-tr-bold">
@@ -32,15 +32,7 @@
 						<th>操作</th>
 					</tr>
 				</thead>
-				<tbody id="feed-tbody">
-					<tr>
-						<td>1</td>
-						<td>我是内容</td>
-						<td>我是描述</td>
-						<td class="cus-enable">启用</td>
-						<td class="cus-enable">编辑</td>
-					</tr>
-				</tbody>
+				<tbody id="feed-tbody"></tbody>
 			</table>
 			<div id="feed-page"></div>
 		</div>
@@ -53,7 +45,6 @@
 		function tableInit(data) {
 			var tBody = document.getElementById('feed-tbody');
 			var str = '';
-
 			// 处理数据
 			data.forEach(function(item, idx) {
 				if(item.status == '启用') {
@@ -133,6 +124,31 @@
         // 删除
         $('#feed-tbody').on('click', '.delete', function() {
             var id = $(this).attr('_id');
+            layui.use('layer', function() {
+                layui.layer.confirm('确定删除?', {
+                  	btn: ['确定', '取消']
+                }, function(index, layero){
+                  	$.ajax({
+                  		cache: false,
+                  		async: false,
+                  		type: "POST",
+                  		url: "<?php echo U('BackstageManagement/DeleteProblem');?>",
+                  		dataType: "json",
+                  		data: {
+                  			id: id
+                  		},
+                  		success: function(res) {
+                  			layui.layer.alert('删除成功');
+                  			getFeedList();
+                  		},
+                  		fail: function(err) {
+                  			console.log(err);
+                  		}
+                  	});
+                }, function(index){
+                  	
+                });
+            })
         })
 
         // 编辑
@@ -147,7 +163,40 @@
                     shadeClose: true,
                     closeBtn: 1,
                     area: ['500px', '350px'],
-                    content: "<?php echo U('BackstageManagement/EditProblems');?>"
+                    content: "<?php echo U('BackstageManagement/EditProblems');?>",
+                    success: function(layero, idx) {
+                        var body = layui.layer.getChildFrame('body', idx);
+                        $.ajax({
+                            cache: false,
+                            async: false,
+                            type: "POST",
+                            url: "<?php echo U('BackstageManagement/UpdateeProblem');?>",
+                            dataType: "json",
+                            data: {
+                                id: id
+                            },
+                            success: function(res) {
+                                var o = res.data[0];
+                                body.find('#product_name').val(o.name);
+                                body.find('#edit_id').val(id);
+                                body.find('#product_describe').val(o.summary);
+                                body.find('#product_status .layui-form-radio').each(function(idx, item) {
+                                	var s = $(this).find('span').html();
+
+                                	if(s === o.status) {
+                                		$(this).addClass('layui-form-radioed');
+                                		$(this).find('i').addClass('layui-anim-scaleSpring');
+                                	} else {
+                                		$(this).removeClass('layui-form-radioed');
+                                		$(this).find('i').removeClass('layui-anim-scaleSpring');
+                                	}
+                                });
+                            },
+                            fail: function(err) {
+                                console.log(err);
+                            }
+                        });
+                    }
                 });
             })
         })

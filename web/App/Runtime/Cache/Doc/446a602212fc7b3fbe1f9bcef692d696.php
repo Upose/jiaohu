@@ -279,7 +279,7 @@
                             theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
                         }
                     }
-                    // console.log('theRequest',theRequest)
+                     console.log('theRequest',theRequest)
                     this.Uid = theRequest.f_id;
                     this.getList(0, this.Uid);
                     if(this.count==0){

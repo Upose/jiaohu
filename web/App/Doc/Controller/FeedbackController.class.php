@@ -191,7 +191,7 @@ class FeedbackController extends BaseController {
 			}
 	
 	    }
-
+	    $this->redirect('Feedback/MyFeedback');
 
 	}
 
@@ -402,6 +402,7 @@ class FeedbackController extends BaseController {
 		$suspend_reason =I('content');
 
 		$type_id = I('id');
+
 		//存入数据库
 		$Model = D('suspend_information');
 		$data['id'] = '';
@@ -409,6 +410,19 @@ class FeedbackController extends BaseController {
 		$data['suspend_reason'] = $suspend_reason;
 		$data['type_id'] = $type_id;
 		$result = $Model->add($data);
+
+		if($result)
+		{
+			$msg = "成功"; 
+			$this->Response(1,$msg,'');
+		}
+		else
+		{
+			$msg = "失败"; 
+			$this->Response(2,$msg,'');
+		}
+
+		
 		
 	}
 
@@ -436,6 +450,18 @@ class FeedbackController extends BaseController {
 		$data['type_id'] = $type_id;
 		$result = $Model->add($data);
 
+		if($result)
+		{
+			$msg = "成功"; 
+			$this->Response(1,$msg,'');
+		}
+		else
+		{
+			$msg = "失败"; 
+			$this->Response(2,$msg,'');
+		}
+
+		
 	}
 
 	/**

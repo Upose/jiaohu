@@ -27,11 +27,7 @@
             </div>
             <div class="layui-form-item" id="parent-level">
                 <label class="layui-form-label">父级:</label>
-                <div class="layui-input-block">
-                    <section name="city" lay-verify="required">
-                        
-                    </section>
-                </div>
+                <div class="layui-input-block"></div>
             </div>
             <div class="layui-form-item cus-fixed-btn">
                 <div class="layui-input-block">
@@ -54,8 +50,7 @@
         submitForm.onclick = function() {
             var product_name = $('#product_name').val();
             var product_describe = $('#product_describe').val();
-            var id = $('#edit-id').val();
-            
+
             // 表单验证
             if(product_name == '' || product_describe === '') {
                 layui.use('layer', function() {
@@ -77,16 +72,20 @@
                 cache: false,
                 async: false,
                 type: "POST",
-                url: "<?php echo U('BackstageManagement/addProduct');?>",
+                url: "<?php echo U('BackstageManagement/update');?>",
                 dataType: "json",
                 data: {
                     name: $('#product_name').val(),
                     summary: $('#product_describe').val(),
-                    level: $('.layer:checked').val(),
-                    f_id: $('#parent-level select').val()
+                    fid: $('#parent-level select').val(),
+                    id: $('#edit_id').val()
                 },
                 success: function(res) {
-                    // window.parent.location.reload();
+                    layui.use('layer', function() {
+                        layui.layer.alert('修改成功!', function() {
+                            window.parent.location.reload();
+                        });
+                    })
                 },
                 fail: function(err) {
                     console.log(err);
@@ -96,7 +95,6 @@
         
         // 点击取消按钮
         submitCancle.onclick = function() {
-            $('#edit-id').val('');
             window.parent.location.reload();
         };
 
