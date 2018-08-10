@@ -13,6 +13,7 @@
     <div id="add-content" class="cus-model">
         <form action="" class="layui-form">
             <input type="hidden" id="edit_id" />
+            <input type="hidden" id="edit_status" />
             <div class="layui-form-item">
                 <label class="layui-form-label">名称:</label>
                 <div class="layui-input-block">
@@ -28,8 +29,8 @@
             <div class="layui-form-item" id="product_status">
                 <label class="layui-form-label">状态:</label>
                 <div class="layui-input-block">
-                    <input type="radio" name="sex" value="启用" title="启用" class="layer">
-                    <input type="radio" name="sex" value="禁用" title="禁用" class="layer">
+                    <input type="radio" name="sex" value="已启用" title="已启用" class="layer">
+                    <input type="radio" name="sex" value="已禁用" title="已禁用" class="layer">
                 </div>
             </div>
             <div class="layui-form-item cus-fixed-btn">
@@ -44,9 +45,21 @@
         var submitForm = document.getElementById('submitForm');
         var submitCancle = document.getElementById('submitCancle');
         // form表单初始化
-        layui.use('form', function() {
-            var form = layui.form;
-        });
+
+        window.onload = function() {
+            layui.use('form', function() {
+                var form = layui.form;
+                form.render();
+                $('.layer').each(function(idx, item) {
+                    if($(item).val() === $('#edit_status').val()) {
+                        $('.layer').removeProp('checked');
+                        $(item).prop('checked', true);
+
+                        form.render();
+                    }
+                })
+            });
+        }
 
         // 提交数据
         submitForm.onclick = function() {
