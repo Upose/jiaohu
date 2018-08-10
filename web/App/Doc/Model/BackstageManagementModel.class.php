@@ -51,6 +51,7 @@ class BackstageManagementModel{
       
     }
 
+
     public function DeleteProblem($id){
        $sql="update problem_classification set is_delete = 1 
            where id='$id'";
