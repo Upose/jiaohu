@@ -68,7 +68,7 @@ width: 80%;
         </div>
         <div class="layui-side layui-bg-black kit-side">
             <div class="layui-side-scroll">
-                <div class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true">展开/关闭</i></div>
+                <div class="kit-side-fold"><i class="layui-icon">&#xe68e;</i></div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <!-- 标志 点赞 &#xe6c6 重要 &#xe658;-->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
@@ -76,9 +76,7 @@ width: 80%;
          
 
                       <?php if(is_array($res)): foreach($res as $key=>$f): ?><li class="layui-nav-item">
-                            <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span><?php echo ($f[pname]); ?></span></a>
-
-
+                            <a class="" href="javascript:;"><i class="layui-icon">&#xe61a;</i><span><?php echo ($f[pname]); ?></span></a>
                             <dl class="layui-nav-child">
                                  <?php if(is_array($f[child])): foreach($f[child] as $key=>$vo): ?><dd>
                                    <a href="javascript:;" kit-target data-options="{url:'<?php echo U('KnowledgeSharing/document');?>'+'&f_id='+<?php echo ($vo[cid]); ?>,icon:'',title:'<?php echo ($vo[cname]); ?>',id:'<?php echo ($vo[cid]); ?>'}">
@@ -86,10 +84,6 @@ width: 80%;
                                
                                     </a>
                                 </dd><?php endforeach; endif; ?>
-
-
-
-
                             </dl>
 
                          

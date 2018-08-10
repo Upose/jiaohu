@@ -79,7 +79,8 @@ class FeedbackController extends BaseController {
 	{
 		//问题分类
 		$problemsql = "SELECT id as pc_id,name 
-		from problem_classification";
+		from problem_classification 
+		where is_delete = 0 ";
 		$problemres = M()->query($problemsql);
 		
 		//所属项目

@@ -4902,3 +4902,1284 @@ SQL: SELECT rp.person_id,
 		where  fb.id = '74' 
 		ORDER BY update_time desc [ RunTime:0.0090s ]
 
+[ 2018-08-10T14:07:49+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-10T14:07:50+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-10T14:07:50+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-10T14:07:50+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-10T14:07:55+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:08:00+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:08:09+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:08:28+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:08:30+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0050s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:27:25+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/document.html&f_id=4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:27:25+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/articlesList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::articlesList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 64 行.
+SQL: SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 1 and f_id = 4  
+      	and name like '%%' [ RunTime:0.0040s ]
+SQL: SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 0 and f_id = 4 
+        and name like '%%'  [ RunTime:0.0030s ]
+
+[ 2018-08-10T14:27:28+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/document.html&f_id=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-08-10T14:27:28+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/articlesList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::articlesList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 64 行.
+SQL: SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 1 and f_id = 10  
+      	and name like '%%' [ RunTime:0.0060s ]
+SQL: SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 0 and f_id = 10 
+        and name like '%%'  [ RunTime:0.0090s ]
+
+[ 2018-08-10T14:34:10+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:34:12+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problemconfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:34:12+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problem.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL:  select * from problem_classification where is_delete =0  [ RunTime:0.0040s ]
+
+[ 2018-08-10T14:39:13+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-08-10T14:39:15+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-10T14:39:17+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-10T14:39:18+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0050s ]
+NOTIC: [8] Undefined offset: 53 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+
+[ 2018-08-10T14:39:18+08:00 ] ::1 /index.php?s=/Doc/Feedback/SubmitMyFeedback.html&nID=43&oID=53
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:39:19+08:00 ] ::1 /index.php?s=/Doc/Feedback/DropdownBoxList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT id as pc_id,name 
+		from problem_classification 
+		where is_delete = 0  [ RunTime:0.0200s ]
+SQL: SELECT id as ps_id,name 
+		from project_source [ RunTime:0.0070s ]
+
+[ 2018-08-10T14:44:38+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:45:02+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0040s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:46:45+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0060s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:47:01+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0020s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:48:14+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0060s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T14:48:15+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-10T14:48:16+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0040s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-08-10T14:56:02+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0040s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T15:02:23+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0170s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 79 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 81 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-10T15:02:28+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T15:02:31+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-10T15:02:32+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/productsconfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T15:02:32+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: select id,name,level,summary 
+		from product where is_delete = 0 [ RunTime:0.0100s ]
+SQL: SELECT
+				product.name AS aname,
+				product_s.id,product_s.name,
+				product_s.summary,
+				product_s.f_id
+				FROM product 
+				LEFT JOIN product_s 
+				ON product.id = product_s.f_id  
+				where product.is_delete = 0 
+				and product_s.is_delete = 0 
+				limit 0,10  [ RunTime:0.0030s ]
+SQL: select count(*) 
+        as count from product_s
+         where is_delete='0' [ RunTime:0.0020s ]
+
+[ 2018-08-10T15:02:33+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problemconfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-10T15:02:33+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problem.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL:  select * from problem_classification where is_delete =0  [ RunTime:0.0060s ]
+
