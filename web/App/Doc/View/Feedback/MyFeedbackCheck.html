@@ -302,6 +302,14 @@
             replys() {
                 var that = this;
                 var inpVla = $('.shuru_input').val();
+
+                // 首先对输入内容进行 2018-08-10 cui
+                if(!inpVla) {
+                    layui.use('layer', function() {
+                        layui.layer.alert('请输入回复内容');
+                    })
+                }
+
                 $.ajax({
                     cache: false,
                     type: "POST",
@@ -311,7 +319,13 @@
                     success: function (res) {
                         that.replyList = res.data.reply;
                         // console.log('回复按钮', res);
-                        inpVla = ''
+                        // inpVla = ''
+                        
+                        // 成功提示, 清除回复内容
+                        $('.shuru_input').val('');
+                        layui.use('layer', function() {
+                            layui.layer.alert('回复成功!');
+                        })
                     }
                 })
             },
