@@ -13,6 +13,7 @@
     display: inline-block;
     float: left;
     width: 60vw;
+    height: 100vh;
     /* border: 1px solid black; */
 }
 /* 右边输入内容 */
