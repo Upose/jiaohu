@@ -13,7 +13,7 @@
     <!-- 最外层框 -->
     <div class="con">
         <!-- 左边背景图 -->
-        <img src="/Public/Doc/images/ct.jpg" alt="">
+        <img src="/Public/Doc/images/ct.png" alt="">
         <!-- 右边输入内容 -->
         <div class="login">
             <form>
