@@ -76,3 +76,38 @@ html, body {
 .layui-form-radio > span, .layui-layer-btn, .cus-btn, .cus-tr-bold > th, .cus-table > tbody > tr > td {
     font-size: 12px;
 }
+
+/**
+ * 对首页的导航栏进行样式设置
+ */
+
+ .cus-nav-icon {
+     width: 20px;
+     height: 20px;
+     margin: 0px 7px 0px 0px;
+ }
+ .kit-layout-admin .kit-sided {
+     width: 60px;
+ }
+ .kit-sided .layui-side-scroll {
+     width: 60px;
+ }
+ .kit-side .layui-side-scroll .kit-side-folded a span:not(.layui-nav-more) {
+     display: block;
+     white-space: normal;
+     text-align: center;
+     line-height: 15px;
+     width: 40px;
+     margin: 5px auto 8px auto;
+ }
+ .kit-layout-admin .kit-sided .layui-nav-more {
+     display: none;
+ }
+ .kit-side .layui-side-scroll .kit-side-folded a img {
+     display: block;
+     margin: 8px auto 0px auto;
+ }
+ .kit-layout-admin .kit-sided .layui-nav-tree .layui-nav-item, .kit-layout-admin .kit-sided .layui-nav-tree .layui-nav-item a {
+     min-height: 70px;
+     height: auto;
+ }
