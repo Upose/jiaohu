@@ -128,7 +128,7 @@
                   		cache: false,
                   		async: false,
                   		type: "POST",
-                  		url: "<?php echo U('BackstageManagement/DeleteProduct');?>",
+                  		url: "<?php echo U('BackstageManagement/DeleteProject');?>",
                   		dataType: "json",
                   		data: {
                   			id: id

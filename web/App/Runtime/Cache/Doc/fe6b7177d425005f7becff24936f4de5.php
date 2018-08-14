@@ -27,8 +27,8 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">状态:</label>
 				<div style="margin-left: 60px;"  class="layui-input-block">
-					<input type="radio" name="sex" value="启用" title="启用" checked class="layer">
-					<input type="radio" name="sex" value="禁用" title="禁用" class="layer">
+					<input type="radio" name="sex" value="已启用" title="已启用" checked class="layer">
+					<input type="radio" name="sex" value="已禁用" title="已禁用" class="layer">
 				</div>
 			</div>
 			<div class="layui-form-item cus-fixed-btn">
