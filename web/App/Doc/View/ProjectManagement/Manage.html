@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
+    <link rel="stylesheet" href="__CSS__/Manage.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body class="app">
+    <!-- 最上层搜索栏 -->
+    <div class="search_div">
+        区域：<select class="pro_select" @change="pro_select">
+            <option value="0">全国</option>
+            <option v-for="i in province" :value="i.pid">{{i.pname}}</option>
+        </select>
+        状态：<select class="sta_select" @change="sta_select">
+            <option value="0">全部</option>
+            <option v-for="i in status" :value="i.id">{{i.name}}</option>
+        </select>
+        <input class="keyword" type="text" placeholder="关键词"><button @click="search()" class="search_button">搜索</button>
+        <button class="new_button">新增</button>
+    </div>
+    <!-- 项目 -->
+    <div class="safety" v-for="i in data">
+        <!-- 标题 -->
+        <div class="tit"><span class="pro_name">{{i.name}}</span> <span class="more safety_span">展开更多&ensp;<img
+                    src="__IMG__/icon_unfold.png"></span></div>
+        <div class="safety_pro collapse">
+            <div v-for="j in i.child" class="pro_div">
+                <p>
+                    <span class="department">{{j.industry}}</span>
+                    <span class="location">{{j.area}}</span>
+                    <span class="name">{{j.name}}</span>
+                </p>
+                <p class="personnel">
+                    <img src="__IMG__/icon_menber.png" alt=""> 项目负责人：{{j.charge}}&nbsp;&nbsp;入场人员 {{j.member_num}} 人</p>
+                <p class="time">{{j.start_time}} 至 {{j.end_time}}</p>
+                <p>
+                    <span class="status">{{j.status}}</span>
+                    <span class="schedule">({{j.rate}})</span>
+                </p>
+                <div class="button_div">
+                    <button>编辑</button>
+                    <button>详情</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 新增功能弹框 -->
+    <div class="new_div">
+        <div class="new_tit"><span>新增项目</span><img @click='down()' src="__IMG__/close_normal.png"></div>
+        <form action="{:U('ProjectManagement/projectAdd')}" method="post">
+            <div class="con_txt">
+                <p>项目名称：<input name="name" class="name_input" type="text" placeholder="请输入名称"></p>
+                <p>行业分类：<select name="industry_id" class="industry_input" id="">
+                        <option v-for='i in industry' :value="i.id">{{i.name}}</option>
+                    </select></p>
+                <p>客户类型：<select name="customer_type_id" class="client_input" id="">
+                        <option v-for='i in customer' :value="i.id">{{i.name}}</option>
+                    </select></p>
+                <p>项目类型：<input type="radio" name="project_type_id" id="1" checked>合同项目&nbsp;&nbsp;&nbsp;<input type="radio"
+                        name="project_type_id" id="2">预实施项目</p>
+                <p>所在区域：<select name="area_id" class="province_input" @change="changeType" v-model="message.provinced" id="">
+                        <option v-for='i in province' :value="i.pid">{{i.pname}}</option>
+                    </select>&nbsp;<select class="city_input" name="" id="">
+                        <option v-for='i in city' :value="i.cid">{{i.cname}}</option>
+                    </select> </p>
+                <p>详细地址：<input name="address" class="address_input" type="text" placeholder="请输入地址"></p>
+                <p>经度：<input name="longitude" class="longitude_input" type="text" placeholder="请输入">&nbsp;&nbsp;&nbsp;纬度：<input
+                        class="latitude_input" type="text" name="latitude" placeholder="请输入"></p>
+                <p>开始时间：<input name="start_time" class="time_input" type="date" id=""></p>
+            </div>
+            <div class="btn_div"><button @click='down()'>取消</button><button type="submit" @click='down()'>确定</button></div>
+        </form>
+    </div>
+</body>
+<script>
+    var num = 1;
+    $(document).on("click",".safety_span", function(){
+        // console.log("111");
+        if (num % 2 == 0) {
+            $(this).html('展开更多&ensp;<img src="__IMG__/icon_unfold.png">');
+            $(this).parent().next().toggleClass('collapse');
+            // console.log($(this).parent().next().attr("class"));
+            num = num + 1;
+            return num;
+        } else {
+            $(this).html('收起更多&ensp;<img src="__IMG__/icon_retract.png">');
+            $(this).parent().next().toggleClass('collapse');
+            num = num + 1;
+            return num;
+        }
+    });
+    var app = new Vue({
+        el: ".app",
+        data: {
+            message: {},
+            data: [],
+            status: [],
+            area: [],
+            customer: [],
+            industry: [],
+            province: [],
+            city: [],
+        },
+        created: function () {
+            this.getdata();
+        },
+        methods: {
+            getdata() {
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectManagement/projectList')}",
+                    dataType: "json",
+                    // data: { area: "测试地点", status: "测试状态", keywords: "测试名称" },
+                    success: function (data) {
+                        // console.log(data.data);
+                        that.status = data.data.status;
+                        // that.area=data.data.area;
+                        that.data = data.data.list;
+                        that.customer = data.data.customer;
+                        that.industry = data.data.industry;
+                        that.province = data.data.area.province;
+                    }
+                })
+            },
+            changeType() {
+                var _this = this;
+                // console.log(_this.message)
+                var i = _this.message.provinced;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectManagement/getCity')}",
+                    dataType: "json",
+                    data: { province_id: i },
+                    success: function (data) {
+                        _this.city = data.data;
+                    }
+                })
+            },
+            down() {
+                $(".new_div").hide();
+            },
+            pro_select(){
+                var that = this;
+                var i = $(".pro_select").val();
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectManagement/projectList')}",
+                    dataType: "json",
+                    data: { area_id: i },
+                    success: function (data) {
+                        // console.log(data);
+                        that.data=data.data.list;
+                    }
+                })
+            },
+            sta_select(){
+                var that = this;
+                var i = $(".sta_select").val();
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectManagement/projectList')}",
+                    dataType: "json",
+                    data: { status_id: i },
+                    success: function (data) {
+                        // console.log(data);
+                        that.data=data.data.list;
+                    }
+                })
+            },
+            search(){
+                var that = this;
+                var i = $(".keyword").val();
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectManagement/projectList')}",
+                    dataType: "json",
+                    data: { keywords: i },
+                    success: function (data) {
+                        // console.log(data);
+                        that.data=data.data.list;
+                    }
+                })
+            },
+        }
+    });
+    $(".new_button").on('click', function () {
+        $(".new_div").show();
+    });
+
+</script>
+
+</html>

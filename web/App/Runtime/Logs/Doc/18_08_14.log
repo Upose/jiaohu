@@ -1720,3 +1720,2455 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
 
+[ 2018-08-14T15:05:40+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:05:53+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:05:54+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 5 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:05:57+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:11:25+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:11:29+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:11:31+08:00 ] ::1 /index.php?s=/Doc/Feedback/ComprehensiveAnalysis.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-08-14T15:11:32+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:11:32+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.0070s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0340s ]
+
+[ 2018-08-14T15:11:34+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:11:34+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0020s ]
+NOTIC: [8] Undefined offset: 53 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+
+[ 2018-08-14T15:11:36+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::menu() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 21 行.
+SQL: SELECT flm.name as pname,
+                flm.id as pid,
+                slm.name as psname,
+                slm.id as psid
+                FROM FirstLevelMenu flm 
+                JOIN SecondLevelMenu slm 
+                on flm.id = slm.f_id [ RunTime:0.0060s ]
+NOTIC: [8] Undefined variable: sql_res D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 20 行.
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 4 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 5 D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 28 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant pname - assumed 'pname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 80 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 82 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cid - assumed 'cid' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 83 行.
+NOTIC: [8] Use of undefined constant cname - assumed 'cname' D:\ProjectDelivery\web\App\Runtime\Cache\Doc\26261c5b7aaa35cb5674316f5bd5017d.php 第 84 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:11:39+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/document.html&f_id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:11:39+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/articlesList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::articlesList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 64 行.
+SQL: SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 1 and f_id = 1  
+      	and name like '%%' [ RunTime:0.0040s ]
+SQL: SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 0 and f_id = 1 
+        and name like '%%'  [ RunTime:0.0080s ]
+
+[ 2018-08-14T15:11:41+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/numberCount.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::numberCount() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 82 行.
+SQL: SELECT read_number  
+    	from KnowledgeDocument where id = 56 [ RunTime:0.0020s ]
+SQL: UPDATE KnowledgeDocument 
+        SET read_number = 7 WHERE id = 56 [ RunTime:0.0600s ]
+SQL: SELECT href  
+        from KnowledgeDocument where id = 56 [ RunTime:0.0000s ]
+
+[ 2018-08-14T15:11:43+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/articlesList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::articlesList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 64 行.
+SQL: SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 1 and f_id = 1  
+      	and name like '%%' [ RunTime:0.0030s ]
+SQL: SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 0 and f_id = 1 
+        and name like '%%'  [ RunTime:0.0060s ]
+
+[ 2018-08-14T15:11:44+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:11:45+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:11:47+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ProjectConfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:11:47+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ShowProject.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::ShowProject() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 207 行.
+SQL:  select id,name,status,summary from project_select where is_delete =0  [ RunTime:0.0030s ]
+
+[ 2018-08-14T15:11:50+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ProjectRole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:11:50+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ShowProjectrole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::ShowProjectrole() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 212 行.
+SQL:  select id,name,status,summary from project_role where is_delete =0  [ RunTime:0.0120s ]
+
+[ 2018-08-14T15:14:47+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:14:48+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:14:49+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:15:26+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:15:29+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ProjectConfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:15:30+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ShowProject.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::ShowProject() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 207 行.
+SQL:  select id,name,status,summary from project_select where is_delete =0  [ RunTime:0.0230s ]
+
+[ 2018-08-14T15:15:36+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ProjectRole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:15:37+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ShowProjectrole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::ShowProjectrole() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 212 行.
+SQL:  select id,name,status,summary from project_role where is_delete =0  [ RunTime:0.0070s ]
+
+[ 2018-08-14T15:17:35+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:17:36+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ProjectConfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:17:37+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ShowProject.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::ShowProject() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 207 行.
+SQL:  select id,name,status,summary from project_select where is_delete =0  [ RunTime:0.0040s ]
+
+[ 2018-08-14T15:26:24+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ProjectRole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:26:24+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ShowProjectrole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::ShowProjectrole() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 212 行.
+SQL:  select id,name,status,summary from project_role where is_delete =0  [ RunTime:0.0060s ]
+
+[ 2018-08-14T15:26:25+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddRole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:26:39+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:28:14+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddRole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:39:09+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:39:11+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ProjectConfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:39:11+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ShowProject.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::ShowProject() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 207 行.
+SQL:  select id,name,status,summary from project_select where is_delete =0  [ RunTime:0.0020s ]
+
+[ 2018-08-14T15:44:51+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ProjectRole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:44:52+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ShowProjectrole.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::ShowProjectrole() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 212 行.
+SQL:  select id,name,status,summary from project_role where is_delete =0  [ RunTime:0.0030s ]
+
+[ 2018-08-14T15:45:13+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:48:04+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/productsconfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:48:04+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/Product.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::Product() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 65 行.
+SQL: select id,name,level,summary 
+        from product where is_delete = 0 [ RunTime:0.0030s ]
+SQL: SELECT
+            product.name AS aname,
+            product_s.id,product_s.name,
+            product_s.summary,
+            product_s.f_id
+            FROM product 
+            LEFT JOIN product_s 
+            ON product.id = product_s.f_id  
+            where product.is_delete = 0 
+            and product_s.is_delete = 0 
+            limit 0,10  [ RunTime:0.1430s ]
+SQL: select count(*) 
+        as count from product_s
+         where is_delete='0' [ RunTime:0.0370s ]
+
+[ 2018-08-14T15:48:07+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problemconfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:48:07+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/problem.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::problem() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 21 行.
+SQL:  select * from problem_classification where is_delete =0  [ RunTime:0.0090s ]
+
+[ 2018-08-14T15:48:38+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:49:09+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:49:34+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:49:44+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:50:47+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-08-14T15:50:53+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:51:07+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:51:15+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:52:52+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:53:14+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:53:21+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T15:54:41+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-08-14T15:56:35+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T15:57:21+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T16:02:27+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/AddProjects.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T16:09:21+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T16:09:23+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ProjectConfig.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T16:09:24+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/ShowProject.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\BackstageManagementModel::ShowProject() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\BackstageManagementController.class.php 第 207 行.
+SQL:  select id,name,status,summary from project_select where is_delete =0  [ RunTime:0.0020s ]
+
+[ 2018-08-14T17:24:09+08:00 ] ::1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:24:11+08:00 ] ::1 /Doc/KnowledgeSharing/articlesList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::articlesList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 64 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and name like '%%'' at line 6
+ [ SQL语句 ] : SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 1 and f_id =   
+      	and name like '%%'
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and name like '%%'' at line 6
+ [ SQL语句 ] : SELECT id,name,keywords,
+    	author,submit_time,read_number,
+    	comment_number,is_top,href
+    	FROM KnowledgeDocument
+		where is_top = 1 and f_id =   
+      	and name like '%%'
+
+[ 2018-08-14T17:24:35+08:00 ] ::1 /Doc/Feedback/ProductList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.1570s ]
+NOTIC: [8] Undefined offset: 53 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+
+[ 2018-08-14T17:25:13+08:00 ] ::1 /Doc/Feedback/ProductList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0020s ]
+
+[ 2018-08-14T17:26:00+08:00 ] ::1 /Doc/Feedback/ProductList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:26:42+08:00 ] ::1 /Doc/Feedback/ProductList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0110s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:33:23+08:00 ] ::1 /Doc/Feedback/ProductList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0030s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:33:57+08:00 ] ::1 /index.php?s=/Doc/BackstageManagement/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:33:59+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:34:01+08:00 ] ::1 /index.php?s=/Doc/Feedback/MyFeedback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:34:02+08:00 ] ::1 /index.php?s=/Doc/Feedback/FeedbackList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: SELECT fb.id,fb.name,ps.name as project_name,
+		pd.name as product_name,pc.name as classification_name,
+		fb.submit_time,pr.name as priority 
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  order by id desc limit 0,10  [ RunTime:0.2170s ]
+SQL: SELECT count(*) as count
+		from feedback fb 
+		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN product pd on fb.pd_id = pd.id 
+		JOIN problem_classification pc on fb.pc_id = pc.id 
+		JOIN priority pr on fb.priority = pr.id  [ RunTime:0.0030s ]
+
+[ 2018-08-14T17:34:03+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2018-08-14T17:34:03+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0030s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+
+[ 2018-08-14T17:34:51+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:34:53+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductChoice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:34:53+08:00 ] ::1 /index.php?s=/Doc/Feedback/ProductList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0130s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+
+[ 2018-08-14T17:35:07+08:00 ] ::1 /Doc/Feedback/ProductList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+SQL: select ps.id as psid,ps.name as psname,
+		p.id as pid,p.name as pname 
+		from product_s ps inner join product p 
+		on ps.f_id = p.id 
+		where p.is_delete = 0 
+		and ps.is_delete = 0 
+		ORDER BY ps.id [ RunTime:0.0030s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+NOTIC: [8] Undefined offset: 3 D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 56 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:46:10+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T17:46:24+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T17:46:40+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as fid,i.name as fname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,pm.charge,
+	 			pm.member_num,pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0070s ]
+
+[ 2018-08-14T17:49:16+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:49:30+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,pm.charge,
+	 			pm.member_num,pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.5320s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:52:10+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,pm.charge,
+	 			pm.member_num,pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0030s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:53:45+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0050s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:54:35+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0040s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+NOTIC: [2] array_push() expects parameter 1 to be array, null given D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 36 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:55:42+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0040s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:56:26+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0230s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:58:10+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0040s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T17:59:58+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.5160s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T18:00:12+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0030s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T18:00:42+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0030s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T18:00:59+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0030s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T18:01:43+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0040s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T18:02:55+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0060s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T18:05:08+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `status` s on pm.status_id = s.id [ RunTime:0.0030s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T18:17:35+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `project_status` s on pm.status_id = s.id [ RunTime:0.0060s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 29 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 29 行.
+
+[ 2018-08-14T18:18:20+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `project_status` s on pm.status_id = s.id [ RunTime:0.0140s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 29 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 29 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T18:27:27+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join project_industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `project_status` s on pm.status_id = s.id [ RunTime:0.0040s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 29 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 29 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T18:27:54+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 23 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join project_industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `project_status` s on pm.status_id = s.id [ RunTime:0.0080s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 29 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 29 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-08-14T18:29:55+08:00 ] ::1 /index.php?s=/Doc/feedback/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\ProjectDelivery\web\App\Doc\Controller\FeedbackController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T19:00:25+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::areaList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 24 行.
+SQL: SELECT id,name from area 
+     			where parent_id = 0 [ RunTime:0.0360s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::statusList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 26 行.
+SQL: SELECT id,name from project_status [ RunTime:0.0040s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join project_industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `project_status` s on pm.status_id = s.id [ RunTime:0.0050s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 34 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 34 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T19:01:45+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::areaList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 24 行.
+SQL: SELECT id,name from area 
+     			where parent_id = 0 [ RunTime:0.0280s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::statusList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 26 行.
+SQL: SELECT id,name from project_status [ RunTime:0.0010s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join project_industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `project_status` s on pm.status_id = s.id [ RunTime:0.0030s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 34 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 34 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T19:03:32+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::areaList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 24 行.
+SQL: SELECT id,name from area 
+     			where parent_id = 0 [ RunTime:0.0390s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::statusList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 26 行.
+SQL: SELECT id,name from project_status [ RunTime:0.0020s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::projectList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 28 行.
+SQL: SELECT i.id as pid,i.name as pname,
+	 			pm.id as cid,pm.name as cname,
+	 			a.name as area,pm.keywords,
+	 			pm.charge,pm.member_num,
+	 			pm.start_time,s.name as status
+				from ProjectManagement pm 
+				join project_industry i on pm.industry_id  = i.id 
+				join area a on pm.area_id = a.id
+				join `project_status` s on pm.status_id = s.id [ RunTime:0.0050s ]
+NOTIC: [8] Undefined offset: 1 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 34 行.
+NOTIC: [8] Undefined offset: 2 D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 34 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T19:45:25+08:00 ] ::1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T19:45:40+08:00 ] ::1 /index.php?s=/Doc/KnowledgeSharing/document%20_m.html&id=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 非法操作:document _m
+
+[ 2018-08-14T19:46:10+08:00 ] ::1 /Doc/KnowledgeSharing/articlesList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] Non-static method Doc\Model\KnowledgeSharingModel::articlesList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\KnowledgeSharingController.class.php 第 64 行.
+ERR: SQLSTATE[HY000] [2002] �������ӷ���һ��ʱ���û����ȷ�𸴻����ӵ�����û�з�Ӧ�����ӳ���ʧ�ܡ�
+
+
+[ 2018-08-14T19:46:31+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::areaList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 24 行.
+
+[ 2018-08-14T19:49:03+08:00 ] ::1 /Doc/ProjectManagement/projectList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] Non-static method Doc\Model\ProjectManagementModel::areaList() should not be called statically, assuming $this from incompatible context D:\ProjectDelivery\web\App\Doc\Controller\ProjectManagementController.class.php 第 24 行.
+ERR: SQLSTATE[HY000] [2002] �������ӷ���һ��ʱ���û����ȷ�𸴻����ӵ�����û�з�Ӧ�����ӳ���ʧ�ܡ�
+
+
+[ 2018-08-14T19:49:03+08:00 ] ::1 /Doc/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T19:49:37+08:00 ] ::1 /index.php?s=/Doc/Login/dologin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: SQLSTATE[HY000] [2002] �������ӷ���һ��ʱ���û����ȷ�𸴻����ӵ�����û�з�Ӧ�����ӳ���ʧ�ܡ�
+
+
+[ 2018-08-14T19:49:58+08:00 ] ::1 /index.php?s=/Doc/Login/dologin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T19:49:58+08:00 ] ::1 /index.php?s=/Doc/Login/dologin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T19:49:58+08:00 ] ::1 /index.php?s=/Doc/Login/dologin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2018-08-14T19:49:58+08:00 ] ::1 /index.php?s=/Doc/Login/dologin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-08-14T19:49:58+08:00 ] ::1 /index.php?s=/Doc/Login/dologin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+

@@ -28,7 +28,7 @@ width: 80%;
                         <a  href="#"><cite>体系综合</cite></a>
                     </li>
                     <li class="layui-nav-item">
-                        <a  href="#">项目管理</a>
+                        <a  href="{:U('ProjectManagement/index')}">项目管理</a>
                     </li>
                     <li class="layui-nav-item">
                         <a  href="#">个人管理</a>
@@ -74,82 +74,35 @@ width: 80%;
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
                     <li class="layui-nav-item">
-<<<<<<< .mine
                         <!-- <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>产品使用</span></a> -->
                         <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>产品使用</span></a>
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>产品使用</span></a>
-
->>>>>>> .theirs
                         <dl class="layui-nav-child">
                             <dd>
-<<<<<<< .mine
                                <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/ComprehensiveAnalysis')}',icon:'',title:'综合分析',id:'3'}"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>综合分析</span>
-
-
-=======
-                               <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/ComprehensiveAnalysis')}',icon:'',title:'综合分析',id:'3'}">
-                                 <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
-                            <span>综合分析</span>
->>>>>>> .theirs
                                 </a>
                             </dd>
                             <dd>
-<<<<<<< .mine
                                <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/MyFeedback')}',icon:'',title:'我的反馈',id:'2'}"><img class="cus-nav-icon" src="__IMG__/3@2x.png" alt=""><span>我的反馈</span>
-
-
-=======
-                               <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/MyFeedback')}',icon:'',title:'我的反馈',id:'2'}">
-                                 <img class="cus-nav-icon" src="__IMG__/3@2x.png" alt="">
-                            <span>我的反馈</span>
->>>>>>> .theirs
                                 </a>
                             </dd>
                             <dd>
-<<<<<<< .mine
                                  <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/ProductChoice')}',icon:'',title:'提交反馈',id:'1'}"><img class="cus-nav-icon" src="__IMG__/4@2x.png" alt=""><span>提交反馈</span>
-
-
-=======
-                                 <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/ProductChoice')}',icon:'',title:'提交反馈',id:'1'}">
-                                 <img class="cus-nav-icon" src="__IMG__/4@2x.png" alt="">
-                            <span>提交反馈</span>
->>>>>>> .theirs
                                  </a>
                             </dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
-<<<<<<< .mine
                         <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>技术疑难</span></a>
-
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>技术疑难</span></a>
-                        
->>>>>>> .theirs
                     </li>
                      <li class="layui-nav-item">
-<<<<<<< .mine
                         <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>平台优化</span></a>
-
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>平台优化</span></a>
-                        
->>>>>>> .theirs
                     </li>
                      <li class="layui-nav-item">
-<<<<<<< .mine
                         <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>体系信箱</span></a>
-
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>体系信箱</span></a>
-                        
->>>>>>> .theirs
                     </li>
                 </ul>
-            </div>  
-        </div> 
+            </div>
+        </div>
         <div class="layui-body" id="container">
             <!-- 内容主体区域 -->
             <div style="padding: 15px;">主体内容加载中,请稍等...</div>
@@ -203,18 +156,6 @@ width: 80%;
                 });
             })
         })
-<<<<<<< .mine
-
-        // 左侧菜单栏切换图标
-        $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
-            var lis = $('.layui-nav-tree').find('li.kit-side-folded');
-            if(lis.length > 0) {
-                $('.kit-side-fold img').attr('src', '__IMG__/切换2@2x.png');
-            } else {
-                $('.kit-side-fold img').attr('src', '__IMG__/切换@2x.png');
-            }
-        }) 
-=======
 
         // 左侧菜单栏切换图标
         $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
@@ -225,7 +166,6 @@ width: 80%;
                 $('.kit-side-fold img').attr('src', '__IMG__/切换@2x.png');
             }
         })
->>>>>>> .theirs
     })
 </script>
 </body>
