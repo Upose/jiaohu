@@ -167,11 +167,87 @@ class BackstageManagementController extends BaseController{
       
     }
     
+    public function UpdateeProject(){
+      $id=intval(I('id'));
+      $list=$this->list=BackstageManagementModel::UpdateeProject($id);
+      $this->Response(0,$list,'');
+    }
+
+    public function UpdateProject(){
+      $id=intval(I('id'));
+      $name=I('name');
+      $summary=I('summary');
+      $status=I('status');
+      $list=$this->list=BackstageManagementModel::UpdateProject($name,$summary,$status,$id);
+      if($list===0){
+         $this->Response(0,'修改成功','');
+        }else{
+         $this->Response(1,'修改失败','');
+        }
+      
+    }
      
-     // public function AddSalt(){
-     //   $password=md5(I('password'));
-     //   $salt=substr($password,1,3);
-     //   $psw=md5(crypt($psw,$salt)); 
-     // }
+    public function AddProject(){
+        $name=I('name');
+        $summary=I('summary');
+        $status=I('status');
+        $Currytime = date('Y-m-d H:i:s',time());
+        $update_time = $Currytime;
+        $submit_person_id=$_SESSION['user_id'];
+        if(empty($name) ||empty($summary) ||empty($status)){
+             $this->Response(0,'添加失败','');
+        }
+        else{
+           $list=$this->list=BackstageManagementModel::AddProject($name,$update_time,$submit_person_id,$summary,$status);
+             $this->Response(0,'添加成功','');
+        }     
+    }
+
+    public function ShowProject(){
+      $list=$this->list=BackstageManagementModel::ShowProject();
+      $this->Response(0,$list,'');
+    }
+    
+    public function ShowProjectrole(){
+      $list=$this->list=BackstageManagementModel::ShowProjectrole();
+      $this->Response(0,$list,'');
+    }
+
+    public function UpdateeProjectrole(){
+      $id=intval(I('id'));
+      $list=$this->list=BackstageManagementModel::UpdateeProjectrole($id);
+      $this->Response(0,$list,'');
+    }
+
+    public function UpdateProjectrole(){
+      $id=intval(I('id'));
+      $name=I('name');
+      $summary=I('summary');
+      $status=I('status');
+      $list=$this->list=BackstageManagementModel::UpdateProjectrole($name,$summary,$status,$id);
+      if($list===0){
+         $this->Response(0,'修改成功','');
+        }else{
+         $this->Response(1,'修改失败','');
+        }
+      
+    }
+     
+    public function AddProjectrole(){
+        $name=I('name');
+        $summary=I('summary');
+        $status=I('status');
+        $Currytime = date('Y-m-d H:i:s',time());
+        $update_time = $Currytime;
+        $submit_person_id=$_SESSION['user_id'];
+        if(empty($name) ||empty($summary) ||empty($status)){
+             $this->Response(0,'添加失败','');
+        }
+        else{
+           $list=$this->list=BackstageManagementModel::AddProjectrole($name,$update_time,$submit_person_id,$summary,$status);
+             $this->Response(0,'添加成功','');
+        }     
+    }
+
 
 }

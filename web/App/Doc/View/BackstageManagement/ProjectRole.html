@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>config</title>
+	<title>feedback</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/custom.css">
 	<script src="__DOCLAY__/plugins/layui/layui.js"></script>
@@ -65,7 +65,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '350px'],
-					content: "{:U('BackstageManagement/addproblems')}"
+					content: "{:U('BackstageManagement/AddProduct')}"
 				});
 			})
 		};
@@ -128,7 +128,7 @@
                   		cache: false,
                   		async: false,
                   		type: "POST",
-                  		url: "{:U('BackstageManagement/DeleteProblem')}",
+                  		url: "{:U('BackstageManagement/DeleteProduct')}",
                   		dataType: "json",
                   		data: {
                   			id: id
@@ -159,14 +159,14 @@
                     shadeClose: true,
                     closeBtn: 1,
                     area: ['500px', '350px'],
-                    content: "{:U('BackstageManagement/EditProblems')}",
+                    content: "{:U('BackstageManagement/EditProduct')}",
                     success: function(layero, idx) {
                         var body = layui.layer.getChildFrame('body', idx);
                         $.ajax({
                             cache: false,
                             async: false,
                             type: "POST",
-                            url: "{:U('BackstageManagement/UpdateeProblem')}",
+                            url: "{:U('BackstageManagement/UpdateeProduct')}",
                             dataType: "json",
                             data: {
                                 id: id
@@ -176,17 +176,7 @@
                                 body.find('#product_name').val(o.name);
                                 body.find('#edit_id').val(id);
                                 body.find('#product_describe').val(o.summary);
-                                body.find('#product_status .layui-form-radio').each(function(idx, item) {
-                                	var s = $(this).find('span').html();
-
-                                	if(s === o.status) {
-                                		$(this).addClass('layui-form-radioed');
-                                		$(this).find('i').addClass('layui-anim-scaleSpring');
-                                	} else {
-                                		$(this).removeClass('layui-form-radioed');
-                                		$(this).find('i').removeClass('layui-anim-scaleSpring');
-                                	}
-                                });
+                                body.find('#edit_status').val(o.status);
                             },
                             fail: function(err) {
                                 console.log(err);

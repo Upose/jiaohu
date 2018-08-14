@@ -78,7 +78,28 @@ class BackstageManagementModel{
 	      }
     }
 
+    public function UpdateeProject($id){
+        $sql="select name,status,summary from project_select where id= '$id' and is_delete=0 ";
+        $res = M()->query($sql);
+        return $res;
+    }
 
+    public function UpdateProject($name,$summary,$status,$id){
+      $sql="update project_select set name='$name',summary='$summary',status='$status' where id='$id'";
+      $res = M()->execute($sql);
+      if($res){
+           return 0;
+        }else{
+           return 1;
+        }
+    }
+
+    public function AddProject($name,$update_time,$submit_person_id,$summary,$status){  
+        $sql="insert into project_select (name,update_time,submit_person_id,summary,status,is_delete) 
+         values ('$name','$update_time','$submit_person_id','$summary','$status',0)";
+        $res = M()->execute($sql);
+       return $res;
+    }
     public function softdelete($f_id,$id){
        //f_id为0是父级产品,不为0为子级产品
         if($f_id==0)
@@ -156,6 +177,44 @@ class BackstageManagementModel{
             
         $result['count']=$ures[0]['count'];
         return $result;
+    }
+
+    public function ShowProject(){  
+      $sql=" select id,name,status,summary from project_select where is_delete =0 ";
+      $res = M()->query($sql);
+      return $res;
+    }
+    public function ShowProjectrole(){  
+      $sql=" select id,name,status,summary from project_role where is_delete =0 ";
+      $res = M()->query($sql);
+      return $res;
+    }
+
+
+
+
+
+    public function UpdateeProjectrole($id){
+        $sql="select name,status,summary from project_role where id= '$id' and is_delete=0 ";
+        $res = M()->query($sql);
+        return $res;
+    }
+
+    public function UpdateProjectrole($name,$summary,$status,$id){
+      $sql="update project_role set name='$name',summary='$summary',status='$status' where id='$id'";
+      $res = M()->execute($sql);
+      if($res){
+           return 0;
+        }else{
+           return 1;
+        }
+    }
+
+    public function AddProjectrole($name,$update_time,$submit_person_id,$summary,$status){  
+        $sql="insert into project_role (name,update_time,submit_person_id,summary,status,is_delete) 
+         values ('$name','$update_time','$submit_person_id','$summary','$status',0)";
+        $res = M()->execute($sql);
+       return $res;
     }
 }
 
