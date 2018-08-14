@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Eagles之热力图应用</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Eagles之热力图应用</h1>
+<p><font size="4"><strong>一、热力图背景</strong></font></br></p>
+<p>&#160; &#160; &#160; &#160;所谓热力图，即以特殊高亮的形式显示访客热衷的页面区域和访客所在的地理区域的图示。通过设置热力图半径、颜色、透明度等参数直观展示数据分布情况。</br>
+&#160; &#160; &#160; &#160;热力图实际上也是基于出现频率的一种数据处理方法。网站热力图，即是对页面点击频率的一种数据搜集；地图热力图，则是对已存在坐标在地图数据上的重叠显示。</br>
+&#160; &#160; &#160; &#160;这里着重介绍下Eagles在大数据背景下对地图热力图的处理能力。</p>
+<p><img src="https://i.imgur.com/45sKJRJ.png" /> </p>
+<p><img src="https://i.imgur.com/AJuQjwE.png" /></p>
+<p><font size="4"><strong>二、处理方法</strong></font></br></p>
+<p>&#160; &#160; &#160; &#160;<strong>2.1Eagles热力图处理的优势</strong></br></p>
+<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Eagles提供了丰富的聚合/分类算法，利用其冗长但是强大的Aggregation DSL可以表达出比SQL还要复杂的聚合逻辑， 为数据分析提供了有力的支撑， 目前Eagles支持：</br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;域的折叠与融合；</br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;百分位等级聚合，展示了观测值在某个特定值之下的百分率；<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;地理范围聚合，提供了一个覆盖了所有位置值的范围框图。</p>
+<p><img src="https://i.imgur.com/UennfHk.png" />
+&#160;&#160;&#160;&#160;&#160;例如上图的驾校热点图，如何对数据完成分析并最终形成热力图？<br></p>
+<p>&#160; &#160; &#160; &#160;<strong>2.2数据处理流程</strong></br>
+&#160; &#160; &#160; &#160;第一步：</br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;从大量数据中获取有效地址数据，和地图搜索类似的，热力图同样是基于地理位置坐标的一种数据处理方法。</br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;数据获得途径可以很多，应用场景也很多。例如，App可以从用户手机上获取定位权限，从而获取地理位置相关数据。</br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;这里主要结合Eagles的具体功能来了解Eagles的数据处理能力。</br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;无论如何，获取的数据中至少包含以下几个字段：</br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;location  类型为地理坐标类型，用于标志地理位置</br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;content  类型为字符串，可以用于区分location的具体意义
+</br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;time类型为时间，对时效性有特殊要求时可存在</br></p>
+<p><img src="https://i.imgur.com/XLvZyRh.png" />
+&#160; &#160;&#160;&#160;&#160;上图是一个简单示例，数据包含了content,location,time字段。<br>
+&#160; &#160; &#160; &#160;第二步：</br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;
+ 针对不同的搜索要求给出不同的查询语句。<br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160;例如：想要形成违规停车重灾区的热力图<br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160;那必须要获得相关的违停数据，这组数据需要包括时间字段(time、date)，
+地理坐标（location）、描述（content）,在Eagles处理后形成不同时间的热力图。之后，针对每一组数据，对数据的location字段进行统计，查询出每个地址坐标对应的条数，count出通过的数量。<br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160;这里还是可以通过范围聚合来实现，主要方法是根据已知点的坐标，对它进行范围聚合。范围聚合的原理就是对一个已知点，对一定范围（精度可以设置为由小渐大）来进行数据采样，根据范围采样得出的hit结果来判断出附近的count值。<br>
+&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160; &#160;&#160;例如对于某个地标建筑，或某些大型超市群，这里可能是违停情况的的重灾区，那么就可以对这些点进行范围查询。<br></p>
+<pre><code> {
+    &quot;query&quot;:{
+&quot;filtered&quot;:{
+    &quot;query&quot;:{
+        &quot;match&quot;:{
+            &quot;content&quot;:{
+                &quot;query&quot;:&quot;illegal parking&quot;,
+                &quot;operator&quot;:&quot;and&quot;
+            }
+        }
+    },
+&quot;filter&quot;:{
+    &quot;geo_distance&quot;:{
+            &quot;distance&quot;:5,
+            &quot;unit&quot;:&quot;m&quot;,
+            &quot;location&quot;:{
+                &quot;lat&quot;:116.418261,
+                &quot;lon&quot;:39.921984
+                      }
+                   }
+              }
+         }
+    }
+}
+</code></pre>
+
+<p>&#160;&#160;&#160;&#160; &#160;&#160;范围查询实际上是对范围外点的过滤，之返回范围内的结果。这里的违停重灾区地理坐标为（116.418261,39.921984），同时需要描述content为illegal parking。
+对distance设置不同的大小可以得到不同的精度，具体情况根据实际情况来设定。<br>
+<img src="https://i.imgur.com/d9LGica.png" />
+<center>（图中搜索出5个符合条件的点）</center></p>
+<p>&#160;&#160;&#160;&#160;&#160;&#160;除了范围查询的方法，Eagles还提供了geohash来对地理坐标进行处理。GeoHash将二维的经纬度转换成字符串，每一个字符串代表了某一矩形区域。也就是说，这个矩形区域内所有的点（经纬度坐标）都共享相同的GeoHash字符串，这样既可以保护隐私，又比较容易做缓存。这样，当字符串的长度足够大时，精度也会足够高。</p>
+<pre><code>{
+&quot;aggs&quot;:{
+    &quot;heat_map&quot;:{
+        &quot;geohash_grid&quot;:{
+            &quot;field&quot;:&quot;location&quot;,
+            &quot;precision&quot;:9
+         }
+     }
+    }
+}
+</code></pre>
+
+<p><img src="https://i.imgur.com/sahE7tN.png" /></p>
+<p>&#160;&#160;&#160;&#160;&#160;&#160;precision可对字符串位数的设置，geohash的编码方式是将地理坐标进行二进编码为字符串，字符串位数越多，系统消耗越大，精度也越高，9位可精确到0.5m。<br>
+&#160;&#160;&#160;&#160;&#160;&#160;还可利用Eagles的facets聚合，通过计算geo_distance切面，能够获得落入到从给定位置到某距离范围内的文档的信息。</p>
+<pre><code>{
+&quot;facets&quot;:{
+    &quot;heat_map&quot;:{
+        &quot;geo_distance&quot;:{
+            &quot;field&quot;:&quot;location&quot;,
+            &quot;unit&quot;:&quot;m&quot;,
+            &quot;location&quot;:{
+                &quot;lat&quot;:116.418261,
+                &quot;lon&quot;:39.921984
+            },
+           &quot;ranges&quot;:[
+               {&quot;to&quot;:10},
+               {&quot;from&quot;:10,&quot;to&quot;:100}
+                    ]
+          }
+      }   
+    }
+}
+</code></pre>
+
+<p>&#160; &#160; &#160; &#160;第三步：</br>
+&#160; &#160; &#160; &#160;&#160; &#160; &#160;查询结果得出后，可对特定坐标或一定范围内坐标进行进行count统计，根据结果的密集程度从而可绘制热力图。</br>
+&#160; &#160; &#160; &#160;&#160; &#160; &#160;当然，以上只是对一个点的地理坐标进行了查询。实际中，根据不同的需求，Eagles会对大量有意义的数据进行查询。所以，通常，在整合了分析数据后会得到这样的一组数据。</br>
+<img src="https://i.imgur.com/0BGrnjS.png" />
+聚合结果会输出对应点地理坐标（lng,lat）,出现此处的数量（频度）count。
+根据这组数据，之后可利用canvas等等来绘制热力图。
+<img src="https://i.imgur.com/7bDnqEj.png" /></p>
+<p>&#160; &#160; &#160; &#160;<strong>2.3分析总结</strong></br></p>
+<p>&#160; &#160; &#160;&#160;&#160;&#160;&#160;&#160; 对热力图的分析实质上也是对地图搜索的一种情况，都是依靠地理坐标进行的搜索统计。利用Eagles对含有地理坐标的数据做出不同的处理就能为不同的目的分析出数据。</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>es基础概念、用法 (3)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>对elasticsearch中索引及查询的理解</h2>
+<ul>
+<li><a href="#index">索引类型</a> </li>
+<li><a href="#query">典型查询语句</a></li>
+<li><a href="#mapping">mapping映射</a></li>
+</ul>
+<h5><strong>注</strong>：<code>本文的所有接口测试均使用 postman 工具</code></h5>
+<h4><strong>准备数据</strong></h4>
+<h5><strong>创建索引</strong></h5>
+<p>```
+POST 192.168.50.80:10100/test1
+{
+	&quot;mappings&quot;:{
+		&quot;writings&quot;:{
+			&quot;properties&quot;:{
+				 &quot;title&quot;: {
+                  &quot;type&quot;: &quot;string&quot;,
+                  &quot;index&quot;: &quot;analyzed&quot;
+               },
+               &quot;content&quot;:{
+               	  &quot;type&quot;: &quot;string&quot;,
+                  &quot;index&quot;: &quot;not_analyzed&quot;
+               }
+			}</p>
+<pre><code>    }
+
+}
+</code></pre>
+
+<p>}
+```</p>
+<p><strong>结果</strong></p>
+<p>```
+{
+   &quot;test1&quot;: {
+      &quot;mappings&quot;: {
+         &quot;writings&quot;: {
+            &quot;dynamic<em>date</em>formats&quot;: [
+               &quot;yyyy-MM-dd'T'HH:mm:ss.SSS Z&quot;,
+               &quot;Y-M-d H:m:s&quot;,
+               &quot;Y/M/d H:m:s&quot;,
+               &quot;Y年M月d日 H:m:s&quot;,
+               &quot;Y-M-d H:m&quot;,
+               &quot;Y/M/d H:m&quot;,
+               &quot;Y年M月d日 H:m&quot;,
+               &quot;Y-M-d H&quot;,
+               &quot;Y/M/d H&quot;,
+               &quot;Y年M月d日 H&quot;,
+               &quot;Y-M-d&quot;,
+               &quot;Y/M/d&quot;,
+               &quot;Y年M月d日&quot;
+            ],
+            &quot;dynamic<em>templates&quot;: [
+               {
+                  &quot;string&quot;: {
+                     &quot;mapping&quot;: {
+                        &quot;index&quot;: &quot;not<em>analyzed&quot;,
+                        &quot;store&quot;: &quot;yes&quot;,
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;fields&quot;: {
+                           &quot;text&quot;: {
+                              &quot;index&quot;: &quot;analyzed&quot;,
+                              &quot;store&quot;: &quot;no&quot;,
+                              &quot;type&quot;: &quot;string&quot;
+                           }
+                        }
+                     },
+                     &quot;match&quot;: &quot;<em>&quot;,
+                     &quot;match</em>mapping<em>type&quot;: &quot;string&quot;
+                  }
+               },
+               {
+                  &quot;number&quot;: {
+                     &quot;mapping&quot;: {
+                        &quot;index&quot;: &quot;not</em>analyzed&quot;,
+                        &quot;store&quot;: &quot;yes&quot;
+                     },
+                     &quot;match&quot;: &quot;</em>&quot;,
+                     &quot;match<em>mapping</em>type&quot;: &quot;long&quot;
+                  }
+               }
+            ],
+            &quot;properties&quot;: {
+               &quot;content&quot;: {
+                  &quot;type&quot;: &quot;string&quot;,
+                  &quot;index&quot;: &quot;not</em>analyzed&quot;
+               },
+               &quot;title&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+               }
+            }
+         }
+      }
+   }
+}</p>
+<p>```</p>
+<h5><strong>存入数据</strong></h5>
+<p>```
+PUT 192.168.50.80:10100/test1/writings/1
+{
+    &quot;title&quot;: &quot;Quick brown rabbits&quot;,
+    &quot;content&quot;:  &quot;Brown rabbits are commonly seen.&quot;
+}</p>
+<p>PUT 192.168.50.80:10100/test1/writings/2
+{
+    &quot;title&quot;: &quot;Keeping pets healthy&quot;,
+    &quot;content&quot;:  &quot;My quick brown fox eats rabbits on a regular basis.&quot;
+}</p>
+<p>```</p>
+<h2><A NAME="index">索引类型</A></h2>
+<p>ElasticSearch是一个基于Lucene的搜索服务器，elasticsearch 中的索引是倒排索引，可以分为以下三类：
+* <a href="#analyzed">analyzed</a>
+* <a href="#not_analyzed">not_analyzed</a>
+* <a href="#no">no</a></p>
+<h3><a name="analyzed">analyzed</a></h3>
+<p><code>先分词，再索引，全文搜索</code></p>
+<h4>说明</h4>
+<p><code>在创建的索引中，字段的索引类型为 analyzed，若没指定分析器，elasticsearch 会将该字段的值 通过默认的分析器将其分为单个的单词，若指定了分析器，elasticsearch会按照指定的分析器对字段值进行分词，
+然后为每个单词建立倒排索引，搜索时可通过分词后的单词来找到对应的文档</code></p>
+<h4><strong>示例一</strong></h4>
+<p><code>GET 192.168.50.80:10100/test1/writings/_search
+{
+    &quot;query&quot;:{
+        &quot;term&quot;:{
+            &quot;title&quot;:&quot;Quick brown rabbits&quot;
+        }
+    }
+}</code></p>
+<h4><strong>结果</strong></h4>
+<p>找不到第一份文档，因为Quick brown rabbits 被分为quick, brown,rabbits,elasticsearch 为这三个单词建立了倒排索引，并不是为Quick brown rabbits建立倒排索引</p>
+<p><code>{
+   &quot;took&quot;: 1,
+   &quot;timed_out&quot;: false,
+   &quot;_shards&quot;: {
+      &quot;total&quot;: 25,
+      &quot;successful&quot;: 25,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 0,
+      &quot;max_score&quot;: null,
+      &quot;hits&quot;: []
+   }
+}</code></p>
+<h4><strong>示例二</strong></h4>
+<p><code>GET 192.168.50.80:10100/test1/writings/_search
+{
+    &quot;query&quot;:{
+        &quot;term&quot;:{
+            &quot;title&quot;:&quot;brown&quot;
+        }
+    }
+}</code></p>
+<h4><strong>结果</strong></h4>
+<p>找到第一份文档</p>
+<p>```
+{
+   &quot;took&quot;: 20,
+   &quot;timed<em>out&quot;: false,
+   &quot;</em>shards&quot;: {
+      &quot;total&quot;: 25,
+      &quot;successful&quot;: 25,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 1,
+      &quot;max<em>score&quot;: 0.15342641,
+      &quot;hits&quot;: [
+         {
+            &quot;<em>index&quot;: &quot;test1&quot;,
+            &quot;</em>type&quot;: &quot;writings&quot;,
+            &quot;</em>id&quot;: &quot;1&quot;,
+            &quot;<em>score&quot;: 0.15342641,
+            &quot;</em>source&quot;: {
+               &quot;title&quot;: &quot;Quick brown rabbits&quot;,
+               &quot;content&quot;: &quot;Brown rabbits are commonly seen.&quot;
+            }
+         }
+      ]
+   }
+}</p>
+<p>```</p>
+<h3><a name="not_analyzed">not_analyzed</a></h3>
+<p><code>索引这个字段，这样可以被搜索，但是直接索引，不分词。</code></p>
+<h4><strong>说明</strong></h4>
+<p><code>在创建的索引中，字段索引类型为 not_analyzed，elasticsearch 不会使用分析器分析字段的值 ，而是直接为字段的值建立倒排索引，搜索时可通过与字段值来找到对应的文档</code></p>
+<h4><strong>示例</strong></h4>
+<p><code>GET 192.168.50.80:10100/test1/writings/_search
+{
+    &quot;query&quot;:{
+        &quot;match&quot;:{
+            &quot;content&quot;:&quot;Brown &quot;
+        }
+    }
+}</code></p>
+<h4><strong>结果</strong></h4>
+<p>找不到第一份文档，因为 Brown rabbits are commonly seen.未被分词，而是整句本elasticsearch建立倒排索引</p>
+<p><code>{
+   &quot;took&quot;: 1,
+   &quot;timed_out&quot;: false,
+   &quot;_shards&quot;: {
+      &quot;total&quot;: 25,
+      &quot;successful&quot;: 25,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 0,
+      &quot;max_score&quot;: null,
+      &quot;hits&quot;: []
+   }
+}</code></p>
+<h4><strong>示例</strong></h4>
+<p><code>GET 192.168.50.80:10100/test1/writings/_search
+{
+    &quot;query&quot;:{
+        &quot;match&quot;:{
+            &quot;content&quot;:&quot;Brown rabbits are commonly seen. &quot;
+        }
+    }
+}</code></p>
+<h4><strong>结果</strong></h4>
+<p>找到第一份文档</p>
+<p>```
+{
+   &quot;took&quot;: 73,
+   &quot;timed<em>out&quot;: false,
+   &quot;</em>shards&quot;: {
+      &quot;total&quot;: 25,
+      &quot;successful&quot;: 25,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 1,
+      &quot;max<em>score&quot;: 0.30685282,
+      &quot;hits&quot;: [
+         {
+            &quot;<em>index&quot;: &quot;test1&quot;,
+            &quot;</em>type&quot;: &quot;writings&quot;,
+            &quot;</em>id&quot;: &quot;1&quot;,
+            &quot;<em>score&quot;: 0.30685282,
+            &quot;</em>source&quot;: {
+               &quot;title&quot;: &quot;Quick brown rabbits&quot;,
+               &quot;content&quot;: &quot;Brown rabbits are commonly seen.&quot;
+            }
+         }
+      ]
+   }
+}</p>
+<p>```</p>
+<h3><a name="no">no</a></h3>
+<p><code>不会索引这个字段存储字段的值，并不会为其建立索引，无法通过该字段找到其对应的文档，但该字段的值会在文档中出现</code></p>
+<h4>说明</h4>
+<p><code>若字段的索引类型为 no，则elasticsearch 仅仅只是存储字段的值，并不会为其建立索引，无法通过该字段找到其对应的文档。</code></p>
+<h4>准备数据</h4>
+<p>```
+创建索引：
+POST 192.168.50.80:10100/test3
+{
+	&quot;mappings&quot;:{
+		&quot;writings&quot;:{
+			&quot;properties&quot;:{
+				 &quot;title&quot;: {
+                  &quot;type&quot;: &quot;string&quot;,
+                  &quot;index&quot;: &quot;no&quot;
+               },
+               &quot;content&quot;:{
+               	  &quot;type&quot;: &quot;string&quot;,
+                  &quot;index&quot;: &quot;not_analyzed&quot;
+               }
+			}</p>
+<pre><code>    }
+
+}
+</code></pre>
+
+<p>}
+```</p>
+<h4>存入数据：</h4>
+<p><code>PUT 192.168.50.80:10100/test3/writings/1
+{
+    &quot;title&quot;: &quot;Quick brown rabbits&quot;,
+    &quot;content&quot;:  &quot;Brown rabbits are commonly seen.&quot;
+}</code></p>
+<h4><strong>示例一</strong></h4>
+<p>通过title字段搜索这份文档：</p>
+<p><code>GET /test3/writings/_search
+{
+    &quot;query&quot;: {
+        &quot;term&quot;: {
+           &quot;FIELD&quot;: {
+              &quot;title&quot;: &quot;Quick brown rabbits&quot;
+           }
+        }
+    }
+}</code></p>
+<h4><strong>结果</strong></h4>
+<p>title索引类型为no，elasticsearch未为其建立索引，通过title字段查询时肯定找不到，报错</p>
+<p><code>{
+   &quot;error&quot;: {
+      &quot;root_cause&quot;: [
+         {
+            &quot;type&quot;: &quot;query_parsing_exception&quot;,
+            &quot;reason&quot;: &quot;[term] query does not support [title]&quot;,
+            &quot;index&quot;: &quot;test3&quot;,
+            &quot;line&quot;: 5,
+            &quot;col&quot;: 15
+         }
+      ],
+      &quot;type&quot;: &quot;search_phase_execution_exception&quot;,
+      &quot;reason&quot;: &quot;all shards failed&quot;,
+      &quot;phase&quot;: &quot;query&quot;,
+      &quot;grouped&quot;: true,
+      &quot;failed_shards&quot;: [
+         {
+            &quot;shard&quot;: 0,
+            &quot;index&quot;: &quot;test3&quot;,
+            &quot;node&quot;: &quot;_JC2ucgDS5aorMqebzrixg&quot;,
+            &quot;reason&quot;: {
+               &quot;type&quot;: &quot;query_parsing_exception&quot;,
+               &quot;reason&quot;: &quot;[term] query does not support [title]&quot;,
+               &quot;index&quot;: &quot;test3&quot;,
+               &quot;line&quot;: 5,
+               &quot;col&quot;: 15
+            }
+         }
+      ]
+   },
+   &quot;status&quot;: 400
+}</code></p>
+<h4><strong>示例二</strong></h4>
+<p>通过content字段查找文档</p>
+<p><code>GET /test3/writings/_search
+{
+    &quot;query&quot;: {
+        &quot;term&quot;: {
+           &quot;FIELD&quot;: {
+              &quot;content&quot;: &quot;Brown rabbits are commonly seen.&quot;
+           }
+        }
+    }
+}</code></p>
+<h4><strong>结果</strong></h4>
+<p>content 索引类型为not_analyzed,elasticsearch为content字段的值建立索引，可以通过该字段找到文档，且可以显示该文档中索引类型为 no的 title字段的值</p>
+<p>```
+{
+   &quot;error&quot;: {
+      &quot;root<em>cause&quot;: [
+         {
+            &quot;type&quot;: &quot;query</em>parsing<em>exception&quot;,
+            &quot;reason&quot;: &quot;[term] query does not support [content]&quot;,
+            &quot;index&quot;: &quot;test3&quot;,
+            &quot;line&quot;: 5,
+            &quot;col&quot;: 15
+         }
+      ],
+      &quot;type&quot;: &quot;search<em>phase</em>execution</em>exception&quot;,
+      &quot;reason&quot;: &quot;all shards failed&quot;,
+      &quot;phase&quot;: &quot;query&quot;,
+      &quot;grouped&quot;: true,
+      &quot;failed<em>shards&quot;: [
+         {
+            &quot;shard&quot;: 0,
+            &quot;index&quot;: &quot;test3&quot;,
+            &quot;node&quot;: &quot;</em>JC2ucgDS5aorMqebzrixg&quot;,
+            &quot;reason&quot;: {
+               &quot;type&quot;: &quot;query<em>parsing</em>exception&quot;,
+               &quot;reason&quot;: &quot;[term] query does not support [content]&quot;,
+               &quot;index&quot;: &quot;test3&quot;,
+               &quot;line&quot;: 5,
+               &quot;col&quot;: 15
+            }
+         }
+      ]
+   },
+   &quot;status&quot;: 400
+}</p>
+<p>```</p>
+<h2><A NAME="query">典型查询语句</A></h2>
+<ul>
+<li><a href="#term">term</a></li>
+<li><a href="#match">match</a></li>
+<li><a href="#query_string">query_string</a></li>
+</ul>
+<h3><A  NAME="term">term</A></h3>
+<p><code>term是代表完全匹配，即不对查询字符串进行分词器分析，使用整个查询字符串在elasticsearch的文档的倒排索引中查询，文档中必须包含整个搜索的词汇
+，会区分大小写的不同，必须完全匹配</code></p>
+<h4>语法格式</h4>
+<p>```</p>
+<p>POST ip:port/index/type/_search
+{
+    &quot;query&quot;:{
+        &quot;term&quot;:{
+            &quot;property name&quot;:&quot;property content&quot;</p>
+<pre><code>    }
+}
+</code></pre>
+
+<p>}</p>
+<p>```</p>
+<h4><strong>测试</strong></h4>
+<p><strong>1,查询“title“中的 两个单词</strong></p>
+<p><code>POST 192.168.50.80:10100/test1/writings/_search
+{
+    &quot;query&quot;: {
+        &quot;term&quot;: {
+          &quot;title&quot;:&quot;Quick brown&quot;
+        }
+    }
+}</code></p>
+<p><strong>结果</strong></p>
+<p>elasticsearch没有为term查询字符串分词，是以 Quick brown 到倒排索引中查找，没有查到数据</p>
+<p><code>{
+   &quot;took&quot;: 68,
+   &quot;timed_out&quot;: false,
+   &quot;_shards&quot;: {
+      &quot;total&quot;: 25,
+      &quot;successful&quot;: 25,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 0,
+      &quot;max_score&quot;: null,
+      &quot;hits&quot;: []
+   }
+}</code></p>
+<p><strong>2.查询“title“字段的完整内容</strong>*</p>
+<p>```
+POST 192.168.50.80:10100/test1/writings/_search
+{
+    &quot;query&quot;:{
+        &quot;term&quot;:{
+            &quot;content&quot;:&quot;Brown rabbits are commonly seen.&quot;</p>
+<pre><code>    }
+}
+</code></pre>
+
+<p>}
+```</p>
+<p><strong>结果</strong></p>
+<p>查询到指定数据</p>
+<p>```
+{
+   &quot;took&quot;: 1,
+   &quot;timed<em>out&quot;: false,
+   &quot;</em>shards&quot;: {
+      &quot;total&quot;: 25,
+      &quot;successful&quot;: 25,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 1,
+      &quot;max<em>score&quot;: 5.255613,
+      &quot;hits&quot;: [
+         {
+            &quot;<em>index&quot;: &quot;test1&quot;,
+            &quot;</em>type&quot;: &quot;writings&quot;,
+            &quot;</em>id&quot;: &quot;1&quot;,
+            &quot;<em>score&quot;: 5.255613,
+            &quot;</em>source&quot;: {
+               &quot;title&quot;: &quot;Quick brown rabbits&quot;,
+               &quot;body&quot;: &quot;Brown rabbits are commonly seen.&quot;
+            }
+         }
+      ]
+   }
+}</p>
+<p>```</p>
+<h3><A NAME="match">match</A></h3>
+<p><code>match查询的时候,elasticsearch会使用指定的分析器对查询字符串分词，然后使用分词后的字段在倒排索引中查询，返回查询的结果</code></p>
+<h4>语法格式</h4>
+<p><code>GET ip:port/index/type/_search 
+{
+    &quot;query&quot;:{
+        &quot;match&quot;:{
+            &quot;key&quot;:&quot;value&quot;      
+        }
+    }
+}</code></p>
+<h4>测试</h4>
+<p><code>GET 192.168.50.80:10100/test1/writings/_search
+{
+    &quot;query&quot;:{
+        &quot;match&quot;:{
+            &quot;title&quot;:&quot;Quick &quot;
+        }
+    }
+}</code></p>
+<p><strong>结果</strong></p>
+<p>查出title中含有 quick的字段</p>
+<p>```
+{
+   &quot;took&quot;: 1,
+   &quot;timed<em>out&quot;: false,
+   &quot;</em>shards&quot;: {
+      &quot;total&quot;: 25,
+      &quot;successful&quot;: 25,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 1,
+      &quot;max<em>score&quot;: 5.255613,
+      &quot;hits&quot;: [
+         {
+            &quot;<em>index&quot;: &quot;test1&quot;,
+            &quot;</em>type&quot;: &quot;writings&quot;,
+            &quot;</em>id&quot;: &quot;1&quot;,
+            &quot;<em>score&quot;: 5.255613,
+            &quot;</em>source&quot;: {
+               &quot;title&quot;: &quot;Quick brown rabbits&quot;,
+               &quot;body&quot;: &quot;Brown rabbits are commonly seen.&quot;
+            }
+         }
+      ]
+   }
+}</p>
+<p>```</p>
+<h3><A NAME="query_string">query_string</A></h3>
+<p><code>与match类似，query_string也是全文搜索类型，elasticsearch会对查询字符分词。
+但 query_string中的查询字符支持正则表达式，通配符，范围查询，和or，and，+，-这些布尔表达式</code></p>
+<h4>语法格式：</h4>
+<p>```
+{
+      &quot;query<em>string&quot;:{
+            &quot;default</em>field&quot;:&quot;name&quot;,
+            &quot;query&quot;:&quot;(this AND that) OR thu*&quot;
+       }</p>
+<p>}</p>
+<p>```</p>
+<h3>参数</h3>
+<ul>
+<li><strong>query</strong>：  需要查询的具体内容</li>
+<li><strong>default_field</strong>：  查询的字段</li>
+</ul>
+<p>```
+default_field 默认是 _all,  即对所有字段进行查询。</p>
+<p>支持多字段——&quot;fields&quot; : [&quot;age&quot;, &quot;name&quot;],fields中只要有一个字段满足query的条件即可匹配查询。
+```</p>
+<ul>
+<li><strong>default_operator</strong>  默认运算符</li>
+</ul>
+<p>```</p>
+<p>有AND、OR，默认为OR。比如query里面的内容是”cat dog”，两个短语以空格分开，如果default_operator参数为OR，那么只要字段内包含cat或者dog之一就可以匹配。</p>
+<p>如果default_operator为AND，字段内必须同时包含cat和dog才可以匹配。与bool查询挺像的。
+```</p>
+<ul>
+<li><strong>analyzer</strong>：分析器</li>
+</ul>
+<p><code>用于分析query内容的分析器。</code></p>
+<ul>
+<li><strong>minimum<em>should</em>match</strong>： 最小匹配词条</li>
+</ul>
+<p><code>比如query:”cat dog mouse”,这个配置项为2，那么只有字段里至少同时包含这三个中的任意两个才会匹配。
+   需要注意的是，这个配置项只对default_operator为OR的时候生效。如果这个是AND，那么cat dog mouse必须全部包含无论minimum_should_match为多少。</code></p>
+<h3><strong>注意：</strong></h3>
+<p><code>query_string中的查询字符支持正则表达式，通配符，和or，and，+，-这些布尔表达式。</code></p>
+<h4><strong>Wildcards</strong></h4>
+<p><code>query的内容中支持？与*。？可以代替一个任意字符、 *可代表任意个字符（包括零个）。比如你要查询的内容很长，记不清了但是你记得末尾是tor，那么你只需要把query内容写成*tor即可</code></p>
+<h4><strong>正则</strong></h4>
+<p><code>如果要在query的内容中使用正则表达式，在两端加上正斜杠/即可。比如name:/ob[am]{2}a/</code></p>
+<h4><strong>模糊查询</strong></h4>
+<p>```
+这个是一个很实用的功能。你想搜obama可是你记不清了或者你错打成了obalv。没事，只要你在查询的时候加个~就不用担心了: “query”:”name:obalv~”，你会惊喜的发现仍然可以搜到obama。</p>
+<p>另外你可以在~后面加个数字来指定与允许错误几个字母。默认以及最大都是2。比如你写成“query”:”name:obalv~1”，就只能允许一个错误，而你查询的内容错了两个字母，就无法搜到obama了。
+```</p>
+<h5><strong>示例：</strong></h5>
+<p><code>POST 192.168.50.80:10100/test1/writings/_search
+{
+&quot;query&quot;:{
+    &quot;query_string&quot;: {
+       &quot;default_field&quot;: &quot;title&quot;,
+       &quot;query&quot;: &quot;braw~2&quot;
+    }
+}
+}</code></p>
+<h5><strong>结果</strong></h5>
+<p>```
+{
+   &quot;took&quot;: 4,
+   &quot;timed<em>out&quot;: false,
+   &quot;</em>shards&quot;: {
+      &quot;total&quot;: 25,
+      &quot;successful&quot;: 25,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 1,
+      &quot;max<em>score&quot;: 0.15342641,
+      &quot;hits&quot;: [
+         {
+            &quot;<em>index&quot;: &quot;test1&quot;,
+            &quot;</em>type&quot;: &quot;writings&quot;,
+            &quot;</em>id&quot;: &quot;1&quot;,
+            &quot;<em>score&quot;: 0.15342641,
+            &quot;</em>source&quot;: {
+               &quot;title&quot;: &quot;Quick brown rabbits&quot;,
+               &quot;content&quot;: &quot;Brown rabbits are commonly seen.&quot;
+            }
+         }
+      ]
+   }
+}</p>
+<p>```</p>
+<h4><strong>布尔类型</strong></h4>
+<p><code>这一章最开头提到了一些OR、AND。另外支持的运算符有+、-
++代表一定要出现：类似must。-代表一定不能包含：类似must_not
+比如：&quot;query&quot;:&quot;cat -dog +mouse&quot;  这个就代表文档中必须包含mouse，必须不能包含dog</code></p>
+<p><strong>示例一</strong></p>
+<p>```
+POST  192.168.50.80:10100/test1/writings/<em>search
+{
+&quot;query&quot;:{
+    &quot;query</em>string&quot;: {
+       &quot;default_field&quot;: &quot;title&quot;,
+       &quot;query&quot;: &quot;+brown -rabbits&quot;
+    }
+}
+}</p>
+<p>```</p>
+<p><strong>结果</strong></p>
+<p><code>{
+   &quot;took&quot;: 91,
+   &quot;timed_out&quot;: false,
+   &quot;_shards&quot;: {
+      &quot;total&quot;: 25,
+      &quot;successful&quot;: 25,
+      &quot;failed&quot;: 0
+   },
+   &quot;hits&quot;: {
+      &quot;total&quot;: 0,
+      &quot;max_score&quot;: null,
+      &quot;hits&quot;: []
+   }
+}</code></p>
+<h2><a name="mapping">mapping映射</a></h2>
+<ul>
+<li><a href="#type">es中的字段类型</a></li>
+<li><a href="#look_mapping">查看映射</a></li>
+<li><a href="#alter_mapping">修改映射</a></li>
+<li><a href="#create_mapping">指定映射</a></li>
+</ul>
+<h3>理解</h3>
+<p>Mapping,就是对索引库中索引的字段名称及其数据类型进行定义，以及elasticsearch如何处理字段，类似于mysql中的表结构信息。不过es的mapping比数据库灵活很多，它可以动态识别字段。一般不需要指定mapping都可以，因为es会自动根据数据格式识别它的类型，如果你需要对某些字段添加特殊属性（如：定义使用其它分词器、是否分词、是否存储等），就必须手动添加mapping。</p>
+<h3><a name="type">es中的字段类型</a></h3>
+<p>es支持下列简单的字段类型：
+* String: string
+* Whole number: byte, short, integer, long
+* Floating point: float, double
+* Boolean: boolean
+* Date: date</p>
+<p>　　当你索引一个文档，而这个文档包含了一个新的字段，es会动态映射此字段，es中有自动影射机制，字符串映射为string，数字映射为long。通过mappings可以指定数据类型是否存储等属性。</p>
+<h3><strong><a name="look_mapping">查看映射</a></strong></h3>
+<h4>语法</h4>
+<p><code>GET ip:port/_index/_type/_mapping</code></p>
+<h4>参数</h4>
+<p>|参数名|是否必须|说明|
+| --- | --- | --- |
+| ip| yes| elasticsearch 集群提供的ip地址|
+| port| yes| elasticsearch 集群提供的port|
+| <em>index| yes| 索引名，相当于关系型数据库中的数据库名|
+|</em>type| no| 类型名,相当于关系型数据库中的表名，在查看映射语句中，若不写则查看整个索引中的所有标的映射关系，若存在；则查看指定表的映射关系|</p>
+<p><strong>新建一个索引并插入数据</strong></p>
+<p>```
+PUT 192.168.50.80:10100/ttt/test1/1
+{
+	&quot;name&quot;:&quot;sss&quot;,
+	&quot;sex&quot;:&quot;男&quot;
+}</p>
+<p>```</p>
+<h3><strong>查看映射</strong></h3>
+<p><code>GET 192.168.50.70:10100/ttt/test1/_mapping</code></p>
+<p><strong>结果</strong></p>
+<p>```
+{
+    &quot;ttt&quot;: {
+        &quot;mappings&quot;: {
+            &quot;test1&quot;: {
+                &quot;dynamic<em>date</em>formats&quot;: [
+                    &quot;yyyy-MM-dd'T'HH:mm:ss.SSS Z&quot;,
+                    &quot;Y-M-d H:m:s&quot;,
+                    &quot;Y/M/d H:m:s&quot;,
+                    &quot;Y年M月d日 H:m:s&quot;,
+                    &quot;Y-M-d H:m&quot;,
+                    &quot;Y/M/d H:m&quot;,
+                    &quot;Y年M月d日 H:m&quot;,
+                    &quot;Y-M-d H&quot;,
+                    &quot;Y/M/d H&quot;,
+                    &quot;Y年M月d日 H&quot;,
+                    &quot;Y-M-d&quot;,
+                    &quot;Y/M/d&quot;,
+                    &quot;Y年M月d日&quot;
+                ],
+                &quot;dynamic<em>templates&quot;: [
+                    {
+                        &quot;string&quot;: {
+                            &quot;mapping&quot;: {
+                                &quot;index&quot;: &quot;not<em>analyzed&quot;,
+                                &quot;store&quot;: &quot;yes&quot;,
+                                &quot;type&quot;: &quot;string&quot;,
+                                &quot;fields&quot;: {
+                                    &quot;text&quot;: {
+                                        &quot;index&quot;: &quot;analyzed&quot;,
+                                        &quot;store&quot;: &quot;no&quot;,
+                                        &quot;type&quot;: &quot;string&quot;
+                                    }
+                                }
+                            },
+                            &quot;match&quot;: &quot;<em>&quot;,
+                            &quot;match</em>mapping<em>type&quot;: &quot;string&quot;
+                        }
+                    },
+                    {
+                        &quot;number&quot;: {
+                            &quot;mapping&quot;: {
+                                &quot;index&quot;: &quot;not</em>analyzed&quot;,
+                                &quot;store&quot;: &quot;yes&quot;
+                            },
+                            &quot;match&quot;: &quot;</em>&quot;,
+                            &quot;match<em>mapping</em>type&quot;: &quot;long&quot;
+                        }
+                    }
+                ],
+                &quot;properties&quot;: {
+                    &quot;name&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;index&quot;: &quot;not</em>analyzed&quot;,
+                        &quot;store&quot;: true,
+                        &quot;fields&quot;: {
+                            &quot;text&quot;: {
+                                &quot;type&quot;: &quot;string&quot;
+                            }
+                        }
+                    },
+                    &quot;sex&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;index&quot;: &quot;not_analyzed&quot;,
+                        &quot;store&quot;: true,
+                        &quot;fields&quot;: {
+                            &quot;text&quot;: {
+                                &quot;type&quot;: &quot;string&quot;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</p>
+<p>```</p>
+<p>properties 中是test1中的一些字段及其属性，字段最重要的属性是type---<a href="#type">字段类型</a>,该属性指定了字段的类型。
+而在type中string类型最为特殊：
+string类型的字段，默认，认为是全文搜索，
+也就是说，若未修改elasticsearch中的默认值，文档存入elasticsearch时，该字段的值会传递给分析器进行分词后再建立倒排索引。</p>
+<p>字符串字段最重要的2个映射关系是index和analyser.</p>
+<ul>
+<li><strong><a href="#index">index</a></strong> 默认有三个值</li>
+<li><a href="#analyzed">analyzed</a></li>
+<li><a href="#not_analyzed">not_analyzed</a></li>
+<li><a href="#no">no</a></li>
+</ul>
+<p>string字段默认是analyzed.</p>
+<p><strong>analyzer</strong>
+对于需要分词的string字段，analyzer属性决定使用哪个分词器，默认，使用standard分词器。
+但是你可以设置为一个内置的分词器，比如whitespace,simple,english.</p>
+<p><code>{
+    &quot;test&quot;: {
+        &quot;type&quot;:     &quot;string&quot;,
+        &quot;analyzer&quot;: &quot;english&quot;
+    }
+}</code></p>
+<h3><strong><a name="create_mapping">指定映射</a></strong></h3>
+<p>有时在开发时，默认的映射不符合自己的要求，可以在创建索引时指定映射</p>
+<p><strong>例子</strong></p>
+<p><code>POST 192.168.50.80：10100/gb
+{
+	&quot;mapppings&quot;:{
+		&quot;test&quot;:{
+			&quot;properties&quot;:{
+				&quot;name&quot; : {
+					&quot;type&quot; :    &quot;string&quot;,
+					&quot;index&quot;:    &quot;analyzed&quot;
+				},
+				&quot;age&quot;:{
+					&quot;type&quot;:&quot;long&quot;
+				}
+			}
+		}
+	}
+}</code></p>
+<h3><strong><a name="alter_mapping">修改映射</a></strong></h3>
+<p>你可以在创建索引时指定映射，另外，你可以使用<code>/_mapping</code>来修改映射或者增加映射。</p>
+<h4><strong>注意</strong></h4>
+<p>如果一个字段已经在映射里存在，这也许意味着这个字段的数据已经被索引了，如果你想这个字段的映射，已经索引过的数据就会出错。</p>
+<p><strong>例子：增加一个type</strong></p>
+<p>```
+POST 192.168.50.80:10100/gb 
+{
+	&quot;mappings&quot;:{
+		&quot;test2&quot;:{
+			&quot;properties&quot;:{
+				 &quot;sex&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+               }
+			}</p>
+<pre><code>    }
+
+}
+</code></pre>
+
+<p>}
+```</p>
+<p><strong>结果：报错，索引已存在</strong></p>
+<p><code>{
+    &quot;error&quot;: {
+        &quot;root_cause&quot;: [
+            {
+                &quot;type&quot;: &quot;index_already_exists_exception&quot;,
+                &quot;reason&quot;: &quot;already exists&quot;,
+                &quot;index&quot;: &quot;gb&quot;
+            }
+        ],
+        &quot;type&quot;: &quot;index_already_exists_exception&quot;,
+        &quot;reason&quot;: &quot;already exists&quot;,
+        &quot;index&quot;: &quot;gb&quot;
+    },
+    &quot;status&quot;: 400
+}</code></p>
+<p>不能修改已经索引过的字段，但可以通过增加一个新的字段来修改映射，但是我们不能修改已经存在的字段从分词到不分词。</p>
+<h4><strong>例子</strong></h4>
+<p>在 test映射中增加一个不分词的字段 teacher</p>
+<p>```
+POST 192.168.50.80：10100/gb/<em>mapping/test
+{
+	&quot;properties&quot;:{
+		 &quot;teacher&quot;: {
+	      &quot;type&quot;: &quot;string&quot;,
+	      &quot;index&quot;:&quot;not</em>analyzed&quot;
+	   }
+	}
+}</p>
+<p>```</p>
+<h4><strong>结果</strong></h4>
+<p>```
+{
+    &quot;gb&quot;: {
+        &quot;mappings&quot;: {
+            &quot;<em>default</em>&quot;: {
+                &quot;dynamic<em>date<em>formats&quot;: [
+                    &quot;yyyy-MM-dd'T'HH:mm:ss.SSS Z&quot;,
+                    &quot;Y-M-d H:m:s&quot;,
+                    &quot;Y/M/d H:m:s&quot;,
+                    &quot;Y年M月d日 H:m:s&quot;,
+                    &quot;Y-M-d H:m&quot;,
+                    &quot;Y/M/d H:m&quot;,
+                    &quot;Y年M月d日 H:m&quot;,
+                    &quot;Y-M-d H&quot;,
+                    &quot;Y/M/d H&quot;,
+                    &quot;Y年M月d日 H&quot;,
+                    &quot;Y-M-d&quot;,
+                    &quot;Y/M/d&quot;,
+                    &quot;Y年M月d日&quot;
+                ],
+                &quot;dynamic</em>templates&quot;: [
+                    {
+                        &quot;string&quot;: {
+                            &quot;mapping&quot;: {
+                                &quot;index&quot;: &quot;not</em>analyzed&quot;,
+                                &quot;store&quot;: &quot;yes&quot;,
+                                &quot;type&quot;: &quot;string&quot;,
+                                &quot;fields&quot;: {
+                                    &quot;text&quot;: {
+                                        &quot;index&quot;: &quot;analyzed&quot;,
+                                        &quot;store&quot;: &quot;no&quot;,
+                                        &quot;type&quot;: &quot;string&quot;
+                                    }
+                                }
+                            },
+                            &quot;match&quot;: &quot;<em>&quot;,
+                            &quot;match<em>mapping<em>type&quot;: &quot;string&quot;
+                        }
+                    },
+                    {
+                        &quot;number&quot;: {
+                            &quot;mapping&quot;: {
+                                &quot;index&quot;: &quot;not</em>analyzed&quot;,
+                                &quot;store&quot;: &quot;yes&quot;
+                            },
+                            &quot;match&quot;: &quot;</em>&quot;,
+                            &quot;match<em>mapping<em>type&quot;: &quot;long&quot;
+                        }
+                    }
+                ]
+            },
+            &quot;test1&quot;: {
+                &quot;dynamic</em>date</em>formats&quot;: [
+                    &quot;yyyy-MM-dd'T'HH:mm:ss.SSS Z&quot;,
+                    &quot;Y-M-d H:m:s&quot;,
+                    &quot;Y/M/d H:m:s&quot;,
+                    &quot;Y年M月d日 H:m:s&quot;,
+                    &quot;Y-M-d H:m&quot;,
+                    &quot;Y/M/d H:m&quot;,
+                    &quot;Y年M月d日 H:m&quot;,
+                    &quot;Y-M-d H&quot;,
+                    &quot;Y/M/d H&quot;,
+                    &quot;Y年M月d日 H&quot;,
+                    &quot;Y-M-d&quot;,
+                    &quot;Y/M/d&quot;,
+                    &quot;Y年M月d日&quot;
+                ],
+                &quot;dynamic<em>templates&quot;: [
+                    {
+                        &quot;string&quot;: {
+                            &quot;mapping&quot;: {
+                                &quot;index&quot;: &quot;not</em>analyzed&quot;,
+                                &quot;store&quot;: &quot;yes&quot;,
+                                &quot;type&quot;: &quot;string&quot;,
+                                &quot;fields&quot;: {
+                                    &quot;text&quot;: {
+                                        &quot;index&quot;: &quot;analyzed&quot;,
+                                        &quot;store&quot;: &quot;no&quot;,
+                                        &quot;type&quot;: &quot;string&quot;
+                                    }
+                                }
+                            },
+                            &quot;match&quot;: &quot;<em>&quot;,
+                            &quot;match<em>mapping</em>type&quot;: &quot;string&quot;
+                        }
+                    },
+                    {
+                        &quot;number&quot;: {
+                            &quot;mapping&quot;: {
+                                &quot;index&quot;: &quot;not<em>analyzed&quot;,
+                                &quot;store&quot;: &quot;yes&quot;
+                            },
+                            &quot;match&quot;: &quot;<em>&quot;,
+                            &quot;match</em>mapping<em>type&quot;: &quot;long&quot;
+                        }
+                    }
+                ],
+                &quot;properties&quot;: {
+                    &quot;age&quot;: {
+                        &quot;type&quot;: &quot;long&quot;
+                    },
+                    &quot;name&quot;: {
+                        &quot;type&quot;: &quot;string&quot;
+                    }
+                }
+            },
+            &quot;test&quot;: {
+                &quot;dynamic</em>date</em>formats&quot;: [
+                    &quot;yyyy-MM-dd'T'HH:mm:ss.SSS Z&quot;,
+                    &quot;Y-M-d H:m:s&quot;,
+                    &quot;Y/M/d H:m:s&quot;,
+                    &quot;Y年M月d日 H:m:s&quot;,
+                    &quot;Y-M-d H:m&quot;,
+                    &quot;Y/M/d H:m&quot;,
+                    &quot;Y年M月d日 H:m&quot;,
+                    &quot;Y-M-d H&quot;,
+                    &quot;Y/M/d H&quot;,
+                    &quot;Y年M月d日 H&quot;,
+                    &quot;Y-M-d&quot;,
+                    &quot;Y/M/d&quot;,
+                    &quot;Y年M月d日&quot;
+                ],
+                &quot;dynamic<em>templates&quot;: [
+                    {
+                        &quot;string&quot;: {
+                            &quot;mapping&quot;: {
+                                &quot;index&quot;: &quot;not</em>analyzed&quot;,
+                                &quot;store&quot;: &quot;yes&quot;,
+                                &quot;type&quot;: &quot;string&quot;,
+                                &quot;fields&quot;: {
+                                    &quot;text&quot;: {
+                                        &quot;index&quot;: &quot;analyzed&quot;,
+                                        &quot;store&quot;: &quot;no&quot;,
+                                        &quot;type&quot;: &quot;string&quot;
+                                    }
+                                }
+                            },
+                            &quot;match&quot;: &quot;</em>&quot;,
+                            &quot;match<em>mapping<em>type&quot;: &quot;string&quot;
+                        }
+                    },
+                    {
+                        &quot;number&quot;: {
+                            &quot;mapping&quot;: {
+                                &quot;index&quot;: &quot;not</em>analyzed&quot;,
+                                &quot;store&quot;: &quot;yes&quot;
+                            },
+                            &quot;match&quot;: &quot;</em>&quot;,
+                            &quot;match<em>mapping</em>type&quot;: &quot;long&quot;
+                        }
+                    }
+                ],
+                &quot;properties&quot;: {
+                    &quot;teacher&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;index&quot;: &quot;not</em>analyzed&quot;
+                    }
+                }
+            }
+        }
+    }
+}</p>
+<p>```</p>
+<h3><a name="delete_mapping">删除映射</a></h3>
+<h4><strong>注意</strong></h4>
+<p>映射无法单独删除，只能通过删除索引的方式删除</p>
+<h4><strong>例子</strong></h4>
+<p><code>DELETE 192.168.50.80/gb</code></p>
+<h4><strong>结果</strong></h4>
+<p><code>{
+    &quot;acknowledged&quot;: true
+}</code></p>
+<h2><a name="aliases">别名 _aliases</a></h2>
+<ul>
+<li><a href="#create_aliases">创建别名</a></li>
+<li><a href="#look_aliases">查看别名</a></li>
+<li><a href="#delete_aliases">删除别名</a></li>
+</ul>
+<p>elasticsearch中的API可以接受使用一个名字作为别名对应于某个索引或多个索引，在使用别名时， elasticsearch中的API会自动地扩展到别名的所有的索引上，一个别名也可以与一个过滤器建立关联，这个过滤器在搜索和路由值的时候自动被应用。Elasticsearch的别名，就类似数据库的视图。</p>
+<h3><a name="create_aliases">创建别名</a></h3>
+<h4>语法</h4>
+<p><code>POST ip:port/_aliases
+{
+   &quot;actions&quot;:[{&quot;add&quot;:{&quot;index&quot;:&quot;index_name&quot;,&quot;alias&quot;:&quot;alias_name&quot;}},..........]
+}</code></p>
+<h4><strong>注意</strong></h4>
+<p>actions 对应的是数组，里面可有多个操作，但这多个操作时原子性的</p>
+<h4>例子</h4>
+<p>为 gb索引创建名为a1的别名 </p>
+<p><code>POST 192.168.50.80:10100/_aliases
+ {
+	&quot;actions&quot;:[{&quot;add&quot;:{&quot;index&quot;:&quot;gb&quot;,&quot;alias&quot;:&quot;a1&quot;}}]
+}</code></p>
+<h4><strong>例子： 为 gb 创建多个别名</strong></h4>
+<p><code>POST 192.168.50.80:10100/_aliases
+ {
+	&quot;actions&quot;:[
+	{&quot;add&quot;:{&quot;index&quot;:&quot;gb&quot;,&quot;alias&quot;:&quot;a2&quot;}}，
+	{&quot;add&quot;:{&quot;index&quot;:&quot;gb&quot;,&quot;alias&quot;:&quot;a3&quot;}}，
+	{&quot;add&quot;:{&quot;index&quot;:&quot;gb&quot;,&quot;alias&quot;:&quot;a3&quot;}}
+	]
+}</code></p>
+<h4><strong>例子：为别名alias1 与多个索引连接起来</strong></h4>
+<p><code>POST 192.168.50.80:10100/_aliases
+ {
+	&quot;actions&quot;:[
+	{&quot;add&quot;:{&quot;index&quot;:&quot;gb&quot;,&quot;alias&quot;:&quot;alias1&quot;}}，
+	{&quot;add&quot;:{&quot;index&quot;:&quot;test&quot;,&quot;alias&quot;:&quot;alias1&quot;}}
+	]
+}</code></p>
+<h4><strong>例子:为过滤器创建别名</strong></h4>
+<p>```
+POST 192.168.50.80:10100/_aliases
+{
+	&quot;actions&quot;:[
+		{
+		&quot;add&quot;:{
+			&quot;index&quot;:&quot;gb&quot;,
+			&quot;alias&quot;:&quot;f&quot;,
+			&quot;filter&quot;:{
+				&quot;term&quot;:{
+					&quot;tearch&quot;:&quot;f&quot;
+				}
+			}
+		}
+	},
+	{
+		&quot;add&quot;:{
+			&quot;index&quot;:&quot;gb&quot;,
+			&quot;alias&quot;:&quot;w&quot;,
+			&quot;filter&quot;:{
+				&quot;term&quot;:{
+					&quot;tearch&quot;:&quot;w&quot;
+				}
+			}
+		}
+		},
+		{
+		&quot;add&quot;:{
+			&quot;index&quot;:&quot;gb&quot;,
+			&quot;alias&quot;:&quot;s&quot;,
+			&quot;filter&quot;:{
+				&quot;term&quot;:{
+					&quot;tearch&quot;:&quot;f&quot;
+				}
+			}</p>
+<pre><code>    }
+    }
+]
+</code></pre>
+
+<p>}
+```</p>
+<h4><strong>查看别名</strong></h4>
+<p><code>192.168.50.80:10100/gb/_alias/*</code></p>
+<h4><strong>查看别名</strong></h4>
+<p><code>{
+    &quot;gb&quot;: {
+        &quot;aliases&quot;: {
+            &quot;a2&quot;: {},
+            &quot;f&quot;: {
+                &quot;filter&quot;: {
+                    &quot;term&quot;: {
+                        &quot;tearch&quot;: &quot;f&quot;
+                    }
+                }
+            },
+            &quot;s&quot;: {
+                &quot;filter&quot;: {
+                    &quot;term&quot;: {
+                        &quot;tearch&quot;: &quot;f&quot;
+                    }
+                }
+            },
+            &quot;w&quot;: {
+                &quot;filter&quot;: {
+                    &quot;term&quot;: {
+                        &quot;tearch&quot;: &quot;w&quot;
+                    }
+                }
+            }
+        }
+    }
+}</code></p>
+<h3><a name="look_aliases">查看别名</a></h3>
+<p><code>POST ip:port/indexname/_alias/*</code></p>
+<h4><strong>例子</strong></h4>
+<p>查看gb索引对应的别名</p>
+<p><code>POST 192.168.50.80:10100/gb/_alias/*</code></p>
+<h4><strong>查看别名的名字来查找别名</strong></h4>
+<p><code>POST ip:port/indexname/_alias/*</code></p>
+<h4><strong>例子</strong></h4>
+<p>查看 名为 a2的别名</p>
+<p><code>POST 192.168.50.80:10100/_alias/a2</code></p>
+<h4><strong>例子</strong></h4>
+<p>查看 名为 a开头的别名</p>
+<p><code>POST 192.168.50.80:10100/_alias/a*</code></p>
+<h3><a name="delete_aliases">删除别名</a></h3>
+<h4><strong>语法1</strong></h4>
+<p><code>DELETE {IP}:{PORT}/{index}/_alias/{name}</code></p>
+<h4><strong>例子</strong></h4>
+<p><code>DELETE 192.168.50.80:10100/gb/_alias/a1</code></p>
+<h4><strong>语法2</strong></h4>
+<p><code>POST {IP}:{PORT}/_aliases
+{  
+    &quot;actions&quot; : [  
+        { &quot;remove&quot; : { &quot;index&quot; : &quot;indexName&quot;,&quot;alias&quot; : &quot;aliasName&quot; } }  
+    ]  
+}</code></p>
+<h4><strong>例子</strong></h4>
+<p><code>POST 192.168.50.80:10100/_aliases
+{
+	&quot;actions&quot;:[
+		{&quot;remove&quot;:{&quot;index&quot;:&quot;gb&quot;,&quot;alias&quot;:&quot;alias1&quot;}}
+		]
+}</code></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
