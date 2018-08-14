@@ -65,7 +65,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '350px'],
-					content: "<?php echo U('BackstageManagement/AddProduct');?>"
+					content: "<?php echo U('BackstageManagement/AddRole');?>"
 				});
 			})
 		};
@@ -101,7 +101,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "<?php echo U('BackstageManagement/problem');?>",
+				url: "<?php echo U('BackstageManagement/ShowProjectrole');?>",
 				dataType: "json",
 				data: {
 					pageIndex: pageIndex,
@@ -128,7 +128,7 @@
                   		cache: false,
                   		async: false,
                   		type: "POST",
-                  		url: "<?php echo U('BackstageManagement/DeleteProduct');?>",
+                  		// url: "<?php echo U('BackstageManagement/DeleteProduct');?>",
                   		dataType: "json",
                   		data: {
                   			id: id
@@ -154,19 +154,19 @@
                 var layer = layui.layer;
 
                 layer.open({
-                    title: '添加配置',
+                    title: '编辑配置',
                     type: 2,
                     shadeClose: true,
                     closeBtn: 1,
                     area: ['500px', '350px'],
-                    content: "<?php echo U('BackstageManagement/EditProduct');?>",
+                    content: "<?php echo U('BackstageManagement/EditRole');?>",
                     success: function(layero, idx) {
                         var body = layui.layer.getChildFrame('body', idx);
                         $.ajax({
                             cache: false,
                             async: false,
                             type: "POST",
-                            url: "<?php echo U('BackstageManagement/UpdateeProduct');?>",
+                            url: "<?php echo U('BackstageManagement/UpdateeProjectrole');?>",
                             dataType: "json",
                             data: {
                                 id: id

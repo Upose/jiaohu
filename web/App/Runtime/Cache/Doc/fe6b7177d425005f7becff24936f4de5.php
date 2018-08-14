@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Document</title>
-    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/custom.css">
-	<script src="__DOCLAY__/plugins/layui/layui.js"></script>
-	<script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
+	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
+	<script src="/Public/static/jquery-2.0.3.min.js"></script>
 </head>
 <body>
 	<div id="add-content" class="cus-model">
@@ -27,8 +27,8 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">状态:</label>
 				<div style="margin-left: 60px;"  class="layui-input-block">
-					<input type="radio" name="sex" value="已启用" title="已启用" checked class="layer">
-					<input type="radio" name="sex" value="已禁用" title="已禁用" class="layer">
+					<input type="radio" name="sex" value="启用" title="启用" checked class="layer">
+					<input type="radio" name="sex" value="禁用" title="禁用" class="layer">
 				</div>
 			</div>
 			<div class="layui-form-item cus-fixed-btn">
@@ -73,7 +73,7 @@
 				cache: false,
 				async: false,
 				type: "POST",
-				url: "{:U('BackstageManagement/AddProjectrole')}",
+				url: "<?php echo U('BackstageManagement/AddProjectrole');?>",
 				dataType: "json",
 				data: {
 					name: $('#product_name').val(),
