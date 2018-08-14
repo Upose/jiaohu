@@ -57,7 +57,7 @@ class BackstageManagementModel{
   	   }else{
   	      	 return 1;
   	   }
-     }
+    }
 
 
 
@@ -215,6 +215,30 @@ class BackstageManagementModel{
          values ('$name','$update_time','$submit_person_id','$summary','$status',0)";
         $res = M()->execute($sql);
        return $res;
+    }
+
+    public function DeleteProject($id){
+       $sql="update project_select set is_delete = 1 
+           where id='$id'";
+       $res = M()->execute($sql);
+       //var_dump($res);die;
+       if($res){
+             return 0;
+       }else{
+             return 1;
+       }
+    }
+
+    public function DeleteProjectrole($id){
+       $sql="update project_role set is_delete = 1 
+           where id='$id'";
+       $res = M()->execute($sql);
+       //var_dump($res);die;
+       if($res){
+             return 0;
+       }else{
+             return 1;
+       }
     }
 }
 

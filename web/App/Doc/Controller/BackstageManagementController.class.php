@@ -249,5 +249,26 @@ class BackstageManagementController extends BaseController{
         }     
     }
 
+    public function DeleteProject(){
+       $id=intval(I('id'));
+       $list=$this->list=BackstageManagementModel::DeleteProject($id);
 
+       if($list==0){
+         $this->Response(0,'删除成功','');
+       }else{
+         $this->Response(1,'删除失败','');
+       }
+       
+    }
+    public function DeleteProjectrole(){
+       $id=intval(I('id'));
+       $list=$this->list=BackstageManagementModel::DeleteProjectrole($id);
+
+       if($list==0){
+         $this->Response(0,'删除成功','');
+       }else{
+         $this->Response(1,'删除失败','');
+       }
+       
+    }
 }
