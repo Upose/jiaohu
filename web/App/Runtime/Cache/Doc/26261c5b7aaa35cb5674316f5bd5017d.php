@@ -7,6 +7,7 @@
     <title>Tea Party</title>
     <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
     <script src="/Public/static/jquery-2.0.3.min.js"></script>
     <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
@@ -68,7 +69,7 @@ width: 80%;
         </div>
         <div class="layui-side layui-bg-black kit-side">
             <div class="layui-side-scroll">
-                <div class="kit-side-fold"><i class="layui-icon">&#xe68e;</i></div>
+                <div class="kit-side-fold"><img src="/Public/Doc/images/切换@2x.png" alt=""></div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <!-- 标志 点赞 &#xe6c6 重要 &#xe658;-->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
@@ -76,17 +77,14 @@ width: 80%;
          
 
                       <?php if(is_array($res)): foreach($res as $key=>$f): ?><li class="layui-nav-item">
-                            <a class="" href="javascript:;"><i class="layui-icon">&#xe61a;</i><span><?php echo ($f[pname]); ?></span></a>
+                            <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt=""><span><?php echo ($f[pname]); ?></span></a>
                             <dl class="layui-nav-child">
                                  <?php if(is_array($f[child])): foreach($f[child] as $key=>$vo): ?><dd>
                                    <a href="javascript:;" kit-target data-options="{url:'<?php echo U('KnowledgeSharing/document');?>'+'&f_id='+<?php echo ($vo[cid]); ?>,icon:'',title:'<?php echo ($vo[cname]); ?>',id:'<?php echo ($vo[cid]); ?>'}">
-                                <span><?php echo ($vo[cname]); ?></span>
-                               
+                                <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt=""><span><?php echo ($vo[cname]); ?></span>
                                     </a>
                                 </dd><?php endforeach; endif; ?>
                             </dl>
-
-                         
                         </li><?php endforeach; endif; ?>
 
                 </ul>
@@ -144,6 +142,15 @@ width: 80%;
                     });
                 });
             })
+        })
+            // 左侧菜单栏切换图标
+        $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
+            var lis = $('.layui-nav-tree').find('li.kit-side-folded');
+            if(lis.length > 0) {
+                $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换2@2x.png');
+            } else {
+                $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换@2x.png');
+            }
         })
     })
 </script>
