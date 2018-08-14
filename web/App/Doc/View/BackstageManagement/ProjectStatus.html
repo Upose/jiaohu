@@ -65,7 +65,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '350px'],
-					content: "{:U('BackstageManagement/AddRole')}"
+					content: "{:U('BackstageManagement/AddStatus')}"
 				});
 			})
 		};
@@ -101,7 +101,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "{:U('BackstageManagement/ShowProjectrole')}",
+				url: "{:U('BackstageManagement/ShowProjectstatus')}",
 				dataType: "json",
 				data: {
 					pageIndex: pageIndex,
@@ -128,7 +128,7 @@
                   		cache: false,
                   		async: false,
                   		type: "POST",
-                  		// url: "{:U('BackstageManagement/DeleteProduct')}",
+                  		url: "{:U('BackstageManagement/DeleteProjectstatus')}",
                   		dataType: "json",
                   		data: {
                   			id: id
@@ -159,14 +159,14 @@
                     shadeClose: true,
                     closeBtn: 1,
                     area: ['500px', '350px'],
-                    content: "{:U('BackstageManagement/EditRole')}",
+                    content: "{:U('BackstageManagement/EditStatus')}",
                     success: function(layero, idx) {
                         var body = layui.layer.getChildFrame('body', idx);
                         $.ajax({
                             cache: false,
                             async: false,
                             type: "POST",
-                            url: "{:U('BackstageManagement/UpdateeProjectrole')}",
+                            url: "{:U('BackstageManagement/UpdateeProjectstatus')}",
                             dataType: "json",
                             data: {
                                 id: id
