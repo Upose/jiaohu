@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Eagles之词频统计</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Eagles之词频统计</h1>
+<p><font size="4"><strong>一. 词频统计的优势</strong></font></br>
+&#160; &#160; &#160; &#160;<strong>词频--反转文件频率</strong>，是一种用于情报检索与文本挖掘的常用加权技术，用以评估一个词对于一个文件或者一个语料库中的一个领域文件集的重要程度。</br>
+&#160; &#160; &#160; &#160;简单说来，词频统计也是数据分析的一种形式，通过处理大量数据的词频分析结果能指导用户的行为。</br>
+&#160; &#160; &#160; &#160;其实Eagles的很多应用场景中都使用到了词频统计功能，聚合分析模块实际上就是对词频的一种应用。要知道，对于Eagles来说，进行词频统计并不是打肿脸充胖子。就现在而言，Eagles至少有以下优势：</br>
+&#160; &#160; &#160; &#160;内置了多种语言的分词器，目前内置英文、中文、日文、俄文、法文、拼音分词。</br>
+&#160; &#160; &#160; &#160;不同的分词器有不同的分词算法，用户可以根据自己的需求选择适合的分词器。</br>
+&#160; &#160; &#160; &#160;词典支持自定义，以提升分词的准确率。</br>
+&#160; &#160; &#160; &#160;当然，以上这几点仅仅是能进行词频操作的敲门砖，如何基于全文搜索快速完成关键词词频统计，才是Eagles的词频功能的关注重点。</p>
+<p><font size="4"><strong>二. 词频分析</strong></font></br>
+&#160; &#160; &#160; &#160;结合舆情分析平台来简析Eagles词频统计在实际中的应用。</br></p>
+<p>&#160; &#160; &#160; &#160;<strong>a)基于关键词的标签云</strong></br></p>
+<p><img src="https://i.imgur.com/zyekXBC.png" /><br>
+标签云实际上是对关键词词频统计的一种应用场景。<br>
+具体查询语句的关键词：<br>
+aggs：aggregations<br>
+terms：词聚合<br>
+field：设置为所有字段<br>
+include：即包括，正则表达式\u4E00-\u9FA5是汉字,修饰变量2代表只处理2个字以上的词<br>
+exclude:即不包括，可对指定冗余无意义的词进行过滤<br></p>
+<pre><code>{
+&quot;size&quot;: 0,
+&quot;aggs&quot;:{
+    &quot;tags&quot;:{
+       &quot;terms&quot;:{
+            &quot;field&quot;:&quot;_all&quot;,
+           &quot;include&quot;:&quot;[\u4E00-\u9FA5]{2,}&quot;,
+&quot;exclude&quot;:[ &quot;好的&quot;]
+        }
+    }
+}
+}
+</code></pre>
+
+<p><img src="https://i.imgur.com/CuTdMCN.png" /><br>
+&#160; &#160; &#160; &#160;在正确查询后，响应结果会给出对应词key，以及相应词的词频doc_count<br>
+&#160; &#160; &#160; &#160;在提供的词频数据基础上，可以得到关键词的统计数据，则可实现类似舆情分析云标签。<br></p>
+<p><img src="https://i.imgur.com/hm1ev8V.png" /></p>
+<p>&#160; &#160; &#160; &#160;<strong>b)基于关键词的民情趋势</strong></br></p>
+<p><img src="https://i.imgur.com/7a2bx9Q.png" /></p>
+<p>&#160; &#160; &#160; &#160;民情趋势也是类似的，实质上还是进行词频的统计，只是对分析结果的不同的处理方式而已<br>
+<img src="https://i.imgur.com/t1XnE3r.png" /></p>
+<p>&#160; &#160; &#160; &#160;<strong>c)基于范围的正负面评价</strong></br></p>
+<p><img src="https://i.imgur.com/typT3PQ.png" /></p>
+<pre><code>{
+&quot;query&quot; : {
+        &quot;terms&quot; : {
+          &quot;_all&quot; :[ &quot;交管局&quot;, &quot;交警&quot;]
+ }
+},
+    &quot;aggs&quot; : {
+        &quot;senti_score&quot; : {
+            &quot;range&quot; : {
+                &quot;field&quot; : &quot; senti_score &quot;,
+                &quot;ranges&quot; : [
+                    { &quot;to&quot; : 0},
+                    { &quot;from&quot; : 1}
+                ]
+            }
+        }
+    }
+}
+</code></pre>
+
+<p><img src="https://i.imgur.com/fa16pGB.png" /></p>
+<p>Eagles在词查询的基础上进行范围查询，然后对范围内数据count出结果。<br>
+range:范围，其下可对field字段，to/from具体范围进行细化<br>
+可分为{ &quot;to&quot; : X1 },<br>
+&#160; &#160; &#160; &#160; &#160;&#160;{ &quot;from&quot; :X1, &quot;to&quot; : X2},<br>
+&#160; &#160; &#160; &#160; &#160;&#160;{ &quot;from&quot; : X2 }<br></p>
+<p>除此之外，根据实际应用场景的不同还可以对IPV4地址，时间等进行不同的范围聚合。<br>
+例如：<br>
+对时间范围聚合<br>
+ &#160; &#160; &#160; &#160; &#160;&#160;&quot;ranges&quot;: 
+ { &quot;to&quot;: &quot;now-10M/M&quot; },{ &quot;from&quot;: &quot;now-10M/M&quot; }]<br>
+ &#160; &#160; &#160; &#160;&#160;第一个范围代表十个月前的月首之前。 第二个范围代表十个月前的月首之后。<br>
+对IP地址范围聚合:<br>
+ &#160; &#160; &#160; &#160; &#160;&#160; &quot;ranges&quot; : 
+[{ &quot;to&quot; : &quot;10.0.0.5&quot; },{ &quot;from&quot; : &quot;10.0.0.5&quot; } ]<br>
+总之，Eagles提供了丰富的范围查询方法。<br></p>
+<p>&#160; &#160; &#160; &#160;<strong>d)基于关键词的驾校热力图</strong></br></p>
+<p>&#160; &#160; &#160; &#160; 和之前提到的热力图构建方法一样，需要对数据进行提取整合。
+例如：想要通过Eagles对各驾校热点进行热力统计。</br>
+ &#160; &#160; &#160; &#160; 那么，首先就会考虑到对数据进行提取，简单来说，热力图需要地理坐标+命中点数，所以实际中就是需要所有驾校地址+所有驾校报名人数。涉及到人数，那就想到aggs的聚合功能。</br></p>
+<pre><code>{
+&quot;aggs&quot;:{
+    &quot;findschool&quot;:{
+        &quot;terms&quot;:{
+            &quot;field&quot;:&quot;driveschool&quot;
+            }
+
+        }
+    }
+}
+</code></pre>
+
+<p><img src="https://i.imgur.com/YwTDTxx.png" /></p>
+<p><img src="https://i.imgur.com/pQojxzD.png" /></p>
+<p>&#160; &#160; &#160; &#160;<strong>e)基于时间段的热词统计</strong></br></p>
+<p>&#160; &#160; &#160; &#160; 数据分析往往具有时效性，对于实时的搜索引擎Eagles来说，对过时数据的把握能力很是重要。其实在实际运用中，Eagles对范围时间内的热词同样能做到精确的查询。</br>
+ &#160; &#160; &#160; &#160; 这里需要运用到时间聚合，对于date字段，可以使用date_range对特定字段进行时间上的筛选。</br></p>
+<pre><code>{
+&quot;aggs&quot;:{
+    &quot;timedata&quot;:{
+        &quot;date_range&quot;:{
+            &quot;field&quot;:&quot;time&quot;,
+            &quot;ranges&quot;:[
+                {
+                &quot;from&quot;:&quot;now-7d&quot;,
+                &quot;to&quot;:&quot;now&quot;
+                }
+                      ]
+                }
+          }
+    }
+}
+</code></pre>
+
+<p><img src="https://i.imgur.com/yVDl7NN.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

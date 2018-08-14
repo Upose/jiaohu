@@ -39,7 +39,7 @@
             </div>
             <div class="form_div1 time_div">
                 <label class="tit">截止时间</label>
-                <input class="tame_input" type="date" name="deadline" v-model="message.time" id="" required>
+                <input class="tame_input" type="date" name="deadline" v-model="message.time" id="">
             </div>
             <br>
             <div class="form_div2">

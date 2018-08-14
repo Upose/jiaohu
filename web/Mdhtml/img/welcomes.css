@@ -47,7 +47,7 @@ body{
     color: rgb(44,55,101);
     cursor: pointer;
 }
-.biaoqian .choosed{
+.biaoqian .choosed:hover{
     background: rgb(91,130,254);
     color: #fff;
 }
