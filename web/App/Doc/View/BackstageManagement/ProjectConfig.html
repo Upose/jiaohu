@@ -65,7 +65,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '350px'],
-					content: "{:U('BackstageManagement/AddProject')}"
+					content: "{:U('BackstageManagement/AddProjects')}"
 				});
 			})
 		};
@@ -101,7 +101,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "{:U('BackstageManagement/porject')}",
+				url: "{:U('BackstageManagement/ShowProject')}",
 				dataType: "json",
 				data: {
 					pageIndex: pageIndex,
@@ -128,7 +128,7 @@
                   		cache: false,
                   		async: false,
                   		type: "POST",
-                  		url: "{:U('BackstageManagement/DeleteProduct')}",
+                  		// url: "{:U('BackstageManagement/DeleteProduct')}",
                   		dataType: "json",
                   		data: {
                   			id: id
@@ -154,19 +154,19 @@
                 var layer = layui.layer;
 
                 layer.open({
-                    title: '添加配置',
+                    title: '编辑配置',
                     type: 2,
                     shadeClose: true,
                     closeBtn: 1,
                     area: ['500px', '350px'],
-                    content: "{:U('BackstageManagement/EditProject')}",
+                    content: "{:U('BackstageManagement/EditProjects')}",
                     success: function(layero, idx) {
                         var body = layui.layer.getChildFrame('body', idx);
                         $.ajax({
                             cache: false,
                             async: false,
                             type: "POST",
-                            url: "{:U('BackstageManagement/UpdateeProduct')}",
+                            url: "{:U('BackstageManagement/UpdateeProject')}",
                             dataType: "json",
                             data: {
                                 id: id

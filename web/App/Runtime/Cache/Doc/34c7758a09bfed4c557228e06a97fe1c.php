@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Tea Party</title>
-    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
-    <link rel="stylesheet" href="__CSS__/custom.css">
-    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
-    <script src="__DOCLAY__/plugins/layui/layui.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
+    <script src="/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
 <style>
 
@@ -20,7 +20,7 @@ width: 80%;
 <body>
      <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo"><img src="__IMG__/logo@2x.png" alt=""></div>
+            <div class="layui-logo"><img src="/Public/Doc/images/logo@2x.png" alt=""></div>
             <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
             <div class="layui-col-md-offset2">
                 <ul class="layui-nav layui-col-md10" lay-filter="">
@@ -35,19 +35,19 @@ width: 80%;
                     </li>
                     
                     <li class="layui-nav-item layui-this">
-                        <a href="{:U('Feedback/index')}">问题反馈</a>
+                        <a href="<?php echo U('Feedback/index');?>">问题反馈</a>
                     </li>
                     </a>
                      
                     <li class="layui-nav-item">
-                        <a href="{:U('KnowledgeSharing/index')}">知识共享</a>
+                        <a href="<?php echo U('KnowledgeSharing/index');?>">知识共享</a>
                     </li>
                    
                     <li class="layui-nav-item">
                         <a  href="#">共同成长</a>
                     </li>
                     <li class="layui-nav-item">
-                        <a href="{:U('BackstageManagement/index')}">后台管理</a>
+                        <a href="<?php echo U('BackstageManagement/index');?>">后台管理</a>
                     </li>
                 </ul>
             </div>
@@ -55,7 +55,7 @@ width: 80%;
             <ul class="layui-nav layui-layout-right kit-nav">
                 <li class="layui-nav-item">
                 <a href=" ">
-                <img src="__IMG__/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
+                <img src="/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
@@ -68,88 +68,64 @@ width: 80%;
         </div>
         <div class="layui-side layui-bg-black kit-side">
             <div class="layui-side-scroll">
-                <div class="kit-side-fold"><img src="__IMG__/切换@2x.png" alt=""></div>
+                <div class="kit-side-fold"><img src="/Public/Doc/images/切换@2x.png" alt=""></div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <!-- 标志 点赞 &#xe6c6 重要 &#xe658;-->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
                     <li class="layui-nav-item">
-<<<<<<< .mine
-                        <!-- <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>产品使用</span></a> -->
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>产品使用</span></a>
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>产品使用</span></a>
-
->>>>>>> .theirs
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>产品使用</span></a>
                         <dl class="layui-nav-child">
+
                             <dd>
-<<<<<<< .mine
-                               <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/ComprehensiveAnalysis')}',icon:'',title:'综合分析',id:'3'}"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>综合分析</span>
-
-
-=======
-                               <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/ComprehensiveAnalysis')}',icon:'',title:'综合分析',id:'3'}">
-                                 <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ComprehensiveAnalysis');?>',icon:'',title:'综合分析',id:'3'}">
+                                 <img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt="">
                             <span>综合分析</span>
->>>>>>> .theirs
                                 </a>
                             </dd>
+                            
                             <dd>
-<<<<<<< .mine
-                               <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/MyFeedback')}',icon:'',title:'我的反馈',id:'2'}"><img class="cus-nav-icon" src="__IMG__/3@2x.png" alt=""><span>我的反馈</span>
-
-
-=======
-                               <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/MyFeedback')}',icon:'',title:'我的反馈',id:'2'}">
-                                 <img class="cus-nav-icon" src="__IMG__/3@2x.png" alt="">
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/MyFeedback');?>',icon:'',title:'我的反馈',id:'2'}">
+                                 <img class="cus-nav-icon" src="/Public/Doc/images/3@2x.png" alt="">
                             <span>我的反馈</span>
->>>>>>> .theirs
                                 </a>
                             </dd>
+
                             <dd>
-<<<<<<< .mine
-                                 <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/ProductChoice')}',icon:'',title:'提交反馈',id:'1'}"><img class="cus-nav-icon" src="__IMG__/4@2x.png" alt=""><span>提交反馈</span>
-
-
-=======
-                                 <a href="javascript:;" kit-target data-options="{url:'{:U('Feedback/ProductChoice')}',icon:'',title:'提交反馈',id:'1'}">
-                                 <img class="cus-nav-icon" src="__IMG__/4@2x.png" alt="">
+                                 <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ProductChoice');?>',icon:'',title:'提交反馈',id:'1'}">
+                                 <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt="">
                             <span>提交反馈</span>
->>>>>>> .theirs
                                  </a>
                             </dd>
+
+                            
+                          
                         </dl>
                     </li>
+
+
                     <li class="layui-nav-item">
-<<<<<<< .mine
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>技术疑难</span></a>
-
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>技术疑难</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>技术疑难</span></a>
                         
->>>>>>> .theirs
                     </li>
+
+
+
                      <li class="layui-nav-item">
-<<<<<<< .mine
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>平台优化</span></a>
-
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>平台优化</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>平台优化</span></a>
                         
->>>>>>> .theirs
                     </li>
+
+
                      <li class="layui-nav-item">
-<<<<<<< .mine
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>体系信箱</span></a>
-
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>体系信箱</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>体系信箱</span></a>
                         
->>>>>>> .theirs
                     </li>
+
+                   
                 </ul>
-            </div>  
-        </div> 
+            </div>
+        </div>
         <div class="layui-body" id="container">
             <!-- 内容主体区域 -->
             <div style="padding: 15px;">主体内容加载中,请稍等...</div>
@@ -160,7 +136,7 @@ width: 80%;
     $(document).ready(function() {
         // 登录状态验证
         if(!window.sessionStorage["isLogin"]) {
-            window.location.href = "{:U('Login/index')}";
+            window.location.href = "<?php echo U('Login/index');?>";
         }
 
         $('#user-name').html(window.sessionStorage.getItem('name'));
@@ -187,14 +163,14 @@ width: 80%;
                     $.ajax({
                         cache: false,
                         type: "POST",
-                        url: "{:U('Login/logout')}",
+                        url: "<?php echo U('Login/logout');?>",
                         dataType: "json",
                         data: {},
                         success: function(res) {
                             window.sessionStorage.removeItem("isLogin");
                             window.sessionStorage.removeItem("name");
                             layer.close(index);
-                            window.location.href = "{:U('Login/index')}";
+                            window.location.href = "<?php echo U('Login/index');?>";
                         },
                         fail: function(err) {
                             console.log(err);
@@ -203,29 +179,16 @@ width: 80%;
                 });
             })
         })
-<<<<<<< .mine
 
         // 左侧菜单栏切换图标
         $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
             var lis = $('.layui-nav-tree').find('li.kit-side-folded');
             if(lis.length > 0) {
-                $('.kit-side-fold img').attr('src', '__IMG__/切换2@2x.png');
+                $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换2@2x.png');
             } else {
-                $('.kit-side-fold img').attr('src', '__IMG__/切换@2x.png');
-            }
-        }) 
-=======
-
-        // 左侧菜单栏切换图标
-        $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
-            var lis = $('.layui-nav-tree').find('li.kit-side-folded');
-            if(lis.length > 0) {
-                $('.kit-side-fold img').attr('src', '__IMG__/切换2@2x.png');
-            } else {
-                $('.kit-side-fold img').attr('src', '__IMG__/切换@2x.png');
+                $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换@2x.png');
             }
         })
->>>>>>> .theirs
     })
 </script>
 </body>

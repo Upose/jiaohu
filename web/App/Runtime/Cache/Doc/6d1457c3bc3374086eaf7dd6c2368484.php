@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>feedback</title>
-    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/custom.css">
-	<script src="__DOCLAY__/plugins/layui/layui.js"></script>
-	<script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
+	<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
+	<script src="/Public/static/jquery-2.0.3.min.js"></script>
 </head>
 <body>
 	<div class="cus-body">
@@ -65,7 +65,7 @@
 					shadeClose: true,
 					closeBtn: 1,
 					area: ['500px', '350px'],
-					content: "{:U('BackstageManagement/AddRole')}"
+					content: "<?php echo U('BackstageManagement/AddProjects');?>"
 				});
 			})
 		};
@@ -101,7 +101,7 @@
 			$.ajax({
 				cache: false,
 				type: "POST",
-				url: "{:U('BackstageManagement/ShowProjectrole')}",
+				url: "<?php echo U('BackstageManagement/ShowProject');?>",
 				dataType: "json",
 				data: {
 					pageIndex: pageIndex,
@@ -128,7 +128,7 @@
                   		cache: false,
                   		async: false,
                   		type: "POST",
-                  		// url: "{:U('BackstageManagement/DeleteProduct')}",
+                  		url: "<?php echo U('BackstageManagement/DeleteProduct');?>",
                   		dataType: "json",
                   		data: {
                   			id: id
@@ -159,14 +159,14 @@
                     shadeClose: true,
                     closeBtn: 1,
                     area: ['500px', '350px'],
-                    content: "{:U('BackstageManagement/EditRole')}",
+                    content: "<?php echo U('BackstageManagement/EditProjects');?>",
                     success: function(layero, idx) {
                         var body = layui.layer.getChildFrame('body', idx);
                         $.ajax({
                             cache: false,
                             async: false,
                             type: "POST",
-                            url: "{:U('BackstageManagement/UpdateeProjectrole')}",
+                            url: "<?php echo U('BackstageManagement/UpdateeProject');?>",
                             dataType: "json",
                             data: {
                                 id: id

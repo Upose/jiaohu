@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/custom.css">
-    <script src="__DOCLAY__/plugins/layui/layui.js"></script>
-    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
+    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <script src="/Public/static/jquery-2.0.3.min.js"></script>
 </head>
 <body>
     <div id="add-content" class="cus-model">
@@ -86,7 +86,7 @@
                 cache: false,
                 async: false,
                 type: "POST",
-                url: "{:U('BackstageManagement/UpdateProblem')}",
+                url: "<?php echo U('BackstageManagement/UpdateProject');?>",
                 dataType: "json",
                 data: {
                     name: $('#product_name').val(),

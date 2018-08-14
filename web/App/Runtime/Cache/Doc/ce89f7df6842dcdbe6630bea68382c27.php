@@ -74,15 +74,20 @@ width: 80%;
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
                     <li class="layui-nav-item">
-                        <!-- <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>产品使用</span></a> -->
                         <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>产品使用</span></a>
                         <dl class="layui-nav-child">
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ComprehensiveAnalysis');?>',icon:'',title:'综合分析',id:'3'}"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>综合分析</span>
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ComprehensiveAnalysis');?>',icon:'',title:'综合分析',id:'3'}">
+                                 <img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt="">
+                            <span>综合分析</span>
                                 </a>
                             </dd>
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/MyFeedback');?>',icon:'',title:'我的反馈',id:'2'}"><img class="cus-nav-icon" src="/Public/Doc/images/3@2x.png" alt=""><span>我的反馈</span>
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/MyFeedback');?>',icon:'',title:'我的反馈',id:'2'}">
+                                 <img class="cus-nav-icon" src="/Public/Doc/images/3@2x.png" alt="">
+                            <span>我的反馈</span>
                                 </a>
                             </dd>
                             <dd>
@@ -99,10 +104,11 @@ width: 80%;
                     </li>
                      <li class="layui-nav-item">
                         <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>体系信箱</span></a>
+
                     </li>
                 </ul>
-            </div>
-        </div>
+            </div>  
+        </div> 
         <div class="layui-body" id="container">
             <!-- 内容主体区域 -->
             <div style="padding: 15px;">主体内容加载中,请稍等...</div>
@@ -165,7 +171,7 @@ width: 80%;
             } else {
                 $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换@2x.png');
             }
-        })
+        }) 
     })
 </script>
 </body>
