@@ -7,6 +7,7 @@
     <title>Tea Party</title>
     <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
     <script src="/Public/static/jquery-2.0.3.min.js"></script>
     <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
@@ -67,7 +68,7 @@ width: 80%;
         </div>
         <div class="layui-side layui-bg-black kit-side">
             <div class="layui-side-scroll">
-                <div class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true">展开/关闭</i></div>
+                <div class="kit-side-fold"><img src="/Public/Doc/images/切换@2x.png" alt=""></div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <!-- 标志 点赞 &#xe6c6 重要 &#xe658;-->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
@@ -77,16 +78,18 @@ width: 80%;
 
 
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>问题反馈配置</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>问题反馈配置</span></a>
                         <dl class="layui-nav-child">
                             <dd>
                                  <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/productsconfig');?>',icon:'',title:'产品配置',id:'1'}">
-                            <span>产品配置</span>
+                                    <img class="cus-nav-icon" src="/Public/Doc/images/3@2x.png" alt="">
+                                    <span>产品配置</span>
                                  </a>
                             </dd>
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/problemconfig');?>',icon:'',title:'问题分类配置',id:'2'}">
-                            <span>问题分类配置</span>
+                                    <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt="">
+                                    <span>问题分类配置</span>
                                 </a>
                             </dd>
 
@@ -152,6 +155,16 @@ width: 80%;
                     });
                 });
             })
+        })
+
+        // 左侧菜单栏切换图标
+        $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
+            var lis = $('.layui-nav-tree').find('li.kit-side-folded');
+            if(lis.length > 0) {
+                $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换2@2x.png');
+            } else {
+                $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换@2x.png');
+            }
         })
     })
 </script>
