@@ -271,5 +271,47 @@ class BackstageManagementController extends BaseController{
        }
        
     }
-    
+
+
+    public function AddProjectstatus(){
+        $name=I('name');
+        $summary=I('summary');
+        $status=I('status');
+        $Currytime = date('Y-m-d H:i:s',time());
+        $update_time = $Currytime;
+        $submit_person_id=$_SESSION['user_id'];
+        if(empty($name) ||empty($summary) ||empty($status)){
+             $this->Response(0,'添加失败','');
+        }
+        else{
+           $list=$this->list=BackstageManagementModel::AddProjectstatus($name,$update_time,$submit_person_id,$summary,$status);
+             $this->Response(0,'添加成功','');
+        }     
+    }
+
+    public function ShowProjectstatus(){
+      $list=$this->list=BackstageManagementModel::ShowProjectstatus();
+      $this->Response(0,$list,'');
+    }
+
+
+    public function UpdateeProjectstatus(){
+      $id=intval(I('id'));
+      $list=$this->list=BackstageManagementModel::UpdateeProjectstatus($id);
+      $this->Response(0,$list,'');
+    }
+
+    public function UpdateProjectstatus(){
+      $id=intval(I('id'));
+      $name=I('name');
+      $summary=I('summary');
+      $status=I('status');
+      $list=$this->list=BackstageManagementModel::UpdateProjectstatus($name,$summary,$status,$id);
+      if($list===0){
+         $this->Response(0,'修改成功','');
+        }else{
+         $this->Response(1,'修改失败','');
+        }
+      
+    }
 }
