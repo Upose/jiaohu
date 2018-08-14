@@ -179,7 +179,11 @@ class BackstageManagementModel{
         return $result;
     }
 
-    
+    public function ShowProject(){  
+      $sql=" select id,name,status,summary from project_select where is_delete =0 ";
+      $res = M()->query($sql);
+      return $res;
+    }
 }
 
 

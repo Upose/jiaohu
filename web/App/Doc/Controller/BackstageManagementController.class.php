@@ -203,6 +203,10 @@ class BackstageManagementController extends BaseController{
         }     
     }
 
-    
+    public function ShowProject(){
+      $list=$this->list=BackstageManagementModel::ShowProject();
+      $this->Response(0,$list,'');
+    }
+
 
 }
