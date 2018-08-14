@@ -176,7 +176,17 @@
                                 body.find('#product_name').val(o.name);
                                 body.find('#edit_id').val(id);
                                 body.find('#product_describe').val(o.summary);
-                                body.find('#edit_status').val(o.status);
+                                body.find('#product_status .layui-form-radio').each(function(idx, item) {
+                                	var s = $(this).find('span').html();
+
+                                	if(s === o.status) {
+                                		$(this).addClass('layui-form-radioed');
+                                		$(this).find('i').addClass('layui-anim-scaleSpring');
+                                	} else {
+                                		$(this).removeClass('layui-form-radioed');
+                                		$(this).find('i').removeClass('layui-anim-scaleSpring');
+                                	}
+                                });
                             },
                             fail: function(err) {
                                 console.log(err);

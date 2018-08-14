@@ -5,7 +5,7 @@ use think\Session;
 
 /**
  * 登陆模块控制器
- * @author fang.yu
+ * @author zang.qun
  * 2018.7.30
  */
 class LoginController extends BaseController{
