@@ -297,6 +297,18 @@ class BackstageManagementModel{
         }
     }
 
+    public function DeleteProjectevent($id){
+       $sql="update project_event set is_delete = 1 
+           where id='$id'";
+       $res = M()->execute($sql);
+       //var_dump($res);die;
+       if($res){
+             return 0;
+       }else{
+             return 1;
+       }
+    }
+
 }
 
 
