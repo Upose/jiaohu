@@ -111,9 +111,15 @@ width: 80%;
                                 </a>
                             </dd>
                             <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/ProjectStatus');?>',icon:'',title:'项目角色配置',id:'5'}">
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/ProjectStatus');?>',icon:'',title:'项目所处状态',id:'5'}">
                                     <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt="">
                                     <span>项目所处状态</span>
+                                </a>
+                            </dd>
+                            <dd>
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/ProjectEvent');?>',icon:'',title:'项目事件分类配置',id:'6'}">
+                                    <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt="">
+                                    <span>项目事件分类配置</span>
                                 </a>
                             </dd>
 
