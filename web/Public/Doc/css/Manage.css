@@ -1,0 +1,287 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+body{
+    padding: 5vh 5vw 0 5vw;
+}
+
+/* 收起高度 */
+.collapse{
+    display: none;
+}
+/* 最上层搜索栏 */
+.search_div{
+    font-size:16px;
+    font-family:PingFangSC-Regular;
+    color:rgba(60,60,60,1);
+    width:device-width;
+    /* border: 1px solid blue; */
+}
+/* 下拉框 */
+.search_div>select{
+    outline-style: none;
+    width: 10vw;
+    height: 5vh;
+    margin-right: 2vw;
+    background:rgba(255,255,255,1);
+    border-radius:3px;
+    border:1px solid rgba(217,217,217,1);
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,1);
+}
+/* 关键字input框 */
+.keyword{
+    outline-style: none;
+    width: 20vw;
+    height: 5vh;
+    padding-left: .5vw;
+    background:rgba(255,255,255,1);
+    border-radius:3px;
+    border:1px solid rgba(217,217,217,1);
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,1);
+}
+/* 搜索按钮 */
+.search_button{
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    color: white;
+    font-size:12px;
+    margin-left: .5vw;
+    font-family:PingFangSC-Regular;
+    background:rgba(7,200,141,1);
+    border-radius:3px;
+    border:1px solid rgba(7,200,141,1);
+}
+/* 新增按钮 */
+.new_button{
+    outline-style: none;
+    float: right;
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    color: #07C88D;
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    border-radius:3px;
+    background-color: white;
+    border:1px solid rgba(7,200,141,1);
+}
+
+/* 项目 */
+.safety{
+    margin-top: 5vh;
+    width:device-width;
+    /* border: 1px solid blue; */
+}
+/* 标题 */
+.tit{
+    padding: 1vh 0;
+    border-bottom: 1px solid rgba(151,151,151,1);
+}
+.tit1{
+    background: rgba(0,0,0,.2);
+}
+/* 标题名称 */
+.pro_name{
+    font-weight: 600;
+    font-size: 1.2vw;
+    font-family:PingFangSC-Medium;
+    color:rgba(60,60,60,1);
+}
+/* 展开更多 */
+.more{
+    cursor: pointer;
+    float: right;
+    font-size: 1vw;
+    font-family:MicrosoftYaHei;
+    color:rgba(0,0,0,0.65);
+}
+/* 项目块 */
+.pro_div{
+    display: inline-block;
+    margin: 1vh .5vw 1vh 0;
+    padding: 1.5vh 1vw;
+    width: 26.5vw;
+    background:rgba(251,251,251,1);
+    border-radius:4px;
+    border:1px solid rgba(223,223,223,1);
+    position: relative;
+}
+/* 部门 */
+.pro_div .department{
+    font-size: 1vw;
+    padding: .2vh .5vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(51,154,145,1);
+    background:rgba(200,226,224,0.32);
+    border-radius:2px;
+}
+/* 属地 */
+.pro_div .location{
+    font-size: 1vw;
+    padding: .2vh .5vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(127,129,156,1);
+    background:rgba(200,209,226,0.32);
+    border-radius:2px;
+}
+/* 项目名称 */
+.pro_div .name{
+    font-family:PingFangSC-Medium;
+    color:rgba(0,0,0,1);
+    font-size: 1.5vw;
+    font-weight: 600;
+}
+/* 项目人员 */
+.pro_div>.personnel{
+    margin-top: 1.5vh;
+    font-size: 1vw;
+    font-family:PingFangSC-Medium;
+    color:rgba(155,155,155,1);
+}
+.pro_div>.personnel>img{
+    position: relative;
+    top: .3vh;
+}
+/* 项目时间 */
+.pro_div>.time{
+    margin: 1.5vh 0;
+    font-family:PingFangSC-Medium;
+    color:rgba(155,155,155,1);
+    font-size: 1vw;
+}
+/* 项目状态 */
+.pro_div .status{
+    font-weight: 600;
+    font-size: 1.3vw;
+    font-family:PingFangSC-Semibold;
+    color:rgba(96,203,130,1);
+}
+/* 项目进度 */
+.pro_div .schedule{
+    font-size: .5vw; 
+    font-family:PingFangSC-Medium;
+    color:rgba(155,155,155,1);
+    /* margin-right: 4.5vw; */
+}
+/* 按钮 */
+.pro_div button{
+    /* float: right; */
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,0.65);
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+/*  */
+.button_div{
+    display: inline-block;
+    position: absolute;
+    bottom: 1vh;
+    right: 1vw;
+    /* border: 1px solid black; */
+}
+
+/* 新增功能弹框 */
+.new_div{
+    width: 34vw;
+    height: 76vh;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 2px 8px 0px rgba(0,0,0,0.2);
+    border-radius:4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -17vw;
+    margin-top: -38vh;
+    display: none;
+}
+/* 标题部分 */
+.new_tit{
+    padding: 2vh .5vw;
+    border-bottom: 1px solid rgba(233,233,233,1);
+}
+.new_tit span{
+    font-size:1.2vw;
+    font-weight: 600;
+    font-family:PingFangSC-Regular;
+    color:rgba(102,102,102,1);
+}
+.new_tit img{
+    float: right;
+}
+/*  */
+.con_txt{
+    width: 28vw;
+    font-size: 1.2vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(102,102,102,1);
+    padding: 3vh 3vw;
+    border-bottom: 1px solid rgba(233,233,233,1);
+}
+.con_txt>p{
+    margin: 1vh 0;
+}
+.name_input,.industry_input,.client_input,.address_input,.time_input{
+    padding-left: 0.5vw;
+    outline-style: none;
+    width: 20vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.longitude_input,.latitude_input{
+    outline-style: none;
+    padding-left: 0.5vw;
+    width: 8.5vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.province_input,.city_input{
+    outline-style: none;
+    padding-left: 0.5vw;
+    width:10vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.btn_div{
+    margin-top: 2vh;
+    float: right;
+}
+.btn_div>button{
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    font-size:12px;
+    margin-right: 1vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,0.65);
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.btn_div>button:hover{
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    font-size:12px;
+    margin-right: 1vw;
+    font-family:PingFangSC-Regular;
+    color:white;
+    background:rgba(7,200,141,1);
+    border-radius:4px;
+    border:1px solid rgba(7,200,141,1);
+
+}
