@@ -269,7 +269,33 @@ class BackstageManagementModel{
         }
     }
 
+    public function ShowProjectevent(){  
+      $sql=" select id,name,status,summary from project_event where is_delete =0 ";
+      $res = M()->query($sql);
+      return $res;
+    }
+    public function AddProjectevent($name,$update_time,$submit_person_id,$summary,$status){  
+        $sql="insert into project_event (name,update_time,submit_person_id,summary,status,is_delete) 
+         values ('$name','$update_time','$submit_person_id','$summary','$status',0)";
+        $res = M()->execute($sql);
+       return $res;
+    }
 
+    public function UpdateeProjectevent($id){
+        $sql="select name,status,summary from project_event where id= '$id' and is_delete=0 ";
+        $res = M()->query($sql);
+        return $res;
+    }
+
+    public function UpdateProjectevent($name,$summary,$status,$id){
+      $sql="update project_event set name='$name',summary='$summary',status='$status' where id='$id'";
+      $res = M()->execute($sql);
+      if($res){
+           return 0;
+        }else{
+           return 1;
+        }
+    }
 
 }
 
