@@ -110,6 +110,12 @@ width: 80%;
                                     <span>项目角色配置</span>
                                 </a>
                             </dd>
+                            <dd>
+                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/ProjectStatus');?>',icon:'',title:'项目角色配置',id:'5'}">
+                                    <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt="">
+                                    <span>项目所处状态</span>
+                                </a>
+                            </dd>
 
                         </dl>
                     </li>

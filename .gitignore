@@ -1,0 +1,4 @@
+web/App/Runtime/Logs/Doc/*.log
+web/App/Runtime/Logs/Common/*.log
+web/App/Runtime/Logs/Home/*.log
+web/App/Runtime/Cache/*

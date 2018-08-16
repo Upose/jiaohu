@@ -57,7 +57,7 @@ class BackstageManagementModel{
   	   }else{
   	      	 return 1;
   	   }
-     }
+    }
 
 
 
@@ -216,6 +216,87 @@ class BackstageManagementModel{
         $res = M()->execute($sql);
        return $res;
     }
+
+    public function DeleteProject($id){
+       $sql="update project_select set is_delete = 1 
+           where id='$id'";
+       $res = M()->execute($sql);
+       //var_dump($res);die;
+       if($res){
+             return 0;
+       }else{
+             return 1;
+       }
+    }
+
+    public function DeleteProjectrole($id){
+       $sql="update project_role set is_delete = 1 
+           where id='$id'";
+       $res = M()->execute($sql);
+       //var_dump($res);die;
+       if($res){
+             return 0;
+       }else{
+             return 1;
+       }
+    }
+
+    public function ShowProjectstatus(){  
+      $sql=" select id,name,status,summary from project_status where is_delete =0 ";
+      $res = M()->query($sql);
+      return $res;
+    }
+    public function AddProjectstatus($name,$update_time,$submit_person_id,$summary,$status){  
+        $sql="insert into project_status (name,update_time,submit_person_id,summary,status,is_delete) 
+         values ('$name','$update_time','$submit_person_id','$summary','$status',0)";
+        $res = M()->execute($sql);
+       return $res;
+    }
+
+    public function UpdateeProjectstatus($id){
+        $sql="select name,status,summary from project_status where id= '$id' and is_delete=0 ";
+        $res = M()->query($sql);
+        return $res;
+    }
+
+    public function UpdateProjectstatus($name,$summary,$status,$id){
+      $sql="update project_status set name='$name',summary='$summary',status='$status' where id='$id'";
+      $res = M()->execute($sql);
+      if($res){
+           return 0;
+        }else{
+           return 1;
+        }
+    }
+
+    public function ShowProjectevent(){  
+      $sql=" select id,name,status,summary from project_event where is_delete =0 ";
+      $res = M()->query($sql);
+      return $res;
+    }
+    public function AddProjectevent($name,$update_time,$submit_person_id,$summary,$status){  
+        $sql="insert into project_event (name,update_time,submit_person_id,summary,status,is_delete) 
+         values ('$name','$update_time','$submit_person_id','$summary','$status',0)";
+        $res = M()->execute($sql);
+       return $res;
+    }
+
+    public function UpdateeProjectevent($id){
+        $sql="select name,status,summary from project_event where id= '$id' and is_delete=0 ";
+        $res = M()->query($sql);
+        return $res;
+    }
+
+    public function UpdateProjectevent($name,$summary,$status,$id){
+      $sql="update project_event set name='$name',summary='$summary',status='$status' where id='$id'";
+      $res = M()->execute($sql);
+      if($res){
+           return 0;
+        }else{
+           return 1;
+        }
+    }
+
 }
 
 
