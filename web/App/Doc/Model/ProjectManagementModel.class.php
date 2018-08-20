@@ -102,7 +102,8 @@ class ProjectManagementModel
 	  public function statusList()
      {
      	$sql = "SELECT id,name 
-     	from project_status";
+     	from project_status 
+     	where is_delete = 0";
 
      	$status = M()->query($sql);
 

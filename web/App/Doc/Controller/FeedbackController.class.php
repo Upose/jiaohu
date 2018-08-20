@@ -86,7 +86,7 @@ class FeedbackController extends BaseController {
 		
 		//所属项目
 		$projectsql = "SELECT id as ps_id,name 
-		from project_source";
+		from ProjectManagement";
 		$projectres = M()->query($projectsql);
 
 		$final['problem']=$problemres;
@@ -166,10 +166,7 @@ class FeedbackController extends BaseController {
 
 	    $info =  $upload->upload();
 
-	    file_put_contents("11112.txt", json_encode($info));
-	    file_put_contents("11114.txt", $info);
-	    file_put_contents("11113.txt", json_encode($upload));
-
+	   
 	    if($info)
 	    {
 			for($i = 0;$i<count($info);$i++)
