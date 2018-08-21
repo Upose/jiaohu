@@ -314,7 +314,7 @@ class FeedbackController extends BaseController {
 
 		$sql3 = "SELECT ps.NAME AS project_name
 				FROM feedback fb
-				JOIN project_source ps 
+				JOIN ProjectManagement ps 
 				ON fb.ps_id = ps.id
 				WHERE fb.id = '$id'";
 		$project_name = M()->query($sql3);		
@@ -441,7 +441,7 @@ class FeedbackController extends BaseController {
 
 		$type_id = I('id');
 
-
+		
 		$Model = D('solve_information');
 		$data['id'] = '';
 		$data['solve_person'] = $solve_person;

@@ -168,7 +168,8 @@ body{
     /* margin-right: 4.5vw; */
 }
 /* 按钮 */
-.pro_div button{
+.button_div>button{
+    cursor: pointer;
     /* float: right; */
     font-style: none;
     border-style: none;
@@ -187,6 +188,10 @@ body{
     bottom: 1vh;
     right: 1vw;
     /* border: 1px solid black; */
+}
+.button_div a{
+    text-decoration: none;
+    color:rgba(0,0,0,0.65);
 }
 
 /* 新增功能弹框 */
