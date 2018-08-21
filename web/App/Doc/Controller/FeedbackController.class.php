@@ -219,7 +219,7 @@ class FeedbackController extends BaseController {
 		pd.name as product_name,pc.name as classification_name,
 		fb.submit_time,pr.name as priority 
 		from feedback fb 
-		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN ProjectManagement ps on fb.ps_id = ps.id 
 		JOIN product pd on fb.pd_id = pd.id 
 		JOIN problem_classification pc on fb.pc_id = pc.id 
 		JOIN priority pr on fb.priority = pr.id ";
@@ -251,7 +251,7 @@ class FeedbackController extends BaseController {
 		//统计条件查询的总数 查多少统计多少
 		$usql = "SELECT count(*) as count
 		from feedback fb 
-		JOIN project_source ps on fb.ps_id = ps.id 
+		JOIN ProjectManagement ps on fb.ps_id = ps.id 
 		JOIN product pd on fb.pd_id = pd.id 
 		JOIN problem_classification pc on fb.pc_id = pc.id 
 		JOIN priority pr on fb.priority = pr.id ";
