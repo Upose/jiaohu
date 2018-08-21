@@ -108,8 +108,7 @@ class FeedbackController extends BaseController {
 
 		//优先级
 		$priority = I('priority');
-		//$priority = 4;
-	
+		
 		//问题分类id
 		$pc_id  = I('pc_id');
 
@@ -215,14 +214,15 @@ class FeedbackController extends BaseController {
 		$keywords = I('keywords');
 
 		//因为feedback表中只储存了各个关联表的外键，所以五表join查询
-		$sql = "SELECT fb.id,fb.name,ps.name as project_name,
-		pd.name as product_name,pc.name as classification_name,
-		fb.submit_time,pr.name as priority 
-		from feedback fb 
-		JOIN ProjectManagement ps on fb.ps_id = ps.id 
-		JOIN product pd on fb.pd_id = pd.id 
-		JOIN problem_classification pc on fb.pc_id = pc.id 
-		JOIN priority pr on fb.priority = pr.id ";
+		$sql = "SELECT fb.id,fb.name,fb.priority,
+				ps.name as project_name,
+				pd.name as product_name,
+				pc.name as classification_name,
+				fb.submit_time 
+				from feedback fb 
+				JOIN ProjectManagement ps on fb.ps_id = ps.id 
+				JOIN product pd on fb.pd_id = pd.id 
+				JOIN problem_classification pc on fb.pc_id = pc.id ";
 
 		if(empty($time1)&&empty($time2)&&empty($keywords))
 		{
@@ -248,13 +248,20 @@ class FeedbackController extends BaseController {
  		
 		$res = M()->query($sql);
 
+		//获取优先级
+		for($a = 0;$a < count($res);$a++)
+		{
+			$res[$a]['priority'] = 
+			$this->getPriorityName($res[$a]['priority']);
+		}
+		
+
 		//统计条件查询的总数 查多少统计多少
 		$usql = "SELECT count(*) as count
 		from feedback fb 
 		JOIN ProjectManagement ps on fb.ps_id = ps.id 
 		JOIN product pd on fb.pd_id = pd.id 
-		JOIN problem_classification pc on fb.pc_id = pc.id 
-		JOIN priority pr on fb.priority = pr.id ";
+		JOIN problem_classification pc on fb.pc_id = pc.id ";
 
 		if(empty($time1)&&empty($time2)&&empty($keywords))
 		{
@@ -298,14 +305,13 @@ class FeedbackController extends BaseController {
 		$id = I('id');
 		
 		/*查询各个列的8个sql语句*/
-		$sql1 = "SELECT pr.NAME AS statue
-				FROM feedback fb
-				JOIN priority pr 
-				ON fb.priority = pr.id
-				WHERE fb.id = '$id'";
-		$statue = M()->query($sql1);		
-		$statue = $statue[0]['statue'];
-
+		$sql1 = "SELECT priority
+				FROM feedback 
+				WHERE id = $id";
+		$priorityId = M()->query($sql1);
+		$priorityId = (int)$priorityId[0]['priority']; 
+		$statue = $this->getPriorityName($priorityId);	
+   		
 		$sql2 = "SELECT fb.deadline
 				FROM feedback fb
 				WHERE fb.id = '$id'";
@@ -368,8 +374,6 @@ class FeedbackController extends BaseController {
 		$filesql = "select path as img 
 		from file where f_id = '$id'";
 		$path = M()->query($filesql);
-
-		
 
 		$final['statue'] =$statue;
 		$final['deadline'] =$deadline;
@@ -471,6 +475,7 @@ class FeedbackController extends BaseController {
      */
 	public function fileUpload()
 	{
+		$f_id = I('f_id');
 		$upload =  new \Think\Upload();// 实例化上传类
 
 		//图片上传
@@ -488,7 +493,6 @@ class FeedbackController extends BaseController {
 	    	$path  = "Updata/".$info['photo']['savepath'];
 	    	$newpath = "$path$savename";
 	    	
-	    	$f_id =5;
 	    	$Model = D('file');
 	    	$data['id'] = '';
 	    	$data['name'] = $name;

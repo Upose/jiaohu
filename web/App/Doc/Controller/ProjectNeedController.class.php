@@ -103,8 +103,7 @@ class ProjectNeedController extends BaseController
             if($data)
             {
               $this->redirect('ProjectDescription/pro_demand',array('id'=>$pid));
-              
-                
+  
             }
 
 	}

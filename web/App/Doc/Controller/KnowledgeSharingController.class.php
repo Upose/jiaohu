@@ -164,9 +164,8 @@ class KnowledgeSharingController extends BaseController {
           '$read_number','$comment_number','$is_top','$f_id','$href')";   
 
          $ures = M()->execute($sql);     
-          //$this->redirect('KnowledgeSharing/document',array('f_id'=>2));
-          //header("Location:KnowledgeSharing/document?f_id=$f_id");
-       
+          
+       $this->redirect('KnowledgeSharing/document',array('f_id'=>$f_id));
     }
 
 

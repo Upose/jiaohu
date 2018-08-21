@@ -74,7 +74,7 @@ class ProjectPlanController extends BaseController
         //项目id
         $project_id = I('project_id');
 
-
+/*
          //阶段名称
         $name = "完成开发任务3";
         //开始时间
@@ -85,13 +85,13 @@ class ProjectPlanController extends BaseController
         $ps_id = 3;
         //项目id
         $project_id = 1;
-
+*/
         $res=$this->res=
         ProjectPlanModel::projectTargetAdd(
         $name,$start_time,$end_time,$ps_id,
         $project_id);
 
-        var_dump($res);
+    
 
     }
 
