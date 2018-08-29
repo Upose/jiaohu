@@ -111,25 +111,43 @@
                         </a>
                     </li>
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_design?id='.$pro_id)}',icon:'',title:'设计管理',id:'4'}">
-                            <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
-                            <span>设计管理</span>
-                        </a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>设计管理</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/design_details?id='.$pro_id)}',icon:'',title:'综合分析',id:'4'}"><img
+                                        class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>页面关系图</span>
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_design?id='.$pro_id)}',icon:'',title:'设计需求',id:'5'}">
+                                    <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>设计需求</span>
+                                </a>
+                            </dd>
+                        </dl>
                     </li>
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_development?id='.$pro_id)}',icon:'',title:'开发管理',id:'5'}">
-                            <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
-                            <span>开发管理</span>
-                        </a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>开发管理</span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/infor?id='.$pro_id)}',icon:'',title:'开发信息',id:'6'}"><img
+                                        class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>开发信息</span>
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/test?id='.$pro_id)}',icon:'',title:'测试管理',id:'7'}">
+                                    <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt=""><span>测试管理</span>
+                                </a>
+                            </dd>
+                        </dl>
                     </li>
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_weekly?id='.$pro_id)}',icon:'',title:'周报管理',id:'6'}">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_weekly?id='.$pro_id)}',icon:'',title:'周报管理',id:'8'}">
                             <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
                             <span>周报管理</span>
                         </a>
                     </li>
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_event?id='.$pro_id)}',icon:'',title:'重大事件',id:'7'}">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_event?id='.$pro_id)}',icon:'',title:'重大事件',id:'9'}">
                             <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
                             <span>重大事件</span>
                         </a>

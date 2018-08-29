@@ -75,4 +75,45 @@ class ProjectDescriptionController extends BaseController{
     }
 
 
+    /**
+    *开发管理模块输出
+    *@author fang.yu
+    *2018.8.16
+    */
+    public function pro_development()
+    {
+        //先获取id再渲染出去
+        $id = I("id");
+        $this->assign("pro_id",$id);
+        $this->display();
+    }
+
+
+     /**
+    *周报管理模块输出
+    *@author fang.yu
+    *2018.8.16
+    */
+    public function pro_weekly()
+    {
+        //先获取id再渲染出去
+        $id = I("id");
+        $this->assign("pro_id",$id);
+        $this->display();
+    }
+
+    /**
+    *设计管理模块输出
+    *@author fang.yu
+    *2018.8.16
+    */
+    public function pro_event()
+    {
+        //先获取id再渲染出去
+        $id = I("id");
+        $this->assign("pro_id",$id);
+        $this->display();
+    }
+
+
 }

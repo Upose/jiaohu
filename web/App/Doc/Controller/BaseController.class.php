@@ -97,4 +97,121 @@ class BaseController extends Controller
         return $res;
     }
 
+
+     /**
+     * 根据编码获取设计管理中需求类型名称
+     * @param 需求类型编号
+     * @return 需求类型名称
+     * @author fang.yu
+     * 2018-08-21
+     */
+    public function getDemandTypeName($type){
+        $res = '';
+        switch($type){
+            case 1:
+              $res = "新增设计";
+              break;
+            case 2:
+              $res = "功能调整";
+              break;
+            case 3:
+              $res = "功能调整";
+              break;
+        }
+        return $res;
+    }
+
+
+     /**
+     * 根据编码获取设计管理中处理状态名称
+     * @param 需求类型编号
+     * @return 需求类型名称
+     * @author fang.yu
+     * 2018-08-21
+     */
+    public function getHandleTypeName($type){
+        $res = '';
+        switch($type){
+            case 1:
+              $res = "未处理";
+              break;
+            case 2:
+              $res = "进行中";
+              break;
+            case 3:
+              $res = "已完成";
+              break;
+        }
+        return $res;
+    }
+
+
+    /**
+     * 根据编码获取设计管理中处理过程状态名称
+     * @param 需求类型编号
+     * @return 需求类型名称
+     * @author fang.yu
+     * 2018-08-21
+     */
+    public function getHandleProcessTypeName($type){
+        $res = '';
+        switch($type){
+            case 1:
+              $res = "提交问题";
+              break;
+            case 2:
+              $res = "开始处理";
+              break;
+            case 3:
+              $res = "处理完成";
+              break;
+            case 4:
+              $res = "确认完成";
+              break;
+             case 5:
+              $res = "暂不处理";
+              break;
+        }
+        return $res;
+    }
+
+
+    /**
+     * 获取当前周数以及开始结束日期
+     * @param 需求类型编号
+     * @return 需求类型名称
+     * @author fang.yu
+     * 2018-08-21
+     */
+    public function getTime()
+    {
+
+      //计算当前周是第几周以及开始结束日期
+      $week = date('W',time());
+      $year = date('Y',time());
+      $weeks = date("W", mktime(0, 0, 0, 12, 28, $year));
+
+      if ($week > $weeks || $week <= 0)
+      {
+          $week = 1;
+      }
+
+      // 若周数是个位数，则前面带0
+      if ($week < 10)
+      {
+          $week = '0' . $week; 
+      }
+
+      $timestamp['start'] = strtotime($year . 'W' . $week);
+      $timestamp['end'] = strtotime('+1 week -1 day', 
+      $timestamp['start']);
+      
+      $date['year'] = $year;
+      $date['week'] = $week;
+      $date['start'] = date("Y-m-d", $timestamp['start']);
+      $date['end'] = date("Y-m-d", $timestamp['end']);
+
+      return $date;
+    }
+
 }

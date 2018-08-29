@@ -31,37 +31,24 @@ class ProjectOrganizationController extends BaseController{
     	
     	//项目id
     	$project_id = I($project_id);
-      
+        
     	//类型 内部0 外部1
     	$type = I($type);
 		
     	if($type == 0)
     	{
+            //内部人姓名
+            $name = I('name');
+           
     		//内部人id
     		$person_id = (int)I('person_id');
-         
+            
     		//所属标签 内部干系人1 开发团队3
     		$label = I('label');
-    		
-    		//人员信息
-	    	$InPersonInfo = $this->res=
-	    	ProjectOrganizationModel::getInPersonInfo($person_id);
-
-	    	//名字
-	    	$name  = $InPersonInfo[0]['name'];
-	    	//电话号码
-	    	$phone = $InPersonInfo[0]['phone'];
-	    	//职位
-	    	$position = $InPersonInfo[0]['position'];
-	    	//部门
-	    	$department = $InPersonInfo[0]['department'];
-	    	//内部人员公司所属默认为空
-	    	$company = "";
-
+    	
 	    	$res = $this->res=
-	    	ProjectOrganizationModel::memberAdd($name,$project_id,
-	    	$type,$label,$phone,$position,$department,$company);
-
+	    	ProjectOrganizationModel::InmemberAdd($name,
+            $project_id,$type,$person_id,$label);
 
     	}
 
@@ -73,7 +60,7 @@ class ProjectOrganizationController extends BaseController{
     		$name = I('name');
     		//电话号码
     		$phone = I('phone');
-    		//职位
+    		//职位id
     		$position = I('position');
     		//体系
 	    	$department = I('department');
@@ -81,7 +68,7 @@ class ProjectOrganizationController extends BaseController{
 	    	$company = I('company');
 
 	    	$res = $this->res=
-	    	ProjectOrganizationModel::memberAdd($name,$project_id,
+	    	ProjectOrganizationModel::OutmemberAdd($name,$project_id,
 	    	$type,$label,$phone,$position,$department,$company);
  	
     	}
@@ -99,7 +86,7 @@ class ProjectOrganizationController extends BaseController{
     {
         //所属项目id
         $project_id = I('project_id');
-    
+       
         $list = $this->list=
         ProjectOrganizationModel::currentMemberList($project_id);
         
@@ -116,7 +103,7 @@ class ProjectOrganizationController extends BaseController{
     {
         //所属项目id
         $project_id = I('project_id');
-
+       
         $list = $this->list=
         ProjectOrganizationModel::historyMemberList($project_id);
 
@@ -164,12 +151,25 @@ class ProjectOrganizationController extends BaseController{
         $name = I('name');
         //项目id
         $project_id =I('project_id');
-
+       
         $res = $this->res=
         ProjectOrganizationModel::history($name,$project_id);
-
+        
         $this->Response(0,$res,'');
 
+    }
+
+     /**
+     *新增外部人员职位下拉框接口
+     *@author fang.yu
+     *2018.8.20
+     */
+    public function outPosition()
+    {
+         $res = $this->res=
+        ProjectOrganizationModel::outPosition();
+        
+        $this->Response(0,$res,'');
     }
 
 

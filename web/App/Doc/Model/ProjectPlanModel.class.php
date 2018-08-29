@@ -71,4 +71,76 @@ class ProjectPlanModel{
       
 
     }
+
+    /**
+     * 项目规划列表
+     * @author fang.yu
+     * 2018.8.22
+     */
+    public function planList()
+    {
+        
+        $sql = "SELECT ps.id as pid,
+                ps.name as pname,
+                ps.start_time as pstart_time,
+                ps.end_time as pend_time,
+                pt.id as cid,
+                pt.name as cname,
+                pt.start_time as cstart_time
+                from project_stage ps
+                join project_target pt 
+                on ps.id = pt.ps_id 
+                ORDER BY pt.start_time ";
+
+        $res = M()->query($sql);
+
+        return $res;
+
+    }
+
+
+    /**
+     * 当前所属阶段、当前目标
+     * @author fang.yu
+     * 2018.8.24
+     */
+    public function curryState($project_id)
+    {
+
+        //根据当前时间查找
+        $currytime = date('Y-m-d',time());
+
+        $sql1 = "SELECT NAME 
+                FROM
+                project_stage
+                WHERE
+                STR_TO_DATE(start_time,'%Y-%m-%d') 
+                < STR_TO_DATE('$currytime','%Y-%m-%d') 
+                AND STR_TO_DATE(end_time,'%Y-%m-%d') 
+                > STR_TO_DATE('$currytime','%Y-%m-%d') 
+                AND project_id = $project_id";
+
+        $stage = M()->query($sql1);
+
+        $sql2 = "SELECT NAME 
+                FROM
+                project_target 
+                WHERE
+                STR_TO_DATE(start_time,'%Y-%m-%d') 
+                < STR_TO_DATE('$currytime','%Y-%m-%d') 
+                AND STR_TO_DATE(end_time,'%Y-%m-%d') 
+                > STR_TO_DATE('$currytime','%Y-%m-%d') 
+                AND project_id = $project_id";
+
+        $target = M()->query($sql2);
+
+        $res['stage'] = $stage[0]['name'];
+        $res['target'] = $target[0]['name'];
+
+        return $res;
+
+
+    }
+
+
 }

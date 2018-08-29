@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试详情</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/test_details.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="details_left">
+        <button @click="return()" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
+        <span class="tit">需求详情</span>
+        <img class="status_img" src="__IMG__/un_icon.png">
+        <div><label class="tit_lab">问题名称</label><span class="con_span">首页设计</span></div>
+        <div><label class="tit_lab">紧急程度</label>
+            <span class="con_span"><span class="red"></span>紧急</span>
+            <span class="con_span"><span class="org"></span>重要</span>
+            <span class="con_span"><span class="blu"></span>一般</span>
+            <span class="con_span"><span class="gre"></span>优化</span>
+        </div>
+        <div>
+            <label class="tit_lab">问题描述</label>
+            <div>
+                <span class="con_span">客户要求说标题需要放置中间，明显大气 客户要求说标题需要放置中间，明显大气 </span>
+            </div>
+        </div>
+        <div><label class="tit_lab">处&ensp;理&ensp;人</label><span class="con_span">新增设计</span></div>
+        <div><label class="tit_lab">提&ensp;交&ensp;人</label><span class="con_span">新增设计</span></div>
+        <div>
+            <label class="tit_lab">问题截图</label>
+            <div>
+                <img class="page_img" src="__IMG__/ceshi.png">&ensp;
+                <img class="page_img" src="__IMG__/ceshi.png">
+                <img class="page_img" src="__IMG__/ceshi.png">&ensp;
+                <img class="page_img" src="__IMG__/ceshi.png">
+            </div>
+        </div>
+            
+        
+    </div>
+    <div class="details_right">
+        <span class="tit">处理过程</span>
+        <div class="con">
+            <div class="">
+                <div class="con1">
+                    <span class="circularity"></span><br>
+                    <!-- <span class="line"></span> -->
+                </div>
+                <div class="con2">
+                    <p class="con_p1">2018-02-10</p>
+                    <p class="con_p2">李思琦&nbsp;设计完成</p>
+                </div>
+            </div>
+            <div>
+                <div class="con1">
+                    <span class="circularity"></span><br>
+                    <!-- <span class="line"></span> -->
+                </div>
+                <div class="con2">
+                    <p class="con_p1">2018-02-10</p>
+                    <p class="con_p2">李思琦&nbsp;设计完成</p>
+                </div>
+            </div>
+        </div>
+        <div class="btn_div">
+            <button>开始处理</button>
+            <button>处理完成</button>
+            <button>暂不处理</button>
+            <button>确认完成</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

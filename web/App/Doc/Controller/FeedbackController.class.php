@@ -63,9 +63,8 @@ class FeedbackController extends BaseController {
 			$child['name'] = $v['psname'];
 			array_push($res[$v['pid']]['child'], $child);
 		}
-	
-		
-       $this->Response(0,$res,'');
+
+      $this->Response(0,$res,'');
 
 	}
 

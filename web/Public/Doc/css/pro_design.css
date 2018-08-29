@@ -1,0 +1,129 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+body{
+    padding: 5vh 5vw 0 5vw;
+}
+
+/* 收起高度 */
+.collapse{
+    display: none;
+}
+.url_div{
+    font-size:16px;
+    font-weight: 600;
+    font-family:PingFangSC-Medium;
+    color:rgba(0,0,0,1);
+}
+/* 地址 */
+.url_input{
+    width: 60vw;
+    border-style:none; 
+}
+/* 修改按钮 */
+.modify_button{
+    cursor: pointer;
+    outline-style: none;
+    float: right;
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    color: #07C88D;
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    border-radius:3px;
+    background-color: white;
+    border:1px solid rgba(7,200,141,1);
+    position: relative;
+    top: -3vh;
+}
+/* 最上层搜索栏 */
+.search_div{
+    font-size:16px;
+    font-family:PingFangSC-Regular;
+    color:rgba(60,60,60,1);
+    margin-top: 3vh;
+    width:device-width;
+    /* border: 1px solid blue; */
+}
+/* 开始时间 结束时间 input框 */
+.bag_time,.end_time{
+    width: 10vw;
+    height: 5vh;
+    padding-left: .5vw;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+/* 关键字input框 */
+.keyword{
+    outline-style: none;
+    width: 20vw;
+    height: 5vh;
+    margin-left: 2vw;
+    padding-left: .5vw;
+    background:rgba(255,255,255,1);
+    border-radius:3px;
+    border:1px solid rgba(217,217,217,1);
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,1);
+}
+/* 搜索按钮 */
+.search_button{
+    cursor: pointer;
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    color: white;
+    font-size:12px;
+    margin-left: .5vw;
+    font-family:PingFangSC-Regular;
+    background:rgba(7,200,141,1);
+    border-radius:3px;
+    border:1px solid rgba(7,200,141,1);
+}
+/* 新增按钮 */
+.new_button{
+    cursor: pointer;
+    outline-style: none;
+    float: right;
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    color: #07C88D;
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    border-radius:3px;
+    background-color: white;
+    border:1px solid rgba(7,200,141,1);
+}
+table,tr,tr td{
+    border: 1px solid rgba(233,233,233,1);
+    border-radius: 4px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 3vh;
+}
+tr td{
+    padding: 1.5vh 0vw;
+    text-align: center;
+}
+.tr1{
+    font-size: 1.2vw;
+    font-weight: 600;
+    font-family:PingFangSC-Semibold;
+    color:rgba(0,0,0,0.75);
+    background: rgba(247, 247, 247, 1)
+}
+.tr2{
+    font-size: 1.2vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,0.65);
+}
+.tr2 a{
+    cursor: pointer;
+    color:rgba(74,144,226,1);
+}

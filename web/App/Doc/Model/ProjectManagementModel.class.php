@@ -150,24 +150,45 @@ class ProjectManagementModel
 	 * @author fang.yu
 	 * 2018.8.15
 	 */
-    public function projectAdd($name,$project_type_id,
-    	$industry_id,$customer_type_id,$area_id,
+    public function projectAdd($name,
+    	$project_type_id,$industry_id,
+        $customer_type_id,$area_id,$charge,
     	$address,$longitude,$latitude,$start_time)
     {
     	  $sql="insert into ProjectManagement
     	  (name,project_type_id,industry_id,
-    	  customer_type_id,area_id,
+    	  customer_type_id,area_id,charge,
     	  detailedAddress,longitude,
     	  latitude,start_time) 
     	  values 
     	  ('$name','$project_type_id',
     	  '$industry_id','$customer_type_id',
-    	  '$area_id','$address',
+    	  '$area_id','$charge','$address',
     	  '$longitude','$latitude','$start_time')";
 
         $res = M()->execute($sql);
        	return $res;
     	 
+    }
+
+    /**
+	 * 统计项目成员人数
+	 * @author fang.yu
+	 * 2018.8.15
+	 */
+    public function member_numCount($project_id)
+    {
+    	$sql = "SELECT count(*) 
+	    	   as member_num 
+	    	   from project_member 
+	    	   where project_id = 
+	    	   $project_id 
+	    	   and end_time = ''";
+
+     	$member_num = M()->query($sql);
+
+        return  $member_num;
+
     }
     
 

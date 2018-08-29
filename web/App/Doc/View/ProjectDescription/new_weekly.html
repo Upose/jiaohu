@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/new_demand.css" media="all">
+    <script src="__STATIC__/vue.min.js"></script>
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+</head>
+
+<body class="app">
+    <form action="{:U('ProjectNeed/needadd')}" method="POST" enctype="multipart/form-data">
+        <button @click="return()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
+        <input type="hidden" name="pid" :value="Uid" />
+        <span class="new_span">2018年 第 22 周</span><br>
+        <span class="new_span">2018-08-12 至 2018-08-1</span>
+        <label class="tit">周报类型</label>
+        <span class="new_span">项目周报</span><br>
+        <div class="div1">
+            <div class="form_div2">
+                <label class="tit">上周工作内容</label>
+                <textarea name="xuqiu_back" cols="40" rows="7" placeholder="请输入信息" required></textarea>
+            </div><br>
+            <div class="form_div2">
+                <label class="tit">本周工作计划</label>
+                <textarea name="xuqiu_back" cols="40" rows="7" placeholder="请输入信息" required></textarea>
+            </div><br>
+        </div>
+
+        <div class="div1" style="position: absolute;bottom: 19vh;">
+            <div class="form_div1">
+                <label class="tit">项目阶段</label>
+                <select name="" id="">
+                    <option value="">实施规划阶段</option>
+                </select>
+            </div><br>
+            <div class="form_div1">
+                <label class="tit">项目进度</label>
+                <input class="name_input" type="text" name="title" placeholder="请输入数字" required>%
+            </div><br>
+            <div class="form_div2">
+                <label class="tit">项目进度说明</label>
+                <textarea name="xuqiu_back" cols="40" rows="7" placeholder="请输入信息" required></textarea>
+            </div><br>
+        </div>
+        <div class="line"></div>
+        <button class="but" type="button">取消</button>
+        <button class="but" type="submit" @click="submit">保存</button>
+    </form>
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+    var app = new Vue({
+        el: ".app",
+        data: {
+            Uid: "",
+        },
+        created: function () {
+            // 获取上个页面传递回来的ID
+            var url = location.search;
+            console.log(url);
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1); //substr()方法返回从参数值开始到结束的字符串；
+                var strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            this.Uid = theRequest.id;
+            // console.log(this.Uid);
+        },
+        methods: {
+            return() { window.history.go(-1) },
+        },
+    });
+</script>
+
+</html>

@@ -8,370 +8,226 @@
     <title>需求管理</title>
     <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
     <link rel="stylesheet" href="__CSS__/pro_organization.css" media="all">
-    <link rel="stylesheet" href="__STATIC__/bootstrap.min.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__STATIC__/vue.min.js"></script>
-    <script src="__STATIC__/bootstrap.min.js"></script>
 </head>
 
 <body class="app">
-    <div id="main">
-        <div id="header">
-            <div class="left">
-                <span class="now">当前人员</span>
-                <span class="history">历史人员</span>
-            </div>
-            <div class="right">新增</div>
-        </div>
-
-
-        <div id="content">
-            <div class="content-left">
-
-                <div class="inside">
-                    <div class="inside-top">
-                        <span>内部干系人</span>
-                        <span class="down1">展开更多
-                            <span class="glyphicon glyphicon-menu-down"></span>
-                        </span>
-                        <span class="up1">收起更多
-                            <span class="glyphicon glyphicon-menu-up"></span>
-                        </span>
+    <!-- 上方按钮选择 -->
+    <div class="search_div">
+        <button @click="getdata(Uid)" class="current sty">当前人员</button>
+        <button @click="history(Uid)" class="history">历史人员</button>
+        <button @click="" class="new_button">新增</button>
+    </div>
+    <div class="con_left">
+        <div class="safety">
+            <!-- 标题 -->
+            <div class="tit"><span class="pro_name">内部干系人</span> <span class="more safety_span">展开更多&ensp;<img src="__IMG__/icon_unfold.png"></span></div>
+            <div class="safety_pro collapse">
+                <div v-for="i in data.inMember" class="pro_div">
+                    <p>
+                        <img class="avatar" src="__IMG__/b.jpg">
+                        <span class="name">{{i.name}}</span>
+                        <span class="time">({{i.position}})</span>
+                        <!-- <span class="department">{{i.department}}</span> -->
+                    </p>
+                    <p class="personnel">
+                        <img src="__IMG__/phone_icon.png" alt="">{{i.phone}}</p>
+                    <p class="time">{{i.start_time}} 至 {{i.end_time}}</p>
+                    <div class="button_div">
+                        <button><span @click="open(i.id)">离场</span></button>
                     </div>
-                    <div class="inside-bottom">
-                        <div class="inside-content">
-                            <p>
-                                <img src="__IMG__/a.jpg" alt="">
-                                <span>成肆仟</span>
-                                <span>(项目经理)</span>
-                            </p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone"> </span> 17292749432</p>
-                            <p>2018-07-20 至 今</p>
-                            <p>离场</p>
-                        </div>
-                        <div class="inside-content">
-                            <p>
-                                <img src="__IMG__/a.jpg" alt="">
-                                <span>成肆仟</span>
-                                <span>(项目经理)</span>
-                            </p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone"> </span> 17292749432</p>
-                            <p>2018-07-20 至 今</p>
-                            <p>离场</p>
-                        </div>
-                        <div class="inside-content">
-                            <p>
-                                    <img src="__IMG__/a.jpg" alt="">
-                                <span>成肆仟</span>
-                                <span>(项目经理)</span>
-                            </p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone"> </span> 17292749432</p>
-                            <p>2018-07-20 至 今</p>
-                            <p>离场</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="outside">
-
-                    <div class="inside-top">
-                        <span>外部干系人</span>
-                        <span class="down2">展开更多
-                            <span class="glyphicon glyphicon-menu-down"></span>
-                        </span>
-                        <span class="up2">收起更多
-                            <span class="glyphicon glyphicon-menu-up"></span>
-                        </span>
-                    </div>
-
-                    <div class="outside-bottom">
-                        <div class="outside-content">
-                            <p><img src="__IMG__/b.jpg" alt="">
-                                <img src="image/1.jpg" alt="">
-                                <span>成肆仟</span>
-                                <span>(支队长)</span>
-                                <span>甲方</span>
-                            </p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone"></span> 17292749432</p>
-                            <p>上海市公安局</p>
-                        </div>
-                        <div class="outside-content">
-                            <p>
-                                <img src="__IMG__/b.jpg" alt="">
-                                <span>成肆仟</span>
-                                <span>(支队长)</span>
-                                <span>甲方</span>
-                            </p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone"></span> 17292749432</p>
-                            <p>上海市公安局</p>
-                        </div>
-                        <div class="outside-content">
-                            <p>
-                                <img src="__IMG__/a.jpg" alt="">
-                                <span>成肆仟</span>
-                                <span>(支队长)</span>
-                                <span>甲方</span>
-                            </p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone"></span> 17292749432</p>
-                            <p>上海市公安局</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="develop">
-                    <div class="inside-top">
-                        <span>开发团队</span>
-                        <span class="down3">展开更多
-                            <span class="glyphicon glyphicon-menu-down"></span>
-                        </span>
-                        <span class="up3">收起更多
-                            <span class="glyphicon glyphicon-menu-up"></span>
-                        </span>
-                    </div>
-                    <div class="develop-bottom">
-                        <div class="develop-content">
-                            <p>
-                                <img src="image/1.jpg" alt="">
-                                <span>陈若</span>
-                                <span>(PHP)</span>
-                                <span>交付</span>
-                            </p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone"></span> 17292749432</p>
-                            <p>2018-07-20 至 2018-12-20</p>
-                            <p>离场</p>
-                        </div>
-                        <div class="develop-content">
-                            <p>
-                                <img src="__IMG__/a.jpg" alt="">
-                                <span>陈若</span>
-                                <span>(PHP)</span>
-                                <span>交付</span>
-                            </p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone"></span> 17292749432</p>
-                            <p>2018-07-20 至 2018-12-20</p>
-                            <p>离场</p>
-                        </div>
-                        <div class="develop-content">
-                            <p>
-                                <img src="__IMG__/a.jpg" alt="">
-                                <span>陈若</span>
-                                <span>(PHP)</span>
-                                <span>交付</span>
-                            </p>
-                            <p>
-                                <span class="glyphicon glyphicon-earphone"></span> 17292749432</p>
-                            <p>2018-07-20 至 2018-12-20</p>
-                            <p>离场</p>
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
-
-            <div class="content-right">
-                <div class="search">
-                    <input type="text" placeholder="请输入要检索的内容">
-                    <span>搜索</span>
-                </div>
-                <div class="time">
-                    <div class="die">
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
+            <!-- 标题 -->
+            <div class="tit"><span class="pro_name">外部干系人</span> <span class="more safety_span">展开更多&ensp;<img src="__IMG__/icon_unfold.png"></span></div>
+            <div class="safety_pro collapse">
+                <div v-for="i in data.outMember" class="pro_div">
+                    <p>
+                        <img class="avatar" src="__IMG__/b.jpg">
+                        <span class="name">{{i.name}}</span>
+                        <span class="time">({{i.position}})</span>
+                        <span class="department">{{i.department}}</span>
+                    </p>
+                    <p class="personnel">
+                        <img src="__IMG__/phone_icon.png" alt="">{{i.phone}}</p>
+                    <p class="time">{{i.start_time}} 至 {{i.end_time}}</p>
+                    <div class="button_div">
+                        <button><span @click="open(i.id)">离场</span></button>
                     </div>
-
-                    <div class="text">
-                        <div>
-                            <p>2018-01-19</p>
-                            <p>
-                                <span>成肆仟</span>
-                                <span>入场</span>
-                            </p>
-                        </div>
-                        <div>
-                            <p>2018-01-19</p>
-                            <p>
-                                <span>成肆仟</span>
-                                <span>入场</span>
-                            </p>
-                        </div>
-                        <div>
-                            <p>2018-01-19</p>
-                            <p>
-                                <span>成肆仟</span>
-                                <span>入场</span>
-                            </p>
-                        </div>
-                        <div>
-                            <p>2018-01-19</p>
-                            <p>
-                                <span>成肆仟</span>
-                                <span>入场</span>
-                            </p>
-                        </div>
-                        <div>
-                            <p>2018-01-19</p>
-                            <p>
-                                <span>成肆仟</span>
-                                <span>入场</span>
-                            </p>
-                        </div>
-                        <div>
-                            <p>2018-01-19</p>
-                            <p>
-                                <span>成肆仟</span>
-                                <span>入场</span>
-                            </p>
-                        </div>
-                        <div>
-                            <p>2018-01-19</p>
-                            <p>
-                                <span>成肆仟</span>
-                                <span>入场</span>
-                            </p>
-                        </div>
-                        <div>
-                            <p>2018-01-19</p>
-                            <p>
-                                <span>成肆仟</span>
-                                <span>入场</span>
-                            </p>
-                        </div>
+                </div>
+            </div>
+            <!-- 标题 -->
+            <div class="tit"><span class="pro_name">开发团队</span> <span class="more safety_span">展开更多&ensp;<img src="__IMG__/icon_unfold.png"></span></div>
+            <div class="safety_pro collapse">
+                <div v-for="i in data.developers" class="pro_div">
+                    <p>
+                        <img class="avatar" src="__IMG__/b.jpg">
+                        <span class="name">{{i.name}}</span>
+                        <span class="time">({{i.position}})</span>
+                        <span class="department">{{i.department}}</span>
+                    </p>
+                    <p class="personnel">
+                        <img src="__IMG__/phone_icon.png" alt="">{{i.phone}}</p>
+                    <p class="time">{{i.start_time}} 至 {{i.end_time}}</p>
+                    <div class="button_div">
+                        <button><span @click="open(i.id)">离场</span></button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div id="tanchukuang">
-            <div class="add">
-                <span>新增成员</span>
-                <span class="glyphicon glyphicon-remove" style="cursor: pointer;"></span>
-            </div>
-
-            <div class="select">
-                <p>
-                    <span>类型:</span>
-                    <input id="neibu1" type="radio" name="name1" checked="checked">内部
-                    <input id="neibu2" type="radio" name="name1">外部
+    </div>
+    <div class="con_right">
+        <input class="keyword" type="text" placeholder="请输入要检索的内容"><button @click="search(Uid)" class="search_button">搜索</button>
+        <div v-for="i in list" class="one">
+            <span></span>
+            <p>{{i.time}}</p>
+            <p><span>{{i.name}}</span><span style="float: right;">{{i.state}}</span></p>
+        </div>
+    </div>
+    <div class="new_member">
+        <div class="member_tit">新增成员</div>
+        <div class="member_con">
+            <p><span>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</span>
+                <input class="top1 in_input" type="radio" name="member" id="" checked>内部&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="top1 out_input" type="radio" name="member" id="">外部
+            </p>
+            <div class="member_in">
+                <p><span>员&nbsp;&ensp;工&nbsp;ID：</span><input class="member_text" type="text"></p>
+                <p><span>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签：</span>
+                    <input class="top1" type="radio" name="member" id="">内部关系人&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="top1" type="radio" name="member" id="">开发团队
                 </p>
-                <div class="selectDome1">
-                    <p>
-                        <span>员工ID:</span>
-                        <input type="text" placeholder="请输入员工ID">
-                    </p>
-                    <p>
-                        <span>标签:</span>
-                        <input type="checkbox" name="name2" id="neibu">内部干系人
-                        <input type="checkbox" name="name2" id="waibu" checked="checked">开发团队
-                    </p>
-                </div>
-
-                <div class="selectDome2">
-                    <p>
-                        <span>姓名:</span>
-                        <input type="text" placeholder="请输入姓名">
-                    </p>
-                    <p>
-                        <span>联系方式:</span>
-                        <input type="text" placeholder="请输入联系方式">
-                    </p>
-                    <p>
-                        <span>姓名:</span>
-                        <select name="xiala">
-                            <option value="1" selected>项目经理</option>
-                            <option value="2">员工</option>
-                        </select>
-                    </p>
-                    <p>
-                        <span>标签:</span>
-                        <input type="checkbox" name="name2" id="neibu">外部干系人
-                        <input type="checkbox" name="name2" id="waibu" checked="checked">开发团队
-                    </p>
-                    <p>
-                        <span>公司:</span>
-                        <input type="text" placeholder="请输入信息">
-                    </p>
-                </div>
-
             </div>
-
-            <div class="confirm">
-                <span>取&nbsp;消</span>
-                <span>确&nbsp;定</span>
+            <div class="member_out" style="display:none;">
+                <p><span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span><input class="member_text" type="text" name="" id=""></p>
+                <p><span>联系方式：</span><input class="member_text" type="text" name="" id=""></p>
+                <p><span>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</span>
+                    <select class="member_text"  name="" id="">
+                        <option value="">项目经理</option>
+                    </select>
+                </p>
+                <p><span>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签：</span>
+                    <input class="top1" type="radio" name="member" id="">外部关系人&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="top1" type="radio" name="member" id="">开发团队
+                </p>
+                <p><span>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司：</span><input class="member_text" type="text" name="" id=""></p>
             </div>
         </div>
-
+        <div class="btn_div">
+            <button class="down_btn">取消</button>
+            <button>确定</button>
+        </div>
     </div>
 </body>
 <script>
-    $('.down1').click(function () {
-        $('.down1').css('display', 'none')
-        $('.inside-bottom').css('display', 'block')
-        $('.up1').css('display', 'block')
+    var app = new Vue({
+        el: ".app",
+        data: {
+            data: [],
+            Uid: "",
+            list: [],
+        },
+        created: function () {
+            this.Uid = "{$pro_id}";
+            this.getdata(this.Uid);
+            this.historylist(this.Uid);
+        },
+        methods: {
+            getdata(id) {
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectOrganization/currentMemberList')}",
+                    dataType: "json",
+                    data: { project_id: id },
+                    success: function (data) {
+                        that.data = data.data;
+                        // console.log(data.data);
+                    }
+                })
+            },
+            history(id) {
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectOrganization/historyMemberList')}",
+                    dataType: "json",
+                    data: { project_id: id },
+                    success: function (data) {
+                        that.data = data.data;
+                        // console.log(data.data);
+                    }
+                })
+            },
+            historylist(id) {
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectOrganization/history')}",
+                    dataType: "json",
+                    data: { project_id: id },
+                    success: function (data) {
+                        that.list = data.data;
+                        // console.log(data.data);
+                    }
+                })
+            },
+            search(id){
+                var that = this;
+                var key = $(".keyword").val();
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectOrganization/history')}",
+                    dataType: "json",
+                    data: { project_id: id,name:key},
+                    success: function (data) {
+                        that.list = data.data;
+                        // console.log(data.data);
+                    }
+                })
+            }
+        }
     })
 
-    $('.up1').click(function () {
-        $('.up1').css('display', 'none')
-        $('.inside-bottom').css('display', 'none')
-        $('.down1').css('display', 'block')
+    var num = 1;
+    $(document).on("click", ".safety_span", function () {
+        // console.log("111");
+        if (num % 2 == 0) {
+            $(this).html('展开更多&ensp;<img src="__IMG__/icon_unfold.png">');
+            $(this).parent().next().toggleClass('collapse');
+            // console.log($(this).parent().next().attr("class"));
+            num = num + 1;
+            return num;
+        } else {
+            $(this).html('收起更多&ensp;<img src="__IMG__/icon_retract.png">');
+            $(this).parent().next().toggleClass('collapse');
+            num = num + 1;
+            return num;
+        }
+    });
+    $(".new_button").on('click', function () {
+        $(".new_member").show();
+    });
+    $(".down_btn").on('click', function () {
+        $(".new_member").hide();
+    });
+    $(".current").on("click", function () {
+        $(".current").addClass("sty").siblings().toggleClass("sty");
     })
-
-    $('.down2').click(function () {
-        $('.down2').css('display', 'none')
-        $('.outside-bottom').css('display', 'block')
-        $('.up2').css('display', 'block')
+    $(".history").on("click", function () {
+        $(".history").addClass("sty").siblings().toggleClass("sty");
     })
-
-    $('.up2').click(function () {
-        $('.up2').css('display', 'none')
-        $('.outside-bottom').css('display', 'none')
-        $('.down2').css('display', 'block')
+    $(".in_input").on("click",function(){
+        $(".member_in").show();
+        $(".member_out").hide();
     })
-
-    $('.down3').click(function () {
-        $('.down3').css('display', 'none')
-        $('.develop-bottom').css('display', 'block')
-        $('.up3').css('display', 'block')
-    })
-
-    $('.up3').click(function () {
-        $('.up3').css('display', 'none')
-        $('.develop-bottom').css('display', 'none')
-        $('.down3').css('display', 'block')
-    })
-
-
-    $('.right').on('click', function () {
-        $('#tanchukuang').css('display', 'block')
-    })
-    $('.glyphicon-remove').on('click', function () {
-        $('#tanchukuang').css('display', 'none')
-    })
-    $('.confirm span').on('click', function () {
-        $('#tanchukuang').css('display', 'none')
-    })
-
-    $('#neibu1').on('click', function () {
-        $('.selectDome1').css('display', 'block')
-        $('.selectDome2').css('display', 'none')
-    })
-    $('#neibu2').on('click', function () {
-        $('.selectDome2').css('display', 'block')
-        $('.selectDome1').css('display', 'none')
+    $(".out_input").on("click",function(){
+        $(".member_in").hide();
+        $(".member_out").show();
     })
 </script>

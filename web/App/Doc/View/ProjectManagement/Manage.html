@@ -153,12 +153,13 @@
             pro_select(){
                 var that = this;
                 var a = $(".pro_select").val();
+                
                 $.ajax({
                     cache: false,
                     type: "post",
                     url: "{:U('ProjectManagement/projectList')}",
                     dataType: "json",
-                    data: { area: a },
+                    data: { area_id: a },
                     success: function (data) {
                         console.log(data);
                         that.data=data.data.list;
@@ -173,7 +174,7 @@
                     type: "post",
                     url: "{:U('ProjectManagement/projectList')}",
                     dataType: "json",
-                    data: { status: b },
+                    data: { status_id: b },
                     success: function (data) {
                         // console.log(data);
                         that.data=data.data.list;

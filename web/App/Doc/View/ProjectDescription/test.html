@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试管理</title>
+    <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
+    <link rel="stylesheet" href="__CSS__/test.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body class="app">
+    <!-- 图片显示部分 -->
+    <div class="head_img">
+        <!-- 未完成 -->
+        <div class="und_div">
+            <span>未处理</span><br>
+             <span class="num">21</span>
+        </div>
+        <!-- 进行中 -->
+        <div class="on_div">
+            <span>进行中</span><br>
+             <span class="num">21</span>
+        </div>
+        <!-- 已完成 -->
+        <div class="out_div">
+            <span>已完成</span><br>
+             <span class="num">21</span>
+        </div>
+    </div>
+    <!-- 最上层搜索栏 -->
+    <div class="tit">
+        <span>测试列表</span>
+        <button class="new_button" @click="new_pro(Uid)">新增</button>
+    </div>
+    <table>
+        <tr class="tr1">
+            <td>编号</td>
+            <td>问题名称</td>
+            <td>紧急程度</td>
+            <td>提交时间</td>
+            <td>处理人</td>
+            <td>状态</td>
+            <td>操作</td>
+        </tr>
+        <tr class="tr2">
+            <td>st124</td>
+            <td>我是内容我是内容我是内容我是内容</td>
+            <td>紧急</td>
+            <td>2018-02-13 13:12:45</td>
+            <td>分类</td>
+            <td>测试中</td>
+            <td><a @click="details()">详情</a></td>
+        </tr>
+    </table>
+</body>
+<script>
+    var app = new Vue({
+        el: ".app",
+        data: {
+            data:[],
+            Uid:"",
+        },
+        created: function () {
+            // this.Uid = "{$pro_id}";
+            // this.getdata(this.Uid);
+            // console.log(this.Uid);
+        },
+        methods: {
+            new_pro(Uid){
+                // window.location.href = "{:U('ProjectDescription/new_test')}"+"&id="+ id;
+                window.location.href = "{:U('ProjectDescription/new_test')}";
+            },
+            details(Uid){
+                // window.location.href = "{:U('ProjectDescription/new_test')}"+"&id="+ id;
+                window.location.href = "{:U('ProjectDescription/test_details')}";
+            },
+        }
+    })
+</script>
+</html>
