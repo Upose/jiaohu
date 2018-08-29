@@ -1,0 +1,108 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+body{
+    padding: 4vh 5vw 0 5vw;
+}
+/* 图片显示部分 */
+.head_img{
+    height: 21vh;
+    width:device-width;
+    text-align: center;
+    /* border: 1px solid black; */
+}
+.head_img>div{
+    font-family:PingFangSC-Medium;
+    color: white;   
+    display: inline-block;
+    width: 21vw;
+    height: 14vh;
+    padding: 3vh 2vw;
+}
+.head_img>div span{
+    float: left;
+}
+.num{
+    font-weight: 700;
+    font-size: 3vw;
+    font-family:Impact;
+    color:rgba(255,255,255,1);
+    margin-left: .5vw;
+}
+/* 未完成 */
+.und_div{
+    float: left;
+    /* border: 1px solid black; */
+    background: url("../images/und_img.png") no-repeat;
+    background-size: 100% 100%;
+}
+/* 进行中 */
+.on_div{
+    /* border: 1px solid black; */
+    background: url("../images/on_img.png") no-repeat;
+    background-size: 100% 100%;
+}
+/* 已完成 */
+.out_div{
+    float: right;
+    /* border: 1px solid black; */
+    background: url("../images/out_img.png") no-repeat;
+    background-size: 100% 100%;
+}
+/* 标题部分 */
+.tit{
+    font-size:16px;
+    font-family:PingFangSC-Medium;
+    color:rgba(0,0,0,1);
+    margin-top: 3vh;
+    width:device-width;
+    /* border: 1px solid blue; */
+}
+.tit>span{
+    font-weight: 600;
+}
+/* 新增按钮 */
+.new_button{
+    cursor: pointer;
+    outline-style: none;
+    float: right;
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    color: #07C88D;
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    border-radius:3px;
+    background-color: white;
+    border:1px solid rgba(7,200,141,1);
+}
+table,tr,tr td{
+    border: 1px solid rgba(233,233,233,1);
+    border-radius: 4px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 3vh;
+}
+tr td{
+    padding: 1.5vh 0vw;
+    text-align: center;
+}
+.tr1{
+    font-size: 1.2vw;
+    font-weight: 600;
+    font-family:PingFangSC-Semibold;
+    color:rgba(0,0,0,0.75);
+    background: rgba(247, 247, 247, 1)
+}
+.tr2{
+    font-size: 1.2vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,0.65);
+}
+.tr2 a{
+    cursor: pointer;
+    color:rgba(74,144,226,1);
+}

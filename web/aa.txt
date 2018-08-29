@@ -1,0 +1,1 @@
+{"1":{"key":"file","name":"bgc-02.png","type":"image\/png","size":138497,"ext":"png","md5":"ca35f95f0c25e86305aff0c4828c2857","sha1":"3753bf1c0aaa5520479c96523a35c1b54b0ea8ae","savename":"5b835da0c6bcb.png","savepath":"DesignImage\/2018-08-27\/"}}

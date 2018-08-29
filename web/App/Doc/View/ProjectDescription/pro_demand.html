@@ -39,7 +39,7 @@
             <td>{{i.end_time}}</td>
             <td>{{i.xuqiu_back}}</td>   
             <td>{{i.content}}</td>
-            <td><a>查看</a>&nbsp;&nbsp;<a>编辑</a></td>
+            <td><a @click="view()">查看</a>&nbsp;&nbsp;<a @click="design()">编辑</a></td>
         </tr>
     </table>
 </body>
@@ -53,11 +53,19 @@
         created: function () {
             this.Uid = "{$pro_id}";
             this.getdata(this.Uid);
-             console.log(this.Uid);
+            // console.log(this.Uid);
         },
         methods: {
             new_pro(id){
                 window.location.href = "{:U('ProjectDescription/new_demand')}"+"&id="+ id;
+            },
+            view(id){
+                // window.location.href = "{:U('ProjectDescription/new_demand')}"+"&id="+ id;
+                window.location.href = "{:U('ProjectDescription/demand_view')}";
+            },
+            design(id){
+                // window.location.href = "{:U('ProjectDescription/new_demand')}"+"&id="+ id;
+                window.location.href = "{:U('ProjectDescription/demand_design')}";
             },
             getdata(id){
                 var that = this;

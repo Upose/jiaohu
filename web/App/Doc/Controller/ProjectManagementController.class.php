@@ -6,7 +6,11 @@ use Doc\Model\ProjectManagementModel;
 
 class ProjectManagementController extends BaseController {
 
-	//输出首页
+	/**
+     * 输出首页
+     * @author fang.yu
+     * 2018.8.14
+     */
     public function index()
     {
 
@@ -62,7 +66,8 @@ class ProjectManagementController extends BaseController {
     	foreach ($res as $v) 
     	{
 
-			if(!is_array($temp[$v['pid']])){
+			if(!is_array($temp[$v['pid']]))
+            {
 				$temp[$v['pid']]['id'] = (int)$v['pid'];
 				$temp[$v['pid']]['name'] = $v['pname'];
 				$temp[$v['pid']]['child'] = array();
@@ -73,7 +78,14 @@ class ProjectManagementController extends BaseController {
 				$child['area'] = $v['area'];
 				$child['industry'] = $v['pname'];
 				$child['charge'] = $v['charge'];
-				$child['member_num'] = $v['member_num'];
+				
+                //统计项目成员数量
+                $member_num=$this->member_num=
+                ProjectManagementModel::
+                member_numCount((int)$v['cid']);
+                $member_num = $member_num[0]['member_num'];
+
+                $child['member_num'] = $member_num;
 				$child['start_time'] = $v['start_time'];
 				
 				if($v['status'] == "完成验收")
@@ -126,6 +138,9 @@ class ProjectManagementController extends BaseController {
     	//所在区域id
     	$area_id = I('area_id');
 
+        //项目负责人
+        $charge = I('charge');
+
     	//所在地址
     	$address = I('address');
 
@@ -141,9 +156,8 @@ class ProjectManagementController extends BaseController {
 
 		$res=$this->res=
     	ProjectManagementModel::projectAdd($name,
-    	$project_type_id,
-    	$industry_id,
-    	$customer_type_id,$area_id,
+    	$project_type_id,$industry_id,
+        $customer_type_id,$area_id,$charge,
     	$address,$longitude,$latitude,$start_time);
     	
     }

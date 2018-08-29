@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>周报管理</title>
+    <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
+    <link rel="stylesheet" href="__CSS__/pro_weekly.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+</head>
+<body class="app">
+    <div class="url_div">
+        <span>2018年 第 22 周</span><br>
+        <span>2018-08-12 至 2018-08-1</span>
+        <button class="modify_button" @click="new_pro(id)">新增</button>
+    </div>
+    <table>
+        <tr class="tr1">
+            <td></td>
+            <td>开始时间</td>
+            <td>结束时间</td>
+            <td>周报数量</td>
+            <td>项目周报</td>
+            <td>项目阶段</td>
+            <td>项目进度</td>
+            <td>操作</td>
+        </tr>
+        <tr class="tr2">
+            <td>第22周</td>
+            <td>{{i.kname}}</td>
+            <td>{{i.dname}}</td>
+            <td>{{i.start_time}}</td>
+            <td>{{i.end_time}}</td>
+            <td>{{i.xuqiu_back}}</td>
+            <td>{{i.content}}</td>
+            <td><a @click="weekly_details()">详情</a></td>
+        </tr>
+    </table>
+</body>
+<script>
+    var app = new Vue({
+        el: ".app",
+        data: {
+            data:[],
+            Uid:"",
+        },
+        created: function () {
+            // this.Uid = "{$pro_id}";
+            // this.getdata(this.Uid);
+            // console.log(this.Uid);
+        },
+        methods: {
+            new_pro(id){
+                // window.location.href = "{:U('ProjectDescription/new_weekly')}"+"&id="+ id;
+                window.location.href = "{:U('ProjectDescription/new_weekly')}";
+            },
+            weekly_details(id){
+                // window.location.href = "{:U('ProjectDescription/new_weekly')}"+"&id="+ id;
+                window.location.href = "{:U('ProjectDescription/weekly_details')}";
+            },
+        }
+    })
+</script>
+</html>

@@ -6,60 +6,56 @@ mysql_query("SET NAMES UTF8");
 class ProjectOrganizationModel
 {
 
-	/**
-	 *获取内部人员信息
-	 *@author fang.yu
-	 *2018.8.16
-	 */
-	public function getInPersonInfo($person_id)
-    {
-     	
-     	$sql = "SELECT name,phone,position,
-     			department from person 
-     			where id = $person_id";
-
-     	$res = M()->query($sql);
-
-     	return $res;
-
-    }
-
     /**
-	 *获取配置的职位信息
-	 *@author fang.yu
-	 *2018.8.16
-	 */
-	public function getPosition()
-	{
-		$sql = "SELECT id,name 
-		from project_role";
-
-     	$res = M()->query($sql);
-
-     	return $res;
-	}
-
-    /**
-	 *新增项目成员
-	 *@author fang.yu
-	 *2018.8.16
-	 */
-	public function memberAdd($name,$project_id,$type,
-		$label,$phone,$position,$department,$company)
+     *新增内部项目成员
+     *@author fang.yu
+     *2018.8.16
+     */
+    public function InmemberAdd($name,$project_id,
+                          $type,$person_id,$label)
     {
         //开始时间为当前时间
         $start_time =  date('Y-m-d',time());
 
         //必须将结束时间设置为空字符串
+        $sql="INSERT INTO project_member 
+            (name,project_id,type, 
+            person_id,label,start_time, 
+            end_time)
+            VALUES
+            ('$name',$project_id, 
+            $type,$person_id,$label, 
+            '$start_time','')";
+
+        $res = M()->execute($sql);
+
+        return $res;
+    }
+
+    /**
+	 *新增外部项目成员
+	 *@author fang.yu
+	 *2018.8.16
+	 */
+	public function OutmemberAdd($name,$project_id,$type,
+           $label,$phone,$position,$department,$company)
+    {
+
+        //开始时间为当前时间
+        $start_time =  date('Y-m-d',time());
+
+        //必须将结束时间设置为空字符串
      	$sql="insert into project_member
-    	  (name,project_id,type,label,
-          phone,position,department,
-          company,start_time,end_time) 
-    	  values 
-    	  ('$name','$project_id',
-          '$type','$label','$phone',
-          '$position','$department',
-          '$company','$start_time','')";
+        	  (name,project_id,type,
+              label,phone,position,
+              department,company,
+              start_time,end_time) 
+        	  values 
+        	  ('$name','$project_id',
+              '$type','$label',
+              '$phone',$position,
+              '$department','$company',
+              '$start_time','')";
 
         $res = M()->execute($sql);
 
@@ -76,32 +72,65 @@ class ProjectOrganizationModel
     public function currentMemberList($project_id)
     {
         //内部干系人
-        $insql = "SELECT id,name,position,
-        department,phone,start_time
-        from project_member 
-        where project_id = $project_id
-        and label = 1 and end_time =''";
+        $insql = "SELECT pm.id,pm.name,
+                p.position,p.department,
+                p.phone,pm.start_time
+                from project_member pm
+                join person p 
+                on p.id = pm.person_id
+                where project_id = 
+                $project_id
+                and pm.label = 1 
+                and pm.end_time =''";
 
         $inMember = M()->query($insql);
 
+        for($i = 0;$i<count($inMember);$i++)
+        {
+          $inMember[$i]['end_time'] = '今';
+        }
+        
         //外部干系人
-        $outsql = "SELECT id,name,position,
-        department,phone,company
-        from project_member 
-        where project_id = $project_id
-        and label = 2 and end_time =''";
+        $outsql = "SELECT pm.id,pm.name,
+                pr.name as position,
+                pm.department,
+                pm.start_time,
+                pm.phone,pm.company
+                from project_member pm
+                join project_role pr 
+                on pm.position = pr.id
+                where project_id = 
+                $project_id
+                and label = 2 
+                and end_time =''";
 
         $outMember = M()->query($outsql);
 
+        for($i = 0;$i<count($outMember);$i++)
+        {
+          $outMember[$i]['end_time'] = '今';
+        }
+
         //开发团队
-        $dsql = "SELECT id,name,position,
-        department,phone,start_time
-        from project_member 
-        where project_id = $project_id
-        and label = 3 and end_time =''";
+        $dsql = "SELECT pm.id,pm.name,
+                p.position,p.department,
+                p.phone,pm.start_time
+                from project_member pm
+                join person p 
+                on p.id = pm.person_id
+                where project_id = 
+                $project_id
+                and pm.label = 3 
+                and pm.end_time =''";
 
         $developers = M()->query($dsql);
 
+         for($i = 0;$i<count($developers);$i++)
+        {
+          $developers[$i]['end_time'] = '今';
+        }
+        
+        
         $list = array();
 
         $list['inMember'] = $inMember;
@@ -120,19 +149,31 @@ class ProjectOrganizationModel
     public function historyMemberList($project_id)
     {
         //内部干系人
-        $insql = "SELECT id,name,position,
-        department,phone,start_time,end_time
-        from project_member 
-        where project_id = $project_id
-        and label = 1 and end_time !=''";
+        $insql = "SELECT pm.id,pm.name,
+                p.position,p.department,
+                p.phone,pm.start_time,
+                pm.end_time
+                from project_member pm
+                join person p 
+                on p.id = pm.person_id
+                where project_id = 
+                $project_id
+                and pm.label = 1
+                and pm.end_time !=''";
 
         $inMember = M()->query($insql);
 
-        $dsql = "SELECT id,name,position,
-        department,phone,start_time,end_time
-        from project_member 
-        where project_id = $project_id
-        and label = 3 and end_time !=''";
+        $dsql = "SELECT pm.id,pm.name,
+                p.position,p.department,
+                p.phone,pm.start_time,
+                pm.end_time
+                from project_member pm
+                join person p 
+                on p.id = pm.person_id
+                where project_id = 
+                $project_id
+                and pm.label = 3 
+                and pm.end_time !=''";
 
         //因为外部干系人一直存在，所以历史人员不需要
         //开发团队
@@ -196,17 +237,58 @@ class ProjectOrganizationModel
     public function history($name,$project_id)
     {
 
-        $sql = "SELECT id,name,end_time 
+        $sql = "SELECT id,name,start_time as time
         from project_member 
         where name like '%".$name."%' and
         project_id = $project_id
-        and end_time != '' 
-        ORDER BY end_time desc";
+        and end_time != '' ";
 
         $res = M()->query($sql);
 
-        return $res;
+        for($i = 0;$i < count($res);$i++)
+        {
+          $res[$i]['state'] = "入场";
+        }
 
+        $sql1 = "SELECT id,name,end_time as time
+        from project_member 
+        where name like '%".$name."%' and
+        project_id = $project_id
+        and end_time != '' ";
+
+        $res1 = M()->query($sql1);
+
+        for($i1 = 0;$i1 < count($res1);$i1++)
+        {
+          $res1[$i1]['state'] = "离场";
+        }
+        $final = array();
+
+        for($j = 0;$j < count($res1);$j++)
+        {
+          array_push($final,$res[$j]);
+          array_push($final,$res1[$j]);
+        }
+
+        return $final;
+
+    }
+
+    /**
+     *新增外部人员职位下拉框
+     *@author fang.yu
+     *2018.8.20
+     */
+    public function outPosition()
+    { 
+
+      $sql = "SELECT id,name 
+              from project_role 
+              where is_delete = 0";
+
+      $res = M()->query($sql);
+
+      return $res;
     }
 
 
