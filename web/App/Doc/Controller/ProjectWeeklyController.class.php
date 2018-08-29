@@ -73,48 +73,103 @@ class ProjectWeeklyController extends BaseController
      */
     public function weeklyAdd()
     {
-        //项目id
-        $project_id = I('project_id');
+        $user_id=$_SESSION['user_id'];
+        $res=$this->res= ProjectWeeklyModel::showid($user_id);
+        //var_dump($res[0]['name']);die;
+        if($res[0]['name']==='项目经理'){
+                //项目id
+                $project_id = I('project_id');
 
-        //名称
-        $name = I('name');
+                //名称
+                $name = I('name');
 
-        //周报类型 1项目 2个人
-        $type = 1;
+                //周报类型 1项目 2个人
+                $type = 1;
 
-        //上周内容
-        $last_week_content = I('last_week_content');
+                //上周内容
+                $last_week_content = I('last_week_content');
 
-        //本周计划
-        $this_week_plan = I('this_week_plan');
+                //本周计划
+                $this_week_plan = I('this_week_plan');
 
-        //项目进度
-        $percentage = I('percentage');
+                //项目进度
+                $percentage = I('percentage');
 
-        //项目阶段id
-        $stage_id = I('stage_id');
+                //项目阶段id
+                $stage_id = I('stage_id');
 
-        //项目进度说明
-        $project_explain = I('project_explain');
+                //项目进度说明
+                $project_explain = I('project_explain');
 
-        //自定义的获取时间函数
-        $date = $this->getTime();
+                //自定义的获取时间函数
+                $date = $this->getTime();
 
-        //开始时间、默认本周第一天日期
-        $start_time = $date['start'];
+                //开始时间、默认本周第一天日期
+                $start_time = $date['start'];
 
-        //结束时间、默认本周最后一天日期
-        $end_time = $date['end'];
+                //结束时间、默认本周最后一天日期
+                $end_time = $date['end'];
 
-        //当前周数
-        $week_num = (int)$date['week'];
+                //当前周数
+                $week_num = (int)$date['week'];
 
-        $res=$this->res=
-        ProjectWeeklyModel::
-        weeklyAdd($project_id,$name,$type,
-        $last_week_content,$this_week_plan,
-        $percentage,$project_explain,
-        $start_time,$end_time,$week_num,$stage_id);
+                $res=$this->res=
+                ProjectWeeklyModel::
+                weeklyAdd($project_id,$name,$type,
+                $last_week_content,$this_week_plan,
+                $percentage,$project_explain,
+                $start_time,$end_time,$week_num,$stage_id);
+                if($res===0){
+                    $this->Response(0,'添加成功','');
+                }else{
+                    $this->Response(1,'添加失败','');
+                    }       
+        }else{
+                //项目id
+                $project_id = I('project_id');
+                
+                //名称
+                $name = I('name');
+
+                //周报类型 1项目 2个人
+                $type = 2;
+
+                //上周内容
+                $last_week_content = I('last_week_content');
+
+                //本周计划
+                $this_week_plan = I('this_week_plan');
+
+                $percentage = '';
+                $project_explain = '';
+                $stage_id = null;
+
+                //自定义的获取时间函数
+                $date = $this->getTime();
+
+                //开始时间、默认本周第一天日期
+                $start_time = $date['start'];
+
+                //结束时间、默认本周最后一天日期
+                $end_time = $date['end'];
+
+                //当前周数
+                $week_num = (int)$date['week'];
+
+                $res=$this->res=
+                ProjectWeeklyModel::
+                weeklyAdd($project_id,$name,$type,
+                $last_week_content,$this_week_plan,
+                $percentage,$project_explain,
+                $start_time,$end_time,$week_num,$stage_id);
+                if($res===0){
+                    $this->Response(0,'添加成功','');
+                }else{
+                    $this->Response(1,'添加失败','');
+                    }       
+
+        }
+        
 
     }
 

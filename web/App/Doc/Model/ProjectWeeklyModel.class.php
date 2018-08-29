@@ -58,7 +58,11 @@ class ProjectWeeklyModel
 
         $res = M()->execute($sql);
 
-        return  $res;
+       if($res){
+             return 0;
+        }else{
+             return 1;
+        }   
 
     }
 
@@ -128,16 +132,21 @@ class ProjectWeeklyModel
         return  $res;
     }
 
-
-    /**
-     *周报详情接口
-     *@author fang.yu
-     *2018.8.28
-     */
-    public function weeklyDetails()
+    public function showid($user_id)
     {
+
+        $sql = "SELECT
+                a. NAME
+            FROM
+                project_role AS a
+            LEFT JOIN project_member AS b ON a.id = b.position
+            WHERE
+                b.person_id = '$user_id'";
+
+        $res = M()->query($sql);
         
-        
+        return  $res;
     }
+   
 
 }
