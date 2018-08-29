@@ -308,7 +308,6 @@ class BackstageManagementModel{
               return 1;
          }
     }
-
 }
 
 
