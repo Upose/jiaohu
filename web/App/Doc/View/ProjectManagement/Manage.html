@@ -47,7 +47,7 @@
                 </p>
                 <div class="button_div">
                     <button>编辑</button>
-                    <button>详情</button>
+                    <button><span @click="open(j.id)">详情</span></button>
                 </div>
             </div>
         </div>
@@ -152,28 +152,28 @@
             },
             pro_select(){
                 var that = this;
-                var i = $(".pro_select").val();
+                var a = $(".pro_select").val();
                 $.ajax({
                     cache: false,
                     type: "post",
                     url: "{:U('ProjectManagement/projectList')}",
                     dataType: "json",
-                    data: { area_id: i },
+                    data: { area: a },
                     success: function (data) {
-                        // console.log(data);
+                        console.log(data);
                         that.data=data.data.list;
                     }
                 })
             },
             sta_select(){
                 var that = this;
-                var i = $(".sta_select").val();
+                var b = $(".sta_select").val();
                 $.ajax({
                     cache: false,
                     type: "post",
                     url: "{:U('ProjectManagement/projectList')}",
                     dataType: "json",
-                    data: { status_id: i },
+                    data: { status: b },
                     success: function (data) {
                         // console.log(data);
                         that.data=data.data.list;
@@ -182,18 +182,22 @@
             },
             search(){
                 var that = this;
-                var i = $(".keyword").val();
+                var c = $(".keyword").val();
                 $.ajax({
                     cache: false,
                     type: "post",
                     url: "{:U('ProjectManagement/projectList')}",
                     dataType: "json",
-                    data: { keywords: i },
+                    data: { keywords: c },
                     success: function (data) {
                         // console.log(data);
                         that.data=data.data.list;
                     }
                 })
+            },
+            open(id){
+                window.parent.location.href = "{:U('ProjectDescription/index')}"+"&id="+id;
+                // window.parent.location.href = "{:U('ProjectDescription/index')}";
             },
         }
     });

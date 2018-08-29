@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
     <link rel="stylesheet" href="__CSS__/custom.css">
+    <script src="__STATIC__/vue.min.js"></script>
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 </head>
@@ -17,7 +18,7 @@
     }
 </style>
 
-<body>
+<body id="app">
     <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
             <div class="layui-logo">
@@ -31,14 +32,14 @@
                             <cite>体系综合</cite>
                         </a>
                     </li>
-                    <li class="layui-nav-item">
+                    <li class="layui-nav-item layui-this">
                         <a href="{:U('ProjectManagement/index')}">项目管理</a>
                     </li>
                     <li class="layui-nav-item">
                         <a href="#">个人管理</a>
                     </li>
 
-                    <li class="layui-nav-item layui-this">
+                    <li class="layui-nav-item">
                         <a href="{:U('Feedback/index')}">问题反馈</a>
                     </li>
                     </a>
@@ -91,22 +92,46 @@
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
                     <li class="layui-nav-item">
-                        <!-- <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>产品使用</span></a> -->
-                        <a class="" href="javascript:;" kit-target data-options="{url:'',icon:'',title:'流程规范',id:'1'}">
+                        <?php print_r($fl);?>
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_organization?id='.$pro_id)}',icon:'',title:'项目组织',id:'1'}">
                             <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
-                            <span>流程规范</span>
+                            <span>项目组织</span>
                         </a>
                     </li>
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;" kit-target data-options="{url:'',icon:'',title:'开发规范',id:'2'}">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_planning?id='.$pro_id)}',icon:'',title:'项目规划',id:'2'}">
                             <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
-                            <span>开发规范</span>
+                            <span>项目规划</span>
                         </a>
                     </li>
-                    <li class="layui-nav-item" >
-                         <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectManagement/Manage')}',icon:'',title:'项目管理',id:'3'}">
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_demand?id='.$pro_id)}',icon:'',title:'需求管理',id:'3'}">
                             <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
-                            <span>项目管理</span>
+                            <span>需求管理</span>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_design?id='.$pro_id)}',icon:'',title:'设计管理',id:'4'}">
+                            <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
+                            <span>设计管理</span>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_development?id='.$pro_id)}',icon:'',title:'开发管理',id:'5'}">
+                            <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
+                            <span>开发管理</span>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_weekly?id='.$pro_id)}',icon:'',title:'周报管理',id:'6'}">
+                            <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
+                            <span>周报管理</span>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_event?id='.$pro_id)}',icon:'',title:'重大事件',id:'7'}">
+                            <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
+                            <span>重大事件</span>
                         </a>
                     </li>
                 </ul>
@@ -119,6 +144,26 @@
     </div>
 
     <script>
+        var app = new Vue({
+            el: '.news',
+            data: {
+                Uid: '',
+            },
+            created: function () {
+                // 获取上个页面传递回来的ID
+                var url = location.search;
+                var theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1); //substr()方法返回从参数值开始到结束的字符串；
+                    var strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                    }
+                }
+                this.Uid = theRequest.id;
+                // console.log('iiiid',theRequest.id);
+            },
+        })
         $(document).ready(function () {
             // 登录状态验证
             if (!window.sessionStorage["isLogin"]) {

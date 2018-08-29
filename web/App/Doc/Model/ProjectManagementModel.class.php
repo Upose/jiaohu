@@ -23,7 +23,7 @@ class ProjectManagementModel
 	 	pm.end_time,s.name as status,
 	 	pm.progress_rate as rate
 		from ProjectManagement pm 
-		join project_industry i 
+		join project_select i 
 		on pm.industry_id  = i.id 
 		join area a 
 		on pm.area_id = a.id
@@ -102,7 +102,8 @@ class ProjectManagementModel
 	  public function statusList()
      {
      	$sql = "SELECT id,name 
-     	from project_status";
+     	from project_status 
+     	where is_delete = 0";
 
      	$status = M()->query($sql);
 
@@ -118,7 +119,8 @@ class ProjectManagementModel
 	  public function industryList()
      {
      	$sql = "SELECT id,name 
-     	from project_industry";
+     	from project_select
+     	where is_delete = 0";
 
      	$industry = M()->query($sql);
 

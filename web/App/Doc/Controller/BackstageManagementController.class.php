@@ -54,7 +54,7 @@ class BackstageManagementController extends BaseController{
     	  $this->Response(0,$list,'');
     }
 
-      /**
+    /**
 	 * 产品查询接口
      * @author zang.qun
      * 2018-07-27
