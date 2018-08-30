@@ -281,29 +281,13 @@ class ProjectWeeklyController extends BaseController
 
         //项目id
         $project_id = I('project_id');
-        $project_id =1;
-        
         //该项目所有成员
         $projectMember=
         $this->res=
         ProjectWeeklyModel::
         projectMember($project_id);
-
-        $person_id=
-        $this->res=
-        ProjectWeeklyModel::
-        weeklyPersonIsExist($project_id);
-
-        /*for($i = 0;$i <count($projectMember);$i++)
-        {
-            for($j = 0;$j <count($person);$j++)
-            {
-                
-            }
-        }
-
-        print_r($person);*/
-
+        $this->Response(0,$projectMember,'');
+       
     }
 
 

@@ -69,14 +69,30 @@ class ProjectEventController extends BaseController
 
     	//描述
     	$summary = I('summary');
-
+        
 	    $res=$this->res=
 	    	ProjectEventModel::eventAdd($name,$project_id,
 	    $type_id,$submit_person_id,$start_time,$end_time,
 	    $we_person,$first_party_person,$other_person,$summary);
     	
     }
+    //文件上传
+    public function uploadFile(){
+        
+        $imgname = $_FILES['photo']['name'];
+        $tmp = $_FILES['photo']['tmp_name'];
+        $filepath = 'Updata/Image/';
+        $path=move_uploaded_file($tmp,$filepath.$imgname);
+        if(!move_uploaded_file($tmp,$filepath.$imgname)){
+            $this->Response(0,'上传失败','');
+        }else{
+            $res=$this->res=ProjectEventModel::uploadFile($path);
+            $this->Response(0,'上传成功','');
+        }
+       
 
+
+    }
     /**
      *事件列表接口
      *@author fang.yu
