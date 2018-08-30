@@ -121,7 +121,7 @@ class ProjectWeeklyModel
     {
 
          $sql = "  SELECT
-                        *
+                        a.name,b.name as projectname
                     FROM
                         project_member AS a
                     LEFT JOIN project_weekly AS b ON a.person_id = b.submit_person_id
