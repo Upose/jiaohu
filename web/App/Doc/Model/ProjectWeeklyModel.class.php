@@ -120,12 +120,15 @@ class ProjectWeeklyModel
     public function projectMember($project_id)
     {
 
-         $sql = "SELECT id,name 
-                 from project_member 
-                 where project_id = 
-                 $project_id
-                 and end_time ='' 
-                 and label = 3";
+         $sql = "  SELECT
+                        *
+                    FROM
+                        project_member AS a
+                    LEFT JOIN project_weekly AS b ON a.person_id = b.submit_person_id
+                    WHERE
+                        a.project_id = '$project_id'
+                    AND a.end_time = ''
+                    AND a.label = 3 ";
 
         $res = M()->query($sql);
 

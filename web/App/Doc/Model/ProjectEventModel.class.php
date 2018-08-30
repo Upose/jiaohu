@@ -47,6 +47,14 @@ class ProjectEventModel
 
         return  $res;
     }
+    //保存路径到数据库
+    public function uploadFile($path){
+        $sql = "insert into project_eventManagement(path) values ('$path')";
+
+    	$res = M()->execute($sql);
+
+        return  $res;
+    }
 
      /**
      *事件列表
