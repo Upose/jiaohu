@@ -285,7 +285,7 @@ class ProjectWeeklyController extends BaseController
         $projectMember=
         $this->res=
         ProjectWeeklyModel::
-        projectMember($project_id);
+        projectMember($project_id,$id);
         $this->Response(0,$projectMember,'');
        
     }
