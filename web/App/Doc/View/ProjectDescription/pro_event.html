@@ -30,13 +30,13 @@
                 <td>结束时间</td>
                 <td>操作</td>
             </tr>
-            <tr class="tr2">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a @click="view()">详情</a></td>
+            <tr class="tr2" v-for="(idx, item) in result" :key="idx">
+                <td>{{ item.name }}</td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.person_name }}</td>
+                <td>{{ item.start_time }}</td>
+                <td>{{ item.end_time }}</td>
+                <td><a @click="view(listData.project_id)">详情</a></td>
             </tr>
         </table>
         <div id="test1"></div>
@@ -54,12 +54,15 @@
                 endTime: '',
                 keywords: '',
                 page: 1
-            }
+            },
+            result: []
         },
         created: function () {
             var url = location.search;
             var _this = this;
             this.listData.project_id = url.match(/id=\d+/g)[0].substring(3);
+            this.getEventList();
+
             // 分页初始化
             layui.use('laypage', function(){
                 var laypage = layui.laypage;
@@ -80,8 +83,6 @@
                     }
                 });
             });
-            
-            // this.getEventList();
         },
         methods: {
             new_pro(id) {
@@ -95,19 +96,21 @@
                  window.location.href = "{:U('ProjectDescription/event_view&id="+ id +"')}";
             },
             search(id) {
-                
+                this.getEventList();                
             },
             // 获取事件列表
             getEventList: function() {
                 var _this = this;
                 $.ajax({
                     cache: false,
+                    async: false,
                     type: "POST",
                     url: "{:U('ProjectEvent/eventList')}",
                     dataType: "json",
                     data: _this.listData,
                     success: function (res) {
-                        console.log(res.data)
+                        _this.listCount = res.data.length;
+                        _this.result = res.data;
                     }
                 })
             }

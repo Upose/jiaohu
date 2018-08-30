@@ -19,45 +19,45 @@
         <div class="div1">
             <div class="form_div2">
                 <label class="tit">事件名称</label>
-                <input class="name_input" type="text" name="title" placeholder="请输入信息" required>
+                <input class="name_input" type="text" name="title" placeholder="请输入信息" v-model="addList.name">
             </div><br>
             <div class="form_div1">
                 <label class="tit">事件类型</label>
-                <select name="" id="">
-                    <option value="">售前交流</option>
+                <select name="" id="" v-model="addList.type_id">
+                    <option :value="item.id" v-for="(idx, item) in eventTypeList" :key="idx">{{ item.name }}</option>
                 </select>
             </div><br>
             <div class="form_div1 time_div">
                 <label class="tit">开始时间</label>
-                <input class="tame_input" type="date" name="start_time" id="">
+                <input class="tame_input" type="date" name="start_time" id="" v-model="addList.start_time">
             </div><br>
             <div class="form_div1 time_div">
                 <label class="tit">结束时间</label>
-                <input class="tame_input" type="date" name="end_time" id="">
+                <input class="tame_input" type="date" name="end_time" id="" v-model="addList.end_time">
             </div><br>
             <div class="form_div1">
                 <label class="tit">我方人员</label>
-                <input class="name_input" type="text" name="kname" placeholder="请输入信息" required>
+                <input class="name_input" type="text" name="kname" placeholder="请输入信息" v-model="addList.we_person">
             </div>
         </div>
 
         <div class="div1" style="position: absolute;">
             <div class="form_div1">
                 <label class="tit">甲方人员</label>
-                <input class="name_input" type="text" name="kname" placeholder="请输入信息" required>
+                <input class="name_input" type="text" name="kname" placeholder="请输入信息" v-model="addList.first_party_person">
             </div><br>
             <div class="form_div1">
                 <label class="tit">其他人员</label>
-                <input class="name_input" type="text" name="kname" placeholder="请输入信息" required>
+                <input class="name_input" type="text" name="kname" placeholder="请输入信息" v-model="addList.other_person">
             </div><br>
             <div class="form_div2">
                 <label class="tit">需求背景</label>
-                <textarea name="xuqiu_back" cols="40" rows="3" placeholder="请输入信息" required></textarea>
+                <textarea name="xuqiu_back" cols="40" rows="3" placeholder="请输入信息" v-model="addList.summary"></textarea>
             </div>
             <div class="form_div2" style="vertical-align: top;">
                 <label class="tit">上传文件</label>
-                <div class="cus-files" id="cus-form">
-                    <input type="file" name="photo[]" id="cus-ipt" class="cus-files-input" multiple="multiple" accept=".jpg,.png,.git" />
+                <div class="cus-files" id="cus-form" @click="openFileInput">
+                    <input type="file" id="cus-ipt" class="cus-files-input" multiple="multiple" ref="files" @change="updateFileList" style="display: none;" />
                     <div class="cus-files-content">
                         <div class="cus-warning">
                             <img class="img1" src="__IMG__/up@2x.png">
@@ -66,19 +66,11 @@
                         </div>
                     </div>
                 </div>
-            </div><br>
-            <!-- <div class="form_div1 tab_choose">
-                <div class="html">
-                    <label class="tit">上传文件:</label>
-                    <p class="input_div">
-                        <input class="file" name="content" value="" type="file" accept="file" id="picture">
-                    </p>
-                </div>
-            </div> -->
+            </div>
         </div>
         <div class="line"></div>
         <button class="but" type="button">取消</button>
-        <button class="but" type="submit" @click="submit">提交</button>
+        <button class="but" type="button" @click="submit">提交</button>
     </form>
 </body>
 <script>
@@ -86,9 +78,11 @@
             el: "#addEvent",
             data: function() {
                 return {
+                    eventTypeList: [],
                     addList: {
                         project_id: ''
-                    }
+                    },
+                    fileList: []
                 }
             },
             created: function () {
@@ -101,6 +95,7 @@
                 goBack: function() {
                     window.history.go(-1)
                 },
+                // 获取事件类型列表
                 getEventTypeList: function() {
                     var _this = this;
                     $.ajax({
@@ -110,9 +105,84 @@
                         dataType: "json",
                         data: {},
                         success: function (res) {
-                            console.log(res.data)
+                            _this.eventTypeList = res.data;
                         }
                     })
+                },
+                // 上传文字内容
+                submitText: function() {
+                    var _this = this;
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "{:U('ProjectEvent/eventAdd')}",
+                        dataType: "json",
+                        data: _this.addList,
+                        success: function (res) {
+                            if(res.code == 0) {
+                                layui.use('layer', function() {
+                                    var layer = layui.layer;
+                                    layer.alert('添加成功');
+                                })
+                            } else {
+                                layui.use('layer', function() {
+                                    var layer = layui.layer;
+                                    layer.alert('添加失败');
+                                })
+                            }
+                        }
+                    })
+                },
+                // 上传文件
+                submitFile: function() {
+
+                },
+                updateFileList: function() {
+                    var inputDOM = this.$refs.inputer;
+                    console.log(inputDOM);
+                    // 通过DOM取文件数据
+                    /*this.file = inputDOM.files[0];
+                    if(inputDOM.files[0] === undefined){
+                        this.fileName = '';
+                        this.fileSize = '';
+                        this.fileType = '';
+                    }
+                    else{
+                        this.fileName = this.file.name;
+                        //kb
+                        if(this.file.size/1024<1000){
+                            this.fileSize = (this.file.size/1024).toFixed(2) +"kb";
+                        }
+                        else if(this.file.size/1024>1000){
+                            this.fileSize = ((this.file.size/1024)/1024).toFixed(2) +"MB";
+                        }
+                        this.fileType = this.file.type;
+                    }*/
+                },
+                // 打开选择文件窗口
+                openFileInput: function() {
+                    var cusIpt = document.getElementById("cus-ipt");
+                    cusIpt.click();
+                },
+                // 提交
+                submit: function() {
+                    // 表单验证
+                    if( this.addList.name === '' ||
+                        this.addList.summary === '' ||
+                        this.addList.start_time === '' ||
+                        this.addList.end_time === '' ||
+                        this.addList.we_person === '' ||
+                        this.addList.first_party_person === '' ||
+                        this.addList.other_person === ''
+                    ) {
+                        layui.use('layer', function() {
+                            var layer = layui.layer;
+                            layer.alert('请确保信息输入完整!');
+                        })
+                    } else {
+                        this.submitText()
+                        this.submitFile()
+                    }
                 }
             },
         });
@@ -121,7 +191,7 @@
         var maxFileLength = 6; // 文件个数
     
         // 重置文件上传
-        function resetUpload(msg) {
+        /*function resetUpload(msg) {
             $('.cus-files-content').find('.cus-img').remove();
             $('.cus-files-input')[0].value = '';
             $('.cus-warning').show();
@@ -129,7 +199,7 @@
             layui.use('layer', function () {
                 layui.layer.alert(msg);
             })
-        }
+        }*/
     
         /**
          * 对上传文件进行验证
@@ -138,7 +208,7 @@
          * @param  {[number]} maxFileSize   [文件大小]
          * @return {[bool]}   result [description]
          */
-        function testUpload(files, maxFileLength, maxFileSize) {
+        /*function testUpload(files, maxFileLength, maxFileSize) {
             var result = true;
     
             // 未选择文件, 清空选择框
@@ -165,14 +235,14 @@
             })
     
             return result;
-        }
+        }*/
     
         /**
          * 显示文件缩略图
          * @param  {[object]} files [文件对象]
          * @param  {[element]} el    [缩略图显示的节点]
          */
-        function showThumbnails(files, el) {
+        /*function showThumbnails(files, el) {
             ;[].slice.call(files).forEach(function (item, idx) {
                 var reader = new FileReader();
                 var img = document.createElement('img');
@@ -191,10 +261,10 @@
     
                 $(el).append(img);
             })
-        }
+        }*/
     
         // 文件上传
-        $('#cus-ipt').on('change', function () {
+        /*$('#cus-ipt').on('change', function () {
             // 验证
             var files = this.files;
             $('.cus-warning').show();
@@ -205,7 +275,7 @@
                 $('.cus-warning').hide();
                 showThumbnails(files, $('.cus-files-content'));
             }
-        })
+        })*/
     
     </script>
 </html>
