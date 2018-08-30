@@ -17,7 +17,7 @@ class ProjectEventModel
 		    	from project_event 
 		    	where is_delete = 0";
 
-    	$res = query($sql);
+    	$res =  M()->query($sql);
 
     	return $res;
 
@@ -44,8 +44,12 @@ class ProjectEventModel
     	 	'$summary')";
 
     	$res = M()->execute($sql);
-
-        return  $res;
+    	if($res){
+  	      	 return 0;
+  	    }else{
+  	      	 return 1;
+  	    }   
+        
     }
     //保存路径到数据库
     public function uploadFile($path){
@@ -131,7 +135,7 @@ class ProjectEventModel
 		{
 			$usql.=" where pem.name like '%$keywords%' 
 			and em.start_time BETWEEN '$time1' and '$time2'
-			order by id desc limit ".$pag.",10 ";
+			order by pem.id desc limit ".$pag.",10 ";
 		}
 
 		$ures = M()->query($usql);
@@ -142,6 +146,7 @@ class ProjectEventModel
 		$final['count'] = $count;
 
         return  $final;
+
     }
 
     /**
@@ -165,6 +170,9 @@ class ProjectEventModel
 
     	return $res;
     }
+
+
+
 
 
 
