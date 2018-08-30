@@ -77,31 +77,31 @@ class ProjectEventModel
 		{
 			
 			$sql.=" where project_id = $project_id 
-			order by id desc limit ".$pag.",10 ";
+			order by pem.id desc limit ".$pag.",10 ";
 		}
 
 		if(empty($time1)&&empty($time2)&&!empty($keywords))
 		{
 			$sql.=" where pem.name like '%".$keywords."%' 
-					order by id desc limit ".$pag.",10 ";
+					order by pem.id desc limit ".$pag.",10 ";
 		}
 
 		if(!empty($time1)&&!empty($time2)&&empty($keywords))
 		{
 			$sql.=" where pem.start_time BETWEEN '$time1' 
-			and '$time2' order by id desc limit ".$pag.",10 ";
+			and '$time2' order by pem.id desc limit ".$pag.",10 ";
 		}
 
 		if(!empty($time1)&&!empty($time2)&&!empty($keywords))
 		{
 			$sql.=" where pem.name like '%$keywords%' 
 			and em.start_time BETWEEN '$time1' and '$time2'
-			order by id desc limit ".$pag.",10 ";
+			order by pem.id desc limit ".$pag.",10 ";
 		}
 		$res = M()->query($sql);
 
 		//统计查出的总数
-		$usql = "SELECT count(*)
+		$usql = "SELECT count(*) as count
     			from project_eventManagement pem 
 				join project_event pe 
 				on pem.type_id = pe.id
@@ -112,19 +112,19 @@ class ProjectEventModel
 		{
 			
 			$usql.=" where project_id = $project_id 
-			order by id desc limit ".$pag.",10 ";
+			order by pem.id desc limit ".$pag.",10 ";
 		}
 
 		if(empty($time1)&&empty($time2)&&!empty($keywords))
 		{
 			$usql.=" where pem.name like '%".$keywords."%' 
-					order by id desc limit ".$pag.",10 ";
+					order by pem.id desc limit ".$pag.",10 ";
 		}
 
 		if(!empty($time1)&&!empty($time2)&&empty($keywords))
 		{
 			$usql.=" where pem.start_time BETWEEN '$time1' 
-			and '$time2' order by id desc limit ".$pag.",10 ";
+			and '$time2' order by pem.id desc limit ".$pag.",10 ";
 		}
 
 		if(!empty($time1)&&!empty($time2)&&!empty($keywords))

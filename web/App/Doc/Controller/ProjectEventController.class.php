@@ -102,9 +102,10 @@ class ProjectEventController extends BaseController
     {
     	//项目id
     	$project_id = I('project_id');
-
+       
     	//页数
 		$page=intval(I('page'));
+
 		$pag=($page-1)*10;
 
 		//起止时间
@@ -120,7 +121,7 @@ class ProjectEventController extends BaseController
 
 	    $response = array('data' => $final['data'],
 	    'count' =>$final['count']);
-
+        
     	$this->ajaxReturn($response);
     }
 

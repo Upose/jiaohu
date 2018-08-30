@@ -150,7 +150,7 @@ class ProjectPlanModel{
      */
     public function projectTargetDetalis($id)
     {
-        $sql = "SELECT name,`describe`,
+        $sql = "SELECT id,name,`describe`,
         achievements,
         end_time as estimate_time,
         actual_end_time,state  

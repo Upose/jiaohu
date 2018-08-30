@@ -52,9 +52,7 @@ class ProjectPlanController extends BaseController
     {
         //项目id
         $project_id = I('project_id');
-       
-        $res=$this->res=
-        ProjectPlanModel::projectStageSelect($project_id);
+      
 
         $this->Response(0,$res,'');
 
@@ -96,12 +94,31 @@ class ProjectPlanController extends BaseController
     {
         //目标id
         $id = I('id');
-
+        
         $res=$this->res=
         ProjectPlanModel::
         projectTargetDetalis($id);
 
-        $this->Response(0,$res,'');
+        $final['name'] = $res[0]['name'];
+        $final['describe'] = $res[0]['describe'];
+        $final['achievements'] = $res[0]['achievements'];
+        $final['estimate_time'] = $res[0]['estimate_time'];
+        $final['actual_end_time'] = $res[0]['actual_end_time'];
+        $final['state'] = $res[0]['state'];
+        $final['id'] = $res[0]['id'];
+        if($final['state'] == "完成")
+        {
+            $code = 1;
+        }
+
+        if($final['state'] == "进行中")
+        {
+            $code = 0;
+        }
+
+        $final['code'] = $code;
+    
+        $this->Response(0,$final,'');
     }
 
 
@@ -129,8 +146,6 @@ class ProjectPlanController extends BaseController
       
     }
 
-
-
     /**
      * 项目目标完成接口
      * @author fang.yu
@@ -144,9 +159,7 @@ class ProjectPlanController extends BaseController
         $res=$this->res=
         ProjectPlanModel::
         projectTargetFinish($id);
-
-        var_dump($res);
-  
+ 
     }
 
     /**
@@ -159,9 +172,18 @@ class ProjectPlanController extends BaseController
 
         //项目id
         $project_id = I('project_id');
-       
+        $project_id  =1;
+
+        //当前状态
         $curryState=$this->res=
-        ProjectPlanModel::curryState($project_id);
+        ProjectPlanModel::
+        curryState($project_id);
+
+        //新增目标阶段下拉框
+        $stageSelect=$this->res=
+        ProjectPlanModel::
+        projectStageSelect($project_id);
+
 
         $res=$this->res=
         ProjectPlanModel::planList();
@@ -185,9 +207,10 @@ class ProjectPlanController extends BaseController
             array_push($temp[$v['pid']]['child'], $child);
         }
 
-         $response = array('data' => $temp,
-            'curryState' =>$curryState);
-
+        $response = array('data' => $temp,
+        'curryState' =>$curryState,
+        'stageSelect' => $stageSelect);
+       
         $this->ajaxReturn($response);
     }
 
