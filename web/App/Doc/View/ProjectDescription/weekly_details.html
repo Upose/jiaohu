@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="con">
+    <div id="con">
         <p class="tit">2018年 第22周</p>
         <div>
             <button class="one">项目周报</button>
@@ -51,5 +51,38 @@
         </div>
     </div>
 </body>
-
+<script>
+    var vm = new Vue({
+        el: '#con',
+        data: function() {
+            return {
+                project_id: '',
+                details: {
+                    
+                }
+            }
+        },
+        methods: {
+            getDetail: function() {
+                var _this = this;
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "{:U('ProjectWeekly/weeklyDetails')}",
+                    dataType: "json",
+                    data: {project_id: _this.project_id},
+                    success: function (res) {
+                        console.log(res.data)
+                    }
+                })
+            }
+        },
+        created: function() {
+            // 获取上个页面传递回来的ID
+            var url = location.search;
+            this.project_id = url.match(/id=\d+/g)[0].substring(3);
+            this.getDetail();
+        }
+    })
+</script>
 </html>

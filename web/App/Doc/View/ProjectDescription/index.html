@@ -141,7 +141,7 @@
                         </dl>
                     </li>
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_weekly?id='.$pro_id)}',icon:'',title:'周报管理',id:'8'}">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectDescription/pro_weekly&id='.$pro_id)}',icon:'',title:'周报管理',id:'8'}">
                             <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
                             <span>周报管理</span>
                         </a>
@@ -165,7 +165,7 @@
         var app = new Vue({
             el: '.news',
             data: {
-                Uid: '',
+                pro_id: '',
             },
             created: function () {
                 // 获取上个页面传递回来的ID

@@ -14,7 +14,7 @@
     <div class="url_div">
         <span>2018年 第 22 周</span><br>
         <span>2018-08-12 至 2018-08-1</span>
-        <button class="modify_button" @click="new_pro(id)">新增</button>
+        <button class="modify_button" @click="new_pro(Uid)">新增</button>
     </div>
     <table>
         <tr class="tr1">
@@ -35,7 +35,7 @@
             <td>{{i.end_time}}</td>
             <td>{{i.xuqiu_back}}</td>
             <td>{{i.content}}</td>
-            <td><a @click="weekly_details()">详情</a></td>
+            <td><a @click="weekly_details(Uid)">详情</a></td>
         </tr>
     </table>
 </body>
@@ -50,15 +50,20 @@
             // this.Uid = "{$pro_id}";
             // this.getdata(this.Uid);
             // console.log(this.Uid);
+            
+            // 上一个页面(index)传id的方法不对, 已修改
+            var url = location.search;
+            this.Uid = url.match(/id=\d+/g)[0].substring(3);
         },
         methods: {
             new_pro(id){
-                // window.location.href = "{:U('ProjectDescription/new_weekly')}"+"&id="+ id;
-                window.location.href = "{:U('ProjectDescription/new_weekly')}";
+                // '{:U('ProjectDescription/pro_weekly&id='.$pro_id)}'
+                window.location.href = "{:U('ProjectDescription/new_weekly&id="+ id +"')}";
+                // window.location.href = "{:U('ProjectDescription/new_weekly')}";
             },
             weekly_details(id){
                 // window.location.href = "{:U('ProjectDescription/new_weekly')}"+"&id="+ id;
-                window.location.href = "{:U('ProjectDescription/weekly_details')}";
+                window.location.href = "{:U('ProjectDescription/weekly_details&id="+ id +"')}";
             },
         }
     })
