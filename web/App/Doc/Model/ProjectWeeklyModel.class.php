@@ -117,22 +117,28 @@ class ProjectWeeklyModel
      *@author fang.yu
      *2018.8.28
      */
-    public function projectMember($project_id)
+    public function projectMember($project_id,$id)
     {
 
-         $sql = "  SELECT
-                        *
-                    FROM
-                        project_member AS a
-                    LEFT JOIN project_weekly AS b ON a.person_id = b.submit_person_id
-                    WHERE
-                        a.project_id = '$project_id'
-                    AND a.end_time = ''
-                    AND a.label = 3 ";
+        $sql="SELECT
+                a. NAME,a.id
+            FROM
+                project_member AS a
+            LEFT JOIN project_role AS b ON a.position = b.id
+            WHERE
+                a.project_id = project_id
+            and  b.id!='1'";
+        $res = M()->query($sql);   
+        $usql="select * from project_weekly where id = '$id' and project_id = '$project_id'";
 
-        $res = M()->query($sql);
+        $ures = M()->query($usql);
 
-        return  $res;
+        
+       
+        
+        $result['res']=$res;
+        $result['ures']=$ures;
+        return  $result;
     }
 
     public function showid($user_id)

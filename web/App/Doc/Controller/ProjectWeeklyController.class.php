@@ -278,14 +278,14 @@ class ProjectWeeklyController extends BaseController
      */
     public function weeklyDetails()
     {
-
+        $id=I('id');
         //项目id
         $project_id = I('project_id');
         //该项目所有成员
         $projectMember=
         $this->res=
         ProjectWeeklyModel::
-        projectMember($project_id);
+        projectMember($project_id,$id);
         $this->Response(0,$projectMember,'');
        
     }
