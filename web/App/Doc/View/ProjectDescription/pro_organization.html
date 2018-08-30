@@ -10,6 +10,37 @@
     <link rel="stylesheet" href="__CSS__/pro_organization.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__STATIC__/vue.min.js"></script>
+    <script src="__JS__/aa.js"></script>
+    <style>
+        .wyInput .wyinput-drop {
+            position: absolute;
+            top: 4.5vh;
+            left: 6vw;
+            width: 15vw !important;
+            z-index: 1000;
+            background: #F2F2F2;
+            border: 1px solid #EEE4D8;
+            border-top-color: transparent;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            padding: 5px 5px;
+        }
+
+        .wyInput .wyinput-drop p a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            width: 80%;
+            height: 24px;
+            line-height: 24px;
+            display: block;
+        }
+
+        .wyInput .wyinput-drop p a:hover {
+            color: #fff;
+            background: #35ACC1;
+        }
+    </style>
 </head>
 
 <body class="app">
@@ -17,7 +48,7 @@
     <div class="search_div">
         <button @click="getdata(Uid)" class="current sty">当前人员</button>
         <button @click="history(Uid)" class="history">历史人员</button>
-        <button @click="" class="new_button">新增</button>
+        <button @click="new()" class="new_button">新增</button>
     </div>
     <div class="con_left">
         <div class="safety">
@@ -47,7 +78,7 @@
                         <img class="avatar" src="__IMG__/b.jpg">
                         <span class="name">{{i.name}}</span>
                         <span class="time">({{i.position}})</span>
-                        <span class="department">{{i.department}}</span>
+                        <!-- <span class="department">{{i.department}}</span> -->
                     </p>
                     <p class="personnel">
                         <img src="__IMG__/phone_icon.png" alt="">{{i.phone}}</p>
@@ -65,7 +96,7 @@
                         <img class="avatar" src="__IMG__/b.jpg">
                         <span class="name">{{i.name}}</span>
                         <span class="time">({{i.position}})</span>
-                        <span class="department">{{i.department}}</span>
+                        <!-- <span class="department">{{i.department}}</span> -->
                     </p>
                     <p class="personnel">
                         <img src="__IMG__/phone_icon.png" alt="">{{i.phone}}</p>
@@ -78,7 +109,8 @@
         </div>
     </div>
     <div class="con_right">
-        <input class="keyword" type="text" placeholder="请输入要检索的内容"><button @click="search(Uid)" class="search_button">搜索</button>
+        <input class="keyword" type="text" placeholder="请输入要检索的内容">
+        <button @click="search(Uid)" class="search_button">搜索</button>
         <div v-for="i in list" class="one">
             <span></span>
             <p>{{i.time}}</p>
@@ -87,37 +119,54 @@
     </div>
     <div class="new_member">
         <div class="member_tit">新增成员</div>
-        <div class="member_con">
-            <p><span>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</span>
-                <input class="top1 in_input" type="radio" name="member" id="" checked>内部&nbsp;&nbsp;&nbsp;&nbsp;
-                <input class="top1 out_input" type="radio" name="member" id="">外部
-            </p>
-            <div class="member_in">
-                <p><span>员&nbsp;&ensp;工&nbsp;ID：</span><input class="member_text" type="text"></p>
-                <p><span>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签：</span>
-                    <input class="top1" type="radio" name="member" id="">内部关系人&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="top1" type="radio" name="member" id="">开发团队
+        <form action="{:U('ProjectOrganization/memberAdd')}" method="post" target="nm_iframe">
+            <div class="member_con">
+                <input type="hidden" name="pd_id" :value="Uid" />
+                <p><span>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</span>
+                    <input class="top1 in_input" type="radio" name="type" value="0" checked>内部&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="top1 out_input" type="radio" name="type" value="1">外部
                 </p>
+                <div class="member_in">
+                    <div class="wyInput" id="myInput" style="margin-bottom:2vh;position: relative;">
+                        <div class="wyinput-group"><span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+                            <input class="member_text member_inname" type="text" name="inname" autocomplete="off"></div>
+                        <div class="wyinput-drop"></div>
+                    </div>
+
+                    <p><span>项目角色：</span>
+                        <select class="member_select member_outcharacter" name="position" id="">
+                            <option v-for="i in characterlist" :value="i.id">{{i.name}}</option>
+                        </select>
+                    </p>
+                    <p><span>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签：</span>
+                        <input class="top1" type="radio" name="label" value="1">内部关系人&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="top1" type="radio" name="label" value="3">开发团队
+                    </p>
+                </div>
+                <div class="member_out" style="display:none;">
+                    <p><span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span><input class="member_text member_outname"
+                            type="text" name="name"></p>
+                    <p><span>联系方式：</span><input class="member_text member_phone" type="text" name="phone" id=""></p>
+                    <p><span>项目角色：</span>
+                        <select class="member_select member_outcharacter" name="position" id="">
+                            <option v-for="i in characterlist" :value="i.id">{{i.name}}</option>
+                        </select>
+                    </p>
+                    <p><span>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签：</span>
+                        <input class="top1" type="radio" name="label" value="2">外部关系人&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="top1" type="radio" name="label" value="3">开发团队
+                    </p>
+                    <p><span>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司：</span><input class="member_text member_company"
+                            type="text" name="company" id=""></p>
+                </div>
             </div>
-            <div class="member_out" style="display:none;">
-                <p><span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span><input class="member_text" type="text" name="" id=""></p>
-                <p><span>联系方式：</span><input class="member_text" type="text" name="" id=""></p>
-                <p><span>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</span>
-                    <select class="member_text"  name="" id="">
-                        <option value="">项目经理</option>
-                    </select>
-                </p>
-                <p><span>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签：</span>
-                    <input class="top1" type="radio" name="member" id="">外部关系人&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="top1" type="radio" name="member" id="">开发团队
-                </p>
-                <p><span>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司：</span><input class="member_text" type="text" name="" id=""></p>
+            <div class="btn_div">
+                <button class="down_btn">取消</button>
+                <button class="down_btn" type="submit">确定</button>
             </div>
-        </div>
-        <div class="btn_div">
-            <button class="down_btn">取消</button>
-            <button>确定</button>
-        </div>
+        </form>
+        <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+
     </div>
 </body>
 <script>
@@ -127,6 +176,8 @@
             data: [],
             Uid: "",
             list: [],
+            characterlist: [],
+            arr: [],
         },
         created: function () {
             this.Uid = "{$pro_id}";
@@ -134,6 +185,23 @@
             this.historylist(this.Uid);
         },
         methods: {
+            new() {
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectOrganization/nameSearch')}",
+                    dataType: "json",
+                    data: {},
+                    success: function (data) {
+                        // console.log(data);
+                        that.aa(data.data);
+                    }
+                })
+            },
+            aa(data) {
+                $("#myInput").wy_inselect(data);
+            },
             getdata(id) {
                 var that = this;
                 $.ajax({
@@ -144,7 +212,8 @@
                     data: { project_id: id },
                     success: function (data) {
                         that.data = data.data;
-                        // console.log(data.data);
+                        that.characterlist = data.projectRole;
+                        // console.log(data.projectRole);
                     }
                 })
             },
@@ -176,7 +245,7 @@
                     }
                 })
             },
-            search(id){
+            search(id) {
                 var that = this;
                 var key = $(".keyword").val();
                 $.ajax({
@@ -184,13 +253,13 @@
                     type: "post",
                     url: "{:U('ProjectOrganization/history')}",
                     dataType: "json",
-                    data: { project_id: id,name:key},
+                    data: { project_id: id, name: key },
                     success: function (data) {
                         that.list = data.data;
                         // console.log(data.data);
                     }
                 })
-            }
+            },
         }
     })
 
@@ -215,6 +284,7 @@
     });
     $(".down_btn").on('click', function () {
         $(".new_member").hide();
+        location.reload();
     });
     $(".current").on("click", function () {
         $(".current").addClass("sty").siblings().toggleClass("sty");
@@ -222,11 +292,11 @@
     $(".history").on("click", function () {
         $(".history").addClass("sty").siblings().toggleClass("sty");
     })
-    $(".in_input").on("click",function(){
+    $(".in_input").on("click", function () {
         $(".member_in").show();
         $(".member_out").hide();
     })
-    $(".out_input").on("click",function(){
+    $(".out_input").on("click", function () {
         $(".member_in").hide();
         $(".member_out").show();
     })
