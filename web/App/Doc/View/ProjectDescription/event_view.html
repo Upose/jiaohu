@@ -13,28 +13,74 @@
 </head>
 
 <body>
-    <div class="details_left">
-        <button @click="return()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
-        <span class="tit">事件详情</span>
-        <div><label class="tit_lab">事件名称</label><span class="con_span">售前宣讲</span></div>
-        <div><label class="tit_lab">事件类型</label><span class="con_span">售前宣讲</span></div>
-        <div><label class="tit_lab">我方人员</label><span class="con_span">刘飒，刘飒，刘飒</span></div>
-        <div><label class="tit_lab">甲方人员</label><span class="con_span">陈器，陈器，陈器，陈器，陈器，陈器</span></div>
-        <div><label class="tit_lab">其他人员</label><span class="con_span">暂无</span></div>
-        <div><label class="tit_lab">时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间</label><span class="con_span">2018-01-12
-                至 2018-01-12</span></div>
-        <div><label class="tit_lab">需求背景</label><div class="div_sty" style="display:inline-block;">客户要求说标题需要放置中间，明显大气 客户要求说标题需要放置中间，明显大气</div>
+    <div id="event-view">
+        <div class="details_left">
+            <button @click="return()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
+            <span class="tit">事件详情</span>
+            <div><label class="tit_lab">事件名称</label><span class="con_span">{{ result.name }}</span></div>
+            <div><label class="tit_lab">事件类型</label><span class="con_span">{{ result.type }}</span></div>
+            <div><label class="tit_lab">我方人员</label><span class="con_span">{{ result.we_person }}</span></div>
+            <div><label class="tit_lab">甲方人员</label><span class="con_span">{{ result.first_party_person }}</span></div>
+            <div><label class="tit_lab">其他人员</label><span class="con_span">{{ result.other_person }}</span></div>
+            <div><label class="tit_lab">时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间</label>
+                <span class="con_span">{{ result.start_time }} 至 {{ result.end_time }}</span></div>
+            <div><label class="tit_lab">需求背景</label><div class="div_sty" style="display:inline-block;">{{ result.summary }}</div>
+            </div>
         </div>
-    </div>
-    <div class="details_right">
-        <span class="tit">附件下载</span>
-        <div class="down_word">
-            <p><img src="__IMG__/down_icon.png">&nbsp;<a href="" download>文件名称XXXXXX.word</a></p>
-        </div>
-        <div class="down_ppt">
-            <p><img src="__IMG__/down_icon.png">&nbsp;<a href="" download>文件名称XXXXXX.ppt</a></p>
+        <div class="details_right">
+            <span class="tit">附件下载</span>
+            <div class="down_word">
+                <p><img src="__IMG__/down_icon.png">&nbsp;<a href="" download>文件名称XXXXXX.word</a></p>
+            </div>
+            <div class="down_ppt">
+                <p><img src="__IMG__/down_icon.png">&nbsp;<a href="" download>文件名称XXXXXX.ppt</a></p>
+            </div>
         </div>
     </div>
 </body>
-
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#event-view',
+        data: function() {
+            return {
+                project_id: '',
+                event_id: '',
+                result: {
+                    end_time: '',
+                    first_party_person: '',
+                    name: '',
+                    other_person: '',
+                    start_time: '',
+                    summary: '',
+                    type: '',
+                    we_person: ''
+                }
+            }
+        },
+        methods: {
+            getEventDetail: function() {
+                var _this = this;
+                $.ajax({
+                    cache: false,
+                    async: false,
+                    type: "POST",
+                    url: "{:U('ProjectEvent/eventDetails')}",
+                    dataType: 'json',
+                    data: {event_id: _this.event_id, project_id: _this.project_id},
+                    success: function(res) {
+                        _this.result = res.data[0];
+                        console.log(_this.result)
+                    }
+                })
+            }
+        },
+        created: function() {
+            var url = window.location.search;
+            this.project_id = url.match(/[id=, proId=]\d+/g)[0].substring(1);
+            this.event_id = url.match(/[id=, proId=]\d+/g)[1].substring(1);
+            this.getEventDetail();
+        }
+    })
+</script>
 </html>

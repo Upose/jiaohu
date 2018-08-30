@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>周报详情</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
     <link rel="stylesheet" href="__CSS__/weekly_details.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
@@ -51,12 +52,14 @@
         </div>
     </div>
 </body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
     var vm = new Vue({
         el: '#con',
         data: function() {
             return {
                 project_id: '',
+                weekly_id: '',
                 details: {
                     
                 }
@@ -70,7 +73,10 @@
                     type: "POST",
                     url: "{:U('ProjectWeekly/weeklyDetails')}",
                     dataType: "json",
-                    data: {project_id: _this.project_id},
+                    data: {
+                        project_id: _this.project_id,
+                        id: _this.weekly_id
+                    },
                     success: function (res) {
                         console.log(res.data)
                     }
@@ -80,7 +86,8 @@
         created: function() {
             // 获取上个页面传递回来的ID
             var url = location.search;
-            this.project_id = url.match(/id=\d+/g)[0].substring(3);
+            this.project_id = url.match(/[id=, proId=]\d+/g)[0].substring(1);
+            this.weekly_id = url.match(/[id=, proId=]\d+/g)[1].substring(1);
             this.getDetail();
         }
     })
