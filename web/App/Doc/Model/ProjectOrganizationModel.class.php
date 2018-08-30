@@ -12,7 +12,7 @@ class ProjectOrganizationModel
      *2018.8.16
      */
     public function InmemberAdd($name,$project_id,
-                          $type,$person_id,$label)
+                $type,$person_id,$position,$label)
     {
         //开始时间为当前时间
         $start_time =  date('Y-m-d',time());
@@ -20,11 +20,11 @@ class ProjectOrganizationModel
         //必须将结束时间设置为空字符串
         $sql="INSERT INTO project_member 
             (name,project_id,type, 
-            person_id,label,start_time, 
-            end_time)
+            person_id,label,position,
+            start_time,end_time)
             VALUES
-            ('$name',$project_id, 
-            $type,$person_id,$label, 
+            ('$name',$project_id, $type,
+            $person_id,$label,$position,
             '$start_time','')";
 
         $res = M()->execute($sql);
@@ -38,7 +38,7 @@ class ProjectOrganizationModel
 	 *2018.8.16
 	 */
 	public function OutmemberAdd($name,$project_id,$type,
-           $label,$phone,$position,$department,$company)
+                    $label,$phone,$position,$company)
     {
 
         //开始时间为当前时间
@@ -48,13 +48,13 @@ class ProjectOrganizationModel
      	$sql="insert into project_member
         	  (name,project_id,type,
               label,phone,position,
-              department,company,
+              company,
               start_time,end_time) 
         	  values 
         	  ('$name','$project_id',
               '$type','$label',
               '$phone',$position,
-              '$department','$company',
+              '$company',
               '$start_time','')";
 
         $res = M()->execute($sql);
@@ -73,8 +73,8 @@ class ProjectOrganizationModel
     {
         //内部干系人
         $insql = "SELECT pm.id,pm.name,
-                p.position,p.department,
-                p.phone,pm.start_time
+                p.position,p.phone,
+                pm.start_time
                 from project_member pm
                 join person p 
                 on p.id = pm.person_id
@@ -93,7 +93,6 @@ class ProjectOrganizationModel
         //外部干系人
         $outsql = "SELECT pm.id,pm.name,
                 pr.name as position,
-                pm.department,
                 pm.start_time,
                 pm.phone,pm.company
                 from project_member pm
@@ -113,7 +112,7 @@ class ProjectOrganizationModel
 
         //开发团队
         $dsql = "SELECT pm.id,pm.name,
-                p.position,p.department,
+                p.position,
                 p.phone,pm.start_time
                 from project_member pm
                 join person p 
@@ -150,7 +149,7 @@ class ProjectOrganizationModel
     {
         //内部干系人
         $insql = "SELECT pm.id,pm.name,
-                p.position,p.department,
+                p.position,
                 p.phone,pm.start_time,
                 pm.end_time
                 from project_member pm
@@ -164,7 +163,7 @@ class ProjectOrganizationModel
         $inMember = M()->query($insql);
 
         $dsql = "SELECT pm.id,pm.name,
-                p.position,p.department,
+                p.position,
                 p.phone,pm.start_time,
                 pm.end_time
                 from project_member pm
@@ -201,28 +200,6 @@ class ProjectOrganizationModel
         $sql = "UPDATE project_member 
         SET end_time = '$end_time' 
         where id = $id";
-        $res = M()->execute($sql);
-
-        return $res;
-
-    }
-
-
-    /**
-     *项目成员入场
-     *@author fang.yu
-     *2018.8.20
-     */
-    public function memberEnter()
-    {
-
-        $start_time =  date('Y-m-d',time());
-
-        $sql = "UPDATE project_member 
-        SET end_time = '',
-        start_time = '$start_time'
-        where id = $id";
-
         $res = M()->execute($sql);
 
         return $res;
@@ -275,11 +252,11 @@ class ProjectOrganizationModel
     }
 
     /**
-     *新增外部人员职位下拉框
+     *项目角色下拉框
      *@author fang.yu
      *2018.8.20
      */
-    public function outPosition()
+    public function projectRole()
     { 
 
       $sql = "SELECT id,name 
@@ -289,6 +266,41 @@ class ProjectOrganizationModel
       $res = M()->query($sql);
 
       return $res;
+    }
+
+
+     /**
+     *新增成员中模糊搜索人名
+     *@author fang.yu
+     *2018.8.20
+     */
+    public function nameSearch($keywords)
+    {
+      
+        $sql = "SELECT id,name 
+        from person 
+        where name like '%$keywords%'";
+
+        $res = M()->query($sql);
+
+        return $res;
+    }
+
+    /**
+     *新增成员中模糊搜索人名
+     *@author fang.yu
+     *2018.8.20
+     */
+    public function getId($name)
+    {
+      
+        $sql = "SELECT id
+        from person 
+        where name = '$name'";
+
+        $res = M()->query($sql);
+
+        return $res;
     }
 
 

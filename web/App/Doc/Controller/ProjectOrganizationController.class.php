@@ -19,8 +19,6 @@ class ProjectOrganizationController extends BaseController{
     	
     }
 
-   
-
     /**
 	 *新增项目成员接口
 	 *@author fang.yu
@@ -30,25 +28,31 @@ class ProjectOrganizationController extends BaseController{
     {
     	
     	//项目id
-    	$project_id = I($project_id);
+    	$project_id = I('pd_id');
         
     	//类型 内部0 外部1
-    	$type = I($type);
+    	$type = I('type');
 		
     	if($type == 0)
     	{
             //内部人姓名
-            $name = I('name');
-           
+            $name = I('inname');
+
     		//内部人id
-    		$person_id = (int)I('person_id');
+            $person_id = $this->res=
+            ProjectOrganizationModel::
+            getId($name);
             
+            //职位id
+            $position = I('position');
+
     		//所属标签 内部干系人1 开发团队3
     		$label = I('label');
-    	
+    	     
 	    	$res = $this->res=
-	    	ProjectOrganizationModel::InmemberAdd($name,
-            $project_id,$type,$person_id,$label);
+	    	ProjectOrganizationModel::
+            InmemberAdd($name,$project_id,
+            $type,$person_id,$position,$label);
 
     	}
 
@@ -62,15 +66,17 @@ class ProjectOrganizationController extends BaseController{
     		$phone = I('phone');
     		//职位id
     		$position = I('position');
-    		//体系
-	    	$department = I('department');
+
 	    	//所属公司
 	    	$company = I('company');
 
 	    	$res = $this->res=
-	    	ProjectOrganizationModel::OutmemberAdd($name,$project_id,
-	    	$type,$label,$phone,$position,$department,$company);
- 	
+	    	ProjectOrganizationModel::
+            OutmemberAdd($name,$project_id,
+	    	$type,$label,$phone,$position,
+            $company);
+
+            // $this->redirect('ProjectDescription/pro_organization',array('id'=>1));
     	}
 
 
@@ -86,11 +92,20 @@ class ProjectOrganizationController extends BaseController{
     {
         //所属项目id
         $project_id = I('project_id');
-       
-        $list = $this->list=
-        ProjectOrganizationModel::currentMemberList($project_id);
         
-        $this->Response(0,$list,'');
+        $list = $this->list=
+        ProjectOrganizationModel::
+        currentMemberList($project_id);
+        
+        //新增中项目角色下拉框
+        $projectRole = $this->res=
+        ProjectOrganizationModel::projectRole();
+        
+        $response = array('data' => $list,
+            'projectRole' =>$projectRole);
+
+        $this->ajaxReturn($response);
+        
     }
 
 
@@ -105,7 +120,8 @@ class ProjectOrganizationController extends BaseController{
         $project_id = I('project_id');
        
         $list = $this->list=
-        ProjectOrganizationModel::historyMemberList($project_id);
+        ProjectOrganizationModel::
+        historyMemberList($project_id);
 
         $this->Response(0,$list,'');
     }
@@ -122,21 +138,6 @@ class ProjectOrganizationController extends BaseController{
 
         $res = $this->res=
        ProjectOrganizationModel::memberLeave($id);
-
-    }
-
-    /**
-     *项目成员入场接口
-     *@author fang.yu
-     *2018.8.20
-     */
-    public function memberEnter()
-    {
-
-        $id = I('id');
-
-        $res = $this->res=
-        ProjectOrganizationModel::memberEnter($id);
 
     }
 
@@ -159,19 +160,20 @@ class ProjectOrganizationController extends BaseController{
 
     }
 
-     /**
-     *新增外部人员职位下拉框接口
+    /**
+     *新增成员中模糊搜索人名接口
      *@author fang.yu
      *2018.8.20
      */
-    public function outPosition()
+    public function nameSearch()
     {
-         $res = $this->res=
-        ProjectOrganizationModel::outPosition();
+        $keywords = I('keywords');
+
+        $res = $this->res=
+        ProjectOrganizationModel::
+        nameSearch($keywords);
         
         $this->Response(0,$res,'');
     }
-
-
 
 }

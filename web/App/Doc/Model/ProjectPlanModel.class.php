@@ -1,7 +1,7 @@
 <?php
 namespace Doc\Model;
 mysql_query("SET NAMES UTF8"); 
-
+date_default_timezone_set('prc');
 class ProjectPlanModel{
 
 
@@ -140,6 +140,67 @@ class ProjectPlanModel{
         return $res;
 
 
+    }
+
+
+     /**
+     * 项目目标详情
+     * @author fang.yu
+     * 2018.8.20
+     */
+    public function projectTargetDetalis($id)
+    {
+        $sql = "SELECT name,`describe`,
+        achievements,
+        end_time as estimate_time,
+        actual_end_time,state  
+        FROM project_target 
+        where id = $id";
+
+        $res = M()->query($sql);
+
+        return $res;
+
+    }
+
+
+    /**
+     * 项目目标修改
+     * @author fang.yu
+     * 2018.8.20
+     */
+    public function projectTargetUpdate($id,$describe,
+                                        $achievements)
+    {
+        $sql = "UPDATE project_target 
+        set `describe` = '$describe',
+        achievements = '$achievements' 
+        where id = $id";
+
+        $res = M()->execute($sql);
+
+        return  $res;
+    }
+
+
+      /**
+     * 项目目标完成
+     * @author fang.yu
+     * 2018.8.20
+     */
+    public function projectTargetFinish($id)
+    {
+        $Currytime = date('Y-m-d',time());
+
+        $sql = "UPDATE project_target 
+        set `state` = '完成',
+        actual_end_time = '$Currytime' 
+        where id = $id";
+
+        $res = M()->execute($sql);
+
+        return  $res;
+  
     }
 
 

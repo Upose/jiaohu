@@ -86,6 +86,69 @@ class ProjectPlanController extends BaseController
 
     }
 
+
+    /**
+     * 项目目标详情接口
+     * @author fang.yu
+     * 2018.8.20
+     */
+    public function projectTargetDetalis()
+    {
+        //目标id
+        $id = I('id');
+
+        $res=$this->res=
+        ProjectPlanModel::
+        projectTargetDetalis($id);
+
+        $this->Response(0,$res,'');
+    }
+
+
+    /**
+     * 项目目标修改接口
+     * @author fang.yu
+     * 2018.8.20
+     */
+    public function projectTargetUpdate()
+    {
+        //目标id
+        $id = I('id');
+
+        //描述
+        $describe = I('describe');
+
+        //成果
+        $achievements = I('achievements');
+
+        $res=$this->res=
+        ProjectPlanModel::
+        projectTargetUpdate($id,$describe,
+                            $achievements);
+
+      
+    }
+
+
+
+    /**
+     * 项目目标完成接口
+     * @author fang.yu
+     * 2018.8.20
+     */
+    public function projectTargetFinish()
+    {
+        //目标id
+        $id = I('id');
+       
+        $res=$this->res=
+        ProjectPlanModel::
+        projectTargetFinish($id);
+
+        var_dump($res);
+  
+    }
+
     /**
      * 项目规划列表接口
      * @author fang.yu
@@ -93,6 +156,12 @@ class ProjectPlanController extends BaseController
      */
     public function planList()
     {
+
+        //项目id
+        $project_id = I('project_id');
+       
+        $curryState=$this->res=
+        ProjectPlanModel::curryState($project_id);
 
         $res=$this->res=
         ProjectPlanModel::planList();
@@ -116,35 +185,11 @@ class ProjectPlanController extends BaseController
             array_push($temp[$v['pid']]['child'], $child);
         }
 
-        
-        $this->Response(0,$temp,'');
+         $response = array('data' => $temp,
+            'curryState' =>$curryState);
+
+        $this->ajaxReturn($response);
     }
-
-
-    /**
-     * 当前状态接口
-     * 当前所属阶段、当前目标
-     * @author fang.yu
-     * 2018.8.24
-     */
-    public function curryState()
-    {
-
-        
-
-        //项目id
-        $project_id = I('project_id');
-      
-        $res=$this->res=
-        ProjectPlanModel::curryState($project_id);
-
-        var_dump($res);
-    }
-
-
-
-
-
 
 
 }
