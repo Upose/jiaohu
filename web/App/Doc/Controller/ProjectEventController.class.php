@@ -75,20 +75,23 @@ class ProjectEventController extends BaseController
 	    $type_id,$submit_person_id,$start_time,$end_time,
 	    $we_person,$first_party_person,$other_person,$summary);
         if($res===0){
-          $this->Response(0,'添加成功','');
+            $this->Response(0,'添加成功','');
         }else{
-         $this->Response(1,'添加失败','');
+            $this->Response(1,'添加失败','');
         }       
     	
     }
     //文件上传
     public function uploadFile(){
-        
+    
         $imgname = $_FILES['photo']['name'];
+
         $tmp = $_FILES['photo']['tmp_name'];
-        $filepath = 'Updata/Image/';
-        //$path=move_uploaded_file($tmp,$filepath.$imgname);
-        if(!move_uploaded_file($tmp,$filepath.$imgname)){
+         
+        $filepath = './Updata/Image/';
+        $path=move_uploaded_file($tmp,$filepath.'.'.$imgname);
+    
+        if(!$path){
             $this->Response(0,'上传失败','');
         }else{
             $res=$this->res=ProjectEventModel::uploadFile($path);
