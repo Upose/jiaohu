@@ -13,9 +13,8 @@
 </head>
 
 <body class="app">
-    <form action="{:U('ProjectNeed/needadd')}" method="POST" enctype="multipart/form-data">
-        <button @click="return()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
-        <input type="hidden" name="pid" :value="Uid" />
+    <form method="POST" enctype="multipart/form-data" id="addEvent">
+        <button @click="goBack()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
         <span class="new_span">新增事件</span><br>
         <div class="div1">
             <div class="form_div2">
@@ -84,27 +83,37 @@
 </body>
 <script>
         var app = new Vue({
-            el: ".app",
-            data: {
-                Uid: "",
+            el: "#addEvent",
+            data: function() {
+                return {
+                    addList: {
+                        project_id: ''
+                    }
+                }
             },
             created: function () {
                 // 获取上个页面传递回来的ID
                 var url = location.search;
-                console.log(url);
-                var theRequest = new Object();
-                if (url.indexOf("?") != -1) {
-                    var str = url.substr(1); //substr()方法返回从参数值开始到结束的字符串；
-                    var strs = str.split("&");
-                    for (var i = 0; i < strs.length; i++) {
-                        theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
-                    }
-                }
-                this.Uid = theRequest.id;
-                console.log(this.Uid);
+                this.addList.project_id = url.match(/id=\d+/g)[0].substring(3);
+                this.getEventTypeList();
             },
             methods: {
-                return() { window.history.go(-1) },
+                goBack: function() {
+                    window.history.go(-1)
+                },
+                getEventTypeList: function() {
+                    var _this = this;
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "{:U('ProjectEvent/eventType')}",
+                        dataType: "json",
+                        data: {},
+                        success: function (res) {
+                            console.log(res.data)
+                        }
+                    })
+                }
             },
         });
     
