@@ -17,37 +17,68 @@
     <div id="con">
         <p class="tit">2018年 第22周</p>
         <div>
-            <button class="one">项目周报</button>
-            <button class="one">战三</button>
-            <button class="one down">李思</button>
+            <button :class="activeFoucs == -1 ? 'one down' : 'one'" style="cursor: pointer;" @click="foucsProject">项目周报</button>
+            <button :class="activeFoucs == idx ? 'one down' : 'one'" style="margin: 5px; cursor: pointer;" v-for="(idx, item) in userList" @click="getUserWeekly(item.id, idx)">{{ item.name }}</button>
         </div>
         <div class="line"></div>
-        <div class="con_top">
-            <div class="left">
-                <p class="con_tit">提交人</p>
-                <p class="con_span">卡覅</p>
-                <p class="con_tit">提交时间</p>
-                <p class="con_span">2018-08-13</p>
+        <div v-show="showProject">
+            <div class="con_top">
+                <div class="left">
+                    <p class="con_tit">提交人</p>
+                    <p class="con_span">{{ projectDetail.submit_person_id }}</p>
+                    <p class="con_tit">提交时间</p>
+                    <p class="con_span">{{ projectDetail.submit_time }}</p>
+                </div>
+                <div class="top_c">
+                    <p class="con_tit">项目阶段</p>
+                    <p class="con_span">{{ projectDetail.stage_id }}</p>
+                    <p class="con_tit">项目进度说明</p>
+                    <p class="con_span">{{ projectDetail.project_explain }}</p>
+                </div>
+                <div class="right">
+                    <p class="con_tit">项目进度</p>
+                    <p class="con_span">{{ projectDetail.percentage }} %</p>
+                </div>
             </div>
-            <div class="top_c">
-                <p class="con_tit">项目阶段</p>
-                <p class="con_span">规划实施阶段</p>
-                <p class="con_tit">项目进度说明</p>
-                <p class="con_span">完成设计和开发</p>
-            </div>
-            <div class="right">
-                <p class="con_tit">项目进度</p>
-                <p class="con_span">70%</p>
+            <div class="con_but">
+                <div class="left">
+                    <p class="con_tit">上周工作内容</p>
+                    <span class="con_span wid">{{ projectDetail.last_week_content }}</span>
+                </div>
+                <div class="right">
+                    <p class="con_tit">本周工作计划</p>
+                    <span class="con_span wid">{{ projectDetail.this_week_plan }}</span>
+                </div>
             </div>
         </div>
-        <div class="con_but">
-            <div class="left">
-                <p class="con_tit">上周工作内容</p>
-                <span class="con_span wid">1.完成设计完成设计完成设计完成设计完成设计完成完成设计完成设计完成设计</span>
+        <div v-show="!showProject">
+            <div class="con_top">
+                <div class="left">
+                    <p class="con_tit">提交人</p>
+                    <p class="con_span">{{ projectDetail.submit_person_id }}</p>
+                    <p class="con_tit">提交时间</p>
+                    <p class="con_span">{{ projectDetail.submit_time }}</p>
+                </div>
+                <div class="top_c">
+                    <p class="con_tit">项目阶段</p>
+                    <p class="con_span">{{ projectDetail.stage_id }}</p>
+                    <p class="con_tit">项目进度说明</p>
+                    <p class="con_span">{{ projectDetail.project_explain }}</p>
+                </div>
+                <div class="right">
+                    <p class="con_tit">项目进度</p>
+                    <p class="con_span">{{ projectDetail.percentage }} %</p>
+                </div>
             </div>
-            <div class="right">
-                <p class="con_tit">本周工作计划</p>
-                <span class="con_span wid">1.完成设计完成设计完成设计完成设计完成设计完成完成设计完成设计完成设计</span>
+            <div class="con_but">
+                <div class="left">
+                    <p class="con_tit">上周工作内容</p>
+                    <span class="con_span wid">{{ projectDetail.last_week_content }}</span>
+                </div>
+                <div class="right">
+                    <p class="con_tit">本周工作计划</p>
+                    <span class="con_span wid">{{ projectDetail.this_week_plan }}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -62,10 +93,46 @@
                 weekly_id: '',
                 details: {
                     
-                }
+                },
+                userList: [],
+                projectDetail: {
+                    end_time: '',
+                    id: '',
+                    last_week_content: '',
+                    name: '',
+                    percentage: '',
+                    project_explain: '',
+                    project_id: '',
+                    stage_id: '',
+                    start_time: '',
+                    submit_person_id: '',
+                    submit_time: '',
+                    this_week_plan: '',
+                    type: '',
+                    week_num: ''
+                },
+                userItemDetail: {
+                    end_time: '',
+                    id: '',
+                    last_week_content: '',
+                    name: '',
+                    percentage: '',
+                    project_explain: '',
+                    project_id: '',
+                    stage_id: '',
+                    start_time: '',
+                    submit_person_id: '',
+                    submit_time: '',
+                    this_week_plan: '',
+                    type: '',
+                    week_num: ''
+                },
+                showProject: true,
+                activeFoucs: -1
             }
         },
         methods: {
+            // 获取项目周报信息和人员信息
             getDetail: function() {
                 var _this = this;
                 $.ajax({
@@ -78,9 +145,37 @@
                         id: _this.weekly_id
                     },
                     success: function (res) {
-                        console.log(res.data)
+                        _this.userList = res.data.res;
+                        _this.projectDetail = res.data.ures[0];
                     }
                 })
+            },
+            // 点击每个人获取每个人的周报
+            getUserWeekly: function(id, idx) {
+                var _this = this;
+                
+                this.activeFoucs = idx;
+                this.showProject = false;
+
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "{:U('ProjectWeekly/weeklyDetails')}",
+                    dataType: "json",
+                    data: {
+                        project_id: _this.project_id,
+                        id: _this.weekly_id
+                    },
+                    success: function (res) {
+                        _this.userList = res.data.res;
+                        _this.projectDetail = res.data.ures[0];
+                    }
+                })  
+            },
+            // 点击项目周报
+            foucsProject: function() {
+                this.showProject = true;
+                this.activeFoucs = -1;
             }
         },
         created: function() {
