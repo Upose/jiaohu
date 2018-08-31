@@ -83,21 +83,37 @@ class ProjectEventController extends BaseController
     }
     //文件上传
     public function uploadFile(){
-    
-        $imgname = $_FILES['photo']['name'];
+        
+        $fileArray = $_FILES['photo'];
+        var_dump($fileArray);die;
+        $upload_dir= './Updata/Image/';
+        foreach ($fileArray['name'] as $key =>$value){
+                 //var_dump($fileArray['name']);die;
+                $temp_name = $fileArray['tmp_name'][$key];
+                $file_name = $fileArray['name'][$key];
+                
+                $path=$upload_dir.$file_name;
+                
+                if(move_uploaded_file($temp_name,$path)){
 
-        $tmp = $_FILES['photo']['tmp_name'];
-         
-        $filepath = './Updata/Image/';
-        $path=move_uploaded_file($tmp,$filepath.'.'.$imgname);
-    
-        if(!$path){
-            $this->Response(0,'上传失败','');
-        }else{
-            $res=$this->res=ProjectEventModel::uploadFile($path);
-            $this->Response(0,'上传成功','');
+                   $this->Response(0,'上传成功','');  
+                }else{
+                   $this->Response(0,'上传失败','');
+                }
+                // $ext=pathinfo($value,PATHINFO_EXTENSION);
+                // $temp_name = $fileArray['tmp_name'][$key];
+                // $a=date('Y-m-d');
+                // $b=substr(md5(time()),0,5);
+                
+                // $file_name=$upload_dir.$a.$b.'.'.$ext;
+                // move_uploaded_file($temp_name,$file_name);
+                
+
         }
 
+           
+
+       
     }
     /**
      *事件列表接口
