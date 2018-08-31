@@ -186,7 +186,8 @@
                             height: '50px',
                             margin: '5px',
                             border: '1px dashed #979797',
-                            'fontSize': '12px'
+                            'fontSize': '12px',
+                            'overFlow': 'hidden'
                         }).html(item.name);
                     
                         $(el).append(div);
@@ -245,9 +246,25 @@
                             var layer = layui.layer;
                             layer.alert('请确保信息输入完整!');
                         })
+                    } else if(this.compareDate(this.start_time, this.end_time)) {
+                        layui.use('layer', function() {
+                            var layer = layui.layer;
+                            layer.alert('开始时间不能大于结束时间!');
+                        })
                     } else {
                         this.submitText();
                         this.submitFile();
+                    }
+                },
+                // 比较时间
+                compareDate: function(s, e) {
+                    var sTime = new Date(s).getTime();
+                    var eTime = new Date(e).getTime();
+
+                    if(s < e) {
+                        return true;
+                    } else {
+                        return false;
                     }
                 }
             }
