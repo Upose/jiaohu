@@ -112,6 +112,8 @@
                     for(var i = 0; i < fs.length; i++) {
                         formData.append(fs[i].name, fs[i]);
                     }
+                    console.log(formData.getAll('a'))
+                    return
                     $.ajax({
                         cache: false,
                         type: "POST",
@@ -249,7 +251,7 @@
                             layer.alert('请确保信息输入完整!');
                         })
                     } else {
-                        this.submitText();
+                        // this.submitText();
                         this.submitFile();
                     }
                 }
