@@ -15,7 +15,7 @@
 
 <body>
     <div id="con">
-        <p class="tit">{{ projectDetail.week_num }}</p>
+        <p class="tit">{{ projectDetail.name }}</p>
         <div>
             <button :class="activeFoucs == -1 ? 'one down' : 'one'" style="cursor: pointer;" @click="foucsProject">项目周报</button>
             <button :class="activeFoucs == idx ? 'one down' : 'one'" style="margin: 5px; cursor: pointer;" v-for="(idx, item) in userList" @click="getUserWeekly(item.id, idx)">{{ item.name }}</button>
@@ -171,7 +171,6 @@
                     },
                     success: function (res) {
                         _this.userItemDetail = res.data[0];
-                        console.log(res.data[0])
                     }
                 })  
             },
