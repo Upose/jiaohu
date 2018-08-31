@@ -161,6 +161,7 @@
                     
                     return result;
                 },
+                // 上传文件列表
                 updateFileList: function() {
                     var files = $('#cus-ipt')[0].files;
                     var _this = this;
@@ -173,6 +174,7 @@
                         _this.showThumbnails(files, $('.cus-files-content'));
                     }
                 },
+                // 显示缩略图
                 showThumbnails: function(files ,el) {
                     ;[].slice.call(files).forEach(function (item, idx) {
                         var reader = new FileReader();

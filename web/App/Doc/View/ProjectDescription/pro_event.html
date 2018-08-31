@@ -36,7 +36,7 @@
                 <td>{{ item.person_name }}</td>
                 <td>{{ item.start_time }}</td>
                 <td>{{ item.end_time }}</td>
-                <td><a @click="view(listData.project_id)">详情</a></td>
+                <td><a @click="view(item.id)">详情</a></td>
             </tr>
         </table>
         <div id="test1"></div>
@@ -93,7 +93,8 @@
             view(id) {
                 // window.location.href = "{:U('ProjectDescription/new_demand')}"+"&id="+ id;
                 // window.location.href = "{:U('ProjectDescription/event_view')}";
-                 window.location.href = "{:U('ProjectDescription/event_view&id="+ id +"')}";
+                var _this = this;
+                 window.location.href = "{:U('ProjectDescription/event_view&id="+ _this.listData.project_id +"&proId="+ id +"')}";
             },
             search(id) {
                 this.getEventList();                
