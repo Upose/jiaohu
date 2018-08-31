@@ -15,7 +15,7 @@
 <body>
     <div id="event-view">
         <div class="details_left">
-            <button @click="return()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
+            <button @click="goBack" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
             <span class="tit">事件详情</span>
             <div><label class="tit_lab">事件名称</label><span class="con_span">{{ result.name }}</span></div>
             <div><label class="tit_lab">事件类型</label><span class="con_span">{{ result.type }}</span></div>
@@ -59,6 +59,7 @@
             }
         },
         methods: {
+            // 获取详情信息
             getEventDetail: function() {
                 var _this = this;
                 $.ajax({
@@ -73,6 +74,9 @@
                         console.log(_this.result)
                     }
                 })
+            },
+            goBack: function() {
+                window.location.go(-1);
             }
         },
         created: function() {

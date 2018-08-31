@@ -120,7 +120,7 @@
                         processData: false,
                         contentType: false,
                         success: function(res) {
-                            console.log(res)
+                            console.log(res.data);
                         }
                     })
                 },
@@ -168,7 +168,6 @@
                     $('.cus-warning').show();
             
                     var res = _this.testUpload(files);
-            
                     if (res) {
                         $('.cus-warning').hide();
                         _this.showThumbnails(files, $('.cus-files-content'));
@@ -176,14 +175,18 @@
                 },
                 // 显示缩略图
                 showThumbnails: function(files ,el) {
+                    $('.cus-files-content').html('');
                     ;[].slice.call(files).forEach(function (item, idx) {
                         var reader = new FileReader();
                         var div = document.createElement('div');
-                    
-                        div.className = 'cus-img';
                         $(div).css({
                             display: 'inline-block',
-                            vertiaclAlign: 'top'
+                            verticalAlign: 'top',
+                            width: '50px',
+                            height: '50px',
+                            margin: '5px',
+                            border: '1px dashed #979797',
+                            'fontSize': '12px'
                         }).html(item.name);
                     
                         $(el).append(div);
