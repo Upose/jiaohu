@@ -129,7 +129,15 @@ class ProjectWeeklyModel
                 a.project_id = project_id
             and  b.id!='1'";
         $res = M()->query($sql);   
-        $usql="select * from project_weekly where id = '$id' and project_id = '$project_id'";
+        $usql="SELECT
+                    a.*, b. NAME AS personname,c.name as stagename
+                FROM
+                    project_weekly AS a
+                LEFT JOIN project_member AS b ON a.submit_person_id = b.person_id
+                left join project_stage as c on a.stage_id=c.id
+                WHERE
+                    a.id = '$id'
+                AND a.project_id = $project_id";
 
         $ures = M()->query($usql);
 
@@ -141,6 +149,17 @@ class ProjectWeeklyModel
         return  $result;
     }
 
+    public function personReport($id){
+        $sql="SELECT
+                *
+            FROM
+                project_member AS a
+            LEFT JOIN project_weekly AS b ON a.person_id = b.submit_person_id
+            where b.type=2
+            and a.id='$id'";
+        $res = M()->query($sql); 
+        return  $res;  
+    }
     public function showid($user_id)
     {
 

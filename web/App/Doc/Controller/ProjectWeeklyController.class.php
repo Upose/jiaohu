@@ -290,5 +290,15 @@ class ProjectWeeklyController extends BaseController
        
     }
 
+    //个人周报详情
+    public function personReport(){
+        $id=I('id');
+        $personReport=
+        $this->res=
+        ProjectWeeklyModel::
+        personReport($id);
+        $this->Response(0,$personReport,'');
+    }
+
 
 }
