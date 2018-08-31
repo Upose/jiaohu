@@ -83,9 +83,9 @@ class ProjectEventController extends BaseController
     }
     //文件上传
     public function uploadFile(){
-        
+        $arr=array();
         $fileArray = $_FILES['photo'];
-        var_dump($fileArray);die;
+        //var_dump($fileArray);die;
         $upload_dir= './Updata/Image/';
         foreach ($fileArray['name'] as $key =>$value){
                  //var_dump($fileArray['name']);die;
@@ -94,22 +94,18 @@ class ProjectEventController extends BaseController
                 
                 $path=$upload_dir.$file_name;
                 
-                if(move_uploaded_file($temp_name,$path)){
-
-                   $this->Response(0,'上传成功','');  
-                }else{
-                   $this->Response(0,'上传失败','');
-                }
-                // $ext=pathinfo($value,PATHINFO_EXTENSION);
-                // $temp_name = $fileArray['tmp_name'][$key];
-                // $a=date('Y-m-d');
-                // $b=substr(md5(time()),0,5);
-                
-                // $file_name=$upload_dir.$a.$b.'.'.$ext;
-                // move_uploaded_file($temp_name,$file_name);
-                
-
+                $boole=move_uploaded_file($temp_name,iconv("UTF-8", "gbk",$path));
+                array_push($arr,$boole);
         }
+        // var_dump($arr);die;
+        foreach ($arr as $key => $value) {
+           if(!$value){
+              $this->Response(1,'添加失败','');
+           }
+          
+        }
+
+        $this->Response(1,'上传成功','');
 
            
 
