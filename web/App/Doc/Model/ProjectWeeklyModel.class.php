@@ -151,10 +151,11 @@ class ProjectWeeklyModel
 
     public function personReport($id){
         $sql="SELECT
-                *
+                a.name as personname,b.*,c.name as stagename
             FROM
                 project_member AS a
             LEFT JOIN project_weekly AS b ON a.person_id = b.submit_person_id
+            left join project_stage as c on b.stage_id=c.id
             where b.type=2
             and a.id='$id'";
         $res = M()->query($sql); 
