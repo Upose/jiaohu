@@ -46,7 +46,7 @@ width: 80%;
                     <li class="layui-nav-item">
                         <a  href="#">共同成长</a>
                     </li>
-                    <li class="layui-nav-item">
+                    <li class="layui-nav-item layui-this">
                         <a  href="<?php echo U('BackstageManagement/index');?>">后台管理</a>
                     </li>
                 </ul>

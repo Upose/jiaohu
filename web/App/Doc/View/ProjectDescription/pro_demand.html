@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>需求管理</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
     <link rel="stylesheet" href="__CSS__/pro_demand.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__STATIC__/vue.min.js"></script>
+    <script src="__DOCLAY__/plugins/layui/layui.js"></script> 
 </head>
 
 <body class="app">
@@ -27,8 +29,6 @@
             <td>需求调研人</td>
             <td>调研开始时间</td>
             <td>调研结束时间</td>
-            <td>需求项</td>
-            <td>需求背景</td>
             <td>操作</td>
         </tr>
         <tr v-for="i in data" class="tr2">
@@ -36,12 +36,11 @@
             <td>{{i.kname}}</td>
             <td>{{i.dname}}</td>
             <td>{{i.start_time}}</td>
-            <td>{{i.end_time}}</td>
-            <td>{{i.xuqiu_back}}</td>   
-            <td>{{i.content}}</td>
-            <td><a @click="view()">查看</a>&nbsp;&nbsp;<a @click="design()">编辑</a></td>
+            <td>{{i.end_time}}</td>  
+            <td><a @click="view(i.id)">查看</a>&nbsp;&nbsp;<a @click="design(i.id,Uid)">编辑</a></td>
         </tr>
     </table>
+    <div id="test3"></div>
 </body>
 <script>
     var app = new Vue({
@@ -49,6 +48,7 @@
         data: {
             data:[],
             Uid:"",
+            counts:"",
         },
         created: function () {
             this.Uid = "{$pro_id}";
@@ -60,12 +60,12 @@
                 window.location.href = "{:U('ProjectDescription/new_demand')}"+"&id="+ id;
             },
             view(id){
-                // window.location.href = "{:U('ProjectDescription/new_demand')}"+"&id="+ id;
-                window.location.href = "{:U('ProjectDescription/demand_view')}";
+                window.location.href = "{:U('ProjectDescription/demand_view')}"+"&id="+ id;
+                // window.location.href = "{:U('ProjectDescription/demand_view')}";
             },
-            design(id){
-                // window.location.href = "{:U('ProjectDescription/new_demand')}"+"&id="+ id;
-                window.location.href = "{:U('ProjectDescription/demand_design')}";
+            design(id,Uid){
+                window.location.href = "{:U('ProjectDescription/demand_design')}"+"&id="+ id + "&Uid=" + Uid;
+                // window.location.href = "{:U('ProjectDescription/demand_design')}";
             },
             getdata(id){
                 var that = this;
@@ -76,7 +76,10 @@
                     dataType: "json",
                     data:{pid:id},
                     success: function (data) {
-                        that.data=data.data;
+                        that.data=data.data.res;
+                        that.counts=data.data.counts;
+                        console.log(data.data.res);
+                        that.layPage(that.counts); //分页
                     }
                 })
             },
@@ -95,6 +98,29 @@
                         that.data=data.data;
                     }
                 })
+            },
+            // 分页
+            layPage() {
+                var _this = this;
+                layui.use('laypage', function () {
+                    var laypage = layui.laypage;
+                    laypage.render({
+                        elem: 'test3'
+                        , count:_this.counts
+                        , limit:10
+                        , curr:_this.pageIndex
+                        , jump: function (obj, first) {
+                            //obj包含了当前分页的所有参数
+                            //首次不执行
+                            if(first) {
+                                return false;
+                            }
+                            _this.pageIndex = obj.curr;
+                            _this.limit = obj.limit;
+                            _this.getdata();
+                        }
+                    });
+                });        
             },
         },
     })

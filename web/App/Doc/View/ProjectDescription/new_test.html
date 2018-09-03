@@ -13,54 +13,54 @@
 </head>
 
 <body class="app">
-    <form action="{:U('ProjectNeed/needadd')}" method="POST" enctype="multipart/form-data">
+    <form action="{:U('ProjectDevelopment/bugAdd')}" method="POST" enctype="multipart/form-data">
         <button @click="return()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
-        <input type="hidden" name="pid" :value="Uid" />
+        <input type="hidden" name="project_id" :value="Uid" />
         <span class="new_span">新增测试</span>
         <label class="tit">问题名称</label>
-        <input class="name_input" type="text" name="title" placeholder="请输入信息" required><br>
+        <input class="name_input" type="text" name="name" placeholder="请输入信息" required><br>
         <label class="tit">紧急程度</label>
-        <input @click="dis(0)" style="cursor: pointer;" class="radio_input" type="radio" name="priority" value="1" v-model="titVal">新增设计
-        <input @click="dis(0)" style="cursor: pointer;" class="radio_input" type="radio" name="priority" value="2" v-model="titVal">功能调整
-        <input @click="dis(1)" style="cursor: pointer;" class="radio_input" type="radio" name="priority" value="3" v-model="titVal">样式调整<br>
+        <input style="cursor: pointer;" class="radio_input" type="radio" name="urgency" value="1" v-model="titVal">紧急
+        <input style="cursor: pointer;" class="radio_input" type="radio" name="urgency" value="2" v-model="titVal">重要
+        <input style="cursor: pointer;" class="radio_input" type="radio" name="urgency" value="3" v-model="titVal">一般
+        <input style="cursor: pointer;" class="radio_input" type="radio" name="urgency" value="4" v-model="titVal">优化<br>
         <div class="div1">
             <div class="form_div2">
                 <label class="tit">问题描述</label>
-                <textarea name="xuqiu_back" cols="40" rows="7" placeholder="请输入信息" required></textarea>
+                <textarea name="summary" cols="40" rows="7" placeholder="请输入信息" required></textarea>
             </div><br>
             <div class="form_div2">
-                <label class="tit">问题描述</label>
-                <select class="name_input" name="" id="">
-                    <option value="">张三</option>
+                <label class="tit">处理人员</label>
+                <select class="name_input" name="handle_person_id" id="">
+                    <option v-for="i in list" :value="i.id">{{i.name}}</option>
                 </select>
             </div><br>
-
         </div>
 
         <div class="div1" style="position: absolute;">
-            <!-- <div class="form_div2" style="vertical-align: top;">
-                <label class="tit">上传文件</label>
-                <div class="cus-files" id="cus-form">
-                    <input type="file" name="photo[]" id="cus-ipt" class="cus-files-input" multiple="multiple" accept=".jpg,.png,.git" />
-                    <div class="cus-files-content">
-                        <img src="__IMG__/up@2x.png">
-                        <div class="cus-warning">
-                            <img class="img1" src="__IMG__/up@2x.png">
-                            <p class="cus-warning-item">点击或将文件拖拽到这里上传</p>
-                            <p class="cus-warning-item">文件最大不能超过: 10M</p>
-                            <p class="cus-warning-item">支持扩展名：.word.pdf 最多6个</p>
-                        </div>
-                    </div>
-                </div>
-            </div><br> -->
-            <div class="form_div1 tab_choose">
+            <!-- <div class="form_div1 tab_choose">
                 <div class="html">
                     <label class="tit">上传附件:</label>
                     <p class="input_div">
                         <input class="file" name="content" value="" type="file" accept="file" id="picture">
                     </p>
                 </div>
-            </div>
+            </div> -->
+
+            <div class="form_div2" style="vertical-align: top;">
+                <label class="tit">上传文件</label>
+                <div class="cus-files" id="cus-form">
+                    <input type="file" name="photo[]" id="cus-ipt" class="cus-files-input" multiple="multiple" accept=".jpg,.png,.git" />
+                    <div class="cus-files-content">
+                        <div class="cus-warning">
+                            <img class="img1" src="__IMG__/up@2x.png">
+                            <p class="cus-warning-item">点击或将文件拖拽到这里上传</p>
+                            <p class="cus-warning-item">支持扩展名：.word.pdf 最多6个</p>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+
         </div>
         <div class="line"></div>
         <button class="but" type="button">取消</button>
@@ -75,11 +75,12 @@
         el: ".app",
         data: {
             Uid: "",
+            list:"",
         },
         created: function () {
             // 获取上个页面传递回来的ID
             var url = location.search;
-            console.log(url);
+            // console.log(url);
             var theRequest = new Object();
             if (url.indexOf("?") != -1) {
                 var str = url.substr(1); //substr()方法返回从参数值开始到结束的字符串；
@@ -89,10 +90,28 @@
                 }
             }
             this.Uid = theRequest.id;
-            console.log(this.Uid);
+            // console.log(this.Uid);
+            this.getdata(this.Uid);
         },
         methods: {
             return() { window.history.go(-1) },
+            getdata(id) {
+                console.log(id);
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectDevelopment/project_member')}",
+                    dataType: "json",
+                    data: {
+                        project_id: id,
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        that.list=data;
+                    }
+                })
+            },
         },
     });
 

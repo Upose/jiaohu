@@ -123,20 +123,14 @@ class ProjectDevelopmentModel
     	$urgency,$summary,$handle_person_id)
     {
 
-    	//提交时间
-    	$submit_time = date('Y-m-d',time());
-
-    	//提交人id
-    	$submit_person_id =$_SESSION['user_id'];
-    	
     	$sql = "insert into project_bug
     	  		(id,name,project_id,urgency,
-    	  		summary,submit_time,submit_person_id,
+    	  		summary,submit_time,submit_person_id,state,
     	  		handle_person_id) 
     	  		values 
     	 		('','$name',$project_id,$urgency,
     	 		'$summary','$submit_time',
-    	 		$submit_person_id,$handle_person_id)";
+    	 		$submit_person_id,$state,$handle_person_id)";
 
     	$bug_id = M()->execute($sql);
 
@@ -281,8 +275,6 @@ class ProjectDevelopmentModel
 		pb.state from project_bug pb
 		join person p 
 		on p.id = pb.submit_person_id 
-		-- join project_bugImage pbi 
-		-- on pbi.project_bug_id = pb.id
 		where pb.id = $id";
 
 		$res = M()->query($sql);
@@ -320,7 +312,8 @@ class ProjectDevelopmentModel
         $fsql = "SELECT pbi.path 
         from project_bugImage pbi
         join project_bug pb
-        on pbi.project_bug_id = pb.id";
+        on pbi.project_bug_id = pb.id
+        where pbi.project_bug_id = $id";
 
         $path = M()->query($fsql);
         $temp['path'] = $path;
@@ -391,7 +384,7 @@ class ProjectDevelopmentModel
 
 
     /**
-     * 需求处理
+     * bug处理
      * @author fang.yu
      * 2018.8.24
      */

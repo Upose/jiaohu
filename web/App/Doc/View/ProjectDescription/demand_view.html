@@ -12,25 +12,69 @@
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
 </head>
 
-<body>
+<body class="app">
     <div class="details_left">
         <button @click="return()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
         <span class="tit">需求详情</span>
-        <div><label class="tit_lab">需求名称</label><span class="con_span">售前宣讲</span></div>
-        <div><label class="tit_lab">甲方对接人</label><span class="con_span">小测试</span></div>
-        <div><label class="tit_lab">需求调研人</label><span class="con_span">大测试</span></div>
-        <div><label class="tit_lab">时间</label><span class="con_span">2018-01-11 至 2018-01-12</span></div>
-        <div><label class="tit_lab">需求背景</label><div class="div_sty">客户要求说标题需要放置中间，明显大气 客户要求说标题需要放置中间，明显大气</div></div>
+        <div><label class="tit_lab">需求名称</label><span class="con_span">{{data.name}}</span></div>
+        <div><label class="tit_lab">甲方对接人</label><span class="con_span">{{data.kname}}</span></div>
+        <div><label class="tit_lab">需求调研人</label><span class="con_span">{{data.dname}}</span></div>
+        <div><label class="tit_lab">时间</label><span class="con_span">{{data.start_time}} 至 {{data.end_time}}</span></div>
+        <div><label class="tit_lab">需求背景</label><div class="div_sty">{{data.xuqiu_back}}</div></div>
     </div>
     <div class="details_right">
         <span class="tit">附件下载</span>
         <div class="down_word">
-            <p><img src="__IMG__/down_icon.png">&nbsp;<a href="" download>文件名称XXXXXX.word</a></p>
+            <p><img src="__IMG__/down_icon.png">&nbsp;<a :href="data.content[0]" download>{{data.name}} 的word文件</a></p>
         </div>
         <div class="down_ppt">
-            <p><img src="__IMG__/down_icon.png">&nbsp;<a href="" download>文件名称XXXXXX.ppt</a></p>
+            <p><img src="__IMG__/down_icon.png">&nbsp;<a :href="data.content[1]" download>{{data.name}} 的ppt文件</a></p>
         </div>
     </div>
 </body>
 
+<script>
+    var app = new Vue({
+        el: ".app",
+        data: {
+            Uid:"",
+            data: [],
+            is_handle:"",
+        },
+        created: function () {
+            // // 获取上个页面传递回来的ID
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1); //substr()方法返回从参数值开始到结束的字符串；
+                var strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            this.Uid = theRequest.id;
+            this.getdata(this.Uid);
+            console.log(this.Uid);
+        },
+        methods: {
+            getdata(id) { 
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectNeed/needcheck')}",
+                    dataType: "json",
+                    data:{ id:id },
+                    success: function (data) {
+                        console.log(data.data[0]);
+                        that.data=data.data[0];
+                    }
+                })
+            },
+            return(){ 
+                window.history.go(-1) 
+            },
+        }
+    })
+</script>
 </html>
