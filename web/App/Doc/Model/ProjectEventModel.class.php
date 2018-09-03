@@ -50,9 +50,9 @@ class ProjectEventModel
         
     }
     //保存路径到数据库
-    public function uploadFile($path,$event_id,$file_name){
+    public function uploadFile($path,$event_id,$file_name,$project_id){
         
-        $sql = "insert into project_event_file(path,event_id,name) values ('$path','$event_id','$file_name')";
+        $sql = "insert into project_event_file(path,event_id,name,project_id) values ('$path','$event_id','$file_name','$project_id')";
 
     	$res = M()->execute($sql);
 
