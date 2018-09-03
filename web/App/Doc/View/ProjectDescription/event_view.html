@@ -29,11 +29,8 @@
         </div>
         <div class="details_right">
             <span class="tit">附件下载</span>
-            <div class="down_word">
-                <p><img src="__IMG__/down_icon.png">&nbsp;<a href="" download>文件名称XXXXXX.word</a></p>
-            </div>
-            <div class="down_ppt">
-                <p><img src="__IMG__/down_icon.png">&nbsp;<a href="" download>文件名称XXXXXX.ppt</a></p>
+            <div class="down_word" v-for="(idx, item) in fileList" :key="idx">
+                <p><img src="__IMG__/down_icon.png">&nbsp;<a :href="item.path" download>{{ item.name }}</a></p>
             </div>
         </div>
     </div>
@@ -55,7 +52,8 @@
                     summary: '',
                     type: '',
                     we_person: ''
-                }
+                },
+                fileList: []
             }
         },
         methods: {
@@ -71,7 +69,20 @@
                     data: {event_id: _this.event_id, project_id: _this.project_id},
                     success: function(res) {
                         _this.result = res.data[0];
-                        console.log(_this.result)
+                    }
+                })
+            },
+            download: function() {
+                var _this = this;
+                $.ajax({
+                    cache: false,
+                    async: false,
+                    type: "POST",
+                    url: "{:U('ProjectEvent/downLoad')}",
+                    dataType: 'json',
+                    data: {event_id: _this.event_id, project_id: _this.project_id},
+                    success: function(res) {
+                        _this.fileList = res.data;
                     }
                 })
             },
@@ -84,6 +95,7 @@
             this.project_id = url.match(/[id=, proId=]\d+/g)[0].substring(1);
             this.event_id = url.match(/[id=, proId=]\d+/g)[1].substring(1);
             this.getEventDetail();
+            this.download();
         }
     })
 </script>

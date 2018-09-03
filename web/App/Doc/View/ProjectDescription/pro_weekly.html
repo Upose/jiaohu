@@ -100,7 +100,7 @@
                     data: {project_id: _this.Uid, page: _this.page},
                     success: function(res) {
                         _this.data = res.data;
-                        _this.listCount = res.data.length;
+                        _this.listCount = res.count;
                     }
                 })
             }

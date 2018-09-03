@@ -110,7 +110,7 @@
                     dataType: "json",
                     data: _this.listData,
                     success: function (res) {
-                        _this.listCount = res.data.length;
+                        _this.listCount = res.count;
                         _this.result = res.data;
                     }
                 })
