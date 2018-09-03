@@ -38,7 +38,7 @@ class ProjectEventModel
     	  	we_person,first_party_person,other_person,
     	  	summary) values 
     	 	('','$name',$project_id,$type_id,
-    	 	$submit_person_id,
+    	 	'$submit_person_id',
     	 	'$start_time','$end_time','$we_person',
     	 	'$first_party_person','$other_person',
     	 	'$summary')";
