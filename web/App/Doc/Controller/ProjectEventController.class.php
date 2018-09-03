@@ -104,12 +104,15 @@ class ProjectEventController extends BaseController
         // var_dump($arr);die;
         foreach ($arr as $key => $value) {
             if(!$value){
-               $this->Response(1,'添加失败','');
+               $this->Response(1,'上传失败','');
            }  
         }
 
         $this->Response(1,'上传成功','');
-   
+
+           
+
+       
     }
     /**
      *事件列表接口
