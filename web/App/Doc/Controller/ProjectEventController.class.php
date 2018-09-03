@@ -162,7 +162,13 @@ class ProjectEventController extends BaseController
 	    $this->Response(0,$res,'');
     }
 
-
+    //事件文件下载
+    public function downLoad(){
+        $event_id = I('event_id');
+        $project_id = I('project_id');
+        $res=$this->res=ProjectEventModel::downLoad($event_id,$project_id);
+        $this->Response(0,$res,'');
+    }
 
 
 

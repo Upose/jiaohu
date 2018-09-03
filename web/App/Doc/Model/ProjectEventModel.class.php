@@ -171,8 +171,21 @@ class ProjectEventModel
     }
 
 
+    //事件文件下载
+    public function downLoad($event_id,$project_id){
+        $sql = "SELECT
+                    NAME,
+                    path
+                FROM
+                    project_event_file
+                WHERE
+                    event_id = '$event_id'
+                AND project_id ='$project_id'";
 
+        $res = M()->query($sql);
 
+        return $res;
+    }
 
 
 }
