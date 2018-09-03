@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>测试管理</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
     <link rel="stylesheet" href="__CSS__/test.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__STATIC__/vue.min.js"></script>
+    <script src="__DOCLAY__/plugins/layui/layui.js"></script> 
 </head>
 
 <body class="app">
@@ -18,17 +20,17 @@
         <!-- 未完成 -->
         <div class="und_div">
             <span>未处理</span><br>
-             <span class="num">21</span>
+            <span class="num">{{data.unDo}}</span>
         </div>
         <!-- 进行中 -->
         <div class="on_div">
             <span>进行中</span><br>
-             <span class="num">21</span>
+            <span class="num">{{data.doing}}</span>
         </div>
         <!-- 已完成 -->
         <div class="out_div">
             <span>已完成</span><br>
-             <span class="num">21</span>
+            <span class="num">{{data.done}}</span>
         </div>
     </div>
     <!-- 最上层搜索栏 -->
@@ -46,39 +48,97 @@
             <td>状态</td>
             <td>操作</td>
         </tr>
-        <tr class="tr2">
-            <td>st124</td>
-            <td>我是内容我是内容我是内容我是内容</td>
-            <td>紧急</td>
-            <td>2018-02-13 13:12:45</td>
-            <td>分类</td>
-            <td>测试中</td>
-            <td><a @click="details()">详情</a></td>
+        <tr v-for="i in list" class="tr2">
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>
+                <span v-show="i.urgency == 1" class="con_span"><span class="red"></span>紧急</span>
+                <span v-show="i.urgency == 2" class="con_span"><span class="org"></span>重要</span>
+                <span v-show="i.urgency == 3" class="con_span"><span class="blu"></span>一般</span>
+                <span v-show="i.urgency == 4" class="con_span"><span class="gre"></span>优化</span>
+            </td>
+            <td>{{i.submit_time}}</td>
+            <td>{{i.handle_person}}</td>
+            <td>{{i.state}}</td>
+            <td><a @click="details(i.id)">详情</a></td>
         </tr>
     </table>
+    <div id="test3"></div>
 </body>
 <script>
     var app = new Vue({
         el: ".app",
         data: {
-            data:[],
-            Uid:"",
+            data: [],
+            Uid: "",
+            list: "",
+            design_address: "",
+            prototype_address: "",
+            pageIndex: 1,
+            limit: 10,
+            count: ''
         },
         created: function () {
-            // this.Uid = "{$pro_id}";
-            // this.getdata(this.Uid);
+            this.Uid = "{$pro_id}";
+            this.getdata(this.Uid);
             // console.log(this.Uid);
         },
         methods: {
-            new_pro(Uid){
-                // window.location.href = "{:U('ProjectDescription/new_test')}"+"&id="+ id;
-                window.location.href = "{:U('ProjectDescription/new_test')}";
+            new_pro(id) {
+                window.location.href = "{:U('ProjectDescription/new_test')}"+"&id="+ id;
+                // window.location.href = "{:U('ProjectDescription/new_test')}";
             },
-            details(Uid){
-                // window.location.href = "{:U('ProjectDescription/new_test')}"+"&id="+ id;
-                window.location.href = "{:U('ProjectDescription/test_details')}";
+            details(id) {
+                window.location.href = "{:U('ProjectDescription/test_details')}"+"&id="+ id;
+                // window.location.href = "{:U('ProjectDescription/test_details')}";
+            },
+            getdata(id) {
+                console.log(id);
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectDevelopment/bugList')}",
+                    dataType: "json",
+                    data: {
+                        project_id: id,
+                        page: that.pageIndex || 1
+                    },
+                    success: function (data) {
+                        // console.log(data);
+                        that.count = data.data.listNum;
+                        that.layPage(id); //分页
+                        that.data=data.data.count;
+                        that.list=data.data.list;
+                    }
+                })
+            },
+            // 分页
+            layPage(id) {
+                var _this = this;
+                layui.use('laypage', function () {
+                    var laypage = layui.laypage;
+                    laypage.render({
+                        elem: 'test3'
+                        , count: _this.count
+                        , limit: 10
+                        , curr: _this.pageIndex
+                        , jump: function (obj, first) {
+                            //obj包含了当前分页的所有参数
+                            //首次不执行
+                            if (first) {
+                                return false;
+                            }
+                            // console.log(">>>", obj.curr)
+                            _this.pageIndex = obj.curr;
+                            _this.limit = obj.limit;
+                            _this.getdata(id);
+                        }
+                    });
+                });
             },
         }
     })
 </script>
+
 </html>

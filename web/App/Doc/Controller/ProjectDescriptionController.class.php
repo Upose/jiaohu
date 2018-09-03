@@ -61,7 +61,7 @@ class ProjectDescriptionController extends BaseController{
         $this->display();
     }
 
-     /**
+    /**
     *设计管理模块输出
     *@author fang.yu
     *2018.8.16
@@ -74,13 +74,25 @@ class ProjectDescriptionController extends BaseController{
         $this->display();
     }
 
-
     /**
-    *开发管理模块输出
+    *开发信息模块输出
     *@author fang.yu
     *2018.8.16
     */
-    public function pro_development()
+    public function infor()
+    {
+        //先获取id再渲染出去
+        $id = I("id");
+        $this->assign("pro_id",$id);
+        $this->display();
+    }
+
+     /**
+    *开发信息模块输出
+    *@author fang.yu
+    *2018.8.16
+    */
+    public function test()
     {
         //先获取id再渲染出去
         $id = I("id");
@@ -102,12 +114,28 @@ class ProjectDescriptionController extends BaseController{
         $this->display();
     }
 
-    /**
-    *设计管理模块输出
+
+
+     /**
+    *重大事件模块输出
     *@author fang.yu
     *2018.8.16
     */
     public function pro_event()
+    {
+        //先获取id再渲染出去
+        $id = I("id");
+        $this->assign("pro_id",$id);
+        $this->display();
+    }
+
+
+     /**
+    *开发管理模块输出
+    *@author fang.yu
+    *2018.8.16
+    */
+    public function pro_development()
     {
         //先获取id再渲染出去
         $id = I("id");

@@ -12,34 +12,33 @@
     <script src="__STATIC__/vue.min.js"></script>
 </head>
 
-<body>
+<body class="app">
     <div class="details_left">
         <button @click="return()" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
         <span class="tit">需求详情</span>
-        <img class="status_img" src="__IMG__/un_icon.png">
-        <div><label class="tit_lab">问题名称</label><span class="con_span">首页设计</span></div>
+        <img v-show="data.state ==1" class="status_img" src="__IMG__/un_icon.png">
+        <img v-show="data.state ==2" class="status_img" src="__IMG__/on_icon.png">
+        <img v-show="data.state ==3" class="status_img" src="__IMG__/carry_icon.png">
+        <div><label class="tit_lab">问题名称</label><span class="con_span">{{data.name}}</span></div>
         <div><label class="tit_lab">紧急程度</label>
-            <span class="con_span"><span class="red"></span>紧急</span>
-            <span class="con_span"><span class="org"></span>重要</span>
-            <span class="con_span"><span class="blu"></span>一般</span>
-            <span class="con_span"><span class="gre"></span>优化</span>
+            <span v-show="data.urgency==1" class="con_span"><span class="red"></span>紧急</span>
+            <span v-show="data.urgency==2" class="con_span"><span class="org"></span>重要</span>
+            <span v-show="data.urgency==3" class="con_span"><span class="blu"></span>一般</span>
+            <span v-show="data.urgency==4" class="con_span"><span class="gre"></span>优化</span>
         </div>
         <div>
             <label class="tit_lab">问题描述</label>
             <div>
-                <span class="con_span">客户要求说标题需要放置中间，明显大气 客户要求说标题需要放置中间，明显大气 </span>
+                <span class="con_span">{{data.summary}}</span>
             </div>
         </div>
-        <div><label class="tit_lab">处&ensp;理&ensp;人</label><span class="con_span">新增设计</span></div>
-        <div><label class="tit_lab">提&ensp;交&ensp;人</label><span class="con_span">新增设计</span></div>
+        <div><label class="tit_lab">处&ensp;理&ensp;人</label><span class="con_span">{{data.handle_person}}</span></div>
+        <div><label class="tit_lab">提&ensp;交&ensp;人</label><span class="con_span">{{data.submit_person }}</span></div>
         <div>
             <label class="tit_lab">问题截图</label>
-            <div>
-                <img class="page_img" src="__IMG__/ceshi.png">&ensp;
-                <img class="page_img" src="__IMG__/ceshi.png">
-                <img class="page_img" src="__IMG__/ceshi.png">&ensp;
-                <img class="page_img" src="__IMG__/ceshi.png">
-            </div>
+            <span v-for="i in data.path">
+                <img class="page_img" :src="i.path">&ensp;
+            </span>
         </div>
             
         
@@ -47,36 +46,88 @@
     <div class="details_right">
         <span class="tit">处理过程</span>
         <div class="con">
-            <div class="">
+            <div v-for="i in list">
                 <div class="con1">
                     <span class="circularity"></span><br>
-                    <!-- <span class="line"></span> -->
                 </div>
                 <div class="con2">
-                    <p class="con_p1">2018-02-10</p>
-                    <p class="con_p2">李思琦&nbsp;设计完成</p>
-                </div>
-            </div>
-            <div>
-                <div class="con1">
-                    <span class="circularity"></span><br>
-                    <!-- <span class="line"></span> -->
-                </div>
-                <div class="con2">
-                    <p class="con_p1">2018-02-10</p>
-                    <p class="con_p2">李思琦&nbsp;设计完成</p>
+                    <p class="con_p1">{{i.handle_time}}</p>
+                    <p class="con_p2">{{i.name}}&nbsp;{{i.handle_state}}</p>
                 </div>
             </div>
         </div>
         <div class="btn_div">
-            <button>开始处理</button>
-            <button>处理完成</button>
-            <button>暂不处理</button>
-            <button>确认完成</button>
+            <button @click="deal(Uid,1)">开始处理</button>
+            <button @click="deal(Uid,2)">处理完成</button>
+            <button @click="deal(Uid,3)">暂不处理</button>
+            <button @click="deal(Uid,4)">确认完成</button>
         </div>
 
     </div>
 
 </body>
+
+<script>
+    var app = new Vue({
+        el: ".app",
+        data: {
+            Uid:"",
+            data: [],
+            list: [],
+            is_handle:"",
+        },
+        created: function () {
+            // // 获取上个页面传递回来的ID
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1); //substr()方法返回从参数值开始到结束的字符串；
+                var strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            this.Uid = theRequest.id;
+            this.getdata(this.Uid);
+        },
+        methods: {
+            getdata(id) { 
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectDevelopment/bugDetails')}",
+                    dataType: "json",
+                    data:{ id:id },
+                    success: function (data) {
+                        console.log(data);
+                        that.data=data.details;
+                        that.list=data.processList;
+                        // that.is_handle=data.is_handle;
+                        // console.log(data.details.refer_path);
+                    }
+                })
+            },
+            return(){ 
+                window.history.go(-1) 
+            },
+            deal(id,num){
+                console.log(id,num);
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectDevelopment/bugHandle')}",
+                    dataType: "json",
+                    data:{ id:id, code:num },
+                    success: function (data) {
+                        location.reload();
+                        // console.log("yes",data);
+                    }
+                })
+            }
+        }
+    })
+</script>
 
 </html>
