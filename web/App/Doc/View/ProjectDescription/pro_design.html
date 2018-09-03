@@ -7,16 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>设计管理</title>
     <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/pro_design.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__STATIC__/vue.min.js"></script>
+    <script src="__DOCLAY__/plugins/layui/layui.js"></script> 
 </head>
 
 <body class="app">
     <div class="url_div">
-        原型地址：&ensp;&ensp;<input class="url_input" type="text" value="http://127.0.0.1:32768/start.html#%A1%E7%90%86&g=1"><br>
-        设计稿地址：<input class="url_input" type="text" value="http://127.0.0.1:32768/start.html#p=%E8%AE%BE%E8%AE%AE7%90%86&g=1">
-        <button class="modify_button">修改</button>
+        原型地址：&ensp;&ensp;<input class="url_input design" type="text" :value="design_address"><br>
+        设计稿地址：<input class="url_input prototype" type="text" :value="prototype_address">
+        <button @click="modify(Uid)" class="modify_button">修改</button>
     </div>
     <!-- 最上层搜索栏 -->
     <div class="search_div">
@@ -31,20 +33,18 @@
             <td>需求类型</td>
             <td>发起时间</td>
             <td>截止时间</td>
-            <td>需求状态</td>
             <td>操作</td>
         </tr>
         <tr v-for="i in data" class="tr2">
-            <td>{{i.title}}</td>
-            <td>{{i.kname}}</td>
-            <td>{{i.dname}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.page}}</td>
+            <td>{{i.type}}</td>
             <td>{{i.start_time}}</td>
             <td>{{i.end_time}}</td>
-            <td>{{i.xuqiu_back}}</td>
-            <td>{{i.content}}</td>
-            <td><a>详情</a></td>
+            <td @click="demand_pro(i.id)"><a>详情</a></td>
         </tr>
     </table>
+    <div id="test3"></div>
 </body>
 <script>
     var app = new Vue({
@@ -52,26 +52,43 @@
         data: {
             data:[],
             Uid:"",
+            design_address:"",
+            prototype_address:"",
+            pageIndex:1,
+            limit:10,
+            count:''
         },
         created: function () {
             this.Uid = "{$pro_id}";
             this.getdata(this.Uid);
-            // console.log(this.Uid);
+            console.log(this.Uid);
         },
         methods: {
             new_pro(id){
                 window.location.href = "{:U('ProjectDescription/new_design')}"+"&id="+ id;
+            },
+            demand_pro(id){
+                console.log(';pookj',id);
+                window.location.href = "{:U('ProjectDescription/design_details')}"+"&id="+ id;
             },
             getdata(id){
                 var that = this;
                 $.ajax({
                     cache: false,
                     type: "post",
-                    url: "{:U('ProjectNeed/needlist')}",
+                    url: "{:U('ProjectDesign/demandList')}",
                     dataType: "json",
-                    data:{pid:id},
+                    data:{ project_id:id , 
+                        page: that.pageIndex || 1
+                        ,limit:that.limit || 10
+                    },
                     success: function (data) {
+                        console.log(data);
                         that.data=data.data;
+                        that.design_address=data.design_address;
+                        that.prototype_address=data.prototype_address;
+                        that.count=data.count;
+                        that.layPage(id); //分页
                     }
                 })
             },
@@ -83,13 +100,53 @@
                 $.ajax({
                     cache: false,
                     type: "post",
-                    url: "{:U('ProjectNeed/needlist')}",
+                    url: "{:U('ProjectDesign/demandList')}",
                     dataType: "json",
-                    data:{pid:id,start_time:start_time,end_time:end_time,title:keyword},
+                    data:{project_id:id,start_time:start_time,end_time:end_time,keywords:keyword,page: that.pageIndex || 1},
                     success: function (data) {
+                        // console.log("122222",data);
                         that.data=data.data;
                     }
                 })
+            },
+            modify(id){
+                var that = this;
+                var design_address = $(".design").val();
+                var prototype_address = $(".prototype").val();
+                console.log(id,design_address,prototype_address)
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectDesign/updateAddress')}",
+                    dataType: "json",
+                    data:{project_id:id,design_address:design_address,prototype_address:prototype_address},
+                    success: function () {
+                    }
+                })
+            },
+            // 分页
+            layPage(id) {
+                var _this = this;
+                layui.use('laypage', function () {
+                    var laypage = layui.laypage;
+                    laypage.render({
+                        elem: 'test3'
+                        , count:_this.count
+                        , limit:10
+                        , curr:_this.pageIndex
+                        , jump: function (obj, first) {
+                            //obj包含了当前分页的所有参数
+                            //首次不执行
+                            if(first) {
+                                return false;
+                            }
+                            console.log(">>>",obj.curr)
+                            _this.pageIndex = obj.curr;
+                            _this.limit = obj.limit;
+                            _this.getdata(id);
+                        }
+                    });
+                });        
             },
         },
     })

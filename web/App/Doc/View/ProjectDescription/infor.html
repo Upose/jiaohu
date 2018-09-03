@@ -15,18 +15,18 @@
 <body class="app">
     <div class="tit">
         <span>技术使用</span>
-        <button class="new_button" @click="new_pro(Uid)">修改</button>
+        <button class="new_button" @click="modify(Uid)">修改</button>
     </div>
     <div class="modify_con">
         <div class="modify_left">
-            <p>前端技术：&ensp;&ensp;<input type="text" name="" placeholder="请输入内容"></p>
-            <p>后台技术：&ensp;&ensp;<input type="text" name="" placeholder="请输入内容"></p>
-            <p>数据库类型：<input type="text" name="" placeholder="请输入内容"></p>
+            <p>前端技术：&ensp;&ensp;<input class="html_technology" type="text" name="" placeholder="请输入内容" :value="list.html_technology"></p>
+            <p>后台技术：&ensp;&ensp;<input class="backend_technology" type="text" name="" placeholder="请输入内容" :value="list.backend_technology"></p>
+            <p>数据库类型：<input class="database_type" type="text" name="" placeholder="请输入内容" :value="list.database_type"></p>
         </div>
         <div class="modify_right">
-            <p>接口地址：&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<input type="text" name="" placeholder="请输入内容"></p>
-            <p>UML图地址:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<input type="text" name="" placeholder="请输入内容"></p>
-            <p>数据库设计图地址：<input type="text" name="" placeholder="请输入内容"></p>
+            <p>接口地址：&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<input class="interface_address" type="text" name="" placeholder="请输入内容" :value="list.interface_address"></p>
+            <p>UML图地址:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<input class="uml_address" type="text" name="" placeholder="请输入内容" :value="list.uml_address"></p>
+            <p>数据库设计图地址：<input class="database_address" type="text" name="" placeholder="请输入内容" :value="list.database_address"></p>
         </div>
     </div>
     <!-- 最上层搜索栏 -->
@@ -44,12 +44,12 @@
             <td>操作</td>
         </tr>
         <tr v-for="i in data" class="tr2">
-            <td>{{i.title}}</td>
-            <td>{{i.kname}}</td>
-            <td>{{i.dname}}</td>
-            <td>{{i.start_time}}</td>
-            <td>{{i.end_time}}</td>
-            <td><a>修改</a></td>
+            <td>{{i.name}}</td>
+            <td>{{i.summary}}</td>
+            <td>{{i.language}}</td>
+            <td>{{i.edition}}</td>
+            <td>{{i.download_type}}</td>
+            <td><a @click="">修改</a></td>
         </tr>
     </table>
 </body>
@@ -59,6 +59,7 @@
         data: {
             data:[],
             Uid:"",
+            list:[],
         },
         created: function () {
             this.Uid = "{$pro_id}";
@@ -67,8 +68,8 @@
         },
         methods: {
             new_pro(id){
-                // window.location.href = "{:U('ProjectDescription/new_demand')}"+"&id="+ id;
-                window.location.href = "{:U('ProjectDescription/new_infor')}";
+                window.location.href = "{:U('ProjectDescription/new_infor')}"+"&id="+ id;
+                // window.location.href = "{:U('ProjectDescription/new_infor')}";
             },
             view(id){
                 // window.location.href = "{:U('ProjectDescription/new_demand')}"+"&id="+ id;
@@ -79,31 +80,43 @@
                 window.location.href = "{:U('ProjectDescription/demand_design')}";
             },
             getdata(id){
+                // console.log(id);
                 var that = this;
                 $.ajax({
                     cache: false,
                     type: "post",
-                    url: "{:U('ProjectNeed/needlist')}",
+                    url: "{:U('ProjectDevelopment/developmentList')}",
                     dataType: "json",
-                    data:{pid:id},
+                    data:{project_id:id},
                     success: function (data) {
-                        that.data=data.data;
+                        console.log(data);
+                        that.data=data.data.thirdLibraryList;
+                        that.list=data.data.technologyUse[0];
                     }
                 })
             },
-            search(id){
+            modify(id){
                 var that = this;
-                var start_time = $(".bag_time").val();
-                var end_time = $(".end_time").val();
-                var keyword = $(".keyword").val();
+                var html_technology = $(".html_technology").val();
+                var backend_technology = $(".backend_technology").val();
+                var database_type = $(".database_type").val();
+                var interface_address = $(".interface_address").val();
+                var uml_address = $(".uml_address").val();
+                var database_address = $(".database_address").val();
                 $.ajax({
                     cache: false,
                     type: "post",
-                    url: "{:U('ProjectNeed/needlist')}",
+                    url: "{:U('ProjectDevelopment/technologyUseUpdate')}",
                     dataType: "json",
-                    data:{pid:id,start_time:start_time,end_time:end_time,title:keyword},
-                    success: function (data) {
-                        that.data=data.data;
+                    data:{project_id:id,
+                    html_technology:html_technology,
+                    backend_technology:backend_technology,
+                    database_type:database_type,
+                    interface_address:interface_address,
+                    uml_address:uml_address,
+                    database_address:database_address,
+                    },
+                    success: function () {
                     }
                 })
             },

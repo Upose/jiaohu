@@ -85,7 +85,7 @@ class ProjectDevelopmentModel
                 edition,download_type) 
     	  		values 
     	 		('',$project_id,'$name','$summary',
-    	 		'$language','$edition','$download_type')";
+    	 		'$language','$edition',$download_type)";
 
     	$res = M()->execute($sql);
 
@@ -114,7 +114,7 @@ class ProjectDevelopmentModel
     }
 
 
-      /**
+    /**
      *Bug新增
      *@author fang.yu
      *2018.8.27
@@ -201,13 +201,23 @@ class ProjectDevelopmentModel
         //将数组中的urgency、state由数字转化为文字
         for($i = 0;$i < count($res);$i++)
         {
-        	$res[$i]['urgency'] = $this->
-        	getPriorityName($res[$i]['urgency']);
+        	
         	$res[$i]['state'] = $this->
         	getHandleTypeName($res[$i]['state']);
         }
 
+        $usql = "SELECT count(*)  as count
+                from project_bug pb 
+                join 
+                (SELECT id,name from 
+                project_member 
+                where project_id  =$project_id) pm 
+                on pb.handle_person_id = pm.id
+                where pb.project_id = $project_id 
+                order by pb.id desc limit ".$pag.",10 ";
 
+         $num = M()->query($usql);       
+         $num = $num[0]['count'];
 		//未处理
 		$sql2 = "SELECT count(*) as count
     			 from project_bug pb 
@@ -250,6 +260,7 @@ class ProjectDevelopmentModel
       	
       	$final['count'] = $count;
 		$final['list'] = $res;
+        $final['listNum'] = $num;
         return  $final;
 
     }
@@ -263,39 +274,58 @@ class ProjectDevelopmentModel
     public function bugDetails($id)
     {
 
-		$sql = "SELECT pb.name,pb.urgency,
+        $temp = array();
+		$sql = "SELECT DISTINCT(pb.name),
+        pb.urgency,
 		pb.summary,p.name as submit_person,
-		pbi.path ,pb.state from project_bug pb
+		pb.state from project_bug pb
 		join person p 
 		on p.id = pb.submit_person_id 
-		join project_bugImage pbi 
-		on pbi.project_bug_id = pb.id
+		-- join project_bugImage pbi 
+		-- on pbi.project_bug_id = pb.id
 		where pb.id = $id";
 
 		$res = M()->query($sql);
 
-		//因为提交人和处理人同时存在，所以得分开查
-		$sql1 = "SELECT 
-		p.name as handle_person
-		from project_bug pb
-		join person p 
-		on p.id = pb.handle_person_id
-		where pb.id = $id";
+        $temp['name'] = $res[0]['name'];
+        $temp['urgency'] = $res[0]['urgency'];
+        $temp['summary'] = $res[0]['summary'];
+        $temp['submit_person'] = $res[0]['submit_person'];
+        $temp['state'] = $res[0]['state'];
+	
 
-		$res1 = M()->query($sql1);
-		$res[0]['handle_person'] = 
-		$res1[0]['handle_person'];
+        //因为提交人和处理人同时存在，所以得分开查
+        $sql1 = "SELECT 
+        p.name as handle_person
+        from project_bug pb
+        join person p 
+        on p.id = pb.handle_person_id
+        where pb.id = $id";
+
+        $res1 = M()->query($sql1);
+		
+        $temp['handle_person'] = 
+        $res1[0]['handle_person'];
 
 		//将状态码转化为文字
 		for($i = 0;$i < count($res);$i++)
         {
-        	$res[$i]['urgency'] = $this->
-        	getPriorityName($res[$i]['urgency']);
+        	
         	$res[$i]['state'] = $this->
         	getHandleTypeName($res[$i]['state']);
         }
 
-		return  $res;
+        $res1 = M()->query($sql1);
+
+        $fsql = "SELECT pbi.path 
+        from project_bugImage pbi
+        join project_bug pb
+        on pbi.project_bug_id = pb.id";
+
+        $path = M()->query($fsql);
+        $temp['path'] = $path;
+
+		return  $temp;
 
     }
     /**
@@ -337,6 +367,59 @@ class ProjectDevelopmentModel
 
         return  $res;
 
+    }
+
+
+    /**
+     *处理人下拉框
+     *@author fang.yu
+     *2018.8.27
+     */
+    public function project_member($project_id)
+    {
+        $sql = "SELECT id,name 
+            from project_member 
+            where project_id = $project_id 
+            and end_time = ''";
+
+        $res = M()->query($sql);
+
+        return $res;
+
+    }
+
+
+
+    /**
+     * 需求处理
+     * @author fang.yu
+     * 2018.8.24
+     */
+    public function bugHandle($bug_id,
+                  $handle_state,$is_handle)
+    {
+
+        //处理人id
+        $handle_person_id  =$_SESSION['user_id'];
+
+        //处理时间
+        $handle_time = date('Y-m-d',time());
+
+        $sql1 = "INSERT into 
+        bug_handle(id,bug_id,handle_person_id,
+        handle_time,handle_state) 
+        VALUES('',$bug_id,
+        $handle_person_id,'$handle_time',
+        $handle_state)";
+
+        $res1= M()->execute($sql1); 
+
+        $sql2 = "UPDATE project_bug 
+        set state = $is_handle where id = $bug_id";
+
+        $res2= M()->execute($sql2); 
+
+        return $res1;
     }
 
 

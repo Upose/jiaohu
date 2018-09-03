@@ -242,8 +242,7 @@ class ProjectDevelopmentController extends BaseController{
 
         //BUGid
         $id = I('id');
-        $id =1;
-
+     
         //BUG详情
         $details = $this->res=
         ProjectDevelopmentModel::bugDetails($id);
@@ -258,14 +257,7 @@ class ProjectDevelopmentController extends BaseController{
             $this->getHandleProcessTypeName(
             $processList[$i]['handle_state']);
         }
-        
-        print_r($processList);
-
-
 
     }
-
-
-
 
 }
