@@ -5,7 +5,7 @@ use Doc\Model\ProjectEventModel;
 
 class ProjectEventController extends BaseController
 {
-
+    
 	/**
      *输出首页
      *@author fang.yu
@@ -39,7 +39,7 @@ class ProjectEventController extends BaseController
      */
     public function eventAdd()
     {
-
+        
       	//事件名称
     	$name = I('name');
 
@@ -74,8 +74,11 @@ class ProjectEventController extends BaseController
 	    	ProjectEventModel::eventAdd($name,$project_id,
 	    $type_id,$submit_person_id,$start_time,$end_time,
 	    $we_person,$first_party_person,$other_person,$summary);
-        if($res===0){
+
+        if($res){
+            $_SESSION['event_id']=$res;
             $this->Response(0,'添加成功','');
+            
         }else{
             $this->Response(1,'添加失败','');
         }       
@@ -83,6 +86,7 @@ class ProjectEventController extends BaseController
     }
     //文件上传
     public function uploadFile(){
+        $event_id=$_SESSION['event_id'];
         $arr=array();
         $fileArray = $_FILES['photo'];
         //var_dump($fileArray);die;
@@ -92,7 +96,7 @@ class ProjectEventController extends BaseController
                 $temp_name = $fileArray['tmp_name'][$key];
                 $file_name = $fileArray['name'][$key];
                 $path=$upload_dir.$file_name;
-                $res=$this->res=ProjectEventModel::uploadFile($path);
+                $res=$this->res=ProjectEventModel::uploadFile($path,$event_id,$file_name);
                 $boole=move_uploaded_file($temp_name,iconv("UTF-8", "gbk",$path));
                 array_push($arr,$boole);
         }

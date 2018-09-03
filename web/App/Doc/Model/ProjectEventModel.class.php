@@ -42,19 +42,17 @@ class ProjectEventModel
     	 	'$start_time','$end_time','$we_person',
     	 	'$first_party_person','$other_person',
     	 	'$summary')";
-
     	$res = M()->execute($sql);
-    	if($res){
-  	      	 return 0;
-  	    }else{
-  	      	 return 1;
-  	    }   
+        $usql="SELECT  @@identity as id FROM project_eventManagement";
+        $ures= M()->query($usql);
+        $result=$ures[0]['id'];
+    	return $result;
         
     }
     //保存路径到数据库
-    public function uploadFile($path){
+    public function uploadFile($path,$event_id,$file_name){
         
-        $sql = "insert into project_event_file(path) values ('$path')";
+        $sql = "insert into project_event_file(path,event_id,name) values ('$path','$event_id','$file_name')";
 
     	$res = M()->execute($sql);
 
