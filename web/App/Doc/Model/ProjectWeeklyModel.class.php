@@ -142,8 +142,6 @@ class ProjectWeeklyModel
         $ures = M()->query($usql);
 
         
-       
-        
         $result['res']=$res;
         $result['ures']=$ures;
         return  $result;
@@ -156,7 +154,7 @@ class ProjectWeeklyModel
                 project_member AS a
             LEFT JOIN project_weekly AS b ON a.person_id = b.submit_person_id
             left join project_stage as c on b.stage_id=c.id
-            where b.type=2
+            where b.type= 2 
             and a.id='$id'";
         $res = M()->query($sql); 
         return  $res;  
