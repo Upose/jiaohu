@@ -108,7 +108,7 @@ class ProjectEventController extends BaseController
            }  
         }
 
-        $this->Response(1,'上传成功','');
+        $this->Response(0,'上传成功','');
 
            
 
