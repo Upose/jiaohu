@@ -112,6 +112,7 @@
                     for(var i = 0; i < fs.length; i++) {
                         formData.append('photo[]', fs[i]);
                     }
+                    formData.append('project_id', this.addList.we_person.project_id);
                     $.ajax({
                         cache: false,
                         type: "POST",
