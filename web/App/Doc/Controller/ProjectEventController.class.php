@@ -97,7 +97,7 @@ class ProjectEventController extends BaseController
                 $temp_name = $fileArray['tmp_name'][$key];
                 $file_name = $fileArray['name'][$key];
                 $path=$upload_dir.$file_name;
-                $res=$this->res=ProjectEventModel::uploadFile($path,$event_id,$file_name,$project_id);
+                $res=$this->res=ProjectEventModel::uploadFile(substr($path,1),$event_id,$file_name,$project_id);
                 $boole=move_uploaded_file($temp_name,iconv("UTF-8", "gbk",$path));
                 array_push($arr,$boole);
         }
