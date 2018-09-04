@@ -96,30 +96,30 @@ width: 80%;
                         </dl>
                     </li>
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>项目管理配置</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>管理配置</span></a>
                         <dl class="layui-nav-child">
                             <dd>
                                  <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/ProjectConfig');?>',icon:'',title:'项目所属行业配置',id:'3'}">
                                     <img class="cus-nav-icon" src="/Public/Doc/images/3@2x.png" alt="">
-                                    <span>项目所属行业配置</span>
+                                    <span>所属行业配置</span>
                                  </a>
                             </dd>
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/ProjectRole');?>',icon:'',title:'项目角色配置',id:'4'}">
                                     <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt="">
-                                    <span>项目角色配置</span>
+                                    <span>角色配置</span>
                                 </a>
                             </dd>
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/ProjectStatus');?>',icon:'',title:'项目所处状态',id:'5'}">
                                     <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt="">
-                                    <span>项目所处状态</span>
+                                    <span>所处状态</span>
                                 </a>
                             </dd>
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('BackstageManagement/ProjectEvent');?>',icon:'',title:'项目事件分类配置',id:'6'}">
                                     <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt="">
-                                    <span>项目事件分类配置</span>
+                                    <span>事件分类配置</span>
                                 </a>
                             </dd>
 
