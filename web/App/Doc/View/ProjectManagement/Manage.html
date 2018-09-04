@@ -29,9 +29,9 @@
     <!-- 项目 -->
     <div class="safety" v-for="i in data">
         <!-- 标题 -->
-        <div class="tit"><span class="pro_name">{{i.name}}</span> <span class="more safety_span">展开更多&ensp;<img
-                    src="__IMG__/icon_unfold.png"></span></div>
-        <div class="safety_pro collapse">
+        <div class="tit"><span class="pro_name">{{i.name}}</span> <span class="more safety_span">收起更多&ensp;<img
+                    src="__IMG__/icon_retract.png"></span></div>
+        <div class="safety_pro">
             <div v-for="j in i.child" class="pro_div">
                 <p>
                     <span class="department">{{j.industry}}</span>
@@ -47,7 +47,7 @@
                 </p>
                 <div class="button_div">
                     <button>编辑</button>
-                    <button><span @click="open(j.id)">详情</span></button>
+                    <button @click="open(j.id)"><span>详情</span></button>
                 </div>
             </div>
         </div>
@@ -76,24 +76,22 @@
                         class="latitude_input" type="text" name="latitude" placeholder="请输入"></p>
                 <p>开始时间：<input name="start_time" class="time_input" type="date" id=""></p>
             </div>
-            <div class="btn_div"><button @click='down()'>取消</button><button type="submit" @click='down()'>确定</button></div>
+            <div class="btn_div"><button type="submit" @click='down()'>确定</button></div>
         </form>
     </div>
 </body>
 <script>
-    var num = 1;
+    var num = 2;
     $(document).on("click",".safety_span", function(){
-        // console.log("111");
         if (num % 2 == 0) {
             $(this).html('展开更多&ensp;<img src="__IMG__/icon_unfold.png">');
             $(this).parent().next().toggleClass('collapse');
-            // console.log($(this).parent().next().attr("class"));
             num = num + 1;
             return num;
         } else {
             $(this).html('收起更多&ensp;<img src="__IMG__/icon_retract.png">');
             $(this).parent().next().toggleClass('collapse');
-            num = num + 1;
+            num = num - 1;
             return num;
         }
     });

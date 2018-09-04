@@ -157,13 +157,13 @@ class ProjectManagementModel
     {
     	  $sql="insert into ProjectManagement
     	  (name,project_type_id,industry_id,
-    	  customer_type_id,area_id,charge,
-    	  detailedAddress,longitude,
+    	  customer_type_id,area_id,charge,status_id,
+    	  progress_rate,detailedAddress,longitude,
     	  latitude,start_time) 
     	  values 
     	  ('$name','$project_type_id',
     	  '$industry_id','$customer_type_id',
-    	  '$area_id','$charge','$address',
+    	  '$area_id','$charge',1,'0%','$address',
     	  '$longitude','$latitude','$start_time')";
 
         $res = M()->execute($sql);

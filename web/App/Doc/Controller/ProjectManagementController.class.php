@@ -159,6 +159,8 @@ class ProjectManagementController extends BaseController {
     	$project_type_id,$industry_id,
         $customer_type_id,$area_id,$charge,
     	$address,$longitude,$latitude,$start_time);
+
+        $this->redirect('ProjectManagement/Manage');
     	
     }
 
