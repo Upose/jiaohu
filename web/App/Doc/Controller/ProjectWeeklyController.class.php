@@ -3,6 +3,11 @@ namespace Doc\Controller;
 use Think\Controller;
 use Doc\Model\ProjectWeeklyModel;
 
+/**
+*周报管理控制器
+*@author fang.yu
+*2018.8.27
+*/
 class ProjectWeeklyController extends BaseController
 {
 

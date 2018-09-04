@@ -5,7 +5,7 @@ use Doc\Model\ProjectDevelopmentModel;
 
 
 /**
-*开发信息列表接口
+*开发管理控制器
 *@author fang.yu
 *2018.8.27
 */

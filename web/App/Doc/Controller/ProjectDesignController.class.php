@@ -3,6 +3,12 @@ namespace Doc\Controller;
 use Think\Controller;
 use Doc\Model\ProjectDesignModel;
 date_default_timezone_set('prc');
+
+/**
+*设计管理控制器
+*@author fang.yu
+*2018.8.24
+*/
 class ProjectDesignController extends BaseController
 {
 

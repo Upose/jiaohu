@@ -79,7 +79,7 @@ body{
 /* 标题 */
 .tit{
     padding: 1vh 0;
-    border-bottom: 1px solid rgba(151,151,151,1);
+    border-bottom: 1px solid rgba(151,151,151,0.5);
 }
 .tit1{
     background: rgba(0,0,0,.2);
@@ -234,7 +234,7 @@ body{
 .con_txt>p{
     margin: 1vh 0;
 }
-.name_input,.industry_input,.client_input,.address_input,.time_input{
+.name_input,.address_input,.time_input{
     padding-left: 0.5vw;
     outline-style: none;
     width: 20vw;
@@ -243,10 +243,19 @@ body{
     border-radius:4px;
     border:1px solid rgba(217,217,217,1);
 }
+.client_input,.industry_input{
+    padding-left: 0.5vw;
+    outline-style: none;
+    width: 20.8vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
 .longitude_input,.latitude_input{
     outline-style: none;
     padding-left: 0.5vw;
-    width: 8.5vw;
+    width: 6.25vw;
     height: 5vh;
     background:rgba(255,255,255,1);
     border-radius:4px;
@@ -255,7 +264,7 @@ body{
 .province_input,.city_input{
     outline-style: none;
     padding-left: 0.5vw;
-    width:10vw;
+    width:10.15vw;
     height: 5vh;
     background:rgba(255,255,255,1);
     border-radius:4px;

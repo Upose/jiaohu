@@ -3,6 +3,11 @@ namespace Doc\Controller;
 use Think\Controller;
 use Doc\Model\ProjectEventModel;
 
+/**
+*重大事件控制器
+*@author fang.yu
+*2018.8.28
+*/
 class ProjectEventController extends BaseController
 {
     

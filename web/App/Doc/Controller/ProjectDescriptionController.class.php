@@ -4,6 +4,11 @@ namespace Doc\Controller;
 use Think\Controller;
 use Doc\Model\ProjectDescriptionModel;
 
+/**
+*项目管理详情控制器
+*@author fang.yu
+*2018.8.16
+*/
 class ProjectDescriptionController extends BaseController{
 
     

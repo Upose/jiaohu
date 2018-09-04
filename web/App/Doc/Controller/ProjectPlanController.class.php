@@ -3,6 +3,11 @@ namespace Doc\Controller;
 use Think\Controller;
 use Doc\Model\ProjectPlanModel;
 
+/**
+*项目规划控制器
+*@author fang.yu
+*2018.8.20
+*/
 class ProjectPlanController extends BaseController
 {
     

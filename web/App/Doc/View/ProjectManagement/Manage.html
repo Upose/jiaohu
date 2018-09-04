@@ -72,8 +72,8 @@
                         <option v-for='i in city' :value="i.cid">{{i.cname}}</option>
                     </select> </p>
                 <p>详细地址：<input name="address" class="address_input" type="text" placeholder="请输入地址"></p>
-                <p>经度：<input name="longitude" class="longitude_input" type="text" placeholder="请输入">&nbsp;&nbsp;&nbsp;纬度：<input
-                        class="latitude_input" type="text" name="latitude" placeholder="请输入"></p>
+                <p>经&nbsp;&nbsp;&nbsp;度：&nbsp;&nbsp;&nbsp;&nbsp;<input name="longitude" class="longitude_input" type="text" placeholder="请输入">
+                    &nbsp;&nbsp;&nbsp;纬&nbsp;&nbsp;&nbsp;度：<input class="latitude_input" type="text" name="latitude" placeholder="请输入"></p>
                 <p>开始时间：<input name="start_time" class="time_input" type="date" id=""></p>
             </div>
             <div class="btn_div"><button type="submit" @click='down()'>确定</button></div>
