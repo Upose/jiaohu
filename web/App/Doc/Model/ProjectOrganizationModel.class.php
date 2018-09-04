@@ -81,13 +81,19 @@ class ProjectOrganizationModel
                 where project_id = 
                 $project_id
                 and pm.label = 1 
-                and pm.end_time =''";
+                and ISNULL( pm.end_time)";
 
         $inMember = M()->query($insql);
 
-        for($i = 0;$i<count($inMember);$i++)
+
+         for($i = 0;$i<count($inMember);$i++)
         {
-          $inMember[$i]['end_time'] = '今';
+          $inMember[$i]['is_history'] = "0";
+          if(is_null($inMember[$i]['end_time']))
+          {
+             $inMember[$i]['end_time'] = '今';
+          }
+         
         }
         
         //外部干系人
@@ -101,13 +107,18 @@ class ProjectOrganizationModel
                 where project_id = 
                 $project_id
                 and label = 2 
-                and end_time =''";
+                and ISNULL( pm.end_time)";
 
         $outMember = M()->query($outsql);
 
         for($i = 0;$i<count($outMember);$i++)
         {
-          $outMember[$i]['end_time'] = '今';
+
+          $outMember[$i]['is_history'] = "1";
+          if(is_null($outMember[$i]['end_time']))
+          {
+             $outMember[$i]['end_time'] = '今';
+          }
         }
 
         //开发团队
@@ -120,13 +131,17 @@ class ProjectOrganizationModel
                 where project_id = 
                 $project_id
                 and pm.label = 3 
-                and pm.end_time =''";
+                and ISNULL( pm.end_time)";
 
         $developers = M()->query($dsql);
 
          for($i = 0;$i<count($developers);$i++)
         {
-          $developers[$i]['end_time'] = '今';
+         $developers[$i]['is_history'] = "1";
+          if(is_null($developers[$i]['end_time']))
+          {
+             $developers[$i]['end_time'] = '今';
+          }
         }
         
         
@@ -157,10 +172,19 @@ class ProjectOrganizationModel
                 on p.id = pm.person_id
                 where project_id = 
                 $project_id
-                and pm.label = 1
-                and pm.end_time !=''";
+                and pm.label = 1";
 
         $inMember = M()->query($insql);
+
+        for($i = 0;$i<count($inMember);$i++)
+        {
+          $inMember[$i]['is_history'] = "0";
+          if(is_null($inMember[$i]['end_time']))
+          {
+             $inMember[$i]['end_time'] = '今';
+          }
+         
+        }
 
         $dsql = "SELECT pm.id,pm.name,
                 p.position,
@@ -171,12 +195,47 @@ class ProjectOrganizationModel
                 on p.id = pm.person_id
                 where project_id = 
                 $project_id
-                and pm.label = 3 
-                and pm.end_time !=''";
+                and pm.label = 3 ";
 
-        //因为外部干系人一直存在，所以历史人员不需要
+        //外部干系人
+        $outsql = "SELECT pm.id,pm.name,
+                pr.name as position,
+                pm.start_time,
+                pm.phone,pm.company
+                from project_member pm
+                join project_role pr 
+                on pm.position = pr.id
+                where project_id = 
+                $project_id
+                and label = 2 
+                and ISNULL( pm.end_time)";
+
+        $outMember = M()->query($outsql);
+
+
+        for($i = 0;$i<count($outMember);$i++)
+        {
+          $outMember[$i]['is_history'] = "0";
+
+          if(is_null($outMember[$i]['end_time'] ))
+          {
+             $outMember[$i]['end_time'] = '今';
+          }
+         
+        }
+
         //开发团队
         $developers = M()->query($dsql);
+
+        for($i = 0;$i<count($developers);$i++)
+        {
+          $developers[$i]['is_history'] = "0";
+          if(is_null($developers[$i]['end_time'] ))
+          {
+             $developers[$i]['end_time'] = '今';
+          }
+         
+        }
 
         $list = array();
 
@@ -214,40 +273,22 @@ class ProjectOrganizationModel
     public function history($name,$project_id)
     {
 
-        $sql = "SELECT id,name,start_time as time
-        from project_member 
-        where name like '%".$name."%' and
-        project_id = $project_id
-        and end_time != '' ";
+        $sql = "select a.* from 
+              (select  id,name,project_id,
+              start_time as time,'入场' state 
+              from project_member 
+              where project_id = $project_id
+              UNION ALL
+              select  id,name,project_id,
+              end_time as time,'离场' 
+              from project_member 
+              where project_id = $project_id 
+              and end_time is not null 
+              ) a order by time desc";
 
-        $res = M()->query($sql);
+          $res = M()->query($sql);
 
-        for($i = 0;$i < count($res);$i++)
-        {
-          $res[$i]['state'] = "入场";
-        }
-
-        $sql1 = "SELECT id,name,end_time as time
-        from project_member 
-        where name like '%".$name."%' and
-        project_id = $project_id
-        and end_time != '' ";
-
-        $res1 = M()->query($sql1);
-
-        for($i1 = 0;$i1 < count($res1);$i1++)
-        {
-          $res1[$i1]['state'] = "离场";
-        }
-        $final = array();
-
-        for($j = 0;$j < count($res1);$j++)
-        {
-          array_push($final,$res[$j]);
-          array_push($final,$res1[$j]);
-        }
-
-        return $final;
+          return $res;
 
     }
 

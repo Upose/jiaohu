@@ -3,6 +3,12 @@ namespace Doc\Controller;
 use Think\Controller;
 use Doc\Model\ProjectDevelopmentModel;
 
+
+/**
+*开发信息列表接口
+*@author fang.yu
+*2018.8.27
+*/
 class ProjectDevelopmentController extends BaseController{
 
 

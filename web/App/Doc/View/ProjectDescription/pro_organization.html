@@ -53,8 +53,8 @@
     <div class="con_left">
         <div class="safety">
             <!-- 标题 -->
-            <div class="tit"><span class="pro_name">内部干系人</span> <span class="more safety_span">展开更多&ensp;<img src="__IMG__/icon_unfold.png"></span></div>
-            <div class="safety_pro collapse">
+            <div class="tit"><span class="pro_name">内部干系人</span> <span class="more safety_span">收起更多&ensp;<img src="__IMG__/icon_retract.png"></span></div>
+            <div class="safety_pro">
                 <div v-for="i in data.inMember" class="pro_div">
                     <p>
                         <img class="avatar" src="__IMG__/b.jpg">
@@ -66,13 +66,13 @@
                         <img src="__IMG__/phone_icon.png" alt="">{{i.phone}}</p>
                     <p class="time">{{i.start_time}} 至 {{i.end_time}}</p>
                     <div class="button_div">
-                        <button><span @click="open(i.id)">离场</span></button>
+                        <button v-show="i.is_history==1"><span @click="away(i.id)">离场</span></button>
                     </div>
                 </div>
             </div>
             <!-- 标题 -->
-            <div class="tit"><span class="pro_name">外部干系人</span> <span class="more safety_span">展开更多&ensp;<img src="__IMG__/icon_unfold.png"></span></div>
-            <div class="safety_pro collapse">
+            <div class="tit"><span class="pro_name">外部干系人</span> <span class="more safety_span">收起更多&ensp;<img src="__IMG__/icon_retract.png"></span></div>
+            <div class="safety_pro">
                 <div v-for="i in data.outMember" class="pro_div">
                     <p>
                         <img class="avatar" src="__IMG__/b.jpg">
@@ -84,13 +84,13 @@
                         <img src="__IMG__/phone_icon.png" alt="">{{i.phone}}</p>
                     <p class="time">{{i.start_time}} 至 {{i.end_time}}</p>
                     <div class="button_div">
-                        <button><span @click="open(i.id)">离场</span></button>
+                        <button v-show="i.is_history==1"><span @click="away(i.id)">离场</span></button>
                     </div>
                 </div>
             </div>
             <!-- 标题 -->
-            <div class="tit"><span class="pro_name">开发团队</span> <span class="more safety_span">展开更多&ensp;<img src="__IMG__/icon_unfold.png"></span></div>
-            <div class="safety_pro collapse">
+            <div class="tit"><span class="pro_name">开发团队</span> <span class="more safety_span">收起更多&ensp;<img src="__IMG__/icon_retract.png"></span></div>
+            <div class="safety_pro">
                 <div v-for="i in data.developers" class="pro_div">
                     <p>
                         <img class="avatar" src="__IMG__/b.jpg">
@@ -102,7 +102,7 @@
                         <img src="__IMG__/phone_icon.png" alt="">{{i.phone}}</p>
                     <p class="time">{{i.start_time}} 至 {{i.end_time}}</p>
                     <div class="button_div">
-                        <button><span @click="open(i.id)">离场</span></button>
+                        <button v-show="i.is_history==1"><span @click="away(i.id)">离场</span></button>
                     </div>
                 </div>
             </div>
@@ -212,8 +212,9 @@
                     data: { project_id: id },
                     success: function (data) {
                         that.data = data.data;
+                        // console.log(data.data);
                         that.characterlist = data.projectRole;
-                        // console.log(data.projectRole);
+                        $(".current").addClass("sty").siblings().removeClass("sty");
                     }
                 })
             },
@@ -226,8 +227,9 @@
                     dataType: "json",
                     data: { project_id: id },
                     success: function (data) {
+                        console.log(data.data);
                         that.data = data.data;
-                        // console.log(data.data);
+                        $(".history").addClass("sty").siblings().removeClass("sty");
                     }
                 })
             },
@@ -260,10 +262,23 @@
                     }
                 })
             },
+            away(id) {
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectOrganization/memberLeave')}",
+                    dataType: "json",
+                    data: { id: id },
+                    success: function (data) {
+                        location.reload();
+                    }
+                })
+            },
         }
     })
 
-    var num = 1;
+    var num = 2;
     $(document).on("click", ".safety_span", function () {
         // console.log("111");
         if (num % 2 == 0) {
@@ -275,7 +290,7 @@
         } else {
             $(this).html('收起更多&ensp;<img src="__IMG__/icon_retract.png">');
             $(this).parent().next().toggleClass('collapse');
-            num = num + 1;
+            num = num - 1;
             return num;
         }
     });
@@ -286,12 +301,6 @@
         $(".new_member").hide();
         location.reload();
     });
-    $(".current").on("click", function () {
-        $(".current").addClass("sty").siblings().toggleClass("sty");
-    })
-    $(".history").on("click", function () {
-        $(".history").addClass("sty").siblings().toggleClass("sty");
-    })
     $(".in_input").on("click", function () {
         $(".member_in").show();
         $(".member_out").hide();

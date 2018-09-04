@@ -179,7 +179,7 @@ body{
 .con_right{
     float: right;
     display: inline-block;
-    width: 20vw;
+    width: 19vw;
     height: 90vh;
     padding: 1vh .5vw;
     margin-left: 1vw;
@@ -190,7 +190,7 @@ body{
 /* 关键字input框 */
 .keyword{
     outline-style: none;
-    width: 12vw;
+    width: 11vw;
     height: 5.5vh;
     padding-left: .5vw;
     margin-bottom: 2vh;
@@ -207,7 +207,7 @@ body{
     padding: 1vh 2vw;
     color: white;
     font-size:12px;
-    margin-left: .5vw;
+    float: right;
     font-family:PingFangSC-Regular;
     background:rgba(7,200,141,1);
     border-radius:3px;

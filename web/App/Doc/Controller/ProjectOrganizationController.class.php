@@ -118,11 +118,11 @@ class ProjectOrganizationController extends BaseController{
     {
         //所属项目id
         $project_id = I('project_id');
-       
+        
         $list = $this->list=
         ProjectOrganizationModel::
         historyMemberList($project_id);
-
+       
         $this->Response(0,$list,'');
     }
 
@@ -139,6 +139,7 @@ class ProjectOrganizationController extends BaseController{
         $res = $this->res=
        ProjectOrganizationModel::memberLeave($id);
 
+       $this->ajaxReturn(1);
     }
 
      /**

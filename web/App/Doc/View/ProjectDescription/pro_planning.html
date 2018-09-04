@@ -19,56 +19,22 @@
         <div class="pla-conent">
             <div class="header">
                 <span class="stage-name">所处阶段:</span>
-                <span class="stage-code">实时规划阶段</span>
+                <span class="stage-code">{{stage}}</span>
                 <span class="target-name">当前目标:</span>
-                <span class="target-code">15日验收</span>
-                <button class="addBtn float-right" data-toggle="modal" data-target="#exampleModalCenter">新增</button>
+                <span class="target-code">{{target}}</span>
+                <button class="addBtn float-right">新增</button>
             </div>
-            <div class="plc-left">
-                <div class="con-header border-bottom">
-                    <div class="ch-l float-left">
-                        <span class="chl-name">项目前期</span>
-                        <span class="chl-day">(2018-07-20 至 2018-12-30)</span>
-                    </div>
-                    <div class="ch-r float-right" v-on:click="Tmattertarget()">
-                        <span style="font-size:14px;" v-if="!isTmatter">展开更多&ensp;<img src="__IMG__/icon_unfold.png"></span>
-                        <span style="font-size:14px;" v-if="isTmatter">收起更多&ensp;<img src="__IMG__/icon_retract.png"></span>
-                    </div>
+            <div class="plc-left" v-for="i in data">
+                <div class="tit"><span class="pro_name">{{i.name}}</span>
+                    <span class="chl-day">({{i.pstart_time}} 至 {{i.pend_time}})</span>
+                    <span class="more safety_span">收起更多&ensp;<img src="__IMG__/icon_retract.png"></span>
                 </div>
                 <div class="con-matter">
-                    <div class="befProject position-relative" 
-                         v-if="isTmatter"
-                         v-for="(index, item) of bfProject;">
+                    <div class="befProject position-relative" v-if="isTmatter" v-for="j in i.child">
                         <div class="circle position-absolute"></div>
-                        <div class="matter-info position-absolute" 
-                             v-on:click="infoPitchOn(index)"
-                             v-bind:class="{'minfo-click':index==current}">
-                            <p>{{item.time}}</p>
-                            <p>{{item.code}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="plc-bt">
-                <div class="pbt-header border-bottom">
-                    <div class="ch-l float-left">
-                        <span class="chl-name">项目规划设计阶段</span>
-                        <span class="chl-day">(2018-07-20 至 2018-12-30)</span>
-                    </div>
-                    <div class="ch-r float-right" v-on:click="Bmattertarget()">
-                        <span style="font-size:14px;" v-if="!isBmatter">展开更多&ensp;<img src="__IMG__/icon_unfold.png"></span>
-                        <span style="font-size:14px;" v-if="isBmatter">收起更多&ensp;<img src="__IMG__/icon_retract.png"></span>
-                    </div>
-                </div>
-                <div class="pbt-matter" v-if="isBmatter">
-                    <div class="befProject position-relative" 
-                         v-for="(index, item) in bfProject;" 
-                         v-on:click="BinfoPitchon(index)">
-                        <div class="circle position-absolute"></div>
-                        <div class="matter-info position-absolute" 
-                             v-bind:class="{'minfo-click':index==currents}">
-                            <p>{{item.time}}</p>
-                            <p>{{item.code}}</p>
+                        <div class="matter-info position-absolute" @click="show_infor(j.id)" v-bind:class="{'minfo-click':index==current}">
+                            <p>{{j.cstart_time}}</p>
+                            <p>{{j.name}}</p>
                         </div>
                     </div>
                 </div>
@@ -78,162 +44,214 @@
             <div class="par-conent">
                 <div class="tar-name">
                     <span class="mt-0">目标名称</span>
-                    <span style="color:#000;font-weight: 500;">完成调需求</span>
+                    <span style="color:#000;font-weight: 500;">{{infor.name}}</span>
                 </div>
                 <div class="tar-describe">
                     <span>目标描述</span>
                     <span>
-                        <textarea name="describe" class="form-control" style="height:12.2vh" cols="10" rows="10" placeholder="请输入信息"></textarea>
+                        <textarea name="describe" class="form-control describe" style="height:12.2vh" cols="10" rows="10" placeholder="请输入信息">{{infor.describe}}</textarea>
                     </span>
                 </div>
                 <div class="result">
                     <span>成果输出</span>
                     <span>
-                        <textarea name="result" class="form-control" style="height:12.2vh" cols="30" rows="10" placeholder="请输入信息"></textarea>
+                        <textarea name="result" class="form-control achievements" style="height:12.2vh" cols="30" rows="10" placeholder="请输入信息">{{infor.achievements}}</textarea>
                     </span>
                 </div>
                 <div class="predict-time">
                     <span>预计完成时间</span>
-                    <span>2018-02-12</span>
+                    <span>{{infor.estimate_time}}</span>
                 </div>
                 <div class="actual-time">
                     <span>实际完成时间</span>
-                    <span class="proceed">进行中</span>
+                    <span class="proceed">{{infor.actual_end_time}}</span>
                 </div>
                 <div class="state">
                     <span>状态</span>
-                    <span class="proceed">进行中</span>
+                    <span class="proceed">{{infor.state}}</span>
                 </div>
                 <div class="button text-center position-absolute">
                     <span class="m-0 d-inline">
-                      <button class="btn cancel">完成</button>
-                      <button class="btn sureBtn">保存</button>
+                        <!-- <button @click="car(infor.id)" v-show="infor.code == !1" class="btn cancel">完成目标</button> -->
+                        <button @click="save(infor.id)" class="btn sureBtn">保存修改</button>
                     </span>
                 </div>
             </div>
         </div>
     </div>
-    <!-- 新增弹窗 -->
-    <div class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header" style="padding:2vh,0.5vw">
-                  <h6 class="modal-title" id="exampleModalLongTitle">新增项目</h6>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+    <div class="new_member">
+        <div class="member_tit">新增成员<img class="down_img" style="float:right;" src="__IMG__/close_normal.png"></div> 
+        <form action="{:U('ProjectPlan/StageTargetAdd')}" method="post" target="nm_iframe">
+            <div class="member_con">
+                <input type="hidden" name="project_id" :value="Uid"/>
+                <p><span>新增类型：</span>
+                    <input class="top1 in_input" type="radio" name="type" value="0" checked>阶段&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="top1 out_input" type="radio" name="type" value="1">目标
+                </p>
+                <div class="member_in">
+                    <p><span>阶段名称：</span>
+                        <input class="member_text" type="text" name="jie_name" autocomplete="off">
+                    </p>
+                    <p><span>开始时间：</span>
+                        <input class="member_text starttime" type="date" name="start_time1" value="">
+                    </p>
+                    <p><span>结束时间：</span>
+                        <input class="member_text endtime" type="date" name="end_time1" value="">
+                    </p>
                 </div>
-                <div class="modal-body">
-                 <form class="addContent">
-                     <div>
-                         <label>项目名称:</label>
-                         <input type="text" class="form-control" placeholder="请输入名称">
-                     </div>
-                     <div>
-                         <label>行业分类:</label>
-                         <select name="worktype" class="form-control form-control-sm">
-                             <option selected>公共安全</option>
-                         </select>
-                     </div>
-                     <div>
-                         <label>客户类型:</label>
-                         <select name="client-type" class="form-control form-control-sm">
-                             <option selected>统计局</option>
-                         </select>
-                     </div>
-                     <div>
-                         <label>项目类型:</label>
-                         <input type="radio" name="protype" style="width: 1vw" >
-                         <label >合同项目</label>
-                         <input type="radio" name="protype" style="width: 1vw">
-                         <label>预实施项目</label>
-                     </div>
-                     <div>
-                         <label>所在区域:</label>
-                         <select name="" id="" class="formSelect" style="margin-right:2rem;"></select>
-                         <select name="" id="" class="formSelect"></select>
-                     </div>
-                     <div>
-                         <label>详细地址:</label>
-                         <input type="text" class="form-control form-control-sm" placeholder="请输入地址">
-                     </div>
-                     <div>
-                         <label>经度:</label>
-                         <input type="text" class="form-control form-control-sm coord" placeholder="请输入">
-                         <label class="text-center" style="width:5.4vw">纬度:</label>
-                         <input type="text" class="form-control form-control-sm coord" placeholder="请输入">
-                     </div>
-                     <div>
-                        <label>开始时间:</label>
-                        <input type="date" name="" id="" class="form-control form-control-sm">
-                    </div>
-                 </form>
+                <div class="member_out" style="display:none;">
+                    <p><span>目标名称：</span>
+                        <input class="member_text" type="text" name="mu_name" autocomplete="off">
+                    </p>
+                    <p><span>开始时间：</span>
+                        <input class="member_text" type="date" name="start_time2" value="">
+                    </p>
+                    <p><span>结束时间：</span>
+                        <input class="member_text" type="date" name="end_time2" value="">
+                    </p>
+                    <p><span>所属阶段：</span>
+                        <select class="member_select member_outcharacter" name="ps_id" id="">
+                            <option v-for="i in list" :value="i.ps_id">{{i.name}}</option>
+                        </select>
+                    </p>
+
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn cancel" data-dismiss="modal">取消</button>
-                  <button type="button" class="btn sureBtn">确定</button>
-                </div>
-              </div>
             </div>
-          </div>
+            <div class="btn_div">
+                <button @click="uu" class="down_btn" type="submit">确定</button>
+            </div>
+        </form>
+        <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+    </div>
 </body>
 <script>
-   var plamain = new Vue({
-       el: ".proPlanning",
-       data: {
-          current: 0,
-          currents: 0,
-          isTmatter:true,
-          isBmatter:false,
-          bfProject:[
-              {
-                time:'2018-02-01',
-                code:'项目进行中'
-              },
-              {
-                time:'2018-02-02',
-                code:'项目进行中' 
-              },
-              {
-                time:'2018-02-03',
-                code:'项目进行中'
-              },
-              {
-                time:'2018-02-04',
-                code:'项目完成'
-              },
-              {
-                time:'2018-02-01',
-                code:'项目进行中'
-              },
-              {
-                time:'2018-02-02',
-                code:'项目进行中' 
-              },
-              {
-                time:'2018-02-03',
-                code:'项目进行中'
-              },
-              {
-                time:'2018-02-04',
-                code:'项目完成'
-              }
-          ]
-       },
-       methods: {
-          infoPitchOn(index){
-             this.current = index;
-          },
-          BinfoPitchon(index){
-              this.currents = index;
-          },
-          Tmattertarget(){
-              this.isTmatter = !this.isTmatter
-          },
-          Bmattertarget(){
-              this.isBmatter = !this.isBmatter
-          }
-       }
-   })
+    var plamain = new Vue({
+        el: ".proPlanning",
+        data: {
+            current: 0,
+            currents: 0,
+            Uid:"",
+            isTmatter: true,
+            isBmatter: false,
+            stage: [],
+            target: [],
+            data: [],
+            infor: [],
+            list:[],
+        },
+        created: function () {
+            this.Uid = "{$pro_id}";
+            this.getdata(this.Uid);
+            // console.log(this.Uid);
+        },
+        methods: {
+            getdata(id) {
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectPlan/planList')}",
+                    dataType: "json",
+                    data: { project_id: id },
+                    success: function (data) {
+                        that.data = data.data;
+                        that.list = data.stageSelect;
+                        that.stage = data.curryState.stage;
+                        that.target = data.curryState.target;
+                        // console.log(data);
+                    }
+                })
+            },
+            show_infor(id) {
+                $(".pla-conent").attr("width","77%");
+                $(".plac-r").show();
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectPlan/projectTargetDetalis')}",
+                    dataType: "json",
+                    data: { id: id },
+                    success: function (data) {
+                        that.infor = data.data;
+                        // console.log(data.data);
+                    }
+                })
+            },
+            // car(id) {
+            //     var that = this;
+            //     $.ajax({
+            //         cache: false,
+            //         type: "post",
+            //         url: "{:U('ProjectPlan/projectTargetFinish')}",
+            //         dataType: "json",
+            //         data: { id: id },
+            //         success: function (data) {
+            //             $(".plac-r").hide();
+            //         }
+            //     })
+            // },
+            save(id) {
+                var that = this;
+                var describe = $('.describe').val();
+                var achievements = $('.achievements').val();
+                $(".plac-r").hide();
+                $(".pla-conent").attr("width","98%");
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectPlan/projectTargetUpdate')}",
+                    dataType: "json",
+                    data: { id: id, describe: describe, achievements: achievements },
+                    success: function (data) {
+                    }
+                })
+            },
+            uu(){
+                var starttime = $(".starttime").val();
+                var endtime = $(".endtime").val();
+                // console.log("111",starttime,endtime)
+            }
+        }
+    })
+    var num = 2;
+    $(document).on("click", ".safety_span", function () {
+        // console.log("111");
+        if (num % 2 == 0) {
+            $(this).html('展开更多&ensp;<img src="__IMG__/icon_unfold.png">');
+            $(this).parent().next().toggleClass('dis_none');
+            // console.log($(this).parent().next().attr("class"));
+            num = num + 1;
+            return num;
+        } else {
+            $(this).html('收起更多&ensp;<img src="__IMG__/icon_retract.png">');
+            $(this).parent().next().toggleClass('dis_none');
+            num = num - 1;
+            return num;
+        }
+    });
+    $(".addBtn").click(function () {
+        $(".new_member").show();
+    });
+    $(".down_btn").on('click', function () {
+        $(".new_member").hide();
+        location.reload();
+    });
+    $(".down_btn").on('click', function () {
+        $(".new_member").hide();
+        location.reload();
+    });
+    $(".down_img").on('click', function () {
+        $(".new_member").hide();
+    });
+    $(".in_input").on("click", function () {
+        $(".member_in").show();
+        $(".member_out").hide();
+    })
+    $(".out_input").on("click", function () {
+        $(".member_in").hide();
+        $(".member_out").show();
+    })
 </script>
+
 </html>
