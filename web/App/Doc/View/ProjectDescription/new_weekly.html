@@ -115,7 +115,7 @@
                     })
                 } else if(
                     // 项目进度验证
-                    regExp.test(_this.result.percentage) ||
+                    !regExp.test(_this.result.percentage) ||
                     Number(_this.result.percentage) > 100 ||
                     Number(_this.result.percentage) < 0
                 ) {

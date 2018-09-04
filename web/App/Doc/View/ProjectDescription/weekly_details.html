@@ -13,7 +13,7 @@
     <script src="__STATIC__/vue.min.js"></script>
 </head>
 
-<body>
+<body style="background: #fff;">
     <div id="con">
         <p class="tit">{{ projectDetail.name }}</p>
         <div>
@@ -21,7 +21,7 @@
             <button :class="activeFoucs == idx ? 'one down' : 'one'" style="margin: 5px; cursor: pointer;" v-for="(idx, item) in userList" @click="getUserWeekly(item.id, idx)">{{ item.name }}</button>
         </div>
         <div class="line"></div>
-        <div v-show="showProject">
+        <div v-show="showProject === 'project'">
             <div class="con_top">
                 <div class="left">
                     <p class="con_tit">提交人</p>
@@ -51,23 +51,14 @@
                 </div>
             </div>
         </div>
-        <div v-show="!showProject">
+        <div v-show="showProject === 'person'">
             <div class="con_top">
                 <div class="left">
                     <p class="con_tit">提交人</p>
                     <p class="con_span">{{ userItemDetail.personname }}</p>
+                    <br>
                     <p class="con_tit">提交时间</p>
                     <p class="con_span">{{ userItemDetail.submit_time }}</p>
-                </div>
-                <div class="top_c">
-                    <p class="con_tit">项目阶段</p>
-                    <p class="con_span">{{ userItemDetail.stagename }}</p>
-                    <p class="con_tit">项目进度说明</p>
-                    <p class="con_span">{{ userItemDetail.project_explain }}</p>
-                </div>
-                <div class="right">
-                    <p class="con_tit">项目进度</p>
-                    <p class="con_span">{{ userItemDetail.percentage }} %</p>
                 </div>
             </div>
             <div class="con_but">
@@ -80,6 +71,9 @@
                     <span class="con_span wid">{{ userItemDetail.this_week_plan }}</span>
                 </div>
             </div>
+        </div>
+        <div v-show="showProject === 'no'" style="text-align: center; padding-top: 100px;">
+            <img src="__IMG__/noweekly.png" alt="">
         </div>
     </div>
 </body>
@@ -131,7 +125,7 @@
                     type: '',
                     week_num: '',
                 },
-                showProject: true,
+                showProject: 'project',
                 activeFoucs: -1
             }
         },
@@ -159,7 +153,6 @@
                 var _this = this;
                 
                 this.activeFoucs = idx;
-                this.showProject = false;
 
                 $.ajax({
                     cache: false,
@@ -170,13 +163,18 @@
                         id: id
                     },
                     success: function (res) {
-                        _this.userItemDetail = res.data[0];
+                        if(res.data.length == 0) {
+                            _this.showProject = 'no';
+                        } else {
+                            _this.userItemDetail = res.data[0];
+                            _this.showProject = 'person';
+                        }
                     }
                 })  
             },
             // 点击项目周报
             foucsProject: function() {
-                this.showProject = true;
+                this.showProject = 'project';
                 this.activeFoucs = -1;
             }
         },

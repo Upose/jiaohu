@@ -109,19 +109,23 @@
                 submitFile() {
                     var formData = new FormData();
                     var fs = $('#cus-ipt')[0].files;
+                    var _this = this;
                     for(var i = 0; i < fs.length; i++) {
                         formData.append('photo[]', fs[i]);
                     }
                     formData.append('project_id', this.addList.project_id);
                     $.ajax({
                         cache: false,
+                        async: false,
                         type: "POST",
                         url: "{:U('ProjectEvent/uploadFile')}",
                         data: formData,
                         processData: false,
                         contentType: false,
                         success: function(res) {
-                            console.log(res.data);
+                            if(res.code == 0) {
+                                window.location.href = "{:U('ProjectDescription/pro_event&id="+ _this.addList.project_id +"')}";
+                            }
                         }
                     })
                 },
@@ -213,6 +217,7 @@
                     var _this = this;
                     $.ajax({
                         cache: false,
+                        async: false,
                         type: "POST",
                         url: "{:U('ProjectEvent/eventAdd')}",
                         dataType: "json",

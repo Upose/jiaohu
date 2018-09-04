@@ -83,6 +83,7 @@
                     data: {event_id: _this.event_id, project_id: _this.project_id},
                     success: function(res) {
                         _this.fileList = res.data;
+                        console.log(_this.fileList)
                     }
                 })
             },
