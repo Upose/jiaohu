@@ -62,9 +62,9 @@ class ProjectManagementController extends BaseController {
     	$industryRes=$this->industry=
     	ProjectManagementModel::industryList();
 
-        // //所有行业
-        // $industryRes=$this->industry=
-        // ProjectManagementModel::projectIndustryList();
+        //所有行业
+        $industryResult=$this->projectindustry=
+        ProjectManagementModel::projectIndustryList();
 
     	//所有客户类型
     	$customerRes=$this->customer=
@@ -116,6 +116,7 @@ class ProjectManagementController extends BaseController {
     	$final['area'] = $areaRes;
     	$final['status'] = $statusRes;
     	$final['industry'] = $industryRes;
+        $final['industryResult'] = $industryResult;
     	$final['customer'] = $customerRes;
     	$final['list'] = $temp;
     	
