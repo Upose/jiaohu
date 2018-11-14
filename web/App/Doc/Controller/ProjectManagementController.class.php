@@ -66,6 +66,11 @@ class ProjectManagementController extends BaseController {
         $industryResult=$this->projectindustry=
         ProjectManagementModel::projectIndustryList();
 
+        //项目密级别
+        $rank=$this->rank=
+        ProjectManagementModel::projectRankList();
+
+
     	//所有客户类型
     	$customerRes=$this->customer=
     	ProjectManagementModel::customerList();
@@ -117,6 +122,7 @@ class ProjectManagementController extends BaseController {
     	$final['status'] = $statusRes;
     	$final['industry'] = $industryRes;
         $final['industryResult'] = $industryResult;
+        $final['rank'] = $rank;
     	$final['customer'] = $customerRes;
     	$final['list'] = $temp;
     	
