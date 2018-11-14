@@ -127,6 +127,22 @@ class ProjectManagementModel
         return  $industry;
 
      }
+     /**
+	 * 行业下拉框
+	 * @author song.chaoxu
+	 * 2018.11.14
+	 */
+	  public function projectIndustryList()
+     {
+
+     	echo "projectIndustryList is OK";
+     	$sql = "SELECT * FROM app_industry;";
+
+     	$industry = M()->query($sql);
+
+        return  $industry;
+
+     }
 
      /**
 	 * 客户类型下拉框
@@ -149,6 +165,32 @@ class ProjectManagementModel
 	 * 添加项目
 	 * @author fang.yu
 	 * 2018.8.15
+	 */
+    public function projectAdd($name,
+    	$project_type_id,$industry_id,
+        $customer_type_id,$area_id,$charge,
+    	$address,$longitude,$latitude,$start_time)
+    {
+    	  $sql="insert into ProjectManagement
+    	  (name,project_type_id,industry_id,
+    	  customer_type_id,area_id,charge,status_id,
+    	  progress_rate,detailedAddress,longitude,
+    	  latitude,start_time) 
+    	  values 
+    	  ('$name','$project_type_id',
+    	  '$industry_id','$customer_type_id',
+    	  '$area_id','$charge',1,'0%','$address',
+    	  '$longitude','$latitude','$start_time')";
+
+        $res = M()->execute($sql);
+       	return $res;
+    	 
+    }
+
+    /**
+	 * 添加项目
+	 * @author song.chaoxu
+	 * 2018.11.14
 	 */
     public function projectAdd($name,
     	$project_type_id,$industry_id,

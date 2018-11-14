@@ -62,6 +62,10 @@ class ProjectManagementController extends BaseController {
     	$industryRes=$this->industry=
     	ProjectManagementModel::industryList();
 
+        //所有行业
+        $industryRes=$this->industry=
+        ProjectManagementModel::projectIndustryList();
+
     	//所有客户类型
     	$customerRes=$this->customer=
     	ProjectManagementModel::customerList();
