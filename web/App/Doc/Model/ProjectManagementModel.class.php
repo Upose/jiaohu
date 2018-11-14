@@ -144,6 +144,23 @@ class ProjectManagementModel
 
      }
 
+    /**
+	 * 行业下拉框
+	 * @author song.chaoxu
+	 * 2018.11.14
+	 */
+	  public function projectRankList()
+     {
+
+     	// echo "projectIndustryList is OK";
+     	$sql = "SELECT * FROM app_project_rank;";
+
+     	$industry = M()->query($sql);
+
+        return  $industry;
+
+     }
+
      /**
 	 * 客户类型下拉框
 	 * @author fang.yu
