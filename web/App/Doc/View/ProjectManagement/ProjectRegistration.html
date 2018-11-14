@@ -37,13 +37,12 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">保密等级：</label>
 						<div class="layui-input-block">
-						  <select name="interest" lay-filter="aihao" class="pro_select">
-							<option value="">请选择项目保密等级</option>
-							<option value="0">一级</option>
-							<option value="1">二级</option>
-							<option value="2">三级</option>
-							<option value="3">四级</option>
-						  </select>
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select">
+								<option value="">请选择项目保密等级</option>
+								<option v-for="i in rank" :value="i.id">{{i.rank_name}}</option>
+								</select>
+							</div>
 						</div>
 					</div>	
 				</div>
@@ -180,8 +179,7 @@
 	  layer = layui.layer,
 	  layedit = layui.layedit,
 	  laydate = layui.laydate;
-	 //日期
-	 
+	 //日期 
 	  laydate.render({
 			elem: '#date',
 			type: 'datetime'
@@ -197,15 +195,9 @@
     var app = new Vue({
         el: ".app",
         data: {
-            message: {},
-            data: [],
-            status: [],
-            area: [],
-            customer: [],
-            industry: [],
+						rank: [],
 						industryResult:[],
             province: [],
-            city: [],
         },
 				created: function () {
 					this.getdata();
@@ -216,16 +208,10 @@
                 $.ajax({
                     cache: false,
                     type: "post",
-                    url: "{:U('ProjectManagement/projectList')}",
+                    url: "{:U('ProjectRegistration/projectRecord')}",
                     dataType: "json",
-                    // data: { area: "测试地点", status: "测试状态", keywords: "测试名称" },
                     success: function (data) {
-                        // console.log(data.data);
-                        that.status = data.data.status;
-                        // that.area=data.data.area;
-                        that.data = data.data.list;
-                        that.customer = data.data.customer;
-                        that.industry = data.data.industry;
+												that.rank = data.data.rank;
                         that.province = data.data.area.province;
 												that.industryResult = data.data.industryResult;
                     }
