@@ -66,47 +66,6 @@ class ProjectRegistrationController extends BaseController {
   
     	$temp = array();
 
-    	foreach ($res as $v) 
-    	{
-
-			if(!is_array($temp[$v['pid']]))
-            {
-				$temp[$v['pid']]['id'] = (int)$v['pid'];
-				$temp[$v['pid']]['name'] = $v['pname'];
-				$temp[$v['pid']]['child'] = array();
-			}
-
-				$child['id'] = (int)$v['cid'];
-				$child['name'] = $v['cname'];
-				$child['area'] = $v['area'];
-				$child['industry'] = $v['pname'];
-				$child['charge'] = $v['charge'];
-				
-                //统计项目成员数量
-                $member_num=$this->member_num=
-                ProjectManagementModel::
-                member_numCount((int)$v['cid']);
-                $member_num = $member_num[0]['member_num'];
-
-                $child['member_num'] = $member_num;
-				$child['start_time'] = $v['start_time'];
-				
-				if($v['status'] == "完成验收")
-				{
-					
-					$child['end_time'] = $v['end_time'];
-				}
-				else
-				{
-					$child['end_time'] = "今";
-				}
-				$child['status'] = $v['status'];
-				$child['rate'] = $v['rate'];
-
-				array_push($temp[$v['pid']]['child'], $child);
-
-		}
-    	
     	$final['area'] = $areaRes;
         $final['industryResult'] = $industryResult;
         $final['rank'] = $rank;
