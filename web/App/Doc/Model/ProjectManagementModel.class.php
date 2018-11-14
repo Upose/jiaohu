@@ -132,17 +132,17 @@ class ProjectManagementModel
 	 * @author song.chaoxu
 	 * 2018.11.14
 	 */
-	  public function projectIndustryList()
-     {
+	  // public function projectIndustryList()
+   //   {
 
-     	echo "projectIndustryList is OK";
-     	$sql = "SELECT * FROM app_industry;";
+   //   	echo "projectIndustryList is OK";
+   //   	$sql = "SELECT * FROM app_industry;";
 
-     	$industry = M()->query($sql);
+   //   	$industry = M()->query($sql);
 
-        return  $industry;
+   //      return  $industry;
 
-     }
+   //   }
 
      /**
 	 * 客户类型下拉框
