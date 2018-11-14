@@ -143,8 +143,8 @@
 						<input type="text" name="date" id="date1" lay-verify="date1" placeholder="请选择日期" autocomplete="off" class="layui-input">
 						</div>
 				</div>	
-				<div class="form_div2" style="vertical-align: top;">
-						<label class="tit_shang">上传文件</label>
+				<div class="layui-form-item" style="vertical-align: top;">
+						<label class="tit-tab">上传文件</label>
 						<div class="cus-files" id="cus-form">
 								<input type="file" id="cus-ipt" name="photo" class="cus-files-input" multiple="multiple" ref="inputer" accept=".doc,.docx,.pdf" @change="updateFileList" />
 								<div class="cus-files-content">
@@ -159,7 +159,7 @@
 				<div class="layui-form-item" style="margin-top:2vh;">
 					<label class="tit-tab">项目介绍：</label>
 					<div class="layui-input-block">
-					<input type="text" name="identity" lay-verify="identity" placeholder="这里文字是项目介绍" autocomplete="off" class="layui-input" style="height: 30vh;">				
+					     <textarea placeholder="请输入内容" class="layui-textarea"></textarea>		
 					</div>
 				</div>		
 			</div>
