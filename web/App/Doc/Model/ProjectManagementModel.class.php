@@ -192,26 +192,26 @@ class ProjectManagementModel
 	 * @author song.chaoxu
 	 * 2018.11.14
 	 */
-    public function projectAdd($name,
-    	$project_type_id,$industry_id,
-        $customer_type_id,$area_id,$charge,
-    	$address,$longitude,$latitude,$start_time)
-    {
-    	  $sql="insert into ProjectManagement
-    	  (name,project_type_id,industry_id,
-    	  customer_type_id,area_id,charge,status_id,
-    	  progress_rate,detailedAddress,longitude,
-    	  latitude,start_time) 
-    	  values 
-    	  ('$name','$project_type_id',
-    	  '$industry_id','$customer_type_id',
-    	  '$area_id','$charge',1,'0%','$address',
-    	  '$longitude','$latitude','$start_time')";
+    // public function projectAdd($name,
+    // 	$project_type_id,$industry_id,
+    //     $customer_type_id,$area_id,$charge,
+    // 	$address,$longitude,$latitude,$start_time)
+    // {
+    // 	  $sql="insert into ProjectManagement
+    // 	  (name,project_type_id,industry_id,
+    // 	  customer_type_id,area_id,charge,status_id,
+    // 	  progress_rate,detailedAddress,longitude,
+    // 	  latitude,start_time) 
+    // 	  values 
+    // 	  ('$name','$project_type_id',
+    // 	  '$industry_id','$customer_type_id',
+    // 	  '$area_id','$charge',1,'0%','$address',
+    // 	  '$longitude','$latitude','$start_time')";
 
-        $res = M()->execute($sql);
-       	return $res;
+    //     $res = M()->execute($sql);
+    //    	return $res;
     	 
-    }
+    // }
 
     /**
 	 * 统计项目成员人数
