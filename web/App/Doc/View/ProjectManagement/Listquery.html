@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>fankui</title>
+    <title>项目列表查询</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
     <link rel="stylesheet" href="__CSS__/submit2.css" media="all">
@@ -18,17 +18,16 @@
         <div class="layui-form-item">
             <label class="layui-form-label">项目名称：</label>
             <div class="layui-input-inline">
-                <input type="text" v-model="message.keywords"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="keywords" class="layui-input">
+                <input type="text" v-model="message.keywords"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="namekey" class="layui-input">
             </div>
 						<label class="layui-form-label">项目编号：</label>
 						<div class="layui-input-inline">
-								<input type="text" v-model="message.keywords1"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="keywords" class="layui-input">
+								<input type="text" v-model="message.keywords1"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="numkey" class="layui-input">
 						</div>
 						<label class="layui-form-label">所在区域：</label>
 						<div class="layui-input-inline">
-								<input type="text" v-model="message.keywords2"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="keywords" class="layui-input">
+								<input type="text" v-model="message.keywords2"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="citykey" class="layui-input">
 						</div>
-            <!--<button class="layui-btn layui-btn-normal">默认按钮</button>-->
             <span class="btn-sub" @click="searchInput()">搜索</span>
         </div>
     </form>
