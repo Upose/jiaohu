@@ -49,18 +49,29 @@ class ProjectRegistrationController extends BaseController {
         
         
 	 	//以下是所有下拉框列表
-    	//所有区域
+    	//所有区域 - 页面下拉项内容
     	$areaRes=$this->area=
     	ProjectRegistrationModel::areaList($province_id);
     	
 
-        //所有行业
+        //所有行业 - 页面下拉项内容
         $industryResult=$this->projectindustry=
         ProjectRegistrationModel::projectIndustryList();
 
-        //项目密级别
+        //项目密级别 - 页面下拉项内容
         $rank=$this->rank=
         ProjectRegistrationModel::projectRankList();
+
+        //项目经理 - 页面下拉项内容
+        $projectManager=$this->projectManager=
+        ProjectRegistrationModel::projectManager();
+
+
+        //部门经理 - 页面下拉项内容
+        $divisionManager=$this->divisionManager=
+        ProjectRegistrationModel::divisionManager();
+
+
 
 
   
@@ -69,6 +80,9 @@ class ProjectRegistrationController extends BaseController {
     	$final['area'] = $areaRes;
         $final['industryResult'] = $industryResult;
         $final['rank'] = $rank;
+        $final['projectManager'] = $projectManager;
+        $final['divisionManager'] = $divisionManager;
+        
     	
       	$this->Response(0,$final,'');
 

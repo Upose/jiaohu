@@ -77,7 +77,7 @@ class ProjectRegistrationModel
 	  public function projectIndustryList()
      {
 
-     	// echo "projectIndustryList is OK";
+
      	$sql = "SELECT * FROM app_industry;";
 
      	$industry = M()->query($sql);
@@ -94,7 +94,6 @@ class ProjectRegistrationModel
 	  public function projectRankList()
      {
 
-     	// echo "projectIndustryList is OK";
      	$sql = "SELECT * FROM app_project_rank;";
 
      	$industry = M()->query($sql);
@@ -103,6 +102,41 @@ class ProjectRegistrationModel
 
      }
 
+
+    /**
+     * 项目经理
+     * @author song.chaoxu
+     * 2018.11.20
+     */
+      public function projectManager()
+     {
+
+
+        $sql = "SELECT t.member_name FROM user_member t WHERE postsname like '%经理' AND department LIKE '%交付%'";
+
+        $industry = M()->query($sql);
+
+        return  $industry;
+
+     }
+
+
+    /**
+     * 部门经理
+     * @author song.chaoxu
+     * 2018.11.20
+     */
+      public function divisionManager()
+     {
+
+
+        $sql = "SELECT t.member_name FROM user_member t WHERE postsname = '部门经理' AND department LIKE '%交付%'";
+
+        $industry = M()->query($sql);
+
+        return  $industry;
+
+     }
 
 
 
