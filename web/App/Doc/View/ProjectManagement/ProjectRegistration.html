@@ -108,7 +108,12 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">部门经理：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input">
+						<div  class="search_div">
+							<select name="interest" lay-filter="aihao" class="pro_select">
+							<option value="">请选择项目部门经理</option>
+							<option v-for="i in divisionManager" :value="i.member_name">{{member_name}}</option>
+							</select>
+						</div>
 						</div>
 					</div>	
 				</div>
@@ -199,6 +204,7 @@
 						rank: [],
 						industryResult:[],
             province: [],
+						divisionManager:[],
         },
 				created: function () {
 					this.getdata();
@@ -215,6 +221,7 @@
 												that.rank = data.data.rank;
                         that.province = data.data.area.province;
 												that.industryResult = data.data.industryResult;
+												that.divisionManager = data.data.divisionManager;
                     }
                 })
             },
