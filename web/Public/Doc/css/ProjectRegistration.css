@@ -149,11 +149,9 @@ body{
 }
 .cus-files {
     height: 20vh;
-    width: 34.5vw;
     padding: 0;
     /* margin: 18px; */
     margin-left: 5.5vw;
-    margin-top: -6vh;
     position: relative;
     background: rgba(251,251,251,1);
     border-radius: 4px;
