@@ -112,7 +112,7 @@ class ProjectRegistrationModel
      {
 
 
-        $sql = "SELECT t.member_name FROM user_member t WHERE postsname like '%经理' AND department LIKE '%交付%'";
+        $sql = "SELECT t.member_id,t.member_name FROM user_member t WHERE postsname like '%经理' AND department LIKE '%交付%'";
 
         $industry = M()->query($sql);
 
@@ -130,7 +130,7 @@ class ProjectRegistrationModel
      {
 
 
-        $sql = "SELECT t.member_name FROM user_member t WHERE postsname = '部门经理' AND department LIKE '%交付%'";
+        $sql = "SELECT t.member_id,t.member_name FROM user_member t WHERE postsname = '部门经理' AND department LIKE '%交付%'";
 
         $industry = M()->query($sql);
 
@@ -140,11 +140,13 @@ class ProjectRegistrationModel
 
 
 
-     /**
-	 * 添加项目
-	 * @author fang.yu
-	 * 2018.8.15
-	 */
+
+
+    /**
+     * 项目新增
+     * @author song.chaoxu
+     * 2018.11.20
+     */
     public function projectAdd($name,
     	$project_type_id,$industry_id,
         $customer_type_id,$area_id,$charge,
