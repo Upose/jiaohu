@@ -21,7 +21,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目名称：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input">
+						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" v-model="addList.name">
 						</div>
 					</div>	
 				</div>
@@ -29,7 +29,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目编号：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input">
+						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" v-model="addList.num">
 						</div>
 					</div>	
 				</div>
@@ -38,8 +38,7 @@
 						<label class="tit-tab">保密等级：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select">
-								<option value="">请选择项目保密等级</option>
+								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.grade">
 								<option v-for="i in rank" :value="i.id">{{i.rank_name}}</option>
 								</select>
 							</div>
@@ -50,7 +49,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">创建时间：</label>
 						  <div class="layui-input-block">
-							<input type="text" name="date" id="date" lay-verify="date" placeholder="请选择日期" autocomplete="off" class="layui-input">
+							<input type="text" name="date" id="date" lay-verify="date" placeholder="请选择日期" autocomplete="off" class="layui-input" v-model="addList.date">
 						  </div>
 					</div>	
 				</div>
@@ -58,7 +57,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">立项信息：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="请输入立项信息" autocomplete="off" class="layui-input">
+						<input type="text" name="identity" lay-verify="identity" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.message">
 						</div>
 					</div>	
 				</div>
@@ -67,8 +66,7 @@
 						<label class="tit-tab">所在区域：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select">
-								<option value="">全国</option>
+								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
 								<option v-for="i in province" :value="i.pid">{{i.pname}}</option>
 								</select>
 							</div>
@@ -79,7 +77,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">合作单位：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="请输入合作单位名称" autocomplete="off" class="layui-input">
+						<input type="text" name="identity" lay-verify="identity" placeholder="请输入合作单位名称" autocomplete="off" class="layui-input" v-model="addList.company">
 						</div>
 					</div>	
 				</div>
@@ -87,7 +85,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目性质：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input">
+						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" v-model="addList.nature">
 						</div>
 					</div>	
 				</div>
@@ -96,8 +94,7 @@
 						<label class="tit-tab">所在行业：</label>
 						<div class="layui-input-block">
 						<div  class="search_div">
-							<select name="interest" lay-filter="aihao" class="pro_select">
-							<option value="">请选择项目行业</option>
+							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.industry" id="industry">
 							<option v-for="i in industryResult" :value="i.industry_id">{{i.industry_name}}</option>
 							</select>
 						</div>
@@ -109,9 +106,8 @@
 						<label class="tit-tab">部门经理：</label>
 						<div class="layui-input-block">
 						<div  class="search_div">
-							<select name="interest" lay-filter="aihao" class="pro_select">
-							<option value="">请选择项目部门经理</option>
-							<option v-for="i in divisionManager" :value="i.member_name">{{member_name}}</option>
+							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.department">
+							<option v-for="i in divisionManager" :value="i.member_id">{{i.member_name}}</option>
 							</select>
 						</div>
 						</div>
@@ -121,7 +117,12 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目经理：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input">
+						<div  class="search_div"> 
+							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.project">
+							<option  value="">nihao</option>
+							<option v-for="i in projectManager" :value="i.member_id">{{i.member_name}}</option>
+							</select>
+						</div>
 						</div>
 					</div>	
 				</div>
@@ -138,15 +139,21 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">合同额(元)</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input">
+						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" v-model="addList.money">
 						</div>
 					</div>		
 				</div>
 				<div class="layui-form-item">
-					<label class="tit-tab">项目周期：</label>
+					<label class="tit-tab">开始时间：</label>
 						<div class="layui-input-block">
-						<input type="text" name="date" id="date1" lay-verify="date1" placeholder="请选择日期" autocomplete="off" class="layui-input">
+						<input type="text" name="date" id="date1" lay-verify="date1" placeholder="请选择日期" autocomplete="off" class="layui-input"  v-model="addList.start">
 						</div>
+				</div>
+				<div class="layui-form-item">
+						<label class="tit-tab">结束时间：</label>
+							<div class="layui-input-block">
+							<input type="text" name="date" id="date2" lay-verify="date2" placeholder="请选择日期" autocomplete="off" class="layui-input" v-model="addList.end">
+							</div>
 				</div>	
 				<div class="layui-form-item" style="vertical-align: top;">
 						<label class="tit-tab">上传文件</label>
@@ -164,7 +171,7 @@
 				<div class="layui-form-item" style="margin-top:2vh;">
 					<label class="tit-tab">项目介绍：</label>
 					<div class="layui-input-block">
-					     <textarea placeholder="请输入内容" class="layui-textarea"></textarea>		
+					     <textarea placeholder="请输入内容" class="layui-textarea" v-model="addList.see"></textarea>		
 					</div>
 				</div>		
 			</div>
@@ -173,7 +180,7 @@
 			<div class="btn_mar">
 				<div class="layui-footer line"></div>
 			<button class="layui-btn layui-btn-primary" type="button">取消</button>
-			<button class="layui-btn" type="button">提交</button>
+			<button class="layui-btn" type="button" @click="submitForm">提交</button>
 			</div>
 		</div>
 		
@@ -190,11 +197,13 @@
 			elem: '#date',
 			type: 'datetime'
 			});
-	//日期时间范围
-			laydate.render({
-				elem: '#date1',
-				range: true
+		laydate.render({
+			elem: '#date1',
 			});
+		laydate.render({
+			elem: '#date2',
+			});
+
 	  });
 
 	 // 选择全国
@@ -205,6 +214,7 @@
 						industryResult:[],
             province: [],
 						divisionManager:[],
+						projectManager:[],
         },
 				created: function () {
 					this.getdata();
@@ -222,6 +232,7 @@
                         that.province = data.data.area.province;
 												that.industryResult = data.data.industryResult;
 												that.divisionManager = data.data.divisionManager;
+												that.projectManager = data.data.projectManager;
                     }
                 })
             },
