@@ -139,24 +139,24 @@ class ProjectRegistrationModel
                 VALUES
                     (
                         $pro_code,
-                        $pro_name,
+                        \"$pro_name\",
                         $typeId,
                         $industry,
                         $projectManagerId,
-                        $projectManager, 
+                        \"$projectManager\", 
                         $projectStime,
                         $projectEtime,
-                        $area,
-                        $rank,
+                        \"$area\",
+                        \"$rank\",
                         $createTime,
-                        $newPath,
-                        $lxMsg,
-                        $cooperativeUnit,
-                        $projectNature,
+                        \"$newPath\",
+                        \"$lxMsg\",
+                        \"$cooperativeUnit\",
+                        \"$projectNature\",
                         $divisionManagerId,
-                        $divisionManager,
+                        \"$divisionManager\",
                         $contractAmount,
-                        $projectIntroduce
+                        \"$projectIntroduce\"
                     );";
 
         $res = M()->execute($sql);
