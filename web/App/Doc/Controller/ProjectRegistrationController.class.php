@@ -35,7 +35,6 @@ class ProjectRegistrationController extends BaseController {
     	//所有区域 - 页面下拉项内容
     	$areaRes=$this->area=
     	ProjectRegistrationModel::areaList($province_id);
-    	
 
         //所有行业 - 页面下拉项内容
         $industryResult=$this->projectindustry=
@@ -53,14 +52,10 @@ class ProjectRegistrationController extends BaseController {
         $projectManager=$this->projectManager=
         ProjectRegistrationModel::projectManager();
 
-
         //部门经理 - 页面下拉项内容
         $divisionManager=$this->divisionManager=
         ProjectRegistrationModel::divisionManager();
 
-
-
-  
     	$temp = array();
 
     	$final['area'] = $areaRes;
@@ -69,10 +64,8 @@ class ProjectRegistrationController extends BaseController {
         $final['projectManager'] = $projectManager;
         $final['divisionManager'] = $divisionManager;
         $final['projectNature'] = $projectNature;
-
-        
     	
-      	$this->Response(0,$final,'');
+      	$this->Response(200,$final,'');
 
     }
 
@@ -87,10 +80,8 @@ class ProjectRegistrationController extends BaseController {
         //项目编号
         $pro_id = I('pro_id');
 
-
         //項目名稱
         $pro_name = I('pro_name');
-
 
         //保密等级
         $rank = I('rank');
@@ -121,7 +112,6 @@ class ProjectRegistrationController extends BaseController {
 
         //项目经理
         $projectManager = I('projectManager');
-
 
         //项目经理ID
         $projectManagerId = I('projectManagerId');
@@ -181,11 +171,50 @@ class ProjectRegistrationController extends BaseController {
         }
 
 
-        $res=$this->res=
+        $status=$this->status=
             ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime, $filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
 
+        echo $status;
+        var_dump($status);
+        if ($status) {
+            
+            echo "成功";
+        }else{
+            echo "失败";
+        }
             //執行頁面跳轉 
-            $this->redirect('Feedback/FeedbackList'); 
+        
+        // $this->redirect('Feedback/FeedbackList'); 
+
+    }
+
+
+    /**
+     * 项目查询
+     * @author song.chaoxu
+     * 2018.11.21
+     */
+    public function projectList()
+    {
+
+        //区域
+        $proArea = I('proArea');
+      
+        //名称
+        $proName = I('proName');
+       
+        //编号
+        $proCode = I('proCode');
+
+        echo "$proArea:".$proArea ."——————1——————$proName".$proName."——————1——————$proCode".$proCode;
+
+        
+        //项目列表
+        $projectList=$this->projectList=
+        ProjectRegistrationModel::projectList($proArea,$proName,$proCode);
+
+        $this->Response(200,$projectList,'');
+        
 
     }
 
