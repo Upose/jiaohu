@@ -75,7 +75,8 @@ class ProjectRegistrationController extends BaseController {
      * @author song.chaoxu
      * 2018.11.20
      */
-    public function projectAdd(){
+    public function projectAdd()
+    {
 
         //项目编号
         $pro_id = I('pro_id');
@@ -166,11 +167,11 @@ class ProjectRegistrationController extends BaseController {
           }
 
         }else{
-            $filePath = null;
-            echo "未找到文件";
+            $filePath = "未找到文件";
+            // echo "未找到文件";
         }
 
-
+        echo $filePath+"_______$filePath";
         $status=$this->status=
             ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime, $filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
 
