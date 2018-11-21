@@ -168,19 +168,15 @@ class ProjectRegistrationController extends BaseController {
 
         }else{
             $filePath = "无";
-            // echo "未找到文件";
         }
-
+    
         $status=$this->status=
             ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime, $filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
-
-        if ($status) {
-            
-         $this->Response(200,$status,'');
-
-        }else{
-            $this->Response(0,$status,'数据新增失败');
-        }
+            if ($status) {
+                $this->Response(200,$status,'数据新增成功');
+                } else {
+                throw new Exception('数据插入失败');
+                }
 
     }
 

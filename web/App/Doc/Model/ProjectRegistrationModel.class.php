@@ -159,9 +159,18 @@ class ProjectRegistrationModel
                         \"$projectIntroduce\"
                     );";
 
-        $res = M()->execute($sql);
-       	return $res;	 
+
+        try{
+
+            $res =  M()->execute($sql);
+            return $res;
+         
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+       	 
     }
+
 
 
 
