@@ -50,9 +50,25 @@ class ProjectRegistrationModel
 
      	$sql = "SELECT * FROM app_project_rank;";
 
-     	$industry = M()->query($sql);
+     	$rankList = M()->query($sql);
 
-        return  $industry;
+        return  $rankList;
+
+     }
+
+    /**
+     * 项目性质下拉框
+     * @author song.chaoxu
+     * 2018.11.21
+     */
+      public function projectNature()
+     {
+
+        $sql = "SELECT * FROM app_project_nature;";
+
+        $projectNature = M()->query($sql);
+
+        return  $projectNature;
 
      }
 
@@ -68,9 +84,9 @@ class ProjectRegistrationModel
 
         $sql = "SELECT t.member_id,t.member_name FROM user_member t WHERE postsname like '%经理' AND department LIKE '%交付%'";
 
-        $industry = M()->query($sql);
+        $projectManager = M()->query($sql);
 
-        return  $industry;
+        return  $projectManager;
 
      }
 
@@ -86,9 +102,9 @@ class ProjectRegistrationModel
 
         $sql = "SELECT t.member_id,t.member_name FROM user_member t WHERE postsname = '部门经理' AND department LIKE '%交付%'";
 
-        $industry = M()->query($sql);
+        $divisionManager = M()->query($sql);
 
-        return  $industry;
+        return  $divisionManager;
 
      }
 
@@ -98,7 +114,7 @@ class ProjectRegistrationModel
      * @author song.chaoxu
      * 2018.11.20
      */
-    public function projectAdd($pro_name,$pro_id,$rank,$createTime,$lxMsg,$area,$cooperativeUnit,$projectNature,$industry,$divisionManager,$projectManager,$contractAmount,$projectStime,$projectEtime,$projectIntroduce,$newpath){
+    public function projectAdd($pro_code,$pro_name,$typeId,$industry, $projectManagerId, $projectManager, $projectStime,$projectEtime, $area,$rank,$createTime,$newPath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManagerId,$divisionManager,$contractAmount,$projectIntroduce){
     	  $sql="INSERT INTO `deliveryapplication`.`app_project` (
                     `pro_id`,
                     `pro_name`,
@@ -106,60 +122,41 @@ class ProjectRegistrationModel
                     `industry_id`,
                     `member_id`,
                     `pro_leader`,
-                    `pro_members`,
                     `pro_stime`,
                     `pro_etime`,
-                    `pro_status`,
-                    `pro_schedule`,
                     `pro_address`,
                     `secrecy_grade`,
-                    `insert_date`,
                     `create_data`,
-                    `pro_longitude`,
-                    `pro_latitude`,
                     `pro_enclosure`,
-                    `pro_code`,
                     `pro_msg`,
                     `cooperative_unit`,
                     `pro_source`,
                     `division_manager_id`,
                     `pro_division_manager`,
-                    `pro_contract`,
                     `contract_amount`,
-                    `pro_introduce`,
-                    `filePath`
-
+                    `pros_introduce`
                 )
                 VALUES
                     (
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL,
-                        NULL
+                        $pro_code,
+                        $pro_name,
+                        $typeId,
+                        $industry,
+                        $projectManagerId,
+                        $projectManager, 
+                        $projectStime,
+                        $projectEtime,
+                        $area,
+                        $rank,
+                        $createTime,
+                        $newPath,
+                        $lxMsg,
+                        $cooperativeUnit,
+                        $projectNature,
+                        $divisionManagerId,
+                        $divisionManager,
+                        $contractAmount,
+                        $projectIntroduce
                     );";
 
         $res = M()->execute($sql);

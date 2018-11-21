@@ -45,6 +45,10 @@ class ProjectRegistrationController extends BaseController {
         $rank=$this->rank=
         ProjectRegistrationModel::projectRankList();
 
+        //项目性质 - 页面下拉项内容
+        $rank=$this->rank=
+        ProjectRegistrationModel::projectNature();
+
         //项目经理 - 页面下拉项内容
         $projectManager=$this->projectManager=
         ProjectRegistrationModel::projectManager();
@@ -54,6 +58,8 @@ class ProjectRegistrationController extends BaseController {
         $divisionManager=$this->divisionManager=
         ProjectRegistrationModel::divisionManager();
 
+
+
   
     	$temp = array();
 
@@ -62,6 +68,8 @@ class ProjectRegistrationController extends BaseController {
         $final['rank'] = $rank;
         $final['projectManager'] = $projectManager;
         $final['divisionManager'] = $divisionManager;
+        $final['projectNature'] = $projectNature;
+
         
     	
       	$this->Response(0,$final,'');
@@ -76,11 +84,13 @@ class ProjectRegistrationController extends BaseController {
      */
     public function projectAdd(){
 
+        //项目编号
+        $pro_id = I('pro_id');
+
+
         //項目名稱
         $pro_name = I('pro_name');
 
-        //项目编号
-        $pro_id = I('pro_id');
 
         //保密等级
         $rank = I('rank');
@@ -106,11 +116,21 @@ class ProjectRegistrationController extends BaseController {
         //部门经理
         $divisionManager = I('divisionManager');
 
+        //部门经理ID
+        $divisionManagerId = I('divisionManagerId');
+
         //项目经理
         $projectManager = I('projectManager');
 
+
+        //项目经理ID
+        $projectManagerId = I('projectManagerId');
+
         //合同额(元)
         $contractAmount = I('contractAmount');
+
+        //是否合同
+        $typeId = I('typeId');
 
         // 项目周期（开始时间）
         $projectStime = I('projectStime');
@@ -120,6 +140,9 @@ class ProjectRegistrationController extends BaseController {
 
         // 项目介绍
         $projectIntroduce = I('projectIntroduce');
+
+        //项目附件 - 合同
+        $filePath = '';
 
 
         if ($_FILES) {
@@ -145,24 +168,24 @@ class ProjectRegistrationController extends BaseController {
               foreach ($result as $key => $value) {
                 $savename  = $value['savename'];
                 $path  = "/Updata/UpdateFile/".$value['savepath'];
-                $newpath = $path.$savename;
+                $filePath = $newpath = $path.$savename;
                 $href[] = $newpath;
               }
             }
               
           }
 
-        $res=$this->res=
-        ProjectRegistrationModel::projectAdd($pro_name,$pro_id,$rank,$createTime,$lxMsg,$area,$cooperativeUnit,$projectNature,$industry,$divisionManager,$projectManager,$contractAmount,$projectStime,$projectEtime,$projectIntroduce,$newpath);
-
-        //執行頁面跳轉 
-        $this->redirect('Feedback/FeedbackList'); 
-
         }else{
+            $filePath = null;
             echo "未找到文件";
-            $this->Response('ERROR');
-
         }
+
+
+        $res=$this->res=
+            ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime, $filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
+
+            //執行頁面跳轉 
+            $this->redirect('Feedback/FeedbackList'); 
 
 
     }
