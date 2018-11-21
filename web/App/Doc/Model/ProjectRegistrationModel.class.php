@@ -134,7 +134,7 @@ class ProjectRegistrationModel
                     `division_manager_id`,
                     `pro_division_manager`,
                     `contract_amount`,
-                    `pros_introduce`
+                    `pro_introduce`,
                 )
                 VALUES
                     (
