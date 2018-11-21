@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/ProjectRegistration.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+		<script src="__DOCLAY__/plugins/layui/layui.js"></script>
 		<script src="__STATIC__/vue.min.js"></script>
 </head>
 
@@ -49,7 +50,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">创建时间：</label>
 						  <div class="layui-input-block">
-							<input type="text" name="date" id="date" lay-verify="date" placeholder="请选择日期" autocomplete="off" class="layui-input" v-model="addList.date">
+							<input class="layui-input" type="date" name="date_timne" id="" v-model="addList.date_timne">
 						  </div>
 					</div>	
 				</div>
@@ -85,7 +86,11 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目性质：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" v-model="addList.nature">
+						<div  class="search_div"> 
+							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.nature">						
+							<option v-for="i in projectNature" :value="i.id">{{i.xzname}}</option>
+							</select>
+						</div>
 						</div>
 					</div>	
 				</div>
@@ -118,8 +123,7 @@
 						<label class="tit-tab">项目经理：</label>
 						<div class="layui-input-block">
 						<div  class="search_div"> 
-							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.project">
-							<option  value="">nihao</option>
+							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.project">						
 							<option v-for="i in projectManager" :value="i.member_id">{{i.member_name}}</option>
 							</select>
 						</div>
@@ -146,13 +150,13 @@
 				<div class="layui-form-item">
 					<label class="tit-tab">开始时间：</label>
 						<div class="layui-input-block">
-						<input type="text" name="date" id="date1" lay-verify="date1" placeholder="请选择日期" autocomplete="off" class="layui-input"  v-model="addList.start">
+						<input class="layui-input" type="date" name="start_time" id="" v-model="addList.start_time">
 						</div>
 				</div>
 				<div class="layui-form-item">
 						<label class="tit-tab">结束时间：</label>
 							<div class="layui-input-block">
-							<input type="text" name="date" id="date2" lay-verify="date2" placeholder="请选择日期" autocomplete="off" class="layui-input" v-model="addList.end">
+							<input class="layui-input" type="date" name="end_time" id="" v-model="addList.end_time">
 							</div>
 				</div>	
 				<div class="layui-form-item" style="vertical-align: top;">
@@ -171,7 +175,7 @@
 				<div class="layui-form-item" style="margin-top:2vh;">
 					<label class="tit-tab">项目介绍：</label>
 					<div class="layui-input-block">
-					     <textarea placeholder="请输入内容" class="layui-textarea" v-model="addList.see"></textarea>		
+					     <textarea placeholder="请输入内容" class="layui-textarea" v-model="addList.other_person"></textarea>		
 					</div>
 				</div>		
 			</div>
@@ -179,7 +183,7 @@
 			
 			<div class="btn_mar">
 				<div class="layui-footer line"></div>
-			<button class="layui-btn layui-btn-primary" type="button">取消</button>
+			<button class="layui-btn layui-btn-primary" type="button" @click="resetForm">取消</button>
 			<button class="layui-btn" type="button" @click="submitForm">提交</button>
 			</div>
 		</div>
@@ -209,17 +213,39 @@
 	 // 选择全国
     var app = new Vue({
         el: ".app",
-        data: {
+				data: function() {
+					return {
 						rank: [],
 						industryResult:[],
-            province: [],
+						province: [],
 						divisionManager:[],
 						projectManager:[],
-        },
+						projectNature:[],
+						addList: {
+							name: '',
+							num: '',
+							grade: '',
+							date_timne: '',
+							message: '',
+							city: '',
+							company: '',
+							nature:'',
+							industry:'',
+							department:'',
+							project:'',
+							money:'',
+							start_time:'',
+							end_time:'',
+							other_person:''
+						},
+						maxFileSize: 10485760,
+						maxFileLength: 4
+					}
+				},
 				created: function () {
 					this.getdata();
 				},
-        methods: {
+        methods: {				
             getdata() {
                 var that = this;
                 $.ajax({
@@ -233,9 +259,81 @@
 												that.industryResult = data.data.industryResult;
 												that.divisionManager = data.data.divisionManager;
 												that.projectManager = data.data.projectManager;
+												that.projectNature = data.data.projectNature; 
                     }
                 })
             },
+					submitForm: function() {
+						// 表单验证
+						if( this.addList.name == '' ||
+							this.addList.num == '' ||
+							this.addList.grade == '' ||
+							this.addList.date_timne == '' ||
+							this.addList.message == '' ||
+							this.addList.city == '' ||
+							this.addList.company == ''||
+							this.addList.nature == ''||
+							this.addList.industry == ''||
+							this.addList.department == ''||
+							this.addList.project == ''||
+							this.addList.money == ''||
+							this.addList.start_time == ''||
+							this.addList.end_time == ''||
+							this.addList.other_person == ''				
+							
+						) {
+							layui.use('layer', function() {
+								var layer = layui.layer;
+								layer.alert('请确保信息输入完整!');
+							})
+						}	else {
+							this.submitText();
+						}
+					},
+					// 上传文字内容
+					submitText: function() {
+						var _this = this;
+						$.ajax({
+							cache: false,
+							async: false,
+							type: "POST",
+							url: "{:U('ProjectRegistration/eventAdd')}",
+							dataType: "json",
+							data: {
+								pro_id:this.addList.num,
+								pro_name :this.addList.name,						
+								rank :this.addList.grade,
+								createTime:this.addList.date_timne,
+								lxMsg:this.addList.message,						
+								area :this.addList.city,
+								cooperativeUnit:this.addList.company,
+								projectNature:this.addList.nature,						
+								industry :this.addList.industry,
+								divisionManager:this.addList.department,
+								divisionManagerId:"5050",
+								projectManager:this.addList.project,
+								projectManagerId:"222",	
+								contractAmount:this.addList.money,
+								projectStime:this.addList.start_time,
+								projectEtime:this.addList.end_time,						
+								projectIntroduce :this.addList.other_person,
+
+							},
+							success: function (res) {
+								if(res.code == 0) {
+									layui.use('layer', function() {
+										var layer = layui.layer;
+										layer.alert('添加成功');
+									})
+								} else {
+									layui.use('layer', function() {
+										var layer = layui.layer;
+										layer.alert('添加失败');
+									})
+								}
+							}
+						})
+					},					
         }
     })
 </script>
