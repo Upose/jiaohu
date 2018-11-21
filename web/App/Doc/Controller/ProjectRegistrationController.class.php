@@ -167,25 +167,21 @@ class ProjectRegistrationController extends BaseController {
           }
 
         }else{
-            $filePath = "未找到文件";
+            $filePath = "无";
             // echo "未找到文件";
         }
 
-        echo $filePath+"_______$filePath";
         $status=$this->status=
             ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime, $filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
 
-        echo $status;
-        var_dump($status);
         if ($status) {
             
-            echo "成功";
+         $this->redirect('Feedback/FeedbackList'); 
+
         }else{
-            echo "失败";
+            $this->Response(0,$status,'数据新增失败');
         }
-            //執行頁面跳轉 
-        
-        // $this->redirect('Feedback/FeedbackList'); 
+
 
     }
 
