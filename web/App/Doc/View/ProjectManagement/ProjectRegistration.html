@@ -40,7 +40,7 @@
 						<div class="layui-input-block">
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.grade">
-								<option v-for="i in rank" :value="i.id">{{i.rank_name}}</option>
+								<option v-for="a in rank" :value="a.id">{{a.rank_name}}</option>
 								</select>
 							</div>
 						</div>
@@ -68,7 +68,7 @@
 						<div class="layui-input-block">
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
-								<option v-for="i in province" :value="i.pid">{{i.pname}}</option>
+								<option v-for="b in province" :value="b.pid">{{b.pname}}</option>
 								</select>
 							</div>
 						</div>
@@ -88,7 +88,7 @@
 						<div class="layui-input-block">
 						<div  class="search_div"> 
 							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.nature">						
-							<option v-for="i in projectNature" :value="i.id">{{i.xzname}}</option>
+							<option v-for="c in projectNature" name="nature" :value="c.id">{{c.xzname}}</option>
 							</select>
 						</div>
 						</div>
@@ -100,7 +100,7 @@
 						<div class="layui-input-block">
 						<div  class="search_div">
 							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.industry" id="industry">
-							<option v-for="i in industryResult" :value="i.industry_id">{{i.industry_name}}</option>
+							<option v-for="d in industryResult" name="industry" :value="d.industry_id">{{d.industry_name}}</option>
 							</select>
 						</div>
 						</div>
@@ -112,7 +112,7 @@
 						<div class="layui-input-block">
 						<div  class="search_div">
 							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.department">
-							<option v-for="i in divisionManager" :value="i.member_id">{{i.member_name}}</option>
+							<option v-for="e in divisionManager" :value="e.member_id">{{e.member_name}}</option>
 							</select>
 						</div>
 						</div>
@@ -124,7 +124,7 @@
 						<div class="layui-input-block">
 						<div  class="search_div"> 
 							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.project">						
-							<option v-for="i in projectManager" :value="i.member_id">{{i.member_name}}</option>
+							<option v-for="f in projectManager" :value="f.member_id">{{f.member_name}}</option>
 							</select>
 						</div>
 						</div>
@@ -308,7 +308,7 @@
 								area :this.addList.city,
 								cooperativeUnit:this.addList.company,
 								projectNature:this.addList.nature,						
-								industry :'4',
+								industry :this.addList.industry,
 								divisionManager:this.addList.department,
 								divisionManagerId:"5050",
 								projectManager:this.addList.project,
@@ -321,15 +321,16 @@
 
 							},
 							success: function (res) {
-// 								if(res.code == 200) {
-// 									layui.use('layer', function() {
-// 									})
-// 								} else {
-// 									layui.use('layer', function() {
-// 										var layer = layui.layer;
-// 										layer.alert('添加失败');
-// 									})
-// 								}
+								if(res.code == 200) {
+									layui.use('layer', function() {
+										layer.alert('提交成功');
+									})
+								} else {
+									layui.use('layer', function() {
+										var layer = layui.layer;
+										layer.alert('添加失败');
+									})
+								}
 							}
 						})
 					},					
