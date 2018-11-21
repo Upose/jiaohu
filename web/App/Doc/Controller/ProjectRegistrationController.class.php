@@ -46,7 +46,7 @@ class ProjectRegistrationController extends BaseController {
         ProjectRegistrationModel::projectRankList();
 
         //项目性质 - 页面下拉项内容
-        $rank=$this->rank=
+        $projectNature=$this->projectNature=
         ProjectRegistrationModel::projectNature();
 
         //项目经理 - 页面下拉项内容
@@ -186,7 +186,6 @@ class ProjectRegistrationController extends BaseController {
 
             //執行頁面跳轉 
             $this->redirect('Feedback/FeedbackList'); 
-
 
     }
 
