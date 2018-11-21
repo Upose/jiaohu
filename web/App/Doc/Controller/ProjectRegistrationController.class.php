@@ -176,12 +176,11 @@ class ProjectRegistrationController extends BaseController {
 
         if ($status) {
             
-         $this->Response(200,$status,'');
+         $this->redirect('ProjectManagement/Listquery'); 
 
         }else{
             $this->Response(0,$status,'数据新增失败');
         }
-
 
     }
 
