@@ -156,7 +156,7 @@ class ProjectRegistrationModel
                         $divisionManagerId,
                         \"$divisionManager\",
                         $contractAmount,
-                        \"$projectIntroduce\"
+                        $projectIntroduce
                     );";
 
         $res = M()->execute($sql);
