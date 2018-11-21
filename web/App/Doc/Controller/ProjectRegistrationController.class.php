@@ -24,29 +24,12 @@ class ProjectRegistrationController extends BaseController {
     }
 
 	/**
-	 * 现有项目列表接口
+	 * 项目登记
 	 * @author song.chaoxu
 	 * 2018.11.14
 	 */
     public function projectRecord()
     {
-
-    	//区域
-    	// $area_id = I('area_id');
-      
-    	//状态
-	 	// $status_id = I('status_id');
-       
-	 	//关键词
-	 	// $kw = I('keywords');
-
-	 	
-	 	//项目列表
-    	// $res=$this->res=
-    	// ProjectManagementModel::projectList($area_id,
-    	// 	$status_id,$kw);
-
-        
         
 	 	//以下是所有下拉框列表
     	//所有区域 - 页面下拉项内容
@@ -62,6 +45,10 @@ class ProjectRegistrationController extends BaseController {
         $rank=$this->rank=
         ProjectRegistrationModel::projectRankList();
 
+        //项目性质 - 页面下拉项内容
+        $rank=$this->rank=
+        ProjectRegistrationModel::projectNature();
+
         //项目经理 - 页面下拉项内容
         $projectManager=$this->projectManager=
         ProjectRegistrationModel::projectManager();
@@ -73,7 +60,6 @@ class ProjectRegistrationController extends BaseController {
 
 
 
-
   
     	$temp = array();
 
@@ -82,6 +68,8 @@ class ProjectRegistrationController extends BaseController {
         $final['rank'] = $rank;
         $final['projectManager'] = $projectManager;
         $final['divisionManager'] = $divisionManager;
+        $final['projectNature'] = $projectNature;
+
         
     	
       	$this->Response(0,$final,'');
@@ -90,52 +78,116 @@ class ProjectRegistrationController extends BaseController {
 
 
     /**
-	 * 添加项目接口
-	 * @author fang.yu
-	 * 2018.8.15
-	 */
-    public function projectAdd()
-    {
+     * 项目新增 + 項目附件上传
+     * @author song.chaoxu
+     * 2018.11.20
+     */
+    public function projectAdd(){
 
-		//项目名称
-    	$name = I('name');
-
-    	//行业分类id
-    	$industry_id = I('industry_id');
-
-    	//客户类型
-    	$customer_type_id = I('customer_type_id');
-
-    	//项目类型id
-    	$project_type_id = I('project_type_id');
-
-    	//所在区域id
-    	$area_id = I('area_id');
-
-        //项目负责人
-        $charge = I('charge');
-
-    	//所在地址
-    	$address = I('address');
-
-    	//经度
-    	$longitude = I('longitude');
-
-    	//纬度
-    	$latitude = I('latitude');
-
-    	//开始时间
-		$start_time = I('start_time');
+        //项目编号
+        $pro_id = I('pro_id');
 
 
-		$res=$this->res=
-    	ProjectManagementModel::projectAdd($name,
-    	$project_type_id,$industry_id,
-        $customer_type_id,$area_id,$charge,
-    	$address,$longitude,$latitude,$start_time);
+        //項目名稱
+        $pro_name = I('pro_name');
 
-        $this->redirect('ProjectManagement/Manage');
-    	
+
+        //保密等级
+        $rank = I('rank');
+
+        //创建时间
+        $createTime = I('createTime');
+
+        //立项信息
+        $lxMsg = I('lxMsg');
+
+        //所在区域
+        $area = I('area');
+
+        //合作单位
+        $cooperativeUnit = I('cooperativeUnit');
+
+        //项目性质
+        $projectNature = I('projectNature');
+
+        //所在行业
+        $industry = I('industry');
+
+        //部门经理
+        $divisionManager = I('divisionManager');
+
+        //部门经理ID
+        $divisionManagerId = I('divisionManagerId');
+
+        //项目经理
+        $projectManager = I('projectManager');
+
+
+        //项目经理ID
+        $projectManagerId = I('projectManagerId');
+
+        //合同额(元)
+        $contractAmount = I('contractAmount');
+
+        //是否合同
+        $typeId = I('typeId');
+
+        // 项目周期（开始时间）
+        $projectStime = I('projectStime');
+
+        // 项目周期（结束时间）
+        $projectEtime = I('projectEtime');
+
+        // 项目介绍
+        $projectIntroduce = I('projectIntroduce');
+
+        //项目附件 - 合同
+        $filePath = '';
+
+
+        if ($_FILES) {
+          foreach ($_FILES as $key => $value) {
+            //实例化上传类
+            $upload =  new \Think\Upload();
+            //设置附件上传大小
+            // $upload->maxSize=3145728;
+            //保持文件名不变
+            $upload->saveName = time()."dt".rand(0,10);
+            //设置附件上传类型
+            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
+            //设置附件上传根目录
+            $upload->rootPath = './Updata/UpdateFile/'; 
+            //设置附件上传（子）目录
+            $upload->savePath = '';
+            $result = $upload->upload();
+            // echo '<pre>';
+            // var_dump($result);
+            // echo '</pre>';
+            // file_put_contents("11114.txt", json_encode($result));
+            if($result){
+              foreach ($result as $key => $value) {
+                $savename  = $value['savename'];
+                $path  = "/Updata/UpdateFile/".$value['savepath'];
+                $filePath = $newpath = $path.$savename;
+                $href[] = $newpath;
+              }
+            }
+              
+          }
+
+        }else{
+            $filePath = null;
+            echo "未找到文件";
+        }
+
+
+        $res=$this->res=
+            ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime, $filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
+
+            //執行頁面跳轉 
+            $this->redirect('Feedback/FeedbackList'); 
+
+
     }
 
 
