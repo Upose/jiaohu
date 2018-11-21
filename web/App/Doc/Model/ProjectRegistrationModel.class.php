@@ -6,52 +6,6 @@ class ProjectRegistrationModel
 {
 
 
-	/**
-	 * 查询现有项目列表
-	 * @author song.chaoxu
-	 * 2018.11.14
-	 */
-	 public function projectList($area_id,$status_id,$kw)
-	 {
-	 	
-	 	$sql = "SELECT i.id as pid,
-	 	i.name as pname,
-	 	pm.id as cid,pm.name as cname,
-	 	a.name as area,
-	 	pm.charge,pm.member_num,
-	 	pm.start_time,
-	 	pm.end_time,s.name as status,
-	 	pm.progress_rate as rate
-		from ProjectManagement pm 
-		join project_select i 
-		on pm.industry_id  = i.id 
-		join area a 
-		on pm.area_id = a.id
-		join `project_status` s 
-		on pm.status_id = s.id";
-			
-		//根据传来的不同条件进行搜索	 
-		if(!empty($area_id) && empty($status_id) && empty($kw))
-		{
-			$sql.=" where a.id = '$area_id' ORDER BY pm.id ";
-		}
-		if(empty($area_id)&&!empty($status_id)&&empty($kw))
-		{
-			$sql.=" where s.id = '$status_id' ORDER BY pm.id ";
-		}
-		if(empty($area_id)&&empty($status_id)&&!empty($kw))
-		{
-			$sql.=" where pm.name like '%$kw%' ORDER BY pm.id ";
-		}
-
-
-	 	$res = M()->query($sql);
-
-        return  $res;
-
-	 }
-
-
 	 /**
 	 * 区域下拉框
 	 * @author fang.yu
@@ -139,36 +93,78 @@ class ProjectRegistrationModel
      }
 
 
-
-
-
     /**
      * 项目新增
      * @author song.chaoxu
      * 2018.11.20
      */
-    public function projectAdd($name,
-    	$project_type_id,$industry_id,
-        $customer_type_id,$area_id,$charge,
-    	$address,$longitude,$latitude,$start_time)
-    {
-    	  $sql="insert into ProjectManagement
-    	  (name,project_type_id,industry_id,
-    	  customer_type_id,area_id,charge,status_id,
-    	  progress_rate,detailedAddress,longitude,
-    	  latitude,start_time) 
-    	  values 
-    	  ('$name','$project_type_id',
-    	  '$industry_id','$customer_type_id',
-    	  '$area_id','$charge',1,'0%','$address',
-    	  '$longitude','$latitude','$start_time')";
+    public function projectAdd($pro_name,$pro_id,$rank,$createTime,$lxMsg,$area,$cooperativeUnit,$projectNature,$industry,$divisionManager,$projectManager,$contractAmount,$projectStime,$projectEtime,$projectIntroduce,$newpath){
+    	  $sql="INSERT INTO `deliveryapplication`.`app_project` (
+                    `pro_id`,
+                    `pro_name`,
+                    `type_id`,
+                    `industry_id`,
+                    `member_id`,
+                    `pro_leader`,
+                    `pro_members`,
+                    `pro_stime`,
+                    `pro_etime`,
+                    `pro_status`,
+                    `pro_schedule`,
+                    `pro_address`,
+                    `secrecy_grade`,
+                    `insert_date`,
+                    `create_data`,
+                    `pro_longitude`,
+                    `pro_latitude`,
+                    `pro_enclosure`,
+                    `pro_code`,
+                    `pro_msg`,
+                    `cooperative_unit`,
+                    `pro_source`,
+                    `division_manager_id`,
+                    `pro_division_manager`,
+                    `pro_contract`,
+                    `contract_amount`,
+                    `pro_introduce`,
+                    `filePath`
+
+                )
+                VALUES
+                    (
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL,
+                        NULL
+                    );";
 
         $res = M()->execute($sql);
-       	return $res;
-    	 
+       	return $res;	 
     }
 
-
-    
 
 }
