@@ -323,8 +323,7 @@
 							success: function (res) {
 								if(res.code == 200) {
 									layui.use('layer', function() {
-										var layer = layui.layer;
-										layer.alert('添加成功');
+									window.location.href = "{:U('ProjectManagement/Delivery')}";
 									})
 								} else {
 									layui.use('layer', function() {
