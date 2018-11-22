@@ -14,7 +14,7 @@ class ProjectRegistrationModel
 	  public function areaList()
      {
      	$provinceSql = "SELECT id as pid,
- 				name as pname from area 
+ 				name as pname from app_area 
      			where parent_id = 0";
 
      	$province = M()->query($provinceSql);
@@ -209,7 +209,7 @@ class ProjectRegistrationModel
                     p.create_data
                 FROM
                     app_project p
-                JOIN area a ON p.pro_address = a.id
+                JOIN app_area a ON p.pro_address = a.id
                 JOIN app_industry i ON p.industry_id = i.industry_id
                 JOIN app_project_rank r ON p.secrecy_grade = r.id;
                 ";
@@ -237,7 +237,7 @@ class ProjectRegistrationModel
                             count(*)
                         FROM
                             app_project p
-                        JOIN area a ON p.pro_address = a.id
+                        JOIN app_area a ON p.pro_address = a.id
                         JOIN app_industry i ON p.industry_id = i.industry_id
                         JOIN app_project_rank r ON p.secrecy_grade = r.id;
                     ";
