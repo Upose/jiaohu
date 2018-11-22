@@ -190,20 +190,20 @@ class ProjectRegistrationController extends BaseController {
     {
 
         //区域
-        $proArea = I('proArea');
+        $proArea = I('proArea',"");
       
         //名称
-        $proName = I('proName');
+        $proName = I('proName',"");
        
         //编号
-        $proCode = I('proCode');
+        $proCode = I('proCode',"");
 
-        echo "$proArea:".$proArea ."——————1——————$proName".$proName."——————1——————$proCode".$proCode;
+        echo "$proArea:".$proArea ."——————1——————$proName".$proName;
 
         
         //项目列表
         $projectList=$this->projectList=
-        ProjectRegistrationModel::projectList($proArea,$proName,$proCode);
+        ProjectRegistrationModel::projectList($proArea,$proName);
 
         $this->Response(200,$projectList,'');
         

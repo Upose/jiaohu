@@ -82,7 +82,7 @@ class ProjectRegistrationModel
      {
 
 
-        $sql = "SELECT t.member_id,t.member_name FROM user_member t WHERE postsname like '%经理' AND department LIKE '%交付%'";
+        $sql = "SELECT t.member_id,t.member_name,t.department FROM user_member t WHERE postsname like '%经理' AND department LIKE '%交付%'";
 
         $projectManager = M()->query($sql);
 
@@ -100,7 +100,7 @@ class ProjectRegistrationModel
      {
 
 
-        $sql = "SELECT t.member_id,t.member_name FROM user_member t WHERE postsname = '部门经理' AND department LIKE '%交付%'";
+        $sql = "SELECT t.member_id,t.member_name,t.department FROM user_member t WHERE postsname = '部门经理' AND department LIKE '%交付%'";
 
         $divisionManager = M()->query($sql);
 
@@ -179,7 +179,7 @@ class ProjectRegistrationModel
      * @author song.chaoxu
      * 2018.11.21
      */
-     public function projectList($proArea,$proName,$proCode)
+     public function projectList($proArea,$proName)
      {
         
         // $sql = "SELECT i.id as pid,
@@ -230,21 +230,23 @@ class ProjectRegistrationModel
             FROM `app_project`;
 
         ";
-            
-        echo "$proArea:".$proArea ."————————————$proName".$proName."————————————$proCode".$proCode;
+
         //根据传来的不同条件进行搜索  
-        if(!empty($proArea) && empty($proName) && empty($proCode))
-        {
-            $sql.=" where pro_address like '%$proArea%'";
+        if (!empty($proArea)) {
+
+            $sql.="where pro_address like \"%$proArea%\"";
+
+        } else if (!empty($proName)){
+
+            $sql.="where pro_address like \"%$proName%\"";
+
+        } else{
+
+            $sql.="where pro_address like \"%$proName%\" AND pro_address like \"%$proArea%\"";
+
         }
-        if(empty($proArea)&&!empty($proName)&&empty($proCode))
-        {
-            $sql.=" where pro_naem like '%$proName%'";
-        }
-        if(empty($proArea)&&empty($proName)&&!empty($proCode))
-        {
-            $sql.=" where pro_id like '%$proCode%'";
-        }
+
+        echo $sql;
 
         $res = M()->query($sql);
 
