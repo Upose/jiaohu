@@ -199,12 +199,14 @@ class ProjectRegistrationController extends BaseController {
         $page=intval(I('page',1));
         $pag=($page-1)*10;
 
+        $limit=intval(I('limit',10));
+
         echo "$proArea:".$proArea ."——————1——————$proName".$proName;
 
         
         //项目列表
         $projectList=$this->projectList=
-        ProjectRegistrationModel::projectList($proArea,$proName,$pag);
+        ProjectRegistrationModel::projectList($proArea,$proName,$pag,$limit);
 
         $this->ajaxReturn($projectList);
         // $this->Response(200,$projectList,'');

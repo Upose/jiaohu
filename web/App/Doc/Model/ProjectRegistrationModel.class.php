@@ -179,7 +179,7 @@ class ProjectRegistrationModel
      * @author song.chaoxu
      * 2018.11.21
      */
-     public function projectList($proArea,$proName,$pag)
+     public function projectList($proArea,$proName,$pag,$limit)
      {
         
         // $sql = "SELECT i.id as pid,
@@ -217,15 +217,15 @@ class ProjectRegistrationModel
         //根据传来的不同条件进行搜索  
         if (!empty($proArea)) {
 
-            $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",10 ";
+            $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
 
         } else if (!empty($proName)){
 
-            $sql.="where pro_name like \"%$proName%\" limit ".$pag.",10 ";
+            $sql.="where pro_name like \"%$proName%\" limit ".$pag.",".$limit;
 
         } else{
 
-            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\" limit ".$pag.",10 ";
+            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
 
         }
 
