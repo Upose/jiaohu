@@ -201,48 +201,33 @@ class ProjectRegistrationModel
         $sql = "
 
             SELECT
-                `pro_id`,
-                `pro_name`,
-                `type_id`,
-                `industry_id`,
-                `member_id`,
-                `pro_leader`,
-                `pro_members`,
-                `pro_stime`,
-                `pro_etime`,
-                `pro_status`,
-                `pro_schedule`,
-                `pro_address`,
-                `secrecy_grade`,
-                `insert_date`,
-                `create_data`,
-                `pro_longitude`,
-                `pro_latitude`,
-                `pro_enclosure`,
-                `pro_code`,
-                `pro_msg`,
-                `cooperative_unit`,
-                `pro_source`,
-                `division_manager_id`,
-                `pro_division_manager`,
-                `contract_amount`,
-                `pro_introduce` 
-            FROM `app_project`;
+                p.pro_id,
+                p.pro_name,
+                r.rank_name,
+                i.industry_name,
+                a.`name`,
+                p.pro_leader,
+                p.create_data
+            FROM
+                app_project p
+            JOIN area a ON p.pro_address = a.id
+            JOIN app_industry i ON p.industry_id = i.industry_id
+            JOIN app_project_rank r ON p.secrecy_grade = r.id;
 
         ";
 
         //根据传来的不同条件进行搜索  
         if (!empty($proArea)) {
 
-            $sql.="where pro_address like \"%$proArea%\"";
+            $sql.="where pro_address = \"%$proArea%\"";
 
         } else if (!empty($proName)){
 
-            $sql.="where pro_address like \"%$proName%\"";
+            $sql.="where pro_name like \"%$proName%\"";
 
         } else{
 
-            $sql.="where pro_address like \"%$proName%\" AND pro_address like \"%$proArea%\"";
+            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\"";
 
         }
 
