@@ -13,8 +13,8 @@ class ProjectRegistrationModel
 	 */
 	  public function areaList()
      {
-     	$provinceSql = "SELECT id as pid,
- 				name as pname from app_area 
+     	$provinceSql = "SELECT area_id as pid,
+ 				area_name as pname from app_area 
      			where parent_id = 0";
 
      	$province = M()->query($provinceSql);
@@ -204,7 +204,7 @@ class ProjectRegistrationModel
                     p.pro_name,
                     r.rank_name,
                     i.industry_name,
-                    a.`name`,
+                    a.area_name,
                     p.pro_leader,
                     p.create_data
                 FROM
