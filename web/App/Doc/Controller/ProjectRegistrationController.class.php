@@ -195,17 +195,19 @@ class ProjectRegistrationController extends BaseController {
         //名称
         $proName = I('proName',"");
        
-        //编号
-        $proCode = I('proCode',"");
+        //页数
+        $page=intval(I('page',1));
+        $pag=($page-1)*10;
 
         echo "$proArea:".$proArea ."——————1——————$proName".$proName;
 
         
         //项目列表
         $projectList=$this->projectList=
-        ProjectRegistrationModel::projectList($proArea,$proName);
+        ProjectRegistrationModel::projectList($proArea,$proName,$pag);
 
-        $this->Response(200,$projectList,'');
+        $this->ajaxReturn($projectList);
+        // $this->Response(200,$projectList,'');
         
 
     }
