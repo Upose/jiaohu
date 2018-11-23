@@ -16,8 +16,8 @@
    <div class="new">
     <!-- 最上层搜索栏 -->
     <div class="search_div">
-        区域：<select class="pro_select" @change="pro_select" v-model="addList.city">
-            <option value="0">全国</option>
+        区域：<select class="pro_select" @change="pro_select">
+            <option value="">全国</option>
             <option v-for="i in province" :value="i.pid">{{i.pname}}</option>
         </select>
         <input class="keyword" type="text" placeholder="项目名称"><button @click="search()" class="search_button">搜索</button>
@@ -56,7 +56,7 @@
         el: '.new',
         data: {
 						area: [],
-						city: '',
+						province:[],
             arrList: [],
             pageIndex:1,
             limit:10,
@@ -83,14 +83,15 @@
 											page: that.pageIndex || 1,
 											limit:that.limit || 10,
 										},
-                    success: function (res) {											
-                        that.arrList = res.data.result;
-												console.log('330099993', that.arrList);
-                        that.counts=res.data.count;
+                    success: function (res) {		
+												that.province = res.data.area.province;
+                        that.arrList = res.data.projectList.result;
+                        that.counts=res.data.projectList.count;
                         that.layPage(); //分页
                     }
                 })
             },
+						
             // 分页
             layPage() {
                 var _this = this;
@@ -118,6 +119,28 @@
             openNew(val){
             window.location.href = "{:U('Feedback/MyFeedbackCheck')}"+"&id="+val
             },
+						
+						pro_select(){
+							var that = this;
+							var a = $(".pro_select").val();
+							console.log(a);
+							$.ajax({
+									cache: false,
+									type: "POST",
+									url: "{:U('ProjectListQuery/projectList')}",
+									dataType: "json",
+									data: {
+										proArea:a,
+										proName:'',
+										page: that.pageIndex || 1,
+										limit:that.limit || 10,
+									},
+									success: function (res) {		
+											that.arrList = res.data.projectList.result;
+											that.counts=res.data.projectList.count;
+									}
+							})
+						},
             //搜索按钮
             searchInput(){
                 var _this= this;
