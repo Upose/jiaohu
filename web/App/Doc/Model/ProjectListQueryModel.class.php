@@ -99,18 +99,18 @@ class ProjectListQueryModel
         //根据传来的不同条件进行搜索  
         if ($proArea!="" && $proName != "" ) {
 
-            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"$proArea\" limit ".$pag.",".$limit;
+            $sqlCount.="where pro_name like \"%$proName%\" AND pro_address = \"$proArea\" ";
 
         } else if ($proName != "" ){
 
-            $sql.="where pro_name like \"%$proName%\" limit ".$pag.",".$limit;
+            $sqlCount.="where pro_name like \"%$proName%\" ";
 
         } else if($proArea != "" ){
 
-            $sql.="where pro_address = \"$proArea\" limit ".$pag.",".$limit;
+            $sqlCount.="where pro_address = \"$proArea\" ";
         }else{
 
-             $sql.="";
+             $sqlCount.="";
         }
 
         // echo $sqlCount;
