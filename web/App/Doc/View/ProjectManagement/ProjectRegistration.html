@@ -111,7 +111,7 @@
 						<label class="tit-tab">部门经理：</label>
 						<div class="layui-input-block">
 						<div  class="search_div">
-							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.department">
+							<select name="interest"  lay-filter="aihao" class="pro_select" v-model="addList.department">
 							<option v-for="e in divisionManager"  :value="e.member_id">{{e.member_name}}</option>
 							</select>
 						</div>
@@ -123,7 +123,7 @@
 						<label class="tit-tab">项目经理：</label>
 						<div class="layui-input-block">
 						<div  class="search_div"> 
-							<select name="interest" lay-filter="aihao" id="projectid" class="pro_select" v-model="addList.project">						
+							<select name="interest"  lay-filter="aihao"  class="pro_select" v-model="addList.project">						
 							<option v-for="f in projectManager" :value="f.member_id">{{f.member_name}}</option>
 							</select>
 						</div>
@@ -369,6 +369,9 @@
 						var _this = this;
 						var formData = new FormData();
 						var fs = $('#cus-ipt')[0].files;
+						var divisionManagerId = $('.departidr').text;
+						var projectManagerId = $('.projectid').text;
+						console.log(divisionManagerId, projectManagerId);
 						for(var i = 0; i < fs.length; i++) {
 							formData.append('photo[]', fs[i]);
 						}
