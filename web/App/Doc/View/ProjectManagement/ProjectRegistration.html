@@ -363,31 +363,37 @@
 							this.submitFile();
 						}
 					},
-					// 上传文件
-					submitFile() {
+// 					// 上传文件
+// 					submitFile() {
+// 						var formData = new FormData();
+// 						var fs = $('#cus-ipt')[0].files;
+// 						var _this = this;
+// 						for(var i = 0; i < fs.length; i++) {
+// 							formData.append('photo[]', fs[i]);
+// 						}
+// 						formData.append('project_id', this.addList.num);
+// 						$.ajax({
+// 							cache: false,
+// 							async: false,
+// 							type: "POST",
+// 							url: "{:U('ProjectEvent/uploadFile')}",
+// 							data: formData,
+// 							processData: false,
+// 							contentType: false,
+// 							success: function(res) {
+// 								if(res.code == 0) {
+// 								}
+// 							}
+// 						})
+// 					},
+					// 上传文字内容
+					submitText: function() {
+						var _this = this;
 						var formData = new FormData();
 						var fs = $('#cus-ipt')[0].files;
-						var _this = this;
 						for(var i = 0; i < fs.length; i++) {
 							formData.append('photo[]', fs[i]);
 						}
-						formData.append('project_id', this.addList.num);
-						$.ajax({
-							cache: false,
-							async: false,
-							type: "POST",
-							url: "{:U('ProjectEvent/uploadFile')}",
-							data: formData,
-							processData: false,
-							contentType: false,
-							success: function(res) {
-								if(res.code == 0) {
-								}
-							}
-						})
-					},
-					// 上传文字内容
-					submitText: function() {
 						$.ajax({
 							cache: false,
 							async: false,
@@ -408,6 +414,7 @@
 								divisionManagerId:"5050",
 								projectManager:this.addList.project,
 								projectManagerId:"222",
+								File:formData,
 								typeId:this.addList.param,
 								contractAmount:this.addList.money,
 								projectStime:this.addList.start_time,
