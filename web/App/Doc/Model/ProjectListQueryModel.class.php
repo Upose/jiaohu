@@ -62,7 +62,7 @@ class ProjectListQueryModel
                 JOIN app_area a ON p.pro_address = a.area_id
                 JOIN user_member u ON p.pro_leader = u.member_id
                 JOIN app_industry i ON p.industry_id = i.industry_id
-                JOIN app_project_rank r ON p.secrecy_grade = r.id;
+                JOIN app_project_rank r ON p.secrecy_grade = r.id
                 ";
 
         //根据传来的不同条件进行搜索  
@@ -79,10 +79,10 @@ class ProjectListQueryModel
             $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
         }else{
 
-             $sql.="";
+             $sql.="limit ".$pag.",".$limit;
         }
 
-        echo $sql;
+        // echo $sql;
 
         $res = M()->query($sql);
 
@@ -93,7 +93,7 @@ class ProjectListQueryModel
                         JOIN app_area a ON p.pro_address = a.area_id
                         JOIN user_member u ON p.pro_leader = u.member_id
                         JOIN app_industry i ON p.industry_id = i.industry_id
-                        JOIN app_project_rank r ON p.secrecy_grade = r.id;
+                        JOIN app_project_rank r ON p.secrecy_grade = r.id
                     ";
 
         //根据传来的不同条件进行搜索  
