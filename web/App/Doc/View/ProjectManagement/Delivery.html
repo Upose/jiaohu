@@ -13,6 +13,7 @@
 </head>
 
 <body class="app">
+	<form  class="layui-form">
     <div id="event-view">
 			<div class="details_zong">
 			<div class="details_left">
@@ -56,6 +57,51 @@
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
+						<label class="tit-tab">UI框架：</label>
+						<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select">
+								<option value="">请选择</option>
+								<option value="0">bootstrap</option>、
+								<option value="1">layui</option>
+								<option value="2">less</option>
+								</select>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">WEB框架</label>
+						<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select">
+								<option value="">请选择</option>
+								<option value="0">VUE.JS</option>、
+								<option value="1"></option>
+								<option value="2">less</option>
+								</select>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">后台框架</label>
+						<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select">
+								<option value="">请选择</option>
+								<option value="0">php</option>、
+								<option value="1">java</option>
+								<option value="2">go</option>
+								</select>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
 						<label class="tit-tab">客户干系人</label>
 						<div class="layui-input-block">
 						<input type="text" name="identity" lay-verify="identity" placeholder="请输入合作单位名称" autocomplete="off" class="layui-input">
@@ -66,8 +112,8 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">是否验收</label>
 						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="sex" value="是" title="是">是<e style="color: red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</e>
-							<input type="radio" name="sex" value="否" title="否" checked="">否
+							<input type="radio" name="sex" value="是" title="是">
+							<input type="radio" name="sex" value="否" title="否" checked="">
 						</div>
 					</div>	
 				</div>
@@ -83,8 +129,8 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">人员释放</label>
 						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="wa" value="yes" title="是">是<e style="color: red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</e>
-							<input type="radio" name="wa" value="no" title="否" checked="">否
+							<input type="radio" name="wa" value="yes" title="是">
+							<input type="radio" name="wa" value="no" title="否" checked="">
 						</div>
 					</div>	
 				</div>
@@ -105,7 +151,7 @@
 				<button class="layui-btn" type="button">提交</button>
 			</div>
 		</div>
-		
+	</form>	
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
@@ -117,7 +163,6 @@
 	 //日期 
 	  laydate.render({
 			elem: '#date',
-			type: 'datetime'
 			});
 	  });
 

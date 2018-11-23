@@ -20,14 +20,10 @@
             <div class="layui-input-inline">
                 <input type="text" v-model="message.keywords"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="namekey" class="layui-input">
             </div>
-						<label class="layui-form-label">项目编号：</label>
-						<div class="layui-input-inline">
-								<input type="text" v-model="message.keywords1"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="numkey" class="layui-input">
-						</div>
-						<label class="layui-form-label">所在区域：</label>
-						<div class="layui-input-inline">
-								<input type="text" v-model="message.keywords2"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="citykey" class="layui-input">
-						</div>
+			<label class="layui-form-label">所在区域：</label>
+			<div class="layui-input-inline">
+				<input type="text" v-model="message.keywords2"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="citykey" class="layui-input">
+			</div>
             <span class="btn-sub" @click="searchInput()">搜索</span>
         </div>
     </form>
@@ -155,9 +151,6 @@
 
                             console.log(res.count)
                             _this.layPage(); //分页
-
-
-
                         }
                     });
             }
