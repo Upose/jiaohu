@@ -78,43 +78,6 @@ class ProjectRegistrationController extends BaseController {
     public function projectAdd()
     {
 
-        //项目附件 - 合同
-        $filePath = '';
-
-        if ($_FILES) {
-          foreach ($_FILES as $key => $value) {
-            //实例化上传类
-            $upload =  new \Think\Upload();
-            //设置附件上传大小
-            // $upload->maxSize=3145728;
-            //保持文件名不变
-            $upload->saveName = time()."dt".rand(0,10);
-            //设置附件上传类型
-            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
-            //设置附件上传根目录
-            $upload->rootPath = './Updata/UpdateFile/'; 
-            //设置附件上传（子）目录
-            $upload->savePath = '';
-            $result = $upload->upload();
-            // echo '<pre>';
-            // var_dump($result);
-            // echo '</pre>';
-            // file_put_contents("11114.txt", json_encode($result));
-            if($result){
-              foreach ($result as $key => $value) {
-                $savename  = $value['savename'];
-                $path  = "/Updata/UpdateFile/".$value['savepath'];
-                $filePath = $newpath = $path.$savename;
-                $href[] = $newpath;
-              }
-            }
-              
-          }
-
-        }else{
-            $filePath = "无";
-        }
-
         //项目编号
         $pro_id = I('pro_id');
 
@@ -169,9 +132,50 @@ class ProjectRegistrationController extends BaseController {
         // 项目介绍
         $projectIntroduce = I('projectIntroduce');
 
+        //项目附件 - 合同
+        $filePath = '';
+
+        $file=$_FILES['upfile'];
+        $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
+        $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
+
+        if ($file) {
+          foreach ($file as $key => $value) {
+            //实例化上传类
+            $upload =  new \Think\Upload();
+            //设置附件上传大小
+            // $upload->maxSize=3145728;
+            //保持文件名不变
+            $upload->saveName = time()."dt".rand(0,10);
+            //设置附件上传类型
+            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
+            //设置附件上传根目录
+            $upload->rootPath = './Updata/UpdateFile/'; 
+            //设置附件上传（子）目录
+            $upload->savePath = '';
+            $result = $upload->upload();
+            // echo '<pre>';
+            // var_dump($result);
+            // echo '</pre>';
+            // file_put_contents("11114.txt", json_encode($result));
+            if($result){
+              foreach ($result as $key => $value) {
+                $savename  = $value['savename'];
+                $path  = "/Updata/UpdateFile/".$value['savepath'];
+                $filePath = $newpath = $path.$savename;
+                $href[] = $newpath;
+              }
+            }
+              
+          }
+        }else{
+            $filePath = "无文件";
+            var_dump($filePath);
+            echo $filePath;
+        }
     
         $status=$this->status=
-            ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime, $filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
+            ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime,$filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
