@@ -141,10 +141,7 @@ class ProjectRegistrationController extends BaseController {
 
         echo $file;
         echo (empty($file));
-        var_dump($file);
-
-        echo (empty($_FILES['upfile']));
-
+        var_dump(empty($file));
         if ($file) {
           foreach ($file as $key => $value) {
             //实例化上传类
@@ -170,14 +167,12 @@ class ProjectRegistrationController extends BaseController {
                 $path  = "/Updata/UpdateFile/".$value['savepath'];
                 $filePath = $newpath = $path.$savename;
                 $href[] = $newpath;
-                var_dump($filePath);
               }
             }
               
           }
         }
-        echo $filePath."____________________$filePath";
-        var_dump($filePath);
+
 
         // else{
         //     $filePath = "无文件";
