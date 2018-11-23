@@ -135,15 +135,15 @@ class ProjectRegistrationController extends BaseController {
         // //项目附件 - 合同
         $filePath = '';
 
-        $file=$_FILES['photo'];
-        $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
-        $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
+        // $file=$_FILES['photo'];
+//         $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
+//         $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
+// 
+				echo $_FILES["file"][type];
+        if ($_FILES) {
+					echo ($_FILES["file"][size] / 1024)."kb";
 
-        echo $file;
-        echo (empty($file));
-        var_dump(empty($file));
-        if ($file) {
-          foreach ($file as $key => $value) {
+          foreach ($_FILES as $key => $value) {
             //实例化上传类
             $upload =  new \Think\Upload();
             //设置附件上传大小
@@ -167,11 +167,17 @@ class ProjectRegistrationController extends BaseController {
                 $path  = "/Updata/UpdateFile/".$value['savepath'];
                 $filePath = $newpath = $path.$savename;
                 $href[] = $newpath;
+									echo $filePath."|_____________________path";
+								
               }
             }
               
           }
-        }
+
+        }else{
+						echo "wwwwwwwwwwwww";
+					
+				}
 
 
         // else{
