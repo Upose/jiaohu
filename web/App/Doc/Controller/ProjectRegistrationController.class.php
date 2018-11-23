@@ -77,7 +77,6 @@ class ProjectRegistrationController extends BaseController {
      */
     public function projectAdd()
     {
-
         //项目编号
         $pro_id = I('pro_id');
 
@@ -135,8 +134,14 @@ class ProjectRegistrationController extends BaseController {
         //项目附件 - 合同
         $filePath = '';
 
-
+        // $file=$_FILES['photo'];
+//         $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
+//         $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
+// 
+		// echo $_FILES["file"][type];
         if ($_FILES) {
+		// echo ($_FILES["file"][size] / 1024)."kb";
+
           foreach ($_FILES as $key => $value) {
             //实例化上传类
             $upload =  new \Think\Upload();
@@ -161,17 +166,16 @@ class ProjectRegistrationController extends BaseController {
                 $path  = "/Updata/UpdateFile/".$value['savepath'];
                 $filePath = $newpath = $path.$savename;
                 $href[] = $newpath;
+				// echo $filePath."|_____________________path";
+								
               }
             }
               
           }
 
-        }else{
-            $filePath = "无";
         }
-    
         $status=$this->status=
-            ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime, $filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
+            ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime,$filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
@@ -179,41 +183,6 @@ class ProjectRegistrationController extends BaseController {
                 }
 
     }
-
-
-    /**
-     * 项目查询
-     * @author song.chaoxu
-     * 2018.11.21
-     */
-    public function projectList()
-    {
-
-        //区域
-        $proArea = I('proArea',"");
-      
-        //名称
-        $proName = I('proName',"");
-       
-        //页数
-        $page=intval(I('page',1));
-        $pag=($page-1)*10;
-
-        $limit=intval(I('limit',10));
-
-        echo "$proArea:".$proArea ."——————1——————$proName".$proName;
-
-        
-        //项目列表
-        $projectList=$this->projectList=
-        ProjectRegistrationModel::projectList($proArea,$proName,$pag,$limit);
-
-        $this->ajaxReturn($projectList);
-        // $this->Response(200,$projectList,'');
-        
-
-    }
-
 
 
 }

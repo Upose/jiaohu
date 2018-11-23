@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/ProjectRegistration.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
-		<script src="__DOCLAY__/plugins/layui/layui.js"></script>
 		<script src="__STATIC__/vue.min.js"></script>
 </head>
 
-<body class="app">
+<body id="app" >
+	<form  method="post" enctype="multipart/form-data">
     <div id="event-view">
 			<div class="details_zong">
 			<div class="details_left">
@@ -22,7 +22,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目名称：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" v-model="addList.name">
+						<input type="text" name="identity" lay-verify="identity" placeholder="请输入项目名称" autocomplete="off" class="layui-input" v-model="addList.name">
 						</div>
 					</div>	
 				</div>
@@ -30,7 +30,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目编号：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" v-model="addList.num">
+						<input type="text" lay-verify="number" placeholder="请输入项目编号"  class="layui-input" v-model="addList.num" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
 						</div>
 					</div>	
 				</div>
@@ -39,7 +39,7 @@
 						<label class="tit-tab">保密等级：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.grade">
+								<select name="interest" lay-filter="aihao"  class="pro_select" v-model="addList.grade">
 								<option v-for="a in rank" :value="a.id">{{a.rank_name}}</option>
 								</select>
 							</div>
@@ -58,7 +58,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">立项信息：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.message">
+						<input type="text" name="identity" lay-verify="number" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.message">
 						</div>
 					</div>	
 				</div>
@@ -112,7 +112,7 @@
 						<div class="layui-input-block">
 						<div  class="search_div">
 							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.department">
-							<option v-for="e in divisionManager" :value="e.member_id">{{e.member_name}}</option>
+							<option v-for="e in divisionManager"  :value="e.member_id">{{e.member_name}}</option>
 							</select>
 						</div>
 						</div>
@@ -123,7 +123,7 @@
 						<label class="tit-tab">项目经理：</label>
 						<div class="layui-input-block">
 						<div  class="search_div"> 
-							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.project">						
+							<select name="interest" lay-filter="aihao" id="projectid" class="pro_select" v-model="addList.project">						
 							<option v-for="f in projectManager" :value="f.member_id">{{f.member_name}}</option>
 							</select>
 						</div>
@@ -134,16 +134,16 @@
 			<div class="details_right">
 				<div style="margin-top: 5vh;">
 					<div class="layui-form-item">
-						<label class="layui-form-label">单选框&nbsp;</label>
+						<label class="layui-form-label">有无合同</label>
 						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="sex" value="是" title="是" checked="">是<e style="color: red;">&nbsp;(必须上传合同)</e>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="sex" value="否" title="否">否&nbsp;(预实施项目)
+							<input type="radio" name="sex" value="0" title="有" v-model="addList.param" checked="">有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="sex" value="1" title="无" v-model="addList.param" >无
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="tit-tab">合同额(元)</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" v-model="addList.money">
+						<input type="text" name="identity" lay-verify="number" placeholder="请输出合同金额(元)" autocomplete="off" class="layui-input" v-model="addList.money" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
 						</div>
 					</div>		
 				</div>
@@ -187,7 +187,7 @@
 			<button class="layui-btn" type="button" @click="submitForm">提交</button>
 			</div>
 		</div>
-		
+	</form>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
@@ -212,7 +212,7 @@
 
 	 // 选择全国
     var app = new Vue({
-        el: ".app",
+        el: "#app",
 				data: function() {
 					return {
 						rank: [],
@@ -233,6 +233,7 @@
 							industry:'',
 							department:'',
 							project:'',
+							param:'',
 							money:'',
 							start_time:'',
 							end_time:'',
@@ -245,6 +246,7 @@
 				created: function () {
 					this.getdata();
 				},
+				
         methods: {				
             getdata() {
                 var that = this;
@@ -263,6 +265,76 @@
                     }
                 })
             },
+							
+               resetUpload: function(msg) {
+                    $('.cus-files-content').find('.cus-img').remove();
+                    $('.cus-files-input')[0].value = '';
+                    $('.cus-warning').show();
+            
+                    layui.use('layer', function () {
+                        layui.layer.alert(msg);
+                    })
+                },
+                testUpload: function(files, maxFileLength, maxFileSize) {
+                    var result = true;
+                    var _this = this;
+                    // 未选择文件, 清空选择框
+                    if (files.length === 0) {
+                        _this.resetUpload('未选择任何文件');
+                    
+                        result = false;
+                    }
+                    
+                    // 文件个数超过限制, 重新选择
+                    if (files.length > _this.maxFileLength) {
+                        _this.resetUpload('上传文件个数不能超过'+ _this.maxFileLength +'个, 请重新上传!');
+                    
+                        result = false;
+                    }
+                    
+                    // 文件大小超过限制, 重新选择
+                    ;[].slice.call(files).forEach(function (item, idx) {
+                        if (item.size > _this.maxFileSize) {
+                            _this.resetUpload('上传文件最大不能超过10M, 请重新上传!');
+                    
+                            result = false;
+                        }
+                    })
+                    
+                    return result;
+                },
+                // 上传文件列表
+                updateFileList: function() {
+                    var files = $('#cus-ipt')[0].files;
+                    var _this = this;
+                    $('.cus-warning').show();
+            
+                    var res = _this.testUpload(files);
+                    if (res) {
+                        $('.cus-warning').hide();
+                        _this.showThumbnails(files, $('.cus-files-content'));
+                    }
+                },
+                // 显示缩略图
+                showThumbnails: function(files ,el) {
+                    $('.cus-files-content').html('');
+                    ;[].slice.call(files).forEach(function (item, idx) {
+                        var reader = new FileReader();
+                        var div = document.createElement('div');
+                        $(div).css({
+                            display: 'inline-block',
+                            verticalAlign: 'top',
+                            width: '50px',
+                            height: '50px',
+                            margin: '5px',
+                            border: '1px dashed #979797',
+                            'fontSize': '12px',
+                            'overFlow': 'hidden'
+                        }).html(item.name);
+                    
+                        $(el).append(div);
+                    })
+                },				
 					submitForm: function() {
 						// 表单验证
 						if( this.addList.name == '' ||
@@ -288,38 +360,45 @@
 							})
 						}	else {
 							this.submitText();
+							// this.submitFile();
 						}
 					},
+
 					// 上传文字内容
 					submitText: function() {
 						var _this = this;
+						var formData = new FormData();
+						var fs = $('#cus-ipt')[0].files;
+						for(var i = 0; i < fs.length; i++) {
+							formData.append('photo[]', fs[i]);
+						}
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_name', this.addList.name);
+						formData.append('rank', this.addList.grade);
+						formData.append('createTime', this.addList.date_timne);
+						formData.append('lxMsg', this.addList.message);
+						formData.append('area', this.addList.city);
+						formData.append('cooperativeUnit', this.addList.company);
+						formData.append('projectNature', this.addList.nature);
+						formData.append('industry', this.addList.industry);
+						formData.append('divisionManager', this.addList.department);
+						formData.append('divisionManagerId', "222");
+						formData.append('projectManager', this.addList.project);
+						formData.append('projectManagerId', "111");
+						formData.append('typeId', this.addList.param);
+						formData.append('contractAmount', this.addList.money);
+						formData.append('projectStime', this.addList.start_time);
+						formData.append('projectEtime', this.addList.end_time);
+						formData.append('projectIntroduce', this.addList.other_person);
 						$.ajax({
 							cache: false,
 							async: false,
 							type: "POST",
 							url: "{:U('ProjectRegistration/projectAdd')}",
 							dataType: "json",
-							data: {
-								pro_id:this.addList.num,
-								pro_name :this.addList.name,						
-								rank :this.addList.grade,
-								createTime:this.addList.date_timne,
-								lxMsg:this.addList.message,						
-								area :this.addList.city,
-								cooperativeUnit:this.addList.company,
-								projectNature:this.addList.nature,						
-								industry :this.addList.industry,
-								divisionManager:this.addList.department,
-								divisionManagerId:"5050",
-								projectManager:this.addList.project,
-								projectManagerId:"222",	
-								typeId:"1",
-								contractAmount:this.addList.money,
-								projectStime:this.addList.start_time,
-								projectEtime:this.addList.end_time,						
-								projectIntroduce :this.addList.other_person,
-
-							},
+							data: formData,
+							processData: false,
+							contentType: false,
 							success: function (res) {
 								if(res.code == 200) {
 									layui.use('layer', function() {
