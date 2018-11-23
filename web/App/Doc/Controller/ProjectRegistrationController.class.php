@@ -139,7 +139,7 @@ class ProjectRegistrationController extends BaseController {
         $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
         $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
 
-        echo $filePath."-------------------$filePath||||$_FILES['photo']||";
+        echo $file."-------------------$filePath||||$_FILES['photo']||";
         echo (empty($file));
         var_dump($file);
 
