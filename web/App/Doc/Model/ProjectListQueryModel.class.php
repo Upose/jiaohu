@@ -59,60 +59,67 @@ class ProjectListQueryModel
                     p.create_data
                 FROM
                     app_project p
-                JOIN app_area a ON p.pro_address = a.id
+                JOIN app_area a ON p.pro_address = a.area_id
                 JOIN app_industry i ON p.industry_id = i.industry_id
                 JOIN app_project_rank r ON p.secrecy_grade = r.id;
                 ";
 
         //根据传来的不同条件进行搜索  
-        if (!empty($proArea)) {
-
-            $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
-
-        } else if (!empty($proName)){
-
-            $sql.="where pro_name like \"%$proName%\" limit ".$pag.",".$limit;
-
-        } else{
+        if ($proArea!="" && $proName != "" ) {
 
             $sql.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
 
+        } else if ($proName != "" ){
+
+            $sql.="where pro_name like \"%$proName%\" limit ".$pag.",".$limit;
+
+        } else if($proArea != "" ){
+
+            $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
+        }else{
+
+             $sql.="";
         }
 
-        echo $sql;
+        // echo $sql;
 
         $res = M()->query($sql);
 
         $sqlCount = "   SELECT
-                            count(*)
+                            count(*) total
                         FROM
                             app_project p
-                        JOIN app_area a ON p.pro_address = a.id
+                        JOIN app_area a ON p.pro_address = a.area_id
                         JOIN app_industry i ON p.industry_id = i.industry_id
                         JOIN app_project_rank r ON p.secrecy_grade = r.id;
                     ";
 
-        //根据传来的不同条件进行统计总条数 
-        if ($proArea != "") {
+        //根据传来的不同条件进行搜索  
+        if ($proArea!="" && $proName != "" ) {
 
-            $sqlCount.="where pro_address = \"%$proArea%\"";
+            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
 
-        } else if ($proName != ""){
+        } else if ($proName != "" ){
 
-            $sqlCount.="where pro_name like \"%$proName%\"";
+            $sql.="where pro_name like \"%$proName%\" limit ".$pag.",".$limit;
 
-        } else{
+        } else if($proArea != "" ){
 
-            $sqlCount.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\"";
+            $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
+        }else{
 
-        }           
+             $sql.="";
+        }
+
+        // echo $sqlCount;
 
         $total = M()->query($sqlCount);
 
-        $count =$total[0]['count'];
+        $count =$total[0]['total'];
         
         $response = array('data' => $res,'count' =>$count);
 
+        return $response;
 
      }
 
