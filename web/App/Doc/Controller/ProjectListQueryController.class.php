@@ -34,7 +34,7 @@ class ProjectListQueryController extends BaseController {
 	 	//以下是所有下拉框列表
     	//所有区域 - 页面下拉项内容
     	$areaRes=$this->area=
-    	ProjectRegistrationModel::areaList($province_id);
+    	ProjectListQueryModel::areaList($province_id);
 
         
     	$temp = array();
@@ -73,7 +73,7 @@ class ProjectListQueryController extends BaseController {
 
         //项目列表
         $projectList=$this->projectList=
-        ProjectRegistrationModel::projectList($proArea,$proName,$pag,$limit);
+        ProjectListQueryModel::projectList($proArea,$proName,$pag,$limit);
 
         $this->ajaxReturn($projectList);
         // $this->Response(200,$projectList,'');
