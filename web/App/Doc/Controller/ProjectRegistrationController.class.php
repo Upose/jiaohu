@@ -56,8 +56,6 @@ class ProjectRegistrationController extends BaseController {
         $divisionManager=$this->divisionManager=
         ProjectRegistrationModel::divisionManager();
 
-    	$temp = array();
-
     	$final['area'] = $areaRes;
         $final['industryResult'] = $industryResult;
         $final['rank'] = $rank;

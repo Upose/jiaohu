@@ -23,27 +23,6 @@ class ProjectListQueryController extends BaseController {
     	
     }
 
-	/**
-	 * 项目登记
-	 * @author song.chaoxu
-	 * 2018.11.14
-	 */
-    public function projectArea()
-    {
-        
-	 	//以下是所有下拉框列表
-    	//所有区域 - 页面下拉项内容
-    	$areaRes=$this->area=
-    	ProjectListQueryModel::areaList($province_id);
-
-        
-    	$temp = array();
-
-    	$final['area'] = $areaRes;
-
-      	$this->Response(200,$final,'');
-
-    }
 
 
     /**
@@ -53,6 +32,14 @@ class ProjectListQueryController extends BaseController {
      */
     public function projectList()
     {
+
+        //以下是所有下拉框列表
+        //所有区域 - 页面下拉项内容
+        $areaRes=$this->area=
+        ProjectListQueryModel::areaList($province_id);
+        
+        $temp = array();
+
 
         //区域
         $proArea = I('proArea','');
@@ -72,7 +59,13 @@ class ProjectListQueryController extends BaseController {
         $projectList=$this->projectList=
         ProjectListQueryModel::projectList($proArea,$proName,$pag,$limit);
 
-        $this->Response(200,$projectList,'');
+
+        $final['area'] = $areaRes;
+        $final['projectList'] = $projectList;
+
+        $this->Response(200,$final,'');
+
+        // $this->Response(200,$projectList,'');
         
     }
 

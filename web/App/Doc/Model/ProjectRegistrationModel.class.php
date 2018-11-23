@@ -164,6 +164,7 @@ class ProjectRegistrationModel
 
         try{
 
+            // echo $sql;
             $res =  M()->execute($sql);
             return $res;
          
