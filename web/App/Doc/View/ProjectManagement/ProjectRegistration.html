@@ -399,45 +399,27 @@
 						formData.append('pro_name', this.addList.name);
 						formData.append('rank', this.addList.grade);
 						formData.append('createTime', this.addList.date_timne);
-						formData.append('lxMsg', this.addList.num);
-						formData.append('area', this.addList.num);
-						formData.append('cooperativeUnit', this.addList.num);
-						formData.append('projectNature', this.addList.num);
-						formData.append('pro_id', this.addList.num);
-						formData.append('pro_id', this.addList.num);
-						formData.append('pro_id', this.addList.num);
-						formData.append('pro_id', this.addList.num);
-						formData.append('pro_id', this.addList.num);
-						formData.append('pro_id', this.addList.num);
-						formData.append('pro_id', this.addList.num);
+						formData.append('lxMsg', this.addList.message);
+						formData.append('area', this.addList.city);
+						formData.append('cooperativeUnit', this.addList.company);
+						formData.append('projectNature', this.addList.nature);
+						formData.append('industry', this.addList.industry);
+						formData.append('divisionManager', this.addList.department);
+						formData.append('divisionManagerId', "222");
+						formData.append('projectManager', this.addList.project);
+						formData.append('projectManagerId', "111");
+						formData.append('typeId', this.addList.param);
+						formData.append('contractAmount', this.addList.money);
+						formData.append('projectStime', this.addList.start_time);
+						formData.append('projectEtime', this.addList.end_time);
+						formData.append('projectIntroduce', this.addList.other_person);
 						$.ajax({
 							cache: false,
 							async: false,
 							type: "POST",
 							url: "{:U('ProjectRegistration/projectAdd')}",
 							dataType: "json",
-							data: formData
-							// {
-// 								pro_id:this.addList.num,
-// 								pro_name :this.addList.name,						
-// 								rank :this.addList.grade,
-// 								createTime:this.addList.date_timne,
-// 								lxMsg:this.addList.message,						
-// 								area :this.addList.city,
-// 								cooperativeUnit:this.addList.company,
-// 								projectNature:this.addList.nature,						
-// 								industry :this.addList.industry,
-// 								divisionManager:this.addList.department,
-// 								divisionManagerId:"5050",
-// 								projectManager:this.addList.project,
-// 								projectManagerId:"222",
-// 								typeId:this.addList.param,
-// 								contractAmount:this.addList.money,
-// 								projectStime:this.addList.start_time,
-// 								projectEtime:this.addList.end_time,						
-// 								projectIntroduce :this.addList.other_person,								
-							// }
-							,
+							data: formData,
 							processData: false,
 							contentType: false,
 							success: function (res) {
