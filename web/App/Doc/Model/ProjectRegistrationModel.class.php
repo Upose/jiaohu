@@ -116,8 +116,6 @@ class ProjectRegistrationModel
      */
     public function projectAdd($pro_code,$pro_name,$typeId,$industry, $projectManagerId, $projectManager, $projectStime,$projectEtime, $area,$rank,$createTime,$newPath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManagerId,$divisionManager,$contractAmount,$projectIntroduce){
 
-        echo $newPath;
-
     	  $sql="INSERT INTO `deliveryapplication`.`app_project` (
                     `pro_id`,
                     `pro_name`,
