@@ -138,37 +138,34 @@
 									success: function (res) {		
 											that.arrList = res.data.projectList.result;
 											that.counts=res.data.projectList.count;
+											that.layPage(); //分页
 									}
 							})
 						},
             //搜索按钮
-            searchInput(){
-                var _this= this;
-                var starTime = $("#test1").val();
-                var endTime = $("#test2").val();
-                var keywords = $("#keywords").val();
-                _this.pageIndex =1;
-                    $.ajax({
-                        cache: false,
-                        type: "POST",
-                        url: "{:U('Feedback/FeedbackList')}",
-                        dataType: "json",
-                data:{
-										starTime:starTime,
-                    endTime:endTime,
-                    keywords:keywords,
-                    page: _this.pageIndex || 1,
-                    limit:_this.limit || 10,
-										},
-                        success: function (res) {
-                            _this.arrList= res.data;
-                            _this.counts=res.count;
-
-                            console.log(res.count)
-                            _this.layPage(); //分页
-                        }
-                    });
-            }
+            search(){
+							var that = this;
+							var a = $(".pro_select").val();
+							var c = $(".keyword").val();
+							console.log(a);
+							$.ajax({
+									cache: false,
+									type: "POST",
+									url: "{:U('ProjectListQuery/projectList')}",
+									dataType: "json",
+									data: {
+										proArea:a,
+										proName:c,
+										page: that.pageIndex || 1,
+										limit:that.limit || 10,
+									},
+									success: function (res) {		
+											that.arrList = res.data.projectList.result;
+											that.counts=res.data.projectList.count;
+											that.layPage(); //分页
+									}
+							})
+						},
         },
     });
 
