@@ -135,9 +135,9 @@ class ProjectRegistrationController extends BaseController {
         // //项目附件 - 合同
         $filePath = '';
 
-        // $file=$_FILES['upfile'];
-        // $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
-        // $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
+        $file=$_FILES['photo'];
+        $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
+        $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
 
         if ($file) {
           foreach ($file as $key => $value) {
