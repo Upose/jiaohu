@@ -85,10 +85,11 @@
                     url: "{:U('ProjectListQuery/projectList')}",
                     dataType: "json",
                     data: {
-										proArea:'',
-                    proName:'',
-										page: that.pageIndex || 1,
-										limit:that.limit || 10},
+											proArea:'',
+											proName:'',
+											page: that.pageIndex || 1,
+											limit:that.limit || 10,
+										},
                     success: function (res) {
                         // console.log('333', res.data);
                         that.arrList = res.data;
