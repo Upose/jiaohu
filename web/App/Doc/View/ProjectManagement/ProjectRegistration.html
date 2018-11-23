@@ -13,7 +13,7 @@
 </head>
 
 <body id="app" >
-	<form>
+	<form  action="http://localhost:8888/index.php?s=/Doc/ProjectRegistration/fileUpLoad" method="post" enctype="multipart/form-data">
     <div id="event-view">
 			<div class="details_zong">
 			<div class="details_left">
@@ -371,7 +371,7 @@
 						for(var i = 0; i < fs.length; i++) {
 							formData.append('photo[]', fs[i]);
 						}
-						formData.append('project_id', this.addList.project_id);
+						formData.append('project_id', this.addList.num);
 						$.ajax({
 							cache: false,
 							async: false,
