@@ -110,7 +110,7 @@ class ProjectListQueryModel
             $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
         }else{
 
-             $sql.="";
+            $sql.="limit ".$pag.",".$limit;
         }
 
         // echo $sqlCount;
