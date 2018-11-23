@@ -42,7 +42,7 @@
                 <td>{{item.area_name}}</td>
                 <td>{{item.rank_name}}</td>
                 <td>{{item.create_data}}</td>
-                <td>{{item.pro_leadere}}</td>
+                <td>{{item.member_name}}</td>
                 <td style="cursor:pointer;" @click="openNew(item.id)"><span style="color:rgba(74,144,226,1);">查看</span></td>
             </tr>
         </tbody>
@@ -83,10 +83,10 @@
 											limit:that.limit || 10,
 										},
                     success: function (res) {											
-                        that.arrList = res.data;
+                        that.arrList = res.data.result;
 												console.log('330099993', that.arrList);
 
-                        that.counts=res.count;
+                        that.counts=res.data.count;
                         that.layPage(); //分页
                     }
                 })
