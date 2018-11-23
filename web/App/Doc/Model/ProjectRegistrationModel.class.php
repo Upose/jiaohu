@@ -116,7 +116,6 @@ class ProjectRegistrationModel
      */
     public function projectAdd($pro_code,$pro_name,$typeId,$industry, $projectManagerId, $projectManager, $projectStime,$projectEtime, $area,$rank,$createTime,$newPath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManagerId,$divisionManager,$contractAmount,$projectIntroduce){
 
-            // echo $createTime,$projectStime,$projectEtime;
     	  $sql="INSERT INTO `deliveryapplication`.`app_project` (
                     `pro_id`,
                     `pro_name`,
@@ -146,11 +145,11 @@ class ProjectRegistrationModel
                         $industry,
                         $projectManagerId,
                         \"$projectManager\", 
-                        $projectStime,
-                        $projectEtime,
+                        \"$projectStime\",
+                        \"$projectEtime\",
                         \"$area\",
                         \"$rank\",
-                        $createTime,
+                        \"$createTime\",
                         \"$newPath\",
                         \"$lxMsg\",
                         \"$cooperativeUnit\",
@@ -164,7 +163,6 @@ class ProjectRegistrationModel
 
         try{
 
-            // echo $sql;
             $res =  M()->execute($sql);
             return $res;
          
