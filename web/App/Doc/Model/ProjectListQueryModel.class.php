@@ -68,7 +68,7 @@ class ProjectListQueryModel
         //根据传来的不同条件进行搜索  
         if ($proArea!="" && $proName != "" ) {
 
-            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
+            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"$proArea\" limit ".$pag.",".$limit;
 
         } else if ($proName != "" ){
 
@@ -76,7 +76,7 @@ class ProjectListQueryModel
 
         } else if($proArea != "" ){
 
-            $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
+            $sql.="where pro_address = \"$proArea\" limit ".$pag.",".$limit;
         }else{
 
              $sql.="limit ".$pag.",".$limit;
@@ -99,7 +99,7 @@ class ProjectListQueryModel
         //根据传来的不同条件进行搜索  
         if ($proArea!="" && $proName != "" ) {
 
-            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
+            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"$proArea\" limit ".$pag.",".$limit;
 
         } else if ($proName != "" ){
 
@@ -107,7 +107,7 @@ class ProjectListQueryModel
 
         } else if($proArea != "" ){
 
-            $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
+            $sql.="where pro_address = \"$proArea\" limit ".$pag.",".$limit;
         }else{
 
              $sql.="";
