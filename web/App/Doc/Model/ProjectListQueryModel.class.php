@@ -82,7 +82,7 @@ class ProjectListQueryModel
              $sql.="";
         }
 
-        // echo $sql;
+        echo $sql;
 
         $res = M()->query($sql);
 
