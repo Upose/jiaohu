@@ -78,66 +78,66 @@ class ProjectRegistrationController extends BaseController {
     public function projectAdd()
     {
 
-        //项目编号
-        $pro_id = I('pro_id');
+        // //项目编号
+        // $pro_id = I('pro_id');
 
-        //項目名稱
-        $pro_name = I('pro_name');
+        // //項目名稱
+        // $pro_name = I('pro_name');
 
-        //保密等级
-        $rank = I('rank');
+        // //保密等级
+        // $rank = I('rank');
 
-        //创建时间
-        $createTime = I('createTime');
+        // //创建时间
+        // $createTime = I('createTime');
 
-        //立项信息
-        $lxMsg = I('lxMsg');
+        // //立项信息
+        // $lxMsg = I('lxMsg');
 
-        //所在区域
-        $area = I('area');
+        // //所在区域
+        // $area = I('area');
 
-        //合作单位
-        $cooperativeUnit = I('cooperativeUnit');
+        // //合作单位
+        // $cooperativeUnit = I('cooperativeUnit');
 
-        //项目性质
-        $projectNature = I('projectNature');
+        // //项目性质
+        // $projectNature = I('projectNature');
 
-        //所在行业
-        $industry = I('industry');
+        // //所在行业
+        // $industry = I('industry');
 
-        //部门经理
-        $divisionManager = I('divisionManager');
+        // //部门经理
+        // $divisionManager = I('divisionManager');
 
-        //部门经理ID
-        $divisionManagerId = I('divisionManagerId');
+        // //部门经理ID
+        // $divisionManagerId = I('divisionManagerId');
 
-        //项目经理
-        $projectManager = I('projectManager');
+        // //项目经理
+        // $projectManager = I('projectManager');
 
-        //项目经理ID
-        $projectManagerId = I('projectManagerId');
+        // //项目经理ID
+        // $projectManagerId = I('projectManagerId');
 
-        //合同额(元)
-        $contractAmount = I('contractAmount');
+        // //合同额(元)
+        // $contractAmount = I('contractAmount');
 
-        //是否合同
-        $typeId = I('typeId');
+        // //是否合同
+        // $typeId = I('typeId');
 
-        // 项目周期（开始时间）
-        $projectStime = I('projectStime');
+        // // 项目周期（开始时间）
+        // $projectStime = I('projectStime');
 
-        // 项目周期（结束时间）
-        $projectEtime = I('projectEtime');
+        // // 项目周期（结束时间）
+        // $projectEtime = I('projectEtime');
 
-        // 项目介绍
-        $projectIntroduce = I('projectIntroduce');
+        // // 项目介绍
+        // $projectIntroduce = I('projectIntroduce');
 
-        //项目附件 - 合同
+        // //项目附件 - 合同
         $filePath = '';
 
-        $file=$_FILES['upfile'];
-        $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
-        $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
+        // $file=$_FILES['upfile'];
+        // $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
+        // $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
 
         if ($file) {
           foreach ($file as $key => $value) {
@@ -164,23 +164,28 @@ class ProjectRegistrationController extends BaseController {
                 $path  = "/Updata/UpdateFile/".$value['savepath'];
                 $filePath = $newpath = $path.$savename;
                 $href[] = $newpath;
+                var_dump($filePath);
               }
             }
               
           }
-        }else{
-            $filePath = "无文件";
-            var_dump($filePath);
-            echo $filePath;
         }
+        echo $filePath."??????????$filePath";
+        var_dump($filePath);
+
+        // else{
+        //     $filePath = "无文件";
+        //     var_dump($filePath);
+        //     echo $filePath;
+        // }
     
-        $status=$this->status=
-            ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime,$filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
-            if ($status) {
-                $this->Response(200,$status,'数据新增成功');
-                } else {
-                throw new Exception('数据插入失败');
-                }
+        // $status=$this->status=
+        //     ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime,$filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
+        //     if ($status) {
+        //         $this->Response(200,$status,'数据新增成功');
+        //         } else {
+        //         throw new Exception('数据插入失败');
+        //         }
 
     }
 
