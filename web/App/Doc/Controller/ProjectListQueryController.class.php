@@ -55,10 +55,10 @@ class ProjectListQueryController extends BaseController {
     {
 
         //区域
-        $proArea = I('proArea',"");
+        $proArea = I('proArea','');
       
         //名称
-        $proName = I('proName',"");
+        $proName = I('proName','');
        
         //页数
         $page=intval(I('page',1));
@@ -68,17 +68,12 @@ class ProjectListQueryController extends BaseController {
 
         $pag=($page-1)*$limit;
 
-
-        echo "$proArea:".$proArea ."——————1——————$proName".$proName;
-
         //项目列表
         $projectList=$this->projectList=
         ProjectListQueryModel::projectList($proArea,$proName,$pag,$limit);
 
-        $this->ajaxReturn($projectList);
-        // $this->Response(200,$projectList,'');
+        $this->Response(200,$projectList,'');
         
-
     }
 
 
