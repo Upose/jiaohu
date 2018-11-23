@@ -49,7 +49,7 @@
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select">
 								<option value="">全国</option>
-								<option v-for="i in province" :value="i.pid">{{i.pname}}</option>
+									<option v-for="i in province" :value="i.pid">{{i.pname}}</option>
 								</select>
 							</div>
 						</div>
@@ -186,9 +186,9 @@
                     url: "{:U('ProjectRegistration/projectRecord')}",
                     dataType: "json",
                     success: function (data) {
-						that.rank = data.data.rank;
-                        that.province = data.data.area.province;
-						that.industryResult = data.data.industryResult;
+										that.rank = data.data.rank;
+										that.province = data.data.area.province;
+										that.industryResult = data.data.industryResult;
                     }
                 })
             },
