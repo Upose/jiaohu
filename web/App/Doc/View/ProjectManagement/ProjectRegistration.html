@@ -395,13 +395,29 @@
 						for(var i = 0; i < fs.length; i++) {
 							formData.append('photo[]', fs[i]);
 						}
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
+						formData.append('pro_id', this.addList.num);
 						$.ajax({
 							cache: false,
 							async: false,
 							type: "POST",
 							url: "{:U('ProjectRegistration/projectAdd')}",
 							dataType: "json",
-							data: {
+							data: formData
+							// {
 // 								pro_id:this.addList.num,
 // 								pro_name :this.addList.name,						
 // 								rank :this.addList.grade,
@@ -415,13 +431,13 @@
 // 								divisionManagerId:"5050",
 // 								projectManager:this.addList.project,
 // 								projectManagerId:"222",
-								File:fs,
 // 								typeId:this.addList.param,
 // 								contractAmount:this.addList.money,
 // 								projectStime:this.addList.start_time,
 // 								projectEtime:this.addList.end_time,						
 // 								projectIntroduce :this.addList.other_person,								
-							},
+							// }
+							,
 							processData: false,
 							contentType: false,
 							success: function (res) {
