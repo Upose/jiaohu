@@ -21,10 +21,12 @@
                 <input type="text" v-model="message.keywords"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="namekey" class="layui-input">
             </div>
 					<label class="layui-form-label">所在区域：</label>
-					<div class="layui-input-inline">
-						<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
-						<option v-for="b in province" :value="b.pid">{{b.pname}}</option>
-						</select>
+					<div class="search_div">
+						<div class="layui-input-inline">
+							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
+							<option v-for="b in province" :value="b.pid">{{b.pname}}</option>
+							</select>
+						</div>
 					</div>
             <span class="btn-sub" @click="searchInput()">搜索</span>
         </div>
