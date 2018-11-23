@@ -55,11 +55,12 @@ class ProjectListQueryModel
                     r.rank_name,
                     i.industry_name,
                     a.area_name,
-                    p.pro_leader,
+                    u.member_name,
                     p.create_data
                 FROM
                     app_project p
                 JOIN app_area a ON p.pro_address = a.area_id
+                JOIN user_member u ON p.pro_leader = u.member_id
                 JOIN app_industry i ON p.industry_id = i.industry_id
                 JOIN app_project_rank r ON p.secrecy_grade = r.id;
                 ";
@@ -90,6 +91,7 @@ class ProjectListQueryModel
                         FROM
                             app_project p
                         JOIN app_area a ON p.pro_address = a.area_id
+                        JOIN user_member u ON p.pro_leader = u.member_id
                         JOIN app_industry i ON p.industry_id = i.industry_id
                         JOIN app_project_rank r ON p.secrecy_grade = r.id;
                     ";
