@@ -354,11 +354,11 @@
 							this.addList.other_person == ''				
 							
 						) {
-							layui.use('layer', function() {
-								this.submitText();
-								var layer = layui.layer;
-								layer.alert('请确保信息输入完整!');
-							})
+							this.submitText();
+// 							layui.use('layer', function() {
+// 								var layer = layui.layer;
+// 								layer.alert('请确保信息输入完整!');
+// 							})
 						}	else {
 							this.submitText();
 							// this.submitFile();
