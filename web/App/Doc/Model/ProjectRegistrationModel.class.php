@@ -13,8 +13,8 @@ class ProjectRegistrationModel
 	 */
 	  public function areaList()
      {
-     	$provinceSql = "SELECT id as pid,
- 				name as pname from area 
+     	$provinceSql = "SELECT area_id as pid,
+ 				area_name as pname from app_area 
      			where parent_id = 0";
 
      	$province = M()->query($provinceSql);
@@ -82,7 +82,7 @@ class ProjectRegistrationModel
      {
 
 
-        $sql = "SELECT t.member_id,t.member_name FROM user_member t WHERE postsname like '%经理' AND department LIKE '%交付%'";
+        $sql = "SELECT t.member_id,t.member_name,t.department FROM user_member t WHERE postsname like '%经理' AND department LIKE '%交付%'";
 
         $projectManager = M()->query($sql);
 
@@ -100,7 +100,7 @@ class ProjectRegistrationModel
      {
 
 
-        $sql = "SELECT t.member_id,t.member_name FROM user_member t WHERE postsname = '部门经理' AND department LIKE '%交付%'";
+        $sql = "SELECT t.member_id,t.member_name,t.department FROM user_member t WHERE postsname = '部门经理' AND department LIKE '%交付%'";
 
         $divisionManager = M()->query($sql);
 
@@ -159,9 +159,18 @@ class ProjectRegistrationModel
                         \"$projectIntroduce\"
                     );";
 
-        $res = M()->execute($sql);
-       	return $res;	 
+
+        try{
+
+            $res =  M()->execute($sql);
+            return $res;
+         
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+       	 
     }
+
 
 
 
@@ -170,7 +179,7 @@ class ProjectRegistrationModel
      * @author song.chaoxu
      * 2018.11.21
      */
-     public function projectList($proArea,$proName,$proCode)
+     public function projectList($proArea,$proName,$pag,$limit)
      {
         
         // $sql = "SELECT i.id as pid,
@@ -190,56 +199,72 @@ class ProjectRegistrationModel
         // on pm.status_id = s.id";
 
         $sql = "
+                SELECT
+                    p.pro_id,
+                    p.pro_name,
+                    r.rank_name,
+                    i.industry_name,
+                    a.area_name,
+                    p.pro_leader,
+                    p.create_data
+                FROM
+                    app_project p
+                JOIN app_area a ON p.pro_address = a.id
+                JOIN app_industry i ON p.industry_id = i.industry_id
+                JOIN app_project_rank r ON p.secrecy_grade = r.id;
+                ";
 
-            SELECT
-                `pro_id`,
-                `pro_name`,
-                `type_id`,
-                `industry_id`,
-                `member_id`,
-                `pro_leader`,
-                `pro_members`,
-                `pro_stime`,
-                `pro_etime`,
-                `pro_status`,
-                `pro_schedule`,
-                `pro_address`,
-                `secrecy_grade`,
-                `insert_date`,
-                `create_data`,
-                `pro_longitude`,
-                `pro_latitude`,
-                `pro_enclosure`,
-                `pro_code`,
-                `pro_msg`,
-                `cooperative_unit`,
-                `pro_source`,
-                `division_manager_id`,
-                `pro_division_manager`,
-                `contract_amount`,
-                `pro_introduce` 
-            FROM `app_project`;
-
-        ";
-            
-        echo "$proArea:".$proArea ."————————————$proName".$proName."————————————$proCode".$proCode;
         //根据传来的不同条件进行搜索  
-        if(!empty($proArea) && empty($proName) && empty($proCode))
-        {
-            $sql.=" where pro_address like '%$proArea%'";
+        if (!empty($proArea)) {
+
+            $sql.="where pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
+
+        } else if (!empty($proName)){
+
+            $sql.="where pro_name like \"%$proName%\" limit ".$pag.",".$limit;
+
+        } else{
+
+            $sql.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\" limit ".$pag.",".$limit;
+
         }
-        if(empty($proArea)&&!empty($proName)&&empty($proCode))
-        {
-            $sql.=" where pro_naem like '%$proName%'";
-        }
-        if(empty($proArea)&&empty($proName)&&!empty($proCode))
-        {
-            $sql.=" where pro_id like '%$proCode%'";
-        }
+
+        echo $sql;
 
         $res = M()->query($sql);
 
-        return  $res;
+        $sqlCount = "   SELECT
+                            count(*)
+                        FROM
+                            app_project p
+                        JOIN app_area a ON p.pro_address = a.id
+                        JOIN app_industry i ON p.industry_id = i.industry_id
+                        JOIN app_project_rank r ON p.secrecy_grade = r.id;
+                    ";
+
+        //根据传来的不同条件进行统计总条数 
+        if (!empty($proArea)) {
+
+            $sqlCount.="where pro_address = \"%$proArea%\"";
+
+        } else if (!empty($proName)){
+
+            $sqlCount.="where pro_name like \"%$proName%\"";
+
+        } else{
+
+            $sqlCount.="where pro_name like \"%$proName%\" AND pro_address = \"%$proArea%\"";
+
+        }           
+
+        $total = M()->query($sqlCount);
+
+        $count =$total[0]['count'];
+        
+        $response = array('data' => $res,'count' =>$count);
+
+        return  $response;
+
 
      }
 

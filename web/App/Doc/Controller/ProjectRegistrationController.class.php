@@ -78,6 +78,43 @@ class ProjectRegistrationController extends BaseController {
     public function projectAdd()
     {
 
+        //项目附件 - 合同
+        $filePath = '';
+
+        if ($_FILES) {
+          foreach ($_FILES as $key => $value) {
+            //实例化上传类
+            $upload =  new \Think\Upload();
+            //设置附件上传大小
+            // $upload->maxSize=3145728;
+            //保持文件名不变
+            $upload->saveName = time()."dt".rand(0,10);
+            //设置附件上传类型
+            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
+            //设置附件上传根目录
+            $upload->rootPath = './Updata/UpdateFile/'; 
+            //设置附件上传（子）目录
+            $upload->savePath = '';
+            $result = $upload->upload();
+            // echo '<pre>';
+            // var_dump($result);
+            // echo '</pre>';
+            // file_put_contents("11114.txt", json_encode($result));
+            if($result){
+              foreach ($result as $key => $value) {
+                $savename  = $value['savename'];
+                $path  = "/Updata/UpdateFile/".$value['savepath'];
+                $filePath = $newpath = $path.$savename;
+                $href[] = $newpath;
+              }
+            }
+              
+          }
+
+        }else{
+            $filePath = "无";
+        }
+
         //项目编号
         $pro_id = I('pro_id');
 
@@ -132,55 +169,14 @@ class ProjectRegistrationController extends BaseController {
         // 项目介绍
         $projectIntroduce = I('projectIntroduce');
 
-        //项目附件 - 合同
-        $filePath = '';
-
-
-        if ($_FILES) {
-          foreach ($_FILES as $key => $value) {
-            //实例化上传类
-            $upload =  new \Think\Upload();
-            //设置附件上传大小
-            // $upload->maxSize=3145728;
-            //保持文件名不变
-            $upload->saveName = time()."dt".rand(0,10);
-            //设置附件上传类型
-            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
-            //设置附件上传根目录
-            $upload->rootPath = './Updata/UpdateFile/'; 
-            //设置附件上传（子）目录
-            $upload->savePath = '';
-            $result = $upload->upload();
-            // echo '<pre>';
-            // var_dump($result);
-            // echo '</pre>';
-            // file_put_contents("11114.txt", json_encode($result));
-            if($result){
-              foreach ($result as $key => $value) {
-                $savename  = $value['savename'];
-                $path  = "/Updata/UpdateFile/".$value['savepath'];
-                $filePath = $newpath = $path.$savename;
-                $href[] = $newpath;
-              }
-            }
-              
-          }
-
-        }else{
-            $filePath = "无";
-            // echo "未找到文件";
-        }
-
+    
         $status=$this->status=
             ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime, $filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
-
-        if ($status) {
-            
-         $this->Response(200,$status,'');
-
-        }else{
-            $this->Response(0,$status,'数据新增失败');
-        }
+            if ($status) {
+                $this->Response(200,$status,'数据新增成功');
+                } else {
+                throw new Exception('数据插入失败');
+                }
 
     }
 
@@ -194,22 +190,26 @@ class ProjectRegistrationController extends BaseController {
     {
 
         //区域
-        $proArea = I('proArea');
+        $proArea = I('proArea',"");
       
         //名称
-        $proName = I('proName');
+        $proName = I('proName',"");
        
-        //编号
-        $proCode = I('proCode');
+        //页数
+        $page=intval(I('page',1));
+        $pag=($page-1)*10;
 
-        echo "$proArea:".$proArea ."——————1——————$proName".$proName."——————1——————$proCode".$proCode;
+        $limit=intval(I('limit',10));
+
+        echo "$proArea:".$proArea ."——————1——————$proName".$proName;
 
         
         //项目列表
         $projectList=$this->projectList=
-        ProjectRegistrationModel::projectList($proArea,$proName,$proCode);
+        ProjectRegistrationModel::projectList($proArea,$proName,$pag,$limit);
 
-        $this->Response(200,$projectList,'');
+        $this->ajaxReturn($projectList);
+        // $this->Response(200,$projectList,'');
         
 
     }
