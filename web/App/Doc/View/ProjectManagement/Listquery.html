@@ -14,23 +14,15 @@
 </head>
 <body>
    <div class="new">
-        <form class="layui-form" action="">
-        <div class="layui-form-item">
-            <label class="layui-form-label">项目名称：</label>
-            <div class="layui-input-inline">
-                <input type="text" v-model="message.keywords"  name="keywords" lay-verify="title" autocomplete="off" placeholder="" id="namekey" class="layui-input">
-            </div>
-					<label class="layui-form-label">所在区域：</label>
-					<div class="search_div">
-						<div class="layui-input-inline">
-							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
-							<option v-for="b in province" :value="b.pid">{{b.pname}}</option>
-							</select>
-						</div>
-					</div>
-            <span class="btn-sub" @click="searchInput()">搜索</span>
-        </div>
-    </form>
+    <!-- 最上层搜索栏 -->
+    <div class="search_div">
+        区域：<select class="pro_select" @change="pro_select">
+            <option value="0">全国</option>
+            <option v-for="i in province" :value="i.pid">{{i.pname}}</option>
+        </select>
+        <input class="keyword" type="text" placeholder="项目名称">
+				<button @click="search()" class="search_button">搜索</button>
+    </div>
  
     <table class="layui-table">
         <thead>
@@ -71,6 +63,7 @@
     var app = new Vue({
         el: '.new',
         data: {
+						area: [],
             arrList: [],
             pageIndex:1,
             limit:10,
@@ -84,18 +77,18 @@
             //进入页面获取数据
             getList () {
                 // console.log('-----------')
-                var that =this  ;
-                var starTime = $("#test1").val();
-                var endTime = $("#test2").val();
-                var keywords = $("#keywords").val();
+                var that =this;
+                // var keywords = $("#keywords").val();
                 $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "{:U('Feedback/FeedbackList')}",
+                    url: "{:U('ProjectListQuery/projectList')}",
                     dataType: "json",
-                    data: {starTime:starTime,
-                    endTime:endTime,
-                    keywords:keywords,page: that.pageIndex || 1,limit:that.limit || 10},
+                    data: {
+										proArea:'',
+                    proName:'',
+										page: that.pageIndex || 1,
+										limit:that.limit || 10},
                     success: function (res) {
                         // console.log('333', res.data);
                         that.arrList = res.data;
