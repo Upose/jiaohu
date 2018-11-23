@@ -41,7 +41,7 @@ class ProjectRegistrationModel
      }
 
     /**
-	 * 行业下拉框
+	 * 项目密级
 	 * @author song.chaoxu
 	 * 2018.11.14
 	 */

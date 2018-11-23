@@ -119,7 +119,7 @@ class ProjectListQueryModel
 
         $count =$total[0]['total'];
         
-        $response = array('data' => $res,'count' =>$count);
+        $response = array('result' => $res,'count' =>$count);
 
         return $response;
 
