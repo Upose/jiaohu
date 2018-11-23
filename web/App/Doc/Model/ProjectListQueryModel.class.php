@@ -93,11 +93,11 @@ class ProjectListQueryModel
                     ";
 
         //根据传来的不同条件进行统计总条数 
-        if (!empty($proArea)) {
+        if ($proArea != "") {
 
             $sqlCount.="where pro_address = \"%$proArea%\"";
 
-        } else if (!empty($proName)){
+        } else if ($proName != ""){
 
             $sqlCount.="where pro_name like \"%$proName%\"";
 
