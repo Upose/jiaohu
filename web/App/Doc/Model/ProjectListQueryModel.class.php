@@ -113,8 +113,6 @@ class ProjectListQueryModel
         
         $response = array('data' => $res,'count' =>$count);
 
-        return  $response;
-
 
      }
 

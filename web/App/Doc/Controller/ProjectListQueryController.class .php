@@ -71,7 +71,6 @@ class ProjectListQueryController extends BaseController {
 
         echo "$proArea:".$proArea ."——————1——————$proName".$proName;
 
-        
         //项目列表
         $projectList=$this->projectList=
         ProjectRegistrationModel::projectList($proArea,$proName,$pag,$limit);
