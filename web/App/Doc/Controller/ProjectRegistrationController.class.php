@@ -34,7 +34,7 @@ class ProjectRegistrationController extends BaseController {
 	 	//以下是所有下拉框列表
     	//所有区域 - 页面下拉项内容
     	$areaRes=$this->area=
-    	ProjectRegistrationModel::areaList($province_id);
+    	ProjectRegistrationModel::areaList();
 
         //所有行业 - 页面下拉项内容
         $industryResult=$this->projectindustry=

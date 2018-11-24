@@ -5,7 +5,7 @@ use Think\Controller;
 use Doc\Model\ProjectDeliveryModel;
 
 /**
-*项目管理控制器
+*项目管理 - 实施交付 控制器
 *@author song.chaoxu
 *2018.11.14
 */
@@ -24,46 +24,49 @@ class ProjectDeliveryController extends BaseController {
     }
 
 	/**
-	 * 项目登记
+	 * 实施交付
 	 * @author song.chaoxu
 	 * 2018.11.14
 	 */
-    public function projectRecord()
+    public function proDelivery()
     {
-        
+
+        //获取此人ID 查询此人负责的项目列表
+        $projectManagerId = I('projectManagerId');
+
+        // echo $_SESSION;
+        // var_dump($_SESSION);
+
+        $projectList=$this->projectList=
+        ProjectDeliveryModel::projectList($projectManagerId);
+
 	 	//以下是所有下拉框列表
     	//所有区域 - 页面下拉项内容
     	$areaRes=$this->area=
-    	ProjectRegistrationModel::areaList($province_id);
+    	ProjectDeliveryModel::areaList();
 
-        //所有行业 - 页面下拉项内容
-        $industryResult=$this->projectindustry=
-        ProjectRegistrationModel::projectIndustryList();
+        //UI框架 - 页面下拉项内容
+        $uiFrame=$this->uiFrame=
+        ProjectDeliveryModel::uiFrame();
 
-        //项目密级别 - 页面下拉项内容
-        $rank=$this->rank=
-        ProjectRegistrationModel::projectRankList();
+        //JS框架 - 页面下拉项内容
+        $jsFrame=$this->jsFrame=
+        ProjectDeliveryModel::jsFrame();
 
-        //项目性质 - 页面下拉项内容
-        $projectNature=$this->projectNature=
-        ProjectRegistrationModel::projectNature();
+        //后台框架 - 页面下拉项内容
+        $backFrame=$this->backFrame=
+        ProjectDeliveryModel::backFrame();
 
-        //项目经理 - 页面下拉项内容
-        $projectManager=$this->projectManager=
-        ProjectRegistrationModel::projectManager();
+        //数据库框架 - 页面下拉项内容
+        $databaseFrame=$this->databaseFrame=
+        ProjectDeliveryModel::databaseFrame();
 
-        //部门经理 - 页面下拉项内容
-        $divisionManager=$this->divisionManager=
-        ProjectRegistrationModel::divisionManager();
-
-    	$temp = array();
-
+        $final['projectList'] = $projectList;
     	$final['area'] = $areaRes;
-        $final['industryResult'] = $industryResult;
-        $final['rank'] = $rank;
-        $final['projectManager'] = $projectManager;
-        $final['divisionManager'] = $divisionManager;
-        $final['projectNature'] = $projectNature;
+        $final['uiFrame'] = $uiFrame;
+        $final['jsFrame'] = $jsFrame;
+        $final['backFrame'] = $backFrame;
+        $final['databaseFrame'] = $databaseFrame;
     	
       	$this->Response(200,$final,'');
 
@@ -71,11 +74,11 @@ class ProjectDeliveryController extends BaseController {
 
 
     /**
-     * 项目新增 + 項目附件上传
+     * 实施交付新增 
      * @author song.chaoxu
      * 2018.11.20
      */
-    public function projectAdd()
+    public function proDeliveryAdd()
     {
         //项目编号
         $pro_id = I('pro_id');
