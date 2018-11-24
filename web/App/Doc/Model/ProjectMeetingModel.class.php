@@ -66,13 +66,13 @@ class ProjectMeetingModel
                         $mStage,
                         $mForm,
                         $mLevel,
-                        $mTheme,
-                        $mTime,
-                        $mAddress,
-                        $joinPersionIn,
-                        $joinPersionOut,
-                        $mContent,
-                        $filePath,
+                        \"$mTheme\",
+                        \"$mTime\",
+                        \"$mAddress\",
+                        \"$joinPersionIn\",
+                        \"$joinPersionOut\",
+                        \"$mContent\",
+                        \"$filePath\",
                         $mCreatePersion
                     );";
 
