@@ -104,13 +104,13 @@ class ProjectMeetingController extends BaseController {
         $filePath = '';
 
         // $file=$_FILES['photo'];
-//         $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
+        $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
 //         $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
+        // echo $filename;
+        // echo $_FILES["file"][type];
 
-		echo $_FILES["file"][type];
         if ($_FILES) {
-		echo ($_FILES["file"][size] / 1024)."kb";
-
+        // echo ($_FILES["file"][size] / 1024)."kb";
           foreach ($_FILES as $key => $value) {
             //实例化上传类
             $upload =  new \Think\Upload();
@@ -119,7 +119,7 @@ class ProjectMeetingController extends BaseController {
             //保持文件名不变
             $upload->saveName = time()."dt".rand(0,10);
             //设置附件上传类型
-            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
+            $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt','doc');
             //设置附件上传根目录
             $upload->rootPath = './Updata/MeetingFile/'; 
             //设置附件上传（子）目录
@@ -135,8 +135,8 @@ class ProjectMeetingController extends BaseController {
                 $path  = "/Updata/MeetingFile/".$value['savepath'];
                 $filePath = $newpath = $path.$savename;
                 $href[] = $newpath;
-				echo $filePath."|_____________________path";
-								
+                // echo $filePath."|_____________________path";
+                                
               }
             }
               
