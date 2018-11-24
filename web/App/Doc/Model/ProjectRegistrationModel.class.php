@@ -13,14 +13,13 @@ class ProjectRegistrationModel
 	 */
 	  public function areaList()
      {
-     	$provinceSql = "SELECT area_id as pid,
+     	$areaSql = "SELECT area_id as pid,
  				area_name as pname from app_area 
      			where parent_id = 0";
 
-     	$province = M()->query($provinceSql);
-		$area['province'] = $province;
+     	$area = M()->query($areaSql);
+		
         return  $area;
-
      }
 
      /**
