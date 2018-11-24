@@ -51,12 +51,12 @@ class ProjectMeetingController extends BaseController {
         
 	 	//以下是所有下拉框列表
     	//所有区域 - 页面下拉项内容
-    	$areaRes=$this->area=
+    	$meetingList=$this->meetingList=
     	ProjectMeetingModel::meetingList();
 
         // $final['projectNature'] = $projectNature;
     	
-      	$this->Response(200,$final,'');
+      	$this->Response(200,$meetingList,'');
 
     }
 

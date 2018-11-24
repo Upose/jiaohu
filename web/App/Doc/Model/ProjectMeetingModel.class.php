@@ -13,9 +13,23 @@ class ProjectMeetingModel
 	 */
 	  public function meetingList()
      {
-     	$meetingSql = "SELECT area_id as pid,
- 				area_name as pname from app_area 
-     			where parent_id = 0";
+     	$meetingSql = "SELECT
+                            m.`meeting_id`,
+                            m.`department_id`,
+                            m.`stage`,
+                            m.`meeting_mode`,
+                            m.`meeting_level`,
+                            m.`theme`,
+                            m.`meeting_time`,
+                            m.`address`,
+                            m.`inside`,
+                            m.`external`,
+                            m.`content`,
+                            m.`enclosure`,
+                            m.`founder_id`,
+                            m.`create_time`
+                        FROM
+                            `app_meeting` m;";
 
      	$meetingList = M()->query($meetingSql);
 		
