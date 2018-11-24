@@ -109,7 +109,7 @@ class ProjectMeetingController extends BaseController {
 // 
 		// echo $_FILES["file"][type];
         if ($_FILES) {
-		// echo ($_FILES["file"][size] / 1024)."kb";
+		echo ($_FILES["file"][size] / 1024)."kb";
 
           foreach ($_FILES as $key => $value) {
             //实例化上传类
@@ -135,7 +135,7 @@ class ProjectMeetingController extends BaseController {
                 $path  = "/Updata/MeetingFile/".$value['savepath'];
                 $filePath = $newpath = $path.$savename;
                 $href[] = $newpath;
-				// echo $filePath."|_____________________path";
+				echo $filePath."|_____________________path";
 								
               }
             }

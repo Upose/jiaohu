@@ -90,6 +90,7 @@ class ProjectMeetingModel
                         $mCreatePersion
                     );";
 
+                    echo $sql;
 
         try{
 
