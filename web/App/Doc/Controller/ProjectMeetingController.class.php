@@ -49,8 +49,7 @@ class ProjectMeetingController extends BaseController {
     public function meetingList()
     {
         
-	 	//以下是所有下拉框列表
-    	//所有区域 - 页面下拉项内容
+    	//所有会议列表
     	$meetingList=$this->meetingList=
     	ProjectMeetingModel::meetingList();
 
