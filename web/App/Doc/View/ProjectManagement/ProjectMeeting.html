@@ -67,7 +67,11 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目阶段：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="number" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.message">
+						<div  class="search_div">
+							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
+							<option v-for="b in province" :value="b.pid">{{b.pname}}</option>
+							</select>
+						</div>
 						</div>
 					</div>	
 				</div>
@@ -152,30 +156,7 @@
         el: "#app",
 				data: function() {
 					return {
-						rank: [],
-						industryResult:[],
 						province: [],
-						divisionManager:[],
-						projectManager:[],
-						projectNature:[],
-						addList: {
-							name: '',
-							num: '',
-							grade: '',
-							date_timne: '',
-							message: '',
-							city: '',
-							company: '',
-							nature:'',
-							industry:'',
-							department:'',
-							project:'',
-							param:'',
-							money:'',
-							start_time:'',
-							end_time:'',
-							other_person:''
-						},
 						maxFileSize: 10485760,
 						maxFileLength: 4
 					}
@@ -190,15 +171,10 @@
                 $.ajax({
                     cache: false,
                     type: "post",
-                    url: "{:U('ProjectRegistration/projectRecord')}",
+                    url: "{:U('/ProjectMeeting/meetingDropOption ')}",
                     dataType: "json",
                     success: function (data) {
-												that.rank = data.data.rank;
-                        that.province = data.data.area.province;
-												that.industryResult = data.data.industryResult;
-												that.divisionManager = data.data.divisionManager;
-												that.projectManager = data.data.projectManager;
-												that.projectNature = data.data.projectNature; 
+                        that.province = data.data.area;
                     }
                 })
             },
