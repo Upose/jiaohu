@@ -28,15 +28,7 @@
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">会议时间：</label>
-						  <div class="layui-input-block">
-							<input type="text" class="layui-input" id="data">
-						  </div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">项目阶段：</label>
+						<label class="tit-tab">所属项目：</label>
 						<div class="layui-input-block">
 						<input type="text" name="identity" lay-verify="number" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.message">
 						</div>
@@ -44,14 +36,38 @@
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">会议形式：</label>
+						<label class="tit-tab">会议时间：</label>
+						  <div class="layui-input-block">
+							<input class="layui-input" type="date" name="date_timne" id="" v-model="addList.date_timne">
+						  </div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">会议级别：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
-								<option value="1">内部会议</option>
-								<option value="2">客户会议</option>
+								<option value="1">一般</option>
+								<option value="2">重要</option>
 								</select>
 							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">会议地点：</label>
+						<div class="layui-input-block">
+						<input type="text" name="identity" lay-verify="number" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.message">
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">项目阶段：</label>
+						<div class="layui-input-block">
+						<input type="text" name="identity" lay-verify="number" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.message">
 						</div>
 					</div>	
 				</div>
@@ -73,13 +89,24 @@
 			</div>
 			<div class="details_right">
 				<div style="margin-top: 5vh;">
-					<div class="layui-form-item" style="margin-top:2vh;">
-						<label class="tit-tab">会议内容：</label>
+					<div class="layui-form-item">
+						<label class="tit-tab">会议形式：</label>
 						<div class="layui-input-block">
-							<textarea placeholder="请输入内容" name="meeting" id="2" class="layui-textarea" style="min-height: 30vh;" v-model="addList.other_person"></textarea>		
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
+								<option value="1">内部会议</option>
+								<option value="2">客户会议</option>
+								</select>
+							</div>
 						</div>
 					</div>	
 				</div>
+				<div class="layui-form-item" style="margin-top:2vh;">
+					<label class="tit-tab">会议内容：</label>
+					<div class="layui-input-block">
+						<textarea placeholder="请输入内容" name="meeting" id="2" class="layui-textarea" style="min-height: 37vh;" v-model="addList.other_person"></textarea>		
+					</div>
+				</div>	
 
 				<div class="layui-form-item" style="vertical-align: top;">
 						<label class="tit-tab">上传文件</label>
