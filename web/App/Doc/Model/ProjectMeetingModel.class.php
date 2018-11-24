@@ -44,50 +44,36 @@ class ProjectMeetingModel
      * @author song.chaoxu
      * 2018.11.20
      */
-    public function meetingAdd($mTheme,$mTime,$mStage,$mFrm,$joinPersionOut,$joinPersionIn,$mContent,$filePath){
+    public function meetingAdd($mTheme,$proId,$mAddress,$mLevel,$mTime,$mStage,$mForm,$joinPersionOut,$joinPersionIn,$mContent,$mCreatePersion,$filePath){
 
-    	  $sql="INSERT INTO `deliveryapplication`.`app_project` (
-                    `pro_id`,
-                    `pro_name`,
-                    `type_id`,
-                    `industry_id`,
-                    `member_id`,
-                    `pro_leader`,
-                    `pro_stime`,
-                    `pro_etime`,
-                    `pro_address`,
-                    `secrecy_grade`,
-                    `create_data`,
-                    `pro_enclosure`,
-                    `pro_msg`,
-                    `cooperative_unit`,
-                    `pro_source`,
-                    `division_manager_id`,
-                    `pro_division_manager`,
-                    `contract_amount`,
-                    `pro_introduce`
+    	  $sql="INSERT INTO `deliveryapplication`.`app_meeting` (
+                    `department_id`,
+                    `stage`,
+                    `meeting_mode`,
+                    `meeting_level`,
+                    `theme`,
+                    `meeting_time`,
+                    `address`,
+                    `inside`,
+                    `external`,
+                    `content`,
+                    `enclosure`,
+                    `founder_id`
                 )
                 VALUES
                     (
-                        $pro_code,
-                        \"$pro_name\",
-                        $typeId,
-                        $industry,
-                        $projectManagerId,
-                        \"$projectManager\", 
-                        \"$projectStime\",
-                        \"$projectEtime\",
-                        \"$area\",
-                        \"$rank\",
-                        \"$createTime\",
-                        \"$newPath\",
-                        \"$lxMsg\",
-                        \"$cooperativeUnit\",
-                        \"$projectNature\",
-                        $divisionManagerId,
-                        \"$divisionManager\",
-                        $contractAmount,
-                        \"$projectIntroduce\"
+                        $proId,
+                        $mStage,
+                        $mForm,
+                        $mLevel,
+                        $mTheme,
+                        $mTime,
+                        $mAddress,
+                        $joinPersionIn,
+                        $joinPersionOut,
+                        $mContent,
+                        $filePath,
+                        $mCreatePersion
                     );";
 
 
