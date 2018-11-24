@@ -59,14 +59,14 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">参会人员</label>
 						<div class="layui-input-block">
-							 <textarea placeholder="请输入内部参会人员" class="layui-textarea" v-model="addList.other_person"></textarea>		
+							 <textarea placeholder="请输入内部参会人员" name="people" class="layui-textarea" v-model="addList.other_person2"></textarea>		
 						</div>
 					</div>	
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
 						<div class="layui-input-block">
-							<textarea placeholder="请输入外部参会人员" class="layui-textarea" v-model="addList.other_person"></textarea>		
+							<textarea placeholder="请输入外部参会人员"  name="people1" class="layui-textarea" v-model="addList.other_person1"></textarea>		
 						</div>
 					</div>	
 				</div>
@@ -76,7 +76,7 @@
 					<div class="layui-form-item" style="margin-top:2vh;">
 						<label class="tit-tab">会议内容：</label>
 						<div class="layui-input-block">
-							<textarea placeholder="请输入内容" class="layui-textarea" v-model="addList.other_person"></textarea>		
+							<textarea placeholder="请输入内容" name="meeting" id="2" class="layui-textarea" style="min-height: 30vh;" v-model="addList.other_person"></textarea>		
 						</div>
 					</div>	
 				</div>
