@@ -68,18 +68,19 @@
         },
         methods: {
             //进入页面获取数据
-            getList () {
+            getList() {
                 // console.log('-----------')
                 var that =this;
-                var keywords = $("#keywords").val();
+								var ab = $(".pro_select").val();
+								var cd = $(".keyword").val();
                 $.ajax({
                     cache: false,
                     type: "POST",
                     url: "{:U('ProjectListQuery/projectList')}",
                     dataType: "json",
                     data: {
-											proArea:'',
-											proName:'',
+											proArea:ab,
+											proName:cd,
 											page: that.pageIndex || 1,
 											limit:that.limit || 10,
 										},
@@ -91,7 +92,29 @@
                     }
                 })
             },
-						
+						getListyo() {
+								// console.log('-----------')
+								var that =this;
+								var ab = $(".pro_select").val();
+								var cd = $(".keyword").val();
+								$.ajax({
+										cache: false,
+										type: "POST",
+										url: "{:U('ProjectListQuery/projectList')}",
+										dataType: "json",
+										data: {
+											proArea:ab,
+											proName:cd,
+											page: that.pageIndex || 1,
+											limit:that.limit || 10,
+										},
+										success: function (res) {		
+												that.arrList = res.data.projectList.result;
+												that.counts=res.data.projectList.count;
+												that.layPage(); //分页
+										}
+								})
+						},
             // 分页
             layPage() {
                 var _this = this;
@@ -110,19 +133,20 @@
                             }
                             _this.pageIndex = obj.curr;
                             _this.limit = obj.limit;
-                            _this.getList();
+                             _this.getListyo();
                         }
                     });
                 });        
             },
             //跳转页面
-            openNew(val){
-            window.location.href = "{:U('Feedback/MyFeedbackCheck')}"+"&id="+val
-            },
+//             openNew(val){
+//             window.location.href = "{:U('Feedback/MyFeedbackCheck')}"+"&id="+val
+//             },
 						
 						pro_select(){
 							var that = this;
 							var a = $(".pro_select").val();
+							var c = $(".keyword").val();
 							console.log(a);
 							$.ajax({
 									cache: false,
@@ -131,7 +155,7 @@
 									dataType: "json",
 									data: {
 										proArea:a,
-										proName:'',
+										proName:c,
 										page: that.pageIndex || 1,
 										limit:that.limit || 10,
 									},
@@ -162,7 +186,6 @@
 									success: function (res) {		
 											that.arrList = res.data.projectList.result;
 											that.counts=res.data.projectList.count;
-											that.layPage(); //分页
 									}
 							})
 						},

@@ -55,8 +55,9 @@
 						</div>
 					</div>	
 				</div>
+			<div class="layui-row layui-col-space10 layui-form-item">	
 				<div class="details_tab">
-					<div class="layui-form-item">
+					<div class="layui-col-lg6">
 						<label class="tit-tab">UI框架：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
@@ -69,9 +70,7 @@
 							</div>
 						</div>
 					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
+					<div class="layui-col-lg6">
 						<label class="tit-tab">WEB框架</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
@@ -85,10 +84,12 @@
 						</div>
 					</div>	
 				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">后台框架</label>
-						<div class="layui-input-block">
+			</div>
+				<div class="layui-row layui-col-space10 layui-form-item">	
+					<div class="details_tab">
+						<div class="layui-col-lg6">
+							<label class="tit-tab">开发语言：</label>
+							<div class="layui-input-block">
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select">
 								<option value="">请选择</option>
@@ -97,9 +98,24 @@
 								<option value="2">go</option>
 								</select>
 							</div>
-						</div>
-					</div>	
-				</div>
+							</div>
+						</div>	
+						<div class="layui-col-lg6">
+							<label class="tit-tab">数据库</label>
+							<div class="layui-input-block">
+								<div  class="search_div">
+									<select name="interest" lay-filter="aihao" class="pro_select">
+									<option value="">请选择</option>
+									<option value="0">VUE.JS</option>、
+									<option value="1"></option>
+									<option value="2">less</option>
+									</select>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>	
+
 				<div class="details_tab">
 					<div class="layui-form-item">
 						<label class="tit-tab">客户干系人</label>
@@ -149,18 +165,15 @@
 											<th>职位</th>
 											<th>到岗时间</th>
 											<th>离岗时间</th>
-											<th>操作</th>
-
 									</tr>
 							</thead>
 							<tbody>
-									<tr >
+									<tr>
 											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
 											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
 											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
 											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
-											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
-											<td style="cursor:pointer;" @click="openNew(item.id)"><span style="color:rgba(74,144,226,1);">查看</span></td>
+											<td><button class="layui-btn" type="button">离岗<button></td>
 									</tr>
 							</tbody>
 					</table>
