@@ -171,7 +171,7 @@
                 $.ajax({
                     cache: false,
                     type: "post",
-                    url: "{:U('/ProjectMeeting/meetingDropOption ')}",
+                    url: "{:U('/ProjectMeeting/meetingDropOption')}",
                     dataType: "json",
                     success: function (data) {
                         that.province = data.data.area;
