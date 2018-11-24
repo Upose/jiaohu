@@ -80,7 +80,7 @@ class ProjectMeetingController extends BaseController {
         $mLevel = I('mLevel');
 
         //会议时间
-        $mLevel = I('mTime');
+        $mTime = I('mTime');
 
         //项目所处阶段
         $mStage = I('mStage');
