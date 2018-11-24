@@ -106,8 +106,8 @@ class ProjectMeetingController extends BaseController {
         // $file=$_FILES['photo'];
 //         $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
 //         $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
-// 
-		// echo $_FILES["file"][type];
+
+		echo $_FILES["file"][type];
         if ($_FILES) {
 		echo ($_FILES["file"][size] / 1024)."kb";
 
