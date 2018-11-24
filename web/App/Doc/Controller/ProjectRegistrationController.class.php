@@ -150,7 +150,7 @@ class ProjectRegistrationController extends BaseController {
             //设置附件上传类型
             // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
             //设置附件上传根目录
-            $upload->rootPath = './Updata/UpdateFile/'; 
+            $upload->rootPath = './Updata/ProjectFile/'; 
             //设置附件上传（子）目录
             $upload->savePath = '';
             $result = $upload->upload();
@@ -161,7 +161,7 @@ class ProjectRegistrationController extends BaseController {
             if($result){
               foreach ($result as $key => $value) {
                 $savename  = $value['savename'];
-                $path  = "/Updata/UpdateFile/".$value['savepath'];
+                $path  = "/Updata/ProjectFile/".$value['savepath'];
                 $filePath = $newpath = $path.$savename;
                 $href[] = $newpath;
 				// echo $filePath."|_____________________path";

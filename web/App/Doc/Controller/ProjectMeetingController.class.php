@@ -71,14 +71,23 @@ class ProjectMeetingController extends BaseController {
         //会议主题
         $mTheme = I('mTheme');
 
+        //所属项目
+        $proId = I('proId');
+
+        //会议地点
+        $mAddress = I('mAddress');
+
+        //会议级别
+        $mLevel = I('mLevel');
+
         //会议时间
-        $mTime = I('mTime');
+        $mLevel = I('mTime');
 
         //项目所处阶段
         $mStage = I('mStage');
 
         //会议形式
-        $mFrm = I('mFrm');
+        $mForm = I('mForm');
 
         //参会人员 -内部
         $joinPersionOut = I('joinPersionOut');
@@ -88,6 +97,9 @@ class ProjectMeetingController extends BaseController {
 
         //会议内容
         $mContent = I('mContent');
+
+        //创建人ID
+        $mCreatePersion = I('mCreatePersion');
 
         //会议附件
         $filePath = '';
@@ -110,7 +122,7 @@ class ProjectMeetingController extends BaseController {
             //设置附件上传类型
             // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
             //设置附件上传根目录
-            $upload->rootPath = './Updata/UpdateFile/'; 
+            $upload->rootPath = './Updata/MeetingFile/'; 
             //设置附件上传（子）目录
             $upload->savePath = '';
             $result = $upload->upload();
@@ -133,7 +145,7 @@ class ProjectMeetingController extends BaseController {
 
         }
         $status=$this->status=
-            ProjectMeetingModel::meetingAdd($mTheme,$mTime,$mStage,$mFrm,$joinPersionOut,$joinPersionIn,$mContent,$filePath);
+            ProjectMeetingModel::meetingAdd($mTheme,$proId,$mAddress,$mLevel,$mTime,$mStage,$mForm,$joinPersionOut,$joinPersionIn,$mContent,$mCreatePersion,$filePath);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
