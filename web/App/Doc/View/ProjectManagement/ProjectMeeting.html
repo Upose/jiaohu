@@ -47,7 +47,7 @@
 						<label class="tit-tab">会议级别：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.level">
+								<select name="interest" id="level" lay-filter="aihao" class="pro_select" v-model="addList.level">
 								<option value="1">一般</option>
 								<option value="2">重要</option>
 								</select>
@@ -69,7 +69,7 @@
 						<div class="layui-input-block">
 						<div  class="search_div">
 							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.stage">
-							<option v-for="b in province" :value="b.t_id">{{b.stage}}</option>
+							<option v-for="b in province" name="stage" :value="b.t_id">{{b.stage}}</option>
 							</select>
 						</div>
 						</div>
@@ -97,7 +97,7 @@
 						<label class="tit-tab">会议形式：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.form">
+								<select name="interest" id="form" lay-filter="aihao" class="pro_select" v-model="addList.form">
 								<option value="1">内部会议</option>
 								<option value="2">客户会议</option>
 								</select>
@@ -158,7 +158,20 @@
 					return {
 						province: [],
 						maxFileSize: 10485760,
-						maxFileLength: 4
+						maxFileLength: 4,
+						addList: {							
+							name: '',
+							project: '',
+							date_timne: '',
+							level: '',
+							place: '',
+							stage: '',
+							in_person: '',
+							other_person:'',
+							form:'',
+							content:'',
+							project:'',
+						},
 					}
 				},
 				created: function () {
@@ -248,10 +261,10 @@
                         $(el).append(div);
                     })
                 },				
-					
 					submitForm: function() {
 						// 表单验证
-						if( this.addList.name == '' ||
+						if(					 						 
+							this.addList.name == '' ||
 							this.addList.project == '' ||
 							this.addList.date_timne == '' ||
 							this.addList.level == '' ||
@@ -260,7 +273,8 @@
 							this.addList.in_person == ''||
 							this.addList.other_person == ''||
 							this.addList.form == ''||
-							this.addList.content == ''||									
+							this.addList.content == ''			
+							
 						) {
 							layui.use('layer', function() {
 								var layer = layui.layer;
@@ -277,18 +291,20 @@
 						var _this = this;
 						var formData = new FormData();
 						var fs = $('#cus-ipt')[0].files;
+						var levelId = $('#level').val();
+						var formrId = $('#form').val();
 						for(var i = 0; i < fs.length; i++) {
 							formData.append('photo[]', fs[i]);
 						}
 						formData.append('mTheme', this.addList.name);
 						formData.append('proId', this.addList.project);
 						formData.append('mTime', this.addList.date_timne);
-						formData.append('mLevel', this.addList.level);
+						formData.append('mLevel', levelId);
 						formData.append('mAddress', this.addList.place);
 						formData.append('mStage', this.addList.stage);
 						formData.append('joinPersionIn', this.addList.in_person);
 						formData.append('joinPersionOut', this.addList.other_person);
-						formData.append('mForm', this.addList.form);
+						formData.append('mForm', formrId);
 						formData.append('mContent', this.addList.content);
 						formData.append('mCreatePersion', '110');
 						$.ajax({
