@@ -297,7 +297,7 @@
 							formData.append('photo[]', fs[i]);
 						}
 						formData.append('mTheme', this.addList.name);
-						formData.append('proId', this.addList.project);
+						formData.append('proId', '12');
 						formData.append('mTime', this.addList.date_timne);
 						formData.append('mLevel', levelId);
 						formData.append('mAddress', this.addList.place);
@@ -311,7 +311,7 @@
 							cache: false,
 							async: false,
 							type: "POST",
-							url: "{:U('ProjectMeeting/meetingList')}",
+							url: "{:U('ProjectMeeting/meetingAdd')}",
 							dataType: "json",
 							data: formData,
 							processData: false,
