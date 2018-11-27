@@ -13,6 +13,7 @@
 </head>
 
 <body class="app">
+	<form  class="layui-form">
     <div id="event-view">
 			<div class="details_zong">
 			<div class="details_left">
@@ -48,12 +49,73 @@
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select">
 								<option value="">全国</option>
-								<option v-for="i in province" :value="i.pid">{{i.pname}}</option>
+									<option v-for="i in province" :value="i.pid">{{i.pname}}</option>
 								</select>
 							</div>
 						</div>
 					</div>	
 				</div>
+			<div class="layui-row layui-col-space10 layui-form-item">	
+				<div class="details_tab">
+					<div class="layui-col-lg6">
+						<label class="tit-tab">UI框架：</label>
+						<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select">
+								<option value="">请选择</option>
+								<option value="0">bootstrap</option>、
+								<option value="1">layui</option>
+								<option value="2">less</option>
+								</select>
+							</div>
+						</div>
+					</div>	
+					<div class="layui-col-lg6">
+						<label class="tit-tab">WEB框架</label>
+						<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select">
+								<option value="">请选择</option>
+								<option value="0">VUE.JS</option>、
+								<option value="1"></option>
+								<option value="2">less</option>
+								</select>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+				<div class="layui-row layui-col-space10 layui-form-item">	
+					<div class="details_tab">
+						<div class="layui-col-lg6">
+							<label class="tit-tab">开发语言：</label>
+							<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select">
+								<option value="">请选择</option>
+								<option value="0">php</option>、
+								<option value="1">java</option>
+								<option value="2">go</option>
+								</select>
+							</div>
+							</div>
+						</div>	
+						<div class="layui-col-lg6">
+							<label class="tit-tab">数据库</label>
+							<div class="layui-input-block">
+								<div  class="search_div">
+									<select name="interest" lay-filter="aihao" class="pro_select">
+									<option value="">请选择</option>
+									<option value="0">VUE.JS</option>、
+									<option value="1"></option>
+									<option value="2">less</option>
+									</select>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>	
+
 				<div class="details_tab">
 					<div class="layui-form-item">
 						<label class="tit-tab">客户干系人</label>
@@ -66,8 +128,8 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">是否验收</label>
 						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="sex" value="是" title="是">是<e style="color: red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</e>
-							<input type="radio" name="sex" value="否" title="否" checked="">否
+							<input type="radio" name="sex" value="是" title="是">
+							<input type="radio" name="sex" value="否" title="否" checked="">
 						</div>
 					</div>	
 				</div>
@@ -83,8 +145,8 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">人员释放</label>
 						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="wa" value="yes" title="是">是<e style="color: red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</e>
-							<input type="radio" name="wa" value="no" title="否" checked="">否
+							<input type="radio" name="wa" value="yes" title="是">
+							<input type="radio" name="wa" value="no" title="否" checked="">
 						</div>
 					</div>	
 				</div>
@@ -93,8 +155,28 @@
 				<div  style="margin-top: 5vh;">					
 				  <div class="layui-form-item">
 					  <label class="layui-form-label">内部成员</label>
-					  <button class="layui-btn">增加</button>
+					  <button class="btnzeng" type="button">增加</button>
 				  </div>
+					<table class="layui-table">
+							<thead>
+									<tr>
+											<th>人员姓名</th>										
+											<th>所属岗位</th>
+											<th>职位</th>
+											<th>到岗时间</th>
+											<th>离岗时间</th>
+									</tr>
+							</thead>
+							<tbody>
+									<tr>
+											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
+											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
+											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
+											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
+											<td><button class="btnli" type="button">离岗<button></td>
+									</tr>
+							</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -105,7 +187,7 @@
 				<button class="layui-btn" type="button">提交</button>
 			</div>
 		</div>
-		
+	</form>	
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
@@ -117,7 +199,6 @@
 	 //日期 
 	  laydate.render({
 			elem: '#date',
-			type: 'datetime'
 			});
 	  });
 
@@ -135,17 +216,6 @@
         methods: {
             getdata() {
                 var that = this;
-                $.ajax({
-                    cache: false,
-                    type: "post",
-                    url: "{:U('ProjectRegistration/projectRecord')}",
-                    dataType: "json",
-                    success: function (data) {
-						that.rank = data.data.rank;
-                        that.province = data.data.area.province;
-						that.industryResult = data.data.industryResult;
-                    }
-                })
             },
         }
     })

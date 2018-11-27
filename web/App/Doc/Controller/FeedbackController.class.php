@@ -2,14 +2,6 @@
 namespace Doc\Controller;
 use Think\Controller;
 
-//php环境默认时差与北京时间相差8小时，
-//获取正确的时间就必须设置
-date_default_timezone_set('prc');
-
-//设置编码
-mysql_query('set names utf8');
-
-
 /**
  * 反馈模块控制器
  * @author fang.yu

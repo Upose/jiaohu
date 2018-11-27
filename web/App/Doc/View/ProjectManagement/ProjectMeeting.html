@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/ProjectMeeting.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectRegistration.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
 		<script src="__STATIC__/vue.min.js"></script>
 </head>
@@ -17,10 +17,10 @@
     <div id="event-view">
 			<div class="details_zong">
 			<div class="details_left">
-				<span class="tit">项目信息登记</span>
+				<span class="tit">会议登记</span>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">项目名称：</label>
+						<label class="tit-tab">会议主题：</label>
 						<div class="layui-input-block">
 						<input type="text" name="identity" lay-verify="identity" placeholder="请输入项目名称" autocomplete="off" class="layui-input" v-model="addList.name">
 						</div>
@@ -28,27 +28,15 @@
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">项目编号：</label>
+						<label class="tit-tab">所属项目：</label>
 						<div class="layui-input-block">
-						<input type="text" lay-verify="number" placeholder="请输入项目编号"  class="layui-input" v-model="addList.num" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+						<input type="text" name="identity" lay-verify="number" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.project">
 						</div>
 					</div>	
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">保密等级：</label>
-						<div class="layui-input-block">
-							<div  class="search_div">
-								<select name="interest" lay-filter="aihao"  class="pro_select" v-model="addList.grade">
-								<option v-for="a in rank" :value="a.id">{{a.rank_name}}</option>
-								</select>
-							</div>
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">创建时间：</label>
+						<label class="tit-tab">会议时间：</label>
 						  <div class="layui-input-block">
 							<input class="layui-input" type="date" name="date_timne" id="" v-model="addList.date_timne">
 						  </div>
@@ -56,19 +44,12 @@
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">立项信息：</label>
-						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="number" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.message">
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">所在区域：</label>
+						<label class="tit-tab">会议级别：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
-								<option v-for="b in province" :value="b.pid">{{b.pname}}</option>
+								<select name="interest" id="level" lay-filter="aihao" class="pro_select" v-model="addList.level">
+								<option value="1">一般</option>
+								<option value="2">重要</option>
 								</select>
 							</div>
 						</div>
@@ -76,31 +57,19 @@
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">合作单位：</label>
+						<label class="tit-tab">会议地点：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="请输入合作单位名称" autocomplete="off" class="layui-input" v-model="addList.company">
+						<input type="text" name="identity" lay-verify="number" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.place">
 						</div>
 					</div>	
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">项目性质：</label>
-						<div class="layui-input-block">
-						<div  class="search_div"> 
-							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.nature">						
-							<option v-for="c in projectNature" name="nature" :value="c.id">{{c.xzname}}</option>
-							</select>
-						</div>
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">所在行业：</label>
+						<label class="tit-tab">项目阶段：</label>
 						<div class="layui-input-block">
 						<div  class="search_div">
-							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.industry" id="industry">
-							<option v-for="d in industryResult" name="industry" :value="d.industry_id">{{d.industry_name}}</option>
+							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.stage">
+							<option v-for="b in province" name="stage" :value="b.t_id">{{b.stage}}</option>
 							</select>
 						</div>
 						</div>
@@ -108,25 +77,16 @@
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">部门经理：</label>
+						<label class="tit-tab">参会人员</label>
 						<div class="layui-input-block">
-						<div  class="search_div">
-							<select name="interest"  id="departid" lay-filter="aihao" class="pro_select" v-model="addList.department">
-							<option v-for="e in divisionManager"  :value="e.member_id">{{e.member_name}}</option>
-							</select>
-						</div>
+							 <textarea placeholder="请输入内部参会人员" name="people" class="layui-textarea" v-model="addList.in_person"></textarea>		
 						</div>
 					</div>	
 				</div>
 				<div class="details_tab">
 					<div class="layui-form-item">
-						<label class="tit-tab">项目经理：</label>
 						<div class="layui-input-block">
-						<div  class="search_div"> 
-							<select name="interest"  id="projectid" lay-filter="aihao"  class="pro_select" v-model="addList.project">						
-							<option v-for="f in projectManager" :value="f.member_id">{{f.member_name}}</option>
-							</select>
-						</div>
+							<textarea placeholder="请输入外部参会人员"  name="people1" class="layui-textarea" v-model="addList.other_person"></textarea>		
 						</div>
 					</div>	
 				</div>
@@ -134,31 +94,24 @@
 			<div class="details_right">
 				<div style="margin-top: 5vh;">
 					<div class="layui-form-item">
-						<label class="layui-form-label">有无合同</label>
-						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="sex" value="0" title="有" v-model="addList.param" checked="">有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="sex" value="1" title="无" v-model="addList.param" >无
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="tit-tab">合同额(元)</label>
+						<label class="tit-tab">会议形式：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="number" placeholder="请输出合同金额(元)" autocomplete="off" class="layui-input" v-model="addList.money" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
-						</div>
-					</div>		
-				</div>
-				<div class="layui-form-item">
-					<label class="tit-tab">开始时间：</label>
-						<div class="layui-input-block">
-						<input class="layui-input" type="date" name="start_time" id="" v-model="addList.start_time">
-						</div>
-				</div>
-				<div class="layui-form-item">
-						<label class="tit-tab">结束时间：</label>
-							<div class="layui-input-block">
-							<input class="layui-input" type="date" name="end_time" id="" v-model="addList.end_time">
+							<div  class="search_div">
+								<select name="interest" id="form" lay-filter="aihao" class="pro_select" v-model="addList.form">
+								<option value="1">内部会议</option>
+								<option value="2">客户会议</option>
+								</select>
 							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="layui-form-item" style="margin-top:2vh;">
+					<label class="tit-tab">会议内容：</label>
+					<div class="layui-input-block">
+						<textarea placeholder="请输入内容" name="meeting" id="2" class="layui-textarea" style="min-height: 37vh;" v-model="addList.content"></textarea>		
+					</div>
 				</div>	
+
 				<div class="layui-form-item" style="vertical-align: top;">
 						<label class="tit-tab">上传文件</label>
 						<div class="cus-files" id="cus-form">
@@ -172,12 +125,6 @@
 								</div>
 						</div>
 				</div>
-				<div class="layui-form-item" style="margin-top:2vh;">
-					<label class="tit-tab">项目介绍：</label>
-					<div class="layui-input-block">
-					     <textarea placeholder="请输入内容" class="layui-textarea" v-model="addList.other_person"></textarea>		
-					</div>
-				</div>		
 			</div>
 		</div>
 			
@@ -199,13 +146,6 @@
 	 //日期 
 	  laydate.render({
 			elem: '#date',
-			type: 'datetime'
-			});
-		laydate.render({
-			elem: '#date1',
-			});
-		laydate.render({
-			elem: '#date2',
 			});
 
 	  });
@@ -215,32 +155,22 @@
         el: "#app",
 				data: function() {
 					return {
-						rank: [],
-						industryResult:[],
 						province: [],
-						divisionManager:[],
-						projectManager:[],
-						projectNature:[],
-						addList: {
-							name: '',
-							num: '',
-							grade: '',
-							date_timne: '',
-							message: '',
-							city: '',
-							company: '',
-							nature:'',
-							industry:'',
-							department:'',
-							project:'',
-							param:'',
-							money:'',
-							start_time:'',
-							end_time:'',
-							other_person:''
-						},
 						maxFileSize: 10485760,
-						maxFileLength: 4
+						maxFileLength: 4,
+						addList: {							
+							name: '',
+							project: '',
+							date_timne: '',
+							level: '',
+							place: '',
+							stage: '',
+							in_person: '',
+							other_person:'',
+							form:'',
+							content:'',
+							project:'',
+						},
 					}
 				},
 				created: function () {
@@ -253,15 +183,10 @@
                 $.ajax({
                     cache: false,
                     type: "post",
-                    url: "{:U('ProjectRegistration/projectRecord')}",
+                    url: "{:U('ProjectMeeting/meetingDropOption')}",
                     dataType: "json",
                     success: function (data) {
-												that.rank = data.data.rank;
-                        that.province = data.data.area;
-												that.industryResult = data.data.industryResult;
-												that.divisionManager = data.data.divisionManager;
-												that.projectManager = data.data.projectManager;
-												that.projectNature = data.data.projectNature; 
+                        that.province = data.data;
                     }
                 })
             },
@@ -337,21 +262,17 @@
                 },				
 					submitForm: function() {
 						// 表单验证
-						if( this.addList.name == '' ||
-							this.addList.num == '' ||
-							this.addList.grade == '' ||
+						if(					 						 
+							this.addList.name == '' ||
+							this.addList.project == '' ||
 							this.addList.date_timne == '' ||
-							this.addList.message == '' ||
-							this.addList.city == '' ||
-							this.addList.company == ''||
-							this.addList.nature == ''||
-							this.addList.industry == ''||
-							this.addList.department == ''||
-							this.addList.project == ''||
-							this.addList.money == ''||
-							this.addList.start_time == ''||
-							this.addList.end_time == ''||
-							this.addList.other_person == ''				
+							this.addList.level == '' ||
+							this.addList.place == '' ||
+							this.addList.stage == '' ||
+							this.addList.in_person == ''||
+							this.addList.other_person == ''||
+							this.addList.form == ''||
+							this.addList.content == ''			
 							
 						) {
 							layui.use('layer', function() {
@@ -369,35 +290,27 @@
 						var _this = this;
 						var formData = new FormData();
 						var fs = $('#cus-ipt')[0].files;
-						var divisionManagerId = $('#departid').val();
-						var projectManagerId = $('#projectid').val();
-						console.log(divisionManagerId, projectManagerId);
+						var levelId = $('#level').val();
+						var formrId = $('#form').val();
 						for(var i = 0; i < fs.length; i++) {
 							formData.append('photo[]', fs[i]);
 						}
-						formData.append('pro_id', this.addList.num);
-						formData.append('pro_name', this.addList.name);
-						formData.append('rank', this.addList.grade);
-						formData.append('createTime', this.addList.date_timne);
-						formData.append('lxMsg', this.addList.message);
-						formData.append('area', this.addList.city);
-						formData.append('cooperativeUnit', this.addList.company);
-						formData.append('projectNature', this.addList.nature);
-						formData.append('industry', this.addList.industry);
-						formData.append('divisionManager', this.addList.department);
-						formData.append('divisionManagerId', divisionManagerId);
-						formData.append('projectManager', this.addList.project);
-						formData.append('projectManagerId', projectManagerId);
-						formData.append('typeId', this.addList.param);
-						formData.append('contractAmount', this.addList.money);
-						formData.append('projectStime', this.addList.start_time);
-						formData.append('projectEtime', this.addList.end_time);
-						formData.append('projectIntroduce', this.addList.other_person);
+						formData.append('mTheme', this.addList.name);
+						formData.append('proId', '12');
+						formData.append('mTime', this.addList.date_timne);
+						formData.append('mLevel', levelId);
+						formData.append('mAddress', this.addList.place);
+						formData.append('mStage', this.addList.stage);
+						formData.append('joinPersionIn', this.addList.in_person);
+						formData.append('joinPersionOut', this.addList.other_person);
+						formData.append('mForm', formrId);
+						formData.append('mContent', this.addList.content);
+						formData.append('mCreatePersion', '110');
 						$.ajax({
 							cache: false,
 							async: false,
 							type: "POST",
-							url: "{:U('ProjectRegistration/projectAdd')}",
+							url: "{:U('ProjectMeeting/meetingAdd')}",
 							dataType: "json",
 							data: formData,
 							processData: false,
