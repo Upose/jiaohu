@@ -2,14 +2,26 @@
 namespace Doc\Model;
 mysql_query("SET NAMES UTF8"); 
 
-class ProjectRegistrationModel
+class ProjectDeliveryModel
 {
 
 
+     /**
+     * 根据此人ID 查询此人负责的项目列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+      public function projectList($projectManagerId)
+     {
+        $projectListSql = "SELECT pro_id,pro_name,member_id,pro_leader FROM `app_project` WHERE member_id = \"$projectManagerId\";";
+        $projectList = M()->query($projectList);
+        return  $projectList;
+     }
 	 /**
 	 * 区域下拉框
-	 * @author fang.yu
-	 * 2018.8.14
+	 * @author song.chaoxu 
+	 * 2018.11.24
 	 */
 	  public function areaList()
      {
@@ -18,102 +30,87 @@ class ProjectRegistrationModel
      			where parent_id = 0";
 
      	$area = M()->query($areaSql);
-		
         return  $area;
+
      }
 
      /**
-	 * 行业下拉框
+	 * UI前端框架
+	 * @author song.chaoxu
+	 * 2018.11.24
+	 */
+	  public function uiFrame()
+     {
+
+
+     	$sql = "SELECT frameid,frame_name FROM `app_development_frame` WHERE typeId = 1;";
+
+     	$ui = M()->query($sql);
+
+        return  $ui;
+
+     }
+
+    /**
+	 * JS 框架
 	 * @author song.chaoxu
 	 * 2018.11.14
 	 */
-	  public function projectIndustryList()
+	  public function jsFrame()
      {
 
+     	$sql = "SELECT frameid,frame_name FROM `app_development_frame` WHERE typeId = 4;";
 
-     	$sql = "SELECT * FROM app_industry;";
+     	$js = M()->query($sql);
 
-     	$industry = M()->query($sql);
-
-        return  $industry;
+        return  $js;
 
      }
 
     /**
-	 * 项目密级
-	 * @author song.chaoxu
-	 * 2018.11.14
-	 */
-	  public function projectRankList()
-     {
-
-     	$sql = "SELECT * FROM app_project_rank;";
-
-     	$rankList = M()->query($sql);
-
-        return  $rankList;
-
-     }
-
-    /**
-     * 项目性质下拉框
+     * 后端 开发语言
      * @author song.chaoxu
-     * 2018.11.21
+     * 2018.11.24
      */
-      public function projectNature()
+      public function backFrame()
      {
 
-        $sql = "SELECT * FROM app_project_nature;";
+        $sql = "SELECT frameid,frame_name FROM `app_development_frame` WHERE typeId = 2;";
 
-        $projectNature = M()->query($sql);
+        $back = M()->query($sql);
 
-        return  $projectNature;
+        return  $back;
 
      }
 
 
     /**
-     * 项目经理
+     * 数据库  列表
      * @author song.chaoxu
-     * 2018.11.20
+     * 2018.11.24
      */
-      public function projectManager()
+      public function databaseFrame()
      {
 
 
-        $sql = "SELECT t.member_id,t.member_name,t.department FROM user_member t WHERE postsname like '%经理' AND department LIKE '%交付%'";
+        $sql = "SELECT frameid,frame_name FROM `app_development_frame` WHERE typeId = 3;";
 
-        $projectManager = M()->query($sql);
+        $database = M()->query($sql);
 
-        return  $projectManager;
+        return  $database;
 
      }
 
 
+
+
+
     /**
-     * 部门经理
+     * 实施交付新增
      * @author song.chaoxu
      * 2018.11.20
      */
-      public function divisionManager()
-     {
-
-
-        $sql = "SELECT t.member_id,t.member_name,t.department FROM user_member t WHERE postsname = '部门经理' AND department LIKE '%交付%'";
-
-        $divisionManager = M()->query($sql);
-
-        return  $divisionManager;
-
-     }
-
-
-    /**
-     * 项目新增
-     * @author song.chaoxu
-     * 2018.11.20
-     */
-    public function projectAdd($pro_code,$pro_name,$typeId,$industry, $projectManagerId, $projectManager, $projectStime,$projectEtime, $area,$rank,$createTime,$newPath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManagerId,$divisionManager,$contractAmount,$projectIntroduce){
+    public function proDeliveryAdd($pro_code,$pro_name,$typeId,$industry, $projectManagerId, $projectManager, $projectStime,$projectEtime, $area,$rank,$createTime,$newPath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManagerId,$divisionManager,$contractAmount,$projectIntroduce){
 
     	  $sql="INSERT INTO `deliveryapplication`.`app_project` (
                     `pro_id`,
@@ -144,11 +141,11 @@ class ProjectRegistrationModel
                         $industry,
                         $projectManagerId,
                         \"$projectManager\", 
-                        \"$projectStime\",
-                        \"$projectEtime\",
+                        $projectStime,
+                        $projectEtime,
                         \"$area\",
                         \"$rank\",
-                        \"$createTime\",
+                        $createTime,
                         \"$newPath\",
                         \"$lxMsg\",
                         \"$cooperativeUnit\",

@@ -1,0 +1,143 @@
+
+        body {
+            padding: 8vh 4vw;
+            color: #4A4A4A;
+        }
+
+/* 最上层搜索栏 */
+.search_div{
+    font-size:16px;
+    font-family:PingFangSC-Regular;
+    color:rgba(60,60,60,1);
+    width:device-width;
+    /* border: 1px solid blue; */
+}
+/* 下拉框 */
+.search_div>select{
+    outline-style: none;
+    width: 10vw;
+    height: 5vh;
+    margin-right: 2vw;
+    background:rgba(255,255,255,1);
+    border-radius:3px;
+    border:1px solid rgba(217,217,217,1);
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,1);
+}
+/* 关键字input框 */
+.keyword{
+    outline-style: none;
+    width: 20vw;
+    height: 5vh;
+    padding-left: .5vw;
+    background:rgba(255,255,255,1);
+    border-radius:3px;
+    border:1px solid rgba(217,217,217,1);
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,1);
+}
+/* 搜索按钮 */
+.search_button{
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    color: white;
+    font-size:12px;
+    margin-left: .5vw;
+    font-family:PingFangSC-Regular;
+    background:rgba(7,200,141,1);
+    border-radius:3px;
+    border:1px solid rgba(7,200,141,1);
+}
+/* 新增按钮 */
+.new_button{
+    outline-style: none;
+    float: right;
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    color: #07C88D;
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    border-radius:3px;
+    background-color: white;
+    border:1px solid rgba(7,200,141,1);
+}
+
+        .btn-sub {
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 8px;
+            background-color: #009688;
+            color: #fff;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 14px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            opacity: .9;
+        }
+
+        td a {
+            color: #4A90E2;
+        }
+
+        .zhaungtai {
+            position: relative;
+        }
+
+        .zhaungtai span {
+            position: relative;
+            top: 0vh;
+            padding-left: 5px;
+        }
+
+        .yiban::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            display: inline-block;
+            background: #4A90E2;
+            left: -1vw;
+            top: .8vh;
+            border-radius: 50%;
+        }
+
+        .zhongyao::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            display: inline-block;
+            background: #F5A623;
+            left: -1vw;
+            top: .8vh;
+            border-radius: 50%;
+        }
+
+        .jinji::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            display: inline-block;
+            background: #FF4242;
+            left: -1vw;
+            top: .8vh;
+            border-radius: 50%;
+        }
+
+        .youhua::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            display: inline-block;
+            background: #7ED321;
+            left: -1vw;
+            top: .8vh;
+            border-radius: 50%;
+        }
