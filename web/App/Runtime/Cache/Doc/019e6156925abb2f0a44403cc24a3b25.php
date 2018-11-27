@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>fankui</title>
-    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/web/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/web/Public/Doc/doclay/build/css/app.css" media="all">
     <!--<link rel="stylesheet" href="../Public/Doc/doclay/plugins/layui/css/layui.css" media="all">-->
-    <link rel="stylesheet" href="/Public/static/bootstrap.min.css" media="all">
-    <link rel="stylesheet" href="/Public/Doc/css/submit3.css" media="all">
-    <script src="/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/Public/static/vue.min.js"></script>
+    <link rel="stylesheet" href="/ProjectDelivery/web/Public/static/bootstrap.min.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/web/Public/Doc/css/submit3.css" media="all">
+    <script src="/ProjectDelivery/web/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/ProjectDelivery/web/Public/static/vue.min.js"></script>
 </head>
 
 <body class="news">
@@ -131,7 +131,7 @@
         <div class="suc_win">
             <p class="tit"><span>提示</span><i class="layui-icon layui-icon-close">&#x1006;</i></p>
             <div class="txt">
-                <img src="/Public/Doc/images/Shape Copy 2.png" alt=""><span>你是否确认删除？</span>
+                <img src="/ProjectDelivery/web/Public/Doc/images/Shape Copy 2.png" alt=""><span>你是否确认删除？</span>
             </div>
             <button @click="dow()" class="suc_no">取消</button>
             <button @click="dow()" class="suc_yes">确认</button>
@@ -152,7 +152,7 @@
         </ul>
     </div>
 </body>
-<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
+<script src="/ProjectDelivery/web/Public/Doc/doclay/plugins/layui/layui.js"></script>
 <script>
     var app = new Vue({
         el: '.news',
@@ -248,10 +248,10 @@
                     success: function (res) {
                         if(res.code===1){
                             $(".suc_win").show();
-                            $(".suc_win>.txt").html("<img src='/Public/Doc/images/correct.png'><span>提交成功！</span>");
+                            $(".suc_win>.txt").html("<img src='/ProjectDelivery/web/Public/Doc/images/correct.png'><span>提交成功！</span>");
                         }else if(res.code===0){
                             $(".suc_win").show();
-                            $(".suc_win .txt").html("<img src='/Public/Doc/images/wrong.png'><span>提交失败！</span>");
+                            $(".suc_win .txt").html("<img src='/ProjectDelivery/web/Public/Doc/images/wrong.png'><span>提交失败！</span>");
                         }
                     }
                 })
@@ -270,10 +270,10 @@
                     success: function (res) {
                         if(res.code===1){
                             $(".suc_win").show();
-                            $(".suc_win>.txt").html("<img src='/Public/Doc/images/correct.png'><span>提交成功！</span>");
+                            $(".suc_win>.txt").html("<img src='/ProjectDelivery/web/Public/Doc/images/correct.png'><span>提交成功！</span>");
                         }else if(res.code===0){
                             $(".suc_win").show();
-                            $(".suc_win .txt").html("<img src='/Public/Doc/images/wrong.png'><span>提交失败！</span>");
+                            $(".suc_win .txt").html("<img src='/ProjectDelivery/web/Public/Doc/images/wrong.png'><span>提交失败！</span>");
                         }
                     }
                 })
