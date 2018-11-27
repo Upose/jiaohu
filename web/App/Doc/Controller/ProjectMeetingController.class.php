@@ -119,7 +119,7 @@ class ProjectMeetingController extends BaseController {
             //保持文件名不变
             $upload->saveName = time()."dt".rand(0,10);
             //设置附件上传类型
-            $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt','doc');
+            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt','doc');
             //设置附件上传根目录
             $upload->rootPath = './Updata/MeetingFile/'; 
             //设置附件上传（子）目录
