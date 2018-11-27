@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/weeklymanage.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <h2>工作周报</h2>
+        <section class="info">
+            <h3>基本信息</h3>
+            <div class="row">
+                <div class="weekly-date">
+                    <h4>周报日期：</h4>
+                    <div class="timeSelect">
+                        <label>开始日期：</label>
+                        <input type="text" class="layui-input" id="startTime">
+                    </div>
+                    <div class="timeSelect">
+                        <label>结束日期：</label>
+                        <input type="text" class="layui-input" id="endTime">
+                    </div>
+                </div>
+                <div class="weekly-name">
+                    <div class="item-name">
+                        <label class="name">项目名称：</label>
+                        <input type="text" name="title" id="itemName" lay-verify="" placeholder="请输入项目名称" class="layui-input">    
+                    </div>
+                    <form class="layui-form" action="" id="stage-select">
+                        <div class="item-stage">
+                            <label>所属阶段：</label>
+                            <select name="stage" lay-verify="">
+                                <option value="01" selected>初始阶段</option>
+                                <option value="02">实施阶段</option>
+                                <option value="03">交付阶段</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item-stage">
+                    <label class="title-stage">工作进度：</label>
+                    <input type="text" name="title" id="itemName" lay-verify="" placeholder="请输入工作进度" class="layui-input">
+                </div>
+                <div class="item-date">
+                    <label class="title-date">阶段任务截止日期：</label>
+                    <input type="text" class="layui-input" id="stageTime">
+                </div>
+            </div>
+        </section>
+        <section class="this-work">
+            <h3>本周工作内容</h3>
+            <button class="layui-btn addThisWork">添加</button>
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                    <col width="150">
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>工作描述</th>
+                        <th>完成率</th>
+                        <th>完成内容</th>
+                        <th>状态</th>
+                        <th>备注</th>
+                    </tr> 
+                </thead>
+                <tbody id="thisWorkList">
+                    
+                </tbody>
+            </table>
+        </section>
+        <section class="next-work">
+            <h3>下周工作计划</h3>
+            <button class="layui-btn addNextWork">添加</button>
+            <table class="layui-table">
+                    <colgroup>
+                        <col width="150">
+                        <col>
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>工作描述</th>
+                            <th>计划完成</th>
+                        </tr> 
+                    </thead>
+                    <tbody id="nextWorkList">
+                    </tbody>
+            </table>
+        </section>
+        <div class="submitInfo">
+            <button class="layui-btn">提交周报</button>
+        </div>
+    </div>
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+    $(function(){
+        // 注册时间选择器
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#startTime' //开始事件
+            });
+            laydate.render({
+                elem: '#endTime' //结束时间
+            });
+            laydate.render({
+                elem: '#stageTime' //截止时间
+            });
+        });
+
+        // 注册from解决下拉选择器样式失效问题
+        layui.use('form', function(){
+            var form = layui.form;
+            // 解决form表单跳转问题
+            form.on('submit', function(data){
+                return false
+            })
+            form.render();
+        });
+        var thisWorkId = 0 // 本周任务序号
+        var nextWorkId = 0 // 下周任务序号
+        var thisList = $('#thisWorkList').html() // 本周任务列表
+        var nextList = $('#nextWorkList').html() // 下周任务列表
+        // 添加本周任务 
+        $('.addThisWork').on('click',function(){
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 1,
+                shadeClose: true,
+                isOutAnim:true,
+                content: '<div class="form-addNextWork">'+
+                            '<h4>添加本周任务</h4>'+
+                            '<form class="layui-form" action="">'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">工作描述：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="workDep" lay-verify="required" placeholder="请输入工作内容" autocomplete="off" class="layui-input">'
+                                    +'</div>'
+                                +'</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">完成率：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="workRate" lay-verify="required" placeholder="请输入计划完成程度" autocomplete="off" class="layui-input">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">完成内容：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="finishCont" lay-verify="required" placeholder="请输入计划完成程度" autocomplete="off" class="layui-input">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">状态：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<select name="state" id="workState" lay-verify="">'+
+                                            '<option value="01" selected>进行中</option>'+
+                                            '<option value="02">已完成</option>'+
+                                            '<option value="03">已关闭</option>'+
+                                        '</select>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">备注：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" id="remark" placeholder="请输入备注" autocomplete="off" class="layui-input">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<button class="layui-btn" id="addWork1">添加</button>'+
+                            '</form>'+
+                        '</div>'
+            });            
+            layui.use('form', function(){
+                var form = layui.form;
+                // 解决form表单跳转问题
+                form.on('select', function(data){
+                    if (data.value == 03) {
+                        $('#remark').attr('required','required')
+                    }
+                }); 
+                form.on('submit', function(data){
+                    return false
+                })
+                form.render();
+            });
+            $('#addWork1').on('click',function(){
+                var workDep = $('#workDep').val()
+                var workRate = $('#workRate').val()
+                var finishCont = $('#finishCont').val()
+                var workStateText = $("#workState option:selected").text();
+                var workStateId =  $("#workState").val();
+                var remark = $('#remark').val()
+                if (workStateId == 03) {
+                    if (workDep !== '' && workRate !== '' && finishCont !== '' && workState !== '' && remark !== '') {
+                        thisWorkId = thisWorkId+1
+                        thisList += '<tr>'+
+                                        '<td>'+ thisWorkId +'</td>'+
+                                        '<td>'+ workDep +'</td>'+
+                                        '<td>'+ workRate +'</td>'+
+                                        '<td>'+ finishCont +'</td>'+
+                                        '<td>'+ workStateText +'</td>'+
+                                        '<td>'+ remark +'</td>'+
+                                    '</tr>'
+                        $('#thisWorkList').html(thisList);
+                        layer.close(layer.index);
+                    }
+                }  else {
+                    if  (workDep !== '' && workRate !== '' && finishCont !== '' && workState !== '') {
+                        if (remark == '') {
+                            remark = '无'
+                        }
+                        thisWorkId = thisWorkId+1
+                        thisList += '<tr>'+
+                                        '<td>'+ thisWorkId +'</td>'+
+                                        '<td>'+ workDep +'</td>'+
+                                        '<td>'+ workRate +'</td>'+
+                                        '<td>'+ finishCont +'</td>'+
+                                        '<td>'+ workStateText +'</td>'+
+                                        '<td>'+ remark +'</td>'+
+                                    '</tr>'
+                        $('#thisWorkList').html(thisList);
+                        layer.close(layer.index);
+                    }
+                }
+            })
+        })
+        // 添加下周计划
+        $('.addNextWork').on('click',function(){
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 1,
+                shadeClose: true,
+                isOutAnim:true,
+                content: '<div class="form-addNextWork">'+
+                            '<h4>添加下周计划</h4>'+
+                            '<form class="layui-form" action="">'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">工作内容：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="workCont" lay-verify="required" placeholder="请输入工作内容" autocomplete="off" class="layui-input">'
+                                    +'</div>'
+                                +'</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">计划完成：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="workStage" lay-verify="required" placeholder="请输入计划完成程度" autocomplete="off" class="layui-input">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<button class="layui-btn" id="addWork2">添加</button>'+
+                            '</form>'+
+                        '</div>'
+            });
+            $('#addWork2').on('click',function(){
+                var workCont = $('#workCont').val()
+                var workStage = $('#workStage').val()
+                if (workCont !== '' && workStage !== '') {
+                    nextWorkId = nextWorkId+1
+                    nextList += '<tr>'+
+                                '<td>' + nextWorkId+ '</td>'+
+                                '<td>' +workCont  + '</td>'+
+                                '<td>'+workStage+'</td>'+
+                            '</tr>'
+                    $('#nextWorkList').html(nextList);
+                    layer.close(layer.index);
+                }
+            })
+        })
+    })
+</script>
+</html>

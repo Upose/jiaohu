@@ -1,0 +1,129 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+body {
+    padding: 5vh 5vw 0 5vw;
+    background: rgba(242, 242, 242, 1);
+}
+.main {
+    padding: 3vh 2vw;
+    height: 800px;
+    background: rgb(255, 255, 255);
+}
+.main > h2 {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+    font-family: PingFangSC-Medium;
+    color: rgba(0, 0, 0, 1);
+}
+.main > section {
+    margin-top: 20px;
+}
+.main  label {
+    display: block;
+    float: left;
+    text-align: right;
+}
+.main > section > h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: PingFangSC-Medium;
+    color: rgba(59, 59, 59, 1);
+}
+.main .info #startTime,#endTime{
+    width: 160px;
+}
+.info > .row {
+    height: 76px;
+}
+.info > .row > .weekly-date{
+    width: 48%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    float: left;
+    height: 76px;
+}
+.info > .row > .weekly-name{
+    width: 48%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    float: right;
+    height: 76px;
+}
+.info > .row > .weekly-date > .timeSelect{
+    width: 36%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.weekly-name > .item-name {
+    width: 48%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.weekly-name > .item-name > .name {
+    width: 120px;
+}
+.weekly-name  .item-stage {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.info > .row > .item-stage {
+    width: 24%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 60px;
+}
+.info > .row > .item-date {
+    width: 24%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.info > .row  .title-stage {
+    width: 120px;
+}
+.info > .row  .title-date {
+    width: 220px;
+}
+.submitInfo {
+    display: flex;
+    justify-content: flex-end;
+}
+.next-work,.this-work {
+    position: relative;
+}
+.this-work .addThisWork {
+    position: absolute;
+    right: 0;
+    top: -4%;
+}
+.next-work .addNextWork {
+    position: absolute;
+    right: 0;
+    top: -4%;
+}
+.form-addNextWork {
+    padding: 16px;
+    overflow: hidden;
+}
+.form-addNextWork > h4 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+#addWork {
+    float: right;;
+}

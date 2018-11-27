@@ -115,6 +115,12 @@
 										<span>会议登记</span>
 									</a>
 								</dd>
+								<dd>
+									<a href="javascript:;" kit-target data-options="{url:'{:U('ProjectManagement/WeeklyManage')}',icon:'',title:'周报管理',id:'12'}">
+										<img class="cus-nav-icon" src="__IMG__/1@2x.png" alt="">
+										<span>周报登记</span>
+									</a>
+								</dd>
 						</dl>
                     </li>
                     <li class="layui-nav-item">
@@ -123,18 +129,18 @@
                             <span>项目列表查询</span>
                         </a>
                     </li>
-                    <li class="layui-nav-item" >
-                         <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectManagement/Manage')}',icon:'',title:'项目管理',id:'3'}">
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectManagement/Manage')}',icon:'',title:'项目管理',id:'3'}">
                             <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
                             <span>项目管理</span>
                         </a>
                     </li>
-					<li class="layui-nav-item" >
-						<a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectManagement/Manage')}',icon:'',title:'项目总体概况',id:'5'}">
-							<img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
-							<span>项目总体概况</span>
-						</a>
-					</li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;" kit-target data-options="{url:'{:U('ProjectManagement/Manage')}',icon:'',title:'项目总体概况',id:'5'}">
+                            <img class="cus-nav-icon" src="__IMG__/2@2x.png" alt="">
+                            <span>项目总体概况</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -145,7 +151,7 @@
     </div>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // 登录状态验证
             if (!window.sessionStorage["isLogin"]) {
                 window.location.href = "{:U('Login/index')}";
@@ -156,7 +162,7 @@
             var message;
             layui.config({
                 base: 'Public/Doc/doclay/build/js/'
-            }).use(['app', 'message'], function () {
+            }).use(['app', 'message'], function() {
                 var app = layui.app,
                     $ = layui.jquery,
                     layer = layui.layer;
@@ -168,9 +174,11 @@
                 }).init();
             });
 
-            $('#exitlogin').on('click', function () {
-                layui.use('layer', function () {
-                    layer.confirm('确定退出登录?', { title: '提示' }, function (index) {
+            $('#exitlogin').on('click', function() {
+                layui.use('layer', function() {
+                    layer.confirm('确定退出登录?', {
+                        title: '提示'
+                    }, function(index) {
                         // 退出登录接口
                         $.ajax({
                             cache: false,
@@ -178,13 +186,13 @@
                             url: "{:U('Login/logout')}",
                             dataType: "json",
                             data: {},
-                            success: function (res) {
+                            success: function(res) {
                                 window.sessionStorage.removeItem("isLogin");
                                 window.sessionStorage.removeItem("name");
                                 layer.close(index);
                                 window.location.href = "{:U('Login/index')}";
                             },
-                            fail: function (err) {
+                            fail: function(err) {
                                 console.log(err);
                             }
                         });
@@ -193,7 +201,7 @@
             })
 
             // 左侧菜单栏切换图标
-            $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function () {
+            $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
                 var lis = $('.layui-nav-tree').find('li.kit-side-folded');
                 if (lis.length > 0) {
                     $('.kit-side-fold img').attr('src', '__IMG__/切换2@2x.png');
