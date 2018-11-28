@@ -14,9 +14,12 @@ class ProjectMeetingModel
      */
       public function projectList($projectManagerId)
      {
+
         $projectListSql = "SELECT pro_id,pro_name,member_id,pro_leader FROM `app_project` WHERE member_id = \"$projectManagerId\";";
-        $projectList = M()->query($projectList);
+        echo $projectListSql;
+        $projectList = M()->query($projectListSql);
         return  $projectList;
+        
      }
 
 

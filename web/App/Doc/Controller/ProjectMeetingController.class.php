@@ -35,7 +35,7 @@ class ProjectMeetingController extends BaseController {
 
         //获取此人ID 查询此人负责的项目列表
         $projectManagerId = I('projectManagerId');
-
+        // echo $projectManagerId." | projectManagerId";
         
         $projectList=$this->projectList=
         ProjectMeetingModel::projectList($projectManagerId);
@@ -44,13 +44,10 @@ class ProjectMeetingController extends BaseController {
         $stageList=$this->stage=
         ProjectMeetingModel::stageList();
 
+        $final['stageList'] = $stageList;
+        $final['projectList'] = $projectList;
 
-        $final['projectManager'] = $projectManager;
-
-        
         $this->Response(200,$final,'');
-
-
     }
 
 	/**
