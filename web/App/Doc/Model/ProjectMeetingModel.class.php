@@ -6,6 +6,20 @@ class ProjectMeetingModel
 {
 
 
+    /**
+     * 根据此人ID 查询此人负责的项目列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+      public function projectList($projectManagerId)
+     {
+        $projectListSql = "SELECT pro_id,pro_name,member_id,pro_leader FROM `app_project` WHERE member_id = \"$projectManagerId\";";
+        $projectList = M()->query($projectList);
+        return  $projectList;
+     }
+
+
 	 /**
 	 * 会议列表
 	 * @author song.chaoxu

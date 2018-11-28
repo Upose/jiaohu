@@ -324,8 +324,18 @@
             {
                 layer.msg('请填写完整信息后提交', {icon: 5});
             } else {
-                console.log(workInfo,thisWorkData,nextWorkData)
-                
+                // console.log(workInfo,thisWorkData,nextWorkData)
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectweekReport/weekInsert')}",
+                    dataType: "json",
+                    data:{
+                        workInfo:workInfo,
+                        thisWorkData:thisWorkData,
+                        nextWorkData:nextWorkData
+                    }
+                })
                 // 重置信息
                 $('#startTime').val('')
                 $('#endTime').val('')

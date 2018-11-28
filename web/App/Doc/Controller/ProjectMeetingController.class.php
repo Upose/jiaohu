@@ -33,11 +33,23 @@ class ProjectMeetingController extends BaseController {
         
         //以下是所有下拉框列表
 
+        //获取此人ID 查询此人负责的项目列表
+        $projectManagerId = I('projectManagerId');
+
+        
+        $projectList=$this->projectList=
+        ProjectMeetingModel::projectList($projectManagerId);
+
         //项目所处阶段 - 页面下拉项内容
         $stageList=$this->stage=
         ProjectMeetingModel::stageList();
+
+
+        $final['projectManager'] = $projectManager;
+
         
-        $this->Response(200,$stageList,'');
+        $this->Response(200,$final,'');
+
 
     }
 
