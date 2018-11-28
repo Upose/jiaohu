@@ -16,10 +16,10 @@ class ProjectMeetingModel
      {
 
         $projectListSql = "SELECT pro_id,pro_name,member_id,pro_leader FROM `app_project` WHERE member_id = \"$projectManagerId\";";
-        // echo $projectListSql;
+        echo $projectListSql;
         $projectList = M()->query($projectListSql);
         return  $projectList;
-        
+
      }
 
 
@@ -28,25 +28,31 @@ class ProjectMeetingModel
 	 * @author song.chaoxu
 	 * 2018.11.24
 	 */
-	  public function meetingList()
+	  public function meetingList($projectManagerId)
      {
      	$meetingSql = "SELECT
-                            m.`meeting_id`,
-                            m.`department_id`,
-                            m.`stage`,
-                            m.`meeting_mode`,
-                            m.`meeting_level`,
-                            m.`theme`,
-                            m.`meeting_time`,
-                            m.`address`,
-                            m.`inside`,
-                            m.`external`,
-                            m.`content`,
-                            m.`enclosure`,
-                            m.`founder_id`,
-                            m.`create_time`
-                        FROM
-                            `app_meeting` m;";
+                    m.`meeting_id`,
+                    m.`department_id`,
+                    m.`stage`,
+                    m.`meeting_mode`,
+                    m.`meeting_level`,
+                    m.`theme`,
+                    m.`meeting_time`,
+                    m.`address`,
+                    m.`inside`,
+                    m.`external`,
+                    m.`content`,
+                    m.`enclosure`,
+                    m.`founder_id`,
+                    p.`member_id`,
+                    p.`pro_leader`,
+                    m.`create_time`
+                  FROM
+                    `app_meeting` m
+                  JOIN app_project p ON m.department_id = p.pro_id
+                  WHERE   p.member_id = \"$projectManagerId\"";
+
+        echo $meetingSql;
 
      	$meetingList = M()->query($meetingSql);
 		

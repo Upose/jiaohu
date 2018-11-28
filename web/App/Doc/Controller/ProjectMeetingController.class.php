@@ -34,9 +34,8 @@ class ProjectMeetingController extends BaseController {
         //以下是所有下拉框列表
 
         //获取此人ID 查询此人负责的项目列表
-        $projectManagerId = I('projectManagerId');
-        // echo $projectManagerId." | projectManagerId";
-        
+        $projectManagerId = I('managerId');
+
         $projectList=$this->projectList=
         ProjectMeetingModel::projectList($projectManagerId);
 
@@ -50,6 +49,7 @@ class ProjectMeetingController extends BaseController {
         $this->Response(200,$final,'');
     }
 
+
 	/**
 	 * 会议列表
 	 * @author song.chaoxu
@@ -58,11 +58,11 @@ class ProjectMeetingController extends BaseController {
     public function meetingList()
     {
         
+        $projectManagerId = I('managerId');
+
     	//所有会议列表
     	$meetingList=$this->meetingList=
-    	ProjectMeetingModel::meetingList();
-
-        // $final['projectNature'] = $projectNature;
+    	ProjectMeetingModel::meetingList($projectManagerId);
     	
       	$this->Response(200,$meetingList,'');
 
