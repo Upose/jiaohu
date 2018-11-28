@@ -16,7 +16,7 @@
    <div class="new">
     <!-- 最上层搜索栏 -->
     <div class="search_div">
-        区域：<select class="pro_select" @change="pro_select">
+        项目：<select class="pro_select" @change="pro_select">
             <option value="">全国</option>
             <option v-for="i in province" :value="i.pid">{{i.pname}}</option>
         </select>
