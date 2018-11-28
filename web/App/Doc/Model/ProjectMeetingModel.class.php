@@ -28,7 +28,7 @@ class ProjectMeetingModel
 	 * @author song.chaoxu
 	 * 2018.11.24
 	 */
-	  public function meetingList($projectManagerId)
+	  public function meetingList($pMid)
      {
      	$meetingSql = "SELECT
                     m.`meeting_id`,
@@ -50,7 +50,7 @@ class ProjectMeetingModel
                   FROM
                     `app_meeting` m
                   JOIN app_project p ON m.department_id = p.pro_id
-                  WHERE   p.member_id = \"$projectManagerId\"";
+                  WHERE   p.member_id = \"$pMid\"";
 
         // echo $meetingSql;
 
