@@ -190,9 +190,11 @@
                     type: "post",
                     url: "{:U('ProjectMeeting/meetingDropOption')}",
                     dataType: "json",
-										data{
+										data:{
 											projectManagerId:262
-										}
+										},
+										processData: false,
+										contentType: false,
                     success: function (data) {
                         that.province = data.data;
                     }
