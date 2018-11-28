@@ -187,16 +187,16 @@
                 var that = this;
                 $.ajax({
                     cache: false,
-                    type: "post",
+                    type: "get",
                     url: "{:U('ProjectMeeting/meetingDropOption')}",
                     dataType: "json",
 										data:{
-											projectManagerId:262
+											'projectManagerId':'868'
 										},
 										processData: false,
 										contentType: false,
                     success: function (data) {
-                        that.province = data.data;
+                        that.province = data.data.stageList;
                     }
                 })
             },
