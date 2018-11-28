@@ -37,23 +37,27 @@ body {
     width: 160px;
 }
 .info > .row {
-    height: 76px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .info > .row > .weekly-date{
-    width: 48%;
+    width: 660px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    float: left;
-    height: 76px;
+    flex-wrap: wrap;
+    height: auto;
 }
 .info > .row > .weekly-name{
-    width: 48%;
+    width: 610px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    float: right;
-    height: 76px;
+    flex-wrap: wrap;
+    height: auto;
 }
 .info > .row > .weekly-date > .timeSelect{
     width: 36%;
@@ -76,7 +80,7 @@ body {
     align-items: center;
 }
 .info > .row > .item-stage {
-    width: 24%;
+    width: 28%;
     height: 100%;
     float: left;
     display: flex;
@@ -85,7 +89,7 @@ body {
     margin-right: 60px;
 }
 .info > .row > .item-date {
-    width: 24%;
+    width: 28%;
     height: 100%;
     float: left;
     display: flex;
