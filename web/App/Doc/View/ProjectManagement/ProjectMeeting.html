@@ -30,10 +30,11 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">所属项目：</label>
 						<div class="layui-input-block">
-							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.project">
-								<option v-for=" in province" name="stage" :value="i.t_id">{{i.stage}}</option>
-								</select>
+						<div  class="search_div">
+							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.project">
+									<option v-for="" name="project" :value=""></option>
+							</select>
+						</div>
 						</div>
 					</div>	
 				</div>
@@ -189,12 +190,12 @@
                     type: "post",
                     url: "{:U('ProjectMeeting/meetingDropOption')}",
                     dataType: "json",
-										data: {
-											projectManagerId:262,
-											},
+										data{
+											projectManagerId:262
+										}
                     success: function (data) {
                         that.province = data.data;
-                    },
+                    }
                 })
             },
 							
