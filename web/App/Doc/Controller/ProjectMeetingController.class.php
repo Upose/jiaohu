@@ -127,8 +127,8 @@ class ProjectMeetingController extends BaseController {
     {
         
         $projectManagerId = I('get.pMid');
-        // echo $projectManagerId;
 
+        echo $projectManagerId." ← | get.projectManagerId|";
 
         $projectList=$this->projectList=
         ProjectMeetingModel::projectList($projectManagerId);
@@ -154,7 +154,7 @@ class ProjectMeetingController extends BaseController {
         
         $pMid = I('get.pMid');
         // echo $pMid;
-
+        echo $pMid." ← | get.pMid|";
 
         //所有会议列表
         $meetingList=$this->meetingList=
