@@ -188,6 +188,26 @@
 			</div>
 		</div>
 	</form>	
+	
+	<!-- 新增功能弹框 -->
+	<div class="new_div">
+		<div class="new_tit"><span>新增项目成员</span><img @click='down()' src="__IMG__/close_normal.png"></div>
+		<form action="{:U('ProjectManagement/projectAdd')}" method="post">
+			<div class="con_txt">
+				<p>人员姓名：<input name="name" class="name_input" type="text" placeholder="请输入人员姓名"></p>
+				<p>所属岗位：<select name="industry_id" class="industry_input" id="">
+						<option v-for='i in industry' :value="i.id">{{i.name}}</option>
+					</select></p>
+				<p>所属职位：<select name="customer_type_id" class="client_input" id="">
+						<option v-for='i in customer' :value="i.id">{{i.name}}</option>
+					</select></p>
+				<p>到岗时间：<input name="start_time" class="time_input" type="date" id=""></p>
+				<p>离岗时间：<input name="start_time" class="time_input" type="date" id=""></p>
+			</div>
+			<div class="btn_div"><button type="submit" @click='down()'>确定</button></div>
+		</form>
+	</div>
+	
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
@@ -217,7 +237,14 @@
             getdata() {
                 var that = this;
             },
+						down() {
+							$(".new_div").hide();
+						},
         }
     })
+		
+		$(".btnzeng").on('click', function () {
+			$(".new_div").show();
+		});
 </script>
 </html>
