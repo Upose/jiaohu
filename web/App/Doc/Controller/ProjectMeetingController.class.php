@@ -126,9 +126,9 @@ class ProjectMeetingController extends BaseController {
     public function meetingDropOption()
     {
         
-        $projectManagerId = I('get.pMid');
+        $projectManagerId = I('projectManagerId');
 
-        echo $projectManagerId." ← | get.projectManagerId|";
+        // echo $projectManagerId ." ← | get.projectManagerId|";
 
         $projectList=$this->projectList=
         ProjectMeetingModel::projectList($projectManagerId);
@@ -149,16 +149,16 @@ class ProjectMeetingController extends BaseController {
      * @author song.chaoxu
      * 2018.11.24
      */
-    public function meetinglist()
+    public function meetingList()
     {
         
-        $pMid = I('get.pMid');
+        $projectManagerId = I('projectManagerId');
         // echo $pMid;
-        echo $pMid." ← | get.pMid|";
+        // echo $pMid." ← | get.pMid|";
 
         //所有会议列表
         $meetingList=$this->meetingList=
-        ProjectMeetingModel::meetingList($pMid);
+        ProjectMeetingModel::meetingList($projectManagerId);
         
         $this->Response(200,$meetingList,'');
 
