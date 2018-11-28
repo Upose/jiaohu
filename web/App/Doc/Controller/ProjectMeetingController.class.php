@@ -34,7 +34,12 @@ class ProjectMeetingController extends BaseController {
         //以下是所有下拉框列表
 
         //获取此人ID 查询此人负责的项目列表
-        $projectManagerId = I('managerId');
+        $projectManagerId = I('get.projectManagerId');
+        // echo $projectManagerId."|";
+        // echo I('post.id')."??????????"; // 相当于 $_POST['id']
+        // echo I('get.id')."????get????";          // 相当于 $_POST['id']
+        // echo $this->_post('projectManagerId')."|";
+        // echo $this->_get('projectManagerId');
 
         $projectList=$this->projectList=
         ProjectMeetingModel::projectList($projectManagerId);
@@ -58,7 +63,7 @@ class ProjectMeetingController extends BaseController {
     public function meetingList()
     {
         
-        $projectManagerId = I('managerId');
+        $projectManagerId = I('get.projectManagerId');
 
     	//所有会议列表
     	$meetingList=$this->meetingList=
