@@ -315,7 +315,7 @@
             workInfo.weekly_stime = $('#startTime').val() // 获取开始时间
             workInfo.weekly_etime = $('#endTime').val() // 获取结束时间
             workInfo.pro_name =  $('#itemName').val() // 获取项目名称
-            workInfo.stage = $('#stageCont ').text() // 获取所属阶段
+            workInfo.stage = $('#stageCont option:selected').text() // 获取所属阶段
             workInfo.pro_schedule = $('#itemRate').val() // 获取工作进度
             workInfo.stageenddate = $('#stageTime').val() // 获取阶段截止日期
             if (workInfo.weekly_stime == '' || workInfo.weekly_etime == '' 
@@ -324,18 +324,18 @@
             {
                 layer.msg('请填写完整信息后提交', {icon: 5});
             } else {
-                // console.log(workInfo,thisWorkData,nextWorkData)
-                $.ajax({
-                    cache: false,
-                    type: "post",
-                    url: "{:U('ProjectweekReport/weekInsert')}",
-                    dataType: "json",
-                    data:{
-                        workInfo:workInfo,
-                        thisWorkData:thisWorkData,
-                        nextWorkData:nextWorkData
-                    }
-                })
+                console.log(workInfo)
+                // $.ajax({
+                //     cache: false,
+                //     type: "post",
+                //     url: "{:U('ProjectweekReport/weekInsert')}",
+                //     dataType: "json",
+                //     data:{
+                //         workInfo:workInfo,
+                //         thisWorkData:thisWorkData,
+                //         nextWorkData:nextWorkData
+                //     }
+                // })
                 // 重置信息
                 $('#startTime').val('')
                 $('#endTime').val('')
