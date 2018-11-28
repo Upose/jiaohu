@@ -16,7 +16,7 @@ class ProjectMeetingModel
      {
 
         $projectListSql = "SELECT pro_id,pro_name,member_id,pro_leader FROM `app_project` WHERE member_id = \"$projectManagerId\";";
-        echo $projectListSql;
+        // echo $projectListSql;
         $projectList = M()->query($projectListSql);
         return  $projectList;
 
@@ -52,7 +52,7 @@ class ProjectMeetingModel
                   JOIN app_project p ON m.department_id = p.pro_id
                   WHERE   p.member_id = \"$projectManagerId\"";
 
-        echo $meetingSql;
+        // echo $meetingSql;
 
      	$meetingList = M()->query($meetingSql);
 		
