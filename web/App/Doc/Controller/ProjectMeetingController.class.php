@@ -175,7 +175,7 @@ class ProjectMeetingController extends BaseController {
         $final['meetingList'] = $meetingList;
         $final['projectList'] = $projectList;
         
-        $this->Response(200,$meetingList,'');
+        $this->Response(200,$final,'');
 
     }
 
