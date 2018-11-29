@@ -15,23 +15,38 @@ class ProjectweekReportModel{
         return $lastid;
     }
     //项目周报和周报任务新增接口
-    public function weekInsert()
+    public function weekInsert($workInfo,$thisWorkData,$nextWorkData)
     {
+        $nowtime=date('Y-m-d H:i:s',time());
+        $workInfo['create_date']=$nowtime;
         //本周周报
-        $data['weekly_stime']='2018-11-28';
-        $data['weekly_etime']='2018-11-30';
-        $data['pro_name']='大童';
-        $data['stage']='进行中';
-        $data['pro_schedule']='20';
-        $data['stageenddate']='2018-12-01';
-        //$res = M('')->execute($sql);
-        $res = M('app_project_weekly')->data($data)->add();
-        //$lastid=$this->lastInsert();
-        var_dump($res);die;
-        if($res){
-            return 0;
+        $weekreportid = M('app_project_weekly')->data($workInfo)->add();
+        //本周周报任务
+        if($weekreportid){
+            foreach($thisWorkData as $value){
+                $value['create_time']=$nowtime;
+                $value['weekly_id']=intval($weekreportid);
+                $taskid[] = M('app_weekly_task')->data($value)->add();
+            }
+        }
+        //下周周报任务
+        if($nextWorkData){
+            //下周周报
+            //默认下个周一
+            $nextweek['weekly_stime']=date('Y-m-d',strtotime('Sunday +1 day',strtotime($workInfo['weekly_stime'])));
+            $nextweek['weekly_etime']=date('Y-m-d',strtotime('Sunday +5 day',strtotime($workInfo['weekly_etime'])));
+            $nextweekid = M('app_project_weekly')->data($nextweek)->add();
+            foreach ($nextWorkData as $value)
+            {
+                $value['create_time']=$nowtime;
+                $value['weekly_id']=intval($nextweekid);
+                $nextid[] = M('app_weekly_task')->data($value)->add();
+            }
+        }
+        if($taskid || $nextid){
+            return true;
         }else{
-            return 1;
+            return false;
         }
     }
 

@@ -153,12 +153,20 @@ class ProjectMeetingController extends BaseController {
     {
         
         $projectManagerId = I('projectManagerId');
-        // echo $pMid;
-        // echo $pMid." ← | get.pMid|";
+
+        $projecId = I('pro_id','');
+
+        //页数
+        $page=intval(I('page',1));
+
+        //每页显示条数
+        $limit=intval(I('limit',10));
+
+        $pag=($page-1)*$limit;
 
         //所有会议列表
         $meetingList=$this->meetingList=
-        ProjectMeetingModel::meetingList($projectManagerId);
+        ProjectMeetingModel::meetingList($projectManagerId,$projecId,$pag,$limit);
         
         $this->Response(200,$meetingList,'');
 
