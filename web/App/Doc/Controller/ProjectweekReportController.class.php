@@ -16,19 +16,7 @@ use Doc\Model\ProjectweekReportModel;
  */
 class ProjectweekReportController extends BaseController
 {
-    public function test()
-    {
-        $now='2018-12-02';
-        echo '本周五是'.date('Y-m-d',strtotime("Sunday -2 day",strtotime($now))).'<br/>';
-        echo '下周五是'.date('Y-m-d',strtotime('Sunday +5 day',strtotime($now))).'<br/>';
-        echo '本周一是'.date('Y-m-d',strtotime('Sunday -6 day', strtotime($now))).'<br/>';
-        echo '下周一是'.date('Y-m-d',strtotime('Sunday +1 day',strtotime($now))).'<br/>';
-
-        $date=date('Y-m-d',strtotime("this Friday", strtotime($now)));
-//        echo '下周一是'.date('Y-m-d', strtotime('+1week last monday', strtotime($now))).'<br/>';
-//        var_dump($date);
-        die;
-    }
+    
     //项目周报和周报任务新增接口
     public function weekInsert()
     {
