@@ -23,8 +23,12 @@ body {
 }
 .main  label {
     display: block;
-    float: left;
-    text-align: right;
+    text-align: left;
+    margin: 0;
+    width: 30%;
+}
+.main  label.control {
+    margin-right: 34%
 }
 .main > section > h3 {
     text-align: center;
@@ -33,34 +37,21 @@ body {
     font-family: PingFangSC-Medium;
     color: rgba(59, 59, 59, 1);
 }
-.main .info #startTime,#endTime{
-    width: 160px;
+.main .info #startTime,#endTime,#stageTime{
+    width: 60%;
 }
-.info > .row {
-    height: 100px;
+.infoCont {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
 }
-.info > .row > .weekly-date{
-    width: 660px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+.infoCont .infoLeft,.infoRight {
+    width: 40%;
     height: auto;
 }
-.info > .row > .weekly-name{
-    width: 610px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    height: auto;
-}
-.info > .row > .weekly-date > .timeSelect{
-    width: 36%;
+.info .timeSelect{
+    width: 100%;
+    height: 60px;
     display: flex;
     justify-content: space-around;
     align-items: center;
