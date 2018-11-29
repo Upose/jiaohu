@@ -26,18 +26,18 @@
     <table class="layui-table">
         <thead>
             <tr>
-                <th>项目编号</th>
-                <th>项目名称</th>
-                <th>所在区域</th>
-                <th>保密等级</th>
-                <th>创建时间</th>
-                <th>项目经理</th>
+                <th>会议名称</th>
+                <th>会议地点</th>
+                <th>会议时间</th>
+                <th>会议级别</th>
+                <th>所属项目</th>
+                <th>会议形式</th>
                 <th>操作</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="item in arrList">
-                <td>{{item.pro_id}}</td>
+                <td>{{item.pro_name}}</td>
                 <td>{{item.pro_name}}</td>
                 <td>{{item.area_name}}</td>
                 <td>{{item.rank_name}}</td>
@@ -76,11 +76,10 @@
                 $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "{:U('ProjectListQuery/projectList')}",
+                    url: "{:U('ProjectMeeting/meetingList')}",
                     dataType: "json",
                     data: {
-											proArea:ab,
-											proName:cd,
+											projectManagerId:829
 											page: that.pageIndex || 1,
 											limit:that.limit || 10,
 										},
