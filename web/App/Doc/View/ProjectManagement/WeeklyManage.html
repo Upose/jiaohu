@@ -17,9 +17,44 @@
         <!-- <form class="layui-form" action=""> -->
             <section class="info">
                 <h3>基本信息</h3>
-                <div class="row">
+                <div class="infoCont">
+                    <div class="infoLeft">
+                        <div class="timeSelect">
+                            <label>开始日期：</label>
+                            <input type="text"  required="required" class="layui-input" id="startTime">
+                        </div>
+                        <div class="timeSelect">
+                            <label>结束日期：</label>
+                            <input type="text"  required="required" class="layui-input" id="endTime">
+                        </div>
+                        <div class="timeSelect">
+                            <label class="title-date">阶段任务截止日期：</label>
+                            <input type="text" class="layui-input" required="required" id="stageTime">
+                        </div>
+                    </div>
+                    <div class="infoRight">
+                        <div class="timeSelect">
+                            <label class="name">项目名称：</label>
+                            <input type="text" name="title" id="itemName" lay-verify="required" required="required" placeholder="请输入项目名称" class="layui-input">    
+                        </div>
+                        <form class="layui-form">
+                            <div class="timeSelect">
+                                <label class="control">所属阶段：</label>
+                                <select name="stage" id='stageCont' lay-verify="">
+                                    <option value="01" selected>初始阶段</option>
+                                    <option value="02">实施阶段</option>
+                                    <option value="03">交付阶段</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="timeSelect">
+                            <label class="title-stage">工作进度：</label>
+                            <input type="text" name="title" id="itemRate" lay-verify="required" required="required" placeholder="请输入工作进度" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
                     <div class="weekly-date">
-                        <h4>周报日期：</h4>
                         <div class="timeSelect">
                             <label>开始日期：</label>
                             <input type="text" lay-verify="required" required="required" class="layui-input" id="startTime">
@@ -55,7 +90,7 @@
                         <label class="title-date">阶段任务截止日期：</label>
                         <input type="text" class="layui-input" required="required" id="stageTime">
                     </div>
-                </div>
+                </div> -->
             </section>
             <section class="this-work">
                 <h3>本周工作内容</h3>

@@ -15,5 +15,4 @@ return array(
     'DB_PORT' => '3307', // 端口
 
     'DEFAULT_MODULE' => 'Doc'
-   
 );
