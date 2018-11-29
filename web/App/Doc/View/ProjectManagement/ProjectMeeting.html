@@ -187,13 +187,14 @@
             getdata() {
                 var that = this;
                 $.ajax({
-                    cache: false,
-                    type: "post",
-                    url: "{:U('ProjectMeeting/meetingDropOption')}",
+										cache: false,
+										async: false,
+                    type: "get",
+                    url: "{:U('ProjectMeeting/meetinglist')}",
                     dataType: "json",
-// 										data:{
-// 											projectManagerId:772
-// 										},
+										data:{
+											mtheme:772
+										},
 										processData: false,
 										contentType: false,
                     success: function (data) {

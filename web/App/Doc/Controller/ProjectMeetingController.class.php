@@ -34,6 +34,8 @@ class ProjectMeetingController extends BaseController {
     {
         //会议主题
         $mTheme = I('mTheme');
+				
+				echo $mTheme;die;
 
         //所属项目
         $proId = I('proId');
@@ -152,7 +154,7 @@ class ProjectMeetingController extends BaseController {
     public function meetinglist()
     {
         
-        $pMid = I('get.pMid');
+        $pMid = I('get.mtheme');
         // echo $pMid;
         echo $pMid." ← | get.pMid|";
 
