@@ -28,7 +28,7 @@ class ProjectMeetingModel
 	 * @author song.chaoxu
 	 * 2018.11.24
 	 */
-	  public function meetingList($pMid)
+	  public function meetingList($projectManagerId,$pro_id,$pag,$limit)
      {
      	$meetingSql = "SELECT
                     m.`meeting_id`,
@@ -52,11 +52,45 @@ class ProjectMeetingModel
                   JOIN app_project p ON m.department_id = p.pro_id
                   WHERE   p.member_id = \"$pMid\"";
 
+        if (!empty($pro_id)) {
+
+            $meetingSql.="AND m.department_id = \"$pro_id\" ORDER BY m.`meeting_time` DESC limit ".$pag.",".$limit;
+
+        }else{
+
+            $meetingSql.="ORDER BY m.`meeting_time` DESC  limit ".$pag.",".$limit;
+            
+        }
+
+
+        $meetingCountSql = "SELECT
+                                count(m.`meeting_id`) total
+                              FROM
+                                `app_meeting` m
+                              JOIN app_project p ON m.department_id = p.pro_id
+                              WHERE   p.member_id = \"$pMid\"";
+
+        if (!empty($pro_id)) {
+
+            $meetingCountSql.="AND m.department_id = \"$pro_id\" ";
+
+        }
+
+
         // echo $meetingSql;
+        $meetingCount = M()->query($meetingCountSql);
 
      	$meetingList = M()->query($meetingSql);
-		
-        return  $meetingList;
+
+
+
+        $total = M()->query($sqlCount);
+
+        $count =$meetingCount[0]['total'];
+        
+        $response = array('result' => $meetingList,'count' =>$count);
+
+        return $response;
      }
 
 
