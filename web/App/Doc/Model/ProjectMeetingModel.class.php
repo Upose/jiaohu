@@ -79,14 +79,11 @@ class ProjectMeetingModel
 
         // echo $meetingSql;
         // echo $meetingCountSql;
-        
+
         $meetingCount = M()->query($meetingCountSql);
 
      	  $meetingList = M()->query($meetingSql);
 
-
-
-        $total = M()->query($sqlCount);
 
         $count =$meetingCount[0]['total'];
         
