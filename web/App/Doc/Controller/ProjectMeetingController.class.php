@@ -164,9 +164,16 @@ class ProjectMeetingController extends BaseController {
 
         $pag=($page-1)*$limit;
 
+
+        $projectList=$this->projectList=
+        ProjectMeetingModel::projectList($projectManagerId);
+
         //所有会议列表
         $meetingList=$this->meetingList=
         ProjectMeetingModel::meetingList($projectManagerId,$projecId,$pag,$limit);
+
+        $final['meetingList'] = $meetingList;
+        $final['projectList'] = $projectList;
         
         $this->Response(200,$meetingList,'');
 
