@@ -52,144 +52,142 @@
 </body>
   <!--<script src="__DOCLAY__/plugins/layui/layui.js"></script> -->
 <script>
-    var app = new Vue({
-        el: '.new',
-        data: {
-						area: [],
-						province:[],
-            arrList: [],
-            pageIndex:1,
-            limit:10,
-            message:{},
-            counts:''
-        },
-        created:function() {
-            this.getList(); //进入页面获取数据
-        },
-        methods: {
-            //进入页面获取数据
-            getList() {
-                // console.log('-----------')
-                var that =this;
-								var ab = $(".pro_select").val();
-								var cd = $(".keyword").val();
-                $.ajax({
-                    cache: false,
-                    type: "POST",
-                    url: "{:U('ProjectMeeting/meetingList')}",
-                    dataType: "json",
-                    data: {
-											projectManagerId:829
-											page: that.pageIndex || 1,
-											limit:that.limit || 10,
-										},
-                    success: function (res) {		
-												that.province = res.data.area.province;
-                        that.arrList = res.data.projectList.result;
-                        that.counts=res.data.projectList.count;
-                        that.layPage(); //分页
-                    }
-                })
-            },
-						getListyo() {
-								// console.log('-----------')
-								var that =this;
-								var ab = $(".pro_select").val();
-								var cd = $(".keyword").val();
-								$.ajax({
-										cache: false,
-										type: "POST",
-										url: "{:U('ProjectListQuery/projectList')}",
-										dataType: "json",
-										data: {
-											proArea:ab,
-											proName:cd,
-											page: that.pageIndex || 1,
-											limit:that.limit || 10,
-										},
-										success: function (res) {		
-												that.arrList = res.data.projectList.result;
-												that.counts=res.data.projectList.count;
-												that.layPage(); //分页
-										}
-								})
-						},
-            // 分页
-            layPage() {
-                var _this = this;
-                layui.use('laypage', function () {
-                    var laypage = layui.laypage;
-                    laypage.render({
-                        elem: 'test3'
-                        , count:_this.counts
-                        , limit:10
-                        , curr:_this.pageIndex
-                        , jump: function (obj, first) {
-                            //obj包含了当前分页的所有参数
-                            //首次不执行
-                            if(first) {
-                                return false;
-                            }
-                            _this.pageIndex = obj.curr;
-                            _this.limit = obj.limit;
-                             _this.getListyo();
-                        }
-                    });
-                });        
-            },
-            //跳转页面
-//             openNew(val){
-//             window.location.href = "{:U('Feedback/MyFeedbackCheck')}"+"&id="+val
-//             },
-						
-						pro_select(){
-							var that = this;
-							var a = $(".pro_select").val();
-							var c = $(".keyword").val();
-							console.log(a);
-							$.ajax({
-									cache: false,
-									type: "POST",
-									url: "{:U('ProjectListQuery/projectList')}",
-									dataType: "json",
-									data: {
-										proArea:a,
-										proName:c,
-										page: that.pageIndex || 1,
-										limit:that.limit || 10,
-									},
-									success: function (res) {		
-											that.arrList = res.data.projectList.result;
-											that.counts=res.data.projectList.count;
-											that.layPage(); //分页
-									}
-							})
-						},
-            //搜索按钮
-            search(){
-							var that = this;
-							var a = $(".pro_select").val();
-							var c = $(".keyword").val();
-							console.log(a);
-							$.ajax({
-									cache: false,
-									type: "POST",
-									url: "{:U('ProjectListQuery/projectList')}",
-									dataType: "json",
-									data: {
-										proArea:a,
-										proName:c,
-										page: that.pageIndex || 1,
-										limit:that.limit || 10,
-									},
-									success: function (res) {		
-											that.arrList = res.data.projectList.result;
-											that.counts=res.data.projectList.count;
-									}
-							})
-						},
-        },
-    });
-
+      var app = new Vue({
+          el: '.new',
+          data: {
+  						area: [],
+  						province:[],
+              arrList: [],
+              pageIndex:1,
+              limit:10,
+              message:{},
+              counts:''
+          },
+          created:function() {
+              this.getList(); //进入页面获取数据
+          },
+          methods: {
+              //进入页面获取数据
+              getList() {
+                  // console.log('-----------')
+                  var that =this;
+                  $.ajax({
+                      cache: false,
+                      type: "POST",
+                      url: "{:U('ProjectMeeting/meetingList')}",
+                      dataType: "json",
+                      data: {
+												projectManagerId:829,
+  											pag: that.pageIndex || 1,
+  											limit:that.limit || 10,
+  										},
+                      success: function (res) {		
+  												that.province = res.data.area.province;
+                          that.arrList = res.data.projectList.result;
+                          that.counts=res.data.projectList.count;
+                          that.layPage(); //分页
+                      }
+                  })
+              },
+  						getListyo() {
+  								// console.log('-----------')
+  								var that =this;
+  								var ab = $(".pro_select").val();
+  								var cd = $(".keyword").val();
+  								$.ajax({
+  										cache: false,
+  										type: "POST",
+  										url: "{:U('ProjectListQuery/projectList')}",
+  										dataType: "json",
+  										data: {
+  											proArea:ab,
+  											proName:cd,
+  											page: that.pageIndex || 1,
+  											limit:that.limit || 10,
+  										},
+  										success: function (res) {		
+  												that.arrList = res.data.projectList.result;
+  												that.counts=res.data.projectList.count;
+  												that.layPage(); //分页
+  										}
+  								})
+  						},
+              // 分页
+              layPage() {
+                  var _this = this;
+                  layui.use('laypage', function () {
+                      var laypage = layui.laypage;
+                      laypage.render({
+                          elem: 'test3'
+                          , count:_this.counts
+                          , limit:10
+                          , curr:_this.pageIndex
+                          , jump: function (obj, first) {
+                              //obj包含了当前分页的所有参数
+                              //首次不执行
+                              if(first) {
+                                  return false;
+                              }
+                              _this.pageIndex = obj.curr;
+                              _this.limit = obj.limit;
+                               _this.getListyo();
+                          }
+                      });
+                  });        
+              },
+              //跳转页面
+  //             openNew(val){
+  //             window.location.href = "{:U('Feedback/MyFeedbackCheck')}"+"&id="+val
+  //             },
+  						
+  						pro_select(){
+  							var that = this;
+  							var a = $(".pro_select").val();
+  							var c = $(".keyword").val();
+  							console.log(a);
+  							$.ajax({
+  									cache: false,
+  									type: "POST",
+  									url: "{:U('ProjectListQuery/projectList')}",
+  									dataType: "json",
+  									data: {
+  										proArea:a,
+  										proName:c,
+  										page: that.pageIndex || 1,
+  										limit:that.limit || 10,
+  									},
+  									success: function (res) {		
+  											that.arrList = res.data.projectList.result;
+  											that.counts=res.data.projectList.count;
+  											that.layPage(); //分页
+  									}
+  							})
+  						},
+              //搜索按钮
+              search(){
+  							var that = this;
+  							var a = $(".pro_select").val();
+  							var c = $(".keyword").val();
+  							console.log(a);
+  							$.ajax({
+  									cache: false,
+  									type: "POST",
+  									url: "{:U('ProjectListQuery/projectList')}",
+  									dataType: "json",
+  									data: {
+  										proArea:a,
+  										proName:c,
+  										page: that.pageIndex || 1,
+  										limit:that.limit || 10,
+  									},
+  									success: function (res) {		
+  											that.arrList = res.data.projectList.result;
+  											that.counts=res.data.projectList.count;
+  									}
+  							})
+  						},
+          },
+      });
+  
 </script>
 </html>
