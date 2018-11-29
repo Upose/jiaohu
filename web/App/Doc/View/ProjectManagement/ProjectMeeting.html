@@ -187,16 +187,16 @@
             getdata() {
                 var that = this;
                 $.ajax({
-										cache: false,
-										async: false,
-                    type: "get",
-                    url: "{:U('ProjectMeeting/meetinglist')}",
+                    // cache: false,
+                    // async: false,
+                    type: "post",
+                    url: "{:U('ProjectMeeting/meetingDropOption')}",
                     dataType: "json",
-										data:{
-											mtheme:772
-										},
-										processData: false,
-										contentType: false,
+
+					data:{
+						projectManagerId:875
+					},
+
                     success: function (data) {
                         that.province = data.data.stageList;
                     }
