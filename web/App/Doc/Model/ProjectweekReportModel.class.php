@@ -17,12 +17,10 @@ class ProjectweekReportModel{
     //项目周报和周报任务新增接口
     public function weekInsert($workInfo,$thisWorkData,$nextWorkData)
     {
-//      var_dump($workInfo,$thisWorkData,$nextWorkData);die;
         $nowtime=date('Y-m-d H:i:s',time());
         $workInfo['create_date']=$nowtime;
         //本周周报
         $weekreportid = M('app_project_weekly')->data($workInfo)->add();
-        //die;
         //本周周报任务
         if($weekreportid){
             foreach($thisWorkData as $value){
@@ -35,9 +33,6 @@ class ProjectweekReportModel{
         if($nextWorkData){
             //下周周报
             //默认下个周一
-            //$thismonday=strtotime("this monday",strtotime($workInfo['weekly_stime']));
-            //$thisfriday=strtotime("this friday",strtotime($workInfo['weekly_etime']));
-            //var_dump(date('Y-m-d',$thismonday),date('Y-m-d',$thisfriday));die;
             $nextweek['weekly_stime']=date('Y-m-d',strtotime('Sunday +1 day',strtotime($workInfo['weekly_stime'])));
             $nextweek['weekly_etime']=date('Y-m-d',strtotime('Sunday +5 day',strtotime($workInfo['weekly_etime'])));
             $nextweekid = M('app_project_weekly')->data($nextweek)->add();
