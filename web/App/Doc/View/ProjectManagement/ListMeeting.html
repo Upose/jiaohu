@@ -16,11 +16,10 @@
    <div class="new">
     <!-- 最上层搜索栏 -->
     <div class="search_div">
-        项目：<select class="pro_select" @change="pro_select">
+        项目名称：<select class="pro_select" @change="pro_select">
             <option value="">全国</option>
             <option v-for="i in province" :value="i.pid">{{i.pname}}</option>
         </select>
-        <input class="keyword" type="text" placeholder="项目名称"><button @click="search()" class="search_button">搜索</button>
     </div>
  
     <table class="layui-table">
@@ -37,12 +36,12 @@
         </thead>
         <tbody>
             <tr v-for="item in arrList">
-                <td>{{item.pro_name}}</td>
-                <td>{{item.pro_name}}</td>
-                <td>{{item.area_name}}</td>
-                <td>{{item.rank_name}}</td>
-                <td>{{item.create_data}}</td>
-                <td>{{item.member_name}}</td>
+                <td>{{item.theme}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.meeting_time}}</td>
+                <td>{{item.meeting_level}}</td>
+                <td>{{item.department_id}}</td>
+                <td>{{item.meeting_mode}}</td>
                 <td style="cursor:pointer;" @click="openNew(item.id)"><span style="color:rgba(74,144,226,1);">查看</span></td>
             </tr>
         </tbody>
@@ -77,40 +76,38 @@
                       url: "{:U('ProjectMeeting/meetingList')}",
                       dataType: "json",
                       data: {
-												projectManagerId:829,
-  											pag: that.pageIndex || 1,
+												projectManagerId:875,
+												pro_id:"",
+  											page: that.pageIndex || 1,
   											limit:that.limit || 10,
   										},
                       success: function (res) {		
-  												that.province = res.data.area.province;
-                          that.arrList = res.data.projectList.result;
-                          that.counts=res.data.projectList.count;
+                          that.arrList = res.data.result;
+                          that.counts=res.data.count;
                           that.layPage(); //分页
                       }
                   })
               },
   						getListyo() {
-  								// console.log('-----------')
-  								var that =this;
-  								var ab = $(".pro_select").val();
-  								var cd = $(".keyword").val();
-  								$.ajax({
-  										cache: false,
-  										type: "POST",
-  										url: "{:U('ProjectListQuery/projectList')}",
-  										dataType: "json",
-  										data: {
-  											proArea:ab,
-  											proName:cd,
+                  // console.log('-----------')
+                  var that =this;
+                  $.ajax({
+                      cache: false,
+                      type: "POST",
+                      url: "{:U('ProjectMeeting/meetingList')}",
+                      dataType: "json",
+                      data: {
+												projectManagerId:875,
+												pro_id:"",
   											page: that.pageIndex || 1,
   											limit:that.limit || 10,
   										},
-  										success: function (res) {		
-  												that.arrList = res.data.projectList.result;
-  												that.counts=res.data.projectList.count;
-  												that.layPage(); //分页
-  										}
-  								})
+                      success: function (res) {		
+                          that.arrList = res.data.result;
+                          that.counts=res.data.count;
+                          that.layPage(); //分页
+                      }
+                  })
   						},
               // 分页
               layPage() {
@@ -162,30 +159,7 @@
   											that.layPage(); //分页
   									}
   							})
-  						},
-              //搜索按钮
-              search(){
-  							var that = this;
-  							var a = $(".pro_select").val();
-  							var c = $(".keyword").val();
-  							console.log(a);
-  							$.ajax({
-  									cache: false,
-  									type: "POST",
-  									url: "{:U('ProjectListQuery/projectList')}",
-  									dataType: "json",
-  									data: {
-  										proArea:a,
-  										proName:c,
-  										page: that.pageIndex || 1,
-  										limit:that.limit || 10,
-  									},
-  									success: function (res) {		
-  											that.arrList = res.data.projectList.result;
-  											that.counts=res.data.projectList.count;
-  									}
-  							})
-  						},
+  						}
           },
       });
   
