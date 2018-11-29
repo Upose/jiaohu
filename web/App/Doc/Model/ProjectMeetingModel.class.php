@@ -68,7 +68,7 @@ class ProjectMeetingModel
                               FROM
                                 `app_meeting` m
                               JOIN app_project p ON m.department_id = p.pro_id
-                              WHERE   p.member_id = \"$pMid\"";
+                              WHERE   p.member_id = \"$projectManagerId\"";
 
         if (!empty($pro_id)) {
 
@@ -78,6 +78,8 @@ class ProjectMeetingModel
 
 
         // echo $meetingSql;
+        // echo $meetingCountSql;
+        
         $meetingCount = M()->query($meetingCountSql);
 
      	  $meetingList = M()->query($meetingSql);
