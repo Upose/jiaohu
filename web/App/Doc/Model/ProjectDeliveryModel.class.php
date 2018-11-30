@@ -140,6 +140,29 @@ class ProjectDeliveryModel
 
 
     /**
+     * 获取项目下交付成员
+     * 
+     * @author song.chaoxu 
+     * 2018.11.30
+     */
+      public function projectPersion($projectId)
+     {
+        $postNameSql = "SELECT
+                            u.member_id,
+                            u.member_name,
+                            p.pro_id
+                        FROM
+                            `app_project_persion` p
+                        LEFT JOIN `user_member` u ON p.member_id = u.member_id
+                        WHERE
+                            p.pro_id = \"$projectId\"";
+        $postList = M()->query($postNameSql);
+        return  $postList;
+     }
+
+
+
+    /**
      * 根据部门列表 查询部门下的人员
      * 
      * @author song.chaoxu 

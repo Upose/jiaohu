@@ -116,6 +116,24 @@ class ProjectDeliveryController extends BaseController {
     }
 
 
+    /**
+     * 根据部门列表 查询部门下的人员
+     * @author song.chaoxu
+     * 2018.11.30
+     */
+    public function projectPersion()
+    {
+        $projectId = I('projectId');
+
+        //数据库框架 - 页面下拉项内容
+        $projectPersion=$this->projectPersion=
+        ProjectDeliveryModel::projectPersion($projectId);
+        
+        $this->Response(200,$projectPersion,'');
+
+    }
+
+
 
     /**
      * 实施交付新增 
