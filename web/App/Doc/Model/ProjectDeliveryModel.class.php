@@ -245,7 +245,6 @@ class ProjectDeliveryModel
 
           $sql="INSERT INTO `deliveryapplication`.`app_project_persion` (
                     `pro_name`,
-                    `pro_leader`,
                     `member_id`,
                     `pro_id`,
                     `member_name`,
@@ -254,13 +253,11 @@ class ProjectDeliveryModel
                 )
                 VALUES
                     (
-
-                        $proName,
-                        $proLeader,
+                        \"$proName\",
                         $persionId,
                         $proId,
-                        $persionName,
-                        $inTime,
+                        \"$persionName\",
+                        \"$inTime\",
                         $jobType
                     ); ";
 
