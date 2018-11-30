@@ -175,18 +175,17 @@
 		<div class="new_tit"><span>新增项目成员</span><img @click='down()' src="__IMG__/close_normal.png"></div>
 		<form action="{:U('ProjectManagement/projectAdd')}" method="post">
 			<div class="con_txt">
-			<p>人员类型：
-				<select name="interest" lay-filter="aihao" class="name_input">
+			<p>人员类型：<select name="interest" lay-filter="aihao" class="industry_input">
 					<option value="">请选择</option>
-					<option value="1">内部人员</option>
-					<option value="2">外部人员</option>
+					<option value="0">内部人员</option>
+					<option value="1">外部人员</option>
 				</select>
 			</p>
-				<p>人员姓名：<input name="name" class="name_input" type="text" placeholder="请输入人员姓名"></p>
-				<p>所属岗位：<select name="industry_id" class="industry_input" id="">
-						<option v-for='i in industry' :value="i.id">{{i.name}}</option>
+				<p>所属部门：<select name="industry_id" class="industry_input" id="">
+						<option v-for='i in zdepartment'>{{i.name}}</option>
 					</select></p>
-				<p>所属职位：<select name="customer_type_id" class="client_input" id="">
+				<p>人员姓名：<input name="name" class="name_input" type="text" placeholder="请输入人员姓名"></p>
+				<p>所属岗位：<select name="customer_type_id" class="client_input" id="">
 						<option v-for='i in customer' :value="i.id">{{i.name}}</option>
 					</select></p>
 				<p>到岗时间：<input name="start_time" class="time_input" type="date" id=""></p>
@@ -217,6 +216,8 @@
 						area:[],
 						backFrame:[],
 						databaseFrame:[],
+						zdepartment:[],
+						zpostName:[],
 						uiFrame:[],
 						jsFrame:[],
 						industryResult:[],
@@ -268,6 +269,7 @@
 										url: "{:U('ProjectDelivery/addPersionDropOperation')}",
 										dataType: "json",
 										success: function (data) {
+											that.zdepartment = data.data.department;
 
 										}
 								})
