@@ -13,7 +13,7 @@
 </head>
 
 <body class="app">
-	<form  class="layui-form">
+	<form >
     <div id="event-view">
 			<div class="details_zong">
 			<div class="details_left">
@@ -22,23 +22,12 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目名称：</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="独山子项目" autocomplete="off" class="layui-input">
+						<div  class="search_div">
+							<select name="interest" lay-filter="aihao" class="pro_select">
+							<option value="">请选择</option>
+								<option v-for="i in projectmen" :value="i.pro_id">{{i.pro_name}}</option>
+							</select>
 						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">项目编号：</label>
-						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="9527" autocomplete="off" class="layui-input">
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">项目经理：</label>
-						<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="沈家儒 2370" autocomplete="off" class="layui-input">
 						</div>
 					</div>	
 				</div>
@@ -55,9 +44,8 @@
 						</div>
 					</div>	
 				</div>
-			<div class="layui-row layui-col-space10 layui-form-item">	
 				<div class="details_tab">
-					<div class="layui-col-lg6">
+					<div class="layui-form-item">
 						<label class="tit-tab">UI框架：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
@@ -70,7 +58,9 @@
 							</div>
 						</div>
 					</div>	
-					<div class="layui-col-lg6">
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
 						<label class="tit-tab">WEB框架</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
@@ -84,10 +74,8 @@
 						</div>
 					</div>	
 				</div>
-			</div>
-				<div class="layui-row layui-col-space10 layui-form-item">	
-					<div class="details_tab">
-						<div class="layui-col-lg6">
+				<div class="details_tab">
+					<div class="layui-form-item">
 							<label class="tit-tab">开发语言：</label>
 							<div class="layui-input-block">
 							<div  class="search_div">
@@ -98,9 +86,12 @@
 								<option value="2">go</option>
 								</select>
 							</div>
-							</div>
-						</div>	
-						<div class="layui-col-lg6">
+						</div>
+					</div>	
+				</div>
+
+				<div class="details_tab">
+					<div class="layui-form-item">
 							<label class="tit-tab">数据库</label>
 							<div class="layui-input-block">
 								<div  class="search_div">
@@ -111,10 +102,10 @@
 									<option value="2">less</option>
 									</select>
 								</div>
-							</div>
-						</div>	
-					</div>
-				</div>	
+						</div>
+					</div>	
+				</div>
+
 
 				<div class="details_tab">
 					<div class="layui-form-item">
@@ -128,8 +119,8 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">是否验收</label>
 						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="sex" value="是" title="是">
-							<input type="radio" name="sex" value="否" title="否" checked="">
+							<input type="radio" name="sex" value="是" title="是">是&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="sex" value="否" title="否" checked="">否
 						</div>
 					</div>	
 				</div>
@@ -145,8 +136,8 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">人员释放</label>
 						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="wa" value="yes" title="是">
-							<input type="radio" name="wa" value="no" title="否" checked="">
+							<input type="radio" name="wa" value="yes" title="是">是&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="wa" value="no" title="否" checked="">否
 						</div>
 					</div>	
 				</div>
@@ -226,20 +217,52 @@
     var app = new Vue({
         el: ".app",
         data: {
-			rank: [],
-			industryResult:[],
+						projectmen: [],
+						area:[],
+						rank:[],
+						industryResult:[],
             province: [],
         },
 		created: function () {
+			this.project();
+
 			this.getdata();
 		},
         methods: {
             getdata() {
                 var that = this;
+                $.ajax({
+                		cache: false,
+                		type: "post",
+                		url: "{:U('ProjectDelivery/projectList')}",
+                		dataType: "json",
+                		success: function (data) {
+                				that.rank = data.data.rank;
+                		}
+                })
             },
+						
+            project() {
+                var that = this;
+                $.ajax({
+                    type: "post",
+                    url: "{:U('ProjectDelivery/proDelivery')}",
+                    dataType: "json",
+
+										data:{
+											projectManagerId:875
+										},
+
+                    success: function (data) {
+												that.area = data.data.area;
+												that.projectmen = data.data.projectList.result;
+                    }
+                })
+						},
 						down() {
 							$(".new_div").hide();
 						},
+						
         }
     })
 		

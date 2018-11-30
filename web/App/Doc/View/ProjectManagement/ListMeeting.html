@@ -17,8 +17,8 @@
     <!-- 最上层搜索栏 -->
     <div class="search_div">
         项目名称：<select class="pro_select" @change="pro_select">
-            <option value="">全国</option>
-            <option v-for="i in province" :value="i.pid">{{i.pname}}</option>
+            <option value="">全部</option>
+            <option v-for="i in province" :value="i.pro_id">{{i.pro_name}}</option>
         </select>
     </div>
  
@@ -54,7 +54,6 @@
       var app = new Vue({
           el: '.new',
           data: {
-  						area: [],
   						province:[],
               arrList: [],
               pageIndex:1,
@@ -82,8 +81,9 @@
   											limit:that.limit || 10,
   										},
                       success: function (res) {		
-                          that.arrList = res.data.result;
-                          that.counts=res.data.count;
+													that.province = res.data.projectList;
+                          that.arrList = res.data.meetingList.result;
+                          that.counts=res.data.meetingList.count;
                           that.layPage(); //分页
                       }
                   })
@@ -103,8 +103,8 @@
   											limit:that.limit || 10,
   										},
                       success: function (res) {		
-                          that.arrList = res.data.result;
-                          that.counts=res.data.count;
+                          that.arrList = res.data.meetingList.result;
+                          that.counts=res.data.meetingList.count;
                           that.layPage(); //分页
                       }
                   })
