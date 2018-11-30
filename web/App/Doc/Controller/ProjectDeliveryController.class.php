@@ -116,6 +116,24 @@ class ProjectDeliveryController extends BaseController {
     }
 
 
+    /**
+     * 根据部门列表 查询部门下的人员
+     * @author song.chaoxu
+     * 2018.11.30
+     */
+    public function projectPersion()
+    {
+        $projectId = I('projectId');
+
+        //数据库框架 - 页面下拉项内容
+        $projectPersion=$this->projectPersion=
+        ProjectDeliveryModel::projectPersion($projectId);
+        
+        $this->Response(200,$projectPersion,'');
+
+    }
+
+
 
     /**
      * 实施交付新增 
@@ -125,104 +143,41 @@ class ProjectDeliveryController extends BaseController {
     public function proDeliveryAdd()
     {
         //项目编号
-        $pro_id = I('pro_id');
+        $proId = I('proId');
 
         //項目名稱
-        $pro_name = I('pro_name');
+        $proName = I('proName');
 
-        //保密等级
-        $rank = I('rank');
+        //数据库
+        $proArea = I('proArea');
 
-        //创建时间
-        $createTime = I('createTime');
+        //UI框架
+        $uiFrame = I('uiFrame');
 
-        //立项信息
-        $lxMsg = I('lxMsg');
+        //web框架
+        $jsFrame = I('jsFrame');
 
-        //所在区域
-        $area = I('area');
+        //后台开发语言
+        $backFrame = I('backFrame');
 
-        //合作单位
-        $cooperativeUnit = I('cooperativeUnit');
+        //数据库
+        $databaseFrame = I('databaseFrame');
 
-        //项目性质
-        $projectNature = I('projectNature');
+        //干系人
+        $stakeHolder = I('stakeHolder');
 
-        //所在行业
-        $industry = I('industry');
+        //是否验收
+        $whether_ys = I('whether_ys');
 
-        //部门经理
-        $divisionManager = I('divisionManager');
+        //验收时间
+        $ys_date = I('ys_date');
 
-        //部门经理ID
-        $divisionManagerId = I('divisionManagerId');
+        //人员释放
+        $persionRelease = I('persionRelease');
 
-        //项目经理
-        $projectManager = I('projectManager');
-
-        //项目经理ID
-        $projectManagerId = I('projectManagerId');
-
-        //合同额(元)
-        $contractAmount = I('contractAmount');
-
-        //是否合同
-        $typeId = I('typeId');
-
-        // 项目周期（开始时间）
-        $projectStime = I('projectStime');
-
-        // 项目周期（结束时间）
-        $projectEtime = I('projectEtime');
-
-        // 项目介绍
-        $projectIntroduce = I('projectIntroduce');
-
-        //项目附件 - 合同
-        $filePath = '';
-
-        // $file=$_FILES['photo'];
-//         $filename=$file['name'];//客户端原文件名称，用于数据库保存文件名称
-//         $file['name'] = iconv('UTF-8','GBK', $file['name']);//转换格式，以免出现中文乱码情况
-// 
-		// echo $_FILES["file"][type];
-        if ($_FILES) {
-		// echo ($_FILES["file"][size] / 1024)."kb";
-
-          foreach ($_FILES as $key => $value) {
-            //实例化上传类
-            $upload =  new \Think\Upload();
-            //设置附件上传大小
-            // $upload->maxSize=3145728;
-            //保持文件名不变
-            $upload->saveName = time()."dt".rand(0,10);
-            //设置附件上传类型
-            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
-            //设置附件上传根目录
-            $upload->rootPath = './Updata/UpdateFile/'; 
-            //设置附件上传（子）目录
-            $upload->savePath = '';
-            $result = $upload->upload();
-            // echo '<pre>';
-            // var_dump($result);
-            // echo '</pre>';
-            // file_put_contents("11114.txt", json_encode($result));
-            if($result){
-              foreach ($result as $key => $value) {
-                $savename  = $value['savename'];
-                $path  = "/Updata/UpdateFile/".$value['savepath'];
-                $filePath = $newpath = $path.$savename;
-                $href[] = $newpath;
-				// echo $filePath."|_____________________path";
-								
-              }
-            }
-              
-          }
-
-        }
+        
         $status=$this->status=
-            ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime,$filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
+            ProjectDeliveryModel::proDeliveryAdd($proId,$proName,$proArea,$uiFrame,$jsFrame,$backFrame,$databaseFrame,$stakeHolder,$whether_ys,$ys_date,$persionRelease);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
