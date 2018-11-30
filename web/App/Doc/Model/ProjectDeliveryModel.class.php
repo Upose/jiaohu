@@ -133,14 +133,7 @@ class ProjectDeliveryModel
      */
       public function getPostName()
      {
-        $postNameSql = "SELECT
-                                u.postsname
-                            FROM
-                                `user_member` u
-                            WHERE
-                                department LIKE '%交付%'
-                            GROUP BY
-                                postsname;";
+        $postNameSql = "SELECT j.jobtype_id,j.jobtype_name FROM `app_jobtype` j;";
         $postList = M()->query($postNameSql);
         return  $postList;
      }
@@ -230,7 +223,7 @@ class ProjectDeliveryModel
 
 
         try{
-
+            
             $res =  M()->execute($sql);
             return $res;
          

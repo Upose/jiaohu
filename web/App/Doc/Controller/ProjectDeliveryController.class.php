@@ -240,23 +240,21 @@ class ProjectDeliveryController extends BaseController {
      */
     public function proDeliveryPersionAdd()
     {
-        //项目编号
-        $pro_id = I('pro_id');
+        //人员ID
+        $persionId = I('persionId');
 
-        //項目名稱
-        $pro_name = I('pro_name');
+        //人员姓名
+        $persionName = I('persionName');
 
-        //保密等级
-        $rank = I('rank');
+        //人员类型： 0内部人员 , 1外部人员
+        $memberType = I('memberType');
 
-        //创建时间
-        $createTime = I('createTime');
+        //人员类型： 0内部人员 , 1外部人员
+        $memberType = I('memberType');
 
-        //立项信息
-        $lxMsg = I('lxMsg');
+        //到岗时间
+        $inTime = I('inTime');
 
-        //所在区域
-        $area = I('area');
 
         
         $status=$this->status=
