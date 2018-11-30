@@ -241,7 +241,7 @@ class ProjectDeliveryModel
      * @author song.chaoxu
      * 2018.11.30
      */
-    public function proDeliveryPersionAdd($proId,$proName,$proLeader,$persionId,$persionName,$jobType,$inTime){
+    public function proDeliveryPersionAdd($proId,$proName,$persionId,$persionName,$jobType,$inTime){
 
           $sql="INSERT INTO `deliveryapplication`.`app_project_persion` (
                     `pro_name`,

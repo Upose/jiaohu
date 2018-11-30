@@ -247,9 +247,6 @@ class ProjectDeliveryController extends BaseController {
         //项目名称
         $proName = I('proName');
 
-        //项目名称
-        $proLeader = I('proLeader');
-
         //人员ID
         $persionId = I('persionId');
 
@@ -265,7 +262,7 @@ class ProjectDeliveryController extends BaseController {
 
         
         $status=$this->status=
-            ProjectDeliveryModel::proDeliveryPersionAdd($proId,$proName,$proLeader,$persionId,$persionName,$jobType,$inTime);
+            ProjectDeliveryModel::proDeliveryPersionAdd($proId,$proName,$persionId,$persionName,$jobType,$inTime);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
