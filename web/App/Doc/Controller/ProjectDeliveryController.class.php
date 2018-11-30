@@ -74,6 +74,50 @@ class ProjectDeliveryController extends BaseController {
 
 
     /**
+     * 获取交付部 部门列表
+     * @author song.chaoxu
+     * 2018.11.30
+     */
+    public function addPersionDropOperation()
+    {
+
+        //部门下拉
+        $department=$this->department=
+        ProjectDeliveryModel::getDepartment();
+
+
+        //职位下拉
+        $postName=$this->postName=
+        ProjectDeliveryModel::getPostName();
+
+        $final['department'] = $department;
+        $final['postName'] = $postName;
+        
+        $this->Response(200,$final,'');
+
+    }
+
+
+    /**
+     * 根据部门列表 查询部门下的人员
+     * @author song.chaoxu
+     * 2018.11.30
+     */
+    public function departmentPersion()
+    {
+        $departmentName = I('departmentName');
+
+        //数据库框架 - 页面下拉项内容
+        $departmentPersion=$this->departmentPersion=
+        ProjectDeliveryModel::getdepartmentPersion($departmentName);
+        
+        $this->Response(200,$departmentPersion,'');
+
+    }
+
+
+
+    /**
      * 实施交付新增 
      * @author song.chaoxu
      * 2018.11.20
@@ -179,6 +223,44 @@ class ProjectDeliveryController extends BaseController {
         }
         $status=$this->status=
             ProjectRegistrationModel::projectAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime,$filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
+            if ($status) {
+                $this->Response(200,$status,'数据新增成功');
+                } else {
+                throw new Exception('数据插入失败');
+                }
+
+    }
+
+
+
+    /**
+     * 实施交付人员新增 
+     * @author song.chaoxu
+     * 2018.11.30
+     */
+    public function proDeliveryPersionAdd()
+    {
+        //项目编号
+        $pro_id = I('pro_id');
+
+        //項目名稱
+        $pro_name = I('pro_name');
+
+        //保密等级
+        $rank = I('rank');
+
+        //创建时间
+        $createTime = I('createTime');
+
+        //立项信息
+        $lxMsg = I('lxMsg');
+
+        //所在区域
+        $area = I('area');
+
+        
+        $status=$this->status=
+            ProjectDeliveryModel::proDeliveryPersionAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime,$filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
