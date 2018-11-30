@@ -240,17 +240,24 @@ class ProjectDeliveryController extends BaseController {
      */
     public function proDeliveryPersionAdd()
     {
+
+        //项目ID
+        $proId = I('proId');
+
+        //项目名称
+        $proName = I('proName');
+
+        //项目名称
+        $proLeader = I('proLeader');
+
         //人员ID
         $persionId = I('persionId');
 
         //人员姓名
         $persionName = I('persionName');
 
-        //人员类型： 0内部人员 , 1外部人员
-        $memberType = I('memberType');
-
-        //人员类型： 0内部人员 , 1外部人员
-        $memberType = I('memberType');
+        //职位类型
+        $jobType = I('jobType');
 
         //到岗时间
         $inTime = I('inTime');
@@ -258,7 +265,7 @@ class ProjectDeliveryController extends BaseController {
 
         
         $status=$this->status=
-            ProjectDeliveryModel::proDeliveryPersionAdd($pro_id,$pro_name,$typeId,$industry,$projectManager,$projectManagerId,$projectStime,$projectEtime,$area,$rank,$createTime,$filePath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManager,$divisionManagerId,$contractAmount,$projectIntroduce);
+            ProjectDeliveryModel::proDeliveryPersionAdd($proId,$proName,$proLeader,$persionId,$persionName,$jobType,$inTime);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
