@@ -7,417 +7,329 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/ProjectMeeting.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectPlan.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
-		<script src="__STATIC__/vue.min.js"></script>
 </head>
 
-<body id="app" >
-	<form  method="post" enctype="multipart/form-data">
-    <div id="event-view">
-			<div class="details_zong">
-			<div class="details_left">
-				<span class="tit">项目信息登记</span>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">项目名称：</label>
-						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="请输入项目名称" autocomplete="off" class="layui-input" v-model="addList.name">
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">项目编号：</label>
-						<div class="layui-input-block">
-						<input type="text" lay-verify="number" placeholder="请输入项目编号"  class="layui-input" v-model="addList.num" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">保密等级：</label>
-						<div class="layui-input-block">
-							<div  class="search_div">
-								<select name="interest" lay-filter="aihao"  class="pro_select" v-model="addList.grade">
-								<option v-for="a in rank" :value="a.id">{{a.rank_name}}</option>
-								</select>
-							</div>
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">创建时间：</label>
-						  <div class="layui-input-block">
-							<input class="layui-input" type="date" name="date_timne" id="" v-model="addList.date_timne">
-						  </div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">立项信息：</label>
-						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="number" placeholder="请输入立项信息" autocomplete="off" class="layui-input" v-model="addList.message">
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">所在区域：</label>
-						<div class="layui-input-block">
-							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.city">
-								<option v-for="b in province" :value="b.pid">{{b.pname}}</option>
-								</select>
-							</div>
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">合作单位：</label>
-						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="请输入合作单位名称" autocomplete="off" class="layui-input" v-model="addList.company">
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">项目性质：</label>
-						<div class="layui-input-block">
-						<div  class="search_div"> 
-							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.nature">						
-							<option v-for="c in projectNature" name="nature" :value="c.id">{{c.xzname}}</option>
-							</select>
-						</div>
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">所在行业：</label>
-						<div class="layui-input-block">
-						<div  class="search_div">
-							<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.industry" id="industry">
-							<option v-for="d in industryResult" name="industry" :value="d.industry_id">{{d.industry_name}}</option>
-							</select>
-						</div>
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">部门经理：</label>
-						<div class="layui-input-block">
-						<div  class="search_div">
-							<select name="interest"  id="departid" lay-filter="aihao" class="pro_select" v-model="addList.department">
-							<option v-for="e in divisionManager"  :value="e.member_id">{{e.member_name}}</option>
-							</select>
-						</div>
-						</div>
-					</div>	
-				</div>
-				<div class="details_tab">
-					<div class="layui-form-item">
-						<label class="tit-tab">项目经理：</label>
-						<div class="layui-input-block">
-						<div  class="search_div"> 
-							<select name="interest"  id="projectid" lay-filter="aihao"  class="pro_select" v-model="addList.project">						
-							<option v-for="f in projectManager" :value="f.member_id">{{f.member_name}}</option>
-							</select>
-						</div>
-						</div>
-					</div>	
-				</div>
-			</div>
-			<div class="details_right">
-				<div style="margin-top: 5vh;">
-					<div class="layui-form-item">
-						<label class="layui-form-label">有无合同</label>
-						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="sex" value="0" title="有" v-model="addList.param" checked="">有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="sex" value="1" title="无" v-model="addList.param" >无
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<label class="tit-tab">合同额(元)</label>
-						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="number" placeholder="请输出合同金额(元)" autocomplete="off" class="layui-input" v-model="addList.money" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
-						</div>
-					</div>		
-				</div>
-				<div class="layui-form-item">
-					<label class="tit-tab">开始时间：</label>
-						<div class="layui-input-block">
-						<input class="layui-input" type="date" name="start_time" id="" v-model="addList.start_time">
-						</div>
-				</div>
-				<div class="layui-form-item">
-						<label class="tit-tab">结束时间：</label>
-							<div class="layui-input-block">
-							<input class="layui-input" type="date" name="end_time" id="" v-model="addList.end_time">
-							</div>
-				</div>	
-				<div class="layui-form-item" style="vertical-align: top;">
-						<label class="tit-tab">上传文件</label>
-						<div class="cus-files" id="cus-form">
-								<input type="file" id="cus-ipt" name="photo" class="cus-files-input" multiple="multiple" ref="inputer" accept=".doc,.docx,.pdf" @change="updateFileList" />
-								<div class="cus-files-content">
-										<div class="cus-warning">
-												<img class="img1" src="__IMG__/up@2x.png">
-												<p class="cus-warning-item">点击选择文件</p>
-												<p class="cus-warning-item">支持扩展名：.doc,.docx,.pdf 最多4个</p>
-										</div>
-								</div>
-						</div>
-				</div>
-				<div class="layui-form-item" style="margin-top:2vh;">
-					<label class="tit-tab">项目介绍：</label>
-					<div class="layui-input-block">
-					     <textarea placeholder="请输入内容" class="layui-textarea" v-model="addList.other_person"></textarea>		
-					</div>
-				</div>		
-			</div>
-		</div>
-			
-			<div class="btn_mar">
-				<div class="layui-footer line"></div>
-			<button class="layui-btn layui-btn-primary" type="button" @click="resetForm">取消</button>
-			<button class="layui-btn" type="button" @click="submitForm">提交</button>
-			</div>
-		</div>
-	</form>
+<body>
+    <div class="main">
+        <h2>项目计划内容</h2>
+        <!-- <form class="layui-form" action=""> -->
+            <section class="info">
+                <div class="infoCont">
+                    <div class="infoLeft">
+											<div class="timeSelect">
+													<label class="name">项目名称：</label>
+													<input type="text" name="title" id="itemName" lay-verify="required" required="required" placeholder="请输入项目名称" class="layui-input">    
+											</div>
+											<div class="timeSelect">
+													<label class="name">开始日期：</label>
+													<input type="text"  required="required" class="layui-input" id="startTime">
+											</div>                    
+                    </div>
+                    <div class="infoRight">
+                            <div class="timeSelect">
+                                <label class="name">所属阶段：</label>
+                                <select name="stage" id='stageCont' lay-verify="" class="pro_select">
+                                    <option value="01" selected>初始阶段</option>
+                                    <option value="02">实施阶段</option>
+                                    <option value="03">交付阶段</option>
+                                </select>
+                            </div>
+                        <div class="timeSelect">
+                            <label class="title-stage">变更阶段原因：</label>
+                            <input type="text" name="title" id="itemRate" lay-verify="required" required="required" placeholder="请输入工作进度" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <section class="this-work">
+                <h3>计划内容</h3>
+                <button class="layui-btn addThisWork">添加</button>
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="100">
+                        <col width="100">
+                        <col>
+                        <col width="100">
+                        <col>
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>任务名称</th>
+                            <th>任务类型</th>
+                            <th>内容描述</th>
+                            <th>负责人</th>
+                            <th>完成率</th>
+														<th>问题描述</th>
+														<th>参与人</th>
+														<th>计划完成时间</th>
+														<th>变更完成时间</th>
+														<th>实际完成时间</th>
+														<th>处理状态</th>
+														<th>预期原因</th>
+														<th>是否重大事件</th>
+														<th>重大事件原因</th>
+                        </tr> 
+                    </thead>
+                    <tbody id="thisWorkList"></tbody>
+                </table>
+            </section>
+            
+            <div class="submitInfo">
+                <button type="button" class="layui-btn" id="submitWorkly" lay-submit lay-filter="formDemo">提交</button>
+            </div>
+       <!-- </form> -->
+    </div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
-	layui.use(['form', 'layedit', 'laydate'], function(){
-	  var form = layui.form,
-	  layer = layui.layer,
-	  layedit = layui.layedit,
-	  laydate = layui.laydate;
-	 //日期 
-	  laydate.render({
-			elem: '#date',
-			type: 'datetime'
-			});
-		laydate.render({
-			elem: '#date1',
-			});
-		laydate.render({
-			elem: '#date2',
-			});
+    $(function(){
+        // 注册时间选择器
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#startTime' //开始事件
+            });
+            laydate.render({
+                elem: '#endTime' //结束时间
+            });
+            laydate.render({
+                elem: '#stageTime' //截止时间
+            });
+        });
 
-	  });
+        // 注册from解决下拉选择器样式失效问题
+        layui.use('form', function(){
+            var form = layui.form;
+            // 解决form表单跳转问题
+            form.on('submit', function(data){
+                return false
+            })
+            form.render();
+        });
 
-	 // 选择全国
-    var app = new Vue({
-        el: "#app",
-				data: function() {
-					return {
-						rank: [],
-						industryResult:[],
-						province: [],
-						divisionManager:[],
-						projectManager:[],
-						projectNature:[],
-						addList: {
-							name: '',
-							num: '',
-							grade: '',
-							date_timne: '',
-							message: '',
-							city: '',
-							company: '',
-							nature:'',
-							industry:'',
-							department:'',
-							project:'',
-							param:'',
-							money:'',
-							start_time:'',
-							end_time:'',
-							other_person:''
-						},
-						maxFileSize: 10485760,
-						maxFileLength: 4
-					}
-				},
-				created: function () {
-					this.getdata();
-				},
-				
-        methods: {				
-            getdata() {
-                var that = this;
+        var thisWorkId = 0 // 本周任务序号
+        var nextWorkId = 0 // 下周任务序号
+        var thisList = $('#thisWorkList').html() // 本周任务列表
+        var nextList = $('#nextWorkList').html() // 下周任务列表
+        var workInfo = {} // 基本信息
+        var thisWorkData = [] // 本周任务数据*
+        var nextWorkData = [] // 下周计划数据
+        // 添加本周任务 
+        $('.addThisWork').on('click',function(){
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 1,
+                shadeClose: true,
+                anim:5,
+                isOutAnim:true,
+                content: '<div class="form-addNextWork">'+
+                            '<h4>添加本周任务</h4>'+
+                            '<form class="layui-form" action="">'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">工作描述：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="workDep" lay-verify="required" placeholder="请输入工作内容" autocomplete="off" class="layui-input">'
+                                    +'</div>'
+                                +'</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">完成率：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="workRate" lay-verify="required" placeholder="请输入计划完成程度" autocomplete="off" class="layui-input">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">完成内容：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="finishCont" lay-verify="required" placeholder="请输入计划完成程度" autocomplete="off" class="layui-input">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">状态：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<select name="state" id="workState" lay-verify="">'+
+                                            '<option value="01" selected>进行中</option>'+
+                                            '<option value="02">已完成</option>'+
+                                            '<option value="03">已关闭</option>'+
+                                        '</select>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">备注：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" id="remark" placeholder="请输入备注" autocomplete="off" class="layui-input">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<button class="layui-btn" id="addWork1">添加</button>'+
+                            '</form>'+
+                        '</div>'
+            });            
+            layui.use('form', function(){
+                var form = layui.form;
+                // 解决form表单跳转问题
+                form.on('select', function(data){
+                    if (data.value == 03) {
+                        $('#remark').attr('required','required')
+                    }
+                }); 
+                form.on('submit', function(data){
+                    return false
+                })
+                form.render();
+            });
+            $('#addWork1').on('click',function(){
+                var workDep = $('#workDep').val()
+                var workRate = $('#workRate').val()
+                var finishCont = $('#finishCont').val()
+                var workStateText = $("#workState option:selected").text();
+                var workStateId =  $("#workState").val();
+                var remark = $('#remark').val()
+                var thisWorkItem = {}
+                if (workStateId == 03) {
+                    if (workDep !== '' && workRate !== '' && finishCont !== '' && workState !== '' && remark !== '') {
+                        thisWorkId = thisWorkId+1
+                        thisWorkItem.weekly_id = thisWorkId
+                        thisWorkItem.task_content = workDep
+                        thisWorkItem.finish_status = workRate
+                        thisWorkItem.finish_content = finishCont
+                        thisWorkItem.state = workStateText
+                        thisWorkItem.remark = remark
+                        thisWorkData.push(thisWorkItem)
+                        thisList += '<tr>'+
+                                        '<td>'+ thisWorkId +'</td>'+
+                                        '<td>'+ workDep +'</td>'+
+                                        '<td>'+ workRate +'</td>'+
+                                        '<td>'+ finishCont +'</td>'+
+                                        '<td>'+ workStateText +'</td>'+
+                                        '<td>'+ remark +'</td>'+
+                                    '</tr>'
+                        $('#thisWorkList').html(thisList);
+                        layer.close(layer.index);
+                    }
+                }  else {
+                    if  (workDep !== '' && workRate !== '' && finishCont !== '' && workState !== '') {
+                        if (remark == '') {
+                            remark = '无'
+                        }
+                        thisWorkId = thisWorkId+1
+                        thisWorkItem.weekly_id = thisWorkId
+                        thisWorkItem.task_content = workDep
+                        thisWorkItem.finish_status = workRate
+                        thisWorkItem.finish_content = finishCont
+                        thisWorkItem.state = workStateText
+                        thisWorkItem.remark = remark
+                        thisWorkData.push(thisWorkItem)
+                        thisList += '<tr>'+
+                                        '<td>'+ thisWorkId +'</td>'+
+                                        '<td>'+ workDep +'</td>'+
+                                        '<td>'+ workRate +'</td>'+
+                                        '<td>'+ finishCont +'</td>'+
+                                        '<td>'+ workStateText +'</td>'+
+                                        '<td>'+ remark +'</td>'+
+                                    '</tr>'
+                        $('#thisWorkList').html(thisList);
+                        layer.close(layer.index);
+                    }
+                }
+            });
+        })
+        // 添加下周计划
+        $('.addNextWork').on('click',function(){
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 1,
+                shadeClose: true,
+                anim:5,
+                isOutAnim:true,
+                content: '<div class="form-addNextWork">'+
+                            '<h4>添加下周计划</h4>'+
+                            '<form class="layui-form" action="">'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">工作内容：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="workCont" lay-verify="required" placeholder="请输入工作内容" autocomplete="off" class="layui-input">'
+                                    +'</div>'
+                                +'</div>'+
+                                '<div class="layui-form-item">'+
+                                    '<label class="layui-form-label">计划完成：</label>'+
+                                    '<div class="layui-input-block">'+
+                                        '<input type="text" name="title" required id="workStage" lay-verify="required" placeholder="请输入计划完成程度" autocomplete="off" class="layui-input">'+
+                                    '</div>'+
+                                '</div>'+
+                                '<button class="layui-btn" id="addWork2">添加</button>'+
+                            '</form>'+
+                        '</div>'
+            });
+            $('#addWork2').on('click',function(){
+                var workCont = $('#workCont').val()
+                var workStage = $('#workStage').val()
+                var nextWorkItem = {}
+                if (workCont !== '' && workStage !== '') {
+                    nextWorkId = nextWorkId+1
+                    nextWorkItem.weekly_id = nextWorkId
+                    nextWorkItem.task_content = workCont
+                    nextWorkItem.finish_plan = workStage
+                    nextWorkData.push(nextWorkItem)
+                    nextList += '<tr>'+
+                                '<td>' + nextWorkId+ '</td>'+
+                                '<td>' +workCont  + '</td>'+
+                                '<td>'+workStage+'</td>'+
+                            '</tr>'
+                    $('#nextWorkList').html(nextList);
+                    layer.close(layer.index);
+                }
+            })
+        })
+
+        // 采集表单数据并发送
+        $('#submitWorkly').on('click',function(){
+            workInfo.weekly_stime = $('#startTime').val() // 获取开始时间
+            workInfo.weekly_etime = $('#endTime').val() // 获取结束时间
+            workInfo.pro_name =  $('#itemName').val() // 获取项目名称
+            workInfo.stage = $('#stageCont option:selected').text() // 获取所属阶段
+            workInfo.pro_schedule = $('#itemRate').val() // 获取工作进度
+            workInfo.stageenddate = $('#stageTime').val() // 获取阶段截止日期
+            if (workInfo.weekly_stime == '' || workInfo.weekly_etime == '' 
+                || workInfo.pro_name == '' || workInfo.pro_schedule == '' 
+                || workInfo.stageenddate == '' || thisList == '')
+            {
+                layer.msg('请填写完整信息后提交', {icon: 5});
+            } else {
+                // console.log(workInfo)
                 $.ajax({
                     cache: false,
                     type: "post",
-                    url: "{:U('ProjectRegistration/projectRecord')}",
+                    url: "{:U('ProjectweekReport/weekInsert')}",
                     dataType: "json",
-                    success: function (data) {
-												that.rank = data.data.rank;
-                        that.province = data.data.area;
-												that.industryResult = data.data.industryResult;
-												that.divisionManager = data.data.divisionManager;
-												that.projectManager = data.data.projectManager;
-												that.projectNature = data.data.projectNature; 
+                    data:{
+                        workInfo:workInfo,
+                        thisWorkData:thisWorkData,
+                        nextWorkData:nextWorkData
                     }
                 })
-            },
-							
-               resetUpload: function(msg) {
-                    $('.cus-files-content').find('.cus-img').remove();
-                    $('.cus-files-input')[0].value = '';
-                    $('.cus-warning').show();
-            
-                    layui.use('layer', function () {
-                        layui.layer.alert(msg);
-                    })
-                },
-                testUpload: function(files, maxFileLength, maxFileSize) {
-                    var result = true;
-                    var _this = this;
-                    // 未选择文件, 清空选择框
-                    if (files.length === 0) {
-                        _this.resetUpload('未选择任何文件');
-                    
-                        result = false;
-                    }
-                    
-                    // 文件个数超过限制, 重新选择
-                    if (files.length > _this.maxFileLength) {
-                        _this.resetUpload('上传文件个数不能超过'+ _this.maxFileLength +'个, 请重新上传!');
-                    
-                        result = false;
-                    }
-                    
-                    // 文件大小超过限制, 重新选择
-                    ;[].slice.call(files).forEach(function (item, idx) {
-                        if (item.size > _this.maxFileSize) {
-                            _this.resetUpload('上传文件最大不能超过10M, 请重新上传!');
-                    
-                            result = false;
-                        }
-                    })
-                    
-                    return result;
-                },
-                // 上传文件列表
-                updateFileList: function() {
-                    var files = $('#cus-ipt')[0].files;
-                    var _this = this;
-                    $('.cus-warning').show();
-            
-                    var res = _this.testUpload(files);
-                    if (res) {
-                        $('.cus-warning').hide();
-                        _this.showThumbnails(files, $('.cus-files-content'));
-                    }
-                },
-                // 显示缩略图
-                showThumbnails: function(files ,el) {
-                    $('.cus-files-content').html('');
-                    ;[].slice.call(files).forEach(function (item, idx) {
-                        var reader = new FileReader();
-                        var div = document.createElement('div');
-                        $(div).css({
-                            display: 'inline-block',
-                            verticalAlign: 'top',
-                            width: '50px',
-                            height: '50px',
-                            margin: '5px',
-                            border: '1px dashed #979797',
-                            'fontSize': '12px',
-                            'overFlow': 'hidden'
-                        }).html(item.name);
-                    
-                        $(el).append(div);
-                    })
-                },	
-											
-					submitForm: function() {
-						// 表单验证
-						if( this.addList.name == '' ||
-							this.addList.num == '' ||
-							this.addList.grade == '' ||
-							this.addList.date_timne == '' ||
-							this.addList.message == '' ||
-							this.addList.city == '' ||
-							this.addList.company == ''||
-							this.addList.nature == ''||
-							this.addList.industry == ''||
-							this.addList.department == ''||
-							this.addList.project == ''||
-							this.addList.money == ''||
-							this.addList.start_time == ''||
-							this.addList.end_time == ''||
-							this.addList.other_person == ''				
-							
-						) {
-							layui.use('layer', function() {
-								var layer = layui.layer;
-								layer.alert('请确保信息输入完整!');
-							})
-						}	else {
-							this.submitText();
-							// this.submitFile();
-						}
-					},
-
-					// 上传文字内容
-					submitText: function() {
-						var _this = this;
-						var formData = new FormData();
-						var fs = $('#cus-ipt')[0].files;
-						var divisionManagerId = $('#departid').val();
-						var projectManagerId = $('#projectid').val();
-						console.log(divisionManagerId, projectManagerId);
-						for(var i = 0; i < fs.length; i++) {
-							formData.append('photo[]', fs[i]);
-						}
-						formData.append('pro_id', this.addList.num);
-						formData.append('pro_name', this.addList.name);
-						formData.append('rank', this.addList.grade);
-						formData.append('createTime', this.addList.date_timne);
-						formData.append('lxMsg', this.addList.message);
-						formData.append('area', this.addList.city);
-						formData.append('cooperativeUnit', this.addList.company);
-						formData.append('projectNature', this.addList.nature);
-						formData.append('industry', this.addList.industry);
-						formData.append('divisionManager', this.addList.department);
-						formData.append('divisionManagerId', divisionManagerId);
-						formData.append('projectManager', this.addList.project);
-						formData.append('projectManagerId', projectManagerId);
-						formData.append('typeId', this.addList.param);
-						formData.append('contractAmount', this.addList.money);
-						formData.append('projectStime', this.addList.start_time);
-						formData.append('projectEtime', this.addList.end_time);
-						formData.append('projectIntroduce', this.addList.other_person);
-						$.ajax({
-							cache: false,
-							async: false,
-							type: "POST",
-							url: "{:U('ProjectRegistration/projectAdd')}",
-							dataType: "json",
-							data: formData,
-							processData: false,
-							contentType: false,
-							success: function (res) {
-								if(res.code == 200) {
-									layui.use('layer', function() {
-										layer.alert('提交成功');
-									})
-								} else {
-									layui.use('layer', function() {
-										var layer = layui.layer;
-										layer.alert('添加失败');
-									})
-								}
-							}
-						})
-					},					
-        }
+                // 重置信息
+                $('#startTime').val('')
+                $('#endTime').val('')
+                $('#itemName').val('')
+                $('#stageCont').val('')
+                $('#itemRate').val('')
+                $('#stageTime').val('')
+                thisWorkId = 0 // 本周任务序号
+                nextWorkId = 0 // 下周任务序号
+                thisList = $('#thisWorkList').html('') // 本周任务列表
+                nextList = $('#nextWorkList').html('') // 下周任务列表
+                workInfo = {} // 基本信息
+                thisWorkData = [] // 本周任务数据
+                nextWorkData = [] // 下周计划数据
+            }
+        });
     })
 </script>
 </html>

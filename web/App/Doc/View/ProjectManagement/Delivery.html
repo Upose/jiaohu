@@ -37,9 +37,9 @@
 						<div class="layui-input-block">
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select">
-								<option value="">全国</option>
+								<option value="">请选择</option>
 									<option v-for="i in area" :value="i.pid">{{i.pname}}</option>
-								</select>
+								</select>	
 							</div>
 						</div>
 					</div>	
@@ -51,9 +51,7 @@
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select">
 								<option value="">请选择</option>
-								<option value="0">bootstrap</option>、
-								<option value="1">layui</option>
-								<option value="2">less</option>
+								<option v-for="i in uiFrame" :value="i.frameid">{{i.frame_name}}</option>
 								</select>
 							</div>
 						</div>
@@ -66,9 +64,7 @@
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select">
 								<option value="">请选择</option>
-								<option value="0">VUE.JS</option>、
-								<option value="1"></option>
-								<option value="2">less</option>
+								<option v-for="i in jsFrame" :value="i.frameid">{{i.frame_name}}</option>
 								</select>
 							</div>
 						</div>
@@ -80,6 +76,7 @@
 							<div class="layui-input-block">
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select">
+									<option value="">请选择</option>
 									<option v-for="i in backFrame" :value="i.frameid">{{i.frame_name}}</option>
 								</select>
 							</div>
@@ -93,6 +90,7 @@
 							<div class="layui-input-block">
 								<div  class="search_div">
 									<select name="interest" lay-filter="aihao" class="pro_select">
+										<option value="">请选择</option>
 										<option v-for="i in databaseFrame" :value="i.frameid">{{i.frame_name}}</option>
 									</select>
 								</div>
@@ -149,7 +147,6 @@
 											<th>所属岗位</th>
 											<th>职位</th>
 											<th>到岗时间</th>
-											<th>离岗时间</th>
 									</tr>
 							</thead>
 							<tbody>
@@ -158,7 +155,6 @@
 											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
 											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
 											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
-											<td><button class="btnli" type="button">离岗<button></td>
 									</tr>
 							</tbody>
 					</table>
@@ -179,6 +175,13 @@
 		<div class="new_tit"><span>新增项目成员</span><img @click='down()' src="__IMG__/close_normal.png"></div>
 		<form action="{:U('ProjectManagement/projectAdd')}" method="post">
 			<div class="con_txt">
+			<p>人员类型：
+				<select name="interest" lay-filter="aihao" class="name_input">
+					<option value="">请选择</option>
+					<option value="1">内部人员</option>
+					<option value="2">外部人员</option>
+				</select>
+			</p>
 				<p>人员姓名：<input name="name" class="name_input" type="text" placeholder="请输入人员姓名"></p>
 				<p>所属岗位：<select name="industry_id" class="industry_input" id="">
 						<option v-for='i in industry' :value="i.id">{{i.name}}</option>
@@ -187,7 +190,6 @@
 						<option v-for='i in customer' :value="i.id">{{i.name}}</option>
 					</select></p>
 				<p>到岗时间：<input name="start_time" class="time_input" type="date" id=""></p>
-				<p>离岗时间：<input name="start_time" class="time_input" type="date" id=""></p>
 			</div>
 			<div class="btn_div"><button type="submit" @click='down()'>确定</button></div>
 		</form>
@@ -214,14 +216,15 @@
 						projectmen: [],
 						area:[],
 						backFrame:[],
-						rank:[],
 						databaseFrame:[],
+						uiFrame:[],
+						jsFrame:[],
 						industryResult:[],
             province: [],
         },
 		created: function () {
 			this.project();
-
+			this.projectzeng();
 			this.getdata();
 		},
         methods: {
@@ -251,9 +254,23 @@
                     success: function (data) {
 												that.area = data.data.area;
 												that.backFrame = data.data.backFrame;
+												that.uiFrame = data.data.uiFrame;
+												that.jsFrame = data.data.jsFrame;
+												that.databaseFrame = data.data.databaseFrame;
 												that.projectmen = data.data.projectList;
                     }
                 })
+						},
+						projectzeng() {
+								var that = this;
+								$.ajax({
+										type: "post",
+										url: "{:U('ProjectDelivery/addPersionDropOperation')}",
+										dataType: "json",
+										success: function (data) {
+
+										}
+								})
 						},
 						down() {
 							$(".new_div").hide();
