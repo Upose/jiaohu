@@ -23,7 +23,7 @@
 						<label class="tit-tab">项目名称：</label>
 						<div class="layui-input-block">
 						<div  class="search_div">
-							<select name="interest" lay-filter="aihao" class="pro_select">
+							<select name="interest" lay-filter="aihao" id="dpropeopleid" class="pro_select" v-model="proname">
 							<option value="">请选择</option>
 								<option v-for="i in projectmen" :value="i.pro_id">{{i.pro_name}}</option>
 							</select>
@@ -175,22 +175,25 @@
 		<div class="new_tit"><span>新增项目成员</span><img @click='down()' src="__IMG__/close_normal.png"></div>
 		<form action="{:U('ProjectManagement/projectAdd')}" method="post">
 			<div class="con_txt">
-			<p>人员类型：<select name="interest" lay-filter="aihao" class="industry_input">
-					<option value="">请选择</option>
-					<option value="0">内部人员</option>
-					<option value="1">外部人员</option>
-				</select>
-			</p>
-				<p>所属部门：<select name="industry_id" class="industry_input" id="">
-						<option v-for='i in zdepartment'>{{i.name}}</option>
-					</select></p>
-				<p>人员姓名：<input name="name" class="name_input" type="text" placeholder="请输入人员姓名"></p>
-				<p>所属岗位：<select name="customer_type_id" class="client_input" id="">
-						<option v-for='i in customer' :value="i.id">{{i.name}}</option>
-					</select></p>
-				<p>到岗时间：<input name="start_time" class="time_input" type="date" id=""></p>
+				<p>所属部门：<select name="industry_id" class="industry_input" id="" v-model="departname" @change="depart_select">
+						<option value="">请选择</option>
+						<option v-for='i in zdepartment'>{{i.department}}</option>
+					</select>
+				</p>
+				<p>人员姓名：<select name="customer_type_id" class="client_input" id="dpeopleid" v-model="peoplezeng">
+						<option value="">请选择</option>
+						<option v-for='i in peoplemore' :value="i.jobtype_id">{{i.member_name}}</option>
+					</select>
+				</p>
+				
+				<p>所属岗位：<select name="customer_type_id" class="client_input"  v-model="peo_job">
+						<option value="">请选择</option>
+						<option v-for='i in zpostName' name="member_id" :value="i.member_id">{{i.jobtype_name}}</option>
+					</select>
+				</p>
+				<p>到岗时间：<input name="start_time" class="time_input" type="date" id="" v-mode="dao_data"></p>
 			</div>
-			<div class="btn_div"><button type="submit" @click='down()'>确定</button></div>
+			<div class="btn_div"><button type="submit" @click='zeng()'>确定</button></div>
 		</form>
 	</div>
 	
@@ -214,6 +217,11 @@
         data: {
 						projectmen: [],
 						area:[],
+						departname:'',
+						proname:'',
+						peoplezeng:'',
+						peo_job:'',
+						dao_data:'',
 						backFrame:[],
 						databaseFrame:[],
 						zdepartment:[],
@@ -221,6 +229,7 @@
 						uiFrame:[],
 						jsFrame:[],
 						industryResult:[],
+						peoplemore:[],
             province: [],
         },
 		created: function () {
@@ -248,7 +257,6 @@
                     type: "post",
                     url: "{:U('ProjectDelivery/proDelivery')}",
                     dataType: "json",
-
 										data:{
 											projectManagerId:875
 										},
@@ -270,14 +278,53 @@
 										dataType: "json",
 										success: function (data) {
 											that.zdepartment = data.data.department;
+											that.zpostName = data.data.postName;
 
 										}
 								})
 						},
+						depart_select(){
+                var that = this;
+                $.ajax({
+                    type: "post",
+                    url: "{:U('ProjectDelivery/departmentPersion')}",
+                    dataType: "json",
+										data:{
+											departmentName:this.departname
+										},
+                    success: function (data) {
+											that.peoplemore = data.data;
+
+                    }
+                })
+						},
 						down() {
 							$(".new_div").hide();
 						},
-						
+						zeng() {
+							var that = this;
+							var dproId = $('#dpropeopleid').val();
+							var dpersionId= $('#dpeopleid').val();
+							$.ajax({
+									type: "post",
+									url: "{:U('ProjectDelivery/proDeliveryPersionAdd')}",
+									dataType: "json",
+									data:{
+										proId:dproId,
+										proName:this.proname,
+										persionId:dpersionId,
+										persionName:this.peoplezeng,
+										jobType:this.peo_job,
+										inTime:this.dao_data
+									},
+									success: function (data) {
+										that.peoplemore = data.data;
+
+									}
+							})
+							
+							$(".new_div").hide();
+						},
         }
     })
 		
