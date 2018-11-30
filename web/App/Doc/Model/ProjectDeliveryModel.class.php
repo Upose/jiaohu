@@ -18,6 +18,8 @@ class ProjectDeliveryModel
         $projectList = M()->query($projectListSql);
         return  $projectList;
      }
+
+
 	 /**
 	 * 区域下拉框
 	 * @author song.chaoxu 
@@ -102,11 +104,81 @@ class ProjectDeliveryModel
      }
 
 
+    /**
+     * 获取交付部下拉 部门列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.30
+     */
+      public function getDepartment()
+     {
+        $departmentSql = "SELECT
+                                u.department
+                            FROM
+                                `user_member` u
+                            WHERE
+                                department LIKE '%交付%'
+                            GROUP BY
+                                department;";
+        $departmentList = M()->query($departmentSql);
+        return  $departmentList;
+     }
+
+
+    /**
+     * 获取职位下拉 
+     * 
+     * @author song.chaoxu 
+     * 2018.11.30
+     */
+      public function getPostName()
+     {
+        $postNameSql = "SELECT
+                                u.postsname
+                            FROM
+                                `user_member` u
+                            WHERE
+                                department LIKE '%交付%'
+                            GROUP BY
+                                postsname;";
+        $postList = M()->query($postNameSql);
+        return  $postList;
+     }
+
+
+    /**
+     * 根据部门列表 查询部门下的人员
+     * 
+     * @author song.chaoxu 
+     * 2018.11.30
+     */
+      public function getdepartmentPersion($departmentName)
+     {
+        $departmentPersionSql = "SELECT
+                                u.member_id,
+                                u.member_name,
+                                u.postsname,
+                                CASE
+                            WHEN u.member_type = 0 THEN
+                                '内部人员'
+                            ELSE
+                                '外部人员'
+                            END AS member_type
+                            FROM
+                                `user_member` u
+                            WHERE
+                                department LIKE \"$departmentName\"
+
+                            ";
+        $departmentPersionList = M()->query($departmentPersionSql);
+        return  $departmentPersionList;
+     }
+
 
 
 
     /**
-     * 实施交付新增
+     * 实施交付信息新增
      * @author song.chaoxu
      * 2018.11.20
      */
@@ -166,6 +238,72 @@ class ProjectDeliveryModel
             return $e->getMessage();
         }
        	 
+    }
+
+
+
+
+    /**
+     * 实施交付人员新增
+     * @author song.chaoxu
+     * 2018.11.30
+     */
+    public function proDeliveryPersionAdd($pro_code,$pro_name,$typeId,$industry, $projectManagerId, $projectManager, $projectStime,$projectEtime, $area,$rank,$createTime,$newPath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManagerId,$divisionManager,$contractAmount,$projectIntroduce){
+
+          $sql="INSERT INTO `deliveryapplication`.`app_project` (
+                    `pro_id`,
+                    `pro_name`,
+                    `type_id`,
+                    `industry_id`,
+                    `member_id`,
+                    `pro_leader`,
+                    `pro_stime`,
+                    `pro_etime`,
+                    `pro_address`,
+                    `secrecy_grade`,
+                    `create_data`,
+                    `pro_enclosure`,
+                    `pro_msg`,
+                    `cooperative_unit`,
+                    `pro_source`,
+                    `division_manager_id`,
+                    `pro_division_manager`,
+                    `contract_amount`,
+                    `pro_introduce`
+                )
+                VALUES
+                    (
+                        $pro_code,
+                        \"$pro_name\",
+                        $typeId,
+                        $industry,
+                        $projectManagerId,
+                        \"$projectManager\", 
+                        $projectStime,
+                        $projectEtime,
+                        \"$area\",
+                        \"$rank\",
+                        $createTime,
+                        \"$newPath\",
+                        \"$lxMsg\",
+                        \"$cooperativeUnit\",
+                        \"$projectNature\",
+                        $divisionManagerId,
+                        \"$divisionManager\",
+                        $contractAmount,
+                        \"$projectIntroduce\"
+                    );";
+
+
+        try{
+
+            $res =  M()->execute($sql);
+            return $res;
+         
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+         
     }
 
 }
