@@ -38,7 +38,7 @@
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select">
 								<option value="">全国</option>
-									<option v-for="i in province" :value="i.pid">{{i.pname}}</option>
+									<option v-for="i in area" :value="i.pid">{{i.pname}}</option>
 								</select>
 							</div>
 						</div>
@@ -80,10 +80,7 @@
 							<div class="layui-input-block">
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao" class="pro_select">
-								<option value="">请选择</option>
-								<option value="0">php</option>、
-								<option value="1">java</option>
-								<option value="2">go</option>
+									<option v-for="i in backFrame" :value="i.frameid">{{i.frame_name}}</option>
 								</select>
 							</div>
 						</div>
@@ -96,10 +93,7 @@
 							<div class="layui-input-block">
 								<div  class="search_div">
 									<select name="interest" lay-filter="aihao" class="pro_select">
-									<option value="">请选择</option>
-									<option value="0">VUE.JS</option>、
-									<option value="1"></option>
-									<option value="2">less</option>
+										<option v-for="i in databaseFrame" :value="i.frameid">{{i.frame_name}}</option>
 									</select>
 								</div>
 						</div>
@@ -219,7 +213,9 @@
         data: {
 						projectmen: [],
 						area:[],
+						backFrame:[],
 						rank:[],
+						databaseFrame:[],
 						industryResult:[],
             province: [],
         },
@@ -252,10 +248,10 @@
 										data:{
 											projectManagerId:875
 										},
-
                     success: function (data) {
 												that.area = data.data.area;
-												that.projectmen = data.data.projectList.result;
+												that.backFrame = data.data.backFrame;
+												that.projectmen = data.data.projectList;
                     }
                 })
 						},
