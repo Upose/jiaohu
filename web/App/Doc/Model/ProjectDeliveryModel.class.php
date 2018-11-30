@@ -223,7 +223,7 @@ class ProjectDeliveryModel
 
 
         try{
-            
+
             $res =  M()->execute($sql);
             return $res;
          
@@ -241,51 +241,25 @@ class ProjectDeliveryModel
      * @author song.chaoxu
      * 2018.11.30
      */
-    public function proDeliveryPersionAdd($pro_code,$pro_name,$typeId,$industry, $projectManagerId, $projectManager, $projectStime,$projectEtime, $area,$rank,$createTime,$newPath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManagerId,$divisionManager,$contractAmount,$projectIntroduce){
+    public function proDeliveryPersionAdd($proId,$proName,$persionId,$persionName,$jobType,$inTime){
 
-          $sql="INSERT INTO `deliveryapplication`.`app_project` (
-                    `pro_id`,
+          $sql="INSERT INTO `deliveryapplication`.`app_project_persion` (
                     `pro_name`,
-                    `type_id`,
-                    `industry_id`,
                     `member_id`,
-                    `pro_leader`,
-                    `pro_stime`,
-                    `pro_etime`,
-                    `pro_address`,
-                    `secrecy_grade`,
-                    `create_data`,
-                    `pro_enclosure`,
-                    `pro_msg`,
-                    `cooperative_unit`,
-                    `pro_source`,
-                    `division_manager_id`,
-                    `pro_division_manager`,
-                    `contract_amount`,
-                    `pro_introduce`
+                    `pro_id`,
+                    `member_name`,
+                    `come_time`,
+                    `duty`
                 )
                 VALUES
                     (
-                        $pro_code,
-                        \"$pro_name\",
-                        $typeId,
-                        $industry,
-                        $projectManagerId,
-                        \"$projectManager\", 
-                        $projectStime,
-                        $projectEtime,
-                        \"$area\",
-                        \"$rank\",
-                        $createTime,
-                        \"$newPath\",
-                        \"$lxMsg\",
-                        \"$cooperativeUnit\",
-                        \"$projectNature\",
-                        $divisionManagerId,
-                        \"$divisionManager\",
-                        $contractAmount,
-                        \"$projectIntroduce\"
-                    );";
+                        \"$proName\",
+                        $persionId,
+                        $proId,
+                        \"$persionName\",
+                        \"$inTime\",
+                        $jobType
+                    ); ";
 
 
         try{
