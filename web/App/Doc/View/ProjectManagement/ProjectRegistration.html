@@ -41,7 +41,7 @@
 							<div  class="search_div">
 								<select name="interest" lay-filter="aihao"  class="pro_select" v-model="addList.grade">
 								<option v-for="a in rank" :value="a.id">{{a.rank_name}}</option>
-								</select>
+								</select>							
 							</div>
 						</div>
 					</div>	
@@ -126,6 +126,7 @@
 							<select name="interest"  id="projectid" lay-filter="aihao"  class="pro_select" v-model="addList.project">						
 							<option v-for="f in projectManager" :value="f.member_id">{{f.member_name}}</option>
 							</select>
+		
 						</div>
 						</div>
 					</div>	

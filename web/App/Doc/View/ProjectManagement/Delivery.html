@@ -22,11 +22,12 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">项目名称：</label>
 						<div class="layui-input-block">
-						<div  class="search_div">
-							<select name="interest" lay-filter="aihao" id="dpropeopleid" class="pro_select" v-model="proname">
+						<div  class="search_div">							
+							<select id="dpropeopleid" class="pro_select"  v-model="addList.proname">
 							<option value="">请选择</option>
-								<option v-for="i in projectmen" :value="i.pro_id">{{i.pro_name}}</option>
+								<option v-for="i in projectmen"  :value="i.pro_id">{{i.pro_name}}</option>
 							</select>
+							  <span>项目名称: {{ addList.proname }}</span>
 						</div>
 						</div>
 					</div>	
@@ -173,28 +174,26 @@
 	<!-- 新增功能弹框 -->
 	<div class="new_div">
 		<div class="new_tit"><span>新增项目成员</span><img @click='down()' src="__IMG__/close_normal.png"></div>
-		<form action="{:U('ProjectManagement/projectAdd')}" method="post">
 			<div class="con_txt">
-				<p>所属部门：<select name="industry_id" class="industry_input" id="" v-model="departname" @change="depart_select">
+				<p>所属部门：<select name="industry_id" class="industry_input" id="" v-model="addList.departname" @change="depart_select">
 						<option value="">请选择</option>
 						<option v-for='i in zdepartment'>{{i.department}}</option>
 					</select>
 				</p>
-				<p>人员姓名：<select name="customer_type_id" class="client_input" id="dpeopleid" v-model="peoplezeng">
+				<p>人员姓名：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
 						<option value="">请选择</option>
-						<option v-for='i in peoplemore' :value="i.jobtype_id">{{i.member_name}}</option>
+						<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
 					</select>
 				</p>
 				
-				<p>所属岗位：<select name="customer_type_id" class="client_input"  v-model="peo_job">
+				<p>所属岗位：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
 						<option value="">请选择</option>
-						<option v-for='i in zpostName' name="member_id" :value="i.member_id">{{i.jobtype_name}}</option>
+						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
 					</select>
 				</p>
-				<p>到岗时间：<input name="start_time" class="time_input" type="date" id="" v-mode="dao_data"></p>
+				<p>到岗时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
 			</div>
 			<div class="btn_div"><button type="submit" @click='zeng()'>确定</button></div>
-		</form>
 	</div>
 	
 </body>
@@ -214,28 +213,30 @@
 	 // 选择全国
     var app = new Vue({
         el: ".app",
-        data: {
-						projectmen: [],
+				data: function() {
+					return {
 						area:[],
-						departname:'',
-						proname:'',
-						peoplezeng:'',
-						peo_job:'',
-						dao_data:'',
 						backFrame:[],
+						projectmen: [],
 						databaseFrame:[],
 						zdepartment:[],
 						zpostName:[],
 						uiFrame:[],
 						jsFrame:[],
-						industryResult:[],
 						peoplemore:[],
-            province: [],
-        },
+						addList: {
+							proname: '',
+							departname: '',
+							selectedpeople: '',
+							peo_job: '',
+							dao_data:''
+						},
+					}
+				},
 		created: function () {
+			this.getdata();
 			this.project();
 			this.projectzeng();
-			this.getdata();
 		},
         methods: {
             getdata() {
@@ -290,7 +291,7 @@
                     url: "{:U('ProjectDelivery/departmentPersion')}",
                     dataType: "json",
 										data:{
-											departmentName:this.departname
+											departmentName:this.addList.departname
 										},
                     success: function (data) {
 											that.peoplemore = data.data;
@@ -305,21 +306,22 @@
 							var that = this;
 							var dproId = $('#dpropeopleid').val();
 							var dpersionId= $('#dpeopleid').val();
+							console.log(dproId);
+							console.log(dpersionId);
 							$.ajax({
 									type: "post",
 									url: "{:U('ProjectDelivery/proDeliveryPersionAdd')}",
 									dataType: "json",
 									data:{
 										proId:dproId,
-										proName:this.proname,
+										proName:this.addList.proname,
 										persionId:dpersionId,
-										persionName:this.peoplezeng,
-										jobType:this.peo_job,
-										inTime:this.dao_data
+										persionName:this.addList.selectedpeople,
+										jobType:this.addList.peo_job,
+										inTime:this.addList.dao_data
 									},
 									success: function (data) {
-										that.peoplemore = data.data;
-
+			
 									}
 							})
 							
