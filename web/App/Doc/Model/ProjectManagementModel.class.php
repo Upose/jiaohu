@@ -22,7 +22,7 @@ class ProjectManagementModel
 	 	pm.start_time,
 	 	pm.end_time,s.name as status,
 	 	pm.progress_rate as rate
-		from ProjectManagement pm 
+		from projectmanagement pm 
 		join project_select i 
 		on pm.industry_id  = i.id 
 		join area a 
