@@ -175,52 +175,35 @@ class ProjectDeliveryModel
      * @author song.chaoxu
      * 2018.11.20
      */
-    public function proDeliveryAdd($pro_code,$pro_name,$typeId,$industry, $projectManagerId, $projectManager, $projectStime,$projectEtime, $area,$rank,$createTime,$newPath,$lxMsg,$cooperativeUnit,$projectNature,$divisionManagerId,$divisionManager,$contractAmount,$projectIntroduce){
+    public function proDeliveryAdd($proId,$proName,$proArea,$uiFrame,$jsFrame,$backFrame,$databaseFrame,$stakeHolder,$whether_ys,$ys_date,$persionRelease){
 
-    	  $sql="INSERT INTO `deliveryapplication`.`app_project` (
+    	  $sql="INSERT INTO `deliveryapplication`.`app_project_delivery` 
                     `pro_id`,
                     `pro_name`,
-                    `type_id`,
-                    `industry_id`,
-                    `member_id`,
-                    `pro_leader`,
-                    `pro_stime`,
-                    `pro_etime`,
-                    `pro_address`,
-                    `secrecy_grade`,
-                    `create_data`,
-                    `pro_enclosure`,
-                    `pro_msg`,
-                    `cooperative_unit`,
-                    `pro_source`,
-                    `division_manager_id`,
-                    `pro_division_manager`,
-                    `contract_amount`,
-                    `pro_introduce`
+                    `pro_area`,
+                    `uiframe`,
+                    `jsframe`,
+                    `backframe`,
+                    `databaseframe`,
+                    `stakeholder`,
+                    `whether_ys`,
+                    `ys_date`,
+                    `person_release`
                 )
                 VALUES
                     (
-                        $pro_code,
-                        \"$pro_name\",
-                        $typeId,
-                        $industry,
-                        $projectManagerId,
-                        \"$projectManager\", 
-                        $projectStime,
-                        $projectEtime,
-                        \"$area\",
-                        \"$rank\",
-                        $createTime,
-                        \"$newPath\",
-                        \"$lxMsg\",
-                        \"$cooperativeUnit\",
-                        \"$projectNature\",
-                        $divisionManagerId,
-                        \"$divisionManager\",
-                        $contractAmount,
-                        \"$projectIntroduce\"
+                        $proId,
+                        \"$proName\",
+                        $proArea,
+                        $uiFrame,
+                        $jsFrame,
+                        $backFrame,
+                        $databaseFrame,
+                        \"$stakeHolder\",
+                        $whether_ys,
+                        \"$ys_date\",
+                        $persionRelease
                     );";
-
 
         try{
 
@@ -232,7 +215,6 @@ class ProjectDeliveryModel
         }
        	 
     }
-
 
 
 
