@@ -282,8 +282,6 @@ class ProjectDeliveryModel
        	 
     }
 
-
-
     /**
      * 实施交付人员新增
      * @author song.chaoxu
