@@ -117,6 +117,24 @@ class ProjectDeliveryController extends BaseController {
 
 
     /**
+     * 查询此人负责的项目实施交付信息
+     * @author song.chaoxu
+     * 2018.12.01
+     */
+    public function projectDeliveryContent()
+    {
+        
+        //获取此人ID  查询此人负责的项目实施交付信息
+        $projectManagerId = I('projectManagerId');
+
+        $projectDeliveryContent=$this->projectDeliveryContent=
+        ProjectDeliveryModel::projectDeliveryContent($projectManagerId);
+        
+        $this->Response(200,$projectDeliveryContent,'');
+
+    }
+
+    /**
      * 根据部门列表 查询部门下的人员
      * @author song.chaoxu
      * 2018.11.30
@@ -125,7 +143,6 @@ class ProjectDeliveryController extends BaseController {
     {
         $projectId = I('projectId');
 
-        //数据库框架 - 页面下拉项内容
         $projectPersion=$this->projectPersion=
         ProjectDeliveryModel::projectPersion($projectId);
         
