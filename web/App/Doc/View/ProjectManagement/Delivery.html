@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/Delivery.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
-	<script src="__STATIC__/vue.min.js"></script>
+		<script src="__STATIC__/vue.min.js"></script>
 </head>
 
 <body class="app">
@@ -27,7 +27,6 @@
 							<option value="">请选择</option>
 								<option v-for="i in projectmen" :value="i.pro_id">{{i.pro_name}}</option>
 							</select>
-							  <span>项目名称: {{ addList.proname }}</span>
 						</div>
 						</div>
 					</div>	
@@ -37,7 +36,7 @@
 						<label class="tit-tab">施工地点：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select">
+								<select name="interest" lay-filter="aihao" class="pro_select" >
 								<option value="">请选择</option>
 									<option v-for="i in area" :value="i.pid">{{i.pname}}</option>
 								</select>	
@@ -145,17 +144,17 @@
 							<thead>
 									<tr>
 											<th>人员姓名</th>										
-											<th>所属岗位</th>
-											<th>职位</th>
+											<th>所属部门</th>
+											<th>所属职位</th>
 											<th>到岗时间</th>
 									</tr>
 							</thead>
 							<tbody>
-									<tr>
-											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
-											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
-											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
-											<td><input class="layui-input" type="text" placeholder="项目名称"></td>
+									<tr v-for="item in peoplelist">
+											<td>{{item.member_name}}</td>
+											<td>{{item.member_name}}</td>
+											<td>{{item.member_name}}</td>
+											<td>{{item.member_name}}</td>
 									</tr>
 							</tbody>
 					</table>
@@ -166,7 +165,7 @@
 			<div class="btn_mar">
 				<div class="layui-footer line"></div>
 				<button class="layui-btn layui-btn-primary" type="button">取消</button>
-				<button class="layui-btn" type="button">提交</button>
+				<button class="layui-btn" type="button" @click="submitForm">提交</button>
 			</div>
 		</div>
 	</form>	
@@ -224,6 +223,7 @@
 						uiFrame:[],
 						jsFrame:[],
 						peoplemore:[],
+						peoplelist:[],
 						addList: {
 							proname: '',
 							departname: '',
@@ -302,10 +302,12 @@
 						down() {
 							$(".new_div").hide();
 						},
+						
+						// 增加新的内部人员
 						zeng() {
 							var that = this;
-							var dproId = $('#dpropeopleid').val();
-							var dpersionId= $('#dpeopleid').val();
+							var dproId =$("#dpropeopleid").find("option:selected").text();
+							var dpersionId= $('#dpeopleid').find("option:selected").text();;
 							console.log(dproId);
 							console.log(dpersionId);
 							$.ajax({
@@ -313,20 +315,51 @@
 									url: "{:U('ProjectDelivery/proDeliveryPersionAdd')}",
 									dataType: "json",
 									data:{
-										proId:dproId,
-										proName:this.addList.proname,
-										persionId:dpersionId,
-										persionName:this.addList.selectedpeople,
+										proId:this.addList.proname,
+										proName:dproId,
+										persionId:this.addList.selectedpeople,
+										persionName:dpersionId,
 										jobType:this.addList.peo_job,
 										inTime:this.addList.dao_data
 									},
 									success: function (data) {
-			
+										that.laypeople();
 									}
 							})
 							
 							$(".new_div").hide();
 						},
+						//  查询增添新的人员
+						laypeople(){
+								var that = this;
+								$.ajax({
+										type: "post",
+										url: "{:U('ProjectDelivery/projectPersion')}",
+										dataType: "json",
+										data:{
+											projectId:this.addList.proname
+										},
+										success: function (data) {
+											that.peoplelist = data.data;
+										}
+								})
+						}
+						 // 交付信息提交
+// 						submitForm(){
+// 								var that = this;
+// 								$.ajax({
+// 										type: "post",
+// 										url: "{:U('ProjectDelivery/proDeliveryAdd')}",
+// 										dataType: "json",
+// 										data:{
+// 											projectId:this.addList.proname
+// 										},
+// 										success: function (data) {
+// 											that.peoplelist = data.data;
+// 										}
+// 								})
+// 						}
+						
         }
     })
 		
