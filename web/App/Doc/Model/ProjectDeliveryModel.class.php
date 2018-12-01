@@ -20,6 +20,33 @@ class ProjectDeliveryModel
      }
 
 
+     /**
+     * 根据此人ID 查询此人负责的项目列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+      public function projectDeliveryContent($projectManagerId)
+     {
+        $projectDeliveryContentSql = "SELECT
+                                            d.`id`,
+                                            d.`pro_id`,
+                                            d.`pro_name`,
+                                            d.`pro_area`,
+                                            d.`uiframe`,
+                                            d.`jsframe`,
+                                            d.`backframe`,
+                                            d.`databaseframe`,
+                                            d.`stakeholder`,
+                                            d.`whether_ys`,
+                                            d.`ys_date`,
+                                            d.`person_release`
+                                        FROM
+                                            `deliveryapplication`.`app_project_delivery` d;";
+        $deliveryContent = M()->query($projectDeliveryContentSql);
+        return  $deliveryContent;
+     }
+
 	 /**
 	 * 区域下拉框
 	 * @author song.chaoxu 
@@ -150,12 +177,14 @@ class ProjectDeliveryModel
         $postNameSql = "SELECT
                             u.member_id,
                             u.member_name,
-                            p.pro_id
+                            p.come_time,
+                            u.department,
+                            j.jobtype_name
                         FROM
                             `app_project_persion` p
                         LEFT JOIN `user_member` u ON p.member_id = u.member_id
-                        WHERE
-                            p.pro_id = \"$projectId\"";
+                        RIGHT JOIN app_jobtype j ON p.duty = j.jobtype_id
+                        WHERE p.pro_id = \"$projectId\"";
         $postList = M()->query($postNameSql);
         return  $postList;
      }
