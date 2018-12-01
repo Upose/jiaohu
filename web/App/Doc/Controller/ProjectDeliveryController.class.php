@@ -165,7 +165,7 @@ class ProjectDeliveryController extends BaseController {
         //項目名稱
         $proName = I('proName');
 
-        //数据库
+        //施工地点
         $proArea = I('proArea');
 
         //UI框架

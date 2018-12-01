@@ -183,4 +183,50 @@ class ProjectRegistrationController extends BaseController {
     }
 
 
+
+    /**
+     * 项目查询
+     * @author song.chaoxu
+     * 2018.11.21
+     */
+    public function projectList()
+    {
+
+        //以下是所有下拉框列表
+        //所有区域 - 页面下拉项内容
+        $areaRes=$this->area=
+        ProjectListQueryModel::areaList();
+        
+        $temp = array();
+
+
+        //区域
+        $proArea = I('proArea','');
+      
+        //名称
+        $proName = I('proName','');
+       
+        //页数
+        $page=intval(I('page',1));
+
+        //每页显示条数
+        $limit=intval(I('limit',10));
+
+        $pag=($page-1)*$limit;
+
+        //项目列表
+        $projectList=$this->projectList=
+        ProjectListQueryModel::projectList($proArea,$proName,$pag,$limit);
+
+
+        $final['area'] = $areaRes;
+        $final['projectList'] = $projectList;
+
+        $this->Response(200,$final,'');
+
+        
+    }
+
+
+
 }

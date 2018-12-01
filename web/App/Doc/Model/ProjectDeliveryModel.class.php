@@ -33,16 +33,30 @@ class ProjectDeliveryModel
                                             d.`pro_id`,
                                             d.`pro_name`,
                                             d.`pro_area`,
-                                            d.`uiframe`,
-                                            d.`jsframe`,
-                                            d.`backframe`,
-                                            d.`databaseframe`,
+                                            ui.`frame_name` uiframe,
+                                            js.`frame_name` jsframe,
+                                            back.`frame_name` backframe,
+                                            databaseframe.`frame_name` databaseframe,
                                             d.`stakeholder`,
                                             d.`whether_ys`,
                                             d.`ys_date`,
                                             d.`person_release`
                                         FROM
-                                            `deliveryapplication`.`app_project_delivery` d;";
+                                            `deliveryapplication`.`app_project_delivery` d
+                                        JOIN `deliveryapplication`.`app_development_frame` ui ON d.`uiframe` = ui.frameId
+                                        JOIN `deliveryapplication`.`app_development_frame` js ON d.`jsframe` = js.frameId
+                                        JOIN `deliveryapplication`.`app_development_frame` back ON d.`backframe` = back.frameId
+                                        JOIN `deliveryapplication`.`app_development_frame` databaseframe ON d.`databaseframe` = databaseframe.frameId
+                                        WHERE
+                                            d.`pro_id` IN (
+                                                SELECT
+                                                    d.pro_id
+                                                FROM
+                                                    `deliveryapplication`.`app_project` d
+                                                WHERE
+                                                    d.member_id = \"$projectManagerId\"
+                                            )";
+                                            // echo $projectDeliveryContentSql ;
         $deliveryContent = M()->query($projectDeliveryContentSql);
         return  $deliveryContent;
      }
@@ -229,7 +243,7 @@ class ProjectDeliveryModel
      */
     public function proDeliveryAdd($proId,$proName,$proArea,$uiFrame,$jsFrame,$backFrame,$databaseFrame,$stakeHolder,$whether_ys,$ys_date,$persionRelease){
 
-    	  $sql="INSERT INTO `deliveryapplication`.`app_project_delivery` 
+    	  $sql="INSERT INTO `deliveryapplication`.`app_project_delivery` (
                     `pro_id`,
                     `pro_name`,
                     `pro_area`,
