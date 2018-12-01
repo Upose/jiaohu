@@ -5,7 +5,7 @@ use Think\Controller;
 use Doc\Model\ProjectListQueryModel;
 
 /**
-*项目管理控制器
+*项目计划控制器
 *@author song.chaoxu
 *2018.11.14
 */

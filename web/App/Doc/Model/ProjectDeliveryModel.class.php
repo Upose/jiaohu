@@ -243,7 +243,7 @@ class ProjectDeliveryModel
      */
     public function proDeliveryAdd($proId,$proName,$proArea,$uiFrame,$jsFrame,$backFrame,$databaseFrame,$stakeHolder,$whether_ys,$ys_date,$persionRelease){
 
-    	  $sql="INSERT INTO `deliveryapplication`.`app_project_delivery` 
+    	  $sql="INSERT INTO `deliveryapplication`.`app_project_delivery` (
                     `pro_id`,
                     `pro_name`,
                     `pro_area`,
