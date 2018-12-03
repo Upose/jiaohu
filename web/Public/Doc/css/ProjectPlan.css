@@ -134,3 +134,127 @@ body {
 #addWork {
     float: right;;
 }
+
+/* 新增功能弹框 */
+.new_div{
+    width: 55vw;
+    height: 75vh;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 2px 8px 0px rgba(0,0,0,0.2);
+    border-radius:4px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    margin-left: -17vw;
+    margin-top: -38vh;
+    display: none;
+}
+/* 标题部分 */
+.new_tit{
+    padding: 2vh .5vw;
+    border-bottom: 1px solid rgba(233,233,233,1);
+}
+.new_tit span{
+    font-size:1.2vw;
+    font-weight: 600;
+    font-family:PingFangSC-Regular;
+    color:rgba(102,102,102,1);
+}
+.new_tit img{
+    float: right;
+}
+/*  */
+.con_txt{
+    width: 20vw;
+    font-size: 0.8vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(102,102,102,1);
+    padding: 3vh 3vw;
+    border-bottom: 1px solid rgba(233,233,233,1);
+}
+.con_txt>p{
+    margin: 1vh 0;
+}
+.name_input,.address_input,.time_input{
+    padding-left: 0.5vw;
+    outline-style: none;
+    width: 20vw;
+    height: 4vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+/* .time_inputtime{
+    padding-left: 0.5vw;
+    outline-style: none;
+    width: 14.5vw;
+    height: 4vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+ */
+.client_input,.industry_input{
+    padding-left: 0.5vw;
+    outline-style: none;
+    width: 20.8vw;
+    height: 4vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.longitude_input,.latitude_input{
+    outline-style: none;
+    padding-left: 0.5vw;
+    width: 6.25vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.province_input,.city_input{
+    outline-style: none;
+    padding-left: 0.5vw;
+    width:10.15vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.btn_div{
+    margin-top: 2vh;
+    float: right;
+}
+.btn_div>button{
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    font-size:12px;
+    margin-right: 1vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,0.65);
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.btn_div>button:hover{
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    font-size:12px;
+    margin-right: 1vw;
+    font-family:PingFangSC-Regular;
+    color:white;
+    background:rgba(7,200,141,1);
+    border-radius:4px;
+    border:1px solid rgba(7,200,141,1);
+
+}
+
+.layui-textarea {
+    /* min-height: 100px; */
+    min-height: 12vh;
+    height: auto;
+    padding: 6px 10px;
+    resize: vertical;
+}
