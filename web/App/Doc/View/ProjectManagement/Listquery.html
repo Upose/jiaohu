@@ -77,7 +77,7 @@
                 $.ajax({
                     cache: false,
                     type: "POST",
-                    url: "{:U('ProjectListQuery/projectList')}",
+                    url: "{:U('ProjectRegistration/projectList')}",
                     dataType: "json",
                     data: {
 											proArea:ab,
@@ -86,7 +86,7 @@
 											limit:that.limit || 10,
 										},
                     success: function (res) {		
-												that.province = res.data.area.province;
+												that.province = res.data.area;
                         that.arrList = res.data.projectList.result;
                         that.counts=res.data.projectList.count;
                         that.layPage(); //分页
@@ -101,7 +101,7 @@
 								$.ajax({
 										cache: false,
 										type: "POST",
-										url: "{:U('ProjectListQuery/projectList')}",
+										url: "{:U('ProjectRegistration/projectList')}",
 										dataType: "json",
 										data: {
 											proArea:ab,
@@ -152,7 +152,7 @@
 							$.ajax({
 									cache: false,
 									type: "POST",
-									url: "{:U('ProjectListQuery/projectList')}",
+									url: "{:U('ProjectRegistration/projectList')}",
 									dataType: "json",
 									data: {
 										proArea:a,
@@ -176,7 +176,7 @@
 							$.ajax({
 									cache: false,
 									type: "POST",
-									url: "{:U('ProjectListQuery/projectList')}",
+									url: "{:U('ProjectRegistration/projectList')}",
 									dataType: "json",
 									data: {
 										proArea:a,

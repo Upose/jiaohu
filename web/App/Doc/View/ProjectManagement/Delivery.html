@@ -220,6 +220,7 @@
 						zpostName:[],
 						uiFrame:[],
 						jsFrame:[],
+						
 						peoplemore:[],
 						peoplelist:[],
 						addList: {
@@ -241,23 +242,11 @@
 					}
 				},
 		created: function () {
-			this.getdata();
+			// this.getdata();
 			this.project();
 			this.projectzeng();
 		},
         methods: {
-            getdata() {
-                var that = this;
-                $.ajax({
-                		cache: false,
-                		type: "post",
-                		url: "{:U('ProjectDelivery/projectList')}",
-                		dataType: "json",
-                		success: function (data) {
-                				that.rank = data.data.rank;
-                		}
-                })
-            },
 						
             project() {
                 var that = this;
@@ -375,7 +364,7 @@
 											
 										},
 										success: function (data) {
-											if(res.code == 200) {
+											if(data.code == 200) {
 												layui.use('layer', function() {
 													layer.alert('提交成功');
 												})
