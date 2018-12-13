@@ -54,96 +54,27 @@
                         </div>
                     </div>
                     <div class="rating">
+                        <div class="rateWarning">
+                            <div class="warnItem"><span class="sum">4</span>项未提交</div>
+                        </div>
                         <div class="rateGroup">
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
+                            <div class="rateItem active"></div>
                             <div class="rateItem"></div>
                             <div class="rateItem"></div>
                             <div class="rateItem"></div>
                             <div class="rateItem"></div>
                             <div class="rateItem"></div>
                         </div>
-                        <div class="rateMessage"></div>
-                        <div class="rateWarning"></div>
+                        <div class="rateMessage">
+                            <div class="nameItem active">启动阶段</div>
+                            <div class="nameItem control-left">计划管理</div>
+                            <div class="nameItem">执行管理</div>
+                            <div class="nameItem">联调测试</div>
+                            <div class="nameItem control-right">试运行</div>
+                            <div class="nameItem">验收归档</div>
+                        </div>
                     </div>
                </div>
-               <div class="contItem">
-                    <div class="logo">
-                        <img src="__IMG__/icon.png" alt="">
-                    </div>
-                    <div class="infoCont">
-                        <div class="itemTitle">上海青浦公安分局社会面智能安防系统</div>
-                        <div class="itemTime">创建时间：<span class="createTime">2017-09-11</span></div>
-                        <div class="tags">
-                            <div class="tagItem">公共安全行业</div>
-                            <div class="tagItem">西南交付部</div>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <div class="rateGroup">
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                        </div>
-                        <div class="rateMessage"></div>
-                        <div class="rateWarning"></div>
-                    </div>
-               </div>
-               <div class="contItem">
-                    <div class="logo">
-                        <img src="__IMG__/icon.png" alt="">
-                    </div>
-                    <div class="infoCont">
-                        <div class="itemTitle">上海青浦公安分局社会面智能安防系统</div>
-                        <div class="itemTime">创建时间：<span class="createTime">2017-09-11</span></div>
-                        <div class="tags">
-                            <div class="tagItem">公共安全行业</div>
-                            <div class="tagItem">西南交付部</div>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <div class="rateGroup">
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                        </div>
-                        <div class="rateMessage"></div>
-                        <div class="rateWarning"></div>
-                    </div>
-               </div>
-               <div class="contItem">
-                    <div class="logo">
-                        <img src="__IMG__/icon.png" alt="">
-                    </div>
-                    <div class="infoCont">
-                        <div class="itemTitle">上海青浦公安分局社会面智能安防系统</div>
-                        <div class="itemTime">创建时间：<span class="createTime">2017-09-11</span></div>
-                        <div class="tags">
-                            <div class="tagItem">公共安全行业</div>
-                            <div class="tagItem">西南交付部</div>
-                        </div>
-                    </div>
-                    <div class="rating">
-                        <div class="rateGroup">
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                            <div class="rateItem"></div>
-                        </div>
-                        <div class="rateMessage"></div>
-                        <div class="rateWarning"></div>
-                    </div>
                </div>
            </section> 
         </div>
@@ -163,6 +94,7 @@
         // 列表状态切换
         $('.changeType .changeItem').on('click',function(){
             $('.changeType .changeItem').eq($(this).index()).addClass('active').siblings().removeClass('active')
+            // console.log($(this).index() + 1) // 获取下标
         });
     })
 </script>
