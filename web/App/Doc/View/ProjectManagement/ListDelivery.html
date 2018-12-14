@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>项目列表查询</title>
+    <title>实施交付查询</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
     <link rel="stylesheet" href="__CSS__/listquery.css" media="all">
@@ -15,33 +15,26 @@
 <body>
    <div class="new">
     <!-- 最上层搜索栏 -->
-    <div class="search_div">
-        项目名称：<select class="pro_select" @change="pro_select">
-            <option value="">全部</option>
-            <option v-for="i in province" :value="i.pro_id">{{i.pro_name}}</option>
-        </select>
-    </div>
- 
     <table class="layui-table">
         <thead>
             <tr>
-                <th>会议名称</th>
-                <th>会议地点</th>
-                <th>会议时间</th>
-                <th>会议级别</th>
-                <th>所属项目</th>
-                <th>会议形式</th>
+                <th>项目编号</th>
+                <th>项目名称</th>
+                <th>UI框架</th>
+                <th>JS框架</th>
+                <th>后台框架</th>
+                <th>数据库</th>
                 <th>操作</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="item in arrList">
-                <td>{{item.theme}}</td>
-                <td>{{item.address}}</td>
-                <td>{{item.meeting_time}}</td>
-                <td>{{item.meeting_level}}</td>
-                <td>{{item.department_id}}</td>
-                <td>{{item.meeting_mode}}</td>
+                <td>{{item.pro_id}}</td>
+                <td>{{item.pro_name}}</td>
+                <td>{{item.uiframe}}</td>
+                <td>{{item.jsframe}}</td>
+                <td>{{item.backframe}}</td>
+                <td>{{item.databaseframe}}</td>
                 <td style="cursor:pointer;" @click="openNew(item.id)"><span style="color:rgba(74,144,226,1);">查看</span></td>
             </tr>
         </tbody>
@@ -72,7 +65,7 @@
                   $.ajax({
                       cache: false,
                       type: "POST",
-                      url: "{:U('ProjectMeeting/meetingList')}",
+                      url: "{:U('ProjectDelivery/projectDeliveryContent')}",
                       dataType: "json",
                       data: {
 												projectManagerId:875,
@@ -81,10 +74,10 @@
   											limit:that.limit || 10,
   										},
                       success: function (res) {		
-													that.province = res.data.projectList;
-                          that.arrList = res.data.meetingList.result;
-                          that.counts=res.data.meetingList.count;
-                          that.layPage(); //分页
+													// that.province = res.data.projectList;
+                          that.arrList = res.data;
+//                           that.counts=res.data.meetingList.count;
+//                           that.layPage(); //分页
                       }
                   })
               },
@@ -132,33 +125,7 @@
                       });
                   });        
               },
-              //跳转页面
-  //             openNew(val){
-  //             window.location.href = "{:U('Feedback/MyFeedbackCheck')}"+"&id="+val
-  //             },
-  						
-  						pro_select(){
-  							var that = this;
-  							var a = $(".pro_select").val();
-  							console.log(a);
-  							$.ajax({
-  									cache: false,
-  									type: "POST",
-  									url: "{:U('ProjectMeeting/meetingList')}",
-  									dataType: "json",
-  									data: {
-  										projectManagerId:875,
-  										pro_id:a,
-  										page: that.pageIndex || 1,
-  										limit:that.limit || 10,
-  									},
-  									success: function (res) {		
-  											that.arrList = res.data.meetingList.result;
-  											that.counts=res.data.meetingList.count;
-  											that.layPage(); //分页
-  									}
-  							})
-  						}
+							
           },
       });
   

@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/ProjectPlan.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+		<script src="__STATIC__/vue.min.js"></script>
 </head>
 
-<body>
+<body class="app">
     <div class="main">
         <h2>项目计划内容</h2>
         <!-- <form class="layui-form" action=""> -->
@@ -24,7 +25,7 @@
 											</div>
 											<div class="timeSelect">
 													<label class="name">开始日期：</label>
-													<input type="text"  required="required" class="layui-input" id="startTime">
+													<input type="text"  required="required" class="layui-input" id="data">
 											</div>                    
                     </div>
                     <div class="infoRight">
@@ -83,253 +84,243 @@
                 <button type="button" class="layui-btn" id="submitWorkly" lay-submit lay-filter="formDemo">提交</button>
             </div>
        <!-- </form> -->
+			 <!-- 新增功能弹框 -->
+			 <div class="new_div">
+			 	<div class="new_tit"><span>新增项目计划</span><img @click='down()' src="__IMG__/close_normal.png"></div>
+			 		<div class="con_txt" style="float: left;">
+			 			<p>任务名称：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+			 			<p>任务类型：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+			 					<option value="">请选择</option>
+			 					<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
+			 				</select>
+			 			</p>
+			 			<p>内容描述：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>负责人名：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>已完成率：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>问题描述：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>参与人员：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+			 		</div>
+					<div class="con_txt" style="float: right;">
+						<p>计划完成时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+						<p>实际完成时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+						<p>处理状态：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+								<option value="">请选择</option>
+								<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
+							</select>
+						</p>
+						<p>预期原因：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>是否重大事故：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+								<option value="">请选择</option>
+								<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
+							</select>
+						</p>
+						<p>重大事故原因： <textarea placeholder="请输入内容" class="layui-textarea" v-model="addList.other_person"></textarea></p>
+					</div>
+			 		<div class="btn_div"><button type="submit" @click='zeng()'>确定</button></div>
+			 </div>
     </div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
-    $(function(){
-        // 注册时间选择器
-        layui.use('laydate', function(){
-            var laydate = layui.laydate;
-            //执行一个laydate实例
-            laydate.render({
-                elem: '#startTime' //开始事件
-            });
-            laydate.render({
-                elem: '#endTime' //结束时间
-            });
-            laydate.render({
-                elem: '#stageTime' //截止时间
-            });
-        });
-
-        // 注册from解决下拉选择器样式失效问题
-        layui.use('form', function(){
-            var form = layui.form;
-            // 解决form表单跳转问题
-            form.on('submit', function(data){
-                return false
-            })
-            form.render();
-        });
-
-        var thisWorkId = 0 // 本周任务序号
-        var nextWorkId = 0 // 下周任务序号
-        var thisList = $('#thisWorkList').html() // 本周任务列表
-        var nextList = $('#nextWorkList').html() // 下周任务列表
-        var workInfo = {} // 基本信息
-        var thisWorkData = [] // 本周任务数据*
-        var nextWorkData = [] // 下周计划数据
-        // 添加本周任务 
-        $('.addThisWork').on('click',function(){
-            layer.open({
-                type: 1,
-                title: false,
-                closeBtn: 1,
-                shadeClose: true,
-                anim:5,
-                isOutAnim:true,
-                content: '<div class="form-addNextWork">'+
-                            '<h4>添加本周任务</h4>'+
-                            '<form class="layui-form" action="">'+
-                                '<div class="layui-form-item">'+
-                                    '<label class="layui-form-label">工作描述：</label>'+
-                                    '<div class="layui-input-block">'+
-                                        '<input type="text" name="title" required id="workDep" lay-verify="required" placeholder="请输入工作内容" autocomplete="off" class="layui-input">'
-                                    +'</div>'
-                                +'</div>'+
-                                '<div class="layui-form-item">'+
-                                    '<label class="layui-form-label">完成率：</label>'+
-                                    '<div class="layui-input-block">'+
-                                        '<input type="text" name="title" required id="workRate" lay-verify="required" placeholder="请输入计划完成程度" autocomplete="off" class="layui-input">'+
-                                    '</div>'+
-                                '</div>'+
-                                '<div class="layui-form-item">'+
-                                    '<label class="layui-form-label">完成内容：</label>'+
-                                    '<div class="layui-input-block">'+
-                                        '<input type="text" name="title" required id="finishCont" lay-verify="required" placeholder="请输入计划完成程度" autocomplete="off" class="layui-input">'+
-                                    '</div>'+
-                                '</div>'+
-                                '<div class="layui-form-item">'+
-                                    '<label class="layui-form-label">状态：</label>'+
-                                    '<div class="layui-input-block">'+
-                                        '<select name="state" id="workState" lay-verify="">'+
-                                            '<option value="01" selected>进行中</option>'+
-                                            '<option value="02">已完成</option>'+
-                                            '<option value="03">已关闭</option>'+
-                                        '</select>'+
-                                    '</div>'+
-                                '</div>'+
-                                '<div class="layui-form-item">'+
-                                    '<label class="layui-form-label">备注：</label>'+
-                                    '<div class="layui-input-block">'+
-                                        '<input type="text" name="title" id="remark" placeholder="请输入备注" autocomplete="off" class="layui-input">'+
-                                    '</div>'+
-                                '</div>'+
-                                '<button class="layui-btn" id="addWork1">添加</button>'+
-                            '</form>'+
-                        '</div>'
-            });            
-            layui.use('form', function(){
-                var form = layui.form;
-                // 解决form表单跳转问题
-                form.on('select', function(data){
-                    if (data.value == 03) {
-                        $('#remark').attr('required','required')
-                    }
-                }); 
-                form.on('submit', function(data){
-                    return false
-                })
-                form.render();
-            });
-            $('#addWork1').on('click',function(){
-                var workDep = $('#workDep').val()
-                var workRate = $('#workRate').val()
-                var finishCont = $('#finishCont').val()
-                var workStateText = $("#workState option:selected").text();
-                var workStateId =  $("#workState").val();
-                var remark = $('#remark').val()
-                var thisWorkItem = {}
-                if (workStateId == 03) {
-                    if (workDep !== '' && workRate !== '' && finishCont !== '' && workState !== '' && remark !== '') {
-                        thisWorkId = thisWorkId+1
-                        thisWorkItem.weekly_id = thisWorkId
-                        thisWorkItem.task_content = workDep
-                        thisWorkItem.finish_status = workRate
-                        thisWorkItem.finish_content = finishCont
-                        thisWorkItem.state = workStateText
-                        thisWorkItem.remark = remark
-                        thisWorkData.push(thisWorkItem)
-                        thisList += '<tr>'+
-                                        '<td>'+ thisWorkId +'</td>'+
-                                        '<td>'+ workDep +'</td>'+
-                                        '<td>'+ workRate +'</td>'+
-                                        '<td>'+ finishCont +'</td>'+
-                                        '<td>'+ workStateText +'</td>'+
-                                        '<td>'+ remark +'</td>'+
-                                    '</tr>'
-                        $('#thisWorkList').html(thisList);
-                        layer.close(layer.index);
-                    }
-                }  else {
-                    if  (workDep !== '' && workRate !== '' && finishCont !== '' && workState !== '') {
-                        if (remark == '') {
-                            remark = '无'
-                        }
-                        thisWorkId = thisWorkId+1
-                        thisWorkItem.weekly_id = thisWorkId
-                        thisWorkItem.task_content = workDep
-                        thisWorkItem.finish_status = workRate
-                        thisWorkItem.finish_content = finishCont
-                        thisWorkItem.state = workStateText
-                        thisWorkItem.remark = remark
-                        thisWorkData.push(thisWorkItem)
-                        thisList += '<tr>'+
-                                        '<td>'+ thisWorkId +'</td>'+
-                                        '<td>'+ workDep +'</td>'+
-                                        '<td>'+ workRate +'</td>'+
-                                        '<td>'+ finishCont +'</td>'+
-                                        '<td>'+ workStateText +'</td>'+
-                                        '<td>'+ remark +'</td>'+
-                                    '</tr>'
-                        $('#thisWorkList').html(thisList);
-                        layer.close(layer.index);
-                    }
-                }
-            });
-        })
-        // 添加下周计划
-        $('.addNextWork').on('click',function(){
-            layer.open({
-                type: 1,
-                title: false,
-                closeBtn: 1,
-                shadeClose: true,
-                anim:5,
-                isOutAnim:true,
-                content: '<div class="form-addNextWork">'+
-                            '<h4>添加下周计划</h4>'+
-                            '<form class="layui-form" action="">'+
-                                '<div class="layui-form-item">'+
-                                    '<label class="layui-form-label">工作内容：</label>'+
-                                    '<div class="layui-input-block">'+
-                                        '<input type="text" name="title" required id="workCont" lay-verify="required" placeholder="请输入工作内容" autocomplete="off" class="layui-input">'
-                                    +'</div>'
-                                +'</div>'+
-                                '<div class="layui-form-item">'+
-                                    '<label class="layui-form-label">计划完成：</label>'+
-                                    '<div class="layui-input-block">'+
-                                        '<input type="text" name="title" required id="workStage" lay-verify="required" placeholder="请输入计划完成程度" autocomplete="off" class="layui-input">'+
-                                    '</div>'+
-                                '</div>'+
-                                '<button class="layui-btn" id="addWork2">添加</button>'+
-                            '</form>'+
-                        '</div>'
-            });
-            $('#addWork2').on('click',function(){
-                var workCont = $('#workCont').val()
-                var workStage = $('#workStage').val()
-                var nextWorkItem = {}
-                if (workCont !== '' && workStage !== '') {
-                    nextWorkId = nextWorkId+1
-                    nextWorkItem.weekly_id = nextWorkId
-                    nextWorkItem.task_content = workCont
-                    nextWorkItem.finish_plan = workStage
-                    nextWorkData.push(nextWorkItem)
-                    nextList += '<tr>'+
-                                '<td>' + nextWorkId+ '</td>'+
-                                '<td>' +workCont  + '</td>'+
-                                '<td>'+workStage+'</td>'+
-                            '</tr>'
-                    $('#nextWorkList').html(nextList);
-                    layer.close(layer.index);
-                }
-            })
-        })
-
-        // 采集表单数据并发送
-        $('#submitWorkly').on('click',function(){
-            workInfo.weekly_stime = $('#startTime').val() // 获取开始时间
-            workInfo.weekly_etime = $('#endTime').val() // 获取结束时间
-            workInfo.pro_name =  $('#itemName').val() // 获取项目名称
-            workInfo.stage = $('#stageCont option:selected').text() // 获取所属阶段
-            workInfo.pro_schedule = $('#itemRate').val() // 获取工作进度
-            workInfo.stageenddate = $('#stageTime').val() // 获取阶段截止日期
-            if (workInfo.weekly_stime == '' || workInfo.weekly_etime == '' 
-                || workInfo.pro_name == '' || workInfo.pro_schedule == '' 
-                || workInfo.stageenddate == '' || thisList == '')
-            {
-                layer.msg('请填写完整信息后提交', {icon: 5});
-            } else {
-                // console.log(workInfo)
-                $.ajax({
-                    cache: false,
-                    type: "post",
-                    url: "{:U('ProjectweekReport/weekInsert')}",
-                    dataType: "json",
-                    data:{
-                        workInfo:workInfo,
-                        thisWorkData:thisWorkData,
-                        nextWorkData:nextWorkData
-                    }
-                })
-                // 重置信息
-                $('#startTime').val('')
-                $('#endTime').val('')
-                $('#itemName').val('')
-                $('#stageCont').val('')
-                $('#itemRate').val('')
-                $('#stageTime').val('')
-                thisWorkId = 0 // 本周任务序号
-                nextWorkId = 0 // 下周任务序号
-                thisList = $('#thisWorkList').html('') // 本周任务列表
-                nextList = $('#nextWorkList').html('') // 下周任务列表
-                workInfo = {} // 基本信息
-                thisWorkData = [] // 本周任务数据
-                nextWorkData = [] // 下周计划数据
-            }
-        });
-    })
+  layui.use(['form', 'layedit', 'laydate'], function(){
+  	  var form = layui.form,
+  	  layer = layui.layer,
+  	  layedit = layui.layedit,
+  	  laydate = layui.laydate;
+  	 //日期 
+  	  laydate.render({
+  			elem: '#date',
+  			});
+  	  });
+  
+  	 // 选择全国
+      var app = new Vue({
+          el: ".app",
+  				data: function() {
+  					return {
+  						area:[],
+  						backFrame:[],
+  						projectmen: [],
+  						databaseFrame:[],
+  						zdepartment:[],
+  						zpostName:[],
+  						uiFrame:[],
+  						jsFrame:[],
+  						peoplemore:[],
+  						peoplelist:[],
+  						addList: {
+  							proname: '',
+  							proArea:'',
+  							uiFrame:'',
+  							jsFrame:'',
+  							backFrame:'',
+  							databaseFrame:'',
+  							stakeHolder:'',
+  							whether_ys:'',
+  							ys_date:'',
+  							persionRelease:'',
+  							departname: '',
+  							selectedpeople: '',
+  							peo_job: '',
+  							dao_data:''
+  						},
+  					}
+  				},
+  		created: function () {
+  			this.getdata();
+  			this.project();
+  			this.projectzeng();
+  		},
+          methods: {
+              getdata() {
+                  var that = this;
+                  $.ajax({
+                  		cache: false,
+                  		type: "post",
+                  		url: "{:U('ProjectDelivery/projectList')}",
+                  		dataType: "json",
+                  		success: function (data) {
+                  				that.rank = data.data.rank;
+                  		}
+                  })
+              },
+  						
+              project() {
+                  var that = this;
+                  $.ajax({
+                      type: "post",
+                      url: "{:U('ProjectDelivery/proDelivery')}",
+                      dataType: "json",
+  										data:{
+  											projectManagerId:875
+  										},
+                      success: function (data) {
+  												that.area = data.data.area;
+  												that.backFrame = data.data.backFrame;
+  												that.uiFrame = data.data.uiFrame;
+  												that.jsFrame = data.data.jsFrame;
+  												that.databaseFrame = data.data.databaseFrame;
+  												that.projectmen = data.data.projectList;
+                      }
+                  })
+  						},
+  						projectzeng() {
+  								var that = this;
+  								$.ajax({
+  										type: "post",
+  										url: "{:U('ProjectDelivery/addPersionDropOperation')}",
+  										dataType: "json",
+  										success: function (data) {
+  											that.zdepartment = data.data.department;
+  											that.zpostName = data.data.postName;
+  
+  										}
+  								})
+  						},
+  						depart_select(){
+                  var that = this;
+                  $.ajax({
+                      type: "post",
+                      url: "{:U('ProjectDelivery/departmentPersion')}",
+                      dataType: "json",
+  										data:{
+  											departmentName:this.addList.departname
+  										},
+                      success: function (data) {
+  											that.peoplemore = data.data;
+  
+                      }
+                  })
+  						},
+  						down() {
+  							$(".new_div").hide();
+  						},
+  						
+  						// 增加新的内部人员
+  						zeng() {
+  							var that = this;
+  							var dproId =$("#dpropeopleid").find("option:selected").text();
+  							var dpersionId= $('#dpeopleid').find("option:selected").text();;
+  							console.log(dproId);
+  							console.log(dpersionId);
+  							$.ajax({
+  									type: "post",
+  									url: "{:U('ProjectDelivery/proDeliveryPersionAdd')}",
+  									dataType: "json",
+  									data:{
+  										proId:this.addList.proname,
+  										proName:dproId,
+  										persionId:this.addList.selectedpeople,
+  										persionName:dpersionId,
+  										jobType:this.addList.peo_job,
+  										inTime:this.addList.dao_data
+  									},
+  									success: function (data) {
+  										that.laypeople();
+  									}
+  							})
+  							
+  							$(".new_div").hide();
+  						},
+  						//  查询增添新的人员
+  						laypeople(){
+  								var that = this;
+  								$.ajax({
+  										type: "post",
+  										url: "{:U('ProjectDelivery/projectPersion')}",
+  										dataType: "json",
+  										data:{
+  											projectId:this.addList.proname
+  										},
+  										success: function (data) {
+  											that.peoplelist = data.data;
+  										}
+  								})
+  						},
+  						
+  						 // 交付信息提交
+  						submitForm(){
+  								var that = this;
+  								var dproname =$("#dpropeopleid").find("option:selected").text();
+  								$.ajax({
+  										type: "post",
+  										url: "{:U('ProjectDelivery/proDeliveryAdd')}",
+  										dataType: "json",
+  										data:{
+  											proId:this.addList.proname,
+  											proName:dproname,
+  											proArea:this.addList.proArea,
+  											uiFrame:this.addList.uiFrame,
+  											jsFrame:this.addList.jsFrame,
+  											backFrame:this.addList.backFrame,
+  											databaseFrame:this.addList.databaseFrame,
+  											stakeHolder:this.addList.stakeHolder,
+  											whether_ys:this.addList.whether_ys,
+  											ys_date:this.addList.ys_date,
+  											persionRelease:this.addList.persionRelease
+  											
+  										},
+  										success: function (data) {
+  											if(res.code == 200) {
+  												layui.use('layer', function() {
+  													layer.alert('提交成功');
+  												})
+  											} else {
+  												layui.use('layer', function() {
+  													var layer = layui.layer;
+  													layer.alert('添加失败');
+  												})
+  											}
+  										}
+  								})
+  						},
+  						
+          }
+      })
+  		
+  		$(".addThisWork").on('click', function () {
+  			$(".new_div").show();
+  		});
+  
 </script>
 </html>

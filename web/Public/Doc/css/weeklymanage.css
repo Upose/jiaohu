@@ -28,7 +28,7 @@ body {
     width: 30%;
 }
 .main  label.control {
-    margin-right: 34%
+    width: 23%;
 }
 .main > section > h3 {
     text-align: center;
@@ -54,6 +54,13 @@ body {
     height: 60px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+.info .timeSelect1{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
 }
 .weekly-name > .item-name {

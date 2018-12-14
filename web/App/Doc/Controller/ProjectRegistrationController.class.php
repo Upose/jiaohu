@@ -195,7 +195,7 @@ class ProjectRegistrationController extends BaseController {
         //以下是所有下拉框列表
         //所有区域 - 页面下拉项内容
         $areaRes=$this->area=
-        ProjectListQueryModel::areaList();
+        ProjectRegistrationModel::areaList();
         
         $temp = array();
 
@@ -216,7 +216,7 @@ class ProjectRegistrationController extends BaseController {
 
         //项目列表
         $projectList=$this->projectList=
-        ProjectListQueryModel::projectList($proArea,$proName,$pag,$limit);
+        ProjectRegistrationModel::projectList($proArea,$proName,$pag,$limit);
 
 
         $final['area'] = $areaRes;

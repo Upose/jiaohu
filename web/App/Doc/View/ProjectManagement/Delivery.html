@@ -13,7 +13,6 @@
 </head>
 
 <body class="app">
-	<form >
     <div id="event-view">
 			<div class="details_zong">
 			<div class="details_left">
@@ -36,7 +35,7 @@
 						<label class="tit-tab">施工地点：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select" >
+								<select name="interest" lay-filter="aihao" class="pro_select"  v-model="addList.proArea" >
 								<option value="">请选择</option>
 									<option v-for="i in area" :value="i.pid">{{i.pname}}</option>
 								</select>	
@@ -49,7 +48,7 @@
 						<label class="tit-tab">UI框架：</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select">
+								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.uiFrame" >
 								<option value="">请选择</option>
 								<option v-for="i in uiFrame" :value="i.frameid">{{i.frame_name}}</option>
 								</select>
@@ -62,7 +61,7 @@
 						<label class="tit-tab">WEB框架</label>
 						<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select">
+								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.jsFrame" >
 								<option value="">请选择</option>
 								<option v-for="i in jsFrame" :value="i.frameid">{{i.frame_name}}</option>
 								</select>
@@ -75,7 +74,7 @@
 							<label class="tit-tab">开发语言：</label>
 							<div class="layui-input-block">
 							<div  class="search_div">
-								<select name="interest" lay-filter="aihao" class="pro_select">
+								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.backFrame" >
 									<option value="">请选择</option>
 									<option v-for="i in backFrame" :value="i.frameid">{{i.frame_name}}</option>
 								</select>
@@ -89,7 +88,7 @@
 							<label class="tit-tab">数据库</label>
 							<div class="layui-input-block">
 								<div  class="search_div">
-									<select name="interest" lay-filter="aihao" class="pro_select">
+									<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.databaseFrame">
 										<option value="">请选择</option>
 										<option v-for="i in databaseFrame" :value="i.frameid">{{i.frame_name}}</option>
 									</select>
@@ -103,7 +102,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">客户干系人</label>
 						<div class="layui-input-block">
-						<input type="text" name="identity" lay-verify="identity" placeholder="请输入合作单位名称" autocomplete="off" class="layui-input">
+						<input type="text" name="identity" lay-verify="identity" placeholder="请输入合作单位名称" autocomplete="off" class="layui-input" v-model="addList.stakeHolder">
 						</div>
 					</div>	
 				</div>
@@ -111,8 +110,8 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">是否验收</label>
 						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="sex" value="是" title="是">是&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="sex" value="否" title="否" checked="">否
+							<input type="radio" name="sex" value="1" title="是"  v-model="addList.whether_ys" >是&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="sex" value="2" title="否" checked=""  v-model="addList.whether_ys" >否
 						</div>
 					</div>	
 				</div>
@@ -120,7 +119,7 @@
 					<div class="layui-form-item">
 						<label class="tit-tab">验收时间：</label>
 						  <div class="layui-input-block">
-							<input type="text" name="date" id="date" lay-verify="date" placeholder="请选择日期" autocomplete="off" class="layui-input">
+								<input name="start_time" class="layui-input"  class="time_input" type="date" placeholder="请选择日期"  v-model="addList.ys_date">
 						  </div>
 					</div>	
 				</div>
@@ -128,8 +127,8 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">人员释放</label>
 						<div class="layui-input-block" style="line-height: 2.5;">
-							<input type="radio" name="wa" value="yes" title="是">是&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="wa" value="no" title="否" checked="">否
+							<input type="radio" name="wa" value="1" title="是" v-model="addList.persionRelease">是&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="wa" value="2" title="否" checked="" v-model="addList.persionRelease">否
 						</div>
 					</div>	
 				</div>
@@ -152,9 +151,9 @@
 							<tbody>
 									<tr v-for="item in peoplelist">
 											<td>{{item.member_name}}</td>
-											<td>{{item.member_name}}</td>
-											<td>{{item.member_name}}</td>
-											<td>{{item.member_name}}</td>
+											<td>{{item.department}}</td>
+											<td>{{item.jobtype_name}}</td>
+											<td>{{item.come_time}}</td>
 									</tr>
 							</tbody>
 					</table>
@@ -165,10 +164,9 @@
 			<div class="btn_mar">
 				<div class="layui-footer line"></div>
 				<button class="layui-btn layui-btn-primary" type="button">取消</button>
-				<button class="layui-btn" type="button" @click="submitForm">提交</button>
+				<button class="layui-btn" type="button" @click="submitForm()">提交</button>
 			</div>
 		</div>
-	</form>	
 	
 	<!-- 新增功能弹框 -->
 	<div class="new_div">
@@ -222,10 +220,20 @@
 						zpostName:[],
 						uiFrame:[],
 						jsFrame:[],
+						
 						peoplemore:[],
 						peoplelist:[],
 						addList: {
 							proname: '',
+							proArea:'',
+							uiFrame:'',
+							jsFrame:'',
+							backFrame:'',
+							databaseFrame:'',
+							stakeHolder:'',
+							whether_ys:'',
+							ys_date:'',
+							persionRelease:'',
 							departname: '',
 							selectedpeople: '',
 							peo_job: '',
@@ -234,23 +242,11 @@
 					}
 				},
 		created: function () {
-			this.getdata();
+			// this.getdata();
 			this.project();
 			this.projectzeng();
 		},
         methods: {
-            getdata() {
-                var that = this;
-                $.ajax({
-                		cache: false,
-                		type: "post",
-                		url: "{:U('ProjectDelivery/projectList')}",
-                		dataType: "json",
-                		success: function (data) {
-                				that.rank = data.data.rank;
-                		}
-                })
-            },
 						
             project() {
                 var that = this;
@@ -343,22 +339,44 @@
 											that.peoplelist = data.data;
 										}
 								})
-						}
+						},
+						
 						 // 交付信息提交
-// 						submitForm(){
-// 								var that = this;
-// 								$.ajax({
-// 										type: "post",
-// 										url: "{:U('ProjectDelivery/proDeliveryAdd')}",
-// 										dataType: "json",
-// 										data:{
-// 											projectId:this.addList.proname
-// 										},
-// 										success: function (data) {
-// 											that.peoplelist = data.data;
-// 										}
-// 								})
-// 						}
+						submitForm(){
+								var that = this;
+								var dproname =$("#dpropeopleid").find("option:selected").text();
+								$.ajax({
+										type: "post",
+										url: "{:U('ProjectDelivery/proDeliveryAdd')}",
+										dataType: "json",
+										data:{
+											proId:this.addList.proname,
+											proName:dproname,
+											proArea:this.addList.proArea,
+											uiFrame:this.addList.uiFrame,
+											jsFrame:this.addList.jsFrame,
+											backFrame:this.addList.backFrame,
+											databaseFrame:this.addList.databaseFrame,
+											stakeHolder:this.addList.stakeHolder,
+											whether_ys:this.addList.whether_ys,
+											ys_date:this.addList.ys_date,
+											persionRelease:this.addList.persionRelease
+											
+										},
+										success: function (data) {
+											if(data.code == 200) {
+												layui.use('layer', function() {
+													layer.alert('提交成功');
+												})
+											} else {
+												layui.use('layer', function() {
+													var layer = layui.layer;
+													layer.alert('添加失败');
+												})
+											}
+										}
+								})
+						},
 						
         }
     })
