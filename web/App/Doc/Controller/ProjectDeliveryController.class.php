@@ -73,6 +73,56 @@ class ProjectDeliveryController extends BaseController {
     }
 
 
+
+    public function dateTest()
+    {
+
+        $res1[0] = array("newdate"=> "2018-07",
+            "levels"=> "一级",
+            "total"=> "7");
+        $res1[1]= array("newdate"=> "2018-06",
+            "levels"=> "一级",
+            "total"=> "6");
+
+
+        // $res2 = [{
+        //     "newdate": "2018-08",
+        //     "levels": "二级",
+        //     "total": "8"
+        // },{
+        //     "newdate": "2018-05",
+        //     "levels": "二级",
+        //     "total": "5"
+        // }];
+
+        // $arr1 = array('newdate'=>"苹果",'levels'=>"香蕉",'total'=>"菠萝");
+        $result1 = array();
+        $month_arr=array();
+        $starttime = strtotime(date('Y-m-01 00:00:00',strtotime('-12 month'))); //获取前12个月  时间戳
+        $endtime = mktime(0,0,0,date('m'),date('d'),date('Y')); //获取当前月 时间戳
+        while(($starttime = strtotime('+1 month',$starttime)) <= $endtime){
+                $month_arr[]= date('Y-m',$starttime); // 取得递增月; 
+                // echo date('Y-m',$starttime)." | ";
+                // print_r($month_arr);
+        }
+        for($i=0;$i<count($month_arr);++$i){
+
+            $result1[$i]["newdate"] = $month_arr[$i];
+            $result1[$i]["levels"] = '一级';
+            $result1[$i]["total"] = 0;
+            for ($j=0; $j < count($res1); ++$j) { 
+                if ($month_arr[$i] == $res1[$j]["newdate"]) {
+                    $result1[$i]["total"] = $res1[$j]["total"];
+                }
+            }
+        }
+
+        print_r($result1);
+
+
+        
+    }
+
     /**
      * 获取交付部 部门列表
      * @author song.chaoxu
