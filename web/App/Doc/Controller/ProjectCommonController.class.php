@@ -2,19 +2,18 @@
 
 namespace Doc\Controller;
 use Think\Controller;
-use Doc\Model\ProjectCollectionStateModel;
+use Doc\Model\ProjectCommonModel;
 
 /**
-*采集状态
-*@author song.chaoxu
-*2018.12.19
+* 公用接口
+*@author song.chaoxu         第12-24版
+*2018.12.24
 */
-class  ProjectCollectionStateController extends BaseController {
+class  ProjectCommonController extends BaseController {
 
 	/**
-     * 输出首页
      * @author song.chaoxu
-     * 2018.11.14
+     * 2018.12.24
      */
     public function index()
     {
@@ -25,9 +24,9 @@ class  ProjectCollectionStateController extends BaseController {
 
 
     /**
-     * 实施交付
+     * 查询项目列表 
      * @author song.chaoxu
-     * 2018.11.14
+     * 2018.12.24
      */
     public function projectList()
     {
@@ -36,7 +35,7 @@ class  ProjectCollectionStateController extends BaseController {
         $projectManagerId = I('projectManagerId');
 
         $projectList=$this->projectList=
-        ProjectCollectionStateModel::projectList($projectManagerId);
+        ProjectCommonModel::projectList($projectManagerId);
 
         // //以下是所有下拉框列表
         // //所有区域 - 页面下拉项内容
