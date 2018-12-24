@@ -90,6 +90,23 @@ class  ProjectCommonController extends BaseController {
     }
 
 
+    /**
+     * 项目经理列表 
+     * @author song.chaoxu
+     * 2018.12.24
+     */
+
+    public function pManagerList()
+    {
+
+        $pManagerList=$this->pManagerList=
+        ProjectCommonModel::pManagerList();
+
+        $this->Response(200,$pManagerList,'');
+
+    }
+
+
 
 
 }
