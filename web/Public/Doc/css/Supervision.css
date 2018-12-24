@@ -17,6 +17,25 @@ body{
 	padding: 3vh 2vw;
 	background: white;
 }
+.details_di .caller-contar .caller-item {
+    padding: 25px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #e0e0e0;
+}
+.details_di .caller-fl {
+    float: left;
+}
+
+.details_di .caller-contar .caller-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.details_di  .caller-contar .caller-item .caller-main {
+    margin-left: 20px;
+}
+
 .layui-elem-quote {
     margin-bottom: 10px;
     padding: 10px;
