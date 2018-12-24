@@ -10,14 +10,88 @@ class ProjectCollectionStateModel
      * 根据此人ID 查询此人负责的项目列表
      * 
      * @author song.chaoxu 
-     * 2018.11.24
+     * 2018.12.24
      */
-      public function projectList($projectManagerId)
+      public function projectList($pMId)
      {
-        $projectListSql = "SELECT pro_id,pro_name,member_id,pro_leader FROM `app_project` WHERE member_id = \"$projectManagerId\";";
+        $projectListSql = "
+                        SELECT
+                            `pro_id`,
+                            `pro_code`,
+                            `pro_name`,
+                            `industry_id`,
+                            `pro_source`,
+                            `pro_department`,
+                            `pro_leader`,
+                            `leader_name`,
+                            `pro_address`,
+                            `type_id`,
+                            `pro_introduce`,
+                            `state`,
+                            `founder_id`,
+                            `create_date`,
+                            `operation_id`,
+                            `operation_date`,
+                            `last_date`
+                        FROM `app_project` WHERE founder_id = \"$pMId\";";
         $projectList = M()->query($projectListSql);
         return  $projectList;
      }
+
+     /**
+     * 查询行业列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+      public function inIndustry()
+     {
+        $inIndustrySql = "
+                        SELECT
+                            industry_id,
+                            industry_name
+                        FROM
+                            `app_industry`;";
+        $inIndustryList = M()->query($inIndustrySql);
+        return  $inIndustryList;
+     }
+
+     /**
+     * 查询部门列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+      public function inDepartment()
+     {
+        $inDepartmentSql = "
+                        SELECT department FROM `user_member` WHERE department LIKE '%交付%' GROUP BY department;";
+        $inDepartmentList = M()->query($inDepartmentSql);
+        return  $inDepartmentList;
+     }
+
+    /**
+     * 查询区域列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+
+      public function areaList()
+     {
+        $areaSql = "SELECT
+                        area_id AS aid,
+                        area_name AS aname
+                    FROM
+                        app_area
+                    WHERE
+                        parent_id = 0";
+
+        $area = M()->query($areaSql);
+        return  $area;
+
+     }
+
 
 
 
