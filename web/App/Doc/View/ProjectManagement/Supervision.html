@@ -123,9 +123,30 @@
 	  layer = layui.layer,
 	  layedit = layui.layedit,
 	  laydate = layui.laydate;
-
+		dataSource();
 	  });
-
-	
+    //数据资源 
+		function dataSource(){
+				$.ajax({
+				url: "{:U('ProjectCommon/inIndustry')}",
+				type: 'post',
+				data: {},
+				dataType: 'json',
+				success: function(data) {
+						if (data.code == 200) {
+								var result = data.res || [];
+								var htm='';
+								for (var i = 0; i<result[1].length; i++) {
+										htm +='<p><span class="fatu fa fa-github fa-2x"></span>'+
+													'<span>'+result[1][i].EQ_TYPE+'</span>'+
+													'<span>'+result[1][i].total+"个"+'</span>'+
+													'<span>'+((result[1][i].total/result[0][0].total)*100).toFixed(2)+"%"+'</span>'+
+													'</p>'         
+										}                  
+						}
+						 $('#dataSource').html(htm);  
+				}    
+				})
+		}
 </script>
 </html>
