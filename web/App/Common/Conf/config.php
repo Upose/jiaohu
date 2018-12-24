@@ -10,7 +10,7 @@ return array(
     'DB_TYPE' => 'mysql', // 数据库类型
     // 'DB_HOST' => 'localhost', // 服务器地址
     'DB_HOST' => '211.144.114.26', // 服务器地址
-    'DB_NAME' => 'deliveryapplication', // 数据库名
+    'DB_NAME' => 'itemapplication', // 数据库名
     'DB_USER' => 'root', // 用户名
     'DB_PWD' => 'daemon',  // 密码
     'DB_PORT' => '3307', // 端口
