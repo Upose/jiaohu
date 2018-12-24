@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/ProjectCollection.css" media="all">
-	<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
+		<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
+    <link rel="stylesheet" href="__CSS__/ProjectDisplay.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
-	<script src="__STATIC__/vue.min.js"></script>
+		<script src="__STATIC__/vue.min.js"></script>
 </head>
 
 <body id="app" >
@@ -26,7 +26,7 @@
 					<div class="layui-line-me">
 						<ul>
 							<li class="layui-tab-zi">
-								<a href="{:U('Feedback/index')}">
+							<a href="{:U('ProjectManagement/ProjectDisplay')}">
 								  <h3 class="layui-cite">项目基本信息</h3>
 								</a>
 							</li>
@@ -36,7 +36,7 @@
 								</a>
 							</li>
 							<li class="layui-tab-zi layui-tab-top">
-								<a href="{:U('KnowledgeSharing/index')}">
+								<a href="{:U('ProjectManagement/ProjectCollection')}">
 								<h3 class="layui-cite">项目成员</h3>
 								</a>
 							</li>
@@ -166,31 +166,66 @@
 
 			</div>
 			<div class="details_zhong">
-				<blockquote class="layui-elem-quote">项目信息采集</blockquote>
-			</div>	
-			<div class="details_di">
-				<blockquote class="layui-elem-quote">历史信息</blockquote>
-				<div class="caller-contar"> 
-					<div class="caller-item">
-						<img src="/Public/Doc/images/portrait.png" alt="" class="caller-img caller-fl">
-						 <div class="caller-main caller-fl">       
-							<p><strong>胡歌</strong></p>
-							<p class="caller-adds">长宁分局-科长</p>
-							<div class="caller-iconset">
+					<blockquote class="layui-elem-quote">项目信息采集</blockquote>
+					<div class="layui-row layui-col-space10 layui-form-item">
+						<div class="layui-col-lg6">
+							<label class="tit-tab">项目名称：</label>
+							<div class="layui-input-block">
+							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="caller-contar"> 
-					<div class="caller-item">
-						<img src="/Public/Doc/images/portrait.png" alt="" class="caller-img caller-fl">
-						<div class="caller-main caller-fl">       
-							<p><strong>胡歌</strong></p>
-							<p class="caller-adds">长宁分局-科长</p>
-							<div class="caller-iconset">
+						<div class="layui-col-lg6">
+							<label class="tit-tab">所属行业：</label>
+							<div class="layui-input-block">
+							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							</div>
 						</div>
-					</div>
-				</div>
+						<div class="layui-col-lg6">
+							<label class="tit-tab">项目来源：</label>
+							<div class="layui-input-block">
+							<input type="text" name="identity" lay-verify="identity" placeholder="控股公司" autocomplete="off" class="layui-input" v-model="addList.name">
+							</div>
+						</div>
+						<div class="layui-col-lg6">
+							<label class="tit-tab">所属部门：</label>
+							<div class="layui-input-block">
+							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							</div>
+						</div>
+						<div class="layui-col-lg6">
+							<label class="tit-tab">项目经理：</label>
+							<div class="layui-input-block">
+							<input type="text" name="identity" lay-verify="identity" placeholder="胡飞" autocomplete="off" class="layui-input" v-model="addList.name">
+							</div>
+						</div>
+						<div class="layui-col-lg6">
+							<label class="tit-tab">项目地点：</label>
+							<div class="layui-input-block">
+							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							</div>
+						</div>
+						<div class="layui-col-lg6">
+							<label class="tit-tab">项目性质：</label>
+							<div class="layui-input-block">
+							<input type="text" name="identity" lay-verify="identity" placeholder="合同" autocomplete="off" class="layui-input" v-model="addList.name">
+							</div>
+						</div>
+						<div class="layui-col-lg6">
+							<label class="tit-tab">战略性质：</label>
+							<div class="layui-input-block">
+							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							</div>
+						</div>
+						<div class="layui-col-lg12">
+							<label class="tit-tab">项目介绍：</label>
+							<div class="layui-input-block">
+							<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+							</div>
+						</div>
+					</div>	
+				
 			</div>	
+
 	</div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
@@ -198,3 +233,16 @@
 	
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
