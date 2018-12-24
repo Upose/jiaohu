@@ -51,7 +51,7 @@ class ProjectCollectionStateModel
                             industry_id,
                             industry_name
                         FROM
-                            `app_industry`;";
+                            `dm_industry`;";
         $inIndustryList = M()->query($inIndustrySql);
         return  $inIndustryList;
      }
@@ -83,7 +83,7 @@ class ProjectCollectionStateModel
                         area_id AS aid,
                         area_name AS aname
                     FROM
-                        app_area
+                        dm_area
                     WHERE
                         parent_id = 0";
 
