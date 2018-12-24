@@ -1,0 +1,57 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+body{
+    padding: 2vh 1vw 0 1vw;
+    background:rgba(242,242,242,1);
+}
+
+.layui-elem-quote {
+    margin-bottom: 10px;
+    padding: 10px;
+	font-weight: 900;
+    line-height: 2px;
+    border-left: 5px solid #009688;
+    border-radius: 0 2px 2px 0;
+    background-color: #ffffff;
+}
+.details_gao{
+	height: 36vh;
+	margin-top: 10px;
+	padding: 3vh 2vw;
+	background: white;
+}
+.details_zhong{
+	height: 50vh;
+	margin-top: 10px;
+	padding: 3vh 2vw;
+	background: white;
+}
+
+.details_di{
+	height: 40vh;
+	margin-top: 10px;
+	padding: 3vh 2vw;
+	background: white;
+}
+.details_di .caller-contar .caller-item {
+    padding: 25px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #e0e0e0;
+}
+.details_di .caller-fl {
+    float: left;
+}
+
+.details_di .caller-contar .caller-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.details_di  .caller-contar .caller-item .caller-main {
+    margin-left: 20px;
+}
+
+
