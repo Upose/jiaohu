@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectCollection.css" media="all">
+	<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+	<script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body id="app" >
+    <div id="event-view">
+			<div class="details_gao">
+				<blockquote class="layui-elem-quote">项目里程碑</blockquote>
+				<div class="layui-col-lg2">
+					<div class="layui-line-me">						
+					</div>
+					<div class="layui_code">商务/售前</div>
+				</div>
+				<div class="layui-col-lg2 layui_left_title">
+					<div class="layui-line-me">
+						<ul>
+							<li class="layui-tab-zi">
+								<a href="{:U('Feedback/index')}">
+								  <h3 class="layui-cite">项目基本信息</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">立项</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">项目成员</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">客户关系</h3>
+								</a>
+							</li>
+						</ul>						
+					</div>				
+					<div class="layui_code">启动</div>
+					<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+					</div>
+				</div>
+
+				<div class="layui-col-lg2 layui_left_title">
+					<div class="layui-line-me">
+						<ul>
+							<li class="layui-tab-zhong">
+								<a href="{:U('Feedback/index')}">
+								<h3 class="layui-cite">里程碑计划</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zhong layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">工作计划</h3>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="layui_code">计划管理</div>
+					<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+					</div>
+				</div>
+				<div class="layui-col-lg2 layui_left_title">
+					<div class="layui-line-me">
+						<ul>
+							<li class="layui-tab-zi">
+								<a href="{:U('Feedback/index')}">
+								<h3 class="layui-cite">周报管理</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">会议管理</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">风险管理</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">需求管理</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">重大事件</h3>
+								</a>
+							</li>
+						</ul>
+					</div>	
+					<div class="layui_code">执行管理</div>
+					<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+					</div>
+				</div>
+				<div class="layui-col-lg2 layui_left_title">
+					<div class="layui-line-me">
+						<ul>
+							<li class="layui-tab-zhonging">
+								<a href="{:U('Feedback/index')}">
+								<h3 class="layui-cite">测试报告</h3>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="layui_code">测试联调</div>
+					<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+					</div>
+				</div>
+				<div class="layui-col-lg2 layui_left_title">
+					<div class="layui-line-me">
+						<ul>
+							<li class="layui-tab-zhonging">
+								<a href="{:U('Feedback/index')}">
+								<h3 class="layui-cite">试运行记录</h3>
+								</a>
+							</li>
+						</ul>
+					</div>	
+					<div class="layui_code">试运行</div>	
+						<div class="style-agile-border">
+							<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+				</div>
+				<div class="layui-col-lg2 layui_left_title">
+					<div class="layui-line-me">
+						<ul>
+							<li class="layui-tab-zhongpp">
+								<a href="{:U('Feedback/index')}">
+								<h3 class="layui-cite">项目验收</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zhongpp layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">成员考勤</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zhongpp layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">成员考核</h3>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="layui_code">验收归档</div>
+					<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+					</div>
+				</div>
+
+			</div>
+			<div class="details_zhong">
+				<blockquote class="layui-elem-quote">项目信息采集</blockquote>
+			</div>	
+			<div class="details_di">
+				<blockquote class="layui-elem-quote">历史信息</blockquote>
+				<div class="caller-contar"> 
+					<div class="caller-item">
+						<img src="/Public/Doc/images/portrait.png" alt="" class="caller-img caller-fl">
+						 <div class="caller-main caller-fl">       
+							<p><strong>胡歌</strong></p>
+							<p class="caller-adds">长宁分局-科长</p>
+							<div class="caller-iconset">
+						</div>
+					</div>
+				</div>
+				<div class="caller-contar"> 
+					<div class="caller-item">
+						<img src="/Public/Doc/images/portrait.png" alt="" class="caller-img caller-fl">
+						<div class="caller-main caller-fl">       
+							<p><strong>胡歌</strong></p>
+							<p class="caller-adds">长宁分局-科长</p>
+							<div class="caller-iconset">
+						</div>
+					</div>
+				</div>
+			</div>	
+	</div>
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+	
+</script>
+</html>
