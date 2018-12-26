@@ -27,9 +27,7 @@
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属行业：</label>
 							<div class="layui-input-block">
-								<select name="interest" id="level" lay-filter="aihao"  v-model="addList.level">
-								<option value="1">一般</option>
-								<option value="2">重要</option>
+								<select id="industry">
 								</select>
 							</div>
 						</div>
@@ -134,17 +132,13 @@
 				dataType: 'json',
 				success: function(data) {
 						if (data.code == 200) {
-								var result = data.res || [];
+								var result = data.data || [];
 								var htm='';
-								for (var i = 0; i<result[1].length; i++) {
-										htm +='<p><span class="fatu fa fa-github fa-2x"></span>'+
-													'<span>'+result[1][i].EQ_TYPE+'</span>'+
-													'<span>'+result[1][i].total+"个"+'</span>'+
-													'<span>'+((result[1][i].total/result[0][0].total)*100).toFixed(2)+"%"+'</span>'+
-													'</p>'         
+								for (var i = 0; i<result.length; i++) {
+										htm +='<option value="">'+result[i].industry_name+'</option>'       
 										}                  
 						}
-						 $('#dataSource').html(htm);  
+						 $('#industry').html(htm);  
 				}    
 				})
 		}

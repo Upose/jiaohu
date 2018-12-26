@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/ProjectCollection.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectCustomer.css" media="all">
 		<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
 	<script src="__STATIC__/vue.min.js"></script>
@@ -173,13 +173,14 @@
 				<table class="layui-table">
 						<thead>
 								<tr>
-										<th>组员姓名</th>
-										<th>岗位</th>
-										<th>部门</th>
-										<th>到岗时间</th>
+										<th>所在单位</th>
+										<th>所属职责</th>
+										<th>客户类型</th>
+										<th>客户姓名</th>
 										<th>离岗时间</th>
-										<th>类型</th>
-										<th>创建时间</th>
+										<th>联系电话</th>
+										<th>人员邮箱</th>
+										<th>人员备注</th>
 										<th>操作</th>
 								</tr>
 						</thead>
@@ -189,6 +190,7 @@
 										<td>{{item.address}}</td>
 										<td>{{item.meeting_time}}</td>
 										<td>{{item.meeting_level}}</td>
+										<td>{{item.department_id}}</td>
 										<td>{{item.department_id}}</td>
 										<td>{{item.meeting_mode}}</td>
 										<td>{{item.meeting_mode}}</td>
@@ -229,28 +231,31 @@
 	<div class="new_div">
 		<div class="new_tit"><span>新增项目成员</span><img @click='down()' src="__IMG__/close_normal.png"></div>
 			<div class="con_txt">
-				<p>人员姓名：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+				<p>项目名称：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
 						<option value="">请选择</option>
 						<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
 					</select>
 				</p>
-				<p>所属岗位：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
+				<p>所在单位：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+				<p>所属职责：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
 						<option value="">请选择</option>
 						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
 					</select>
 				</p>
-				<p>所属部门：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
+				<p>客户类型：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
 						<option value="">请选择</option>
 						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
 					</select>
 				</p>
-				<p>到岗时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>离岗时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>人员类型：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
+				<p>客户姓名：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>联系电话：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>人员邮箱：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
 						<option value="">请选择</option>
 						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
 					</select>
 				</p>
+				<p>人员备注：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+
 			</div>
 			<div class="btn_div"><button type="submit" @click='zeng()'>确定</button></div>
 	</div>
