@@ -408,24 +408,6 @@ class ProjectRegistrationModel
      }
 
 
-    /**
-     * 项目性质下拉框
-     * @author song.chaoxu
-     * 2018.12.21
-     */
-      public function nResult()
-     {
-
-        $sql = "SELECT * FROM app_project_nature;";
-
-        $nResultList = M()->query($sql);
-
-        return  $nResultList;
-
-     }
-
-
-
 
 
 }
