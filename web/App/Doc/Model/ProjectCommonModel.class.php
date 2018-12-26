@@ -65,7 +65,7 @@ class ProjectCommonModel
       public function inDepartment()
      {
         $inDepartmentSql = "
-                        SELECT department FROM `user_member` WHERE department LIKE '%交付%' GROUP BY department;";
+                        SELECT id,deptNmae FROM dm_department";
         $inDepartmentList = M()->query($inDepartmentSql);
         return  $inDepartmentList;
      }
