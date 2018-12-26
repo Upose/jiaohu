@@ -65,7 +65,7 @@ class ProjectCommonModel
       public function inDepartment()
      {
         $inDepartmentSql = "
-                        SELECT department FROM `user_member` WHERE department LIKE '%交付%' GROUP BY department;";
+                        SELECT id,deptNmae FROM dm_department";
         $inDepartmentList = M()->query($inDepartmentSql);
         return  $inDepartmentList;
      }
@@ -92,6 +92,26 @@ class ProjectCommonModel
 
      }
 
+    /**
+     * 查询项目经理列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+      public function pManagerList()
+     {
+        $pManagerSql = "SELECT
+                            *
+                        FROM
+                            `user_member`
+                        WHERE
+                            department LIKE '%交付%'
+                        AND duty LIKE '%项目经理%';";
+
+        $pManager = M()->query($pManagerSql);
+        return  $pManager;
+
+     }
 
 
 
