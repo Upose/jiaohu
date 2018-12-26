@@ -229,4 +229,124 @@ class ProjectRegistrationController extends BaseController {
 
 
 
+//  ==========================================   以下接口为 2018/12/26 版   ==========================================
+
+
+
+
+
+    /**
+     * 项目新增
+     * @author song.chaoxu
+     * 2018.11.20
+     */
+    public function projectMsgAdd()
+    {
+        //项目编号
+        $pro_code = intval(time());
+
+        //項目名稱
+        $pro_name = I('pro_name');
+
+        //项目来源
+        $pro_source = I('pro_source'); 
+
+         //项目经理
+        $projectManager = I('projectManager');
+
+        //项目经理ID
+        $projectManagerId = I('projectManagerId');
+   
+        //项目性质
+        $projectNature = I('projectNature');
+
+        //所在行业
+        $industry = I('industry_id');
+
+        //部门ID
+        $deptId = I('divisionManagerId');
+
+        //所在区域
+        $area = I('pro_address');
+
+        //性质描述
+        $natureType = I('natureType');
+
+
+        // 项目介绍
+        $projectIntroduce = I('projectIntroduce');
+
+
+        $status=$this->status=
+            ProjectRegistrationModel::projectMsgAdd($pro_code,$pro_name,$pro_source,$projectManager,$projectManagerId,$projectNature,$industry,$deptId,$area,$natureType,$projectIntroduce);
+            if ($status) {
+                $this->Response(200,$status,'数据新增成功');
+                } else {
+                throw new Exception('数据插入失败');
+                }
+
+    }
+
+
+
+
+    /**
+     * 项目查询
+     * @author song.chaoxu
+     * 2018.11.21
+     */
+    public function projectList()
+    {
+
+        //以下是所有下拉框列表
+        //所有区域 - 页面下拉项内容
+        $areaRes=$this->area=
+        ProjectRegistrationModel::areaList();
+        
+        $temp = array();
+
+
+        //区域
+        $proArea = I('proArea','');
+      
+        //名称
+        $proName = I('proName','');
+       
+        //页数
+        $page=intval(I('page',1));
+
+        //每页显示条数
+        $limit=intval(I('limit',10));
+
+        $pag=($page-1)*$limit;
+
+        //项目列表
+        $projectList=$this->projectList=
+        ProjectRegistrationModel::projectList($proArea,$proName,$pag,$limit);
+
+
+        $final['area'] = $areaRes;
+        $final['projectList'] = $projectList;
+
+        $this->Response(200,$final,'');
+
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

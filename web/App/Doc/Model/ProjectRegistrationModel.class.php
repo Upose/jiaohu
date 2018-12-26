@@ -276,4 +276,74 @@ class ProjectRegistrationModel
 
      }
 
+
+
+
+
+//  ==========================================   以下接口为 2018/12/26 版   ==========================================
+
+
+
+
+
+    /**
+     * 项目新增
+     * @author song.chaoxu
+     * 2018.12.26
+     */
+    public function projectMsgAdd($pro_code,$pro_name,$pro_source,$projectManager,$projectManagerId,$projectNature,$industry,$deptId,$area,$natureType,$projectIntroduce){
+
+          $sql="
+              INSERT INTO `itemapplication`.`app_project` (
+                    `pro_code`,
+                    `pro_name`,
+                    `industry_id`,
+                    `pro_source`,
+                    `pro_department`,
+                    `pro_leader`,
+                    `leader_name`,
+                    `pro_address`,
+                    `type_id`,
+                    `natureType`,
+                    `pro_introduce`,
+                    `founder_id`
+                )
+                VALUES
+                    (
+                    $pro_code,
+                    \"$pro_name\",
+                    $industry,
+                    $pro_source,
+                    $deptId,
+                    $projectManagerId,
+                    \"$projectManager\",
+                    $area,
+                    $projectNature,
+                    $natureType,
+                    \"$projectIntroduce\",
+                    $projectManagerId
+                    )";
+
+
+        try{
+
+            $res =  M()->execute($sql);
+            return $res;
+         
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+         
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
