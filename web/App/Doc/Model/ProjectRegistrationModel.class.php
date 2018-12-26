@@ -400,13 +400,7 @@ class ProjectRegistrationModel
      */
       public function pResult()
      {
-        $sql = "SELECT
-                            *
-                        FROM
-                            `user_member`
-                        WHERE
-                            department LIKE '%交付%'
-                        AND duty LIKE '%项目经理%';";
+        $sql = "SELECT * FROM `user_member` WHERE  department LIKE '%交付%' AND duty LIKE '%项目经理%';";
 
         $pResultList = M()->query($sql);
         return  $pResultList;
