@@ -231,7 +231,44 @@ class ProjectRegistrationController extends BaseController {
 
 //  ==========================================   以下接口为 2018/12/26 版   ==========================================
 
+    /**
+     * 项目下拉信息
+     * @author song.chaoxu
+     * 2018.12.26
+     */
+    public function projectDropResult()
+    {
+        
+        //以下是所有下拉框列表
+        //区域 - 页面下拉项内容
+        $aResult=$this->aResult=
+        ProjectRegistrationModel::aResult();
 
+        //行业 - 页面下拉项内容
+        $iResult=$this->iResult=
+        ProjectRegistrationModel::iResult();
+
+        //性质 - 页面下拉项内容
+        $nResult=$this->nResult=
+        ProjectRegistrationModel::nResult();
+
+        //经理 - 页面下拉项内容
+        $pResult=$this->pResult=
+        ProjectRegistrationModel::pResult();
+
+        //部门 - 页面下拉项内容
+        $dResult=$this->dResult=
+        ProjectRegistrationModel::dResult();
+
+        $final['aResult'] = $aResult;
+        $final['iResult'] = $iResult;
+        $final['pResult'] = $pResult;
+        $final['dResult'] = $dResult;
+        $final['nResult'] = $nResult;
+        
+        $this->Response(200,$final,'');
+
+    }
 
 
 

@@ -339,8 +339,96 @@ class ProjectRegistrationModel
 
 
 
+     /**
+     * 查询行业列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+      public function iResult()
+     {
+        $sql = "
+                        SELECT
+                            industry_id,
+                            industry_name
+                        FROM
+                            `dm_industry`;";
+        $iResultList = M()->query($sql);
+        return  $iResultList;
+     }
+
+     /**
+     * 查询部门列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+      public function dResult()
+     {
+        $sql = " SELECT id,deptnmae FROM dm_department";
+        $dResultList = M()->query($sql);
+        return  $dResultList;
+     }
+
+    /**
+     * 查询区域列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+
+      public function aResult()
+     {
+        $sql = "SELECT
+                        area_id AS aid,
+                        area_name AS aname
+                    FROM
+                        dm_area
+                    WHERE
+                        parent_id = 0";
+
+        $aResultList = M()->query($sql);
+        return  $aResultList;
+
+     }
+
+    /**
+     * 查询项目经理列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+      public function pResult()
+     {
+        $sql = "SELECT
+                            *
+                        FROM
+                            `user_member`
+                        WHERE
+                            department LIKE '%交付%'
+                        AND duty LIKE '%项目经理%';";
+
+        $pResultList = M()->query($sql);
+        return  $pResultList;
+
+     }
 
 
+    /**
+     * 项目性质下拉框
+     * @author song.chaoxu
+     * 2018.12.21
+     */
+      public function nResult()
+     {
+
+        $sql = "SELECT * FROM app_project_nature;";
+
+        $nResultList = M()->query($sql);
+
+        return  $nResultList;
+
+     }
 
 
 
