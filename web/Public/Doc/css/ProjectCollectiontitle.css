@@ -72,3 +72,14 @@
     top: 13vh;
     right: 8.5vw;
 }
+.style-agile{
+	position: absolute;
+    top: 8vh;
+    right: 1.2vw;
+}
+.style-agile-border img{
+ width: 85px;
+}
+.layui-red {
+	background: rgb(224, 28, 28,1);
+}
