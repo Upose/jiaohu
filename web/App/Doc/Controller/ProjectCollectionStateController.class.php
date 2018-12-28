@@ -26,18 +26,23 @@ class  ProjectCollectionStateController extends BaseController {
 
     /**
      * 实施交付
+     *
      * @author song.chaoxu
      * 2018.11.14
+     * mender Jankin Hou
+     * 2018-12-26
+     * URL：http://localhost/index.php?s=/Doc/ProjectCollectionState/projectList.html
+     * parameter  projectManagerId : 用户ID
      */
     public function projectList()
     {
 
         //获取此人ID 查询此人负责的项目列表
         $projectManagerId = I('projectManagerId');
-
+		$projectManagerId = 875;
         $projectList=$this->projectList=
         ProjectCollectionStateModel::projectList($projectManagerId);
-
+//	    var_dump($projectList);die();
         // //以下是所有下拉框列表
         // //所有区域 - 页面下拉项内容
         // $areaRes=$this->area=
@@ -65,7 +70,7 @@ class  ProjectCollectionStateController extends BaseController {
         // $final['jsFrame'] = $jsFrame;
         // $final['backFrame'] = $backFrame;
         // $final['databaseFrame'] = $databaseFrame;
-        
+
         $this->Response(200,$final,'');
 
     }
