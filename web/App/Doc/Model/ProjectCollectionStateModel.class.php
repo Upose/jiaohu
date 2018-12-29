@@ -114,6 +114,15 @@ class ProjectCollectionStateModel {
 				$num6 = $rows12[0]['customer_id']?0:1;
 				$num6 = $rows13[0]['persion_id']?$num6:$num6+1;
 				$num6 = $rows14[0]['approval_id']?$num6:$num6+1;
+				$status = '';//阶段标识
+				if($num1 == 0){
+					//验收表中有数据，当前项目处于已完成或者归档
+					$status = '已完成';
+				}elseif ($num1 == 1){
+					$status = '运行中';
+				}else{
+					$status ='项目异常';
+				}
 				$stage[$key] = [
 					'pro_code' => $value['pro_code'],
 					'pro_name'=> $value['pro_name'],
@@ -141,6 +150,7 @@ class ProjectCollectionStateModel {
 					'persionFile' => $rows13[0]['persion_id']?$isUp:$notUp,
 					'approvalFile' => $rows14[0]['approval_id']?$isUp:$notUp,
 					'start_phase'=>$num6,
+					'status' => $status
 				];
 			}
 		} else {
