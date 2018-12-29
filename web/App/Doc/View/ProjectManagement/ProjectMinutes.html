@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/ProjectCollection.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectMinutes.css" media="all">
 		<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
 	<script src="__STATIC__/vue.min.js"></script>
@@ -18,7 +18,7 @@
 			<div class="details_gao">
 				<blockquote class="layui-elem-quote">项目里程碑</blockquote>
 				<div class="layui-col-lg2">
-					<div class="layui-line-me">
+					<div class="layui-line-me">	
 						<div class="style-agile">
 							<img  src="/Public/Doc/images/user.png" alt="">
 						</div>
@@ -38,7 +38,7 @@
 								<h3 class="layui-cite">立项</h3>
 								</a>
 							</li>
-							<li class="layui-tab-zi layui-tab-top layui-red">
+							<li class="layui-tab-zi layui-tab-top">
 								<a href="{:U('ProjectManagement/ProjectCollection')}">
 								<h3 class="layui-cite">项目成员</h3>
 								</a>
@@ -84,7 +84,7 @@
 								<h3 class="layui-cite">周报管理</h3>
 								</a>
 							</li>
-							<li class="layui-tab-zi layui-tab-top">
+							<li class="layui-tab-zi layui-tab-top layui-red">
 								<a href="{:U('ProjectManagement/ProjectMinutes')}">
 								<h3 class="layui-cite">会议管理</h3>
 								</a>
@@ -139,7 +139,7 @@
 				<div class="layui-col-lg2 layui_left_title">
 					<div class="layui-line-me">
 						<ul>
-							<li class="layui-tab-zhongpp ">
+							<li class="layui-tab-zhongpp">
 								<a href="{:U('ProjectManagement/ProjectAcceptance')}">
 								<h3 class="layui-cite">项目验收</h3>
 								</a>
@@ -166,19 +166,18 @@
 			<div class="details_zhong">
 				<div>
 				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
-				<button class="addThisPeo" id="btnzeng">新建组员</button>
+				<button class="addThisPeo" id="btnzeng">项目试运行</button>
 				</div>
 				<table class="layui-table">
 						<thead>
 								<tr>
-										<th>组员姓名</th>
-										<th>岗位</th>
-										<th>部门</th>
-										<th>到岗时间</th>
-										<th>离岗时间</th>
-										<th>类型</th>
-										<th>创建时间</th>
-										<th>操作</th>
+										<th>验收项目</th>
+										<th>验收地点</th>
+										<th>验收时间</th>
+										<th>验收人员</th>
+										<th>验收内容</th>
+										<th>验收评价</th>
+										<th>备注</th>
 								</tr>
 						</thead>
 						<tbody>
@@ -188,8 +187,7 @@
 										<td>{{item.meeting_time}}</td>
 										<td>{{item.meeting_level}}</td>
 										<td>{{item.department_id}}</td>
-										<td>{{item.meeting_mode}}</td>
-										<td>{{item.meeting_mode}}</td>
+										<td>{{item.department_id}}</td>
 										<td style="cursor:pointer;" @click="openNew(item.id)">
 											<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
 											<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
@@ -225,30 +223,44 @@
 	</div>
 	<!-- 新增功能弹框 -->
 	<div class="new_div">
-		<div class="new_tit"><span>新增项目成员</span><img @click='down()' src="__IMG__/close_normal.png"></div>
+		<div class="new_tit"><span>项目验收</span><img @click='down()' src="__IMG__/close_normal.png"></div>
 			<div class="con_txt">
-				<p>人员姓名：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+				<p>所属阶段：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
 						<option value="">请选择</option>
 						<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
 					</select>
 				</p>
-				<p>所属岗位：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
+				<p>岗位职责：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+				<p>会议形式：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
 						<option value="">请选择</option>
 						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
 					</select>
 				</p>
-				<p>所属部门：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
+				<p>会议级别：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
 						<option value="">请选择</option>
 						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
 					</select>
 				</p>
-				<p>到岗时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>离岗时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>人员类型：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
-						<option value="">请选择</option>
-						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
-					</select>
+				<p>会议主题：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>会议时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>会议地点：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>会议内容：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>内部人员：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>外部人员：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p class="layui-form-item" style="vertical-align: top;">
+						<label class="tit-tab">上传文件</label>
+						<div class="cus-files" id="cus-form">
+								<input type="file" id="cus-ipt" name="photo" class="cus-files-input" multiple="multiple" ref="inputer" accept=".doc,.docx,.pdf" @change="updateFileList" />
+								<div class="cus-files-content">
+										<div class="cus-warning">
+												<img class="img1" src="__IMG__/up@2x.png">
+												<p class="cus-warning-item">点击选择文件</p>
+												<p class="cus-warning-item">支持扩展名：.doc,.docx,.pdf 最多4个</p>
+										</div>
+								</div>
+						</div>
 				</p>
+
 			</div>
 			<div class="btn_div"><button type="submit" @click='zeng()'>确定</button></div>
 	</div>
