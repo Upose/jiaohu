@@ -345,4 +345,71 @@ class ProjectOrganizationModel
     }
 
 
+
+// =============================================================
+
+
+
+// 岗位职责
+public function jobType(){
+
+
+  $sql = "SELECT jobtype_id,jobtype_name FROM `dm_jobtype`;";
+
+  $res = M()->query($sql);
+
+  return $res;
+
+}
+
+// 部门
+public function depatMent(){
+
+
+  $sql = "SELECT id,deptName FROM `dm_department`;";
+
+  $res = M()->query($sql);
+
+  return $res;
+
+}
+
+// 所有人
+public function allMember(){
+
+
+  $sql = "SELECT user_id,member_name FROM `user_member`;";
+
+  $res = M()->query($sql);
+
+  return $res;
+
+}
+
+
+// 新增人
+public function proPersionAdd($user_code,$member_name,$pro_code,$duty,$come_time,$leave_time,$operation_type,$remarks,$founder_id){
+
+
+                $app_project_persion = M("app_project_persion"); // 实例化User对象
+                $data['user_code'] = $user_code;
+                $data['member_name'] = $member_name;
+                $data['pro_code'] = $pro_code;
+                $data['duty'] = $duty;
+                $data['come_time'] = $come_time;
+                $data['leave_time'] = $leave_time;
+                $data['operation_type'] = $operation_type;
+                $data['remarks'] = $remarks;
+                $data['founder_id'] = $remarks;
+                $res = $app_project_persion->add($data);
+                return $res;
+
+}
+
+
+
+
+
+
+
 }

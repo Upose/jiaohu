@@ -117,4 +117,32 @@ class ProjectCommonModel
 
 
 
+
+
+// ==================================================================================
+
+
+
+
+// 新增客户人
+public function proCustomerAdd($pro_code,$department,$duty,$customer_type,$customer_name,$phone,$mailbox,$founder_id,$remarks){
+
+
+                $app_customer = M("app_customer"); // 实例化User对象
+                $data['department'] = $department;
+                $data['customer_type'] = $customer_type;
+                $data['pro_code'] = $pro_code;
+                $data['duty'] = $duty;
+                $data['customer_name'] = $customer_name;
+                $data['phone'] = $phone;
+                $data['mailbox'] = $mailbox;
+                $data['remarks'] = $remarks;
+                $data['founder_id'] = $founder_id;
+                $res = $app_customer->add($data);
+                return $res;
+
+}
+
+
+
 }
