@@ -42,7 +42,7 @@ class  ProjectCollectionStateController extends BaseController {
 		$projectManagerId = 875;
         $projectList=$this->projectList=
         ProjectCollectionStateModel::projectList($projectManagerId);
-//	    var_dump($projectList);die();
+	    var_dump($projectList);die();
         // //以下是所有下拉框列表
         // //所有区域 - 页面下拉项内容
         // $areaRes=$this->area=
