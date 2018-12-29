@@ -1,0 +1,234 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+body{
+    padding: 2vh 1vw 0 1vw;
+    background:rgba(242,242,242,1);
+}
+
+.layui-elem-quote {
+    margin-bottom: 10px;
+    padding: 10px;
+	font-weight: 900;
+    line-height: 2px;
+    border-left: 5px solid #009688;
+    border-radius: 0 2px 2px 0;
+    background-color: #ffffff;
+}
+.details_gao{
+	height: 36vh;
+	margin-top: 10px;
+	padding: 3vh 2vw;
+	background: white;
+}
+.details_zhong{
+	height: 50vh;
+	margin-top: 10px;
+	padding: 3vh 2vw;
+	background: white;
+}
+.addThispro{
+	float: left;
+}
+.addThisPeo {
+	display: inline-block;
+	height: 38px;
+	/* border-radius: 4px; */
+	line-height: 38px;
+	padding: 0 18px;
+	background-color: #009688;
+	color: #fff;
+	white-space: nowrap;
+	text-align: center;
+	font-size: 14px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	opacity: .9;
+	filter: alpha(opacity=90);
+	 float: right;
+	 margin-top: -2vh;
+}
+
+.details_di{
+	height: 40vh;
+	margin-top: 10px;
+	padding: 3vh 2vw;
+	background: white;
+}
+.details_di .caller-contar .caller-item {
+    padding: 25px 0;
+    overflow: hidden;
+    border-bottom: 1px solid #e0e0e0;
+}
+.details_di .caller-fl {
+    float: left;
+}
+
+.details_di .caller-contar .caller-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.details_di  .caller-contar .caller-item .caller-main {
+    margin-left: 20px;
+}
+/* 新增功能弹框 */
+.new_div{
+    width: 34vw;
+    height: 87vh;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 2px 8px 0px rgba(0,0,0,0.2);
+    border-radius:4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -17vw;
+    margin-top: -38vh;
+    display: none;
+}
+/* 标题部分 */
+.new_tit{
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: 900;
+    line-height: 13px;
+    border-left: 5px solid #009688;
+    border-radius: 0 2px 2px 0;
+    background-color: #ffffff;
+    padding: 2vh .5vw;
+    border-bottom: 1px solid rgba(233,233,233,1);
+}
+.new_tit span{
+    font-size:1.2vw;
+    font-weight: 400;
+    font-family:PingFangSC-Regular;
+    color:rgba(102,102,102,1);
+}
+.new_tit img{
+    float: right;
+}
+/*  */
+.con_txt{
+    width: 28vw;
+    font-size: 0.9vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(102,102,102,1);
+    padding: 3vh 3vw;
+    border-bottom: 1px solid rgba(233,233,233,1);
+}
+.con_txt>p{
+    margin: 1vh 0;
+}
+.name_input,.address_input,.time_input{
+    padding-left: 0.5vw;
+    outline-style: none;
+    width: 20vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.client_input,.industry_input{
+    padding-left: 0.5vw;
+    outline-style: none;
+    width: 20.8vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.longitude_input,.latitude_input{
+    outline-style: none;
+    padding-left: 0.5vw;
+    width: 6.25vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.province_input,.city_input{
+    outline-style: none;
+    padding-left: 0.5vw;
+    width:10.15vw;
+    height: 5vh;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.btn_div{
+    margin-top: 2vh;
+    float: right;
+}
+.btn_div>button{
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    font-size:12px;
+    margin-right: 1vw;
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,0.65);
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    border:1px solid rgba(217,217,217,1);
+}
+.btn_div>button:hover{
+    font-style: none;
+    border-style: none;
+    padding: 1vh 2vw;
+    font-size:12px;
+    margin-right: 1vw;
+    font-family:PingFangSC-Regular;
+    color:white;
+    background:rgba(7,200,141,1);
+    border-radius:4px;
+    border:1px solid rgba(7,200,141,1);
+
+}
+/* 上传文件 */
+.form_div2 {
+    width: 40vw;
+    display: inline-block;
+}
+.tit_shang {
+	display: block;
+    font-family: PingFangSC-Regular;
+    /* color: rgba(155,155,155,1); */
+    margin-top: 2.5vh;
+    margin-bottom: 1vh;
+    font-weight: 600;
+    color: rgba(0,0,0,1);
+    font-size: 17px;
+}
+.cus-files {
+    height: 10vh;
+	width: 20.5vw;
+    padding: 0;
+    margin: -23px;
+    margin-left: 68px;
+    position: relative;
+    background: rgba(251,251,251,1);
+    border-radius: 4px;
+    border: 1px dashed rgba(217,217,217,1);
+}
+.cus-files-input {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.cus-warning {
+    margin-top: 2vh;
+    text-align: center;
+    color: #979797;
+	    font-size: 10px;
+}
+
+.img1{
+	width: 10%;
+}
