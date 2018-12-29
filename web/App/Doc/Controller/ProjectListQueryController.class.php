@@ -55,6 +55,25 @@ class ProjectListQueryController extends BaseController {
 
     }
 
+    /**
+     * 项目详细查询
+     * @author song.chaoxu
+     * 2018.12.27
+     */
+    public function pListMsg()
+    {
+      
+        //名称
+        $proCode = I('proCode','');
+
+        //项目详细列表
+        $projectMsgList=$this->projectList=
+        ProjectListQueryModel::pListMsg($proCode);
+
+        $this->Response(200,$projectMsgList,'');
+
+    }
+
 
     /**
      * 删除项目
