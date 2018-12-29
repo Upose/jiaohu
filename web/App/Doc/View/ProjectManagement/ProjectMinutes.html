@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/ProjectTextrun.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectMinutes.css" media="all">
 		<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
 	<script src="__STATIC__/vue.min.js"></script>
@@ -84,7 +84,7 @@
 								<h3 class="layui-cite">周报管理</h3>
 								</a>
 							</li>
-							<li class="layui-tab-zi layui-tab-top">
+							<li class="layui-tab-zi layui-tab-top layui-red">
 								<a href="{:U('ProjectManagement/ProjectMinutes')}">
 								<h3 class="layui-cite">会议管理</h3>
 								</a>
@@ -124,7 +124,7 @@
 				<div class="layui-col-lg2 layui_left_title">
 					<div class="layui-line-me">
 						<ul>
-							<li class="layui-tab-zhonging layui-red">
+							<li class="layui-tab-zhonging">
 								<a href="{:U('ProjectManagement/ProjectTextrun')}">
 								<h3 class="layui-cite">试运行记录</h3>
 								</a>
@@ -225,27 +225,28 @@
 	<div class="new_div">
 		<div class="new_tit"><span>项目验收</span><img @click='down()' src="__IMG__/close_normal.png"></div>
 			<div class="con_txt">
-				<p>项目名称：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+				<p>所属阶段：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
 						<option value="">请选择</option>
 						<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
 					</select>
 				</p>
-				<p>试运内容：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
-				<p>试运情况：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
+				<p>岗位职责：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+				<p>会议形式：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
 						<option value="">请选择</option>
 						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
 					</select>
 				</p>
-				<p>试运部门：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
+				<p>会议级别：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
 						<option value="">请选择</option>
 						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
 					</select>
 				</p>
-				<p>用户评价：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>开始时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>结束时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>相关备注：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>达成目标：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>会议主题：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>会议时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>会议地点：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>会议内容：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>内部人员：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+				<p>外部人员：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
 				<p class="layui-form-item" style="vertical-align: top;">
 						<label class="tit-tab">上传文件</label>
 						<div class="cus-files" id="cus-form">
