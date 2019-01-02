@@ -32,7 +32,7 @@ class ProjectRegistrationModel
      {
 
 
-     	$sql = "SELECT * FROM app_industry;";
+     	$sql = "SELECT industry_id,industry_name FROM dm_industry;";
 
      	$industry = M()->query($sql);
 
@@ -391,6 +391,40 @@ class ProjectRegistrationModel
         return  $aResultList;
 
      }
+
+    /**
+     * 控股公司列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+
+      public function kResult()
+     {
+        $sql = "SELECT id,holding FROM `dm_dolding`;";
+
+        $kResultList = M()->query($sql);
+        return  $kResultList;
+
+     }
+
+
+    /**
+     * 项目性质 / 战略性质
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+
+      public function nResult()
+     {
+        $sql = "SELECT id,nature FROM `dm_nature`;";
+
+        $nResultList = M()->query($sql);
+        return  $nResultList;
+
+     }
+     
 
     /**
      * 查询项目经理列表
