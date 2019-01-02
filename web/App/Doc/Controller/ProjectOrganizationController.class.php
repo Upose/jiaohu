@@ -182,4 +182,85 @@ class ProjectOrganizationController extends BaseController{
         $this->Response(0,$res,'');
     }
 
+
+
+// ===========================================================================================
+
+
+
+    /**
+     *下拉列表
+     *@author songcx
+     *2018.12.29
+     */
+    public function dropSelect()
+    {
+
+        //以下是所有下拉框列表
+        //岗位职责 - 页面下拉项内容
+        $jobType=$this->jobtype=
+        ProjectOrganizationModel::jobType();
+
+        //部门 - 页面下拉项内容
+        $depatMent=$this->depatMent=
+        ProjectOrganizationModel::depatMent();
+
+        //JS框架 - 页面下拉项内容
+        $allMember=$this->allMember=
+        ProjectOrganizationModel::allMember();
+
+        // //后台框架 - 页面下拉项内容
+        // $backFrame=$this->backFrame=
+        // ProjectOrganizationModel::backFrame();
+
+        // //数据库框架 - 页面下拉项内容
+        // $databaseFrame=$this->databaseFrame=
+        // ProjectOrganizationModel::databaseFrame();
+
+        $final['jobType'] = $jobType;
+        $final['depatMent'] = $depatMent;
+        $final['allMember'] = $allMember;
+
+        $this->Response(200,$final,'');
+
+    }
+
+
+    /**
+     *新增成员
+     *@author songcx
+     *2018.12.29
+     */
+    public function proPersionAdd()
+    {
+
+        // 成员id
+        $user_code = I('uCode');
+        // 成员姓名
+        $member_name = I('mName');
+        // 项目编号
+        $pro_code = I('pCode');
+        // 职位
+        $duty = I('duty');
+        // 部门
+        $dept = I('dept');
+        // 到岗时间
+        $come_time = I('cTime');
+        // 离岗时间
+        $leave_time = I('lTime');
+        // 操作类型
+        $operation_type = I('oType');
+        // 备注
+        $remarks = I('remarks');
+        // 备注
+        $founder_id = I('founder_id');
+
+        $res = $this->res=
+        ProjectOrganizationModel::proPersionAdd($user_code,$member_name,$pro_code,$duty,$come_time,$leave_time,$operation_type,$remarks,$founder_id);
+        
+        $this->Response(0,$res,'');
+    }
+
+
+
 }
