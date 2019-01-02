@@ -111,3 +111,14 @@ body{
 	margin-left: 6vw;
 }
 
+/* 下拉框样式 */
+.pro_select{
+	display: block;
+    width: 80%;
+    height: 38px;
+	float: left;
+    line-height: 36px\9;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    border-radius: 2px;
+}
