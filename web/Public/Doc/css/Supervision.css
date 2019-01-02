@@ -45,12 +45,11 @@ body{
     border-radius: 0 2px 2px 0;
     background-color: #ffffff;
 }
-.layui-form-item {
+.layui-item {
     margin-bottom: 15px;
     margin-left: 56px;
     margin-top: 30px;
     width: 78vw;
-    clear: both;
 }
 .layui-input{
     display: block;

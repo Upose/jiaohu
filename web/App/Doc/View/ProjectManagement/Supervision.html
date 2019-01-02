@@ -14,10 +14,10 @@
 
 <body id="app" >
     <div id="event-view">
-			<form action="" lay-filter="component-form-element">
+			<form>
 				<div class="details_zong">
 					<blockquote class="layui-elem-quote">项目基本信息采集</blockquote>
-					<div class="layui-row layui-col-space10 layui-form-item">
+					<div class="layui-row layui-col-space10 layui-item">
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目名称：</label>
 							<div class="layui-input-block">
@@ -27,8 +27,9 @@
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属行业：</label>
 							<div class="layui-input-block">
-								<select class="pro_select" id="industry">
-								</select>
+								<select name="interest" lay-filter="aihao"  class="pro_select" v-model="addList.industry">
+								<option v-for="a in rank" :value="a.id">{{a.deptname}}</option>
+								</select>	
 							</div>
 						</div>
 						<div class="layui-col-lg6">
@@ -111,38 +112,21 @@
 	  layer = layui.layer,
 	  layedit = layui.layedit,
 	  laydate = layui.laydate;
-		dataSource();
+	 //日期 
+
+
 	  });
+
     //数据资源 
       var app = new Vue({
           el: "#app",
   				data: function() {
   					return {
-  						area:[],
-  						backFrame:[],
-  						projectmen: [],
-  						databaseFrame:[],
-  						zdepartment:[],
-  						zpostName:[],
-  						uiFrame:[],
-  						jsFrame:[],
-  						peoplemore:[],
-  						peoplelist:[],
+  						rank:[],
+
   						addList: {
   							proname: '',
   							proArea:'',
-  							uiFrame:'',
-  							jsFrame:'',
-  							backFrame:'',
-  							databaseFrame:'',
-  							stakeHolder:'',
-  							whether_ys:'',
-  							ys_date:'',
-  							persionRelease:'',
-  							departname: '',
-  							selectedpeople: '',
-  							peo_job: '',
-  							dao_data:''
   						},
   					}
   				},
@@ -158,7 +142,7 @@
                   		url: "{:U('ProjectRegistration/projectDropResult')}",
                   		dataType: "json",
                   		success: function (data) {
-                  				that.rank = data.data.rank;
+                  				that.rank = data.data.dResult;
                   		}
                   })
               },
