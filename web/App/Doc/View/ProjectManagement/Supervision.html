@@ -14,7 +14,7 @@
 
 <body id="app" >
     <div id="event-view">
-			<form class="layui-form" action="" lay-filter="component-form-element">
+			<form action="" lay-filter="component-form-element">
 				<div class="details_zong">
 					<blockquote class="layui-elem-quote">项目基本信息采集</blockquote>
 					<div class="layui-row layui-col-space10 layui-form-item">
@@ -27,7 +27,7 @@
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属行业：</label>
 							<div class="layui-input-block">
-								<select id="industry">
+								<select class="pro_select" id="industry">
 								</select>
 							</div>
 						</div>
@@ -40,7 +40,7 @@
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属部门：</label>
 							<div class="layui-input-block">
-								<select name="interest" id="level" lay-filter="aihao"  v-model="addList.level">
+								<select name="interest" class="pro_select" id="level" lay-filter="aihao"  v-model="addList.level">
 								<option value="1">一般</option>
 								<option value="2">重要</option>
 								</select>
@@ -55,7 +55,7 @@
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目地点：</label>
 							<div class="layui-input-block">
-								<select name="interest" id="level" lay-filter="aihao"  v-model="addList.level">
+								<select name="interest" id="level" class="pro_select" lay-filter="aihao"  v-model="addList.level">
 								<option value="1">一般</option>
 								<option value="2">重要</option>
 								</select>
@@ -70,7 +70,7 @@
 						<div class="layui-col-lg6">
 							<label class="tit-tab">战略性质：</label>
 							<div class="layui-input-block">
-								<select name="interest" id="level" lay-filter="aihao"  v-model="addList.level">
+								<select name="interest" id="level" class="pro_select" lay-filter="aihao"  v-model="addList.level">
 								<option value="1">一般</option>
 								<option value="2">重要</option>
 								</select>
@@ -101,16 +101,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="caller-contar"> 
-					<div class="caller-item">
-						<img src="/Public/Doc/images/portrait.png" alt="" class="caller-img caller-fl">
-						<div class="caller-main caller-fl">       
-							<p><strong>胡歌</strong></p>
-							<p class="caller-adds">长宁分局-科长</p>
-							<div class="caller-iconset">
-						</div>
-					</div>
-				</div>
 			</div>	
 		</div>
 </body>
@@ -124,23 +114,92 @@
 		dataSource();
 	  });
     //数据资源 
-		function dataSource(){
-				$.ajax({
-				url: "{:U('ProjectCommon/inIndustry')}",
-				type: 'post',
-				data: {},
-				dataType: 'json',
-				success: function(data) {
-						if (data.code == 200) {
-								var result = data.data || [];
-								var htm='';
-								for (var i = 0; i<result.length; i++) {
-										htm +='<option value="">'+result[i].industry_name+'</option>'       
-										}                  
-						}
-						 $('#industry').html(htm);  
-				}    
-				})
-		}
+      var app = new Vue({
+          el: "#app",
+  				data: function() {
+  					return {
+  						area:[],
+  						backFrame:[],
+  						projectmen: [],
+  						databaseFrame:[],
+  						zdepartment:[],
+  						zpostName:[],
+  						uiFrame:[],
+  						jsFrame:[],
+  						peoplemore:[],
+  						peoplelist:[],
+  						addList: {
+  							proname: '',
+  							proArea:'',
+  							uiFrame:'',
+  							jsFrame:'',
+  							backFrame:'',
+  							databaseFrame:'',
+  							stakeHolder:'',
+  							whether_ys:'',
+  							ys_date:'',
+  							persionRelease:'',
+  							departname: '',
+  							selectedpeople: '',
+  							peo_job: '',
+  							dao_data:''
+  						},
+  					}
+  				},
+  		created: function () {
+  			this.getdata();
+  		},
+          methods: {
+              getdata() {
+                  var that = this;
+                  $.ajax({
+                  		cache: false,
+                  		type: "post",
+                  		url: "{:U('ProjectRegistration/projectDropResult')}",
+                  		dataType: "json",
+                  		success: function (data) {
+                  				that.rank = data.data.rank;
+                  		}
+                  })
+              },
+  						 // 交付信息提交
+  						submitForm(){
+  								var that = this;
+  								var dproname =$("#dpropeopleid").find("option:selected").text();
+  								$.ajax({
+  										type: "post",
+  										url: "{:U('ProjectDelivery/proDeliveryAdd')}",
+  										dataType: "json",
+  										data:{
+  											proId:this.addList.proname,
+  											proName:dproname,
+  											proArea:this.addList.proArea,
+  											uiFrame:this.addList.uiFrame,
+  											jsFrame:this.addList.jsFrame,
+  											backFrame:this.addList.backFrame,
+  											databaseFrame:this.addList.databaseFrame,
+  											stakeHolder:this.addList.stakeHolder,
+  											whether_ys:this.addList.whether_ys,
+  											ys_date:this.addList.ys_date,
+  											persionRelease:this.addList.persionRelease
+  											
+  										},
+  										success: function (data) {
+  											if(res.code == 200) {
+  												layui.use('layer', function() {
+  													layer.alert('提交成功');
+  												})
+  											} else {
+  												layui.use('layer', function() {
+  													var layer = layui.layer;
+  													layer.alert('添加失败');
+  												})
+  											}
+  										}
+  								})
+  						},
+  						
+          }
+      })
 </script>
 </html>
