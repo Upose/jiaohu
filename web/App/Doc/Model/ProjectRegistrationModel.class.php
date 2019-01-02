@@ -32,7 +32,7 @@ class ProjectRegistrationModel
      {
 
 
-     	$sql = "SELECT * FROM app_industry;";
+     	$sql = "SELECT industry_id,industry_name FROM dm_industry;";
 
      	$industry = M()->query($sql);
 
