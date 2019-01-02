@@ -145,7 +145,6 @@ class  ProjectCommonController extends BaseController {
 
         $res = $this->res=
         ProjectCommonModel::proCustomerAdd($pro_code,$department,$duty,$customer_type,$customer_name,$phone,$mailbox,$founder_id,$remarks);
-\
         
         $this->Response(0,$res,'');
     }
