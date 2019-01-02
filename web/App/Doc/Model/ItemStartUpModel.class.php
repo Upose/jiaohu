@@ -108,6 +108,30 @@ class ItemStartUpModel
 
 
 
+    // 人员岗位职责
+    public function jResult(){
+
+
+      $sql = "SELECT jobtype_id,jobtype_name FROM `dm_jobtype`;";
+
+      $res = M()->query($sql);
+
+      return $res;
+
+    }
+
+
+    // 公司所有人交付人员
+    public function memberResult(){
+
+
+      $sql = "SELECT user_id,member_name FROM `user_member`;";
+
+      $res = M()->query($sql);
+
+      return $res;
+
+    }
 
 
     /**
@@ -250,6 +274,8 @@ class ItemStartUpModel
                 JOIN dm_industry i ON p.industry_id = i.industry_id
                 JOIN dm_department d ON p.pro_department = d.id
                 JOIN dm_area a ON p.pro_address = a.area_id
+                where p.pro_code = $proCode
+
                 ";
 
         $response = M()->query($sql);
@@ -269,6 +295,28 @@ class ItemStartUpModel
         $pTable = M("app_project"); // 实例化User对象
         $result = $pTable->where($delCode)->delete(); // 删除id为$delCode的用户数据
         return $result;
+
+    }
+
+    /**
+     * 新增项目成员
+     * @author song.chaoxu
+     * 2018.12.27
+     */
+    public function proPersionAdd($user_code,$member_name,$pro_code,$duty,$come_time,$leave_time,$operation_type,$remarks,$founder_id){
+
+        $app_project_persion = M("app_project_persion"); // 实例化User对象
+        $data['user_code'] = $user_code;
+        $data['member_name'] = $member_name;
+        $data['pro_code'] = $pro_code;
+        $data['duty'] = $duty;
+        $data['come_time'] = $come_time;
+        $data['leave_time'] = $leave_time;
+        $data['operation_type'] = $operation_type;
+        $data['remarks'] = $remarks;
+        $data['founder_id'] = $remarks;
+        $res = $app_project_persion->add($data);
+        return $res;
 
     }
 
