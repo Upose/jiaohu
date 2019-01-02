@@ -249,8 +249,8 @@ class ProjectRegistrationController extends BaseController {
         ProjectRegistrationModel::iResult();
 
         //性质 - 页面下拉项内容
-        // $nResult=$this->nResult=
-        // ProjectRegistrationModel::nResult();
+        $nResult=$this->nResult=
+        ProjectRegistrationModel::nResult();
 
         //经理 - 页面下拉项内容
         $pResult=$this->pResult=
@@ -259,6 +259,10 @@ class ProjectRegistrationController extends BaseController {
         //部门 - 页面下拉项内容
         $dResult=$this->dResult=
         ProjectRegistrationModel::dResult();
+
+        //项目来源 - 页面下拉项内容
+        $kResult=$this->kResult=
+        ProjectRegistrationModel::kResult();
 
         $final['aResult'] = $aResult;
         $final['iResult'] = $iResult;
