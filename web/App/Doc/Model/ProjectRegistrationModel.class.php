@@ -365,7 +365,7 @@ class ProjectRegistrationModel
      */
       public function dResult()
      {
-        $sql = " SELECT id,deptnmae FROM dm_department";
+        $sql = " SELECT id,deptNmae FROM dm_department";
         $dResultList = M()->query($sql);
         return  $dResultList;
      }
