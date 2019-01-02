@@ -1,0 +1,276 @@
+<?php
+namespace Doc\Model;
+mysql_query("SET NAMES UTF8"); 
+
+class ItemStartUpModel
+{
+
+     /**
+     * 查询行业列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+    public function iResult()
+     {
+        $sql = "
+                        SELECT
+                            industry_id,
+                            industry_name
+                        FROM
+                            `dm_industry`;";
+        $iResultList = M()->query($sql);
+        return  $iResultList;
+     }
+
+     /**
+     * 查询部门列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+    public function dResult()
+     {
+        $sql = " SELECT id,deptName FROM dm_department";
+        $dResultList = M()->query($sql);
+        return  $dResultList;
+     }
+
+    /**
+     * 查询区域列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+
+    public function aResult()
+     {
+        $sql = "SELECT
+                        area_id AS aid,
+                        area_name AS aname
+                    FROM
+                        dm_area
+                    WHERE
+                        parent_id = 0";
+
+        $aResultList = M()->query($sql);
+        return  $aResultList;
+
+     }
+
+    /**
+     * 控股公司列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+
+    public function kResult()
+     {
+        $sql = "SELECT id,holding FROM `dm_dolding`;";
+
+        $kResultList = M()->query($sql);
+        return  $kResultList;
+
+     }
+
+    /**
+     * 项目性质 / 战略性质
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+
+    public function nResult()
+     {
+        $sql = "SELECT id,nature FROM `dm_nature`;";
+
+        $nResultList = M()->query($sql);
+        return  $nResultList;
+
+     }
+     
+
+    /**
+     * 查询项目经理列表
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+    public function pResult()
+     {
+        $sql = "SELECT * FROM `user_member` WHERE  department LIKE '%交付%' AND duty LIKE '%项目经理%';";
+
+        $pResultList = M()->query($sql);
+        return  $pResultList;
+
+     }
+
+
+
+
+
+    /**
+     * 项目新增
+     * @author song.chaoxu
+     * 2018.12.26
+     */
+    public function projectAdd($pro_code,$pro_name,$pro_source,$projectManager,$projectManagerId,$projectNature,$industry,$deptId,$area,$natureType,$projectIntroduce){
+
+          $sql="
+              INSERT INTO `itemapplication`.`app_project` (
+                    `pro_code`,
+                    `pro_name`,
+                    `industry_id`,
+                    `pro_source`,
+                    `pro_department`,
+                    `pro_leader`,
+                    `leader_name`,
+                    `pro_address`,
+                    `type_id`,
+                    `natureType`,
+                    `pro_introduce`,
+                    `founder_id`
+                )
+                VALUES
+                    (
+                    $pro_code,
+                    \"$pro_name\",
+                    $industry,
+                    $pro_source,
+                    $deptId,
+                    $projectManagerId,
+                    \"$projectManager\",
+                    $area,
+                    $projectNature,
+                    $natureType,
+                    \"$projectIntroduce\",
+                    $projectManagerId
+                    )";
+
+
+        try{
+
+            $res =  M()->execute($sql);
+            return $res;
+         
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+         
+    }
+
+
+    /**
+     * 查询现有项目分页列表
+     * @author song.chaoxu
+     * 2018.11.21
+     */
+     public function pList($proName,$pag,$limit)
+     {
+        
+        $sql = "
+                SELECT
+                    p.pro_code,
+                    p.pro_name,
+                    d.deptName,
+                    i.industry_name
+                FROM
+                    `app_project` p
+                JOIN dm_industry i ON p.industry_id = i.industry_id
+                JOIN dm_department d ON p.pro_department = d.id
+                ";
+
+        //根据传来的不同条件进行搜索  
+        if ( $proName != "" ) {
+
+            $sql.="where pro_name like \"%$proName%\"  limit ".$pag.",".$limit;
+
+        } else{
+
+             $sql.="limit ".$pag.",".$limit;
+        }
+
+        $res = M()->query($sql);
+
+        $sqlCount = "   
+                SELECT
+                    count(pro_name) total
+                FROM
+                    `app_project` p
+                JOIN dm_industry i ON p.industry_id = i.industry_id
+                JOIN dm_department d ON p.pro_department = d.id
+                    ";
+
+        //根据传来的不同条件进行搜索  
+        if ($proArea!="" && $proName != "" ) {
+
+            $sqlCount.="where pro_name like \"%$proName%\"  ";
+
+        } else{
+
+             $sqlCount.="";
+        }
+
+
+        $total = M()->query($sqlCount);
+
+        $count =$total[0]['total'];
+        
+        $response = array('result' => $res,'count' =>$count);
+
+        return $response;
+
+     }
+
+
+    /**
+     * 查询现有项目详细列表
+     * @author song.chaoxu
+     * 2018.11.21
+     */
+    public function pContent($proCode)
+     {
+        
+        $sql = "
+                SELECT
+                    p.pro_code,
+                    p.pro_name,
+                    p.pro_source,
+                    p.pro_leader,
+                    p.leader_name,
+                    p.type_id,
+                    i.industry_name,
+                    d.deptName,
+                    a.area_name,
+                    p.natureType,
+                    p.pro_introduce
+                FROM
+                    `app_project` p
+                JOIN dm_industry i ON p.industry_id = i.industry_id
+                JOIN dm_department d ON p.pro_department = d.id
+                JOIN dm_area a ON p.pro_address = a.area_id
+                ";
+
+        $response = M()->query($sql);
+
+        return $response;
+     }
+
+
+    /**
+     * 删除指定项目记录
+     * @author song.chaoxu
+     * 2018.12.27
+     */
+    public function dProject($pCode){
+        
+        $delCode = 'pro_code='.$pCode;
+        $pTable = M("app_project"); // 实例化User对象
+        $result = $pTable->where($delCode)->delete(); // 删除id为$delCode的用户数据
+        return $result;
+
+    }
+
+
+}
