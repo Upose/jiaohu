@@ -264,7 +264,8 @@ class ProjectRegistrationController extends BaseController {
         $final['iResult'] = $iResult;
         $final['pResult'] = $pResult;
         $final['dResult'] = $dResult;
-        // $final['nResult'] = $nResult;
+        $final['kResult'] = $kResult;
+        $final['nResult'] = $nResult;
         
         $this->Response(200,$final,'');
 
