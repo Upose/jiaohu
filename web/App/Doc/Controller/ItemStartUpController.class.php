@@ -111,7 +111,7 @@ class ItemStartUpController extends BaseController {
 
 
         $status=$this->status=
-            ItemStartUpModel::projectMsgAdd($pro_code,$pro_name,$pro_source,$projectManager,$projectManagerId,$projectNature,$industry,$deptId,$area,$natureType,$projectIntroduce);
+            ItemStartUpModel::projectAdd($pro_code,$pro_name,$pro_source,$projectManager,$projectManagerId,$projectNature,$industry,$deptId,$area,$natureType,$projectIntroduce);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
