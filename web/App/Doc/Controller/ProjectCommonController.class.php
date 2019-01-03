@@ -116,43 +116,6 @@ class  ProjectCommonController extends BaseController {
 
 
 
-    /**
-     *新增客户成员
-     *@author songcx
-     *2018.12.29
-     */
-    public function proCustomerAdd()
-    {
-
-        // 项目编号
-        $pro_code = I('pCode');
-        // 部门
-        $department = I('department');
-        // 所属职责
-        $duty = I('duty');
-        // 客户类别
-        $customer_type = I('customer_type');
-        // 客户姓名
-        $customer_name = I('customer_name');
-        // 客户联系电话
-        $phone = I('phone');
-        // 客户邮箱
-        $mailbox = I('mailbox');
-        // 创建人
-        $founder_id = I('founder_id');
-        // 备注
-        $remarks = I('remarks');
-
-        $res = $this->res=
-        ProjectCommonModel::proCustomerAdd($pro_code,$department,$duty,$customer_type,$customer_name,$phone,$mailbox,$founder_id,$remarks);
-\
-        
-        $this->Response(0,$res,'');
-    }
-
-
-
-
 
 
 
