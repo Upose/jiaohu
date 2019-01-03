@@ -15,7 +15,7 @@ class ItemStartUpModel
      {
         $sql = "
                         SELECT
-                            industry_id,
+                            industry_id AS iid,
                             industry_name
                         FROM
                             `dm_industry`;";
@@ -31,7 +31,7 @@ class ItemStartUpModel
      */
     public function dResult()
      {
-        $sql = " SELECT id,deptName FROM dm_department";
+        $sql = " SELECT id AS did,deptName FROM dm_department";
         $dResultList = M()->query($sql);
         return  $dResultList;
      }
@@ -67,7 +67,7 @@ class ItemStartUpModel
 
     public function kResult()
      {
-        $sql = "SELECT id,holding FROM `dm_dolding`;";
+        $sql = "SELECT id AS kid,holding FROM `dm_dolding`;";
 
         $kResultList = M()->query($sql);
         return  $kResultList;
@@ -83,7 +83,7 @@ class ItemStartUpModel
 
     public function nResult()
      {
-        $sql = "SELECT id,nature FROM `dm_nature`;";
+        $sql = "SELECT id AS nid,nature FROM `dm_nature`;";
 
         $nResultList = M()->query($sql);
         return  $nResultList;
@@ -99,7 +99,7 @@ class ItemStartUpModel
      */
     public function pResult()
      {
-        $sql = "SELECT * FROM `user_member` WHERE  department LIKE '%交付%' AND duty LIKE '%项目经理%';";
+        $sql = "SELECT user_id AS pid,member_name FROM `user_member` WHERE  department LIKE '%交付%' AND duty LIKE '%项目经理%';";
 
         $pResultList = M()->query($sql);
         return  $pResultList;
@@ -112,7 +112,7 @@ class ItemStartUpModel
     public function jResult(){
 
 
-      $sql = "SELECT jobtype_id,jobtype_name FROM `dm_jobtype`;";
+      $sql = "SELECT jobtype_id AS jid,jobtype_name FROM `dm_jobtype`;";
 
       $res = M()->query($sql);
 
@@ -125,7 +125,7 @@ class ItemStartUpModel
     public function memberResult(){
 
 
-      $sql = "SELECT user_id,member_name FROM `user_member`;";
+      $sql = "SELECT user_id AS mid,member_name FROM `user_member`;";
 
       $res = M()->query($sql);
 
@@ -319,6 +319,30 @@ class ItemStartUpModel
         return $res;
 
     }
+
+    /**
+     *新增客户人
+     *@author songcx
+     *2018.12.29
+     */
+    public function proCustomerAdd($pro_code,$department,$duty,$customer_type,$customer_name,$phone,$mailbox,$founder_id,$remarks){
+
+        $app_customer = M("app_customer"); // 实例化User对象
+        $data['department'] = $department;
+        $data['customer_type'] = $customer_type;
+        $data['pro_code'] = $pro_code;
+        $data['duty'] = $duty;
+        $data['customer_name'] = $customer_name;
+        $data['phone'] = $phone;
+        $data['mailbox'] = $mailbox;
+        $data['remarks'] = $remarks;
+        $data['founder_id'] = $founder_id;
+        $res = $app_customer->add($data);
+        return $res;
+
+    }
+
+
 
 
 }
