@@ -21,55 +21,57 @@
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目名称：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" name="identity" lay-verify="identity" placeholder="请输入项目名称" autocomplete="off" class="layui-input" v-model="addList.name">
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属行业：</label>
 							<div class="layui-input-block">
-								<select name="interest" lay-filter="aihao"  class="pro_select" v-model="addList.industry">
-								<option v-for="a in rank" :value="a.id">{{a.deptname}}</option>
+								<select lay-filter="aihao"  class="pro_select" v-model="addList.industry">
+								<option v-for="a in rank" :value="a.industry_id">{{a.industry_name}}</option>
 								</select>	
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目来源：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="控股公司" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" name="identity" lay-verify="identity" placeholder="请输出项目来源" autocomplete="off" class="layui-input" v-model="addList.name">
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属部门：</label>
 							<div class="layui-input-block">
-								<select name="interest" class="pro_select" id="level" lay-filter="aihao"  v-model="addList.level">
-								<option value="1">一般</option>
-								<option value="2">重要</option>
-								</select>
+								<select lay-filter="aihao" class="pro_select" v-model="addList.industry">
+								<option v-for="b in department" :value="b.id">{{b.deptname}}</option>
+								</select>	
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目经理：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="胡飞" autocomplete="off" class="layui-input" v-model="addList.name">
+							<select lay-filter="aihao"  class="pro_select" v-model="addList.industry">
+								<option v-for="c in jectment" :value="c.user_id">{{c.member_name}}</option>
+							</select>
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目地点：</label>
 							<div class="layui-input-block">
-								<select name="interest" id="level" class="pro_select" lay-filter="aihao"  v-model="addList.level">
-								<option value="1">一般</option>
-								<option value="2">重要</option>
-								</select>
+								<select lay-filter="aihao" class="pro_select" v-model="addList.industry">
+								<option v-for="d in city" :value="d.aid">{{d.aname}}</option>
+								</select>	
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目性质：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="合同" autocomplete="off" class="layui-input" v-model="addList.name">
+								<select lay-filter="aihao" class="pro_select" v-model="addList.industry">
+								<option v-for="e in strategy" :value="e.id">{{e.nature}}</option>
+								</select>
 							</div>
 						</div>
 						<div class="layui-col-lg6">
-							<label class="tit-tab">战略性质：</label>
+							<label class="tit-tab">性质描述：</label>
 							<div class="layui-input-block">
 								<select name="interest" id="level" class="pro_select" lay-filter="aihao"  v-model="addList.level">
 								<option value="1">一般</option>
@@ -123,7 +125,10 @@
   				data: function() {
   					return {
   						rank:[],
-
+							department:[],
+							jectment:[],
+							city:[],
+							strategy:[],
   						addList: {
   							proname: '',
   							proArea:'',
@@ -142,7 +147,11 @@
                   		url: "{:U('ProjectRegistration/projectDropResult')}",
                   		dataType: "json",
                   		success: function (data) {
-                  				that.rank = data.data.dResult;
+                  				that.rank = data.data.iResult;
+													that.department = data.data.dResult;
+													that.jectment = data.data.pResult;
+													that.city = data.data.aResult;
+													that.strategy = data.data.nResult;
                   		}
                   })
               },
