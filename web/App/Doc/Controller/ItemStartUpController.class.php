@@ -279,21 +279,19 @@ class ItemStartUpController extends BaseController {
 
 
    /**
-     *客户干系下拉列表
+     *项目成员下拉列表
      *@author songcx
      *2018.01.02
      */
-    public function customerDropSelect()
+    public function persionList()
     {
 
+        $pCode = I('pCode');
 
-        //查询此人的项目列表 
-        $pMId = I('pMId');
+        $persionList=$this->persionList=
+        ItemStartUpModel::persionList($pCode);
 
-        $projectList=$this->projectList=
-        ItemStartUpModel::myProjrce($pMId);
-
-        $this->Response(200,$projectList,'');
+        $this->Response(200,$persionList,'');
 
     }
 
@@ -333,19 +331,16 @@ class ItemStartUpController extends BaseController {
 
 
    /**
-     *客户干系下拉列表
+     *客户干系列表
      *@author songcx
      *2018.01.02
      */
     public function customerList()
     {
-
-
-        //查询此人的项目列表 
-        $pMId = I('pMId');
+        $pCode = I('pCode');
 
         $customerList=$this->customerList=
-        ItemStartUpModel::customerList($pMId);
+        ItemStartUpModel::customerList($pCode);
 
         $this->Response(200,$customerList,'');
 

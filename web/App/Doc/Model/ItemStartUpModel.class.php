@@ -328,24 +328,15 @@ class ItemStartUpModel
     }
 
 
-
     /**
-     * 客户干系人页面 -  当前项目经理的项目
+     * 项目成员 列表
      * 
      * @author song.chaoxu 
      * 2018.11.24
      */
-    public function myProjrce($pMId){
+    public function persionList($pCode){
 
-
-      $sql = "SELECT
-                c.pro_code,
-                p.pro_name
-              FROM
-                `app_customer` c
-              JOIN app_project p ON c.pro_code = p.pro_code
-              WHERE
-                c.founder_id = $pMId";
+      $sql = "SELECT * FROM `app_project_persion` WHERE pro_code = $pCode";
 
       $res = M()->query($sql);
 
@@ -381,7 +372,7 @@ class ItemStartUpModel
      *@author songcx
      *2018.12.29
      */
-    public function customerList($pMId){
+    public function customerList($pCode){
 
        
       $sql = "SELECT
@@ -412,7 +403,7 @@ class ItemStartUpModel
                 JOIN dm_department d ON c.department = d.id
                 JOIN user_member u ON c.founder_id = u.user_id
               WHERE
-                c.founder_id = $pMId";
+                c.pro_code = $pCode";
 
       $res = M()->query($sql);
 
