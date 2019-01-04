@@ -230,47 +230,43 @@
 		<div class="layui-col-md10">
 				<form class="layui-form" id="addEmployeeForm">
 						<div class="layui-form-item">
-								<label class="layui-form-label">项目名称：</label>
-								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input">
-								</div>
-						</div>
-						<div class="layui-form-item">
 								<label class="layui-form-label">所在单位：</label>
 								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input">
+										<input type="text" name="empName" class="layui-input" lay-verify="required">
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">所在职责：</label>
 								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input">
+										<input type="text" name="empName" class="layui-input" lay-verify="required">
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">客户类型：</label>
 								<div class="layui-input-block">
-										<select class="layui-input" name="deptId" id="deptSelect">
-
+										<select class="layui-input" name="deptId" id="deptSelect" lay-verify="required">
+											<option value ="">请选择客户类型</option>
+											<option value ="0">客户</option>
+											<option value ="1">其他</option>
 										</select>
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">客户姓名：</label>
 								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input">
+										<input type="text" name="empName" class="layui-input" lay-verify="required">
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">联系电话：</label>
 								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input">
+										<input type="text" name="empName" class="layui-input" lay-verify="phone">
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">人员邮箱：</label>
 								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input">
+										<input type="text" name="empName" class="layui-input" lay-verify="email">
 								</div>
 						</div>
 						<div class="layui-form-item">
@@ -279,6 +275,12 @@
 								<textarea name="textject" placeholder="" class="layui-textarea"></textarea>
 							</div>
 						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-submit="" lay-filter="demoone">提交</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+							</div>
+						</div>	
 				</form>
 		</div>
 </div>
@@ -290,12 +292,41 @@
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
-	//日期 
-		laydate.render({
-			elem: '#date',
-			});
+			//监听提交
+		form.on('submit(demoone)', function(data){0
+			$.ajax({
+			url:"{:U('ItemStartUp/proCustomerAdd')}",
+			type: 'post',
+			data: {
+				pro_name:data.field.identity,
+				industry_id:data.field.roleId,
+				pro_source:data.field.sourceId,
+				projectManager:jectname,
+				projectManagerId:data.field.jectId,
+				projectNature:data.field.natureId,
+				divisionManagerId:data.field.departId,
+				pro_address:data.field.cityId,
+				natureType:data.field.natureId_miao,
+				projectIntroduce:data.field.textject
+			},
+			dataType: 'json',
+			success: function(res) {
+					if(res.code == 200) {
+						layui.use('layer', function() {
+							layer.alert('提交成功');
+						})
+					} else {
+						layui.use('layer', function() {
+							var layer = layui.layer;
+							layer.alert('添加失败');
+						})
+					}			
+			},
+			})
+			return false;
 		});
-		// 添加本周任务 
+		});
+		// 添加项目组成员
 		$('.addThisPeo').on('click',function(){
 				layer.open({
 						type: 1,
@@ -303,8 +334,8 @@
 						closeBtn: 2,   // 关闭样式
 						shadeClose: true,  // 关闭方式
 						anim:5,    // 弹出样式
-						area: ['36vw', '88vh'],
-						btn:['确定','取消'],
+						area: ['36vw', '78vh'],
+						// btn:['确定','取消'],
 						isOutAnim:true,    // 关闭动画
 						content: $('#addPeople')
 				})
