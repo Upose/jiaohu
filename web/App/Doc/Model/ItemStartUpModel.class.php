@@ -106,9 +106,45 @@ class ItemStartUpModel
 
      }
 
+    /**
+     * 商务人员
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+    public function swResult()
+     {
+        $sql = "SELECT user_id,member_name FROM `user_member` WHERE duty like '%商务%'";
+
+        $swResultList = M()->query($sql);
+        return  $swResultList;
+
+     }
+
+    /**
+     * 售前人员
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+    public function sqResult()
+     {
+        $sql = "SELECT user_id,member_name FROM `user_member` WHERE duty like '%售前%'";
+
+        $sqResultList = M()->query($sql);
+        return  $sqResultList;
+
+     }
+
+     
 
 
-    // 人员岗位职责
+    /**
+     * 人员岗位职责
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
     public function jResult(){
 
 
@@ -342,8 +378,9 @@ class ItemStartUpModel
 
       $app_customer = M('app_project_persion');
       $count = $app_customer ->where('pro_code='.$pCode) ->count();
-      $persionList = $app_customer ->field('id,member_name,dept,come_time,leave_time,operation_type')
+      $persionList = $app_customer ->field('id,member_name,dept,come_time,leave_time,operation_type,create_data')
                                     ->where('pro_code',$pCode)
+                                    ->order('create_data desc')
                                     ->page($page,$limit)
                                     ->select();
       $result = array();
@@ -386,32 +423,32 @@ class ItemStartUpModel
     public function customerList($pCode,$page,$limit){
 
        
-      $sql = "SELECT
-								c.id AS cid,
-								c.department,
-								c.duty,
-								(
-									CASE c.customer_type
-									WHEN '1' THEN
-										'其他公司'
-									WHEN '0' THEN
-										'客户'
-									ELSE
-										'其他'
-									END
-								) AS customer_type,
-								c.customer_name,
-								c.phone,
-								c.mailbox,
-								c.remarks
-							FROM
-								`app_customer` c
-							WHERE
-								c.pro_code = $pCode";
+      // $sql = "SELECT
+						// 		c.id AS cid,
+						// 		c.department,
+						// 		c.duty,
+						// 		(
+						// 			CASE c.customer_type
+						// 			WHEN '1' THEN
+						// 				'其他公司'
+						// 			WHEN '0' THEN
+						// 				'客户'
+						// 			ELSE
+						// 				'其他'
+						// 			END
+						// 		) AS customer_type,
+						// 		c.customer_name,
+						// 		c.phone,
+						// 		c.mailbox,
+						// 		c.remarks
+						// 	FROM
+						// 		`app_customer` c
+						// 	WHERE
+						// 		c.pro_code = $pCode";
 
       $app_customer = M('app_customer');
       $count = $app_customer ->where('pro_code='.$pCode) ->count();
-      $customerList = $app_customer ->field('id,department,duty,customer_name,phone,mailbox,remarks,CASE customer_type
+      $customerList = $app_customer ->field('id,department,duty,customer_name,phone,mailbox,remarks,create_data,CASE customer_type
                                     WHEN \'1\' THEN
                                         \'其他公司\'
                                     WHEN \'0\' THEN
@@ -422,6 +459,7 @@ class ItemStartUpModel
                                 AS customer_type')
                                     ->where('pro_code',$pCode)
                                     ->page($page,$limit)
+                                    ->order('create_data desc')
                                     ->select();
       $result = array();
       $result['code'] = 0;
@@ -430,6 +468,8 @@ class ItemStartUpModel
       $result['data'] = $customerList;
       return $result;
     }
+
+
 
 
 }

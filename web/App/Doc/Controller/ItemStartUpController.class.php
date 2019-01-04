@@ -293,12 +293,6 @@ class ItemStartUpController extends BaseController {
         $persionList=$this->persionList=
         ItemStartUpModel::persionList($pCode,$page,$limit);
 
-        // $this->Response(200,$persionList,'');
-
-        // $customerList=$this->customerList=
-        // ItemStartUpModel::customerList($pCode,$page,$limit);
-
-        // $this->Response(200,$customerList,'');
 
         $result_json = json_encode($persionList);
         echo $result_json;
@@ -352,19 +346,36 @@ class ItemStartUpController extends BaseController {
         $limit = I('limit');
         $customerList=$this->customerList=
         ItemStartUpModel::customerList($pCode,$page,$limit);
-
-        // $this->Response(200,$customerList,'');
-
+        
         $result_json = json_encode($customerList);
         echo $result_json;
     }
 
 
+    /**
+     *成员下拉列表
+     *@author songcx
+     *2018.01.02
+     */
+    public function approvalDropResult()
+    {
+
+        //以下是所有下拉框列表
+        //商务人员 - 页面下拉项内容
+        $swResult=$this->swResult=
+        ItemStartUpModel::swResult();
+
+        //售前人员 - 页面下拉项内容
+        $sqResult=$this->sqResult=
+        ItemStartUpModel::sqResult();
+
+        $final['swResult'] = $swResult;
+        $final['sqResult'] = $sqResult;
 
 
+        $this->Response(200,$final,'');
 
-
-    
+    }
 
 
 }
