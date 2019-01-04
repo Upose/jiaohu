@@ -279,7 +279,7 @@ class ItemStartUpController extends BaseController {
 
 
    /**
-     *项目成员下拉列表
+     *项目成员列表
      *@author songcx
      *2018.01.02
      */
@@ -343,7 +343,6 @@ class ItemStartUpController extends BaseController {
         ItemStartUpModel::customerList($pCode);
 
         $this->Response(200,$customerList,'');
-
     }
 
 

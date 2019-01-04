@@ -379,7 +379,7 @@ class ItemStartUpModel
                     c.id AS cid,
                     c.pro_code,
                     p.pro_name,
-                    d.deptName,
+                    c.department,
                     c.duty,
                     (
                         CASE c.customer_type
@@ -400,7 +400,6 @@ class ItemStartUpModel
                 FROM
                     `app_customer` c
                 JOIN app_project p ON c.pro_code = p.pro_code
-                JOIN dm_department d ON c.department = d.id
                 JOIN user_member u ON c.founder_id = u.user_id
               WHERE
                 c.pro_code = $pCode";
