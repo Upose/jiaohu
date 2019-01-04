@@ -216,7 +216,7 @@ class ItemStartUpController extends BaseController {
      *@author songcx
      *2018.01.02
      */
-    public function memberDropSelect()
+    public function memberDropResult()
     {
 
         //以下是所有下拉框列表
@@ -358,6 +358,13 @@ class ItemStartUpController extends BaseController {
         $result_json = json_encode($customerList);
         echo $result_json;
     }
+
+
+
+
+
+
+    
 
 
 }
