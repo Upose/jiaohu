@@ -274,7 +274,7 @@ class ItemStartUpController extends BaseController {
         $res = $this->res=
         ItemStartUpModel::proPersionAdd($user_code,$member_name,$pro_code,$duty,$come_time,$leave_time,$operation_type,$remarks,$founder_id);
         
-        $this->Response(0,$res,'');
+        $this->Response(200,$res,'');
     }
 
 
@@ -326,7 +326,7 @@ class ItemStartUpController extends BaseController {
         $res = $this->res=
         ItemStartUpModel::proCustomerAdd($pro_code,$department,$duty,$customer_type,$customer_name,$phone,$mailbox,$founder_id,$remarks);
         
-        $this->Response(0,$res,'');
+        $this->Response(200,$res,'');
     }
 
 
