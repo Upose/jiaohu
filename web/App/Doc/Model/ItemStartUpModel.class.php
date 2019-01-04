@@ -334,13 +334,24 @@ class ItemStartUpModel
      * @author song.chaoxu 
      * 2018.11.24
      */
-    public function persionList($pCode){
+    public function persionList($pCode,$page,$limit){
 
-      $sql = "SELECT * FROM `app_project_persion` WHERE pro_code = $pCode";
+      // $sql = "SELECT * FROM `app_project_persion` WHERE pro_code = $pCode";
 
-      $res = M()->query($sql);
+      // $res = M()->query($sql);
 
-      return $res;
+      $app_customer = M('app_project_persion');
+      $count = $app_customer ->where('pro_code='.$pCode) ->count();
+      $persionList = $app_customer ->field('id,member_name,dept,come_time,leave_time,operation_type')
+                                    ->where('pro_code',$pCode)
+                                    ->page($page,$limit)
+                                    ->select();
+      $result = array();
+      $result['code'] = 0;
+      $result['msg'] = "";
+      $result['count'] = $count;
+      $result['data'] = $persionList;
+      return $result;
 
     }
 
@@ -400,7 +411,15 @@ class ItemStartUpModel
 
       $app_customer = M('app_customer');
       $count = $app_customer ->where('pro_code='.$pCode) ->count();
-      $customerList = $app_customer ->field('id,department,duty,customer_type,customer_name,phone,mailbox,remarks')
+      $customerList = $app_customer ->field('id,department,duty,customer_name,phone,mailbox,remarks,CASE customer_type
+                                    WHEN \'1\' THEN
+                                        \'其他公司\'
+                                    WHEN \'0\' THEN
+                                        \'客户\'
+                                    ELSE
+                                        \'其他\'
+                                    END
+                                AS customer_type')
                                     ->where('pro_code',$pCode)
                                     ->page($page,$limit)
                                     ->select();
