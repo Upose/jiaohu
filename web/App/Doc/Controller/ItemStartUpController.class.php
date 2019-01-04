@@ -324,7 +324,7 @@ class ItemStartUpController extends BaseController {
         $remarks = I('remarks');
 
         $res = $this->res=
-        ProjectCommonModel::proCustomerAdd($pro_code,$department,$duty,$customer_type,$customer_name,$phone,$mailbox,$founder_id,$remarks);
+        ItemStartUpModel::proCustomerAdd($pro_code,$department,$duty,$customer_type,$customer_name,$phone,$mailbox,$founder_id,$remarks);
         
         $this->Response(0,$res,'');
     }
