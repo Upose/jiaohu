@@ -343,7 +343,10 @@ class ItemStartUpController extends BaseController {
         $customerList=$this->customerList=
         ItemStartUpModel::customerList($pCode,$page,$limit);
 
-        $this->Response(200,$customerList,'');
+        // $this->Response(200,$customerList,'');
+
+        $result_json = json_encode($customerList);
+        echo $result_json;
     }
 
 

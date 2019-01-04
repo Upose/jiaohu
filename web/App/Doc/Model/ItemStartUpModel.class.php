@@ -409,7 +409,6 @@ class ItemStartUpModel
       $result['msg'] = "";
       $result['count'] = $count;
       $result['data'] = $customerList;
-      json_encode($result);
       return $result;
     }
 
