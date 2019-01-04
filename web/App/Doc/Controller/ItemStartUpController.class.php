@@ -291,7 +291,10 @@ class ItemStartUpController extends BaseController {
         $persionList=$this->persionList=
         ItemStartUpModel::persionList($pCode);
 
-        $this->Response(200,$persionList,'');
+        // $this->Response(200,$persionList,'');
+        
+        $result_json = json_encode($persionList);
+        echo $result_json;
 
     }
 
