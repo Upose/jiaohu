@@ -372,7 +372,7 @@ class ItemStartUpModel
      *@author songcx
      *2018.12.29
      */
-    public function customerList($pCode){
+    public function customerList($pCode,$page,$limit){
 
        
       $sql = "SELECT
@@ -398,9 +398,19 @@ class ItemStartUpModel
 							WHERE
 								c.pro_code = $pCode";
 
-      $res = M()->query($sql);
-
-      return $res;
+      $app_customer = M('app_customer');
+      $count = $app_customer ->where('pro_code='.$pCode) ->count();
+      $customerList = $app_customer ->field('id,department,duty,customer_type,customer_name,phone,mailbox,remarks')
+                                    ->where('pro_code',$pCode)
+                                    ->page($page,$limit)
+                                    ->select();
+      $result = array();
+      $result['code'] = 0;
+      $result['msg'] = "";
+      $result['count'] = $count;
+      $result['data'] = $customerList;
+      json_encode($result);
+      return $result;
     }
 
 
