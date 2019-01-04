@@ -166,39 +166,25 @@
 			<div class="details_zhong">
 				<div>
 				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
-				<button class="addThisPeo">新建客户</button>
+				<button class="addThisPeo" lay-filter="addThisPeo">新建客户</button>
 				</div>
-				<table class="layui-table">
-						<thead>
-								<tr>
-										<th>所在单位</th>
-										<th>所属职责</th>
-										<th>客户类型</th>
-										<th>客户姓名</th>
-										<th>离岗时间</th>
-										<th>联系电话</th>
-										<th>人员邮箱</th>
-										<th>人员备注</th>
-										<th>操作</th>
-								</tr>
-						</thead>
-						<tbody>
-								<tr v-for="item in arrList">
-										<td>{{item.theme}}</td>
-										<td>{{item.address}}</td>
-										<td>{{item.meeting_time}}</td>
-										<td>{{item.meeting_level}}</td>
-										<td>{{item.department_id}}</td>
-										<td>{{item.department_id}}</td>
-										<td>2</td>
-										<td>1</td>
-										<td style="cursor:pointer;" @click="openNew(item.id)">
-											<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-											<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-										</td>
-								</tr>
-						</tbody>
-				</table>
+				<div>
+				<table class="layui-hide" id="goods" lay-filter="goods"></table>
+				</div>
+<!-- 					<table class="layui-table" lay-data="{width: 892, height:332, url:{:U('ItemStartUp/proCustomerAdd')}, page:true, id:'pCode'}" lay-filter="peodeom">
+							<thead>
+									<tr>
+											<th lay-data="{field:'empName'}">客户姓名</th>
+											<th lay-data="{field:'itemName'}">所在单位</th>
+											<th lay-data="{field:'section'}">所属职责</th>
+											<th lay-data="{field:'calling'}">客户类型</th>
+											<th lay-data="{field:'time'}">联系电话</th>
+											<th lay-data="{field:'time'}">客户邮箱</th>
+											<th lay-data="{field:'time'}">客户备注</th>
+											<th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}">操作</th>
+									</tr>
+							</thead>
+					</table> -->
 			</div>
 				
 			<div class="details_di">
@@ -287,11 +273,34 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
-	layui.use(['form', 'layedit', 'laydate'], function(){
+	layui.use(['form', 'layedit', 'laydate','table'], function(){
 		var form = layui.form,
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
+		var table = layui.table;
+		table.render({
+			elem: '#goods',
+			url:"{:U('ItemStartUp/customerList')}",
+			where:{                     //  页面传值   项目经理id
+				pCode:12
+			},
+			even:true,
+			cols: [[
+				{field:'id', width:80, title: 'ID', sort: true},
+				{field:'username', width:80, title: '用户名'},
+				{field:'sex', width:80, title: '性别', sort: true},
+				{field:'city', width:80, title: '城市'},
+				{field:'sign', title: '签名', width: '30%', minWidth: 100}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+				{field:'experience', title: '积分', sort: true},
+				{field:'score', title: '评分', sort: true},
+				{field:'classify', title: '职业'},
+				{field:'wealth', width:137, title: '财富', sort: true}
+			]],
+			page: true,//开启分页
+			limit:10,   //默认十条数据一页
+			limits:[10,20,30,50]  //数据分页条
+		});
 			//监听提交
 		form.on('submit(demoone)', function(data){
 			console.log(data.field.duty);
@@ -312,7 +321,8 @@
 			dataType: 'json',
 			success: function(res) {
 					if(res.code == 200) {
-						layui.use('layer', function() {
+						layui.use('layer', function() {	
+              layer.close(layer.index);
 							layer.alert('添加成功');
 						})
 					} else {
@@ -325,6 +335,7 @@
 			})
 			return false;
 		});
+		
 		});
 		// 添加项目组成员
 		$('.addThisPeo').on('click',function(){
@@ -336,10 +347,9 @@
 						anim:5,    // 弹出样式
 						area: ['36vw', '78vh'],
 						// btn:['确定','取消'],
-						isOutAnim:true,    // 关闭动画
-						content: $('#addPeople')
+						isOutAnim:false,    // 关闭动画
+						content: $('#addPeople'),
 				})
 				}); 
-
 </script>
 </html>
