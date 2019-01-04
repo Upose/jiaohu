@@ -111,7 +111,7 @@ class ItemStartUpController extends BaseController {
 
 
         $status=$this->status=
-            ItemStartUpModel::projectMsgAdd($pro_code,$pro_name,$pro_source,$projectManager,$projectManagerId,$projectNature,$industry,$deptId,$area,$natureType,$projectIntroduce);
+            ItemStartUpModel::projectAdd($pro_code,$pro_name,$pro_source,$projectManager,$projectManagerId,$projectNature,$industry,$deptId,$area,$natureType,$projectIntroduce);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
@@ -242,8 +242,6 @@ class ItemStartUpController extends BaseController {
 
     }
 
-
-
     /**
      *新增项目成员
      *@author songcx
@@ -276,7 +274,76 @@ class ItemStartUpController extends BaseController {
         $res = $this->res=
         ItemStartUpModel::proPersionAdd($user_code,$member_name,$pro_code,$duty,$come_time,$leave_time,$operation_type,$remarks,$founder_id);
         
-        $this->Response(0,$res,'');
+        $this->Response(200,$res,'');
     }
+
+
+   /**
+     *项目成员列表
+     *@author songcx
+     *2018.01.02
+     */
+    public function persionList()
+    {
+
+        $pCode = I('pCode');
+
+        $persionList=$this->persionList=
+        ItemStartUpModel::persionList($pCode);
+
+        $this->Response(200,$persionList,'');
+
+    }
+
+
+    /**
+     *新增客户成员
+     *@author songcx
+     *2018.12.29
+     */
+    public function proCustomerAdd()
+    {
+
+        // 项目编号
+        $pro_code = I('pCode');
+        // 部门
+        $department = I('department');
+        // 所属职责
+        $duty = I('duty');
+        // 客户类别
+        $customer_type = I('customer_type');
+        // 客户姓名
+        $customer_name = I('customer_name');
+        // 客户联系电话
+        $phone = I('phone');
+        // 客户邮箱
+        $mailbox = I('mailbox');
+        // 创建人
+        $founder_id = I('founder_id');
+        // 备注
+        $remarks = I('remarks');
+
+        $res = $this->res=
+        ItemStartUpModel::proCustomerAdd($pro_code,$department,$duty,$customer_type,$customer_name,$phone,$mailbox,$founder_id,$remarks);
+        
+        $this->Response(200,$res,'');
+    }
+
+
+   /**
+     *客户干系列表
+     *@author songcx
+     *2018.01.02
+     */
+    public function customerList()
+    {
+        $pCode = I('pCode');
+
+        $customerList=$this->customerList=
+        ItemStartUpModel::customerList($pCode);
+
+        $this->Response(200,$customerList,'');
+    }
+
 
 }

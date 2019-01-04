@@ -12,81 +12,86 @@
 	<script src="__STATIC__/vue.min.js"></script>
 </head>
 
-<body id="app" >
+<body id="app">
     <div id="event-view">
-			<form>
+			<form class="layui-form layui-form-pane" action="">
 				<div class="details_zong">
 					<blockquote class="layui-elem-quote">项目基本信息采集</blockquote>
 					<div class="layui-row layui-col-space10 layui-item">
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目名称：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" name="identity" lay-verify="required" placeholder="请输入项目名称" autocomplete="off" class="layui-input" v-model="addList.name">
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属行业：</label>
 							<div class="layui-input-block">
-								<select name="interest" lay-filter="aihao"  class="pro_select" v-model="addList.industry">
-								<option v-for="a in rank" :value="a.id">{{a.deptname}}</option>
+								<select name="roleId" lay-verify="required" id="add_name">
+									<option value="">请选择行业</option>
 								</select>	
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目来源：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="控股公司" autocomplete="off" class="layui-input" v-model="addList.name">
+								<select name="sourceId" lay-verify="required" id="add_nsource">
+									<option value="">请选择项目来源</option>
+								</select>	
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属部门：</label>
 							<div class="layui-input-block">
-								<select name="interest" class="pro_select" id="level" lay-filter="aihao"  v-model="addList.level">
-								<option value="1">一般</option>
-								<option value="2">重要</option>
-								</select>
+							<select name="departId" lay-verify="required" id="add_department">
+									<option value="">请选择项目部门</option>
+							</select>	
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目经理：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="胡飞" autocomplete="off" class="layui-input" v-model="addList.name">
+							<select name="jectId"  lay-verify="required" id="add_jectment">
+									<option value="">请选择项目经理</option>
+							</select>	
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目地点：</label>
 							<div class="layui-input-block">
-								<select name="interest" id="level" class="pro_select" lay-filter="aihao"  v-model="addList.level">
-								<option value="1">一般</option>
-								<option value="2">重要</option>
-								</select>
+							<select name="cityId" lay-verify="required" id="add_city">
+									<option value="">请选择项目地点</option>
+							</select>
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目性质：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="合同" autocomplete="off" class="layui-input" v-model="addList.name">
-							</div>
-						</div>
-						<div class="layui-col-lg6">
-							<label class="tit-tab">战略性质：</label>
-							<div class="layui-input-block">
-								<select name="interest" id="level" class="pro_select" lay-filter="aihao"  v-model="addList.level">
-								<option value="1">一般</option>
-								<option value="2">重要</option>
+								<select name="natureId" lay-verify="required" id="add_nature">
+										<option value="">请选择项目性质</option>
 								</select>
 							</div>
 						</div>
-						<div class="layui-col-lg12">
-							<label class="tit-tab">项目介绍：</label>
+						<div class="layui-col-lg6">
+							<label class="tit-tab">性质描述：</label>
 							<div class="layui-input-block">
-							<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+								<select name="natureId_miao" lay-verify="required" id="add_nature_miao">
+										<option value="">请选择项目性质描述</option>
+								</select>
 							</div>
 						</div>
-						<div class="layui-col-lg12" style="left:7%;">
-							<button  class="layui-btn layui-btn-lg layui-btn-radius layui-btn-primary"  type="button" @click="resetForm">取消</button>
-							<button  class="layui-btn layui-btn-lg layui-btn-radius"  type="button" @click="submitForm">确定</button>
+						<div class="layui-form-item layui-col-lg12">
+							<label class="tit-tab">项目介绍：</label>
+							<div class="layui-input-block">
+								<textarea name="textject" placeholder="请输入内容" class="layui-textarea"></textarea>
+							</div>
 						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+							</div>
+						</div>	
 					</div>		
 				</div>
 			</from>
@@ -107,83 +112,121 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
+	var form,layedit,layer,laydate; 
 	layui.use(['form', 'layedit', 'laydate'], function(){
-	  var form = layui.form,
+	  form = layui.form,
 	  layer = layui.layer,
 	  layedit = layui.layedit,
 	  laydate = layui.laydate;
-	 //日期 
-
-
+		selectRoleName();    // 调用查询方法
+		  //监听提交
+		form.on('submit(demo1)', function(data){
+			var jectname =$("#add_jectment").find("option:selected").text(); 
+			console.log(jectname);
+			$.ajax({
+			url:"{:U('ItemStartUp/projectAdd')}",
+			type: 'post',
+			data: {
+				pro_name:data.field.identity,
+				industry_id:data.field.roleId,
+				pro_source:data.field.sourceId,
+				projectManager:jectname,
+				projectManagerId:data.field.jectId,
+				projectNature:data.field.natureId,
+				divisionManagerId:data.field.departId,
+				pro_address:data.field.cityId,
+				natureType:data.field.natureId_miao,
+				projectIntroduce:data.field.textject
+			},
+			dataType: 'json',
+			success: function(res) {
+					if(res.code == 200) {
+						layui.use('layer', function() {
+							layer.alert('提交成功');
+						})
+					} else {
+						layui.use('layer', function() {
+							var layer = layui.layer;
+							layer.alert('添加失败');
+						})
+					}			
+			},
+			})
+			return false;
+		});
 	  });
+		function selectRoleName(){
+			$.ajax({
+			url:"{:U('ItemStartUp/projectDropResult')}",
+			type: 'post',
+			data: {},
+			dataType: 'json',
+			success: function(data) {
+					if (data.code == 200) {
+							var result = data.data || [];
+							console.log(result);
+							var role = document.getElementById("add_name");        //add_role_name给select定义的id
+							var role1 = document.getElementById("add_nsource");        
+							var role2 = document.getElementById("add_department");        
+							var role3 = document.getElementById("add_jectment");        
+							var role4 = document.getElementById("add_city");        
+							var role5 = document.getElementById("add_nature"); 
+							var role6 = document.getElementById("add_nature_miao");        
+							for (var i = 0; i<result.iResult.length; i++) {
+									var option = document.createElement("option");    // 创建添加option属性
+									option.setAttribute("value",result.iResult[i].iid);                  // 给option的value添加值
+									option.innerText= result.iResult[i].industry_name;             // 打印option对应的纯文本 （超级管理员、管理员）
+									role.appendChild(option);                          // 给select 添加option子标签
+									form.render("select");                                // 刷性select，显示出数据        
+									} 
+					    for (var i = 0; i<result.kResult.length; i++) {
+					    		var option = document.createElement("option");  
+					    		option.setAttribute("value",result.kResult[i].kid);           
+					    		option.innerText= result.kResult[i].holding;            
+					    		role1.appendChild(option);                         
+					    		form.render("select");                                      
+					    		} 
+							for (var i = 0; i<result.dResult.length; i++) {
+									var option = document.createElement("option");  
+									option.setAttribute("value",result.dResult[i].did);           
+									option.innerText= result.dResult[i].deptname;            
+									role2.appendChild(option);                         
+									form.render("select");                                      
+									}
+							for (var i = 0; i<result.pResult.length; i++) {
+									var option = document.createElement("option");  
+									option.setAttribute("value",result.pResult[i].pid);           
+									option.innerText= result.pResult[i].member_name;            
+									role3.appendChild(option);                         
+									form.render("select");                                      
+									}
+							for (var i = 0; i<result.aResult.length; i++) {
+									var option = document.createElement("option");  
+									option.setAttribute("value",result.aResult[i].aid);           
+									option.innerText= result.aResult[i].aname;            
+									role4.appendChild(option);                         
+									form.render("select");                                      
+									}
+							for (var i = 0; i<result.nResult.length; i++) {
+									var option = document.createElement("option");  
+									option.setAttribute("value",result.nResult[i].nid);           
+									option.innerText= result.nResult[i].nature;            
+									role5.appendChild(option);                         
+									form.render("select");                                      
+									} 
+							for (var i = 0; i<result.nResult.length; i++) {
+									var option = document.createElement("option");  
+									option.setAttribute("value",result.nResult[i].nid);           
+									option.innerText= result.nResult[i].nature;            
+									role6.appendChild(option);                         
+									form.render("select");                                      
+									}  
+					}
+			}    
+			})
+		}	
+		
 
-    //数据资源 
-      var app = new Vue({
-          el: "#app",
-  				data: function() {
-  					return {
-  						rank:[],
 
-  						addList: {
-  							proname: '',
-  							proArea:'',
-  						},
-  					}
-  				},
-  		created: function () {
-  			this.getdata();
-  		},
-          methods: {
-              getdata() {
-                  var that = this;
-                  $.ajax({
-                  		cache: false,
-                  		type: "post",
-                  		url: "{:U('ProjectRegistration/projectDropResult')}",
-                  		dataType: "json",
-                  		success: function (data) {
-                  				that.rank = data.data.dResult;
-                  		}
-                  })
-              },
-  						 // 交付信息提交
-  						submitForm(){
-  								var that = this;
-  								var dproname =$("#dpropeopleid").find("option:selected").text();
-  								$.ajax({
-  										type: "post",
-  										url: "{:U('ProjectDelivery/proDeliveryAdd')}",
-  										dataType: "json",
-  										data:{
-  											proId:this.addList.proname,
-  											proName:dproname,
-  											proArea:this.addList.proArea,
-  											uiFrame:this.addList.uiFrame,
-  											jsFrame:this.addList.jsFrame,
-  											backFrame:this.addList.backFrame,
-  											databaseFrame:this.addList.databaseFrame,
-  											stakeHolder:this.addList.stakeHolder,
-  											whether_ys:this.addList.whether_ys,
-  											ys_date:this.addList.ys_date,
-  											persionRelease:this.addList.persionRelease
-  											
-  										},
-  										success: function (data) {
-  											if(res.code == 200) {
-  												layui.use('layer', function() {
-  													layer.alert('提交成功');
-  												})
-  											} else {
-  												layui.use('layer', function() {
-  													var layer = layui.layer;
-  													layer.alert('添加失败');
-  												})
-  											}
-  										}
-  								})
-  						},
-  						
-          }
-      })
 </script>
 </html>
