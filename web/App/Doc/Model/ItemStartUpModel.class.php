@@ -121,7 +121,13 @@ class ItemStartUpModel
     }
 
 
-    // 公司所有人交付人员
+    
+    /**
+     * 所有交付人员
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
     public function memberResult(){
 
 
@@ -132,6 +138,7 @@ class ItemStartUpModel
       return $res;
 
     }
+
 
 
     /**
@@ -320,6 +327,33 @@ class ItemStartUpModel
 
     }
 
+
+
+    /**
+     * 客户干系人页面 -  当前项目经理的项目
+     * 
+     * @author song.chaoxu 
+     * 2018.11.24
+     */
+    public function myProjrce($pMId){
+
+
+      $sql = "SELECT
+                c.pro_code,
+                p.pro_name
+              FROM
+                `app_customer` c
+              JOIN app_project p ON c.pro_code = p.pro_code
+              WHERE
+                c.founder_id = $pMId";
+
+      $res = M()->query($sql);
+
+      return $res;
+
+    }
+
+
     /**
      *新增客户人
      *@author songcx
@@ -342,7 +376,48 @@ class ItemStartUpModel
 
     }
 
+    /**
+     *客户人列表
+     *@author songcx
+     *2018.12.29
+     */
+    public function customerList($pMId){
 
+       
+      $sql = "SELECT
+                    c.id AS cid,
+                    c.pro_code,
+                    p.pro_name,
+                    d.deptName,
+                    c.duty,
+                    (
+                        CASE c.customer_type
+                        WHEN '1' THEN
+                            '其他公司'
+                        WHEN '0' THEN
+                            '客户'
+                        ELSE
+                            '其他'
+                        END
+                    ) AS customer_type,
+                    c.customer_name,
+                    c.phone,
+                    c.mailbox,
+                    c.founder_id,
+                    u.member_name,
+                    c.create_data
+                FROM
+                    `app_customer` c
+                JOIN app_project p ON c.pro_code = p.pro_code
+                JOIN dm_department d ON c.department = d.id
+                JOIN user_member u ON c.founder_id = u.user_id
+              WHERE
+                c.founder_id = $pMId";
+
+      $res = M()->query($sql);
+
+      return $res;
+    }
 
 
 }

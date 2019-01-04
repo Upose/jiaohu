@@ -277,8 +277,8 @@ class ItemStartUpController extends BaseController {
         $this->Response(0,$res,'');
     }
 
-// -------------------------未完成-----------------------------------------
-    /**
+
+   /**
      *客户干系下拉列表
      *@author songcx
      *2018.01.02
@@ -287,36 +287,15 @@ class ItemStartUpController extends BaseController {
     {
 
 
-
-        //以下是所有下拉框列表
-
         //查询此人的项目列表 
         $pMId = I('pMId');
 
         $projectList=$this->projectList=
-        ProjectCommonModel::myProjrce($pMId);
+        ItemStartUpModel::myProjrce($pMId);
 
-
-        // //部门 - 页面下拉项内容
-        // $dResult=$this->dResult=
-        // ItemStartUpModel::dResult();
-
-        // //所有人 - 页面下拉项内容
-        // $memberResult=$this->memberResult=
-        // ItemStartUpModel::customerResult();
-
-
-        // $final['jResult'] = $jResult;
-        // $final['dResult'] = $dResult;
-        // $final['memberResult'] = $memberResult;
-
-
-
-        $this->Response(200,$final,'');
+        $this->Response(200,$projectList,'');
 
     }
-
-// ------------------------------------------------------------------
 
 
     /**
@@ -353,6 +332,24 @@ class ItemStartUpController extends BaseController {
     }
 
 
+   /**
+     *客户干系下拉列表
+     *@author songcx
+     *2018.01.02
+     */
+    public function customerList()
+    {
+
+
+        //查询此人的项目列表 
+        $pMId = I('pMId');
+
+        $customerList=$this->customerList=
+        ItemStartUpModel::customerList($pMId);
+
+        $this->Response(200,$customerList,'');
+
+    }
 
 
 }
