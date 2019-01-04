@@ -170,6 +170,7 @@
 				</div>
 				
 				<table class="layui-hide" id="goods" lay-filter="goods"></table>
+				
 			</div>
 				
 			<div class="details_di">
@@ -258,6 +259,9 @@
 
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-xs btn-xiao" lay-event="edit">查看</a>
+</script>
 <script>
 	layui.use(['form', 'layedit', 'laydate','table'], function(){
 		var form = layui.form,
@@ -306,54 +310,23 @@
 			where:{                     //  页面传值   项目经理id
 				pCode:12
 			},
-			even:true,
+			// even:true,
+			height: 310,
+			totalRow: true,
 			cols: [[
 				{field:'id', width:80, title: 'ID', sort: true},
-				{field:'customer_name', width:80, title: '客户姓名'},
-				{field:'department', width:80, title: '单位'},
-				{field:'duty', width:80, title: '职责'},
-				{field:'customer_type', title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-				{field:'phone', width:80,title: '电话'},
-				{field:'mailbox',width:80, title: '邮箱'},
-				{field:'remarks', width:80,title: '备注'},
+				{field:'customer_name', width:100, title: '客户姓名'},
+				{field:'department', width:280, title: '单位',align:'center'},
+				{field:'duty', width:160, title: '职责',align:'center'},
+				{field:'customer_type',width:80,title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+				{field:'phone', width:120,title: '电话',align:'center'},
+				{field:'mailbox',width:180, title: '邮箱',align:'center'},
+				{field:'remarks', width:280,title: '备注',align:'center'},
+				{field:'right', width:125,title: '操作',toolbar: '#barDemo'}
 			]],
-				done: function(res, curr, count){
-				//如果是异步请求数据方式，res即为你接口返回的信息。
-				//如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
-				console.log(res);
-				//得到当前页码
-				console.log(curr);
-				//得到数据总量
-				console.log(count);
-				},
-
-
-// 			data: [{
-//       "cid": "10001"
-//       ,"username": "杜甫"
-//       ,"email": "xianxin@layui.com"
-//       ,"sex": "男"
-//       ,"city": "浙江杭州"
-//       ,"sign": "人生恰似一场修行"
-//       ,"experience": "116"
-//       ,"ip": "192.168.0.8"
-//       ,"logins": "108"
-//       ,"joinTime": "2016-10-14"
-//     },{
-//       "cid": "10001"
-//       ,"username": "杜甫"
-//       ,"email": "xianxin@layui.com"
-//       ,"sex": "男"
-//       ,"city": "浙江杭州"
-//       ,"sign": "人生恰似一场修行"
-//       ,"experience": "116"
-//       ,"ip": "192.168.0.8"
-//       ,"logins": "108"
-//       ,"joinTime": "2016-10-14"
-//     }],
 			page: true,//开启分页
-			limit:10,   //默认十条数据一页
-			limits:[10,20,30,50],  //数据分页条
+			limit:6,   //默认十条数据一页
+			limits:false,  //数据分页条
 		});
 		
 		});
