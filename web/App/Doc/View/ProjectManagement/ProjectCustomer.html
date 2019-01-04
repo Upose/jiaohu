@@ -164,27 +164,16 @@
 
 			</div>
 			<div class="details_zhong">
-				<div>
+				<div class="layui-col-lg12">
 				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
 				<button class="addThisPeo" lay-filter="addThisPeo">新建客户</button>
 				</div>
-				<div>
 				<table class="layui-hide" id="goods" lay-filter="goods"></table>
-				</div>
-<!-- 					<table class="layui-table" lay-data="{width: 892, height:332, url:{:U('ItemStartUp/proCustomerAdd')}, page:true, id:'pCode'}" lay-filter="peodeom">
-							<thead>
-									<tr>
-											<th lay-data="{field:'empName'}">客户姓名</th>
-											<th lay-data="{field:'itemName'}">所在单位</th>
-											<th lay-data="{field:'section'}">所属职责</th>
-											<th lay-data="{field:'calling'}">客户类型</th>
-											<th lay-data="{field:'time'}">联系电话</th>
-											<th lay-data="{field:'time'}">客户邮箱</th>
-											<th lay-data="{field:'time'}">客户备注</th>
-											<th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}">操作</th>
-									</tr>
-							</thead>
-					</table> -->
+				<script type="text/html" id="toolbarDemo">
+					<div class="layui-btn-container">
+						<button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+					</div>
+				</script>
 			</div>
 				
 			<div class="details_di">
@@ -270,6 +259,7 @@
 				</form>
 		</div>
 </div>
+
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
@@ -286,21 +276,32 @@
 				pCode:12
 			},
 			even:true,
+			toolbar: '#toolbarDemo',
 			cols: [[
-				{field:'id', width:80, title: 'ID', sort: true},
-				{field:'username', width:80, title: '用户名'},
-				{field:'sex', width:80, title: '性别', sort: true},
-				{field:'city', width:80, title: '城市'},
-				{field:'sign', title: '签名', width: '30%', minWidth: 100}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-				{field:'experience', title: '积分', sort: true},
-				{field:'score', title: '评分', sort: true},
-				{field:'classify', title: '职业'},
-				{field:'wealth', width:137, title: '财富', sort: true}
+				{field:'cid', width:80, title: 'ID', sort: true},
+				{field:'customer_name', width:80, title: '客户姓名'},
+				{field:'department', width:80, title: '单位', sort: true},
+				{field:'duty', width:80, title: '职责'},
+				{field:'customer_type', title: '类型', width: '30%', minWidth: 100}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+				{field:'phone', width:80,title: '电话', sort: true},
+				{field:'mailbox',width:80, title: '邮箱', sort: true},
+				{field:'remarks', width:80,title: '备注', sort: true},
 			]],
 			page: true,//开启分页
 			limit:10,   //默认十条数据一页
-			limits:[10,20,30,50]  //数据分页条
+			limits:[10,20,30,50],  //数据分页条
+			 //头工具栏事件
+			table.on('toolbar(goods)', function(obj){
+				var checkStatus = table.checkStatus(obj.config.id); //获取选中行状态
+				switch(obj.event){
+					case 'getCheckData':
+						var data = checkStatus.data;  //获取选中行数据
+						layer.alert(JSON.stringify(data));
+					break;
+				};
+			});
 		});
+		
 			//监听提交
 		form.on('submit(demoone)', function(data){
 			console.log(data.field.duty);
@@ -352,4 +353,5 @@
 				})
 				}); 
 </script>
+
 </html>

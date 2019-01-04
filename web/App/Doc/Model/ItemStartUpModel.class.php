@@ -376,33 +376,27 @@ class ItemStartUpModel
 
        
       $sql = "SELECT
-                    c.id AS cid,
-                    c.pro_code,
-                    p.pro_name,
-                    c.department,
-                    c.duty,
-                    (
-                        CASE c.customer_type
-                        WHEN '1' THEN
-                            '其他公司'
-                        WHEN '0' THEN
-                            '客户'
-                        ELSE
-                            '其他'
-                        END
-                    ) AS customer_type,
-                    c.customer_name,
-                    c.phone,
-                    c.mailbox,
-                    c.founder_id,
-                    u.member_name,
-                    c.create_data
-                FROM
-                    `app_customer` c
-                JOIN app_project p ON c.pro_code = p.pro_code
-                JOIN user_member u ON c.founder_id = u.user_id
-              WHERE
-                c.pro_code = $pCode";
+								c.id AS cid,
+								c.department,
+								c.duty,
+								(
+									CASE c.customer_type
+									WHEN '1' THEN
+										'其他公司'
+									WHEN '0' THEN
+										'客户'
+									ELSE
+										'其他'
+									END
+								) AS customer_type,
+								c.customer_name,
+								c.phone,
+								c.mailbox,
+								c.remarks
+							FROM
+								`app_customer` c
+							WHERE
+								c.pro_code = $pCode";
 
       $res = M()->query($sql);
 
