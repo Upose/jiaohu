@@ -338,9 +338,10 @@ class ItemStartUpController extends BaseController {
     public function customerList()
     {
         $pCode = I('pCode');
-
+        $page = I('page');
+        $limit = I('limit');
         $customerList=$this->customerList=
-        ItemStartUpModel::customerList($pCode);
+        ItemStartUpModel::customerList($pCode,$page,$limit);
 
         $this->Response(200,$customerList,'');
     }
