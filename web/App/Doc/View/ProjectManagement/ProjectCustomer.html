@@ -168,12 +168,8 @@
 				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
 				<button class="addThisPeo" lay-filter="addThisPeo">新建客户</button>
 				</div>
+				
 				<table class="layui-hide" id="goods" lay-filter="goods"></table>
-				<script type="text/html" id="toolbarDemo">
-					<div class="layui-btn-container">
-						<button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
-					</div>
-				</script>
 			</div>
 				
 			<div class="details_di">
@@ -269,39 +265,6 @@
 		layedit = layui.layedit,
 		laydate = layui.laydate;
 		var table = layui.table;
-		table.render({
-			elem: '#goods',
-			url:"{:U('ItemStartUp/customerList')}",
-			where:{                     //  页面传值   项目经理id
-				pCode:12
-			},
-			even:true,
-			toolbar: '#toolbarDemo',
-			cols: [[
-				{field:'cid', width:80, title: 'ID', sort: true},
-				{field:'customer_name', width:80, title: '客户姓名'},
-				{field:'department', width:80, title: '单位', sort: true},
-				{field:'duty', width:80, title: '职责'},
-				{field:'customer_type', title: '类型', width: '30%', minWidth: 100}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-				{field:'phone', width:80,title: '电话', sort: true},
-				{field:'mailbox',width:80, title: '邮箱', sort: true},
-				{field:'remarks', width:80,title: '备注', sort: true},
-			]],
-			page: true,//开启分页
-			limit:10,   //默认十条数据一页
-			limits:[10,20,30,50],  //数据分页条
-			 //头工具栏事件
-			table.on('toolbar(goods)', function(obj){
-				var checkStatus = table.checkStatus(obj.config.id); //获取选中行状态
-				switch(obj.event){
-					case 'getCheckData':
-						var data = checkStatus.data;  //获取选中行数据
-						layer.alert(JSON.stringify(data));
-					break;
-				};
-			});
-		});
-		
 			//监听提交
 		form.on('submit(demoone)', function(data){
 			console.log(data.field.duty);
@@ -337,6 +300,53 @@
 			return false;
 		});
 		
+		table.render({
+			elem: '#goods',
+			url:"{:U('ItemStartUp/customerList')}",
+			where:{                     //  页面传值   项目经理id
+				pCode:12
+			},
+			even:true,
+			cols: [[
+				{field:'id', width:80, title: 'ID', sort: true},
+				{field:'customer_name', width:80, title: '客户姓名'},
+				{field:'department', width:80, title: '单位'},
+				{field:'duty', width:80, title: '职责'},
+				{field:'customer_type', title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+				{field:'phone', width:80,title: '电话'},
+				{field:'mailbox',width:80, title: '邮箱'},
+				{field:'remarks', width:80,title: '备注'},
+			]],
+
+
+// 			data: [{
+//       "cid": "10001"
+//       ,"username": "杜甫"
+//       ,"email": "xianxin@layui.com"
+//       ,"sex": "男"
+//       ,"city": "浙江杭州"
+//       ,"sign": "人生恰似一场修行"
+//       ,"experience": "116"
+//       ,"ip": "192.168.0.8"
+//       ,"logins": "108"
+//       ,"joinTime": "2016-10-14"
+//     },{
+//       "cid": "10001"
+//       ,"username": "杜甫"
+//       ,"email": "xianxin@layui.com"
+//       ,"sex": "男"
+//       ,"city": "浙江杭州"
+//       ,"sign": "人生恰似一场修行"
+//       ,"experience": "116"
+//       ,"ip": "192.168.0.8"
+//       ,"logins": "108"
+//       ,"joinTime": "2016-10-14"
+//     }],
+			page: true,//开启分页
+			limit:10,   //默认十条数据一页
+			limits:[10,20,30,50],  //数据分页条
+		});
+		
 		});
 		// 添加项目组成员
 		$('.addThisPeo').on('click',function(){
@@ -351,7 +361,7 @@
 						isOutAnim:false,    // 关闭动画
 						content: $('#addPeople'),
 				})
-				}); 
+		}); 
 </script>
 
 </html>
