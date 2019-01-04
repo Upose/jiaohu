@@ -51,7 +51,7 @@
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目经理：</label>
 							<div class="layui-input-block">
-							<select name="jectId" lay-verify="required" id="add_jectment">
+							<select name="jectId"  lay-verify="required" id="add_jectment">
 									<option value="">请选择项目经理</option>
 							</select>	
 							</div>
@@ -121,6 +121,8 @@
 		selectRoleName();    // 调用查询方法
 		  //监听提交
 		form.on('submit(demo1)', function(data){
+			var jectname =$("#add_jectment").find("option:selected").text(); 
+			console.log(jectname);
 			$.ajax({
 			url:"{:U('ItemStartUp/projectAdd')}",
 			type: 'post',
@@ -128,7 +130,7 @@
 				pro_name:data.field.identity,
 				industry_id:data.field.roleId,
 				pro_source:data.field.sourceId,
-				projectManager:"成达",
+				projectManager:jectname,
 				projectManagerId:data.field.jectId,
 				projectNature:data.field.natureId,
 				divisionManagerId:data.field.departId,
