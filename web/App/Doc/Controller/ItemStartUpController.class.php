@@ -216,7 +216,7 @@ class ItemStartUpController extends BaseController {
      *@author songcx
      *2018.01.02
      */
-    public function memberDropSelect()
+    public function memberDropResult()
     {
 
         //以下是所有下拉框列表
@@ -287,11 +287,21 @@ class ItemStartUpController extends BaseController {
     {
 
         $pCode = I('pCode');
+        $page = I('page');
+        $limit = I('limit');
 
         $persionList=$this->persionList=
-        ItemStartUpModel::persionList($pCode);
+        ItemStartUpModel::persionList($pCode,$page,$limit);
 
-        $this->Response(200,$persionList,'');
+        // $this->Response(200,$persionList,'');
+
+        // $customerList=$this->customerList=
+        // ItemStartUpModel::customerList($pCode,$page,$limit);
+
+        // $this->Response(200,$customerList,'');
+
+        $result_json = json_encode($persionList);
+        echo $result_json;
 
     }
 
@@ -348,6 +358,13 @@ class ItemStartUpController extends BaseController {
         $result_json = json_encode($customerList);
         echo $result_json;
     }
+
+
+
+
+
+
+    
 
 
 }
