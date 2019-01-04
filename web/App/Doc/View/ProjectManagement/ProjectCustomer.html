@@ -166,7 +166,7 @@
 			<div class="details_zhong">
 				<div>
 				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
-				<button class="addThisPeo">新建组员</button>
+				<button class="addThisPeo">新建客户</button>
 				</div>
 				<table class="layui-table">
 						<thead>
@@ -232,13 +232,13 @@
 						<div class="layui-form-item">
 								<label class="layui-form-label">所在单位：</label>
 								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input" lay-verify="required">
+										<input type="text" name="conpany" class="layui-input" lay-verify="required">
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">所在职责：</label>
 								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input" lay-verify="required">
+										<input type="text" name="duty" class="layui-input" lay-verify="required">
 								</div>
 						</div>
 						<div class="layui-form-item">
@@ -260,13 +260,13 @@
 						<div class="layui-form-item">
 								<label class="layui-form-label">联系电话：</label>
 								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input" lay-verify="phone">
+										<input type="text" name="phone" class="layui-input" lay-verify="phone">
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">人员邮箱：</label>
 								<div class="layui-input-block">
-										<input type="text" name="empName" class="layui-input" lay-verify="email">
+										<input type="text" name="email" class="layui-input" lay-verify="email">
 								</div>
 						</div>
 						<div class="layui-form-item">
@@ -293,27 +293,27 @@
 		layedit = layui.layedit,
 		laydate = layui.laydate;
 			//监听提交
-		form.on('submit(demoone)', function(data){0
+		form.on('submit(demoone)', function(data){
+			console.log(data.field.duty);
 			$.ajax({
 			url:"{:U('ItemStartUp/proCustomerAdd')}",
 			type: 'post',
 			data: {
-				pro_name:data.field.identity,
-				industry_id:data.field.roleId,
-				pro_source:data.field.sourceId,
-				projectManager:jectname,
-				projectManagerId:data.field.jectId,
-				projectNature:data.field.natureId,
-				divisionManagerId:data.field.departId,
-				pro_address:data.field.cityId,
-				natureType:data.field.natureId_miao,
-				projectIntroduce:data.field.textject
+				pCode:"12",
+				founder_id:"222",
+				department:data.field.conpany,
+				duty:data.field.duty,
+				customer_type :data.field.deptId,
+				customer_name :data.field.empName,
+				phone :data.field.phone,
+				mailbox :data.field.email,
+				remarks:data.field.textject,
 			},
 			dataType: 'json',
 			success: function(res) {
 					if(res.code == 200) {
 						layui.use('layer', function() {
-							layer.alert('提交成功');
+							layer.alert('添加成功');
 						})
 					} else {
 						layui.use('layer', function() {
