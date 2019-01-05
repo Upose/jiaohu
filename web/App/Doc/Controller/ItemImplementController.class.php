@@ -2,14 +2,14 @@
 
 namespace Doc\Controller;
 use Think\Controller;
-use Doc\Model\ItemStartUpModel;
+use Doc\Model\ItemImplementModel;
 
   /**
-    *项目启动阶段
+    *项目执行管理阶段
     *@author song.chaoxu
     *2018.01.02
     */
-class ItemStartUpController extends BaseController {
+class ItemImplementController extends BaseController {
 
 	/**
      * 输出首页
