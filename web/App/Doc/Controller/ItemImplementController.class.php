@@ -211,12 +211,13 @@ class ItemImplementController extends BaseController {
 
     }
 
+
     /**
-     *成员下拉列表
+     *成员部门下拉列表
      *@author songcx
      *2018.01.02
      */
-    public function memberDropResult()
+    public function deptmentDropResult()
     {
 
         //以下是所有下拉框列表
@@ -237,6 +238,25 @@ class ItemImplementController extends BaseController {
         $final['dResult'] = $dResult;
         $final['memberResult'] = $memberResult;
 
+
+        $this->Response(200,$final,'');
+
+    }
+
+    /**
+     *成员下拉列表
+     *@author songcx
+     *2018.01.02
+     */
+    public function memberDropResult()
+    {
+
+        // 成员id
+        $deptCode = I('deptCode');
+
+        //所有人 - 页面下拉项内容
+        $memberResult=$this->memberResult=
+        ItemStartUpModel::memberResult($deptCode);
 
         $this->Response(200,$final,'');
 
