@@ -164,10 +164,10 @@ class ItemStartUpModel
      * @author song.chaoxu 
      * 2018.11.24
      */
-    public function memberResult(){
+    public function memberResult($deptCode){
 
 
-      $sql = "SELECT user_id AS mid,member_name FROM `user_member`;";
+      $sql = "SELECT user_id AS mid,member_name FROM `user_member` where department = \"$deptCode\" ;";
 
       $res = M()->query($sql);
 
