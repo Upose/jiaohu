@@ -164,40 +164,12 @@
 
 			</div>
 			<div class="details_zhong">
-				<div>
-				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
-				<button class="addThisPeo">新建组员</button>
+				<div class="layui-col-lg12">
+				<blockquote class="layui-elem-quote addThispro">成员信息列表</blockquote>
+				<button class="addThisPeo" lay-filter="addThisPeo">新建成员</button>
 				</div>
-				<table class="layui-table">
-						<thead>
-								<tr>
-										<th>组员姓名</th>
-										<th>岗位</th>
-										<th>部门</th>
-										<th>到岗时间</th>
-										<th>离岗时间</th>
-										<th>类型</th>
-										<th>创建时间</th>
-										<th>操作</th>
-								</tr>
-						</thead>
-						<tbody>
-								<tr v-for="item in arrList">
-										<td>{{item.theme}}</td>
-										<td>{{item.address}}</td>
-										<td>{{item.meeting_time}}</td>
-										<td>{{item.meeting_level}}</td>
-										<td>{{item.department_id}}</td>
-										<td>{{item.meeting_mode}}</td>
-										<td>{{item.meeting_mode}}</td>
-										<td style="cursor:pointer;" @click="openNew(item.id)">
-											<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-											<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-										</td>
-								</tr>
-						</tbody>
-				</table>
-			</div>
+				<table class="layui-hide" id="peoples" lay-filter="peoples"></table>
+		</div>
 				
 			<div class="details_di">
 				<blockquote class="layui-elem-quote">历史信息</blockquote>
@@ -230,41 +202,49 @@
 						<div class="layui-form-item">
 								<label class="layui-form-label">所在部门：</label>
 								<div class="layui-input-block">
-										<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										<select name="add_department" lay-verify="required" id="add_department" lay-filter="see_depart">
+												<option value="">请选择部门</option>
+										</select>
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">组员姓名：</label>
 								<div class="layui-input-block">
-										<input type="text" name="duty" class="layui-input" lay-verify="required">
+										<select name="add_peo" lay-verify="required" id="add_peo">
+												<option value="">请选择组员姓名</option>
+										</select>
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">所属岗位：</label>
 								<div class="layui-input-block">
-										<select class="layui-input" name="deptId" id="deptSelect" lay-verify="required">
-											<option value ="">请选择客户类型</option>
-											<option value ="0">客户</option>
-											<option value ="1">其他</option>
+										<select class="layui-input" name="add_job" id="add_job" lay-verify="required">
+											<option value ="">请选择岗位职责</option>
+
 										</select>
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">到岗时间：</label>
 								<div class="layui-input-block">
-										 <input type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd">
+										  <input type="text" class="layui-input" id="test1" placeholder="yyyy年MM月dd日" lay-verify="required">
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">离岗时间：</label>
 								<div class="layui-input-block">
-										 <input type="text" class="layui-input" id="test2" placeholder="yyyy-MM-dd">
+										 <input type="text" class="layui-input" id="test2" placeholder="yyyy年MM月dd日">
 								</div>
 						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">人员类型：</label>
 								<div class="layui-input-block">
-										<input type="text" name="email" class="layui-input" lay-verify="email">
+									<select class="layui-input" name="deptId" id="deptSelect" lay-verify="required">
+										<option value ="">请选择人员类型</option>
+										<option value ="0">计划内</option>
+										<option value ="1">新增</option>
+										<option value ="2">离场</option>
+									</select>
 								</div>
 						</div>
 						<div class="layui-form-item">
@@ -286,20 +266,48 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
+	var form,layedit,layer,laydate; 
 	layui.use(['form', 'layedit', 'laydate'], function(){
-		var form = layui.form,
-		layer = layui.layer,
-		layedit = layui.layedit,
-		laydate = layui.laydate;
+	  form = layui.form,
+	  layer = layui.layer,
+	  layedit = layui.layedit,
+	  laydate = layui.laydate;
 	//到岗日期 
 		laydate.render({
-			elem: '#text1',
+			elem: '#test1'
 			});
 	//离岗日期 
 		laydate.render({
-			elem: '#text2',
+			elem: '#test2'
+			});
+	//  根据部门选取成员		
+		form.on('select(see_depart)', function(data){
+			var peo_name =$("#add_department").find("option:selected").text(); 
+			$.ajax({
+			url:"{:U('ItemStartUp/memberDropResult')}",
+			type: 'post',
+			data: {
+				deptCode :peo_name
+			},
+			dataType: 'json',
+			success: function(data) {
+					if (data.code == 200) {
+							var result = data.data || [];
+							var role_peo = document.getElementById("add_peo");        //add_role_name给select定义的id  	      	      
+							for (var i = 0; i<result.dResult.length; i++) {
+									var option = document.createElement("option");    // 创建添加option属性
+									option.setAttribute("value",result.dResult[i].did);                  // 给option的value添加值
+									option.innerText= result.dResult[i].deptname;             // 打印option对应的纯文本 （超级管理员、管理员）
+									role.appendChild(option);                          // 给select 添加option子标签
+									form.render("select");                                // 刷性select，显示出数据        
+									}
+					}
+			}    
+			})
+				
 			});
 		});
+		selectDepart();   //  选择项目组成员部门
 		// 添加项目组成员
 		$('.addThisPeo').on('click',function(){
 				layer.open({
@@ -312,7 +320,39 @@
 						// btn:['确定','取消'],
 						isOutAnim:false,    // 关闭动画
 						content: $('#addPeople'),
-				})
+				})								
 		}); 
+		function selectDepart(){
+			$.ajax({
+			url:"{:U('ItemStartUp/deptmentDropResult')}",
+			type: 'post',
+			data: {},
+			dataType: 'json',
+			success: function(data) {
+					if (data.code == 200) {
+							var result = data.data || [];
+							console.log(result);
+							var role = document.getElementById("add_department");        //add_role_name给select定义的id  
+							var role_job = document.getElementById("add_job");     	      	      
+							for (var i = 0; i<result.dResult.length; i++) {
+									var option = document.createElement("option");    // 创建添加option属性
+									option.setAttribute("value",result.dResult[i].did);                  // 给option的value添加值
+									option.innerText= result.dResult[i].deptname;             // 打印option对应的纯文本 （超级管理员、管理员）
+									role.appendChild(option);                          // 给select 添加option子标签
+									form.render("select");                                // 刷性select，显示出数据        
+									} 
+							for (var i = 0; i<result.jResult.length; i++) {
+									var option = document.createElement("option");    // 创建添加option属性
+									option.setAttribute("value",result.jResult[i].jid);                  // 给option的value添加值
+									option.innerText= result.jResult[i].jobtype_name;             // 打印option对应的纯文本 （超级管理员、管理员）
+									role_job.appendChild(option);                          // 给select 添加option子标签
+									form.render("select");                                // 刷性select，显示出数据        
+									} 
+					}
+			}    
+			})
+		}	
+		
+		
 </script>
 </html>
