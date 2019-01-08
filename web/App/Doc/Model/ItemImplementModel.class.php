@@ -5,341 +5,129 @@ mysql_query("SET NAMES UTF8");
 class ItemImplementModel
 {
 
-     /**
-     * 查询行业列表
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-    public function iResult()
-     {
-        $sql = "
-                        SELECT
-                            industry_id AS iid,
-                            industry_name
-                        FROM
-                            `dm_industry`;";
-        $iResultList = M()->query($sql);
-        return  $iResultList;
-     }
 
-     /**
-     * 查询部门列表
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-    public function dResult()
-     {
-        $sql = " SELECT id AS did,deptName FROM dm_department";
-        $dResultList = M()->query($sql);
-        return  $dResultList;
-     }
+    // /**
+    //  * 查询与此人相关的项目列表
+    //  * @author song.chaoxu
+    //  * 2018.01.07
+    //  */
+    // public function aboutMeProject($pMCode){
+
+    //     $app_project = M("app_meeting"); // 实例化User对象
+    //     $result = $app_project->where('founder_id',$pMCode)->find();
+    //     return $result;
+
+    // }
 
     /**
-     * 查询区域列表
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-
-    public function aResult()
-     {
-        $sql = "SELECT
-                        area_id AS aid,
-                        area_name AS aname
-                    FROM
-                        dm_area
-                    WHERE
-                        parent_id = 0";
-
-        $aResultList = M()->query($sql);
-        return  $aResultList;
-
-     }
-
-    /**
-     * 控股公司列表
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-
-    public function kResult()
-     {
-        $sql = "SELECT id AS kid,holding FROM `dm_dolding`;";
-
-        $kResultList = M()->query($sql);
-        return  $kResultList;
-
-     }
-
-    /**
-     * 项目性质 / 战略性质
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-
-    public function nResult()
-     {
-        $sql = "SELECT id AS nid,nature FROM `dm_nature`;";
-
-        $nResultList = M()->query($sql);
-        return  $nResultList;
-
-     }
-     
-
-    /**
-     * 查询项目经理列表
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-    public function pResult()
-     {
-        $sql = "SELECT user_id AS pid,member_name FROM `user_member` WHERE  department LIKE '%交付%' AND duty LIKE '%项目经理%';";
-
-        $pResultList = M()->query($sql);
-        return  $pResultList;
-
-     }
-
-    /**
-     * 商务人员
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-    public function swResult()
-     {
-        $sql = "SELECT user_id,member_name FROM `user_member` WHERE duty like '%商务%'";
-
-        $swResultList = M()->query($sql);
-        return  $swResultList;
-
-     }
-
-    /**
-     * 售前人员
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-    public function sqResult()
-     {
-        $sql = "SELECT user_id,member_name FROM `user_member` WHERE duty like '%售前%'";
-
-        $sqResultList = M()->query($sql);
-        return  $sqResultList;
-
-     }
-
-     
-
-
-    /**
-     * 人员岗位职责
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-    public function jResult(){
-
-
-      $sql = "SELECT jobtype_id AS jid,jobtype_name FROM `dm_jobtype`;";
-
-      $res = M()->query($sql);
-
-      return $res;
-
-    }
-
-
-    
-    /**
-     * 所有交付人员
-     * 
-     * @author song.chaoxu 
-     * 2018.11.24
-     */
-    public function memberResult(){
-
-
-      $sql = "SELECT user_id AS mid,member_name FROM `user_member`;";
-
-      $res = M()->query($sql);
-
-      return $res;
-
-    }
-
-
-
-    /**
-     * 项目新增
+     * 项目所属阶段
      * @author song.chaoxu
-     * 2018.12.26
+     * 2018.01.07
      */
-    public function projectAdd($pro_code,$pro_name,$pro_source,$projectManager,$projectManagerId,$projectNature,$industry,$deptId,$area,$natureType,$projectIntroduce){
+    public function pStaus(){
 
-          $sql="
-              INSERT INTO `itemapplication`.`app_project` (
-                    `pro_code`,
-                    `pro_name`,
-                    `industry_id`,
-                    `pro_source`,
-                    `pro_department`,
-                    `pro_leader`,
-                    `leader_name`,
-                    `pro_address`,
-                    `type_id`,
-                    `natureType`,
-                    `pro_introduce`,
-                    `founder_id`
-                )
-                VALUES
-                    (
-                    $pro_code,
-                    \"$pro_name\",
-                    $industry,
-                    $pro_source,
-                    $deptId,
-                    $projectManagerId,
-                    \"$projectManager\",
-                    $area,
-                    $projectNature,
-                    $natureType,
-                    \"$projectIntroduce\",
-                    $projectManagerId
-                    )";
-
-
-        try{
-
-            $res =  M()->execute($sql);
-            return $res;
-         
-        }catch(Exception $e){
-            return $e->getMessage();
-        }
-         
-    }
-
-
-    /**
-     * 查询现有项目分页列表
-     * @author song.chaoxu
-     * 2018.11.21
-     */
-     public function pList($proName,$pag,$limit)
-     {
-        
-        $sql = "
-                SELECT
-                    p.pro_code,
-                    p.pro_name,
-                    d.deptName,
-                    i.industry_name
-                FROM
-                    `app_project` p
-                JOIN dm_industry i ON p.industry_id = i.industry_id
-                JOIN dm_department d ON p.pro_department = d.id
-                ";
-
-        //根据传来的不同条件进行搜索  
-        if ( $proName != "" ) {
-
-            $sql.="where pro_name like \"%$proName%\"  limit ".$pag.",".$limit;
-
-        } else{
-
-             $sql.="limit ".$pag.",".$limit;
-        }
-
-        $res = M()->query($sql);
-
-        $sqlCount = "   
-                SELECT
-                    count(pro_name) total
-                FROM
-                    `app_project` p
-                JOIN dm_industry i ON p.industry_id = i.industry_id
-                JOIN dm_department d ON p.pro_department = d.id
-                    ";
-
-        //根据传来的不同条件进行搜索  
-        if ($proArea!="" && $proName != "" ) {
-
-            $sqlCount.="where pro_name like \"%$proName%\"  ";
-
-        } else{
-
-             $sqlCount.="";
-        }
-
-
-        $total = M()->query($sqlCount);
-
-        $count =$total[0]['total'];
-        
-        $response = array('result' => $res,'count' =>$count);
-
-        return $response;
-
-     }
-
-
-    /**
-     * 查询现有项目详细列表
-     * @author song.chaoxu
-     * 2018.11.21
-     */
-    public function pContent($proCode)
-     {
-        
-        $sql = "
-                SELECT
-                    p.pro_code,
-                    p.pro_name,
-                    p.pro_source,
-                    p.pro_leader,
-                    p.leader_name,
-                    p.type_id,
-                    i.industry_name,
-                    d.deptName,
-                    a.area_name,
-                    p.natureType,
-                    p.pro_introduce
-                FROM
-                    `app_project` p
-                JOIN dm_industry i ON p.industry_id = i.industry_id
-                JOIN dm_department d ON p.pro_department = d.id
-                JOIN dm_area a ON p.pro_address = a.area_id
-                where p.pro_code = $proCode
-
-                ";
-
-        $response = M()->query($sql);
-
-        return $response;
-     }
-
-
-    /**
-     * 删除指定项目记录
-     * @author song.chaoxu
-     * 2018.12.27
-     */
-    public function dProject($pCode){
-        
-        $delCode = 'pro_code='.$pCode;
-        $pTable = M("app_project"); // 实例化User对象
-        $result = $pTable->where($delCode)->delete(); // 删除id为$delCode的用户数据
+        $dm_stage = M("dm_stage"); // 实例化User对象
+        $result = $dm_stage->select();
         return $result;
 
     }
+
+    /**
+     * 风险类别
+     * @author song.chaoxu
+     * 2018.01.07
+     */
+    public function rType(){
+
+        $dm_risktype = M("dm_risktype"); // 实例化对象
+        $result = $dm_risktype->select();
+        return $result;
+
+    }
+
+    /**
+     * 事件类型
+     * @author song.chaoxu
+     * 2018.01.07
+     */
+    public function eType(){
+
+        $dm_etype = M("dm_etype"); // 实例化User对象
+        $result = $dm_etype->select();
+        return $result;
+
+    }
+
+
+    /**
+     * 风险新增
+     * @author song.chaoxu
+     * 2018.01.07
+     */
+    public function riskAdd($pro_code,$pro_stage,$risk_content,$risk_type,$level,$consequence,$founder_id){
+
+        $app_project_risk = M("app_project_risk"); // 实例化对象
+        $data['pro_code'] = $pro_code;
+        $data['pro_stage'] = $pro_stage;
+        $data['risk_content'] = $risk_content;
+        $data['risk_type'] = $risk_type;
+        $data['level'] = $level;
+        $data['consequence'] = $consequence;
+        $data['founder_id'] = $founder_id;
+        $result = $app_project_risk->add($data);
+        return $result;
+    }
+
+    /**
+     * 事件新增
+     * @author song.chaoxu
+     * 2018.01.07
+     */
+    public function eventAdd($pro_code,$pro_stage,$event_name,$event_type,$event_content,$level,$happen_time,$enclosure,$remarks,$founder_id)
+        {
+
+                $app_majorevents = M("app_majorevents"); // 实例化对象
+                $data['pro_code'] = $pro_code;
+                $data['pro_stage'] = $pro_stage;
+                $data['event_name'] = $event_name;
+                $data['event_type'] = $event_type;
+                $data['event_content'] = $event_content;
+                $data['level'] = $level;
+                $data['happen_time'] = $happen_time;
+                $data['enclosure'] = $enclosure;
+                $data['remarks'] = $remarks;
+                $data['founder_id'] = $founder_id;
+                $result = $app_majorevents->add($data);
+                return $result;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * 新增项目成员
