@@ -271,7 +271,7 @@
 		var table = layui.table;
 			//监听提交
 		form.on('submit(demoone)', function(data){
-			console.log(data.field.duty);
+
 			$.ajax({
 			url:"{:U('ItemStartUp/proCustomerAdd')}",
 			type: 'post',
@@ -315,7 +315,7 @@
 			totalRow: true,
 			cols: [[
 				{field:'id', width:80, title: 'ID', sort: true},
-				{field:'customer_name', width:100, title: '客户姓名'},
+				{field:'customer_name', width:100, title: '客户姓名',align:'center'},
 				{field:'department', width:280, title: '单位',align:'center'},
 				{field:'duty', width:160, title: '职责',align:'center'},
 				{field:'customer_type',width:80,title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
