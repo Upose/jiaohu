@@ -16,14 +16,8 @@ body{
     border-radius: 0 2px 2px 0;
     background-color: #ffffff;
 }
-.details_gao{
-	height: 36vh;
-	margin-top: 10px;
-	padding: 3vh 2vw;
-	background: white;
-}
 .details_zhong{
-	height: 50vh;
+	height: 46vh;
 	margin-top: 10px;
 	padding: 3vh 2vw;
 	background: white;

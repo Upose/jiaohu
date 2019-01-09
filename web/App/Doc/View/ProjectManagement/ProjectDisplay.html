@@ -170,55 +170,55 @@
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目名称：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" id="projectname" placeholder="" class="layui-input">
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属行业：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text"  id="jobname" placeholder="" class="layui-input" >
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目来源：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="控股公司" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text"  id="pro_laiyuan" placeholder="" class="layui-input" >
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">所属部门：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" id="depart_name" placeholder="" class="layui-input">
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目经理：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="胡飞" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" id="pro_jl" placeholder="" class="layui-input" >
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目地点：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" id="pro_dd" placeholder="" class="layui-input" >
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">项目性质：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="合同" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" id="pro_xz"  placeholder="" class="layui-input">
 							</div>
 						</div>
 						<div class="layui-col-lg6">
 							<label class="tit-tab">战略性质：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" id="pro_zl" placeholder=""  class="layui-input">
 							</div>
 						</div>
 						<div class="layui-col-lg12">
 							<label class="tit-tab">项目介绍：</label>
 							<div class="layui-input-block">
-							<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+							<textarea placeholder="请输入内容" id="pro_mess" class="layui-textarea"></textarea>
 							</div>
 						</div>
 					</div>	
@@ -229,7 +229,43 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
-	
+	layui.use(['form', 'layedit', 'laydate','table'], function(){
+		var form = layui.form,
+		layer = layui.layer,
+		layedit = layui.layedit,
+		laydate = layui.laydate;
+		var table = layui.table;
+		// 调用查询项目接口
+		chaProject();
+		}); 
+		
+		function chaProject(){
+			$.ajax({
+			url:"{:U('ItemStartUp/pContent')}",
+			type: 'post',
+			data: {
+				pCode:1
+			},
+			dataType: 'json',
+			success: function(data) {
+					if (data.code == 200) {
+							var result = data.data || [];
+							console.log(result[0].pro_name);	
+							$("#projectname").val(result[0].pro_name);
+							$("#jobname").val(result[0].industry_name);        	      
+							$("#pro_laiyuan").val(result[0].pro_source);  
+							$("#depart_name").val(result[0].deptname);  
+							$("#pro_jl").val(result[0].leader_name);  
+							$("#pro_dd").val(result[0].area_name);  
+							$("#pro_xz").val(result[0].natureType); 
+							$("#pro_zl").val(result[0].natureType); 
+							$("#pro_mess").val(result[0].pro_introduce);  
+
+					}
+			}    
+			})
+		}	
+
 </script>
 </html>
 
