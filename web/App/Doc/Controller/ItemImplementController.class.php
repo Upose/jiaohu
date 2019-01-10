@@ -75,7 +75,7 @@ class ItemImplementController extends BaseController {
         $founder_id = I('founder_id');
 
         $addStaus = $this->result=
-        ItemStartUpModel::riskAdd($pro_code,$pro_stage,$risk_content,$risk_type,$level,$consequence,$founder_id);
+        ItemImplementModel::riskAdd($pro_code,$pro_stage,$risk_content,$risk_type,$level,$consequence,$founder_id);
         
         $this->Response(200,$addStaus,'');
 
@@ -179,7 +179,7 @@ class ItemImplementController extends BaseController {
         }
 
         $addStaus = $this->result=
-        ItemStartUpModel::eventAdd($pro_code,$pro_stage,$event_name,$event_type,$event_content,$level,$happen_time,$enclosure,$remarks,$founder_id);
+        ItemImplementModel::eventAdd($pro_code,$pro_stage,$event_name,$event_type,$event_content,$level,$happen_time,$enclosure,$remarks,$founder_id);
         
         $this->Response(200,$addStaus,'');
 
@@ -286,7 +286,7 @@ class ItemImplementController extends BaseController {
 
 
         $addStaus = $this->result=
-        ItemStartUpModel::meetingAdd($pro_code,$pro_stage,$meeting_mode,$meeting_level,$theme,$meeting_time,$address,$inside,$external,$content,$founder_id,$enclosure);
+        ItemImplementModel::meetingAdd($pro_code,$pro_stage,$meeting_mode,$meeting_level,$theme,$meeting_time,$address,$inside,$external,$content,$founder_id,$enclosure);
         
         $this->Response(200,$addStaus,'');
 
