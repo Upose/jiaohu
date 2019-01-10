@@ -195,7 +195,7 @@
 						<div class="layui-col-md4">
 							<label class="tit-tab">密集程度：</label>
 							<div class="layui-input-block">
-								<select class="layui-input" name="pro_mjId"  lay-verify="required">
+								<select class="layui-input" name="see_mjcd"  lay-verify="required" lay-filter="see_mjcd">
 									<option value ="">请选择密集程度</option>
 									<option value ="0">普通</option>
 									<option value ="1">紧急</option>
@@ -205,7 +205,7 @@
 						<div class="layui-col-md4">
 							<label class="tit-tab">难度等级：</label>
 							<div class="layui-input-block">
-								<select class="layui-input" name="pro_ndId"  lay-verify="required">
+								<select class="layui-input" name="see_nddj"  lay-verify="required" lay-filter="see_nddj">
 									<option value ="">请选择难度等级</option>
 									<option value ="0">容易</option>
 									<option value ="1">普通</option>
@@ -216,19 +216,20 @@
 						<div class="layui-col-md6">
 							<label class="tit-tab">合作单位：</label>
 							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="请输入合作单位" autocomplete="off" class="layui-input" v-model="addList.name">
+							<input type="text" lay-verify="required" placeholder="请输入合作单位" name="see_hzdw"   class="layui-input" lay-filter="see_hzdw">
 							</div>
 						</div>
-						<div class="layui-col-md6">
-							<label class="tit-tab">相关附件：</label>
-							<div class="layui-input-block">
-							<input type="text" name="identity" lay-verify="identity" placeholder="长宁公安智慧平台" autocomplete="off" class="layui-input" v-model="addList.name">
-							</div>
+						<div class="layui-col-md6 layui-upload" >
+								<label class="layui-form-label">文件上传：</label>
+								<button type="button" class="layui-btn" id="upwenjian" >
+									<i class="layui-icon">&#xe67c;</i>添加附件
+								</button>
+								<span id="fileName"></span>
 						</div>
 						<div class="layui-col-md12">
 							<label class="tit-tab">项目介绍：</label>
 							<div class="layui-input-block">
-							<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+							<textarea placeholder="请输入内容" class="layui-textarea" lay-filter="see_xmjs"></textarea>
 							</div>
 						</div>
 						<div class="layui-form-item">
@@ -261,9 +262,74 @@
 			laydate.render({
 				elem: '#test2'
 				});
-				
-				getsomorepeo();
+						
+			getsomorepeo();
+				//监听提交
+			form.on('submit(demo1)', function(data){
+				var s_time=$("#test1").val(); 				
+				var e_time =$("#test2").val();
+// 				 formData.append('pCode', '12');
+// 				 formData.append('swName', data.field.see_shop);
+// 				 formData.append('sqName', data.field.see_sq);
+// 				 formData.append('pStime', s_time);
+// 				 formData.append('pEtime', e_time);
+// 				 formData.append('sGrade', data.field.see_mjcd);
+// 				 formData.append('dRank', data.field.see_nddj);
+// 				 formData.append('pMsg', data.field.see_hzdw);
+// 				 formData.append('cUtil', data.field.see_xmjs);
+// 				 formData.append('pMid', '222');
+// 				 formData.append('photo[]', data.field.file);
+				console.log(data);
+				$.ajax({
+				url:"{:U('ItemStartUp/approvalAdd')}",
+				type: 'post',
+				data: {
+						pCode:"12",  //  项目id  后期添加
+						swName:data.field.see_shop, 
+						sqName:data.field.see_sq,
+						pStime :s_time,
+						pEtime :e_time,
+						sGrade :data.field.see_mjcd,
+						dRank  :data.field.see_nddj,
+						pMsg :data.field.see_hzdw,
+						cUtil  :data.field.see_xmjs,
+						pMid   :'222',  // 创建人id  后期根据登录获取
+						photo:data.field.file,
+				},
+				dataType: 'json',
+				success: function(res) {
+						if(res.code == 200) {
+							layui.use('layer', function() {
+								layer.alert('提交成功');
+							})
+						} else {
+							layui.use('layer', function() {
+								var layer = layui.layer;
+								layer.alert('添加失败');
+							})
+						}			
+				},
+				})
+				return false;
+			});	
 		});		
+		// 文件上传
+		layui.use('upload', function(){
+			var upload = layui.upload;			 
+			//执行实例  但不执行上传功能
+			var uploadInst = upload.render({
+				elem: '#upwenjian', //绑定元素
+				url: "{:U('ItemStartUp/approvalAdd')}", //上传接口
+				accept:'file',
+				auto: false, 
+				choose: function(obj) {
+					obj.preview(function(index, file, result) {
+						$("#fileName").html(file.name);
+					});
+				},				
+			});
+		});
+		
 		
 		
 		function getsomorepeo(){
