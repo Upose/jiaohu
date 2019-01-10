@@ -483,7 +483,7 @@ class ItemStartUpModel
      *@author songcx
      *2018.01.05
      */
-    public function approvalAdd($pro_code,$market_name,$pre_sale_name,$pro_stime,$pro_etime,$secrecy_grade,$difficulty_rank,$pro_enclosure,$pro_msg,$cooperative_unit,$state,$founder_id)
+    public function approvalAdd($pro_code,$market_name,$pre_sale_name,$pro_stime,$pro_etime,$secrecy_grade,$difficulty_rank,$pro_enclosure,$pro_msg,$cooperative_unit,$founder_id)
     {
 
         $app_project_approval = M('app_project_approval');
