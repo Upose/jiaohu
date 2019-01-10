@@ -1,0 +1,277 @@
+弹框样式
+.left_form{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+.right_form{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+.bottom_btn{
+  margin-top: 5vh;
+  margin-left: 8vw;
+}
+.LCBplan_content{
+  height: 110vh;
+  background: white;
+  margin-top: 10px;
+}
+.left_list{
+    height: 100%;
+}
+.list_floor{
+    width: 90%;
+    height: 90%;
+    margin:  0 auto;
+    margin-top: 1%;
+}
+.plan_con{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding-left: 5%;
+    margin-top: 2%;
+}
+.plan_con_title{
+    width: 100%;
+    height: 22%;
+    text-align: left;
+    color: #000000;
+    font-size: 2.2vw;
+}
+.left_list_top{
+    width: 100%;
+    height: 8%;
+    margin-top: 2%;
+}
+.leftplan_title{
+    float: left;
+}
+.leftplan_btn{
+    float: right;
+}
+.leftbtn_list{
+    width: 100%;
+    height: 40%;
+    margin-top: 1%;
+}
+.ht_btn{
+    width: 8vw;
+    height: 7vh;
+    color: #8A8A8A;
+    border: none;
+    background: #ECECEC;
+}
+.jh_btn{
+    width: 8vw;
+    height: 7vh;
+    color: #8A8A8A;
+    border: none;
+    margin-left: 1vw;
+    background: #ECECEC;
+}
+.planlist_time{
+    width: 100%;
+    color: #8A8A8A;
+}
+.left_list_main{
+    width: 95%;
+    height: 90%;
+}
+.plan_list{
+    width: 100%;
+    height: 23%;
+    margin-bottom: 3vh;
+    border: 1px solid #E6E6E6;
+    border-left: 5px solid #009588;
+    box-shadow: #E6E6E6 2px 2px 2px 2px ;
+}
+.right_list{
+    height: 100%;
+}
+.right_top{
+    height: 10%;
+    width: 100%;
+}
+.rg_top_con{
+    height: 100%;
+    width: 90%;
+    float: right;
+    margin: 0 auto;
+}
+.rightTop_list{
+    float: left;
+    width: 10%;
+    height: 100%;
+}
+.top_list{
+    width: 100%;
+    height: 100%;
+    float: right;
+}
+.right_title{
+    height: 10%;
+    width: 100%;
+}
+.need_title{
+  float: left;
+  color: #000;
+  font-size: 1.2vw;
+  font-weight: 900;
+  text-align: center;
+  line-height: 10vh;
+  margin-left: 2vw;
+}
+.rihtplan_btn{
+    float: right;
+    margin-top: 2vh;
+}
+.right_content{
+    height: 80%;
+    width: 100%;
+}
+/* 右侧面板折叠内容 */
+.plan_content{
+    height: 13vh;
+    width: 100%;
+    margin-top: 5px;
+}
+.plan_con_name{
+    width: 10%;
+    height: 100%;
+    color: #009588;
+    float: left;
+}
+.plan_con_detail{
+    width:  85%;
+    height: 100%;
+    float: left;
+}
+.delivery_goal{
+    height: 13vh;
+    width: 100%;
+    margin-top: 10px;
+}
+.delivery_goal_name{
+    width: 10%;
+    height: 100%;
+    color: #009588;
+    float: left;
+}
+.delivery_goal_detail{
+    width:  85%;
+    height: 100%;
+    float: left;
+}
+.rg_start_time{
+    height: 5vh;
+    width: 100%;
+    margin-top: 10px;
+}
+.rg_start_name{
+    width: 10%;
+    height: 100%;
+    color: #009588;
+    float: left;
+}
+.rg_start_con{
+    width:  85%;
+    height: 100%;
+    float: left;
+}
+.rg_end_time{
+    height: 5vh;
+    width: 100%;
+    margin-top: 10px;
+}
+.rg_end_name{
+    width: 10%;
+    height: 100%;
+    color: #009588;
+    float: left;
+}
+.rg_end_con{
+    width:  85%;
+    height: 100%;
+    float: left;
+}
+.rg_type{
+    height: 5vh;
+    width: 100%;
+    margin-top: 10px;
+}
+.rg_type_name{
+    width: 10%;
+    height: 100%;
+    color: #009588;
+    float: left;
+}
+.rg_type_detail{
+    width:  85%;
+    height: 100%;
+    float: left;
+}
+.rg_bz{
+    height: 5vh;
+    width: 100%;
+    margin-top: 10px;
+}
+.rg_bz_name{
+    width: 10%;
+    height: 100%;
+    color: #009588;
+    float: left;
+}
+.rg_bz_detail{
+    width:  85%;
+    height: 100%;
+    float: left;
+}
+.create_time{
+    height: 5vh;
+    width: 100%;
+}
+.right_public{
+   width: 100%;
+   height: 90%;
+}
+.zc_content{
+  display: block;
+}
+.xq_content{
+  display: none;
+}
+.sj_content{
+  display: none;
+}
+.kf_content{
+  display: none;
+}
+.cs_content{
+  display: none;
+}
+.sx_content{
+  display: none;
+}
+.px_content{
+  display: none;
+}
+.ys_content{
+  display: none;
+}
+.gd_content{
+  display: none;
+}
+/* 左侧点击切换列表 */
+.right_change_one{
+   display: block;
+}
+.right_change_two{
+   display: none;
+}
+.right_change_three{
+   display: none;
+}
+.right_change_four{
+   display: none;
+}
