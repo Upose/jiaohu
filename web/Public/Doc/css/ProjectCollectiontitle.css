@@ -17,7 +17,9 @@
     text-align: center;
     border: 1px dashed rgba(0,149,136,1);
 }
-
+.grid-demo img{
+	width: 90%;
+}
 .layui_code{
 	text-align: center;
     font-size: 2vh;
