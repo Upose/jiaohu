@@ -99,7 +99,15 @@ class ItemStartUpModel
      */
     public function pResult()
      {
-        $sql = "SELECT user_id AS pid,member_name FROM `user_member` WHERE  department LIKE '%交付%' AND duty LIKE '%项目经理%';";
+        $sql = "SELECT
+                    user_id AS pid,
+                    member_name
+                FROM
+                    `user_member` u
+                JOIN dm_department d ON u.department = d.id
+                WHERE
+                    d.deptName LIKE '%交付%'
+                AND u.duty LIKE '%项目经理%';";
 
         $pResultList = M()->query($sql);
         return  $pResultList;
