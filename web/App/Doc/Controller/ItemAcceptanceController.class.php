@@ -21,7 +21,7 @@ class ItemAcceptanceController extends BaseController {
 		//验收地点
 		$p['place'] = I('place');
 		//竣工时间
-		$p['J_time'] = I('J_time');
+		// $p['J_time'] = I('J_time');
 		//验收时间
 		$p['C_time'] = I('C_time');
 		//验收人员

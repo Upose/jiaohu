@@ -45,7 +45,7 @@ class ItemTestRunController extends BaseController {
 	            //实例化上传类
 	            $upload =  new \Think\Upload();
 	            //设置附件上传大小
-	            // $upload->maxSize=3145728;
+	            // $upload->maxSize=3145728;	
 	            //保持文件名不变
 	            $upload->saveName = time()."dt".rand(0,10);
 	            //设置附件上传类型
