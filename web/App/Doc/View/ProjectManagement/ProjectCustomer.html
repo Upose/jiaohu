@@ -15,22 +15,24 @@
 
 <body id="app" >
     <div id="event-view">
-			<div class="layui-row details_gao">
+			<div class="details_gao">
 				<blockquote class="layui-elem-quote">项目里程碑</blockquote>
-				<div class="layui-col-lg2">
-					<div class="layui-line-me">	
-						<div class="style-agile">
-							<img  src="/Public/Doc/images/user.png" alt="">
+				<div class="layui-row layui-col-space1">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+								<img  src="/Public/Doc/images/user.png" alt="">							
 						</div>
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">商务/售前</div>
 					</div>
-					<div class="layui_code">商务/售前</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zi">
 								<a href="{:U('ProjectManagement/ProjectDisplay')}">
-								  <h3 class="layui-cite">项目基本信息</h3>
+								  <h3 class="layui-cite">项目信息</h3>
 								</a>
 							</li>
 							<li class="layui-tab-zi layui-tab-top">
@@ -48,17 +50,16 @@
 								<h3 class="layui-cite">客户关系</h3>
 								</a>
 							</li>
-						</ul>						
-					</div>				
-					<div class="layui_code">启动</div>
-					<div class="style-agile-border">
+						</ul>
+						</div>
+						<div class="style-agile-border">
 						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">启动</div>
 					</div>
-				</div>
-
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
-						<ul>
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+							<ul>
 							<li class="layui-tab-zhong">
 								<a href="{:U('Feedback/index')}">
 								<h3 class="layui-cite">里程碑计划</h3>
@@ -70,14 +71,14 @@
 								</a>
 							</li>
 						</ul>
-					</div>
-					<div class="layui_code">计划管理</div>
-					<div class="style-agile-border">
+						</div>
+						<div class="style-agile-border">
 						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">计划管理</div>
 					</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zi">
 								<a href="{:U('Feedback/index')}">
@@ -100,14 +101,14 @@
 								</a>
 							</li>
 						</ul>
-					</div>	
-					<div class="layui_code">执行管理</div>
-					<div class="style-agile-border">
+						</div>
+						<div class="style-agile-border">
 						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">执行管理</div>
 					</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zhonging">
 								<a href="{:U('Feedback/index')}">
@@ -115,14 +116,14 @@
 								</a>
 							</li>
 						</ul>
-					</div>
-					<div class="layui_code">测试联调</div>
-					<div class="style-agile-border">
+						</div>
+						<div class="style-agile-border">
 						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">测试联调</div>
 					</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zhonging">
 								<a href="{:U('ProjectManagement/ProjectTextrun')}">
@@ -130,16 +131,15 @@
 								</a>
 							</li>
 						</ul>
-					</div>	
-					<div class="layui_code">试运行</div>	
-						<div class="style-agile-border">
-							<img  src="/Public/Doc/images/sty1.png" alt="">
 						</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
-						<ul>
-							<li class="layui-tab-zhongpp">
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">试运行</div>
+					</div>
+					<div class="layui-col-md2">
+						<div class="grid-demo">						<ul>
+							<li class="layui-tab-zhongpp ">
 								<a href="{:U('ProjectManagement/ProjectAcceptance')}">
 								<h3 class="layui-cite">项目验收</h3>
 								</a>
@@ -155,24 +155,25 @@
 								</a>
 							</li>
 						</ul>
-					</div>
-					<div class="layui_code">验收归档</div>
-					<div class="style-agile-border">
-						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">验收归档</div>
 					</div>
 				</div>
-
 			</div>
 			<div class="details_zhong">
-				<div class="layui-col-lg12">
-				<blockquote class="layui-elem-quote addThispro">客户信息列表</blockquote>
-				<button class="addThisPeo" lay-filter="addThisPeo">新建客户</button>
-				</div>	
-				<table class="layui-hide" id="goods" lay-filter="goods"></table>
-				
+				<div class="layui-row">
+					<div class="layui-col-md12">
+					<blockquote class="layui-elem-quote addThispro">客户信息列表</blockquote>
+					<button class="addThisPeo" lay-filter="addThisPeo">新建客户</button>
+					</div>
+					<div class="layui-col-md12">
+					<table class="layui-hide" id="goods" lay-filter="goods"></table>
+					</div>
+				</div>				
 			</div>
 				
-			<div class="details_di">
+	
+<!-- 			<div class="details_di">
 				<blockquote class="layui-elem-quote">历史信息</blockquote>
 				<div class="caller-contar"> 
 					<div class="caller-item">
@@ -196,7 +197,7 @@
 				</div>	
 			</div>
 	</div>
-	</div>
+	    </div> -->
 	<div class="layui-row" id="addPeople" style="display: none;padding: 20px 30px;">
 		<div class="layui-col-md10">
 				<form class="layui-form" id="addEmployeeForm">
@@ -259,7 +260,7 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-xs btn-xiao" lay-event="edit">查看</a>
+  <a class="layui-btn layui-btn-xs" lay-event="edit">查看</a>
 </script>
 <script>
 	layui.use(['form', 'layedit', 'laydate','table'], function(){
@@ -310,21 +311,21 @@
 				pCode:12
 			},
 			// even:true,
-			height: 310,
-			totalRow: true,
+			height: 270,
+			cellMinWidth: 110,
 			cols: [[
-				{field:'id', width:80, title: 'ID', sort: true},
-				{field:'customer_name', width:100, title: '客户姓名',align:'center'},
-				{field:'department', width:280, title: '单位',align:'center'},
-				{field:'duty', width:160, title: '职责',align:'center'},
-				{field:'customer_type',width:80,title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-				{field:'phone', width:120,title: '电话',align:'center'},
-				{field:'mailbox',width:180, title: '邮箱',align:'center'},
-				{field:'remarks', width:280,title: '备注',align:'center'},
-				{field:'right', width:125,title: '操作',toolbar: '#barDemo',align:'center'}
+				{field:'id',title: 'ID', sort: true},
+				{field:'customer_name', title: '客户姓名',align:'center'},
+				{field:'department', title: '单位',align:'center'},
+				{field:'duty',title: '职责',align:'center'},
+				{field:'customer_type',title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+				{field:'phone', title: '电话',align:'center'},
+				{field:'mailbox', title: '邮箱',align:'center'},
+				{field:'remarks',title: '备注',align:'center'},
+				{field:'right',title: '操作',toolbar: '#barDemo',align:'center'}
 			]],
 			page: true,//开启分页
-			limit:6,   //默认十条数据一页
+			limit:5,   //默认十条数据一页
 			limits:false,  //数据分页条
 		});
 		
