@@ -93,12 +93,33 @@ class ItemImplementController extends BaseController {
         $pro_code = I('pCode');
 
         $riskResult = $this->result=
-        ItemImplementModel::riskResult($pro_code);
+        ItemImplementModel::riskResult($pCode,$page,$limit);
         
-        $this->Response(200,$riskResult,'');
+        $result_json = json_encode($riskResult);
+        echo $result_json;
 
     }
 
+
+    /**
+     * 周报查询
+     * @author song.chaoxu
+     * 2019.01.07
+     */
+    public function weeklyResult(){
+
+        //項目编号
+        $pro_code = I('pCode');
+ 
+        $page = I('page');
+        $limit = I('limit');
+
+        $weeklyResult = $this->result=
+        ItemImplementModel::weeklyResult($pro_code);
+        
+        $this->Response(200,$weeklyResult,'');
+
+    }
 
     /**
      * 事件新增下拉信息
@@ -205,7 +226,7 @@ class ItemImplementController extends BaseController {
 
 
     /**
-     * 会议新增下拉信息
+     * 会议和周报新增下拉信息
      * @author song.chaoxu
      * 2019.01.06
      */
@@ -308,8 +329,54 @@ class ItemImplementController extends BaseController {
 
     }
 
+    /**
+     * 周报新增
+     * @author song.chaoxu
+     * 2019.01.11
+     */
+
+    public function weeklyAdd(){
 
 
+         //項目编号
+        $pro_code = I('pCode');
+
+        //周报名称
+        $weekly_name = I('weekly_name');
+
+        //计划编号
+        $plan_code = I('plan_code');
+
+        //周报开始时间
+        $weekly_stime = I('weekly_stime');
+
+        //周报结束时间
+        $weekly_etime = I('weekly_etime');
+
+        //所属阶段
+        $stage  = I('stage');
+
+        //阶段进度
+        $pro_schedule  = I('pro_schedule');
+
+        //创建人
+        $founder_id = I('founder_id');
+
+        $appProjectWeeklyId = $this->result=
+        ItemImplementModel::projectWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id);
+
+        if ($appProjectWeeklyId) {
+        
+            $appProjectWeeklyId = $this->result=
+            ItemImplementModel::projectWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id);
+        }else{
+
+            # code...
+        }
+       
+        $this->Response(200,$addStaus,'');
+
+    }
 
 
 

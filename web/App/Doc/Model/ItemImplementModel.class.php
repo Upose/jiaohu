@@ -71,12 +71,21 @@ class ItemImplementModel
      * @author song.chaoxu
      * 2018.01.07
      */
-    public function riskResult($pro_code){
+    public function riskResult($pCode,$page,$limit){
 
         $app_project_risk = M("app_project_risk"); // 实例化对象
-        $result = $app_project_risk->where('pro_code',$pCode)->find();
-        return $result;
-
+        $count = $app_project_risk ->where('pro_code'.$pCode) ->count();
+        $customerList = $app_project_risk ->field('id,pro_code,plan_code,stage,risk_content,risk_type,level,result,state,founder_id,create_data')
+            ->where('pro_code',$pCode)
+            ->page($page,$limit)
+            ->order('create_data desc')
+            ->select();
+          $result = array();
+          $result['code'] = 0;
+          $result['msg'] = "";
+          $result['count'] = $count;
+          $result['data'] = $customerList;
+          return $result;
     }
 
     /**
@@ -128,6 +137,45 @@ class ItemImplementModel
                 return $result;
 
             }
+
+
+
+    /**
+     * 周报新增
+     * @author song.chaoxu
+     * 2018.01.11
+     */
+    public function projectWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id){
+
+        $app_project_weekly = M("app_project_weekly"); // 实例化对象
+
+        $data['pro_code'] = $pro_code;
+        $data['weekly_name'] = $weekly_name;
+        $data['plan_code'] = $plan_code;
+        $data['weekly_stime'] = $weekly_stime;
+        $data['weekly_etime'] = $weekly_etime;
+        $data['meeting_time'] = $meeting_time;
+        $data['stage'] = $stage;
+        $data['pro_schedule'] = $pro_schedule;
+        $data['founder_id'] = $founder_id;
+        $result = $app_majorevents->add($data);
+        return $result;
+    }
+
+
+
+    /**
+     * 周报查询
+     * @author song.chaoxu
+     * 2018.01.11
+     */
+    public function weeklyResult($pro_code){
+
+        $app_project_weekly = M("app_project_weekly"); // 实例化对象
+        $result = $app_project_weekly->where('pro_code',$pCode)->find();
+        return $result;
+
+    }
 
 
 }
