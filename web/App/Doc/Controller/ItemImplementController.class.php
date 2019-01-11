@@ -92,6 +92,9 @@ class ItemImplementController extends BaseController {
         //項目编号
         $pro_code = I('pCode');
 
+        $page = I('page');
+        $limit = I('limit');
+
         $riskResult = $this->result=
         ItemImplementModel::riskResult($pCode,$page,$limit);
         
@@ -111,8 +114,7 @@ class ItemImplementController extends BaseController {
         //項目编号
         $pro_code = I('pCode');
  
-        $page = I('page');
-        $limit = I('limit');
+        
 
         $weeklyResult = $this->result=
         ItemImplementModel::weeklyResult($pro_code);
@@ -337,7 +339,6 @@ class ItemImplementController extends BaseController {
 
     public function weeklyAdd(){
 
-
          //項目编号
         $pro_code = I('pCode');
 
@@ -362,17 +363,31 @@ class ItemImplementController extends BaseController {
         //创建人
         $founder_id = I('founder_id');
 
-        $appProjectWeeklyId = $this->result=
-        ItemImplementModel::projectWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id);
+        // weekly_id       int     周报id    
+        // pro_code        int     项目编号    
+        // task_content        varchar(255)        工作描述    
+        // Completion_rate     varchar(20)     完成率 
+        // work_content        varchar(255)        完成内容    
+        // work_state      varchar(255)        完成状态    
+        // remarks     varchar(255)        备注  
+        // state       int     状态  
+        // Founder_id      int     创建人 
 
-        if ($appProjectWeeklyId) {
-        
-            $appProjectWeeklyId = $this->result=
-            ItemImplementModel::projectWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id);
-        }else{
+        //工作描述
+        $task_content = I('tContent');
+        //完成率
+        $completion_rate = I('cRate');
+        //完成内容
+        $work_content = I('wContent');
+        //完成状态
+        $work_state = I('wState');
+        //备注
+        $remarks = I('remarks');
+        //state
+        $state = I('state');
 
-            # code...
-        }
+        $addStaus = $this->result=
+        ItemImplementModel::pWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id,$task_content,$completion_rate,$work_content,$work_state,$remarks,$state);
        
         $this->Response(200,$addStaus,'');
 
