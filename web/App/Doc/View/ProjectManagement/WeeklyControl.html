@@ -175,7 +175,7 @@
         }
         .list_progress{
             width: 25%;
-            height: 6vh;
+            height: 7vh;
             float: left;
         }
         .bz_list{
@@ -229,10 +229,138 @@
             width: 100%;
             height: 10%;
         }
-        /* 弹窗进度条 */
+        /* 滑动进度条 */
         .one_progress{
-            
+            width: 100%;
+            height: 100%;
         }
+        .two_progress{
+            width: 100%;
+            height: 100%;
+        }
+        .three_progress{
+            width: 100%;
+            height: 100%;
+        }
+        .box-nine{
+            width: 100%;
+            height: 100%;
+        }
+        .box-nine2{
+            width: 100%;
+            height: 100%;
+        }
+        .box-nine3{
+            width: 100%;
+            height: 100%;
+        }
+         .progress{
+           width:200px;
+           height:6px;
+           background: #cccccc;
+           border-radius: 6px;
+           position: relative;
+           display: inline-block;
+           cursor: pointer;
+       }
+       .progress .progress-bar{
+           width:100px;
+           height: 6px;
+           position: absolute;
+           background:#009588;
+           border-radius: 6px;
+           top:0;
+       }
+       .progress .progress-circle{
+           width:14px;
+           height:14px;
+           background: #ffffff;
+           border:1px solid #ccc;
+           box-shadow: 0 0 5px 0  #000 0.27;
+           border-radius: 50%;
+           position: absolute;
+           top:-4px;
+           cursor: pointer;
+           left:98px;
+       }
+
+       .progress2{
+           width:200px;
+           height:6px;
+           background: #cccccc;
+           border-radius: 6px;
+           position: relative;
+           display: inline-block;
+           cursor: pointer;
+       }
+       .progress2 .progress-bar2{
+           width:100px;
+           height: 6px;
+           position: absolute;
+           background:#009588;
+           border-radius: 6px;
+           top:0;
+       }
+       .progress2 .progress-circle2{
+           width:14px;
+           height:14px;
+           background: #ffffff;
+           border:1px solid #ccc;
+           box-shadow: 0 0 5px 0  #000 0.27;
+           border-radius: 50%;
+           position: absolute;
+           top:-4px;
+           cursor: pointer;
+           left:98px;
+       }
+
+        .progress3{
+           width:200px;
+           height:6px;
+           background: #cccccc;
+           border-radius: 6px;
+           position: relative;
+           display: inline-block;
+           cursor: pointer;
+       }
+       .progress3 .progress-bar3{
+           width:100px;
+           height: 6px;
+           position: absolute;
+           background:#009588;
+           border-radius: 6px;
+           top:0;
+       }
+       .progress3 .progress-circle3{
+           width:14px;
+           height:14px;
+           background: #ffffff;
+           border:1px solid #ccc;
+           box-shadow: 0 0 5px 0  #000 0.27;
+           border-radius: 50%;
+           position: absolute;
+           top:-4px;
+           cursor: pointer;
+           left:98px;
+       }
+       .input1{
+           border: none;
+           float: right;
+           width: 3vw;
+           height: 4vh;
+       }
+       .input2{
+           border: none;
+           float: right;
+           width: 3vw;
+           height: 4vh;
+       }
+       .input3{
+           border: none;
+           float: right;
+           width: 3vw;
+           height: 4vh;
+       }
     </style>
 </head>
 <body id="app">
@@ -920,7 +1048,13 @@
                                 </div>
                                 <div class="layui-inline list_progress">
                                     <div class="one_progress">
-                                    
+                                        <div class="box-nine">
+                                            <div class="progress"> <!--一整条进度条-->
+                                                <div class="progress-bar"></div> <!--进度-->
+                                                <div class="progress-circle"></div><!--控制点-->
+                                            </div>
+                                            <input type="text" value="" class="input1" readonly="readonly"><!--显示进度值-->
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="layui-inline bz_list">
@@ -944,7 +1078,13 @@
                                 </div>
                                 <div class="layui-inline list_progress">
                                     <div class="two_progress">
-                                                
+                                        <div class="box-nine2">
+                                            <div class="progress2"> <!--一整条进度条-->
+                                                <div class="progress-bar2"></div> <!--进度-->
+                                                <div class="progress-circle2"></div><!--控制点-->
+                                            </div>
+                                            <input type="text" value="" class="input2" readonly="readonly"><!--显示进度值-->
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="layui-inline bz_list">
@@ -970,7 +1110,13 @@
                                 </div>
                                 <div class="layui-inline list_progress">
                                     <div class="three_progress">
-                                        第3个进度条
+                                        <div class="box-nine3">
+                                            <div class="progress3"> <!--一整条进度条-->
+                                                <div class="progress-bar3"></div> <!--进度-->
+                                                <div class="progress-circle3"></div><!--控制点-->
+                                            </div>
+                                            <input type="text" value="" class="input3" readonly="readonly"><!--显示进度值-->
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="layui-inline bz_list">
@@ -1034,6 +1180,132 @@
 				})								
 		}); 
     
+    </script>
+    <!-- 第一个滑动轴 -->
+      <script>
+            var lastX, NewX, that, thewidth = 0;
+                    var auto = false;//控制是否可以拖动的; false表示不能拖动
+                    $('.box-nine').on('mousedown', '.progress-circle', function(e) {
+                        lastX = e.clientX;  //鼠标按下时距离浏览器的x轴距离
+                        e.preventDefault(); //阻止默认事件
+                        that = $(this);  //保存当前this
+                        thewidth = that.prev().width() || $(".progress-bar").width();  // 获取当前进度的宽度，也就是红色条的宽度 
+                        auto = true;  //鼠标按下的时候设置为true，允许拖动
+                    })
+                    $(document).on('mousemove', function (e) {  //记住，这里一定要绑定在document上，防止拖动过快造成问题
+                        if (auto) {
+                            e.preventDefault();
+                            NewX = e.clientX; //拖动后，重新获取鼠标距离浏览器的x轴距离
+                            var mcs = NewX - lastX; //由mcs的值大小确定鼠标是向左滑动还是右滑动;
+                            var differ = $(".progress").width() - $(".progress-circle").width(); //圆圈能拖动的最大距离 红色进度条的最大宽度就是整个进度条200px，而圆圈能滑动的最大距离要减去本身的宽度
+                            if (mcs > 0){
+                                that.prev().css('width', mcs + thewidth < differ ? mcs + thewidth : $(".progress").width()); //每拖动一次，都要加上当前红色条的宽度    红色条宽度=每次的鼠标差+ 上一次红色条宽度
+                                that.css('left', mcs + thewidth < differ ? mcs + thewidth : differ);  
+                            } else {
+                                that.prev().css('width', thewidth + mcs - that.width() > 0 ? thewidth + mcs - that.width() : 0);
+                                that.css('left', thewidth + mcs - that.width() > 0 ? thewidth + mcs - that.width() : 0);
+                            }
+                            var val = that.prev().width();
+                            that.parents('.box-nine').find('.input1').val(Math.ceil(val / 2)+"%");//实时将值显示在Input框   这里是模拟音量 0-100的值
+                        }
+                    })
+                    $(document).on('mouseup', function(e) {
+                        if(auto) {
+                            auto = false;//鼠标松开不允许拖动
+                        }
+                    })
+                    $(".box-nine").on('click', '.progress', function(e) {  //点击进度条时，进度的变化
+                        lastX = e.clientX;
+                        var offsetX = $(this).offset().left;
+                        $(this).find('.progress-bar').css('width', lastX - offsetX>$(this).width()?$(this).width():lastX-offsetX);
+                        $(this).find('.progress-circle').css('left', lastX - offsetX>$(this).width()- $(this).find('.progress-circle').width()?$(this).width()- $(this).find('.progress-circle').width():lastX-offsetX);
+                        var val =$(this).find('.progress-bar').width();
+                        $(this).parents('.box-nine').find('.input1').val(Math.ceil(val / 2)+"%");
+                    })
+      </script>
+    <!-- 第二个滑动轴 -->
+    <script>
+            var lastX2, NewX2, that2, thewidth2 = 0;
+                    var auto2 = false;//控制是否可以拖动的; false表示不能拖动
+                    $('.box-nine2').on('mousedown', '.progress-circle2', function(e) {
+                        lastX2 = e.clientX;  //鼠标按下时距离浏览器的x轴距离
+                        e.preventDefault(); //阻止默认事件
+                        that2 = $(this);  //保存当前this
+                        thewidth2 = that2.prev().width() || $(".progress-bar2").width();  // 获取当前进度的宽度，也就是红色条的宽度 
+                        auto2 = true;  //鼠标按下的时候设置为true，允许拖动
+                    })
+                    $(document).on('mousemove', function (e) {  //记住，这里一定要绑定在document上，防止拖动过快造成问题
+                        if (auto2) {
+                            e.preventDefault();
+                            NewX2 = e.clientX; //拖动后，重新获取鼠标距离浏览器的x轴距离
+                            var mcs2 = NewX2 - lastX2; //由mcs的值大小确定鼠标是向左滑动还是右滑动;
+                            var differ2 = $(".progress2").width() - $(".progress-circle2").width(); //圆圈能拖动的最大距离 红色进度条的最大宽度就是整个进度条200px，而圆圈能滑动的最大距离要减去本身的宽度
+                            if (mcs2 > 0){
+                                that2.prev().css('width', mcs2 + thewidth2 < differ2 ? mcs2 + thewidth2 : $(".progress2").width()); //每拖动一次，都要加上当前红色条的宽度    红色条宽度=每次的鼠标差+ 上一次红色条宽度
+                                that2.css('left', mcs2 + thewidth2 < differ2 ? mcs2 + thewidth2 : differ2);  
+                            } else {
+                                that2.prev().css('width', thewidth2 + mcs2 - that2.width() > 0 ? thewidth2 + mcs2 - that2.width() : 0);
+                                that2.css('left', thewidth2 + mcs2 - that2.width() > 0 ? thewidth2 + mcs2 - that2.width() : 0);
+                            }
+                            var val2 = that2.prev().width();
+                            that2.parents('.box-nine2').find('.input2').val(Math.ceil(val2 / 2)+"%");//实时将值显示在Input框   这里是模拟音量 0-100的值
+                        }
+                    })
+                    $(document).on('mouseup', function(e) {
+                        if(auto2) {
+                            auto2 = false;//鼠标松开不允许拖动
+                        }
+                    })
+                    $(".box-nine2").on('click', '.progress2', function(e) {  //点击进度条时，进度的变化
+                        lastX2 = e.clientX;
+                        var offsetX2 = $(this).offset().left;
+                        $(this).find('.progress-bar2').css('width', lastX2 - offsetX2>$(this).width()?$(this).width():lastX2-offsetX2);
+                        $(this).find('.progress-circle2').css('left', lastX2 - offsetX2>$(this).width()- $(this).find('.progress-circle2').width()?$(this).width()- $(this).find('.progress-circle2').width():lastX2-offsetX2);
+                        var val2 =$(this).find('.progress-bar2').width();
+                        $(this).parents('.box-nine2').find('.input2').val(Math.ceil(val2 / 2)+"%");
+                    })
+    </script>
+    <!-- 第三个滑动轴 -->
+    <script>
+            var lastX3, NewX3, that3, thewidth3 = 0;
+                    var auto3 = false;//控制是否可以拖动的; false表示不能拖动
+                    $('.box-nine3').on('mousedown', '.progress-circle3', function(e) {
+                        lastX2 = e.clientX;  //鼠标按下时距离浏览器的x轴距离
+                        e.preventDefault(); //阻止默认事件
+                        that3 = $(this);  //保存当前this
+                        thewidth3 = that3.prev().width() || $(".progress-bar3").width();  // 获取当前进度的宽度，也就是红色条的宽度 
+                        auto3 = true;  //鼠标按下的时候设置为true，允许拖动
+                    })
+                    $(document).on('mousemove', function (e) {  //记住，这里一定要绑定在document上，防止拖动过快造成问题
+                        if (auto3) {
+                            e.preventDefault();
+                            NewX3 = e.clientX; //拖动后，重新获取鼠标距离浏览器的x轴距离
+                            var mcs3 = NewX3 - lastX3; //由mcs的值大小确定鼠标是向左滑动还是右滑动;
+                            var differ3 = $(".progress3").width() - $(".progress-circle3").width(); //圆圈能拖动的最大距离 红色进度条的最大宽度就是整个进度条200px，而圆圈能滑动的最大距离要减去本身的宽度
+                            if (mcs3 > 0){
+                                that3.prev().css('width', mcs3 + thewidth3 < differ3 ? mcs3 + thewidth3 : $(".progress3").width()); //每拖动一次，都要加上当前红色条的宽度    红色条宽度=每次的鼠标差+ 上一次红色条宽度
+                                that3.css('left', mcs3 + thewidth3 < differ3 ? mcs3 + thewidth3 : differ3);  
+                            } else {
+                                that3.prev().css('width', thewidth3 + mcs3 - that3.width() > 0 ? thewidth3 + mcs3 - that3.width() : 0);
+                                that3.css('left', thewidth3 + mcs3 - that3.width() > 0 ? thewidth3 + mcs3 - that3.width() : 0);
+                            }
+                            var val3 = that3.prev().width();
+                            that3.parents('.box-nine3').find('.input3').val(Math.ceil(val3 / 2)+"%");//实时将值显示在Input框   这里是模拟音量 0-100的值
+                        }
+                    })
+                    $(document).on('mouseup', function(e) {
+                        if(auto3) {
+                            auto3 = false;//鼠标松开不允许拖动
+                        }
+                    })
+                    $(".box-nine3").on('click', '.progress3', function(e) {  //点击进度条时，进度的变化
+                        lastX3 = e.clientX;
+                        var offsetX3 = $(this).offset().left;
+                        $(this).find('.progress-bar3').css('width', lastX3 - offsetX3>$(this).width()?$(this).width():lastX3-offsetX3);
+                        $(this).find('.progress-circle3').css('left', lastX3 - offsetX3>$(this).width()- $(this).find('.progress-circle3').width()?$(this).width()- $(this).find('.progress-circle3').width():lastX3-offsetX3);
+                        var val3 =$(this).find('.progress-bar3').width();
+                        $(this).parents('.box-nine3').find('.input3').val(Math.ceil(val3 / 2)+"%");
+                    })
     </script>
 </body>
 </html>

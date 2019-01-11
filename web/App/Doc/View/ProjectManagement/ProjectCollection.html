@@ -162,7 +162,6 @@
 			</div>
 			<div class="details_zhong">
 				<div class="layui-row">
-<<<<<<< HEAD
 				<div class="layui-col-lg12">
 				<blockquote class="layui-elem-quote addThispro">成员信息列表</blockquote>
 				<button class="addThisPeo" lay-filter="addThisPeo">新建成员</button>
@@ -170,15 +169,6 @@
 				<div class="layui-col-lg12">
 				<table class="layui-hide" id="peoples" lay-filter="peoples"></table>
 				</div>
-=======
-					<div class="layui-col-md12">
-					<blockquote class="layui-elem-quote addThispro">成员信息列表</blockquote>
-					<button class="addThisPeo" lay-filter="addThisPeo">新建成员</button>
-					</div>
-					<div class="layui-col-md12">
-					<table class="layui-hide" id="peoples" lay-filter="peoples"></table>
-					</div>
->>>>>>> 98a0b7ce439fb89cff1891351ec937ce14688131
 				</div>
 		</div>
 				
@@ -356,32 +346,20 @@
 				where:{                     //  页面传值   项目经理id
 					pCode:12
 				},
-<<<<<<< HEAD
 				height: 310,
 				cellMinWidth: 140,
 				cols: [[
 				{field:'id', title: 'ID', sort: true,align:'center'},
-=======
-				height:310,
-				cellMinWidth: 130,
-				// totalRow: true,
-				cols: [[
-				{field:'id', title: 'ID',sort: true,align:'center'},
->>>>>>> 98a0b7ce439fb89cff1891351ec937ce14688131
 				{field:'member_name', title: '组员姓名',align:'center'},
 				{field:'dept', title: '部门',align:'center'},
 				{field:'operation_type',title: '人员类型',align:'center'},
 				{field:'come_time',title: '入场时间',align:'center'},
 				{field:'leave_time', title: '离职时间',align:'center'},
 				{field:'create_data', title: '创建时间',align:'center'},
-<<<<<<< HEAD
 				{field:'right', width: '30%', minWidth: 100,title: '操作',toolbar: '#barDemo',align:'center'}
-=======
-				{field:'right', title: '操作',toolbar: '#barDemo',align:'center'}
->>>>>>> 98a0b7ce439fb89cff1891351ec937ce14688131
 				]],
-				page:true,
-				limit:6,   //默认6条数据一页
+				page: true,//开启分页
+				limit:6,   //默认十条数据一页
 				limits:false,  //数据分页条
 			});
 			selectDepart();   //  选择项目组成员部门

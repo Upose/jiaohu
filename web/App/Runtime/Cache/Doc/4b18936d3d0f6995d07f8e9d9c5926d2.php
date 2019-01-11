@@ -65,7 +65,7 @@
                     })
                 } else {
                     window.sessionStorage.setItem('isLogin', data.data[0].id);
-                    window.sessionStorage.setItem('name', data.data[0].member_name);
+                    window.sessionStorage.setItem('name', data.data[0].name);
                     window.location.href = "<?php echo U('Index/index');?>";
                 }
             },
