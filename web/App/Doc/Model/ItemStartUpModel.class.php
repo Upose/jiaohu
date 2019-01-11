@@ -99,7 +99,15 @@ class ItemStartUpModel
      */
     public function pResult()
      {
-        $sql = "SELECT user_id AS pid,member_name FROM `user_member` WHERE  department LIKE '%交付%' AND duty LIKE '%项目经理%';";
+        $sql = "SELECT
+                    user_id AS pid,
+                    member_name
+                FROM
+                    `user_member` u
+                JOIN dm_department d ON u.department = d.id
+                WHERE
+                    d.deptName LIKE '%交付%'
+                AND u.duty LIKE '%项目经理%';";
 
         $pResultList = M()->query($sql);
         return  $pResultList;
@@ -475,7 +483,7 @@ class ItemStartUpModel
      *@author songcx
      *2018.01.05
      */
-    public function approvalAdd($pro_code,$market_name,$pre_sale_name,$pro_stime,$pro_etime,$secrecy_grade,$difficulty_rank,$pro_enclosure,$pro_msg,$cooperative_unit,$state,$founder_id)
+    public function approvalAdd($pro_code,$market_name,$pre_sale_name,$pro_stime,$pro_etime,$secrecy_grade,$difficulty_rank,$pro_enclosure,$pro_msg,$cooperative_unit,$founder_id)
     {
 
         $app_project_approval = M('app_project_approval');
