@@ -236,6 +236,7 @@
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
+		var table = layui.table;
 	//开始运行日期 
 		laydate.render({
 			elem: '#test1'
@@ -278,8 +279,33 @@
 				return false;
 			});
 			
+			table.render({
+				elem: '#peoples',
+				url:"{:U('ItemImplement/riskResult')}",
+				where:{                     //  页面传值   项目经理id
+					pCode:12
+				},
+				// even:true,
+				height: 270,
+				cellMinWidth: 110,
+				cols: [[
+					{field:'id',title: 'ID', sort: true},
+					{field:'member_name', title: '客户姓名',align:'center'},
+					{field:'department', title: '单位',align:'center'},
+					{field:'duty',title: '职责',align:'center'},
+					{field:'customer_type',title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+					{field:'phone', title: '电话',align:'center'},
+					{field:'mailbox', title: '邮箱',align:'center'},
+					{field:'remarks',title: '备注',align:'center'},
+					{field:'right',title: '操作',toolbar: '#barDemo',align:'center'}
+				]],
+				page: true,//开启分页
+				limit:5,   //默认十条数据一页
+				limits:false,  //数据分页条
+			});
+			
 		});
-		// 添加项目组成员
+		// 添加风险成员
 		$('.addThisPeo').on('click',function(){
 				layer.open({
 						type: 1,
