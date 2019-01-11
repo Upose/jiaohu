@@ -83,6 +83,24 @@ class ItemImplementController extends BaseController {
 
 
     /**
+     * 风险查询
+     * @author song.chaoxu
+     * 2019.01.07
+     */
+    public function riskResult(){
+
+        //項目编号
+        $pro_code = I('pCode');
+
+        $riskResult = $this->result=
+        ItemImplementModel::riskResult($pro_code);
+        
+        $this->Response(200,$riskResult,'');
+
+    }
+
+
+    /**
      * 事件新增下拉信息
      * @author song.chaoxu
      * 2019.01.06
@@ -184,8 +202,6 @@ class ItemImplementController extends BaseController {
         $this->Response(200,$addStaus,'');
 
     }
-
-
 
 
     /**

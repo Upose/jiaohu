@@ -31,6 +31,8 @@ class ItemImplementModel
 
     }
 
+
+
     /**
      * 事件类型
      * @author song.chaoxu
@@ -62,6 +64,19 @@ class ItemImplementModel
         $data['founder_id'] = $founder_id;
         $result = $app_project_risk->add($data);
         return $result;
+    }
+
+    /**
+     * 风险查询
+     * @author song.chaoxu
+     * 2018.01.07
+     */
+    public function riskResult($pro_code){
+
+        $app_project_risk = M("app_project_risk"); // 实例化对象
+        $result = $app_project_risk->where('pro_code',$pCode)->find();
+        return $result;
+
     }
 
     /**
