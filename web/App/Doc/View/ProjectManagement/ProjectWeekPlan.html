@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="__CSS__/Projectrisk.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectWeekPlan.css" media="all">
 		<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
 	<script src="__STATIC__/vue.min.js"></script>
@@ -65,7 +65,7 @@
 								<h3 class="layui-cite">里程碑计划</h3>
 								</a>
 							</li>
-							<li class="layui-tab-zhong layui-tab-top">
+							<li class="layui-tab-zhong layui-tab-top layui-red">
 								<a href="{:U('ProjectManagement/ProjectWeekPlan')}">
 								<h3 class="layui-cite">工作计划</h3>
 								</a>
@@ -90,7 +90,7 @@
 								<h3 class="layui-cite">会议管理</h3>
 								</a>
 							</li>
-							<li class="layui-tab-zi layui-tab-top layui-red">
+							<li class="layui-tab-zi layui-tab-top">
 								<a href="{:U('ProjectManagement/Projectrisk')}">
 								<h3 class="layui-cite">风险管理</h3>
 								</a>
@@ -162,57 +162,93 @@
 				</div>
 			</div>
 			<div class="details_zhong">
-				<div class="layui-row">
-					<div class="layui-col-md12">
-					<blockquote class="layui-elem-quote addThispro">风险信息列表</blockquote>
-					<button class="addThisPeo" lay-filter="addThisPeo">新增风险</button>
-					</div>
-					<div class="layui-col-md12">
-					<table class="layui-hide" id="peoples" lay-filter="peoples"></table>
-					</div>
+				<div>
+				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
+				<button class="addThisPeo" id="btnzeng">项目试运行</button>
 				</div>
+				<table class="layui-table">
+						<thead>
+								<tr>
+										<th>验收项目</th>
+										<th>验收地点</th>
+										<th>验收时间</th>
+										<th>验收人员</th>
+										<th>验收内容</th>
+										<th>验收评价</th>
+										<th>备注</th>
+								</tr>
+						</thead>
+						<tbody>
+								<tr v-for="item in arrList">
+										<td>{{item.theme}}</td>
+										<td>{{item.address}}</td>
+										<td>{{item.meeting_time}}</td>
+										<td>{{item.meeting_level}}</td>
+										<td>{{item.department_id}}</td>
+										<td>{{item.department_id}}</td>
+										<td style="cursor:pointer;" @click="openNew(item.id)">
+											<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+											<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+										</td>
+								</tr>
+						</tbody>
+				</table>
 			</div>
-	</div>
+		</div>
 		<!-- 新增功能弹框 -->
 		<div class="layui-row" id="addPeople" style="display: none;padding: 20px 30px;">
 			<div class="layui-col-md10">
 					<form class="layui-form" id="addEmployeeForm">
 							<div class="layui-form-item">
-									<label class="layui-form-label">所属阶段：</label>
+									<label class="layui-form-label">计划类别：</label>
 									<div class="layui-input-block">
-											<select name="add_departjd" lay-verify="required" id="add_departjd" lay-filter="see_depart">
-													<option value="">请选择风险阶段</option>
-											</select>
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 							<div class="layui-form-item">
-									<label class="layui-form-label">风险类别：</label>
+									<label class="layui-form-label">责任人：</label>
 									<div class="layui-input-block">
-											<select name="add_departlb" lay-verify="required" id="add_departlb" lay-filter="see_depart">
-													<option value="">请选择风险类别</option>
-											</select>
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 							<div class="layui-form-item">
-									<label class="layui-form-label">风险等级：</label>
+									<label class="layui-form-label">人员姓名：</label>
 									<div class="layui-input-block">
-											<select name="add_departdj" lay-verify="required" id="add_departdj" lay-filter="see_depart">
-													<option value="">请选择风险等级</option>
-													<option value="1">一级</option>
-													<option value="2">二级</option>
-													<option value="3">三级</option>
-													
-											</select>
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 							<div class="layui-form-item">
-									<label class="layui-form-label">风险内容：</label>
+									<label class="layui-form-label">岗位职责：</label>
 									<div class="layui-input-block">
-											<input type="text" name="add_departnr" class="layui-input" lay-verify="required">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 							<div class="layui-form-item">
-								<label class="layui-form-label">风险结果：</label>
+									<label class="layui-form-label">计划内容：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+							<div class="layui-form-item">
+									<label class="layui-form-label">开始时间：</label>
+									<div class="layui-input-block">
+										<input type="text" class="layui-input" id="test1" placeholder="yyyy年MM月dd日">
+									</div>
+							</div>
+							<div class="layui-form-item">
+									<label class="layui-form-label">结束时间：</label>
+									<div class="layui-input-block">
+											<input type="text" class="layui-input" id="test2" placeholder="yyyy年MM月dd日">
+									</div>
+							</div>
+							<div class="layui-form-item">
+									<label class="layui-form-label">计划类别：</label>
+									<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">相关备注：</label>
 								<div class="layui-input-block">
 									<textarea name="textject" placeholder="" class="layui-textarea"></textarea>
 								</div>
@@ -226,13 +262,11 @@
 					</form>
 			</div>
 	</div>
-	
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
-	var form,layedit,layer,laydate; 
-	layui.use(['form', 'layedit', 'laydate','table'], function(){
-		form = layui.form,
+	layui.use(['form', 'layedit', 'laydate'], function(){
+		var form = layui.form,
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
@@ -244,87 +278,22 @@
 		laydate.render({
 			elem: '#test2'
 			});
-			
-			fenxiandata();
-				//监听提交
-			form.on('submit(demoone)', function(data){
-				$.ajax({
-				url:"{:U('ItemImplement/riskAdd')}",
-				type: 'post',
-				data: {
-					pCode:'11',  // 项目编号  后期有前面页面传值
-					stage  :data.field.add_departjd,
-					rContent  :data.field.add_departnr,
-					rType  :data.field.add_departlb,
-					level  :data.field.add_departdj,
-					consequence :data.field.textject,
-					founder_id:'240' //后期由登录传值 
-				},
-				dataType: 'json',
-				success: function(res) {
-						if(res.code == 200) {
-							layui.use('layer', function() {								
-							layer.close(layer.index);
-								layer.alert('提交成功');
-							})
-						} else {
-							layui.use('layer', function() {
-								var layer = layui.layer;
-								layer.alert('添加失败');
-							})
-						}			
-				},
-				})
-				return false;
-			});
-			
 		});
 		// 添加项目组成员
 		$('.addThisPeo').on('click',function(){
 				layer.open({
 						type: 1,
-						title: '新增风险内容',
+						title: '新增风险',
 						closeBtn: 2,   // 关闭样式
 						shadeClose: true,  // 关闭方式
 						anim:5,    // 弹出样式
-						area: ['36vw', '63vh'],
+						area: ['36vw', '90vh'],
 						// btn:['确定','取消'],
 						isOutAnim:false,    // 关闭动画
 						content: $('#addPeople'),
 				})
 		}); 
 				
-		function fenxiandata(){
-			$.ajax({
-			url:"{:U('ItemImplement/riskDropResult')}",
-			type: 'post',
-			data: {},
-			dataType: 'json',
-			success: function(data) {
-					if (data.code == 200) {
-							var result = data.data || [];
-							console.log(result);
-							var role = document.getElementById("add_departjd");        //add_role_name给select定义的id  
-							var role_job = document.getElementById("add_departlb");     	      	      
-							for (var i = 0; i<result.pStaus.length; i++) {
-									var option = document.createElement("option");    // 创建添加option属性
-									option.setAttribute("value",result.pStaus[i].t_id);                  // 给option的value添加值
-									option.innerText= result.pStaus[i].stage;             // 打印option对应的纯文本 （超级管理员、管理员）
-									role.appendChild(option);                          // 给select 添加option子标签
-									form.render("select");                                // 刷性select，显示出数据        
-									} 
-							for (var i = 0; i<result.rType.length; i++) {
-									var option = document.createElement("option");    // 创建添加option属性
-									option.setAttribute("value",result.rType[i].id);                  // 给option的value添加值
-									option.innerText= result.rType[i].rtype;             // 打印option对应的纯文本 （超级管理员、管理员）
-									role_job.appendChild(option);                          // 给select 添加option子标签
-									form.render("select");                                // 刷性select，显示出数据        
-									} 
-					}
-			}    
-			})
-		}	
-		
-				
+
 </script>
 </html>

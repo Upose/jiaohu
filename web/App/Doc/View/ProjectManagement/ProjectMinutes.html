@@ -66,7 +66,7 @@
 								</a>
 							</li>
 							<li class="layui-tab-zhong layui-tab-top">
-								<a href="{:U('KnowledgeSharing/index')}">
+								<a href="{:U('ProjectManagement/ProjectWeekPlan')}">
 								<h3 class="layui-cite">工作计划</h3>
 								</a>
 							</li>
@@ -111,7 +111,7 @@
 						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zhonging">
-								<a href="{:U('Feedback/index')}">
+								<a href="{:U('ProjectManagement/ProjectText')}">
 								<h3 class="layui-cite">测试报告</h3>
 								</a>
 							</li>
@@ -175,44 +175,103 @@
 	</div>
 		<!-- 新增功能弹框 -->
 		<div class="layui-row" id="addPeople" style="display: none;padding: 20px 30px;">
-			<div class="layui-col-md10">
+			<div class="layui-col-md12">
 					<form class="layui-form" id="addEmployeeForm">
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
 									<label class="layui-form-label">所属阶段：</label>
 									<div class="layui-input-block">
 											<input type="text" name="conpany" class="layui-input" lay-verify="required">
 									</div>
 							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
-									<label class="layui-form-label">风险内容：</label>
+									<label class="layui-form-label">岗位职责：</label>
 									<div class="layui-input-block">
 											<input type="text" name="conpany" class="layui-input" lay-verify="required">
 									</div>
 							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
-									<label class="layui-form-label">风险类别：</label>
+									<label class="layui-form-label">会议形式：</label>
 									<div class="layui-input-block">
 											<input type="text" name="conpany" class="layui-input" lay-verify="required">
 									</div>
 							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
-									<label class="layui-form-label">风险等级：</label>
+									<label class="layui-form-label">会议级别：</label>
 									<div class="layui-input-block">
 											<input type="text" name="conpany" class="layui-input" lay-verify="required">
 									</div>
 							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
-								<label class="layui-form-label">风险结果：</label>
-								<div class="layui-input-block">
-									<textarea name="textject" placeholder="" class="layui-textarea"></textarea>
-								</div>
+									<label class="layui-form-label">会议主题：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
 							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
-								<div class="layui-input-block">
-									<button class="layui-btn" lay-submit="" lay-filter="demoone">提交</button>
-									<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-								</div>
-							</div>	
+									<label class="layui-form-label">会议时间：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="layui-form-item">
+									<label class="layui-form-label">会议地点：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="layui-form-item">
+									<label class="layui-form-label">会议内容：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="layui-form-item">
+									<label class="layui-form-label">内部人员：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="layui-form-item">
+									<label class="layui-form-label">外部人员：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="layui-form-item">
+								<label class="layui-form-label">文件上传：</label>
+								<button type="button" class="layui-btn" id="upwenjian">
+									<i class="layui-icon">&#xe67c;</i>添加附件
+								</button>
+								<span id="fileName"></span>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-submit="" lay-filter="demoone">提交</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+							</div>
+						</div>	
 					</form>
 			</div>
 	</div>
@@ -242,7 +301,7 @@
 						closeBtn: 2,   // 关闭样式
 						shadeClose: true,  // 关闭方式
 						anim:5,    // 弹出样式
-						area: ['36vw', '63vh'],
+						area: ['48vw', '63vh'],
 						// btn:['确定','取消'],
 						isOutAnim:false,    // 关闭动画
 						content: $('#addPeople'),
