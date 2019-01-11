@@ -268,18 +268,6 @@
 			form.on('submit(demo1)', function(data){
 				var s_time=$("#test1").val(); 				
 				var e_time =$("#test2").val();
-// 				 formData.append('pCode', '12');
-// 				 formData.append('swName', data.field.see_shop);
-// 				 formData.append('sqName', data.field.see_sq);
-// 				 formData.append('pStime', s_time);
-// 				 formData.append('pEtime', e_time);
-// 				 formData.append('sGrade', data.field.see_mjcd);
-// 				 formData.append('dRank', data.field.see_nddj);
-// 				 formData.append('pMsg', data.field.see_hzdw);
-// 				 formData.append('cUtil', data.field.see_xmjs);
-// 				 formData.append('pMid', '222');
-// 				 formData.append('photo[]', data.field.file);
-				console.log(data);
 				$.ajax({
 				url:"{:U('ItemStartUp/approvalAdd')}",
 				type: 'post',
