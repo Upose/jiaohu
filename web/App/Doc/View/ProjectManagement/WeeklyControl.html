@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectCustomer.css" media="all">
+	<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+    <style>
+        .weeklycontrol_content{
+            height: 90vh;
+            background: white;
+            margin-top: 10px;
+        }
+        .newpaper_titile{
+            margin-top: 2vh;
+            margin-left: 2vw;
+            float: left;
+        }
+        .newpaper_btn{
+            margin-top: 2vh;
+            margin-right: 2vw;
+            float: right;
+        }
+        .weeklycontrol_top{
+            height: 10%;
+        }
+        .weeklycontent_main{
+            height: 88%;
+        }
+        /* 滚动轴样式 */
+        .weeklycontent_left{
+            height: 100%;
+            overflow-y: scroll;
+        }
+        .weeklycontent_left::-webkit-scrollbar{
+            width: 6px;
+            height: 6px;
+        }
+        .weeklycontent_left::-webkit-scrollbar-thumb{
+          border-radius: 5px;
+          -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+          background: #009588;
+        }
+        .weeklycontent_left::-webkit-scrollbar-track{
+          border-radius: 0;
+          background: #ECEDF1;
+        }
+        .pre_week{
+            width: 95%;
+            margin-left: 4%;
+        }
+        .next_weekwork{
+            width: 95%;
+            margin-left: 4%;
+        }
+        .pre_content{
+            height: 40%;
+            margin-top: 3vh;
+            border: 1px solid #f4f4f4;
+        }
+        .pre_top{
+            height: 8vh;
+            text-align: center;
+        }
+        .start_time{
+            margin-left: 5%;
+            margin-top: 2vh;
+            float: left;
+        }
+        .end_time{
+            margin-left: 14%;
+            margin-top: 2vh;
+            float: left;
+        }
+        .blong_moment{
+            margin-left: 8%;
+            margin-top: 2vh;
+            float: left;
+        }
+        .execute_rate{
+            margin-left: 8%;
+            margin-top: 2vh;
+            float: left;
+        }
+        .pre_main{
+            height:26vh;
+        }
+        .pre_titile{
+            font-size: 1.6vw;
+            color: #009588;
+        }
+        .progress_value{
+            width: 10%;
+            height: 5vh;
+            float: left;
+        }
+        .floor_border{
+            width: 90%;
+            height: 100%;
+            border-top: 1px dashed #f4f4f4;
+            margin: 0 auto;
+            padding-top: 3vh;
+        }
+        .pre_floor{
+            width: 100%;
+            height: 6vh;
+        }
+        .prefloor_detail{
+            float: left;
+            width: 45%;
+            color: #aaaaaa;
+        }
+        .prefloor_rate{
+            width: 30%;
+            float: left;
+        }
+        .prefloor_con{
+            width: 10%;
+            text-align: right;
+            float: right;
+        }
+        .next_content{
+            width: 100%;
+            height: 20vh;
+            margin-top: 3vh;
+            border: 1px solid #f4f4f4;
+        }
+        .next_weekwork{
+            margin-top: 3vh;
+        }
+        .next_title{
+            font-size: 1.6vw;
+            color: #009588;
+        }
+        .next_floor{
+            width: 100%;
+            height: 6vh;
+        }
+        .nextfloor_detail{
+            width: 45%;
+            color: #aaaaaa;
+        }
+        .sub_time{
+            margin-top: 3vh;
+            margin-left: 5%;
+        }
+        /* 弹窗 */
+        .papertitle_one{
+            font-size: 1.6vw;
+            color: #019588;
+            margin-left: 3%;
+            margin-top: 2vh;
+        }
+        .papertitle_two{
+            font-size: 1.6vw;
+            color: #019588;
+            margin-top: 3vh;
+            margin-bottom: 2vh
+        }
+        .form_content{
+            width: 94%;
+            margin: 0 auto;
+        }
+        .one_title{
+            width: 100%;
+            height: 6vh;
+        }
+        .titile_num{
+            width: 5%;
+            text-align: center;
+            line-height: 6vh;
+            float: left;
+        }
+        .title_detail{
+            width: 90%;
+            height: 6vh;
+            line-height: 6vh;
+            padding-left: 3%;
+            color: #A2A2A2;
+            background: #FBFBFB;
+            float: left;
+        }
+        .checkbox_list{
+            width: 25%;
+            height: 6vh;
+            margin-left: 1%;
+            float: left;
+        }
+        .list_progress{
+            width: 25%;
+            height: 7vh;
+            float: left;
+        }
+        .bz_list{
+            width: 45%;
+            height: 6vh;
+            float: left;
+        }
+        .new_work{
+            margin-left: 1%;
+            color:#029689;
+            margin-top: 2vh;
+            border: 1px solid #029689;
+        }
+        .bot_btn{
+            margin-top: 3vh;
+            margin-left: 4%;
+            padding-bottom: 4vh;
+        }
+        /* 时间轴 */
+        .month_content{
+            float: left;
+            width: 35%;
+            height: 100%;
+        }
+        .month_list{
+            height: 33%;
+            width: 100%;
+            float: left;
+        }
+        .month_num{
+            font-size: 2.2vw;
+            color: #000;
+            text-align: center;
+            font-weight: bold;
+        }
+        .month_title{
+            font-size: 1.4vw;
+            color: #000;
+            text-align: center;
+        }
+        .month_line{
+            float: left;
+            width: 60%;
+            height: 100%;
+        }
+        .monline_mon{
+            width: 100%;
+            height: 33%;
+        }
+        .line_list{
+            width: 100%;
+            height: 10%;
+        }
+        .bz_span{
+            float: left;
+            margin-top: 2vh;
+        }
+        /* 滑动进度条 */
+        .one_progress{
+            width: 100%;
+            height: 100%;
+        }
+        .two_progress{
+            width: 100%;
+            height: 100%;
+        }
+        .three_progress{
+            width: 100%;
+            height: 100%;
+        }
+        .box-nine{
+            width: 100%;
+            height: 100%;
+        }
+        .box-nine2{
+            width: 100%;
+            height: 100%;
+        }
+        .box-nine3{
+            width: 100%;
+            height: 100%;
+        }
+         .progress{
+           width:200px;
+           height:6px;
+           background: #cccccc;
+           border-radius: 6px;
+           position: relative;
+           display: inline-block;
+           cursor: pointer;
+       }
+       .progress .progress-bar{
+           width:100px;
+           height: 6px;
+           position: absolute;
+           background:#009588;
+           border-radius: 6px;
+           top:0;
+       }
+       .progress .progress-circle{
+           width:14px;
+           height:14px;
+           background: #ffffff;
+           border:1px solid #ccc;
+           box-shadow: 0 0 5px 0  #000 0.27;
+           border-radius: 50%;
+           position: absolute;
+           top:-4px;
+           cursor: pointer;
+           left:98px;
+       }
+
+       .progress2{
+           width:200px;
+           height:6px;
+           background: #cccccc;
+           border-radius: 6px;
+           position: relative;
+           display: inline-block;
+           cursor: pointer;
+       }
+       .progress2 .progress-bar2{
+           width:100px;
+           height: 6px;
+           position: absolute;
+           background:#009588;
+           border-radius: 6px;
+           top:0;
+       }
+       .progress2 .progress-circle2{
+           width:14px;
+           height:14px;
+           background: #ffffff;
+           border:1px solid #ccc;
+           box-shadow: 0 0 5px 0  #000 0.27;
+           border-radius: 50%;
+           position: absolute;
+           top:-4px;
+           cursor: pointer;
+           left:98px;
+       }
+
+        .progress3{
+           width:200px;
+           height:6px;
+           background: #cccccc;
+           border-radius: 6px;
+           position: relative;
+           display: inline-block;
+           cursor: pointer;
+       }
+       .progress3 .progress-bar3{
+           width:100px;
+           height: 6px;
+           position: absolute;
+           background:#009588;
+           border-radius: 6px;
+           top:0;
+       }
+       .progress3 .progress-circle3{
+           width:14px;
+           height:14px;
+           background: #ffffff;
+           border:1px solid #ccc;
+           box-shadow: 0 0 5px 0  #000 0.27;
+           border-radius: 50%;
+           position: absolute;
+           top:-4px;
+           cursor: pointer;
+           left:98px;
+       }
+       .input1{
+           border: none;
+           float: right;
+           width: 3vw;
+           height: 4vh;
+       }
+       .input2{
+           border: none;
+           float: right;
+           width: 3vw;
+           height: 4vh;
+       }
+       .input3{
+           border: none;
+           float: right;
+           width: 3vw;
+           height: 4vh;
+       }
+    </style>
+</head>
+<body id="app">
+    <div id="event-view">
+            <div class="details_gao">
+                    <blockquote class="layui-elem-quote">项目里程碑</blockquote>
+                    <div class="layui-row layui-col-space1">
+                        <div class="layui-col-md2">
+                            <div class="grid-demo">
+                                    <img  src="/Public/Doc/images/user.png" alt="">							
+                            </div>
+                            <div class="style-agile-border">
+                                    
+                            <img  src="/Public/Doc/images/sty1.png" alt="">
+                            </div>
+                            <div class="layui_code">商务/售前</div>
+                        </div>
+                        <div class="layui-col-md2">
+                            <div class="grid-demo">
+                            <ul>
+                                <li class="layui-tab-zi">
+                                    <a href="{:U('ProjectManagement/ProjectDisplay')}">
+                                      <h3 class="layui-cite">项目信息</h3>
+                                    </a>
+                                </li>
+                                <li class="layui-tab-zi layui-tab-top">
+                                    <a href="{:U('ProjectManagement/ProjectApproval')}">
+                                    <h3 class="layui-cite">立项</h3>
+                                    </a>
+                                </li>
+                                <li class="layui-tab-zi layui-tab-top layui-red">
+                                    <a href="{:U('ProjectManagement/ProjectCollection')}">
+                                    <h3 class="layui-cite">项目成员</h3>
+                                    </a>
+                                </li>
+                                <li class="layui-tab-zi layui-tab-top">
+                                    <a href="{:U('ProjectManagement/ProjectCustomer')}">
+                                    <h3 class="layui-cite">客户关系</h3>
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="style-agile-border">
+                            <img  src="/Public/Doc/images/sty1.png" alt="">
+                            </div>
+                            <div class="layui_code">启动</div>
+                        </div>
+                        <div class="layui-col-md2">
+                            <div class="grid-demo">
+                                <ul>
+                                <li class="layui-tab-zhong">
+                                    <a href="{:U('ProjectManagement/LCBplan')}">
+                                    <h3 class="layui-cite">里程碑计划</h3>
+                                    </a>
+                                </li>
+                                <li class="layui-tab-zhong layui-tab-top">
+                                    <a href="{:U('KnowledgeSharing/index')}">
+                                    <h3 class="layui-cite">工作计划</h3>
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="style-agile-border">
+                            <img  src="/Public/Doc/images/sty1.png" alt="">
+                            </div>
+                            <div class="layui_code">计划管理</div>
+                        </div>
+                        <div class="layui-col-md2">
+                            <div class="grid-demo">
+                            <ul>
+                                <li class="layui-tab-zi">
+                                    <a href="{:U('ProjectManagement/WeeklyControl')}">
+                                    <h3 class="layui-cite">周报管理</h3>
+                                    </a>
+                                </li>
+                                <li class="layui-tab-zi layui-tab-top">
+                                    <a href="{:U('ProjectManagement/ProjectMinutes')}">
+                                    <h3 class="layui-cite">会议管理</h3>
+                                    </a>
+                                </li>
+                                <li class="layui-tab-zi layui-tab-top">
+                                    <a href="{:U('ProjectManagement/Projectrisk')}">
+                                    <h3 class="layui-cite">风险管理</h3>
+                                    </a>
+                                </li>
+                                <li class="layui-tab-zi layui-tab-top">
+                                    <a href="{:U('ProjectManagement/ProjectEvent')}">
+                                    <h3 class="layui-cite">事件管理</h3>
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="style-agile-border">
+                            <img  src="/Public/Doc/images/sty1.png" alt="">
+                            </div>
+                            <div class="layui_code">执行管理</div>
+                        </div>
+                        <div class="layui-col-md2">
+                            <div class="grid-demo">
+                            <ul>
+                                <li class="layui-tab-zhonging">
+                                    <a href="{:U('Feedback/index')}">
+                                    <h3 class="layui-cite">测试报告</h3>
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="style-agile-border">
+                            <img  src="/Public/Doc/images/sty1.png" alt="">
+                            </div>
+                            <div class="layui_code">测试联调</div>
+                        </div>
+                        <div class="layui-col-md2">
+                            <div class="grid-demo">
+                            <ul>
+                                <li class="layui-tab-zhonging">
+                                    <a href="{:U('ProjectManagement/ProjectTextrun')}">
+                                    <h3 class="layui-cite">试运行记录</h3>
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="style-agile-border">
+                            <img  src="/Public/Doc/images/sty1.png" alt="">
+                            </div>
+                            <div class="layui_code">试运行</div>
+                        </div>
+                        <div class="layui-col-md2">
+                            <div class="grid-demo">						<ul>
+                                <li class="layui-tab-zhongpp ">
+                                    <a href="{:U('ProjectManagement/ProjectAcceptance')}">
+                                    <h3 class="layui-cite">项目验收</h3>
+                                    </a>
+                                </li>
+                                <li class="layui-tab-zhongpp layui-tab-top">
+                                    <a href="{:U('KnowledgeSharing/index')}">
+                                    <h3 class="layui-cite">成员考勤</h3>
+                                    </a>
+                                </li>
+                                <li class="layui-tab-zhongpp layui-tab-top">
+                                    <a href="{:U('KnowledgeSharing/index')}">
+                                    <h3 class="layui-cite">成员考核</h3>
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="layui_code">验收归档</div>
+                        </div>
+                    </div>
+            </div>
+            <div class="weeklycontrol_content">
+                <div class="weeklycontrol_top">
+                    <blockquote class="layui-elem-quote newpaper_titile">项目周报任务信息采集</blockquote></blockquote>
+                    <button class="layui-btn layui-btn-radius layui-btn-lg newpaper_btn create_weeklypaper" lay-filter="create_weeklypaper">新建周报任务</button>
+                </div>
+                <div class="weeklycontent_main">
+                    <div class="weeklycontent_left layui-col-md3">
+                        <ul class="month_content">
+                            <li class="month_list">
+                               <div>
+                                   <h3 class="month_num">12月</h3>
+                                   <p class="month_title">研发阶段</p>
+                               </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">11月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">10月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">9月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">8月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">7月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">6月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">5月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">4月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">3月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                            <li class="month_list">
+                               <div>
+                                   <h3 class="month_num">2月</h3>
+                                   <p class="month_title">研发阶段</p>
+                               </div> 
+                            </li>
+                            <li class="month_list">
+                                <div>
+                                    <h3 class="month_num">1月</h3>
+                                    <p class="month_title">研发阶段</p>
+                                </div> 
+                            </li>
+                        </ul>
+                        <ul class="layui-timeline month_line">
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li>
+                            </div>
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li>
+                            </div>
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li>
+                            </div>
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li>
+                            </div>
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li>
+                            </div>
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li> 
+                            </div>    
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li> 
+                            </div>   
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li> 
+                            </div> 
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li> 
+                            </div> 
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li> 
+                            </div>  
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li> 
+                            </div> 
+                            <div class="monline_mon">
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第四周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第三周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第二周周报</div>
+                                </div>
+                                </li>
+                                <li class="layui-timeline-item line_list">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                  <div class="layui-timeline-title">第一周周报</div>
+                                </div>
+                                </li> 
+                            </div>          
+                        </ul>  
+                    </div>
+                    <div class="weeklycontent_right layui-col-md9">
+                        <div class="pre_week">
+                            <p class="pre_titile">本周工作计划完成情况</p>
+                            <div class="pre_content">
+                                <div class="pre_top">
+                                    <div class="start_time">
+                                        <span>开始时间:</span>
+                                        <span>2018-09-09</span>
+                                    </div>
+                                    <div class="end_time">
+                                        <span>结束时间:</span>
+                                        <span>2018-10-10</span>
+                                    </div>
+                                    <div class="blong_moment">
+                                        <span>所属阶段:</span>
+                                        <span>研发阶段</span>
+                                    </div>
+                                    <div class="execute_rate">
+                                        <span>阶段完成率:</span>
+                                        <span>99%</span>
+                                    </div>
+                                </div>
+                                <div class="pre_main">
+                                  <div class="floor_border">  
+                                    <div class="pre_floor">
+                                        <p class="prefloor_detail">1、大屏界面设计</p>
+                                        <div class="prefloor_rate">
+                                            <div class="layui-progress layui-progress-big">
+                                                <div class="layui-progress-bar layui-bg-green" lay-percent="20%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress_value">20%</div>
+                                        <span class="prefloor_con">[已完成]</span>
+                                    </div>
+                                    <div class="pre_floor">
+                                        <p class="prefloor_detail">2、治理页面前端静态页面开发</p>
+                                        <div class="prefloor_rate">
+                                            <div class="layui-progress layui-progress-big">
+                                                <div class="layui-progress-bar layui-bg-green" lay-percent="20%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress_value">20%</div>
+                                        <span class="prefloor_con">[进行中]</span>
+                                    </div>
+                                    <div class="pre_floor">
+                                        <p class="prefloor_detail">3、管理页面前端静态页面开发</p>
+                                        <div class="prefloor_rate">
+                                            <div class="layui-progress layui-progress-big ">
+                                                <div class="layui-progress-bar layui-bg-green" lay-percent="20%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress_value">20%</div>
+                                        <span class="prefloor_con">[已撤销]</span>
+                                    </div>
+                                    <div class="pre_floor">
+                                        <p class="prefloor_detail">4、数据表单导入100张</p>
+                                        <div class="prefloor_rate">
+                                            <div class="layui-progress layui-progress-big">
+                                                <div class="layui-progress-bar layui-bg-green" lay-percent="20%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress_value">20%</div>
+                                        <span class="prefloor_con">[进行中]</span>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="next_weekwork">
+                            <p class="next_title">下周工作计划安排</p>
+                            <div class="next_content">
+                              <div class="floor_border"> 
+                                <div class="next_floor">
+                                    <p class="nextfloor_detail">1、大屏界面设计</p>
+                                </div>
+                                <div class="next_floor">
+                                    <p class="nextfloor_detail">2、治理页面前端静态页面开发</p>
+                                </div>
+                                <div class="next_floor">
+                                    <p class="nextfloor_detail">3、管理页面前端静态页面开发</p>
+                                </div>
+                              </div>
+                            </div>
+                            <p class="sub_time">提交时间:2018-09-13 12:12</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <!-- 弹出框新增周报任务 -->
+            <div class="layui-row" id="weekly_paper" style="display: none;">
+                <div class="layui-col-md12">
+                    <div class="papertitle_one">上周工作计划完成情况</div>
+                    <div class="form_content">
+                        <form  class="layui-form" style="border-bottom: 1px dashed #aaaaaa;">
+                        <div class="layui-form-item" style="margin-top: 2vh;">
+                            <div class="layui-inline" style="margin-left: 2%;">
+                                <span style="float: left;margin-top: 2vh;">开始时间:</span>
+                                <div class="layui-input-inline" style="width: 165px;margin-left: 3px;">
+                                    <input type="text" class="layui-input" id="tan_start_time" placeholder="yyyy年MM月dd日" lay-verify="required">
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="margin-left: 1%;">
+                                <span style="float: left;margin-top: 2vh;">结束时间:</span>
+                                <div class="layui-input-inline" style="width: 165px;margin-left: 3px;">
+                                    <input type="text" class="layui-input" id="tan_end_time" placeholder="yyyy年MM月dd日" lay-verify="required">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <span style="float: left;margin-top: 2vh;">所属阶段:</span>
+                                <div class="layui-input-inline" style="width: 145px;margin-left: 3px;">
+                                  <select name="modules" lay-verify="required" lay-search="">
+                                    <option value="研发阶段">研发阶段</option>
+                                    <option value="设计阶段">设计阶段</option>
+                                    <option value="验收阶段">验收阶段</option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <span style="float: left;margin-top: 2vh;">阶段完成率:</span>
+                                <div class="layui-input-inline" style="width: 145px;margin-left: 3px;">
+                                  <select name="modules" lay-verify="required" lay-search="">
+                                    <option value="10%">10%</option>
+                                    <option value="20">20%</option>
+                                    <option value="30">30%</option>
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="big_design">
+                            <div class="one_title">
+                                <span class="titile_num">1、</span>
+                                <div class="title_detail">大屏界面设计</div>
+                            </div>
+                            <div class="layui-form-item" style="margin-top: 10px;margin-left: 5px;">
+                                <div class="layui-inline checkbox_list">
+                                    <input type="checkbox" lay-skin="primary" name="big_check" title="进行中">
+                                    <input type="checkbox" lay-skin="primary" name="big_check" title="已完成">
+                                    <input type="checkbox" lay-skin="primary" name="big_check" title="撤销">
+                                </div>
+                                <div class="layui-inline list_progress">
+                                    <div class="one_progress">
+                                        <div class="box-nine">
+                                            <div class="progress"> <!--一整条进度条-->
+                                                <div class="progress-bar"></div> <!--进度-->
+                                                <div class="progress-circle"></div><!--控制点-->
+                                            </div>
+                                            <input type="text" value="" class="input1" readonly="readonly"><!--显示进度值-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-inline bz_list">
+                                    <span class="bz_span">备注:</span>
+                                    <div class="layui-input-block" style="margin-left: 55px;">
+                                      <input  type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="zhili_big">
+                            <div class="two_title">
+                                <span class="titile_num">2、</span>
+                                <div class="title_detail">治理大屏界面设计前端开发</div>
+                            </div>
+                            <div class="layui-form-item" style="padding-top: 10px;">
+                                <div class="layui-inline checkbox_list">
+                                    <input type="checkbox" lay-skin="primary" name="big_check" title="进行中">
+                                    <input type="checkbox" lay-skin="primary" name="big_check" title="已完成">
+                                    <input type="checkbox" lay-skin="primary" name="big_check" title="撤销">
+                                </div>
+                                <div class="layui-inline list_progress">
+                                    <div class="two_progress">
+                                        <div class="box-nine2">
+                                            <div class="progress2"> <!--一整条进度条-->
+                                                <div class="progress-bar2"></div> <!--进度-->
+                                                <div class="progress-circle2"></div><!--控制点-->
+                                            </div>
+                                            <input type="text" value="" class="input2" readonly="readonly"><!--显示进度值-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-inline bz_list">
+                                    <span class="bz_span">备注:</span>
+                                    <div class="layui-input-block" style="margin-left: 55px;">
+                                        <input  type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="three_big">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label" style="width:20px;">3、</label>
+                                <div class="layui-input-block" style="margin-left: 55px;">
+                                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" style="width: 98%;">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline checkbox_list">
+                                    <input type="checkbox" lay-skin="primary" name="big_check" title="进行中">
+                                    <input type="checkbox" lay-skin="primary" name="big_check" title="已完成">
+                                    <input type="checkbox" lay-skin="primary" name="big_check" title="撤销">
+                                </div>
+                                <div class="layui-inline list_progress">
+                                    <div class="three_progress">
+                                        <div class="box-nine3">
+                                            <div class="progress3"> <!--一整条进度条-->
+                                                <div class="progress-bar3"></div> <!--进度-->
+                                                <div class="progress-circle3"></div><!--控制点-->
+                                            </div>
+                                            <input type="text" value="" class="input3" readonly="readonly"><!--显示进度值-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-inline bz_list">
+                                    <span class="bz_span">备注:</span>
+                                    <div class="layui-input-block" style="margin-left: 55px;">
+                                        <input  type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius new_work">+新增任务</button>
+                        <br>
+                        <br>
+                        </form>
+                        <div class="papertitle_two">上周工作计划完成情况</div>
+                        <form  class="layui-form">
+                            <div class="next_week">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label" style="width: 20px;">1、</label>
+                                    <div class="layui-input-block" style="margin-left: 55px;width: 95%;">
+                                      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius new_work">+新增任务</button>
+                        </form>
+                    </div>
+                    <div class="bot_btn">
+                        <button class="layui-btn layui-btn-radius">确定</button>
+                        <button class="layui-btn layui-btn-primary layui-btn-radius">取消</button>
+                    </div>
+                </div> 
+            </div>
+    </div>
+    <script src="__DOCLAY__/plugins/layui/layui.js"></script>
+    <script>
+    layui.use('element', function(){
+      var element = layui.element;
+    });
+    </script>
+    <script>
+    var form,layedit,layer,laydate; 
+    layui.use(['form', 'layedit', 'laydate','table','slider'], function(){
+	  form = layui.form,
+	  layer = layui.layer,
+	  layedit = layui.layedit,
+	  laydate = layui.laydate;
+		var table = layui.table;
+        // 弹窗开始时间
+        laydate.render({
+			elem: '#tan_start_time'
+		});
+        // 弹窗结束时间
+        laydate.render({
+			elem: '#tan_end_time'
+		});
+		});
+    $('.create_weeklypaper').on('click',function(){
+				layer.open({
+						type: 1,
+						title: '新建计划',
+						closeBtn: 1,   // 关闭样式
+						shadeClose: true,  // 关闭方式
+						anim:5,    // 弹出样式
+						area: ['95vw', '90vh'],
+						// btn:['确定','取消'],
+						isOutAnim:false,    // 关闭动画
+						content: $('#weekly_paper'),
+				})								
+		}); 
+    
+    </script>
+    <!-- 第一个滑动轴 -->
+      <script>
+            var lastX, NewX, that, thewidth = 0;
+                    var auto = false;//控制是否可以拖动的; false表示不能拖动
+                    $('.box-nine').on('mousedown', '.progress-circle', function(e) {
+                        lastX = e.clientX;  //鼠标按下时距离浏览器的x轴距离
+                        e.preventDefault(); //阻止默认事件
+                        that = $(this);  //保存当前this
+                        thewidth = that.prev().width() || $(".progress-bar").width();  // 获取当前进度的宽度，也就是红色条的宽度 
+                        auto = true;  //鼠标按下的时候设置为true，允许拖动
+                    })
+                    $(document).on('mousemove', function (e) {  //记住，这里一定要绑定在document上，防止拖动过快造成问题
+                        if (auto) {
+                            e.preventDefault();
+                            NewX = e.clientX; //拖动后，重新获取鼠标距离浏览器的x轴距离
+                            var mcs = NewX - lastX; //由mcs的值大小确定鼠标是向左滑动还是右滑动;
+                            var differ = $(".progress").width() - $(".progress-circle").width(); //圆圈能拖动的最大距离 红色进度条的最大宽度就是整个进度条200px，而圆圈能滑动的最大距离要减去本身的宽度
+                            if (mcs > 0){
+                                that.prev().css('width', mcs + thewidth < differ ? mcs + thewidth : $(".progress").width()); //每拖动一次，都要加上当前红色条的宽度    红色条宽度=每次的鼠标差+ 上一次红色条宽度
+                                that.css('left', mcs + thewidth < differ ? mcs + thewidth : differ);  
+                            } else {
+                                that.prev().css('width', thewidth + mcs - that.width() > 0 ? thewidth + mcs - that.width() : 0);
+                                that.css('left', thewidth + mcs - that.width() > 0 ? thewidth + mcs - that.width() : 0);
+                            }
+                            var val = that.prev().width();
+                            that.parents('.box-nine').find('.input1').val(Math.ceil(val / 2)+"%");//实时将值显示在Input框   这里是模拟音量 0-100的值
+                        }
+                    })
+                    $(document).on('mouseup', function(e) {
+                        if(auto) {
+                            auto = false;//鼠标松开不允许拖动
+                        }
+                    })
+                    $(".box-nine").on('click', '.progress', function(e) {  //点击进度条时，进度的变化
+                        lastX = e.clientX;
+                        var offsetX = $(this).offset().left;
+                        $(this).find('.progress-bar').css('width', lastX - offsetX>$(this).width()?$(this).width():lastX-offsetX);
+                        $(this).find('.progress-circle').css('left', lastX - offsetX>$(this).width()- $(this).find('.progress-circle').width()?$(this).width()- $(this).find('.progress-circle').width():lastX-offsetX);
+                        var val =$(this).find('.progress-bar').width();
+                        $(this).parents('.box-nine').find('.input1').val(Math.ceil(val / 2)+"%");
+                    })
+      </script>
+    <!-- 第二个滑动轴 -->
+    <script>
+            var lastX2, NewX2, that2, thewidth2 = 0;
+                    var auto2 = false;//控制是否可以拖动的; false表示不能拖动
+                    $('.box-nine2').on('mousedown', '.progress-circle2', function(e) {
+                        lastX2 = e.clientX;  //鼠标按下时距离浏览器的x轴距离
+                        e.preventDefault(); //阻止默认事件
+                        that2 = $(this);  //保存当前this
+                        thewidth2 = that2.prev().width() || $(".progress-bar2").width();  // 获取当前进度的宽度，也就是红色条的宽度 
+                        auto2 = true;  //鼠标按下的时候设置为true，允许拖动
+                    })
+                    $(document).on('mousemove', function (e) {  //记住，这里一定要绑定在document上，防止拖动过快造成问题
+                        if (auto2) {
+                            e.preventDefault();
+                            NewX2 = e.clientX; //拖动后，重新获取鼠标距离浏览器的x轴距离
+                            var mcs2 = NewX2 - lastX2; //由mcs的值大小确定鼠标是向左滑动还是右滑动;
+                            var differ2 = $(".progress2").width() - $(".progress-circle2").width(); //圆圈能拖动的最大距离 红色进度条的最大宽度就是整个进度条200px，而圆圈能滑动的最大距离要减去本身的宽度
+                            if (mcs2 > 0){
+                                that2.prev().css('width', mcs2 + thewidth2 < differ2 ? mcs2 + thewidth2 : $(".progress2").width()); //每拖动一次，都要加上当前红色条的宽度    红色条宽度=每次的鼠标差+ 上一次红色条宽度
+                                that2.css('left', mcs2 + thewidth2 < differ2 ? mcs2 + thewidth2 : differ2);  
+                            } else {
+                                that2.prev().css('width', thewidth2 + mcs2 - that2.width() > 0 ? thewidth2 + mcs2 - that2.width() : 0);
+                                that2.css('left', thewidth2 + mcs2 - that2.width() > 0 ? thewidth2 + mcs2 - that2.width() : 0);
+                            }
+                            var val2 = that2.prev().width();
+                            that2.parents('.box-nine2').find('.input2').val(Math.ceil(val2 / 2)+"%");//实时将值显示在Input框   这里是模拟音量 0-100的值
+                        }
+                    })
+                    $(document).on('mouseup', function(e) {
+                        if(auto2) {
+                            auto2 = false;//鼠标松开不允许拖动
+                        }
+                    })
+                    $(".box-nine2").on('click', '.progress2', function(e) {  //点击进度条时，进度的变化
+                        lastX2 = e.clientX;
+                        var offsetX2 = $(this).offset().left;
+                        $(this).find('.progress-bar2').css('width', lastX2 - offsetX2>$(this).width()?$(this).width():lastX2-offsetX2);
+                        $(this).find('.progress-circle2').css('left', lastX2 - offsetX2>$(this).width()- $(this).find('.progress-circle2').width()?$(this).width()- $(this).find('.progress-circle2').width():lastX2-offsetX2);
+                        var val2 =$(this).find('.progress-bar2').width();
+                        $(this).parents('.box-nine2').find('.input2').val(Math.ceil(val2 / 2)+"%");
+                    })
+    </script>
+    <!-- 第三个滑动轴 -->
+    <script>
+            var lastX3, NewX3, that3, thewidth3 = 0;
+                    var auto3 = false;//控制是否可以拖动的; false表示不能拖动
+                    $('.box-nine3').on('mousedown', '.progress-circle3', function(e) {
+                        lastX2 = e.clientX;  //鼠标按下时距离浏览器的x轴距离
+                        e.preventDefault(); //阻止默认事件
+                        that3 = $(this);  //保存当前this
+                        thewidth3 = that3.prev().width() || $(".progress-bar3").width();  // 获取当前进度的宽度，也就是红色条的宽度 
+                        auto3 = true;  //鼠标按下的时候设置为true，允许拖动
+                    })
+                    $(document).on('mousemove', function (e) {  //记住，这里一定要绑定在document上，防止拖动过快造成问题
+                        if (auto3) {
+                            e.preventDefault();
+                            NewX3 = e.clientX; //拖动后，重新获取鼠标距离浏览器的x轴距离
+                            var mcs3 = NewX3 - lastX3; //由mcs的值大小确定鼠标是向左滑动还是右滑动;
+                            var differ3 = $(".progress3").width() - $(".progress-circle3").width(); //圆圈能拖动的最大距离 红色进度条的最大宽度就是整个进度条200px，而圆圈能滑动的最大距离要减去本身的宽度
+                            if (mcs3 > 0){
+                                that3.prev().css('width', mcs3 + thewidth3 < differ3 ? mcs3 + thewidth3 : $(".progress3").width()); //每拖动一次，都要加上当前红色条的宽度    红色条宽度=每次的鼠标差+ 上一次红色条宽度
+                                that3.css('left', mcs3 + thewidth3 < differ3 ? mcs3 + thewidth3 : differ3);  
+                            } else {
+                                that3.prev().css('width', thewidth3 + mcs3 - that3.width() > 0 ? thewidth3 + mcs3 - that3.width() : 0);
+                                that3.css('left', thewidth3 + mcs3 - that3.width() > 0 ? thewidth3 + mcs3 - that3.width() : 0);
+                            }
+                            var val3 = that3.prev().width();
+                            that3.parents('.box-nine3').find('.input3').val(Math.ceil(val3 / 2)+"%");//实时将值显示在Input框   这里是模拟音量 0-100的值
+                        }
+                    })
+                    $(document).on('mouseup', function(e) {
+                        if(auto3) {
+                            auto3 = false;//鼠标松开不允许拖动
+                        }
+                    })
+                    $(".box-nine3").on('click', '.progress3', function(e) {  //点击进度条时，进度的变化
+                        lastX3 = e.clientX;
+                        var offsetX3 = $(this).offset().left;
+                        $(this).find('.progress-bar3').css('width', lastX3 - offsetX3>$(this).width()?$(this).width():lastX3-offsetX3);
+                        $(this).find('.progress-circle3').css('left', lastX3 - offsetX3>$(this).width()- $(this).find('.progress-circle3').width()?$(this).width()- $(this).find('.progress-circle3').width():lastX3-offsetX3);
+                        var val3 =$(this).find('.progress-bar3').width();
+                        $(this).parents('.box-nine3').find('.input3').val(Math.ceil(val3 / 2)+"%");
+                    })
+    </script>
+</body>
+</html>
