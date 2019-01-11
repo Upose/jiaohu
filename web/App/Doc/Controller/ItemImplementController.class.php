@@ -92,13 +92,36 @@ class ItemImplementController extends BaseController {
         //項目编号
         $pro_code = I('pCode');
 
+        $page = I('page');
+        $limit = I('limit');
+
         $riskResult = $this->result=
-        ItemImplementModel::riskResult($pro_code);
+        ItemImplementModel::riskResult($pCode,$page,$limit);
         
-        $this->Response(200,$riskResult,'');
+        $result_json = json_encode($riskResult);
+        echo $result_json;
 
     }
 
+
+    /**
+     * 周报查询
+     * @author song.chaoxu
+     * 2019.01.07
+     */
+    public function weeklyResult(){
+
+        //項目编号
+        $pro_code = I('pCode');
+ 
+        
+
+        $weeklyResult = $this->result=
+        ItemImplementModel::weeklyResult($pro_code);
+        
+        $this->Response(200,$weeklyResult,'');
+
+    }
 
     /**
      * 事件新增下拉信息
@@ -205,7 +228,7 @@ class ItemImplementController extends BaseController {
 
 
     /**
-     * 会议新增下拉信息
+     * 会议和周报新增下拉信息
      * @author song.chaoxu
      * 2019.01.06
      */
@@ -308,8 +331,67 @@ class ItemImplementController extends BaseController {
 
     }
 
+    /**
+     * 周报新增
+     * @author song.chaoxu
+     * 2019.01.11
+     */
 
+    public function weeklyAdd(){
 
+         //項目编号
+        $pro_code = I('pCode');
+
+        //周报名称
+        $weekly_name = I('weekly_name');
+
+        //计划编号
+        $plan_code = I('plan_code');
+
+        //周报开始时间
+        $weekly_stime = I('weekly_stime');
+
+        //周报结束时间
+        $weekly_etime = I('weekly_etime');
+
+        //所属阶段
+        $stage  = I('stage');
+
+        //阶段进度
+        $pro_schedule  = I('pro_schedule');
+
+        //创建人
+        $founder_id = I('founder_id');
+
+        // weekly_id       int     周报id    
+        // pro_code        int     项目编号    
+        // task_content        varchar(255)        工作描述    
+        // Completion_rate     varchar(20)     完成率 
+        // work_content        varchar(255)        完成内容    
+        // work_state      varchar(255)        完成状态    
+        // remarks     varchar(255)        备注  
+        // state       int     状态  
+        // Founder_id      int     创建人 
+
+        //工作描述
+        $task_content = I('tContent');
+        //完成率
+        $completion_rate = I('cRate');
+        //完成内容
+        $work_content = I('wContent');
+        //完成状态
+        $work_state = I('wState');
+        //备注
+        $remarks = I('remarks');
+        //state
+        $state = I('state');
+
+        $addStaus = $this->result=
+        ItemImplementModel::pWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id,$task_content,$completion_rate,$work_content,$work_state,$remarks,$state);
+       
+        $this->Response(200,$addStaus,'');
+
+    }
 
 
 
