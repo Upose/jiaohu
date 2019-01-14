@@ -11,7 +11,7 @@ use Doc\Model\ItemImplementModel;
     */
 class ItemImplementController extends BaseController {
 
-	/**
+    /**
      * 输出首页
      * @author song.chaoxu
      * 2018.11.14
@@ -19,8 +19,8 @@ class ItemImplementController extends BaseController {
     public function index()
     {
 
-    	$this->display();
-    	
+        $this->display();
+        
     }
 
     
@@ -342,8 +342,9 @@ class ItemImplementController extends BaseController {
          //項目编号
         $pro_code = I('pCode');
 
-        //周报名称
-        $weekly_name = I('weekly_name');
+        $weekly_code = I('wCode','');
+
+ 
 
         //计划编号
         $plan_code = I('plan_code');
@@ -363,31 +364,28 @@ class ItemImplementController extends BaseController {
         //创建人
         $founder_id = I('founder_id');
 
-        // weekly_id       int     周报id    
-        // pro_code        int     项目编号    
-        // task_content        varchar(255)        工作描述    
-        // Completion_rate     varchar(20)     完成率 
-        // work_content        varchar(255)        完成内容    
-        // work_state      varchar(255)        完成状态    
-        // remarks     varchar(255)        备注  
-        // state       int     状态  
-        // Founder_id      int     创建人 
 
-        //工作描述
-        $task_content = I('tContent');
-        //完成率
-        $completion_rate = I('cRate');
-        //完成内容
-        $work_content = I('wContent');
-        //完成状态
-        $work_state = I('wState');
-        //备注
-        $remarks = I('remarks');
-        //state
-        $state = I('state');
+        // $completion_rate = I('cRate');
+        // //完成内容
+        // $work_content = I('wContent');
+        // //完成状态
+        // $work_state = I('wState');
+        // //备注
+        // $remarks = I('remarks');
+        $newList = array();
+        // 周报任务明细列表
+        $upWeeklyList = I('upWeeklyList',$newList);
+        // [taskId,cRate,wContent,wState,remarks]
+
+        $weeklyList = I('weeklyList',$newList);
+        // [cRate,wContent,wState,remarks]
+
+        $nextWeeklyList = I('nextWeeklyList');
+
+
 
         $addStaus = $this->result=
-        ItemImplementModel::pWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id,$task_content,$completion_rate,$work_content,$work_state,$remarks,$state);
+        ItemImplementModel::pWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id,$upWeeklyList,$weeklyList,$nextWeeklyList);
        
         $this->Response(200,$addStaus,'');
 

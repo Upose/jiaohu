@@ -11,7 +11,7 @@ use Doc\Model\ItemStartUpModel;
     */
 class ItemStartUpController extends BaseController {
 
-	/**
+    /**
      * 输出首页
      * @author song.chaoxu
      * 2018.11.14
@@ -19,8 +19,8 @@ class ItemStartUpController extends BaseController {
     public function index()
     {
 
-    	$this->display();
-    	
+        $this->display();
+        
     }
 
     /**
