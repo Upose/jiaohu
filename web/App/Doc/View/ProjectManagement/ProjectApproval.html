@@ -66,7 +66,7 @@
 								</a>
 							</li>
 							<li class="layui-tab-zhong layui-tab-top">
-								<a href="{:U('KnowledgeSharing/index')}">
+								<a href="{:U('ProjectManagement/ProjectWeekPlan')}">
 								<h3 class="layui-cite">工作计划</h3>
 								</a>
 							</li>
@@ -111,7 +111,7 @@
 						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zhonging">
-								<a href="{:U('Feedback/index')}">
+								<a href="{:U('ProjectManagement/ProjectText')}">
 								<h3 class="layui-cite">测试报告</h3>
 								</a>
 							</li>
@@ -268,6 +268,8 @@
 			form.on('submit(demo1)', function(data){
 				var s_time=$("#test1").val(); 				
 				var e_time =$("#test2").val();
+<<<<<<< Updated upstream
+=======
 // 				 formData.append('pCode', '12');
 // 				 formData.append('swName', data.field.see_shop);
 // 				 formData.append('sqName', data.field.see_sq);
@@ -280,6 +282,7 @@
 // 				 formData.append('pMid', '222');
 // 				 formData.append('photo[]', data.field.file);
 				console.log(data);
+>>>>>>> Stashed changes
 				$.ajax({
 				url:"{:U('ItemStartUp/approvalAdd')}",
 				type: 'post',

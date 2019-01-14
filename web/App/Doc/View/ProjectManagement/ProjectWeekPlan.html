@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectWeekPlan.css" media="all">
 		<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
-    <link rel="stylesheet" href="__CSS__/ProjectDisplay.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
-		<script src="__STATIC__/vue.min.js"></script>
+	<script src="__STATIC__/vue.min.js"></script>
 </head>
 
 <body id="app" >
@@ -30,7 +30,7 @@
 					<div class="layui-col-md2">
 						<div class="grid-demo">
 						<ul>
-							<li class="layui-tab-zi layui-red">
+							<li class="layui-tab-zi">
 								<a href="{:U('ProjectManagement/ProjectDisplay')}">
 								  <h3 class="layui-cite">项目信息</h3>
 								</a>
@@ -65,7 +65,7 @@
 								<h3 class="layui-cite">里程碑计划</h3>
 								</a>
 							</li>
-							<li class="layui-tab-zhong layui-tab-top">
+							<li class="layui-tab-zhong layui-tab-top layui-red">
 								<a href="{:U('ProjectManagement/ProjectWeekPlan')}">
 								<h3 class="layui-cite">工作计划</h3>
 								</a>
@@ -138,8 +138,9 @@
 						<div class="layui_code">试运行</div>
 					</div>
 					<div class="layui-col-md2">
-						<div class="grid-demo">						<ul>
-							<li class="layui-tab-zhongpp ">
+						<div class="grid-demo">						
+						<ul>
+							<li class="layui-tab-zhongpp">
 								<a href="{:U('ProjectManagement/ProjectAcceptance')}">
 								<h3 class="layui-cite">项目验收</h3>
 								</a>
@@ -161,120 +162,138 @@
 				</div>
 			</div>
 			<div class="details_zhong">
-					<blockquote class="layui-elem-quote">项目信息采集</blockquote>
-					<form class="layui-form">
-					<div class="layui-row layui-col-space10 layui-form-item">
-						<div class="layui-col-md6">
-							<label class="tit-tab">项目名称：</label>
-							<div class="layui-input-block">
-							<input type="text" id="projectname" placeholder="" class="layui-input">
+				<div>
+				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
+				<button class="addThisPeo" id="btnzeng">项目试运行</button>
+				</div>
+				<table class="layui-table">
+						<thead>
+								<tr>
+										<th>验收项目</th>
+										<th>验收地点</th>
+										<th>验收时间</th>
+										<th>验收人员</th>
+										<th>验收内容</th>
+										<th>验收评价</th>
+										<th>备注</th>
+								</tr>
+						</thead>
+						<tbody>
+								<tr v-for="item in arrList">
+										<td>{{item.theme}}</td>
+										<td>{{item.address}}</td>
+										<td>{{item.meeting_time}}</td>
+										<td>{{item.meeting_level}}</td>
+										<td>{{item.department_id}}</td>
+										<td>{{item.department_id}}</td>
+										<td style="cursor:pointer;" @click="openNew(item.id)">
+											<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+											<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+										</td>
+								</tr>
+						</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- 新增功能弹框 -->
+		<div class="layui-row" id="addPeople" style="display: none;padding: 20px 30px;">
+			<div class="layui-col-md10">
+					<form class="layui-form" id="addEmployeeForm">
+							<div class="layui-form-item">
+									<label class="layui-form-label">计划类别：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
 							</div>
-						</div>
-					<div class="layui-col-md6">
-							<label class="tit-tab">所属行业：</label>
-							<div class="layui-input-block">
-							<input type="text"  id="jobname" placeholder="" class="layui-input" >
+							<div class="layui-form-item">
+									<label class="layui-form-label">责任人：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
 							</div>
-						</div>
-					<div class="layui-col-md6">
-							<label class="tit-tab">项目来源：</label>
-							<div class="layui-input-block">
-							<input type="text"  id="pro_laiyuan" placeholder="" class="layui-input" >
+							<div class="layui-form-item">
+									<label class="layui-form-label">人员姓名：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
 							</div>
-						</div>
-					<div class="layui-col-md6">
-							<label class="tit-tab">所属部门：</label>
-							<div class="layui-input-block">
-							<input type="text" id="depart_name" placeholder="" class="layui-input">
+							<div class="layui-form-item">
+									<label class="layui-form-label">岗位职责：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
 							</div>
-						</div>
-					<div class="layui-col-md6">
-							<label class="tit-tab">项目经理：</label>
-							<div class="layui-input-block">
-							<input type="text" id="pro_jl" placeholder="" class="layui-input" >
+							<div class="layui-form-item">
+									<label class="layui-form-label">计划内容：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
 							</div>
-						</div>
-					<div class="layui-col-md6">
-							<label class="tit-tab">项目地点：</label>
-							<div class="layui-input-block">
-							<input type="text" id="pro_dd" placeholder="" class="layui-input" >
+							<div class="layui-form-item">
+									<label class="layui-form-label">开始时间：</label>
+									<div class="layui-input-block">
+										<input type="text" class="layui-input" id="test1" placeholder="yyyy年MM月dd日">
+									</div>
 							</div>
-						</div>
-					<div class="layui-col-md6">
-							<label class="tit-tab">项目性质：</label>
-							<div class="layui-input-block">
-							<input type="text" id="pro_xz"  placeholder="" class="layui-input">
+							<div class="layui-form-item">
+									<label class="layui-form-label">结束时间：</label>
+									<div class="layui-input-block">
+											<input type="text" class="layui-input" id="test2" placeholder="yyyy年MM月dd日">
+									</div>
 							</div>
-						</div>
-					<div class="layui-col-md6">
-							<label class="tit-tab">战略性质：</label>
-							<div class="layui-input-block">
-							<input type="text" id="pro_zl" placeholder=""  class="layui-input">
+							<div class="layui-form-item">
+									<label class="layui-form-label">计划类别：</label>
+									<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
 							</div>
-						</div>
-					<div class="layui-col-md12">
-							<label class="tit-tab">项目介绍：</label>
-							<div class="layui-input-block">
-							<textarea placeholder="请输入内容" id="pro_mess" class="layui-textarea"></textarea>
+							<div class="layui-form-item">
+								<label class="layui-form-label">相关备注：</label>
+								<div class="layui-input-block">
+									<textarea name="textject" placeholder="" class="layui-textarea"></textarea>
+								</div>
 							</div>
-						</div>
-					</div>	
+							<div class="layui-form-item">
+								<div class="layui-input-block">
+									<button class="layui-btn" lay-submit="" lay-filter="demoone">提交</button>
+									<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+								</div>
+							</div>	
 					</form>
-			</div>	
-
+			</div>
 	</div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
-	layui.use(['form', 'layedit', 'laydate','table'], function(){
+	layui.use(['form', 'layedit', 'laydate'], function(){
 		var form = layui.form,
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
-		var table = layui.table;
-		// 调用查询项目接口
-		chaProject();
+	//开始运行日期 
+		laydate.render({
+			elem: '#test1'
+			});
+	//结束时间
+		laydate.render({
+			elem: '#test2'
+			});
+		});
+		// 添加项目组成员
+		$('.addThisPeo').on('click',function(){
+				layer.open({
+						type: 1,
+						title: '新增风险',
+						closeBtn: 2,   // 关闭样式
+						shadeClose: true,  // 关闭方式
+						anim:5,    // 弹出样式
+						area: ['36vw', '90vh'],
+						// btn:['确定','取消'],
+						isOutAnim:false,    // 关闭动画
+						content: $('#addPeople'),
+				})
 		}); 
-		
-		function chaProject(){
-			$.ajax({
-			url:"{:U('ItemStartUp/pContent')}",
-			type: 'post',
-			data: {
-				pCode:1
-			},
-			dataType: 'json',
-			success: function(data) {
-					if (data.code == 200) {
-							var result = data.data || [];
-							console.log(result[0].pro_name);	
-							$("#projectname").val(result[0].pro_name);
-							$("#jobname").val(result[0].industry_name);        	      
-							$("#pro_laiyuan").val(result[0].pro_source);  
-							$("#depart_name").val(result[0].deptname);  
-							$("#pro_jl").val(result[0].leader_name);  
-							$("#pro_dd").val(result[0].area_name);  
-							$("#pro_xz").val(result[0].natureType); 
-							$("#pro_zl").val(result[0].natureType); 
-							$("#pro_mess").val(result[0].pro_introduce);  
-
-					}
-			}    
-			})
-		}	
+				
 
 </script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

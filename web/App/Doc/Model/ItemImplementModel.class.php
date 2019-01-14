@@ -31,6 +31,8 @@ class ItemImplementModel
 
     }
 
+
+
     /**
      * 事件类型
      * @author song.chaoxu
@@ -62,6 +64,28 @@ class ItemImplementModel
         $data['founder_id'] = $founder_id;
         $result = $app_project_risk->add($data);
         return $result;
+    }
+
+    /**
+     * 风险查询
+     * @author song.chaoxu
+     * 2018.01.07
+     */
+    public function riskResult($pCode,$page,$limit){
+
+        $app_project_risk = M("app_project_risk"); // 实例化对象
+        $count = $app_project_risk ->where('pro_code'.$pCode) ->count();
+        $customerList = $app_project_risk ->field('id,pro_code,plan_code,stage,risk_content,risk_type,level,result,state,founder_id,create_data')
+            ->where('pro_code',$pCode)
+            ->page($page,$limit)
+            ->order('create_data desc')
+            ->select();
+          $result = array();
+          $result['code'] = 0;
+          $result['msg'] = "";
+          $result['count'] = $count;
+          $result['data'] = $customerList;
+          return $result;
     }
 
     /**
@@ -113,6 +137,84 @@ class ItemImplementModel
                 return $result;
 
             }
+
+    /**
+     * 周报新增
+     * @author song.chaoxu
+     * 2018.01.11
+     */
+    public function pWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id,$task_content,$completion_rate,$work_content,$work_state,$remarks,$state){
+
+
+        $app_project_weekly = M("app_project_weekly"); // 实例化周报任务对象
+        $app_weekly_task = M("app_weekly_task"); // 实例化周报明细对象
+
+
+        //插入周报任务
+        $data['pro_code'] = $pro_code;
+        $data['weekly_name'] = $weekly_name;
+        $data['plan_code'] = $plan_code;
+        $data['weekly_stime'] = $weekly_stime;
+        $data['weekly_etime'] = $weekly_etime;
+        $data['meeting_time'] = $meeting_time;
+        $data['stage'] = $stage;
+        $data['pro_schedule'] = $pro_schedule;
+        $data['founder_id'] = $founder_id;
+        $weeklyID = $app_project_weekly->add($data);
+
+
+
+        //插入周报任务明细
+        $detailed['weekly_id'] = $weeklyID;
+        $detailed['pro_code'] = $pro_code;
+        $detailed['task_content'] = $task_content;
+        $detailed['completion_rate'] = $completion_rate;
+        $detailed['work_content'] = $work_content;
+        $detailed['work_state'] = $work_state;
+        $detailed['remarks'] = $remarks;
+        $detailed['state'] = $state;
+        $detailed['founder_id'] = $founder_id;
+        $weeklyDetailedResult = $app_weekly_task->add($detailed);
+
+
+
+        //查询未完成的任务并新增到本周
+        // $unFinished = $app_weekly_task->where('work_state',0)->where('state',！=1)->where('pro_code',$pCode)
+        // 修改state
+
+            // $unFinished state =1;
+            // $unFinished
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return $weeklyDetailedResult;
+    }
+
+
+
+
+    /**
+     * 周报查询
+     * @author song.chaoxu
+     * 2018.01.11
+     */
+    public function weeklyResult($pro_code){
+
+        $app_project_weekly = M("app_project_weekly"); // 实例化对象
+        $result = $app_project_weekly->where('pro_code',$pCode)->find();
+        return $result;
+
+    }
 
 
 }

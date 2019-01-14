@@ -12,25 +12,26 @@
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
 	<script src="__STATIC__/vue.min.js"></script>
 </head>
-
 <body id="app" >
     <div id="event-view">
 			<div class="details_gao">
 				<blockquote class="layui-elem-quote">项目里程碑</blockquote>
-				<div class="layui-col-lg2">
-					<div class="layui-line-me">	
-						<div class="style-agile">
-							<img  src="/Public/Doc/images/user.png" alt="">
+				<div class="layui-row layui-col-space1">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+								<img  src="/Public/Doc/images/user.png" alt="">							
 						</div>
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">商务/售前</div>
 					</div>
-					<div class="layui_code">商务/售前</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zi">
 								<a href="{:U('ProjectManagement/ProjectDisplay')}">
-								  <h3 class="layui-cite">项目基本信息</h3>
+								  <h3 class="layui-cite">项目信息</h3>
 								</a>
 							</li>
 							<li class="layui-tab-zi layui-tab-top">
@@ -48,36 +49,35 @@
 								<h3 class="layui-cite">客户关系</h3>
 								</a>
 							</li>
-						</ul>						
-					</div>				
-					<div class="layui_code">启动</div>
-					<div class="style-agile-border">
+						</ul>
+						</div>
+						<div class="style-agile-border">
 						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">启动</div>
 					</div>
-				</div>
-
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
-						<ul>
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+							<ul>
 							<li class="layui-tab-zhong">
 								<a href="{:U('Feedback/index')}">
 								<h3 class="layui-cite">里程碑计划</h3>
 								</a>
 							</li>
 							<li class="layui-tab-zhong layui-tab-top">
-								<a href="{:U('KnowledgeSharing/index')}">
+								<a href="{:U('ProjectManagement/ProjectWeekPlan')}">
 								<h3 class="layui-cite">工作计划</h3>
 								</a>
 							</li>
 						</ul>
-					</div>
-					<div class="layui_code">计划管理</div>
-					<div class="style-agile-border">
+						</div>
+						<div class="style-agile-border">
 						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">计划管理</div>
 					</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zi">
 								<a href="{:U('Feedback/index')}">
@@ -100,29 +100,29 @@
 								</a>
 							</li>
 						</ul>
-					</div>	
-					<div class="layui_code">执行管理</div>
-					<div class="style-agile-border">
+						</div>
+						<div class="style-agile-border">
 						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">执行管理</div>
 					</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zhonging">
-								<a href="{:U('Feedback/index')}">
+								<a href="{:U('ProjectManagement/ProjectText')}">
 								<h3 class="layui-cite">测试报告</h3>
 								</a>
 							</li>
 						</ul>
-					</div>
-					<div class="layui_code">测试联调</div>
-					<div class="style-agile-border">
+						</div>
+						<div class="style-agile-border">
 						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">测试联调</div>
 					</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
 						<ul>
 							<li class="layui-tab-zhonging">
 								<a href="{:U('ProjectManagement/ProjectTextrun')}">
@@ -130,14 +130,14 @@
 								</a>
 							</li>
 						</ul>
-					</div>	
-					<div class="layui_code">试运行</div>	
-						<div class="style-agile-border">
-							<img  src="/Public/Doc/images/sty1.png" alt="">
 						</div>
-				</div>
-				<div class="layui-col-lg2 layui_left_title">
-					<div class="layui-line-me">
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">试运行</div>
+					</div>
+					<div class="layui-col-md2">
+						<div class="grid-demo">						
 						<ul>
 							<li class="layui-tab-zhongpp">
 								<a href="{:U('ProjectManagement/ProjectAcceptance')}">
@@ -155,13 +155,10 @@
 								</a>
 							</li>
 						</ul>
-					</div>
-					<div class="layui_code">验收归档</div>
-					<div class="style-agile-border">
-						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">验收归档</div>
 					</div>
 				</div>
-
 			</div>
 			<div class="details_zhong">
 				<div>
@@ -196,73 +193,75 @@
 						</tbody>
 				</table>
 			</div>
-				
-			<div class="details_di">
-				<blockquote class="layui-elem-quote">历史信息</blockquote>
-				<div class="caller-contar"> 
-					<div class="caller-item">
-						<img src="/Public/Doc/images/portrait.png" alt="" class="caller-img caller-fl">
-						 <div class="caller-main caller-fl">       
-							<p><strong>胡歌</strong></p>
-							<p class="caller-adds">长宁分局-科长</p>
-							<div class="caller-iconset">
-						</div>
-					</div>
-				</div>
-				<div class="caller-contar"> 
-					<div class="caller-item">
-						<img src="/Public/Doc/images/portrait.png" alt="" class="caller-img caller-fl">
-						<div class="caller-main caller-fl">       
-							<p><strong>胡歌</strong></p>
-							<p class="caller-adds">长宁分局-科长</p>
-							<div class="caller-iconset">
-						</div>
-					</div>
-				</div>
-			</div>	
-	</div>
-	<!-- 新增功能弹框 -->
-	<div class="new_div">
-		<div class="new_tit"><span>项目验收</span><img @click='down()' src="__IMG__/close_normal.png"></div>
-			<div class="con_txt">
-				<p>所属阶段：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
-						<option value="">请选择</option>
-						<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
-					</select>
-				</p>
-				<p>事件名称：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
-				<p>事件类别：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
-						<option value="">请选择</option>
-						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
-					</select>
-				</p>
-				<p>事件内容：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
-						<option value="">请选择</option>
-						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
-					</select>
-				</p>
-				<p>事件级别：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>发生时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>内部人员：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p>事件备注：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
-				<p class="layui-form-item" style="vertical-align: top;">
-						<label class="tit-tab">上传文件</label>
-						<div class="cus-files" id="cus-form">
-								<input type="file" id="cus-ipt" name="photo" class="cus-files-input" multiple="multiple" ref="inputer" accept=".doc,.docx,.pdf" @change="updateFileList" />
-								<div class="cus-files-content">
-										<div class="cus-warning">
-												<img class="img1" src="__IMG__/up@2x.png">
-												<p class="cus-warning-item">点击选择文件</p>
-												<p class="cus-warning-item">支持扩展名：.doc,.docx,.pdf 最多4个</p>
-										</div>
+		</div>
+		<!-- 新增功能弹框 -->
+		<div class="layui-row" id="addPeople" style="display: none;padding: 20px 30px;">
+			<div class="layui-col-md10">
+					<form class="layui-form" id="addEmployeeForm">
+							<div class="layui-form-item">
+									<label class="layui-form-label">所属阶段：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+							<div class="layui-form-item">
+									<label class="layui-form-label">事件名称：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+							<div class="layui-form-item">
+									<label class="layui-form-label">事件类别：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+							<div class="layui-form-item">
+									<label class="layui-form-label">事件内容：</label>
+									<div class="layui-input-block">
+											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+							<div class="layui-form-item">
+									<label class="layui-form-label">事件级别：</label>
+									<div class="layui-input-block">
+										<input type="text" class="layui-input" id="test1" placeholder="yyyy年MM月dd日">
+									</div>
+							</div>
+							<div class="layui-form-item">
+									<label class="layui-form-label">发生时间：</label>
+									<div class="layui-input-block">
+											<input type="text" class="layui-input" id="test2" placeholder="yyyy年MM月dd日">
+									</div>
+							</div>
+							<div class="layui-form-item">
+									<label class="layui-form-label">内部人员：</label>
+									<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+									</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">文件上传：</label>
+								<button type="button" class="layui-btn" id="upwenjian">
+									<i class="layui-icon">&#xe67c;</i>添加附件
+								</button>
+								<span id="fileName"></span>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">相关备注：</label>
+								<div class="layui-input-block">
+									<textarea name="textject" placeholder="" class="layui-textarea"></textarea>
 								</div>
-						</div>
-				</p>
-
+							</div>
+							<div class="layui-form-item">
+								<div class="layui-input-block">
+									<button class="layui-btn" lay-submit="" lay-filter="demoone">提交</button>
+									<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+								</div>
+							</div>	
+					</form>
 			</div>
-			<div class="btn_div"><button type="submit" @click='zeng()'>确定</button></div>
 	</div>
-	
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
@@ -271,199 +270,30 @@
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
-	//日期 
+	//开始运行日期 
 		laydate.render({
-			elem: '#date',
+			elem: '#test1'
+			});
+	//结束时间
+		laydate.render({
+			elem: '#test2'
 			});
 		});
-			 // 选择全国
-		    var app = new Vue({
-		        el: "app",
-						data: function() {
-							return {
-								area:[],
-								backFrame:[],
-								projectmen: [],
-								databaseFrame:[],
-								zdepartment:[],
-								zpostName:[],
-								uiFrame:[],
-								jsFrame:[],
-								
-								peoplemore:[],
-								peoplelist:[],
-								addList: {
-									proname: '',
-									proArea:'',
-									uiFrame:'',
-									jsFrame:'',
-									backFrame:'',
-									databaseFrame:'',
-									stakeHolder:'',
-									whether_ys:'',
-									ys_date:'',
-									persionRelease:'',
-									departname: '',
-									selectedpeople: '',
-									peo_job: '',
-									dao_data:''
-								},
-							}
-						},
-				created: function () {
-					this.getdata();
-					this.project();
-					this.projectzeng();
-				},
-		        methods: {
-							getdata() {
-									var that = this;
-									$.ajax({
-											cache: false,
-											type: "post",
-											url: "{:U('ProjectDelivery/projectList')}",
-											dataType: "json",
-											success: function (data) {
-													that.rank = data.data.rank;
-											}
-									})
-							},
-								
-		            project() {
-		                var that = this;
-		                $.ajax({
-		                    type: "post",
-		                    url: "{:U('ProjectDelivery/proDelivery')}",
-		                    dataType: "json",
-												data:{
-													projectManagerId:875
-												},
-		                    success: function (data) {
-														that.area = data.data.area;
-														that.backFrame = data.data.backFrame;
-														that.uiFrame = data.data.uiFrame;
-														that.jsFrame = data.data.jsFrame;
-														that.databaseFrame = data.data.databaseFrame;
-														that.projectmen = data.data.projectList;
-		                    }
-		                })
-								},
-								projectzeng() {
-										var that = this;
-										$.ajax({
-												type: "post",
-												url: "{:U('ProjectDelivery/addPersionDropOperation')}",
-												dataType: "json",
-												success: function (data) {
-													that.zdepartment = data.data.department;
-													that.zpostName = data.data.postName;
-		
-												}
-										})
-								},
-								depart_select(){
-		                var that = this;
-		                $.ajax({
-		                    type: "post",
-		                    url: "{:U('ProjectDelivery/departmentPersion')}",
-		                    dataType: "json",
-												data:{
-													departmentName:this.addList.departname
-												},
-		                    success: function (data) {
-													that.peoplemore = data.data;
-		
-		                    }
-		                })
-								},
-								down() {
-									$(".new_div").hide();
-								},
-								
-								// 增加新的内部人员
-								zeng() {
-									var that = this;
-									var dproId =$("#dpropeopleid").find("option:selected").text();
-									var dpersionId= $('#dpeopleid').find("option:selected").text();;
-									console.log(dproId);
-									console.log(dpersionId);
-									$.ajax({
-											type: "post",
-											url: "{:U('ProjectDelivery/proDeliveryPersionAdd')}",
-											dataType: "json",
-											data:{
-												proId:this.addList.proname,
-												proName:dproId,
-												persionId:this.addList.selectedpeople,
-												persionName:dpersionId,
-												jobType:this.addList.peo_job,
-												inTime:this.addList.dao_data
-											},
-											success: function (data) {
-												that.laypeople();
-											}
-									})
-									
-									$(".new_div").hide();
-								},
-								//  查询增添新的人员
-								laypeople(){
-										var that = this;
-										$.ajax({
-												type: "post",
-												url: "{:U('ProjectDelivery/projectPersion')}",
-												dataType: "json",
-												data:{
-													projectId:this.addList.proname
-												},
-												success: function (data) {
-													that.peoplelist = data.data;
-												}
-										})
-								},
-								
-								 // 交付信息提交
-								submitForm(){
-										var that = this;
-										var dproname =$("#dpropeopleid").find("option:selected").text();
-										$.ajax({
-												type: "post",
-												url: "{:U('ProjectDelivery/proDeliveryAdd')}",
-												dataType: "json",
-												data:{
-													proId:this.addList.proname,
-													proName:dproname,
-													proArea:this.addList.proArea,
-													uiFrame:this.addList.uiFrame,
-													jsFrame:this.addList.jsFrame,
-													backFrame:this.addList.backFrame,
-													databaseFrame:this.addList.databaseFrame,
-													stakeHolder:this.addList.stakeHolder,
-													whether_ys:this.addList.whether_ys,
-													ys_date:this.addList.ys_date,
-													persionRelease:this.addList.persionRelease
-													
-												},
-												success: function (data) {
-													if(data.code == 200) {
-														layui.use('layer', function() {
-															layer.alert('提交成功');
-														})
-													} else {
-														layui.use('layer', function() {
-															var layer = layui.layer;
-															layer.alert('添加失败');
-														})
-													}
-												}
-										})
-								},
-								
-		        }
-		    })
+		// 添加项目组成员
+		$('.addThisPeo').on('click',function(){
+				layer.open({
+						type: 1,
+						title: '新增风险',
+						closeBtn: 2,   // 关闭样式
+						shadeClose: true,  // 关闭方式
+						anim:5,    // 弹出样式
+						area: ['36vw', '90vh'],
+						// btn:['确定','取消'],
+						isOutAnim:false,    // 关闭动画
+						content: $('#addPeople'),
+				})
+		}); 
 				
-				$("#btnzeng").on('click', function () {
-					$(".new_div").show();
-				});
+
 </script>
 </html>
