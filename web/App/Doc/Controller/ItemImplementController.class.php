@@ -114,8 +114,6 @@ class ItemImplementController extends BaseController {
         //項目编号
         $pro_code = I('pCode');
  
-        
-
         $weeklyResult = $this->result=
         ItemImplementModel::weeklyResult($pro_code);
         
@@ -344,16 +342,9 @@ class ItemImplementController extends BaseController {
 
         $weekly_code = I('wCode','');
 
- 
-
         //计划编号
         $plan_code = I('plan_code');
 
-        //周报开始时间
-        $weekly_stime = I('weekly_stime');
-
-        //周报结束时间
-        $weekly_etime = I('weekly_etime');
 
         //所属阶段
         $stage  = I('stage');
@@ -364,14 +355,6 @@ class ItemImplementController extends BaseController {
         //创建人
         $founder_id = I('founder_id');
 
-
-        // $completion_rate = I('cRate');
-        // //完成内容
-        // $work_content = I('wContent');
-        // //完成状态
-        // $work_state = I('wState');
-        // //备注
-        // $remarks = I('remarks');
         $newList = array();
         // 周报任务明细列表
         $upWeeklyList = I('upWeeklyList',$newList);
@@ -385,7 +368,7 @@ class ItemImplementController extends BaseController {
 
 
         $addStaus = $this->result=
-        ItemImplementModel::pWeeklyAdd($pro_code,$weekly_name,$plan_code,$weekly_stime,$weekly_etime,$stage,$pro_schedule,$founder_id,$upWeeklyList,$weeklyList,$nextWeeklyList);
+        ItemImplementModel::pWeeklyAdd($pro_code,$weekly_name,$plan_code,$stage,$pro_schedule,$founder_id,$upWeeklyList,$weeklyList,$nextWeeklyList);
        
         $this->Response(200,$addStaus,'');
 
