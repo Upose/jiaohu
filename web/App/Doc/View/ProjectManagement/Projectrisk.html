@@ -254,7 +254,7 @@
 				type: 'post',
 				data: {
 					pCode:'11',  // 项目编号  后期有前面页面传值
-					stage  :data.field.add_departjd,
+					stage:data.field.add_departjd,
 					rContent  :data.field.add_departnr,
 					rType  :data.field.add_departlb,
 					level  :data.field.add_departdj,
@@ -290,13 +290,11 @@
 				cellMinWidth: 110,
 				cols: [[
 					{field:'id',title: 'ID', sort: true},
-					{field:'member_name', title: '客户姓名',align:'center'},
-					{field:'department', title: '单位',align:'center'},
-					{field:'duty',title: '职责',align:'center'},
-					{field:'customer_type',title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-					{field:'phone', title: '电话',align:'center'},
-					{field:'mailbox', title: '邮箱',align:'center'},
-					{field:'remarks',title: '备注',align:'center'},
+					{field:'risk_content', title: '风险内容',align:'center'},
+					{field:'level', title: '风险等级',align:'center'},
+					{field:'stage',title: '所属阶段',align:'center'},
+					{field:'risk_type',title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+					{field:'pro_code', title: '项目编号',align:'center'},
 					{field:'right',title: '操作',toolbar: '#barDemo',align:'center'}
 				]],
 				page: true,//开启分页
