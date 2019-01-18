@@ -19,7 +19,7 @@ class ItemMilepostController extends BaseController {
 		//pro_code	项目编号
 		$p['pro_code'] = I('pro_code');
 		//plan_code 计划编号
-		$p['pro_code'] = time();
+		$p['plan_code'] = time();
 		//plan_name	计划名称
 		$p['plan_name'] = I('plan_name');
 		//plan_content	计划内容
