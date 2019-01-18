@@ -432,27 +432,27 @@ class ItemStartUpModel
 
        
       // $sql = "SELECT
-						// 		c.id AS cid,
-						// 		c.department,
-						// 		c.duty,
-						// 		(
-						// 			CASE c.customer_type
-						// 			WHEN '1' THEN
-						// 				'其他公司'
-						// 			WHEN '0' THEN
-						// 				'客户'
-						// 			ELSE
-						// 				'其他'
-						// 			END
-						// 		) AS customer_type,
-						// 		c.customer_name,
-						// 		c.phone,
-						// 		c.mailbox,
-						// 		c.remarks
-						// 	FROM
-						// 		`app_customer` c
-						// 	WHERE
-						// 		c.pro_code = $pCode";
+                        //      c.id AS cid,
+                        //      c.department,
+                        //      c.duty,
+                        //      (
+                        //          CASE c.customer_type
+                        //          WHEN '1' THEN
+                        //              '其他公司'
+                        //          WHEN '0' THEN
+                        //              '客户'
+                        //          ELSE
+                        //              '其他'
+                        //          END
+                        //      ) AS customer_type,
+                        //      c.customer_name,
+                        //      c.phone,
+                        //      c.mailbox,
+                        //      c.remarks
+                        //  FROM
+                        //      `app_customer` c
+                        //  WHERE
+                        //      c.pro_code = $pCode";
 
       $app_customer = M('app_customer');
       $count = $app_customer ->where('pro_code='.$pCode) ->count();
