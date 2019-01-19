@@ -38,7 +38,7 @@ class ItemMilepostModel{
 
 	public function planStage($p) {
 		try{
-            $res =  M('app_project_planb')->where($p)->select();
+            $res =  M('app_project_planb')->add($p);
             return $res;
          
         }catch(Exception $e){

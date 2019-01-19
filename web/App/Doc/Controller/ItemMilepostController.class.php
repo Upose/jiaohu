@@ -87,9 +87,9 @@ class ItemMilepostController extends BaseController {
 		$status=$this->status=ItemMilepostModel::planStage($p);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
-                } else {
-                throw new Exception('数据插入失败');
-                }
+            } else {
+            	throw new Exception('数据插入失败');
+            }
 	}
 
 	/**
@@ -107,8 +107,8 @@ class ItemMilepostController extends BaseController {
 		$status=$this->status=ItemMilepostModel::planStage($p);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
-                } else {
-                throw new Exception('数据插入失败');
-                }
+            } else {
+            	throw new Exception('数据插入失败');
+            }
 	}
 }
