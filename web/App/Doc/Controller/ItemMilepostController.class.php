@@ -70,7 +70,7 @@ class ItemMilepostController extends BaseController {
 		//pro_code	项目编号
 		$p['pro_code'] = I('pro_code');
 		// plan_code	计划任务编号
-		$p['plan_code'] = time();
+		$p['plan_code'] = I('plan_code');
 		// Milepost_id	里程碑id
 		$p['milepost_id'] = I('milepost_id');
 		// plan_content	内容
