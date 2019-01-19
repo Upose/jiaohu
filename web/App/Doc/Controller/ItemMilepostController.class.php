@@ -104,11 +104,11 @@ class ItemMilepostController extends BaseController {
 		$p['plan_code'] = I('plan_code');
 		//milepost_id 里程碑id
 		$p['milepost_id'] = I('milepost_id');
-		$status=$this->status=ItemMilepostModel::planStage($p);
+		$status=$this->status=ItemMilepostModel::stageList($p);
             if ($status) {
-                $this->Response(200,$status,'数据新增成功');
+                $this->Response(200,$status,'数据查询成功');
             } else {
-            	throw new Exception('数据插入失败');
+            	throw new Exception('数据查询失败');
             }
 	}
 }

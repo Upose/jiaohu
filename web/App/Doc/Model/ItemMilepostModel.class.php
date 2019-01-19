@@ -18,6 +18,7 @@ class ItemMilepostModel{
 			$sql = "SELECT
 						A.id,
 						A.pro_code,
+						A.plan_code,
 						A.type_id,
 						A.plan_name,
 						A.plan_stime,
@@ -39,6 +40,16 @@ class ItemMilepostModel{
 	public function planStage($p) {
 		try{
             $res =  M('app_project_planb')->add($p);
+            return $res;
+         
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+	}
+
+	public function stageList($p) {
+		try{
+            $res =  M('app_project_planb')->where($p)->select($p);
             return $res;
          
         }catch(Exception $e){
