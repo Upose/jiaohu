@@ -49,6 +49,10 @@ class ItemMilepostModel{
 
 	public function stageList($p) {
 		try{
+			if(!$p['pro_code'] && !$p['plan_code']) {
+				$res =  M('app_project_planb')->select($p);
+            	return $res;
+			}
             $res =  M('app_project_planb')->where($p)->select($p);
             return $res;
          
