@@ -32,6 +32,8 @@ class ItemMilepostController extends BaseController {
 		$p['plan_etime'] = I('plan_etime');
 		//deliver_target	计划交付目标
 		$p['deliver_target'] = I('deliver_target');
+		//计划类型
+		$p['plan_type'] = I('plan_type');
 		//remarks 备注
 		$p['remarks'] = I('remarks');
 		//创建人
@@ -40,9 +42,9 @@ class ItemMilepostController extends BaseController {
 		$status=$this->status=ItemMilepostModel::planningTask($p);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
-                } else {
-                throw new Exception('数据插入失败');
-                }
+            } else {
+            	throw new Exception('数据插入失败');
+            }
 	}
 
 	/**
@@ -54,9 +56,9 @@ class ItemMilepostController extends BaseController {
 		$status=$this->status=ItemMilepostModel::planList();
             if ($status) {
                 $this->Response(200,$status,'数据查询成功');
-                } else {
-                throw new Exception('数据查询失败');
-                }
+            } else {
+            	throw new Exception('数据查询失败');
+            }
 	}
 
 	/**

@@ -22,7 +22,8 @@ class ItemMilepostModel{
 						A.plan_name,
 						A.plan_stime,
 						A.plan_etime,
-						B.nature 
+						B.nature,
+						A.plan_type
 					FROM
 						`app_project_plana` A
 						LEFT JOIN dm_nature B ON A.type_id = B.id";
