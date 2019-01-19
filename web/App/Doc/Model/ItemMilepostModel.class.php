@@ -52,9 +52,10 @@ class ItemMilepostModel{
 			if(!$p['pro_code'] && !$p['plan_code']) {
 				$res =  M('app_project_planb')->select($p);
             	return $res;
+			}else{
+	            $res =  M('app_project_planb')->where($p)->select($p);
+	            return $res;
 			}
-            $res =  M('app_project_planb')->where($p)->select($p);
-            return $res;
          
         }catch(Exception $e){
             return $e->getMessage();
