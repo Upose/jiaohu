@@ -83,6 +83,8 @@ class ItemMilepostController extends BaseController {
 		$p['deliver_target'] = I('deliver_target');
 		//plan_type计划类型
 		$p['plan_type'] = I('plan_type');
+		//plan_name计划名称
+		$p['plan_name'] = I('plan_name');
 		// remarks	备注
 		$p['remarks'] = I('remarks');
 
