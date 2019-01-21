@@ -81,6 +81,8 @@ class ItemMilepostController extends BaseController {
 		$p['plan_etime'] = I('plan_etime');
 		// deliver_target	交付目标
 		$p['deliver_target'] = I('deliver_target');
+		//plan_type计划类型
+		$p['plan_type'] = I('plan_type');
 		// remarks	备注
 		$p['remarks'] = I('remarks');
 
@@ -108,7 +110,7 @@ class ItemMilepostController extends BaseController {
             if ($status) {
                 $this->Response(200,$status,'数据查询成功');
             } else {
-            	throw new Exception('数据查询失败');
+            	return -100;
             }
 	}
 }
