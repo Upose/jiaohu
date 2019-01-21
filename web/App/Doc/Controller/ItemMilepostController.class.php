@@ -112,7 +112,7 @@ class ItemMilepostController extends BaseController {
             if ($status) {
                 $this->Response(200,$status,'数据查询成功');
             } else {
-            	return -100;
+            	$this->Response(200,'','-100');
             }
 	}
 }
