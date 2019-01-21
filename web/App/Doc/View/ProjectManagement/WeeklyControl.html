@@ -383,6 +383,11 @@
            width: 3vw;
            height: 4vh;
        }
+.layui-input, .layui-textarea {
+    display: block;
+    width: 95%;
+    padding-left: 10px;
+}
     </style>
 </head>
 <body id="app">
@@ -1020,14 +1025,15 @@
             <!-- 弹出框新增周报任务 -->
             <div class="layui-row" id="weekly_paper" style="display: none;">
                 <div class="layui-col-md12">
-                    <div class="papertitle_one">上周工作计划完成情况</div>
+                    <div class="papertitle_one">本周工作计划完成情况</div>
                     <div class="form_content">
                         <form  class="layui-form" style="border-bottom: 1px dashed #aaaaaa;">
                         <div class="layui-form-item" style="margin-top: 2vh;">
                             <div class="layui-inline" style="margin-left: 2%;">
                                 <span style="float: left;margin-top: 2vh;">开始时间:</span>
                                 <div class="layui-input-inline" style="width: 165px;margin-left: 3px;">
-                                    <input type="text" class="layui-input" id="tan_start_time" placeholder="yyyy年MM月dd日" lay-verify="required">
+                                    <input type="text" class="layui-input"
+                                     id="tan_start_time" placeholder="yyyy年MM月dd日" lay-verify="required">
                                 </div>
                             </div>
                             <div class="layui-inline" style="margin-left: 1%;">
@@ -1039,7 +1045,7 @@
                             <div class="layui-inline">
                                 <span style="float: left;margin-top: 2vh;">所属阶段:</span>
                                 <div class="layui-input-inline" style="width: 145px;margin-left: 3px;">
-                                  <select name="modules" lay-verify="required" lay-search="">
+                                  <select name="modules" lay-verify="required" lay-search="" id="stage">
                                     <option value="研发阶段">研发阶段</option>
                                     <option value="设计阶段">设计阶段</option>
                                     <option value="验收阶段">验收阶段</option>
@@ -1049,7 +1055,7 @@
                             <div class="layui-inline">
                                 <span style="float: left;margin-top: 2vh;">阶段完成率:</span>
                                 <div class="layui-input-inline" style="width: 145px;margin-left: 3px;">
-                                  <select name="modules" lay-verify="required" lay-search="">
+                                  <select name="modules" lay-verify="required" lay-search="" id="pro_schedule">
                                     <option value="10%">10%</option>
                                     <option value="20">20%</option>
                                     <option value="30">30%</option>
@@ -1060,13 +1066,15 @@
                         <div class="big_design">
                             <div class="one_title">
                                 <span class="titile_num">1、</span>
-                                <div class="title_detail">大屏界面设计</div>
+                                <div class="layui-input-block">
+                                    <input type="text" name="title" required  lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input">
+                                  </div>
                             </div>
                             <div class="layui-form-item" style="margin-top: 10px;margin-left: 5px;">
                                 <div class="layui-inline checkbox_list">
-                                    <input type="checkbox" lay-skin="primary" name="big_check" title="进行中">
-                                    <input type="checkbox" lay-skin="primary" name="big_check" title="已完成">
-                                    <input type="checkbox" lay-skin="primary" name="big_check" title="撤销">
+                                    <input type="radio" lay-skin="primary" name="big_check" title="进行中">
+                                    <input type="radio" lay-skin="primary" name="big_check" title="已完成">
+                                    <input type="radio" lay-skin="primary" name="big_check" title="撤销">
                                 </div>
                                 <div class="layui-inline list_progress">
                                     <div class="one_progress">
@@ -1090,13 +1098,13 @@
                         <div class="zhili_big">
                             <div class="two_title">
                                 <span class="titile_num">2、</span>
-                                <div class="title_detail">治理大屏界面设计前端开发</div>
+                                <input type="text" name="title" required  lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input">
                             </div>
                             <div class="layui-form-item" style="padding-top: 10px;">
                                 <div class="layui-inline checkbox_list">
-                                    <input type="checkbox" lay-skin="primary" name="big_check" title="进行中">
-                                    <input type="checkbox" lay-skin="primary" name="big_check" title="已完成">
-                                    <input type="checkbox" lay-skin="primary" name="big_check" title="撤销">
+                                    <input type="radio" lay-skin="primary" name="big1_check" title="进行中">
+                                    <input type="radio" lay-skin="primary" name="big1_check" title="已完成">
+                                    <input type="radio" lay-skin="primary" name="big1_check" title="撤销">
                                 </div>
                                 <div class="layui-inline list_progress">
                                     <div class="two_progress">
@@ -1121,14 +1129,14 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label" style="width:20px;">3、</label>
                                 <div class="layui-input-block" style="margin-left: 55px;">
-                                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" style="width: 98%;">
+                                  <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入内容" class="layui-input" style="width: 98%;">
                                 </div>
                             </div>
                             <div class="layui-form-item">
                                 <div class="layui-inline checkbox_list">
-                                    <input type="checkbox" lay-skin="primary" name="big_check" title="进行中">
-                                    <input type="checkbox" lay-skin="primary" name="big_check" title="已完成">
-                                    <input type="checkbox" lay-skin="primary" name="big_check" title="撤销">
+                                    <input type="radio" lay-skin="primary" name="big2_check" title="进行中">
+                                    <input type="radio" lay-skin="primary" name="big2_check" title="已完成">
+                                    <input type="radio" lay-skin="primary" name="big2_check" title="撤销">
                                 </div>
                                 <div class="layui-inline list_progress">
                                     <div class="three_progress">
@@ -1153,7 +1161,7 @@
                         <br>
                         <br>
                         </form>
-                        <div class="papertitle_two">上周工作计划完成情况</div>
+                        <div class="papertitle_two">下周工作计划完成情况</div>
                         <form  class="layui-form">
                             <div class="next_week">
                                 <div class="layui-form-item">
@@ -1163,12 +1171,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius new_work">+新增任务</button>
+                            <button class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius new_work1">+新增任务</button>
                         </form>
                     </div>
                     <div class="bot_btn">
-                        <button class="layui-btn layui-btn-radius">确定</button>
-                        <button class="layui-btn layui-btn-primary layui-btn-radius">取消</button>
+                        <button class="layui-btn layui-btn-radius left-submit">确定</button>
+                        <button class="layui-btn layui-btn-primary layui-btn-radius " onclick="reloadPage()">取消</button>
                     </div>
                 </div> 
             </div>
@@ -1197,6 +1205,7 @@
 		});
 		});
     $('.create_weeklypaper').on('click',function(){
+             
 				layer.open({
 						type: 1,
 						title: '新建计划',
@@ -1336,6 +1345,33 @@
                         var val3 =$(this).find('.progress-bar3').width();
                         $(this).parents('.box-nine3').find('.input3').val(Math.ceil(val3 / 2)+"%");
                     })
+                    </script>
+             <script>      
+                    $(".new_work").click(function(event){
+                         event.preventDefault();  
+                    });//阻止本周新建计划的默认事件
+                    $(".new_work1").click(function(event){
+                         event.preventDefault();  
+                    });//阻止下周新建计划的默认事件
+
+                  $(".left-submit").click(function(event){
+                   event.preventDefault();//阻止默认事件
+                     var stage = $(" #stage").val();
+                     var pro_schedule = $(" #pro_schedule").val();
+                      alert(stage);
+                      alert(pro_schedule);
+            
+        // // var plan_name = $(" #lf_plan_name").val();// 名称
+        // // var plan_content= $(" #lf_plan_content").val();// 内容
+        // // var plan_stime= $(" #lf_start_time").val();// 开始时间
+        // // var plan_etime= $(" #lf_end_time").val();// 结束时间
+        // // var deliver_target= $(" #lf_deliver_target").val();// 交付目标
+        // // var type_id= $(" #lf_type_id").val();// 计划类型
+        // // var remarks= $(" #lf_remarks").val();// 备注
+                  })
+                  function reloadPage(){
+                  window.location.reload()
+                }//点击取消，刷新页            
     </script>
-</body>
-</html>
+    </body>
+    </html>

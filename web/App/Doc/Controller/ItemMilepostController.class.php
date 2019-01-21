@@ -19,7 +19,7 @@ class ItemMilepostController extends BaseController {
 		//pro_code	项目编号
 		$p['pro_code'] = I('pro_code');
 		//plan_code 计划编号
-		$p['pro_code'] = time();
+		$p['plan_code'] = time();
 		//plan_name	计划名称
 		$p['plan_name'] = I('plan_name');
 		//plan_content	计划内容
@@ -32,6 +32,8 @@ class ItemMilepostController extends BaseController {
 		$p['plan_etime'] = I('plan_etime');
 		//deliver_target	计划交付目标
 		$p['deliver_target'] = I('deliver_target');
+		//计划类型
+		$p['plan_type'] = I('plan_type');
 		//remarks 备注
 		$p['remarks'] = I('remarks');
 		//创建人
@@ -40,9 +42,9 @@ class ItemMilepostController extends BaseController {
 		$status=$this->status=ItemMilepostModel::planningTask($p);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
-                } else {
-                throw new Exception('数据插入失败');
-                }
+            } else {
+            	throw new Exception('数据插入失败');
+            }
 	}
 
 	/**
@@ -54,9 +56,9 @@ class ItemMilepostController extends BaseController {
 		$status=$this->status=ItemMilepostModel::planList();
             if ($status) {
                 $this->Response(200,$status,'数据查询成功');
-                } else {
-                throw new Exception('数据查询失败');
-                }
+            } else {
+            	throw new Exception('数据查询失败');
+            }
 	}
 
 	/**
@@ -68,7 +70,7 @@ class ItemMilepostController extends BaseController {
 		//pro_code	项目编号
 		$p['pro_code'] = I('pro_code');
 		// plan_code	计划任务编号
-		$p['plan_code'] = time();
+		$p['plan_code'] = I('plan_code');
 		// Milepost_id	里程碑id
 		$p['milepost_id'] = I('milepost_id');
 		// plan_content	内容
@@ -79,15 +81,19 @@ class ItemMilepostController extends BaseController {
 		$p['plan_etime'] = I('plan_etime');
 		// deliver_target	交付目标
 		$p['deliver_target'] = I('deliver_target');
+		//plan_type计划类型
+		$p['plan_type'] = I('plan_type');
+		//plan_name计划名称
+		$p['plan_name'] = I('plan_name');
 		// remarks	备注
 		$p['remarks'] = I('remarks');
 
 		$status=$this->status=ItemMilepostModel::planStage($p);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
-                } else {
-                throw new Exception('数据插入失败');
-                }
+            } else {
+            	throw new Exception('数据插入失败');
+            }
 	}
 
 	/**
@@ -101,12 +107,12 @@ class ItemMilepostController extends BaseController {
 		//plan_code 总体计划编号
 		$p['plan_code'] = I('plan_code');
 		//milepost_id 里程碑id
-		$p['milepost_id'] = I('milepost_id');
-		$status=$this->status=ItemMilepostModel::planStage($p);
+		// $p['milepost_id'] = I('milepost_id');
+		$status=$this->status=ItemMilepostModel::stageList($p);
             if ($status) {
-                $this->Response(200,$status,'数据新增成功');
-                } else {
-                throw new Exception('数据插入失败');
-                }
+                $this->Response(200,$status,'数据查询成功');
+            } else {
+            	$this->Response(200,'','-100');
+            }
 	}
 }
