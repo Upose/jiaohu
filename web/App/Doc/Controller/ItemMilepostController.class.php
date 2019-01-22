@@ -5,7 +5,7 @@ use Think\Controller;
 use Doc\Model\ItemMilepostModel;
 
 /**
-*项目里程碑
+*项目里程碑/工作计划
 *@author he.xiang
 *2019.1.2
 */ 
@@ -72,7 +72,7 @@ class ItemMilepostController extends BaseController {
 		// plan_code	计划任务编号
 		$p['plan_code'] = I('plan_code');
 		// Milepost_id	里程碑id
-		$p['milepost_id'] = I('milepost_id');
+		$p['milepost_id'] = '100'.time();
 		// plan_content	内容
 		$p['plan_content'] = I('plan_content');
 		// plan_stime	开始时间
@@ -115,4 +115,79 @@ class ItemMilepostController extends BaseController {
             	$this->Response(200,'','-100');
             }
 	}
+
+	/**
+	 *工作计划，新增接口
+     *@author he.xiang
+     *2018.1.2
+	 */
+	public function workPlanAdd(){
+		//plan_code 计划编号 - 项目计划主表
+		$p['plan_code'] = I('plan_code');
+		//plan_id 计划id - 项目计划从表
+		$p['plan_id'] = I('plan_id');
+		//plan_type 计划类别 计划类别- （默认计划内）0计划内，1新增，2变更
+		$p['plan_type'] = I('plan_type');
+		//main_member 责任人
+		$p['main_member'] = I('main_member');
+		//member_name 人员姓名
+		$p['member_name'] = I('member_name');
+		//duty 岗位职责
+		$p['duty'] = I('duty');
+		//task_content 任务内容
+		$p['task_content'] = I('task_content');
+		//plan_stime 开始时间
+		$p['plan_stime'] = I('plan_stime');
+		//plan_etime 结束时间
+		$p['plan_etime'] = I('plan_etime');
+		//remarks 备注
+		$p['remarks'] = I('remarks');
+
+		$status=$this->status=ItemMilepostModel::workPlanAdd($p);
+            if ($status) {
+                $this->Response(200,$status,'数据新增成功');
+            } else {
+            	throw new Exception('数据插入失败');
+            }
+	}
+
+	/**
+	 *计划编号，项目计划主表信息查询
+     *@author he.xiang
+     *@param pro_code
+     *2018.1.2
+	 */
+
+	public function selPlan(){
+		//项目编号
+		$pro_code = I('pro_code');
+		$status=$this->status=ItemMilepostModel::selPlan($pro_code);
+            if ($status) {
+                $this->Response(200,$status,'数据查询成功');
+            } else {
+            	throw new Exception('数据查询失败');
+            }
+	}
+
+
+	/**
+	 *计划编号，项目计划主表信息查询
+     *@author he.xiang
+     *@param pro_code
+     *2018.1.2
+	 */
+
+	public function selMile(){
+		//项目编号
+		$plan_code = I('plan_code');
+		$status=$this->status=ItemMilepostModel::selMile($plan_code);
+            if ($status) {
+                $this->Response(200,$status,'数据查询成功');
+            } else {
+            	throw new Exception('数据查询失败');
+            }
+	}
+
+
+
 }
