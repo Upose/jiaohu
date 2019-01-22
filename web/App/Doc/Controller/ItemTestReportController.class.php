@@ -5,9 +5,9 @@ use Think\Controller;
 use Doc\Model\ItemTestReportModel;
 
   /**
-    *项目执行管理阶段
+    *项目测试阶段
     *@author song.chaoxu
-    *2018.01.02
+    *2018.01.22
     */
 class ItemTestReportController extends BaseController {
 
@@ -28,27 +28,10 @@ class ItemTestReportController extends BaseController {
     /**
      * 测试新增
      * @author song.chaoxu
-     * 2019.01.07
+     * 2019.01.22
      */
     public function testReportAdd(){
 
-
-// pro_code    varchar(255)    项目编号  
-// objective   varchar(255)    测试目的  
-// type    int   测试类型  
-// operating_system    char(30)    操作系统  
-// cpu   char(30)    cpu 
-// Memory    char(30)    内存  
-// storage   char(30)    存储  
-// System_name   varchar(255)    系统名称  
-// people    varchar(255)    测试人员  
-// time    varchar(255)    测试时间  
-// Residual_defect   varchar(255)    残留缺陷  
-// target    int   是否达到预定目标  
-// enclosure   varchar(255)    相关附件  
-// remarks   varchar(255)    备注  
-// state   int   状态  
-// Founder_id    int   创建人 
         //項目编号
         $pro_code = I('pCode');
 
@@ -74,7 +57,7 @@ class ItemTestReportController extends BaseController {
 
         $system_name  = I('sName');
 
-        //存储
+        //测试人
         $testPeople  = I('testPeople');
 
         //系统测试时间 
@@ -122,7 +105,7 @@ class ItemTestReportController extends BaseController {
                 $path  = "/Updata/TestReportFile/".$value['savepath'];
                 $enclosure = $newpath = $path.$savename;
                 $href[] = $newpath;
-                echo $filePath."|_____________________path";
+                // echo $filePath."|_____________________path";
                                 
               }
             }
@@ -132,7 +115,7 @@ class ItemTestReportController extends BaseController {
         }
 
         $addStaus = $this->result=
-        ItemImplementModel::eventAdd($pro_code,$pro_stage,$event_name,$event_type,$event_content,$level,$happen_time,$enclosure,$remarks,$founder_id);
+        ItemTestReportModel::testReportAdd($pro_code,$objective,$type,$operating_system,$cpu,$memory,$storage,$system_name,$testPeople,$testTime,$remarks,$residual_defect,$target,$enclosure,$founder_id);
         
         $this->Response(200,$addStaus,'');
 
