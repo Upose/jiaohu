@@ -152,7 +152,7 @@ class ItemMilepostController extends BaseController {
 	}
 
 	/**
-	 *计划编号，项目计划主表信息查询
+	 *项目计划主表信息查询
      *@author he.xiang
      *@param pro_code
      *2018.1.2
@@ -171,7 +171,7 @@ class ItemMilepostController extends BaseController {
 
 
 	/**
-	 *计划编号，项目计划主表信息查询
+	 *项目计划从表信息查询
      *@author he.xiang
      *@param pro_code
      *2018.1.2

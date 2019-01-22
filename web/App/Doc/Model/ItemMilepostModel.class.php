@@ -81,12 +81,34 @@ class ItemMilepostModel{
         }
 	}
 
-	public function selPlan($plan_code) {
+	public function selMile($plan_code) {
 		try{
-	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id')->where($plan_code)->group('milepost_id')->select();
+	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id')->where($plan_code)->group('plan_code')->select();
 	            return $res;
         }catch(Exception $e){
             return $e->getMessage();
         }
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
