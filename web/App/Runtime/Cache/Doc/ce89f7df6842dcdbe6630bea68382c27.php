@@ -5,19 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Tea Party</title>
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
     <link rel="stylesheet" href="/Public/Doc/css/custom.css">
     <script src="/Public/static/jquery-2.0.3.min.js"></script>
     <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
-=======
-    <link rel="stylesheet" href="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/doclay/build/css/app.css" media="all">
-    <link rel="stylesheet" href="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/css/custom.css">
-    <script src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/doclay/plugins/layui/layui.js"></script>
->>>>>>> Stashed changes
 </head>
 <style>
 
@@ -28,11 +20,7 @@ width: 80%;
 <body>
      <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-<<<<<<< Updated upstream
             <div class="layui-logo"><img src="/Public/Doc/images/logo@2x.png" alt=""></div>
-=======
-            <div class="layui-logo"><img src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/logo@2x.png" alt=""></div>
->>>>>>> Stashed changes
             <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
             <div class="layui-col-md-offset2">
                 <ul class="layui-nav layui-col-md10" lay-filter="">
@@ -67,11 +55,7 @@ width: 80%;
             <ul class="layui-nav layui-layout-right kit-nav">
                 <li class="layui-nav-item">
                 <a href=" ">
-<<<<<<< Updated upstream
                 <img src="/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
-=======
-                <img src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
->>>>>>> Stashed changes
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
@@ -84,18 +68,13 @@ width: 80%;
         </div>
         <div class="layui-side layui-bg-black kit-side">
             <div class="layui-side-scroll">
-<<<<<<< Updated upstream
                 <div class="kit-side-fold"><img src="/Public/Doc/images/切换@2x.png" alt=""></div>
-=======
-                <div class="kit-side-fold"><img src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/切换@2x.png" alt=""></div>
->>>>>>> Stashed changes
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <!-- 标志 点赞 &#xe6c6 重要 &#xe658;-->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
                     <li class="layui-nav-item">
                         <!-- <a class="" href="javascript:;"><i class="layui-icon layui-icon-set" aria-hidden="true"></i><span>产品使用</span></a> -->
-<<<<<<< Updated upstream
                         <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>产品使用</span></a>
                         <dl class="layui-nav-child">
                             <dd>
@@ -108,26 +87,11 @@ width: 80%;
                             </dd>
                             <dd>
                                  <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ProductChoice');?>',icon:'',title:'提交反馈',id:'1'}"><img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt=""><span>提交反馈</span>
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/2@2x.png" alt=""><span>产品使用</span></a>
-                        <dl class="layui-nav-child">
-                            <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ComprehensiveAnalysis');?>',icon:'',title:'综合分析',id:'3'}"><img class="cus-nav-icon" src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/2@2x.png" alt=""><span>综合分析</span>
-                                </a>
-                            </dd>
-                            <dd>
-                               <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/MyFeedback');?>',icon:'',title:'我的反馈',id:'2'}"><img class="cus-nav-icon" src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/3@2x.png" alt=""><span>我的反馈</span>
-                                </a>
-                            </dd>
-                            <dd>
-                                 <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ProductChoice');?>',icon:'',title:'提交反馈',id:'1'}"><img class="cus-nav-icon" src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/4@2x.png" alt=""><span>提交反馈</span>
->>>>>>> Stashed changes
                                  </a>
                             </dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
-<<<<<<< Updated upstream
                         <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>技术疑难</span></a>
                     </li>
                      <li class="layui-nav-item">
@@ -135,15 +99,6 @@ width: 80%;
                     </li>
                      <li class="layui-nav-item">
                         <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>体系信箱</span></a>
-=======
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/2@2x.png" alt=""><span>技术疑难</span></a>
-                    </li>
-                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/2@2x.png" alt=""><span>平台优化</span></a>
-                    </li>
-                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/2@2x.png" alt=""><span>体系信箱</span></a>
->>>>>>> Stashed changes
                     </li>
                 </ul>
             </div>
@@ -206,15 +161,9 @@ width: 80%;
         $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
             var lis = $('.layui-nav-tree').find('li.kit-side-folded');
             if(lis.length > 0) {
-<<<<<<< Updated upstream
                 $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换2@2x.png');
             } else {
                 $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换@2x.png');
-=======
-                $('.kit-side-fold img').attr('src', '/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/切换2@2x.png');
-            } else {
-                $('.kit-side-fold img').attr('src', '/ProjectDelivery-master-02434a6c3f67338312d9bac3de2dcaef1cfbe6cd/web/Public/Doc/images/切换@2x.png');
->>>>>>> Stashed changes
             }
         })
     })
