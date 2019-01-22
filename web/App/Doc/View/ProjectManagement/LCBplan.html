@@ -12,6 +12,12 @@
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__STATIC__/vue.min.js"></script>
     <style>
+        .top_list{
+            border: 1px solid black;
+        }
+        .rightTop_list{
+            border: 1px solid red;
+        }
       弹框样式
       .left_form{
           margin-top: 5%;
@@ -792,7 +798,6 @@
             tar.parent().siblings().children(1).removeClass("layui-show");
           }  
     })
-    
     // 新的右侧列表点击切换
      $(()=>{
         $(".zc_content").show().siblings().hide();

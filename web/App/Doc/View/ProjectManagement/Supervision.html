@@ -94,7 +94,7 @@
 						</div>	
 					</div>		
 				</div>
-			</from>
+			</form>
 			<div class="details_di">
 				<blockquote class="layui-elem-quote">历史信息</blockquote>
 				<div class="caller-contar"> 
@@ -122,7 +122,7 @@
 		  //监听提交
 		form.on('submit(demo1)', function(data){
 			var jectname =$("#add_jectment").find("option:selected").text(); 
-			console.log(jectname);
+			//console.log(jectname);
 			$.ajax({
 			url:"{:U('ItemStartUp/projectAdd')}",
 			type: 'post',
@@ -141,9 +141,9 @@
 			dataType: 'json',
 			success: function(res) {
 					if(res.code == 200) {
-						layui.use('layer', function() {
-							layer.alert('提交成功');
-						})
+						layer.msg("提交成功!", {time: 1000}, function () {
+                            location.href="{:U('ProjectManagement/CollectionState')}";  
+                        });
 					} else {
 						layui.use('layer', function() {
 							var layer = layui.layer;
