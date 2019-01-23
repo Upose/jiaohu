@@ -320,7 +320,8 @@ class ItemStartUpModel
                     d.deptName,
                     a.area_name,
                     p.natureType,
-                    p.pro_introduce
+                    p.pro_introduce,
+                    p.create_date
                     
                 FROM
                     `app_project` p
