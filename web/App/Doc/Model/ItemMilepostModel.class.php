@@ -60,4 +60,55 @@ class ItemMilepostModel{
             return $e->getMessage();
         }
 	}
+
+
+	public function workPlanAdd($p) {
+		try{
+            $res =  M('app_member_plan')->add($p);
+            return $res;
+         
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+	}
+
+	public function selPlan($pro_code) {
+		try{
+	            $res =  M('app_project_plana')->field('pro_code,plan_code,plan_name')->where($pro_code)->group('pro_code')->select();
+	            return $res;
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+	}
+
+	public function selMile($plan_code) {
+		try{
+	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id')->where($plan_code)->group('plan_code')->select();
+	            return $res;
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

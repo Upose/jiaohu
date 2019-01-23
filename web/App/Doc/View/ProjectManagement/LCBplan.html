@@ -12,12 +12,6 @@
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__STATIC__/vue.min.js"></script>
     <style>
-        .top_list{
-            border: 1px solid black;
-        }
-        .rightTop_list{
-            border: 1px solid red;
-        }
       弹框样式
       .left_form{
           margin-top: 5%;
@@ -272,6 +266,9 @@
      .right_public{
          width: 100%;
          height: 100%;
+     }
+     .data_null{
+         text-align: center;
      }
     </style>
 </head>
@@ -667,7 +664,13 @@
             <div class="layui-row" id="newrequire" style="display: none;">
                 <div class="layui-col-md10">
                     <form  class="layui-form right_form">
-                        <div class="layui-form-item layui-form-text">
+                        <div class="layui-inline">
+                                <label class="layui-form-label">计划名称:</label>
+                                <div class="layui-input-inline">
+                                  <input type="text" placeholder="这里填写计划名称" class="layui-input" id="rg_plan_name">
+                                </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text" style="margin-top: 15px;">
                             <label class="layui-form-label plan" >计划内容:</label>
                             <div class="layui-input-block content">
                               <textarea placeholder="请输入内容" class="layui-textarea" id="rg_plan_content"></textarea>
@@ -798,7 +801,8 @@
             tar.parent().siblings().children(1).removeClass("layui-show");
           }  
     })
-    // 新的右侧列表点击切换
+    
+    //新的右侧列表点击切换
      $(()=>{
         $(".zc_content").show().siblings().hide();
         $(".top_list").on("click",".rightTop_list",function(){
@@ -852,7 +856,7 @@
                                     '<h3>'+data.plan_name+'</h3>'+
                                 '</div>'+
                                 '<div class="leftbtn_list">'+
-                                    '<button class="ht_btn">'+data.type_id+'</button>'+
+                                    '<button class="ht_btn">'+data.nature+'</button>'+
                                     '<button class="jh_btn">'+data.plan_type+'</button>'+
                                 '</div>'+
                                 '<hr style="width: 80%;">'+
@@ -872,8 +876,8 @@
                         },
                         dataType: 'json',
                         success: function(response) {
-                                console.log(response,'1054');
-                                if (response.code == 200) {
+                                //console.log(response,'1111111111');
+                                if (response.code == 200&&response.data!== '') {
                                     for (var i = 0; i <response.data.length ; i++) {
                                         var data=response.data[i];
                                         if(data.milepost_id==1)
@@ -881,7 +885,7 @@
                                       $('.zc_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -930,7 +934,7 @@
                                     $('.xq_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -979,7 +983,7 @@
                                     $('.sj_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1028,7 +1032,7 @@
                                     $('.kf_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1077,7 +1081,7 @@
                                     $('.cs_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1126,7 +1130,7 @@
                                     $('.sx_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1175,7 +1179,7 @@
                                     $('.px_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1224,7 +1228,7 @@
                                     $('.ys_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1273,7 +1277,7 @@
                                     $('.gd_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1320,7 +1324,35 @@
                                  
                                     }
 
-                                }
+                                }else if(response.code == 200&&response.data== ''){
+                                    $('.zc_content_list').append(
+                                            '<h2 class="data_null">暂无数据</h2>'
+                                    )
+                                    $('.xq_content_list').append(
+                                            '<h2 class="data_null">暂无数据</h2>'
+                                    )
+                                    $('.sj_content_list').append(
+                                            '<h2 class="data_null">暂无数据</h2>'
+                                    )
+                                    $('.kf_content_list').append(
+                                            '<h2 class="data_null">暂无数据</h2>'
+                                    )
+                                    $('.cs_content_list').append(
+                                            '<h2 class="data_null">暂无数据</h2>'
+                                    )
+                                    $('.sx_content_list').append(
+                                            '<h2 class="data_null">暂无数据</h2>'
+                                    )
+                                    $('.px_content_list').append(
+                                            '<h2 class="data_null">暂无数据</h2>'
+                                    )
+                                    $('.ys_content_list').append(
+                                            '<h2 class="data_null">需求暂无数</h2>'
+                                    )
+                                    $('.gd_content_list').append(
+                                            '<h2 class="data_null">暂无数据</h2>'
+                                    )
+                            }
                         }
                         })
                  
@@ -1386,7 +1418,7 @@
                     },
                     dataType: 'json',
                     success: function(response) {
-                        //console.log(response);
+                        //console.log(response,'222222222');
                         //alert(data.code);
                         $('.zc_content_list').html("");
                         $('.xq_content_list').html("");
@@ -1397,14 +1429,14 @@
                         $('.px_content_list').html("");
                         $('.ys_content_list').html("");
                         $('.gd_content_list').html("");
-                        if (response.code == 200) {
+                        if (response.code == 200&&response.data!= '') {
                                 for (var i = 0; i <response.data.length ; i++) {
                                     var data=response.data[i];
                                     if(data.milepost_id==1){
                                       $('.zc_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                         data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1453,7 +1485,7 @@
                                     $('.xq_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1502,7 +1534,7 @@
                                     $('.sj_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1551,7 +1583,7 @@
                                     $('.kf_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1600,7 +1632,7 @@
                                     $('.cs_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1649,7 +1681,7 @@
                                     $('.sx_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1698,7 +1730,7 @@
                                     $('.px_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1747,7 +1779,7 @@
                                     $('.ys_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1796,7 +1828,7 @@
                                     $('.gd_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
-                                         '大屏页面需求梳理'+
+                                                data.plan_name+
                                          '<i class="layui-icon layui-colla-icon">></i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
@@ -1844,6 +1876,34 @@
 
 
                                 }
+                            }else if(response.code == 200&&response.data== ''){
+                                $('.zc_content_list').append(
+                                        '<h2 class="data_null">暂无数据</h2>'
+                                )
+                                $('.xq_content_list').append(
+                                        '<h2 class="data_null">暂无数据</h2>'
+                                )
+                                $('.sj_content_list').append(
+                                        '<h2 class="data_null">暂无数据</h2>'
+                                )
+                                $('.kf_content_list').append(
+                                        '<h2 class="data_null">暂无数据</h2>'
+                                )
+                                $('.cs_content_list').append(
+                                        '<h2 class="data_null">暂无数据</h2>'
+                                )
+                                $('.sx_content_list').append(
+                                        '<h2 class="data_null">暂无数据</h2>'
+                                )
+                                $('.px_content_list').append(
+                                        '<h2 class="data_null">暂无数据</h2>'
+                                )
+                                $('.ys_content_list').append(
+                                        '<h2 class="data_null">需求暂无数</h2>'
+                                )
+                                $('.gd_content_list').append(
+                                        '<h2 class="data_null">暂无数据</h2>'
+                                )
                             }
                     },
                     error:function(){
@@ -1878,22 +1938,21 @@
                                 milepost_id=9
                         }
                         var pro_code=233;//写死的数值  后期再从其他页面获取
-                        console.log(plan_code,'15511551');
+                        //console.log(plan_code,'15511551');
                         plan_code=plan_code==null?$(".left_list_main").children().first().attr("leftvalue"):plan_code;
+                        var plan_name=$("#rg_plan_name").val();//计划名称
                         var plan_content =$("#rg_plan_content").val();//计划内容
                         var deliver_target = $("#rg_plan_target").val();//交付目标
                         var plan_stime = $("#rg_start_date").val();//开始时间
                         var plan_etime = $("#rg_end_date").val();//结束时间
                         var plan_type= $(" #rg_plan_type").val();// 计划类型
                         var remarks=$("#rg_plan_remake").val();//备注
-                       // alert("计划内容是"+plan_content+"然后交付目标是"+deliver_target+"开始时间是"+plan_stime+"结束时间是"+plan_etime+"备注"+remarks);
+                       //alert("计划内容是"+plan_content+"然后交付目标是"+deliver_target+"开始时间是"+plan_stime+"结束时间是"+plan_etime+"备注"+remarks+"类型"+plan_type);
                        if (plan_content == '' || deliver_target == '' 
                                 || plan_stime == '' || plan_etime == '' 
                                 || remarks == ''){
                             layer.msg('请填写完整信息后提交', {icon: 5});
                         }else{
-                            console.log($(".left_list_main").children().first().attr("leftvalue"),"797979797997");
-                            console.log(plan_code,"898989989898989");
                         $.ajax({
                              type:'POST',
                              url:"{:U('ItemMilepost/planStage')}",
@@ -1906,6 +1965,7 @@
                                    'pro_code':pro_code,
                                    'plan_code':plan_code,
                                    'plan_type':plan_type,
+                                   'plan_name':plan_name,
                                    'milepost_id':milepost_id  
                                 },
                              dataType:'json',
