@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/collectionState.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <style>
+    
+    </style>
 </head>
 
 <body>
@@ -18,7 +21,7 @@
                 <div class="title">全部项目</div>
             </div>
             <div class="changeType">
-                <div class="changeItem active">运行中(<span id="itemsRun">5</span>)</div>
+                <div class="changeItem active demo">运行中(<span id="itemsRun">5</span>)</div>
                 <div class="changeItem">已完成(<span id="itemsFinish">4</span>)</div>
                 <div class="changeItem">归档(<span id="itemsFile">3</span>)</div>
             </div>
@@ -153,5 +156,8 @@
             }    
         })
     })
+    $(document).on('click', '.rating',function(){
+window.location.href="{:U('ProjectManagement/ProjectCollection')}";
+});
 </script>
 </html>

@@ -1057,8 +1057,15 @@
                                 <div class="layui-input-inline" style="width: 145px;margin-left: 3px;">
                                   <select name="modules" lay-verify="required" lay-search="" id="pro_schedule">
                                     <option value="10%">10%</option>
-                                    <option value="20">20%</option>
-                                    <option value="30">30%</option>
+                                    <option value="20%">20%</option>
+                                    <option value="30%">30%</option>
+                                    <option value="40%">40%</option>
+                                    <option value="50%">50%</option>
+                                    <option value="60%">60%</option>
+                                    <option value="70%">70%</option>
+                                    <option value="80%">80%</option>
+                                    <option value="90%">90%</option>
+                                    <option value="100%">100%</option>
                                   </select>
                                 </div>
                             </div>
@@ -1067,14 +1074,14 @@
                             <div class="one_title">
                                 <span class="titile_num">1、</span>
                                 <div class="layui-input-block">
-                                    <input type="text" name="title" required  lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input">
+                                    <input type="text" name="title" required  lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input wContent">
                                   </div>
                             </div>
                             <div class="layui-form-item" style="margin-top: 10px;margin-left: 5px;">
                                 <div class="layui-inline checkbox_list">
-                                    <input type="radio" lay-skin="primary" name="big_check" title="进行中">
-                                    <input type="radio" lay-skin="primary" name="big_check" title="已完成">
-                                    <input type="radio" lay-skin="primary" name="big_check" title="撤销">
+                                    <input type="radio" lay-skin="primary" name="big_check" title="进行中" class="checked">
+                                    <input type="radio" lay-skin="primary" name="big_check" title="已完成" class="checked">
+                                    <input type="radio" lay-skin="primary" name="big_check" title="撤销" class="checked">
                                 </div>
                                 <div class="layui-inline list_progress">
                                     <div class="one_progress">
@@ -1083,14 +1090,14 @@
                                                 <div class="progress-bar"></div> <!--进度-->
                                                 <div class="progress-circle"></div><!--控制点-->
                                             </div>
-                                            <input type="text" value="" class="input1" readonly="readonly"><!--显示进度值-->
+                                            <input type="text" value="" class="input1 cRate" readonly="readonly"><!--显示进度值-->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="layui-inline bz_list">
                                     <span class="bz_span">备注:</span>
                                     <div class="layui-input-block" style="margin-left: 55px;">
-                                      <input  type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                                      <input  type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input remarks">
                                     </div>
                                 </div>
                             </div>
@@ -1357,10 +1364,16 @@
                   $(".left-submit").click(function(event){
                    event.preventDefault();//阻止默认事件
                      var stage = $(" #stage").val();
-                     var pro_schedule = $(" #pro_schedule").val();
-                      alert(stage);
-                      alert(pro_schedule);
-            
+                     var pro_schedule = $("#pro_schedule").val();
+                     var wContent = $(".wContent").val();
+                     var checked =$('input:radio:checked').attr('title');
+                     var cRate =$('.cRate').val();
+                     var remarks =$('.remarks').val();
+                     var stage = $("#stage1").val();
+                     
+                     
+
+          
         // // var plan_name = $(" #lf_plan_name").val();// 名称
         // // var plan_content= $(" #lf_plan_content").val();// 内容
         // // var plan_stime= $(" #lf_start_time").val();// 开始时间
@@ -1371,7 +1384,7 @@
                   })
                   function reloadPage(){
                   window.location.reload()
-                }//点击取消，刷新页            
+                }//点击取消，刷新页面            
     </script>
     </body>
     </html>
