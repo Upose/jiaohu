@@ -72,18 +72,46 @@ class ItemMilepostModel{
         }
 	}
 
-	public function selPlan($pro_code) {
+	public function workPlanList($p) {
 		try{
-	            $res =  M('app_project_plana')->field('pro_code,plan_code,plan_name')->where($pro_code)->group('pro_code')->select();
+            $res =  M('app_member_plan')->where($p)->select();
+            return $res;
+         
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+	}
+
+	public function selPlan($p) {
+		try{
+	            $res =  M('app_project_plana')->field('pro_code,plan_code,plan_name')->where($p)->group('pro_code')->select();
 	            return $res;
         }catch(Exception $e){
             return $e->getMessage();
         }
 	}
 
-	public function selMile($plan_code) {
+	public function selMile($p) {
 		try{
-	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id')->where($plan_code)->group('plan_code')->select();
+	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id')->where($p)->group('plan_code')->select();
+	            return $res;
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+	}
+
+	public function selMember($p) {
+		try{
+	            $res =  M('app_project_persion')->field('user_code,member_name')->where($p)->group('user_code')->select();
+	            return $res;
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+	}
+
+	public function selJob($p) {
+		try{
+	            $res =  M('dm_jobtype')->select();
 	            return $res;
         }catch(Exception $e){
             return $e->getMessage();
