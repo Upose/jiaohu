@@ -79,11 +79,11 @@ class ProjectCollectionStateModel {
 				            ->field('id member_id')
 				            ->where('pro_code=' . $value['pro_code'])
 				            ->select();
-				$rows10 = M()->table('itemapplication.app_project_plan_B')//项目计划从表
+				$rows10 = M()->table('itemapplication.app_project_planb')//项目计划从表
 				            ->field('id planb_id')
 				            ->where('pro_code=' . $value['pro_code'])
 				            ->select();
-				$rows11 = M()->table('itemapplication.app_project_plan_A')//项目计划主表
+				$rows11 = M()->table('itemapplication.app_project_plana')//项目计划主表
 				            ->field('id plana_id')
 				            ->where('pro_code=' . $value['pro_code'])
 				            ->select();
