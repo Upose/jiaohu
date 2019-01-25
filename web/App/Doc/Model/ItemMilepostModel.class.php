@@ -84,7 +84,7 @@ class ItemMilepostModel{
 
 	public function selPlan($p) {
 		try{
-	            $res =  M('app_project_plana')->field('pro_code,plan_code,plan_name')->where($p)->group('pro_code')->select();
+	            $res =  M('app_project_plana')->field('pro_code,plan_code,plan_name')->where($p)->group('plan_code')->select();
 	            return $res;
         }catch(Exception $e){
             return $e->getMessage();
@@ -93,7 +93,7 @@ class ItemMilepostModel{
 
 	public function selMile($p) {
 		try{
-	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id,plan_name')->where($p)->group('plan_code')->select();
+	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id,plan_name')->where($p)->group('milepost_id')->select();
 	            return $res;
         }catch(Exception $e){
             return $e->getMessage();
