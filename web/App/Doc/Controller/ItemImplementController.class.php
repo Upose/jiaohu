@@ -242,7 +242,7 @@ class ItemImplementController extends BaseController {
     }
 
     /**
-     * 事件新增
+     * 会议新增
      * @author song.chaoxu
      * 2019.01.07
      */
@@ -364,7 +364,6 @@ class ItemImplementController extends BaseController {
         // [cRate,wContent,wState,remarks]
 
         $nextWeeklyList = I('nextWeeklyList');
-
 
 
         $addStaus = $this->result=

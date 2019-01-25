@@ -249,7 +249,8 @@ class ItemStartUpModel
                     p.pro_code,
                     p.pro_name,
                     d.deptName,
-                    i.industry_name
+                    i.industry_name,
+                    p.create_date
                 FROM
                     `app_project` p
                 JOIN dm_industry i ON p.industry_id = i.industry_id
@@ -319,7 +320,9 @@ class ItemStartUpModel
                     d.deptName,
                     a.area_name,
                     p.natureType,
-                    p.pro_introduce
+                    p.pro_introduce,
+                    p.create_date
+                    
                 FROM
                     `app_project` p
                 JOIN dm_industry i ON p.industry_id = i.industry_id

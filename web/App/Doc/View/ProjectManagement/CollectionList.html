@@ -9,6 +9,50 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/collectionList.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <style>
+    .page_con{
+        float: right;
+        width: 20%;
+        height: 7vh;
+        margin-right: 5vw;
+    }
+    .now_page{
+        float: left;
+        width: 35%;
+        height: 100%;
+    }
+    .now_page span{
+        float: left;
+        margin-top: 2vh;
+        margin-left: 5px;
+    }
+    .now_page p{
+        float: left;
+        text-align: center;
+        margin-top: 2.5vh;
+        margin-left: 5px;
+    }
+    .target_page span{
+        float: left;
+        margin-top: 2vh;
+        margin-left: 5px;
+    }
+    .target_page input {
+        width: 15px;
+        height: 15px;
+        margin-top: 2vh;
+        margin-left: 5px;
+        float: left;
+    }
+    .target_page button{
+        float: left;
+        margin-top: 2vh;
+        margin-left: 5px;
+        text-align: center;
+        width: 50px;
+        height: 20px;
+    }
+    </style>
 </head>
 
 <body>
@@ -24,7 +68,7 @@
                     </form>
                 </div>
                 <div class="search">
-                    <img src="__IMG__/search.png" alt="">
+                    <img src="__IMG__/search.png" alt="" class="search_btn">
                     <input type="text" class="seachCont" placeholder="请输入项目名称">
                 </div>
                 <div class="inform">
@@ -39,21 +83,33 @@
         </div>
         <div class="container">
             <!-- url内填写数据接口 -->
-            <table class="layui-table" lay-data="{width: 892, height:332, url:'ProjectListQuery/deleteProject', page:true, id:'pCode'}" lay-filter="demo">
+            <table class="layui-table">
                 <thead>
                     <tr>
-                        <th lay-data="{field:'itemName'}">项目名称</th>
-                        <th lay-data="{field:'section'}">所属部门</th>
-                        <th lay-data="{field:'calling'}">所属行业</th>
-                        <th lay-data="{field:'time',,sort: true}">创建时间</th>
-                        <th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}">操作</th>
+                        <th>项目名称</th>
+                        <th>所属部门</th>
+                        <th>所属行业</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
                     </tr>
                 </thead>
+                <tbody class="table_body">
+                   
+                </tbody>
             </table>
-            <script type="text/html" id="barDemo">
-                <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-            </script>
+            <div class="page_con">
+               <div class="now_page">
+                    <span>第</span>
+                    <p class="nowpage_val">1</p>
+                    <span>页</span>
+               </div> 
+               <div class="target_page">
+                    <span>跳转到</span>
+                    <input type="text" class="page_val">
+                    <span>页</span>
+                    <button class="target_btn">跳转</button>
+               </div>
+            </div>
         </div>
     </div>
 </body>
@@ -87,5 +143,144 @@
             });
         });
     });
+    //点击跳转到新建项目页面
+    $(".newProject").click(function(event){
+        event.preventDefault();
+        window.location.href="{:U('ProjectManagement/Supervision')}";         
+    })
+    // 页面刚进入时获取表格数据
+    $(()=>{
+        $.ajax({
+            url:"{:U('ItemStartUp/pList')}",
+            type: 'post',
+            data:{
+
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.code == 200) {
+                    console.log(response,"response");
+                    $(".test2").html("<b>Hello world!</b>");
+                    for (var i = 0; i <response.data.result.length ; i++) {
+                        var data=response.data.result[i];
+                        $(".table_body").append(
+                            '<tr>'+
+                             '<td>'+data.pro_name+'</td>'+
+                             '<td>'+data.deptname+'</td>'+
+                             '<td>'+data.industry_name+'</td>'+
+                             '<td>'+data.create_date+'</td>'+
+                             '<td><button class="delete_btn" pro_code="'+data.pro_code+'">删除</button></td>'+
+                            '</tr>'
+                        )
+                    }
+                }
+            },
+            error:function(){
+                        //console.log(1234);
+            }    
+        })
+    })
+    // 搜索框搜索的时候  search_btn
+    $(".search_btn").click(function(event){
+        event.preventDefault();
+        $('.table_body').html("");
+        var proName=$(" .seachCont").val();
+        $.ajax({
+            url:"{:U('ItemStartUp/pList')}",
+            type: 'post',
+            data:{
+                proName:proName
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.code == 200) {
+                    console.log(response,"response");
+                    for (var i = 0; i <response.data.result.length ; i++) {
+                        var data=response.data.result[i];
+                        $(".table_body").append(
+                            '<tr>'+
+                             '<td>'+data.pro_name+'</td>'+
+                             '<td>'+data.deptname+'</td>'+
+                             '<td>'+data.industry_name+'</td>'+
+                             '<td>'+data.create_date+'</td>'+
+                             '<td><button class="delete_btn" pro_code="'+data.pro_code+'">删除</button></td>'+
+                            '</tr>'
+                        )
+                    }
+                }
+            },
+            error:function(){
+                        //console.log(1234);
+            }    
+        })
+    })
+    // 点击页码按钮的时候
+    $(".target_btn").click(function(event){
+        event.preventDefault();
+        $('.table_body').html("");
+        var proName=$(".seachCont").val();
+        var page=$(".page_val").val();
+        $.ajax({
+            url:"{:U('ItemStartUp/pList')}",
+            type: 'post',
+            data:{
+                proName:proName,
+                page:page
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.code == 200) {
+                    // 数据调用成功后添加数据改变当前页码
+                    $(".nowpage_val").html(page);
+                    for (var i = 0; i <response.data.result.length ; i++) {
+                        var data=response.data.result[i];
+                        $(".table_body").append(
+                            '<tr>'+
+                             '<td>'+data.pro_name+'</td>'+
+                             '<td>'+data.deptname+'</td>'+
+                             '<td>'+data.industry_name+'</td>'+
+                             '<td>'+data.create_date+'</td>'+
+                             '<td><button class="delete_btn" pro_code="'+data.pro_code+'">删除</button></td>'+
+                            '</tr>'
+                        )
+                    }
+                }
+            },
+            error:function(){
+                        //console.log(1234);
+            }    
+        })
+    })
+    // 删除按钮操作
+    $(".table_body").on("click",".delete_btn",function(event){
+        event.preventDefault();
+        var tar = $(this);
+        var index = tar.index();
+        pro_code = tar.attr("pro_code");
+        //判断是否删除弹出框
+        layer.confirm("确认删除?",function(){
+            $.ajax({
+            url:"{:U('ItemStartUp/deleteProject')}",
+            type: 'post',
+            data:{
+                pCode:pro_code
+            },
+            dataType: 'json',
+            success: function(res) {
+                   //console.log(response.data);
+                    if(res.data=="1"){
+                        layer.msg("删除成功!", {time: 1000}, function () {
+                            location.reload();
+                        });
+                       
+                        
+                    }
+            }
+        })
+        })
+        
+
+       
+    })
 </script>
 </html>
