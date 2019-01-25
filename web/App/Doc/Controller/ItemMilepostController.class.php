@@ -122,6 +122,8 @@ class ItemMilepostController extends BaseController {
      *2018.1.2
 	 */
 	public function workPlanAdd(){
+		//计划名称
+		$p['plan_name'] = I('plan_name');
 		//plan_code 计划编号 - 项目计划主表
 		$p['plan_code'] = I('plan_code');
 		//plan_id 计划id - 项目计划从表
@@ -152,6 +154,22 @@ class ItemMilepostController extends BaseController {
 	}
 
 	/**
+	 *工作计划列表接口
+     *@author he.xiang
+     *2018.1.2
+	 */
+	public function workPlanList(){
+		//plan_code 计划编号 - 项目计划主表
+		$p['pro_code'] = I('pro_code');
+		$status=$this->status=ItemMilepostModel::workPlanList($p);
+            if ($status) {
+                $this->Response(200,$status,'数据查询成功');
+            } else {
+            	throw new Exception('数据插入失败');
+            }
+	}
+
+	/**
 	 *项目计划主表信息查询
      *@author he.xiang
      *@param pro_code
@@ -160,8 +178,8 @@ class ItemMilepostController extends BaseController {
 
 	public function selPlan(){
 		//项目编号
-		$pro_code = I('pro_code');
-		$status=$this->status=ItemMilepostModel::selPlan($pro_code);
+		$p['pro_code'] = I('pro_code');
+		$status=$this->status=ItemMilepostModel::selPlan($p);
             if ($status) {
                 $this->Response(200,$status,'数据查询成功');
             } else {
@@ -173,14 +191,14 @@ class ItemMilepostController extends BaseController {
 	/**
 	 *项目计划从表信息查询
      *@author he.xiang
-     *@param pro_code
+     *@param plan_code
      *2018.1.2
 	 */
 
 	public function selMile(){
-		//项目编号
-		$plan_code = I('plan_code');
-		$status=$this->status=ItemMilepostModel::selMile($plan_code);
+		//计划任务编号
+		$p['plan_code'] = I('plan_code');
+		$status=$this->status=ItemMilepostModel::selMile($p);
             if ($status) {
                 $this->Response(200,$status,'数据查询成功');
             } else {
@@ -188,6 +206,37 @@ class ItemMilepostController extends BaseController {
             }
 	}
 
+	/**
+	 *责任人，人员姓名列表查询
+     *@author he.xiang
+     *@param 
+     *2018.1.2
+	 */
+	public function selMember() {
+		//项目编号
+		$p['pro_code'] = I('pro_code');
+		$status=$this->status=ItemMilepostModel::selMember($p);
+            if ($status) {
+                $this->Response(200,$status,'数据查询成功');
+            } else {
+            	throw new Exception('数据查询失败');
+            }
+	}
+
+	/**
+	 *岗位职责查询
+     *@author he.xiang
+     *@param 
+     *2018.1.2
+	 */
+	public function selJob() {
+		$status=$this->status=ItemMilepostModel::selJob();
+            if ($status) {
+                $this->Response(200,$status,'数据查询成功');
+            } else {
+            	throw new Exception('数据查询失败');
+            }
+	}
 
 
 }
