@@ -162,38 +162,16 @@
 				</div>
 			</div>
 			<div class="details_zhong">
-				<div>
-				<blockquote class="layui-elem-quote addThispro">试运行信息采集</blockquote>
-				<button class="addThisPeo" id="btnzeng">新增试运行</button>
+				<div class="layui-row">
+					<div class="layui-col-md12">
+					<blockquote class="layui-elem-quote addThispro">试运行信息列表</blockquote>
+					<button class="addThisPeo" lay-filter="addThisPeo">新增试运行</button>
+					</div>
+					<div class="layui-col-md12">
+					<table class="layui-hide" id="peoples" lay-filter="peoples"></table>
+					</div>
 				</div>
-				<table class="layui-table">
-						<thead>
-								<tr>
-										<th>验收项目</th>
-										<th>验收地点</th>
-										<th>验收时间</th>
-										<th>验收人员</th>
-										<th>验收内容</th>
-										<th>验收评价</th>
-										<th>备注</th>
-								</tr>
-						</thead>
-						<tbody>
-								<tr v-for="item in arrList">
-										<td>{{item.theme}}</td>
-										<td>{{item.address}}</td>
-										<td>{{item.meeting_time}}</td>
-										<td>{{item.meeting_level}}</td>
-										<td>{{item.department_id}}</td>
-										<td>{{item.department_id}}</td>
-										<td style="cursor:pointer;" @click="openNew(item.id)">
-											<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-											<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-										</td>
-								</tr>
-						</tbody>
-				</table>
-			</div>
+		</div>
 		</div>
 		<!-- 新增功能弹框 -->
 		<div class="layui-row" id="addPeople" style="display: none;padding: 20px 30px;">
@@ -208,19 +186,19 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">试运内容：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="con_nr" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 							<div class="layui-form-item">
 									<label class="layui-form-label">试运情况：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="con_qk" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 							<div class="layui-form-item">
 									<label class="layui-form-label">用户评价：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="con_pj" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 							<div class="layui-form-item">
@@ -238,13 +216,16 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">达成目标：</label>
 									<div class="layui-input-block">
-												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+												<input type="text" name="con_mb" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件上传：</label>
-								<button type="button" class="layui-btn" id="upwenjian">
+								<button type="button" class="layui-btn layui-btn-sm" id="upwenjian">
 									<i class="layui-icon">&#xe67c;</i>添加附件
+								</button>
+								<button type="button" class="layui-btn layui-btn-sm" id="uploadBtn">
+										<i class="layui-icon">&#xe67c;</i>上传文件
 								</button>
 								<span id="fileName"></span>
 							</div>
@@ -266,11 +247,14 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
-	layui.use(['form', 'layedit', 'laydate'], function(){
+	var  uptext;
+
+	layui.use(['form', 'layedit', 'laydate','table'], function(){
 		var form = layui.form,
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
+		var table = layui.table;
 	//开始运行日期 
 		laydate.render({
 			elem: '#test1'
@@ -279,7 +263,65 @@
 		laydate.render({
 			elem: '#test2'
 			});
+			
+			form.on('submit(demoone)', function(data){	
+				var s_time=$("#test1").val(); 
+				var e_time=$("#test2").val(); 
+				$.ajax({
+				url:"{:U('ItemTestRun/testRunAdd')}",
+				type: 'post',
+				data: {
+							pro_code:"12",  //  项目id  后期添加
+							content:data.field.con_nr,
+							situation:data.field.con_qk,
+							evaluate :data.field.con_pj,
+							start_time:s_time,
+							stop_time:e_time,
+							target:data.field.con_mb,
+							founder_id :'2222',
+							remarks:data.field.textject,
+							enclosure:uptext,
+				},
+				dataType: 'json',
+				success: function(res) {
+						if(res.code == 200) {
+							layui.use('layer', function() {
+								layer.alert('提交成功');
+							})
+						} else {
+							layui.use('layer', function() {
+								var layer = layui.layer;
+								layer.alert('添加失败');
+							})
+						}			
+				},
+				})
+				return false;
+			});	
+});
+		// 文件上传
+		layui.use('upload', function(){
+			var upload = layui.upload;			 
+			//执行实例  但不执行上传功能
+			var uploadInst = upload.render({
+				elem: '#upwenjian', //绑定元素
+				url: "{:U('ItemAcceptance/fileUpload')}", //上传接口
+				accept:'file',
+				auto: false, 
+				bindAction: '#uploadBtn',
+				choose: function(obj) {
+					obj.preview(function(index, file, result) {
+						$("#fileName").html(file.name);
+					});
+				},
+				done: function(res) {
+					uptext =res.data.src;
+					console.log(uptext);
+					layer.msg(res.msg);
+				}
+			});
 		});
+		
 		// 添加项目组成员
 		$('.addThisPeo').on('click',function(){
 				layer.open({
