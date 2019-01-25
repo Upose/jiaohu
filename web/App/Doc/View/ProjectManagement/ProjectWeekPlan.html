@@ -203,7 +203,9 @@
 								<div class="layui-form-item">
 										<label class="layui-form-label">计划名称：</label>
 										<div class="layui-input-block">
-												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<select name="conpany_add" lay-verify="required" id="add_department" lay-filter="see_depart">
+													<option value="">请选择计划内容</option>
+											</select>
 										</div>
 								</div>
 							</div>
@@ -241,7 +243,7 @@
 							</div>
 							<div class="layui-col-md6">
 								<div class="layui-form-item">
-										<label class="layui-form-label">计划内容：</label>
+										<label class="layui-form-label">计划类别：</label>
 										<div class="layui-input-block">
 												<input type="text" name="conpany" class="layui-input" lay-verify="required">
 										</div>
@@ -251,7 +253,7 @@
 								<div class="layui-form-item">
 										<label class="layui-form-label">开始时间：</label>
 										<div class="layui-input-block">
-												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+												<input type="text" name="conpany" id="test1" class="layui-input" lay-verify="required">
 										</div>
 								</div>
 							</div>
@@ -259,25 +261,16 @@
 								<div class="layui-form-item">
 										<label class="layui-form-label">结束时间：</label>
 										<div class="layui-input-block">
-												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+												<input type="text" name="conpany" id="test2" class="layui-input" lay-verify="required">
 										</div>
 								</div>
 							</div>
-							<div class="layui-col-md6">
+							<div class="layui-col-md12">
 								<div class="layui-form-item">
-										<label class="layui-form-label">计划类别：</label>
+										<label class="layui-form-label">计划内容：</label>
 										<div class="layui-input-block">
-												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+												<textarea name="textject1" placeholder="" class="layui-textarea"></textarea>
 										</div>
-								</div>
-							</div>
-							<div class="layui-col-md6">
-								<div class="layui-form-item">
-									<label class="layui-form-label">文件上传：</label>
-									<button type="button" class="layui-btn" id="upwenjian">
-										<i class="layui-icon">&#xe67c;</i>添加附件
-									</button>
-									<span id="fileName"></span>
 								</div>
 							</div>
 							<div class="layui-col-md12">
@@ -313,7 +306,10 @@
 		laydate.render({
 			elem: '#test2'
 			});
+			
+			selectProject();   //  选择项目计划内容
 		});
+		
 		// 添加项目组成员
 		$('.addThisPeo').on('click',function(){
 				layer.open({
@@ -322,13 +318,37 @@
 						closeBtn: 2,   // 关闭样式
 						shadeClose: true,  // 关闭方式
 						anim:5,    // 弹出样式
-						area: ['48vw', '72vh'],
+						area: ['48vw', '78vh'],
 						// btn:['确定','取消'],
 						isOutAnim:false,    // 关闭动画
 						content: $('#addPeople'),
 				})
 		}); 
-				
+		
+		function selectProject(){
+			$.ajax({
+			url:"{:U('ItemMilepost/selMile')}",
+			type: 'post',
+			data: {
+				pro_code:233,
+			},
+			dataType: 'json',
+			success: function(data) {
+					if (data.code == 200) {
+							var result = data.data || [];
+							console.log(result);
+							var role = document.getElementById("conpany_add");        //add_role_name给select定义的id     	      	      
+							for (var i = 0; i<result.dResult.length; i++) {
+									var option = document.createElement("option");    // 创建添加option属性
+									option.setAttribute("value",result.dResult[i].did);                  // 给option的value添加值
+									option.innerText= result.dResult[i].deptname;             // 打印option对应的纯文本 （超级管理员、管理员）
+									role.appendChild(option);                          // 给select 添加option子标签
+									form.render("select");                                // 刷性select，显示出数据        
+									} 
+					}
+			}    
+			})
+		}			
 
 </script>
 </html>
