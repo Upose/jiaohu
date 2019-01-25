@@ -23,7 +23,7 @@ class ItemTestRunController extends BaseController {
 		//试运行情况
 		$p['situation'] = I('situation');
 		//运行部门
-		$p['department'] = I('department');
+		// $p['department'] = I('department');
 		//用户评价
 		$p['evaluate'] = I('evaluate');
 		//开始时间
