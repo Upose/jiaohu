@@ -180,11 +180,7 @@ class ItemMilepostController extends BaseController {
 		//项目编号
 		$p['pro_code'] = I('pro_code');
 		$status=$this->status=ItemMilepostModel::selPlan($p);
-            if ($status) {
-                $this->Response(200,$status,'数据查询成功');
-            } else {
-            	throw new Exception('数据查询失败');
-            }
+        echo json_encode($status);
 	}
 
 
