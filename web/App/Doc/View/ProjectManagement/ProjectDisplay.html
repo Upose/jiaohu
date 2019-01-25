@@ -247,7 +247,6 @@
 			success: function(data) {
 					if (data.code == 200) {
 							var result = data.data || [];
-							console.log(result[0].pro_name);	
 							$("#projectname").val(result[0].pro_name);
 							$("#jobname").val(result[0].industry_name);        	      
 							$("#pro_laiyuan").val(result[0].pro_source);  

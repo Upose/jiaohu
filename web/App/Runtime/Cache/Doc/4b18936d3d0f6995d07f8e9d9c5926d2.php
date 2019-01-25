@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/1212122/web/Public/Doc/css/login.css">
+    <link rel="stylesheet" href="/Public/Doc/css/login.css">
 </head>
 
 <body>
     <!-- 最外层框 -->
     <div class="con">
         <!-- 左边背景图 -->
-        <img src="/1212122/web/Public/Doc/images/ct.png" alt="">
+        <img src="/Public/Doc/images/ct.png" alt="">
         <!-- 右边输入内容 -->
         <div class="login">
             <form>
-                <img src="/1212122/web/Public/Doc/images/logo.png" alt="">
+                <img src="/Public/Doc/images/logo.png" alt="">
                 <p>账号</p>
                 <input type="text" id="name">
                 <p>密码</p>
@@ -28,8 +28,8 @@
         </div>
     </div>
 </body>
-<script src="/1212122/web/Public/static/jquery-2.0.3.min.js"></script>
-<script src="/1212122/web/Public/Doc/doclay/plugins/layui/layui.js"></script>
+<script src="/Public/static/jquery-2.0.3.min.js"></script>
+<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 <script>
     var login = document.getElementById('login');
 
