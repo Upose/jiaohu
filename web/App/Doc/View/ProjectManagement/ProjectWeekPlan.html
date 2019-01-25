@@ -203,8 +203,8 @@
 								<div class="layui-form-item">
 										<label class="layui-form-label">计划名称：</label>
 										<div class="layui-input-block">
-											<select name="conpany_add" lay-verify="required" id="add_department" lay-filter="see_depart">
-													<option value="">请选择计划内容</option>
+											<select name="conpany_add" id="conpany_add" lay-verify="required" id="add_department" lay-filter="see_depart">
+													<option value="">请选择计划名称</option>
 											</select>
 										</div>
 								</div>
@@ -293,8 +293,9 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
-	layui.use(['form', 'layedit', 'laydate'], function(){
-		var form = layui.form,
+	var form,layedit,layer,laydate; 
+	layui.use(['form', 'layedit', 'laydate','table'], function(){
+	  form = layui.form,
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
@@ -327,7 +328,7 @@
 		
 		function selectProject(){
 			$.ajax({
-			url:"{:U('ItemMilepost/selMile')}",
+			url:"{:U('ItemMilepost/selPlan')}",
 			type: 'post',
 			data: {
 				pro_code:233,
@@ -336,12 +337,12 @@
 			success: function(data) {
 					if (data.code == 200) {
 							var result = data.data || [];
-							console.log(result);
+							console.log(result[0].plan_code);
 							var role = document.getElementById("conpany_add");        //add_role_name给select定义的id     	      	      
-							for (var i = 0; i<result.dResult.length; i++) {
+							for (var i = 0; i<result.length; i++) {
 									var option = document.createElement("option");    // 创建添加option属性
-									option.setAttribute("value",result.dResult[i].did);                  // 给option的value添加值
-									option.innerText= result.dResult[i].deptname;             // 打印option对应的纯文本 （超级管理员、管理员）
+									option.setAttribute("value",result[i].plan_code);                  // 给option的value添加值
+									option.innerText= result[i].plan_name;             // 打印option对应的纯文本 （超级管理员、管理员）
 									role.appendChild(option);                          // 给select 添加option子标签
 									form.render("select");                                // 刷性select，显示出数据        
 									} 
