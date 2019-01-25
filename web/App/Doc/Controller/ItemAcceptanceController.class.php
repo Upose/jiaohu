@@ -78,43 +78,49 @@ class ItemAcceptanceController extends BaseController {
 	}
 
 	public function fileUpload() {
-		foreach ($_FILES as $key => $value) {
-            //实例化上传类
-            $upload =  new \Think\Upload();
-            //设置附件上传大小
-            // $upload->maxSize=3145728;
-            //保持文件名不变
-            $upload->saveName = time()."dt".rand(0,10);
-            //设置附件上传类型
-            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
-            //设置附件上传根目录
-            $upload->rootPath = './Updata/ProjectFile/'; 
-            //设置附件上传（子）目录
-            $upload->savePath = '';
-            $result = $upload->upload();
-            // echo '<pre>';
-            // var_dump($result);
-            // echo '</pre>';
-            // file_put_contents("11114.txt", json_encode($result));
-            if($result){
-				foreach ($result as $key => $value) {
-				$savename  = $value['savename'];
-				$path  = "/Updata/ProjectFile/".$value['savepath'];
-				$p['enclosure'] = $newpath = $path.$savename;
-				$href[] = $newpath;
-				// echo $filePath."|_____________________path";
-				$res['code'] = 200;
-        		$res['msg'] = 'success';
-		        $res['data']['src'] = $p['enclosure'];
-		        echo json_encode($res);
-            	}
-            }else{
-            	$res['code'] = 0;
-            	$res['msg'] = 'fail';
-            	$res['data']['src'] = '';
-            	echo json_encode($res);
-            }
-        }
+		if($_FILES){
+			foreach ($_FILES as $key => $value) {
+	            //实例化上传类
+	            $upload =  new \Think\Upload();
+	            //设置附件上传大小
+	            // $upload->maxSize=3145728;
+	            //保持文件名不变
+	            $upload->saveName = time()."dt".rand(0,10);
+	            //设置附件上传类型
+	            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
+	            //设置附件上传根目录
+	            $upload->rootPath = './Updata/ProjectFile/'; 
+	            //设置附件上传（子）目录
+	            $upload->savePath = '';
+	            $result = $upload->upload();
+	            // echo '<pre>';
+	            // var_dump($result);
+	            // echo '</pre>';
+	            // file_put_contents("11114.txt", json_encode($result));
+	            if($result){
+					foreach ($result as $key => $value) {
+					$savename  = $pro_code.'_'.$value['savename'];
+	                $path  = "/Updata/ApprovalFile/".$value['savepath'];
+	                $pro_enclosure = $newpath = $path.$savename;
+					$res['code'] = 200;
+	        		$res['msg'] = 'success';
+			        $res['data']['src'] = $pro_enclosure;
+			        echo json_encode($res);
+	            	}
+	            }else{
+	            	$res['code'] = 0;
+	            	$res['msg'] = 'fail';
+	            	$res['data']['src'] = '';
+	            	echo json_encode($res);
+	            }
+        	}
+		}else{
+			$res['code'] = 0;
+        	$res['msg'] = 'null file';
+        	$res['data']['src'] = '';
+        	echo json_encode($res);
+		}
+		
         
 	}
 
