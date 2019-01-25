@@ -86,6 +86,7 @@ class ItemMilepostModel{
 		try{
 	            $res =  M('app_project_plana')->field('pro_code,plan_code,plan_name')->where($p)->group('plan_code')->select();
 	            $arr = [];
+	            $arr['code'] = 200;
 				$arr['data'] = $res;
 				return $arr;
         }catch(Exception $e){
@@ -97,6 +98,7 @@ class ItemMilepostModel{
 		try{
 	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id,plan_name')->where($p)->group('milepost_id')->select();
 	            $arr = [];
+	            $arr['code'] = 200;
 				$arr['data'] = $res;
 				return $arr;
         }catch(Exception $e){
@@ -108,6 +110,7 @@ class ItemMilepostModel{
 		try{
 	            $res =  M('app_project_persion')->field('user_code,member_name')->where($p)->group('user_code')->select();
 	            $arr = [];
+	            $arr['code'] = 200;
 				$arr['data'] = $res;
 				return $arr;
         }catch(Exception $e){
@@ -119,6 +122,7 @@ class ItemMilepostModel{
 		try{
 	            $res =  M('dm_jobtype')->select();
 	            $arr = [];
+	            $arr['code'] = 200;
 				$arr['data'] = $res;
 				return $arr;
         }catch(Exception $e){
