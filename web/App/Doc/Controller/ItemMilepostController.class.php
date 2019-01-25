@@ -199,7 +199,7 @@ class ItemMilepostController extends BaseController {
 		//计划任务编号
 		$p['plan_code'] = I('plan_code');
 		$status=$this->status=ItemMilepostModel::selMile($p);
-        return $status;
+        echo json_encode($status);
 	}
 
 	/**
