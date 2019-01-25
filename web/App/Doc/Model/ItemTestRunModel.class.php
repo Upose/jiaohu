@@ -12,4 +12,17 @@ class ItemTestRunModel{
             return $e->getMessage();
         }
 	}
+
+	public function runList($pro_code,$page,$limit) {
+		$res = M('app_test_run')->where('pro_code='.$pro_code)
+	                                    ->page($page,$limit)
+	                                    ->order('create_data desc')
+										->select();
+		$arr = [];
+		$arr['code'] = 0;
+		$arr['count'] = count($res);
+		$arr['data'] = $res;
+		$arr['msg'] = '';
+		return $arr;
+	}
 }

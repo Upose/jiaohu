@@ -47,6 +47,23 @@ class ItemTestRunController extends BaseController {
 
 	}
 
+	/**
+	 *项目试运行列表接口
+     *@author he.xiang
+     *2018.1.4
+	 */
+
+	public function runList() {
+		//项目id
+		$pro_code = I('pro_code');
+		$page = I('page');
+        $limit = I('limit');
+        $list=$this->list=
+        ItemTestRunModel::runList($pro_code,$page,$limit);
+        
+        echo json_encode($list);
+	}
+
 
 
 
