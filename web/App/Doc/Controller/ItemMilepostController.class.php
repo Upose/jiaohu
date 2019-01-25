@@ -199,11 +199,7 @@ class ItemMilepostController extends BaseController {
 		//计划任务编号
 		$p['plan_code'] = I('plan_code');
 		$status=$this->status=ItemMilepostModel::selMile($p);
-            if ($status) {
-                $this->Response(200,$status,'数据查询成功');
-            } else {
-            	throw new Exception('数据查询失败');
-            }
+        return $status;
 	}
 
 	/**
