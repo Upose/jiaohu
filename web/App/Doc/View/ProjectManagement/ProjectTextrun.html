@@ -246,6 +246,9 @@
 	</div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-xs" lay-event="edit">查看</a>
+</script>
 <script>
 	var  uptext;
 
@@ -285,8 +288,9 @@
 				dataType: 'json',
 				success: function(res) {
 						if(res.code == 200) {
-							layui.use('layer', function() {
-								layer.alert('提交成功');
+							layui.use('layer', function() {	
+								layer.close(layer.index);
+								layer.alert('添加成功');
 							})
 						} else {
 							layui.use('layer', function() {
@@ -298,6 +302,30 @@
 				})
 				return false;
 			});	
+			
+			table.render({
+				elem: '#peoples',
+				url:"{:U('ItemTestRun/runList')}",
+				where:{                     //  页面传值   项目经理id
+					pro_code:12
+				},
+				// even:true,
+				height: 270,
+				cellMinWidth: 110,
+				cols: [[
+					{field:'id',title: 'ID', sort: true},
+					{field:'content', title: '试运行内容',align:'center'},
+					{field:'situation', title: '试运行情况',align:'center'},
+					{field:'evaluate',title: '用户评价',align:'center'},
+					{field:'start_time',title: '开始时间'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+					{field:'stop_time', title: '结束时间',align:'center'},
+					{field:'target', title: '达成目标',align:'center'},
+					{field:'right',title: '操作',toolbar: '#barDemo',align:'center'}
+				]],
+				page: true,//开启分页
+				limit:5,   //默认十条数据一页
+				limits:false,  //数据分页条
+			});
 });
 		// 文件上传
 		layui.use('upload', function(){
