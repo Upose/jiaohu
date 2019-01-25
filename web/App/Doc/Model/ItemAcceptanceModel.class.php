@@ -19,6 +19,11 @@ class ItemAcceptanceModel{
 	                                    ->page($page,$limit)
 	                                    ->order('create_date desc')
 										->select();
-		return $res;
+		$arr = [];
+		$arr['code'] = 0;
+		$arr['count'] = count($res);
+		$arr['data'] = $res;
+		$arr['msg'] = '';
+		return $arr;
 	}
 }
