@@ -12,7 +12,6 @@ class ItemTestReportModel
      */
     public function testReportAdd($pro_code,$objective,$type,$operating_system,$cpu,$memory,$storage,$system_name,$testPeople,$testTime,$remarks,$residual_defect,$target,$enclosure,$founder_id){
 
-        
             $app_majorevents = M("app_project_test"); // 实例化对象
                 $data['pro_code'] = $pro_code;
                 $data['objective'] = $objective;
