@@ -19,9 +19,11 @@ class ItemAcceptanceModel{
 	                                    ->page($page,$limit)
 	                                    ->order('create_date desc')
 										->select();
+		$count = M('app_project_complete')->where('pro_code='.$pro_code)
+										->select();
 		$arr = [];
 		$arr['code'] = 0;
-		$arr['count'] = count($res);
+		$arr['count'] = count($count);
 		$arr['data'] = $res;
 		$arr['msg'] = '';
 		return $arr;

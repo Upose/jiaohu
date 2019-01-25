@@ -18,9 +18,11 @@ class ItemTestRunModel{
 	                                    ->page($page,$limit)
 	                                    ->order('create_data desc')
 										->select();
+		$count = M('app_test_run')->where('pro_code='.$pro_code)
+										->select();
 		$arr = [];
 		$arr['code'] = 0;
-		$arr['count'] = count($res);
+		$arr['count'] = count($count);
 		$arr['data'] = $res;
 		$arr['msg'] = '';
 		return $arr;
