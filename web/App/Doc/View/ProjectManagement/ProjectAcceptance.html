@@ -197,7 +197,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">验收内容：</label>
 									<div class="layui-input-block">
-											<input type="text" name="con_nr" class="layui-input" lay-verify="required">
+											<input type="text" name="con_nr" class="layui-input" lay-verify="">
 									</div>
 							</div>
 							<div class="layui-form-item">
@@ -217,6 +217,9 @@
 								<button type="button" class="layui-btn" id="upwenjian">
 									<i class="layui-icon">&#xe67c;</i>添加附件
 								</button>
+								<button type="button" class="layui-btn" id="uploadBtn">
+										<i class="layui-icon">&#xe67c;</i>上传文件
+								</button>
 								<span id="fileName"></span>
 							</div>
 							<div class="layui-form-item">
@@ -231,72 +234,75 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
+	var  uptext;
 	layui.use(['form', 'layedit', 'laydate','table'], function(){
 		var form = layui.form,
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
 		var table = layui.table;
-			//监听提交
-		form.on('submit(demoone)', function(data){
-				
-				var uploadInst = upload.render({
-					elem: '#upwenjian', //绑定元素
-					url: "{:U('ItemStartUp/approvalAdd')}", //上传接口
-					accept:'file',
-					// auto: false, 
-					data: {
+		laydate.render({
+			elem: '#test1'
+			});
+			
+		form.on('submit(demoone)', function(data){	
+			var s_time=$("#test1").val(); 	
+			$.ajax({
+			url:"{:U('ItemAcceptance/projectAcceptance')}",
+			type: 'post',
+			data: {
 						pro_code:"12",  //  项目id  后期添加
 						place:data.field.con_dd,
-						J_time:data.field.con_ry,
+						J_time:s_time,
 						people :data.field.con_ry,
 						content :data.field.con_nr,
 						evaluate :data.field.con_pj,
 						founder_id :'2222',
 						remarks:data.field.textject,
-						evaluate:data.field.fiel,
-					},
-					choose: function(obj) {
-						obj.preview(function(index, file, result) {
-							$("#fileName").html(file.name);
-						});
-					},				
-				});
+						enclosure:uptext,
+			},
+			dataType: 'json',
+			success: function(res) {
+					if(res.code == 200) {
+						layui.use('layer', function() {
+							layer.alert('提交成功');
+						})
+					} else {
+						layui.use('layer', function() {
+							var layer = layui.layer;
+							layer.alert('添加失败');
+						})
+					}			
+			},
 			})
 			return false;
-<<<<<<< Updated upstream
-		})
-=======
-		});
+		});	
 		
-		table.render({
-			elem: '#goods',
-			url:"{:U('ItemStartUp/customerList')}",
-			where:{                     //  页面传值   项目经理id
-				pCode:12
-			},
-			// even:true,
-			height: 270,
-			cellMinWidth: 110,
-			cols: [[
-				{field:'id',title: 'ID', sort: true},
-				{field:'customer_name', title: '客户姓名',align:'center'},
-				{field:'department', title: '单位',align:'center'},
-				{field:'duty',title: '职责',align:'center'},
-				{field:'customer_type',title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-				{field:'phone', title: '电话',align:'center'},
-				{field:'mailbox', title: '邮箱',align:'center'},
-				{field:'remarks',title: '备注',align:'center'},
-				{field:'right',title: '操作',toolbar: '#barDemo',align:'center'}
-			]],
-			page: true,//开启分页
-			limit:5,   //默认十条数据一页
-			limits:false,  //数据分页条
+});
+
+		// 文件上传
+		layui.use('upload', function(){
+			var upload = layui.upload;			 
+			//执行实例  但不执行上传功能
+			var uploadInst = upload.render({
+				elem: '#upwenjian', //绑定元素
+				url: "{:U('ItemAcceptance/fileUpload')}", //上传接口
+				// url: "{:U('ItemStartUp/approvalAdd')}", //上传接口
+				accept:'file',
+				auto: false, 
+				bindAction: '#uploadBtn',
+				choose: function(obj) {
+					obj.preview(function(index, file, result) {
+						$("#fileName").html(file.name);
+					});
+				},
+				done: function(res) {
+					uptext =res.data.src;
+					console.log(uptext);
+					layer.msg(res.msg);
+				}
+			});
 		});
-		
-		});
->>>>>>> Stashed changes
-		
 
 		// 添加项目验收
 		$('.addThisPeo').on('click',function(){

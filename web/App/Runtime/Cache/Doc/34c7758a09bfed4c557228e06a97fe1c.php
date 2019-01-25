@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Tea Party</title>
-    <link rel="stylesheet" href="/1212122/web/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/1212122/web/Public/Doc/doclay/build/css/app.css" media="all">
-    <link rel="stylesheet" href="/1212122/web/Public/Doc/css/custom.css">
-    <script src="/1212122/web/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/1212122/web/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <link rel="stylesheet" href="/ProjectDelivery/web/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/web/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/ProjectDelivery/web/Public/Doc/css/custom.css">
+    <script src="/ProjectDelivery/web/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/ProjectDelivery/web/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
 <style>
 
@@ -20,7 +20,7 @@ width: 80%;
 <body>
      <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo"><img src="/1212122/web/Public/Doc/images/logo@2x.png" alt=""></div>
+            <div class="layui-logo"><img src="/ProjectDelivery/web/Public/Doc/images/logo@2x.png" alt=""></div>
             <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
             <div class="layui-col-md-offset2">
                 <ul class="layui-nav layui-col-md10" lay-filter="">
@@ -55,7 +55,7 @@ width: 80%;
             <ul class="layui-nav layui-layout-right kit-nav">
                 <li class="layui-nav-item">
                 <a href=" ">
-                <img src="/1212122/web/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
+                <img src="/ProjectDelivery/web/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
@@ -68,32 +68,32 @@ width: 80%;
         </div>
         <div class="layui-side layui-bg-black kit-side">
             <div class="layui-side-scroll">
-                <div class="kit-side-fold"><img src="/1212122/web/Public/Doc/images/切换@2x.png" alt=""></div>
+                <div class="kit-side-fold"><img src="/ProjectDelivery/web/Public/Doc/images/切换@2x.png" alt=""></div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <!-- 标志 点赞 &#xe6c6 重要 &#xe658;-->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/1212122/web/Public/Doc/images/2@2x.png" alt=""><span>产品使用</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt=""><span>产品使用</span></a>
                         <dl class="layui-nav-child">
 
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ComprehensiveAnalysis');?>',icon:'',title:'综合分析',id:'3'}">
-                                 <img class="cus-nav-icon" src="/1212122/web/Public/Doc/images/2@2x.png" alt="">
+                                 <img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt="">
                             <span>综合分析</span>
                                 </a>
                             </dd>
                             
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/MyFeedback');?>',icon:'',title:'我的反馈',id:'2'}">
-                                 <img class="cus-nav-icon" src="/1212122/web/Public/Doc/images/3@2x.png" alt="">
+                                 <img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/3@2x.png" alt="">
                             <span>我的反馈</span>
                                 </a>
                             </dd>
 
                             <dd>
                                  <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ProductChoice');?>',icon:'',title:'提交反馈',id:'1'}">
-                                 <img class="cus-nav-icon" src="/1212122/web/Public/Doc/images/4@2x.png" alt="">
+                                 <img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/4@2x.png" alt="">
                             <span>提交反馈</span>
                                  </a>
                             </dd>
@@ -105,20 +105,20 @@ width: 80%;
 
 
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/1212122/web/Public/Doc/images/2@2x.png" alt=""><span>技术疑难</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt=""><span>技术疑难</span></a>
                         
                     </li>
 
 
 
                      <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/1212122/web/Public/Doc/images/2@2x.png" alt=""><span>平台优化</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt=""><span>平台优化</span></a>
                         
                     </li>
 
 
                      <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/1212122/web/Public/Doc/images/2@2x.png" alt=""><span>体系信箱</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt=""><span>体系信箱</span></a>
                         
                     </li>
 
@@ -184,9 +184,9 @@ width: 80%;
         $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
             var lis = $('.layui-nav-tree').find('li.kit-side-folded');
             if(lis.length > 0) {
-                $('.kit-side-fold img').attr('src', '/1212122/web/Public/Doc/images/切换2@2x.png');
+                $('.kit-side-fold img').attr('src', '/ProjectDelivery/web/Public/Doc/images/切换2@2x.png');
             } else {
-                $('.kit-side-fold img').attr('src', '/1212122/web/Public/Doc/images/切换@2x.png');
+                $('.kit-side-fold img').attr('src', '/ProjectDelivery/web/Public/Doc/images/切换@2x.png');
             }
         })
     })

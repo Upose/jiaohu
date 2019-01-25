@@ -163,8 +163,8 @@
 			</div>
 			<div class="details_zhong">
 				<div>
-				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
-				<button class="addThisPeo" id="btnzeng">项目试运行</button>
+				<blockquote class="layui-elem-quote addThispro">计划信息列表</blockquote>
+				<button class="addThisPeo" id="btnzeng">新增计划</button>
 				</div>
 				<table class="layui-table">
 						<thead>
@@ -196,62 +196,97 @@
 			</div>
 		</div>
 		<!-- 新增功能弹框 -->
-		<div class="layui-row" id="addPeople" style="display: none;padding: 20px 30px;">
-			<div class="layui-col-md10">
-					<form class="layui-form" id="addEmployeeForm">
-							<div class="layui-form-item">
-									<label class="layui-form-label">计划类别：</label>
-									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
-									</div>
-							</div>
-							<div class="layui-form-item">
-									<label class="layui-form-label">责任人：</label>
-									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
-									</div>
-							</div>
-							<div class="layui-form-item">
-									<label class="layui-form-label">人员姓名：</label>
-									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
-									</div>
-							</div>
-							<div class="layui-form-item">
-									<label class="layui-form-label">岗位职责：</label>
-									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
-									</div>
-							</div>
-							<div class="layui-form-item">
-									<label class="layui-form-label">计划内容：</label>
-									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
-									</div>
-							</div>
-							<div class="layui-form-item">
-									<label class="layui-form-label">开始时间：</label>
-									<div class="layui-input-block">
-										<input type="text" class="layui-input" id="test1" placeholder="yyyy年MM月dd日">
-									</div>
-							</div>
-							<div class="layui-form-item">
-									<label class="layui-form-label">结束时间：</label>
-									<div class="layui-input-block">
-											<input type="text" class="layui-input" id="test2" placeholder="yyyy年MM月dd日">
-									</div>
-							</div>
-							<div class="layui-form-item">
-									<label class="layui-form-label">计划类别：</label>
-									<div class="layui-input-block">
+			<div class="layui-row" id="addPeople" style="display: none;padding: 20px 30px;">
+				<div class="layui-col-md12">
+						<form class="layui-form" id="addEmployeeForm">
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+										<label class="layui-form-label">计划名称：</label>
+										<div class="layui-input-block">
 												<input type="text" name="conpany" class="layui-input" lay-verify="required">
-									</div>
-							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">相关备注：</label>
-								<div class="layui-input-block">
-									<textarea name="textject" placeholder="" class="layui-textarea"></textarea>
+										</div>
 								</div>
+							</div>
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+										<label class="layui-form-label">里程碑id：</label>
+										<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										</div>
+								</div>
+							</div>
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+										<label class="layui-form-label">责任人：</label>
+										<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										</div>
+								</div>
+							</div>
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+										<label class="layui-form-label">人员姓名：</label>
+										<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										</div>
+								</div>
+							</div>
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+										<label class="layui-form-label">岗位职责：</label>
+										<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										</div>
+								</div>
+							</div>
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+										<label class="layui-form-label">计划内容：</label>
+										<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										</div>
+								</div>
+							</div>
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+										<label class="layui-form-label">开始时间：</label>
+										<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										</div>
+								</div>
+							</div>
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+										<label class="layui-form-label">结束时间：</label>
+										<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										</div>
+								</div>
+							</div>
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+										<label class="layui-form-label">计划类别：</label>
+										<div class="layui-input-block">
+												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										</div>
+								</div>
+							</div>
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+									<label class="layui-form-label">文件上传：</label>
+									<button type="button" class="layui-btn" id="upwenjian">
+										<i class="layui-icon">&#xe67c;</i>添加附件
+									</button>
+									<span id="fileName"></span>
+								</div>
+							</div>
+							<div class="layui-col-md12">
+								<div class="layui-form-item">
+									<label class="layui-form-label">相关备注：</label>
+									<div class="layui-input-block">
+										<textarea name="textject" placeholder="" class="layui-textarea"></textarea>
+									</div>
+								</div>	
 							</div>
 							<div class="layui-form-item">
 								<div class="layui-input-block">
@@ -259,9 +294,9 @@
 									<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 								</div>
 							</div>	
-					</form>
-			</div>
-	</div>
+						</form>
+				</div>
+		</div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
@@ -287,7 +322,7 @@
 						closeBtn: 2,   // 关闭样式
 						shadeClose: true,  // 关闭方式
 						anim:5,    // 弹出样式
-						area: ['36vw', '90vh'],
+						area: ['48vw', '72vh'],
 						// btn:['确定','取消'],
 						isOutAnim:false,    // 关闭动画
 						content: $('#addPeople'),
