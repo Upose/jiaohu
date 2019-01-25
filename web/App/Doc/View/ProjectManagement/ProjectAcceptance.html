@@ -217,6 +217,9 @@
 								<button type="button" class="layui-btn" id="upwenjian">
 									<i class="layui-icon">&#xe67c;</i>添加附件
 								</button>
+								<button type="button" class="layui-btn" id="uploadBtn">
+										<i class="layui-icon">&#xe67c;</i>上传文件
+								</button>
 								<span id="fileName"></span>
 							</div>
 							<div class="layui-form-item">
@@ -237,6 +240,9 @@
 		layedit = layui.layedit,
 		laydate = layui.laydate;
 		var table = layui.table;
+		laydate.render({
+			elem: '#test1'
+			});
 });
 
 		// 文件上传
@@ -246,17 +252,22 @@
 			var uploadInst = upload.render({
 				elem: '#upwenjian', //绑定元素
 				url: "{:U('ItemAcceptance/fileUpload')}", //上传接口
+				// url: "{:U('ItemStartUp/approvalAdd')}", //上传接口
 				accept:'file',
 				auto: false, 
-				// bindAction: '#uploadBtn',
+				bindAction: '#uploadBtn',
 				choose: function(obj) {
 					obj.preview(function(index, file, result) {
 						$("#fileName").html(file.name);
 					});
 				},
-				done: function(res) {
-					layer.msg(res.msg);
+				success: function(res, input){
+					console.log(res);
 				}
+// 				done: function(res) {
+// 					console.log(res);
+// 					layer.msg(res.msg);
+// 				}
 			});
 		});
 
