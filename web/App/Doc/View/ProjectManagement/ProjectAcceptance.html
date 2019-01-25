@@ -197,7 +197,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">验收内容：</label>
 									<div class="layui-input-block">
-											<input type="text" name="con_nr" class="layui-input" lay-verify="required">
+											<input type="text" name="con_nr" class="layui-input" lay-verify="">
 									</div>
 							</div>
 							<div class="layui-form-item">
@@ -234,6 +234,7 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
+	var  uptext;
 	layui.use(['form', 'layedit', 'laydate','table'], function(){
 		var form = layui.form,
 		layer = layui.layer,
@@ -243,6 +244,40 @@
 		laydate.render({
 			elem: '#test1'
 			});
+			
+		form.on('submit(demoone)', function(data){	
+			var s_time=$("#test1").val(); 	
+			$.ajax({
+			url:"{:U('ItemAcceptance/projectAcceptance')}",
+			type: 'post',
+			data: {
+						pro_code:"12",  //  项目id  后期添加
+						place:data.field.con_dd,
+						J_time:s_time,
+						people :data.field.con_ry,
+						content :data.field.con_nr,
+						evaluate :data.field.con_pj,
+						founder_id :'2222',
+						remarks:data.field.textject,
+						enclosure:uptext,
+			},
+			dataType: 'json',
+			success: function(res) {
+					if(res.code == 200) {
+						layui.use('layer', function() {
+							layer.alert('提交成功');
+						})
+					} else {
+						layui.use('layer', function() {
+							var layer = layui.layer;
+							layer.alert('添加失败');
+						})
+					}			
+			},
+			})
+			return false;
+		});	
+		
 });
 
 		// 文件上传
@@ -261,11 +296,9 @@
 						$("#fileName").html(file.name);
 					});
 				},
-				success: function(res, input){
-					console.log(res);
-				},
 				done: function(res) {
-					console.log(res);
+					uptext =res.data.src;
+					console.log(uptext);
 					layer.msg(res.msg);
 				}
 			});
