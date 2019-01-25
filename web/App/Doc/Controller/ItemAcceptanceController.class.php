@@ -99,26 +99,16 @@ class ItemAcceptanceController extends BaseController {
 	            // file_put_contents("11114.txt", json_encode($result));
 	            if($result){
 					foreach ($result as $key => $value) {
-					$savename  = $pro_code.'_'.$value['savename'];
-	                $path  = "/Updata/ApprovalFile/".$value['savepath'];
-	                $pro_enclosure = $newpath = $path.$savename;
-					$res['code'] = 200;
-	        		$res['msg'] = 'success';
-			        $res['data']['src'] = $pro_enclosure;
-			        echo json_encode($res);
+						$savename  = $pro_code.'_'.$value['savename'];
+		                $path  = "/Updata/ProjectFile/".$value['savepath'];
+		                $pro_enclosure = $newpath = $path.$savename;
+						$res['code'] = 1;
+		        		$res['msg'] = '文件上传成功';
+				        $res['data']['src'] = $pro_enclosure;
+				        echo json_encode($res);
 	            	}
-	            }else{
-	            	$res['code'] = 0;
-	            	$res['msg'] = 'fail';
-	            	$res['data']['src'] = '';
-	            	echo json_encode($res);
 	            }
         	}
-		}else{
-			$res['code'] = 0;
-        	$res['msg'] = 'null file';
-        	$res['data']['src'] = '';
-        	echo json_encode($res);
 		}
 		
         
