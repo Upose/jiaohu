@@ -37,39 +37,7 @@ class ItemTestRunController extends BaseController {
 		//创建人
 		$p['founder_id'] = I('founder_id');
 		//相关附件
-		$p['enclosure'] = '';
-		if ($_FILES) {
-		// echo ($_FILES["file"][size] / 1024)."kb";
-
-        	foreach ($_FILES as $key => $value) {
-	            //实例化上传类
-	            $upload =  new \Think\Upload();
-	            //设置附件上传大小
-	            // $upload->maxSize=3145728;
-	            //保持文件名不变
-	            $upload->saveName = time()."dt".rand(0,10);
-	            //设置附件上传类型
-	            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
-	            //设置附件上传根目录
-	            $upload->rootPath = './Updata/TestRun/'; 
-	            //设置附件上传（子）目录
-	            $upload->savePath = '';
-	            $result = $upload->upload();
-	            // echo '<pre>';
-	            // var_dump($result);
-	            // echo '</pre>';
-	            // file_put_contents("11114.txt", json_encode($result));
-	            if($result){
-					foreach ($result as $key => $value) {
-					$savename  = $value['savename'];
-					$path  = "/Updata/TestRun/".$value['savepath'];
-					$p['enclosure'] = $newpath = $path.$savename;
-					$href[] = $newpath;
-					// echo $filePath."|_____________________path";
-	            	}
-	            }
-            }
-		}
+		$p['enclosure'] = I('enclosure');
 		$status=$this->status=ItemAcceptanceModel::testRunAdd($p);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
@@ -77,6 +45,23 @@ class ItemTestRunController extends BaseController {
                 throw new Exception('数据插入失败');
                 }
 
+	}
+
+	/**
+	 *项目试运行列表接口
+     *@author he.xiang
+     *2018.1.4
+	 */
+
+	public function runList() {
+		//项目id
+		$pro_code = I('pro_code');
+		$page = I('page');
+        $limit = I('limit');
+        $list=$this->list=
+        ItemTestRunModel::runList($pro_code,$page,$limit);
+        
+        echo json_encode($list);
 	}
 
 
