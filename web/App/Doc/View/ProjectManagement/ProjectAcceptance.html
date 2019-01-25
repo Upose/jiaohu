@@ -263,11 +263,11 @@
 				},
 				success: function(res, input){
 					console.log(res);
+				},
+				done: function(res) {
+					console.log(res);
+					layer.msg(res.msg);
 				}
-// 				done: function(res) {
-// 					console.log(res);
-// 					layer.msg(res.msg);
-// 				}
 			});
 		});
 
