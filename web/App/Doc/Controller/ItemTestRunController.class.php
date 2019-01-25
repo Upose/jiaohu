@@ -38,7 +38,7 @@ class ItemTestRunController extends BaseController {
 		$p['founder_id'] = I('founder_id');
 		//相关附件
 		$p['enclosure'] = I('enclosure');
-		$status=$this->status=ItemAcceptanceModel::testRunAdd($p);
+		$status=$this->status=ItemTestRunModel::testRunAdd($p);
             if ($status) {
                 $this->Response(200,$status,'数据新增成功');
                 } else {
