@@ -282,14 +282,14 @@
 			elem: '#peoples',
 			url:"{:U('ItemAcceptance/acceptList')}",
 			where:{                     //  页面传值   项目经理id
-				pCode:12
+				pro_code:12
 			},
 			// even:true,
 			height: 270,
 			cellMinWidth: 110,
 			cols: [[
-				{field:'id',title: 'ID', sort: true},
-				{field:'customer_name', title: '客户姓名',align:'center'},
+				{field:'pro_id',title: 'ID', sort: true},
+				{field:'place', title: '验收地点',align:'center'},
 				{field:'department', title: '单位',align:'center'},
 				{field:'duty',title: '职责',align:'center'},
 				{field:'customer_type',title: '类型'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
