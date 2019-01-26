@@ -221,8 +221,11 @@
 						</div>
 						<div class="layui-col-md6 layui-upload" >
 								<label class="layui-form-label">文件上传：</label>
-								<button type="button" class="layui-btn" id="upwenjian" >
+								<button type="button" class="layui-btn layui-btn-sm" id="upwenjian" >
 									<i class="layui-icon">&#xe67c;</i>添加附件
+								</button>
+								<button type="button" class="layui-btn layui-btn-sm" id="uploadBtn">
+										<i class="layui-icon">&#xe67c;</i>上传文件
 								</button>
 								<span id="fileName"></span>
 						</div>
@@ -246,6 +249,7 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
+		var  uptext;
 		var form,layedit,layer,laydate; 
 		layui.use(['form', 'layedit', 'laydate','table'], function(){
 		  form = layui.form,
@@ -283,6 +287,7 @@
 						cUtil  :data.field.see_xmjs,
 						pMid   :'222',  // 创建人id  后期根据登录获取
 						photo:data.field.file,
+						filepath:uptext,
 				},
 				dataType: 'json',
 				success: function(res) {
@@ -307,17 +312,22 @@
 			//执行实例  但不执行上传功能
 			var uploadInst = upload.render({
 				elem: '#upwenjian', //绑定元素
-				url: "{:U('ItemStartUp/approvalAdd')}", //上传接口
+				url: "{:U('ItemAcceptance/fileUpload')}", //上传接口
 				accept:'file',
 				auto: false, 
+				bindAction: '#uploadBtn',
 				choose: function(obj) {
 					obj.preview(function(index, file, result) {
 						$("#fileName").html(file.name);
 					});
-				},				
+				},
+				done: function(res) {
+					uptext =res.data.src;
+					console.log(uptext);
+					layer.msg(res.msg);
+				}
 			});
 		});
-		
 		
 		
 		function getsomorepeo(){
