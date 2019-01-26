@@ -290,6 +290,7 @@
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
+		var table = layui.table;
 	//开始运行日期 
 		laydate.render({
 			elem: '#test1'
@@ -442,10 +443,10 @@
 							var result = data.data || [];
 							console.log(result);
 							var role = document.getElementById("job_add");        //add_role_name给select定义的id     	      	      
-							for (var i = 0; i<result.data.length; i++) {
+							for (var i = 0; i<result.length; i++) {
 									var option = document.createElement("option");    // 创建添加option属性
-									option.setAttribute("value",result.data[i].jobtype_id);                  // 给option的value添加值
-									option.innerText= result.data[i].jobtype_name;             // 打印option对应的纯文本 （超级管理员、管理员）
+									option.setAttribute("value",result[i].jobtype_id);                  // 给option的value添加值
+									option.innerText= result[i].jobtype_name;             // 打印option对应的纯文本 （超级管理员、管理员）
 									role.appendChild(option);                          // 给select 添加option子标签
 									form.render("select");                                // 刷性select，显示出数据        
 									} 
@@ -468,17 +469,17 @@
 							console.log(result);
 							var role = document.getElementById("people_add");        //add_role_name给select定义的id     
 							var role1 = document.getElementById("people_add1");        //add_role_name给select定义的id           	      
-							for (var i = 0; i<result.data.length; i++) {
+							for (var i = 0; i<result.length; i++) {
 									var option = document.createElement("option");    // 创建添加option属性
-									option.setAttribute("value",result.data[i].user_code);                  // 给option的value添加值
-									option.innerText= result.data[i].member_name;             // 打印option对应的纯文本 （超级管理员、管理员）
+									option.setAttribute("value",result[i].user_code);                  // 给option的value添加值
+									option.innerText= result[i].member_name;             // 打印option对应的纯文本 （超级管理员、管理员）
 									role.appendChild(option);                          // 给select 添加option子标签
 									form.render("select");                                // 刷性select，显示出数据        
 									} 
-							for (var i = 0; i<result.data.length; i++) {
+							for (var i = 0; i<result.length; i++) {
 									var option = document.createElement("option");    // 创建添加option属性
-									option.setAttribute("value",result.data[i].user_code);                  // 给option的value添加值
-									option.innerText= result.data[i].member_name;             // 打印option对应的纯文本 （超级管理员、管理员）
+									option.setAttribute("value",result[i].user_code);                  // 给option的value添加值
+									option.innerText= result[i].member_name;             // 打印option对应的纯文本 （超级管理员、管理员）
 									role1.appendChild(option);                          // 给select 添加option子标签
 									form.render("select");                                // 刷性select，显示出数据        
 									} 
