@@ -438,7 +438,7 @@ class ItemStartUpController extends BaseController {
         $difficulty_rank = I('dRank');
 
         // pro_enclosure   项目相关附件
-        $pro_enclosure = '';
+        $pro_enclosure = I('filepath');
 
         // pro_msg     立项信息
         $pro_msg = I('pMsg');
@@ -449,42 +449,6 @@ class ItemStartUpController extends BaseController {
         // Founder_id  
         $founder_id = I('pMid');
 
-
-        if ($_FILES) {
-        // echo ($_FILES["file"][size] / 1024)."kb";
-
-          foreach ($_FILES as $key => $value) {
-            //实例化上传类
-            $upload =  new \Think\Upload();
-            //设置附件上传大小
-            // $upload->maxSize=3145728;
-            //保持文件名不变
-            $upload->saveName = time()."dt".rand(0,10);
-            //设置附件上传类型
-            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
-            //设置附件上传根目录
-            $upload->rootPath = './Updata/ApprovalFile/'; 
-            //设置附件上传（子）目录
-            $upload->savePath = '';
-            $result = $upload->upload();
-            // echo '<pre>';
-            // var_dump($result);
-            // echo '</pre>';
-            // file_put_contents("11114.txt", json_encode($result));
-            if($result){
-              foreach ($result as $key => $value) {
-                $savename  = $pro_code.'_'.$value['savename'];
-                $path  = "/Updata/ApprovalFile/".$value['savepath'];
-                $pro_enclosure = $newpath = $path.$savename;
-                $href[] = $newpath;
-                echo $filePath."|_____________________path";
-                                
-              }
-            }
-              
-          }
-
-        }
 
         $approvalAdd=$this->approvalAdd=
         ItemStartUpModel::approvalAdd($pro_code,$market_name,$pre_sale_name,$pro_stime,$pro_etime,$secrecy_grade,$difficulty_rank,$pro_enclosure,$pro_msg,$cooperative_unit,$founder_id);

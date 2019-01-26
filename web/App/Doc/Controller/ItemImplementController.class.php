@@ -283,43 +283,7 @@ class ItemImplementController extends BaseController {
         $founder_id = I('founder_id');
 
         // 附件
-        $enclosure = '';
-
-        if ($_FILES) {
-        // echo ($_FILES["file"][size] / 1024)."kb";
-
-          foreach ($_FILES as $key => $value) {
-            //实例化上传类
-            $upload =  new \Think\Upload();
-            //设置附件上传大小
-            // $upload->maxSize=3145728;
-            //保持文件名不变
-            $upload->saveName = time()."dt".rand(0,10);
-            //设置附件上传类型
-            // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
-            //设置附件上传根目录
-            $upload->rootPath = './Updata/MeetingFile/'; 
-            //设置附件上传（子）目录
-            $upload->savePath = '';
-            $result = $upload->upload();
-            // echo '<pre>';
-            // var_dump($result);
-            // echo '</pre>';
-            // file_put_contents("11114.txt", json_encode($result));
-            if($result){
-              foreach ($result as $key => $value) {
-                $savename  = $pro_code.'_'.$value['savename'];
-                $path  = "/Updata/MeetingFile/".$value['savepath'];
-                $enclosure = $newpath = $path.$savename;
-                $href[] = $newpath;
-                // echo $filePath."|_____________________path";
-                                
-              }
-            }
-              
-          }
-
-        }
+        $enclosure = I('filepath');
 
 
         $addStaus = $this->result=
@@ -374,6 +338,44 @@ class ItemImplementController extends BaseController {
     }
 
 
+    function upload(){
+
+                if ($_FILES) {
+            // echo ($_FILES["file"][size] / 1024)."kb";
+
+              foreach ($_FILES as $key => $value) {
+                //实例化上传类
+                $upload =  new \Think\Upload();
+                //设置附件上传大小
+                // $upload->maxSize=3145728;
+                //保持文件名不变
+                $upload->saveName = time()."dt".rand(0,10);
+                //设置附件上传类型
+                // $upload->exts=array('html','htm','jpg', 'gif', 'png', 'jpeg','txt');
+                //设置附件上传根目录
+                $upload->rootPath = './Updata/MeetingFile/'; 
+                //设置附件上传（子）目录
+                $upload->savePath = '';
+                $result = $upload->upload();
+                // echo '<pre>';
+                // var_dump($result);
+                // echo '</pre>';
+                // file_put_contents("11114.txt", json_encode($result));
+                if($result){
+                  foreach ($result as $key => $value) {
+                    $savename  = $pro_code.'_'.$value['savename'];
+                    $path  = "/Updata/MeetingFile/".$value['savepath'];
+                    $enclosure = $newpath = $path.$savename;
+                    $href[] = $newpath;
+                    // echo $filePath."|_____________________path";
+                                    
+                  }
+                }
+                  
+              }
+
+            }
+    }
 
     
 
