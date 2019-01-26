@@ -71,7 +71,7 @@ class ItemImplementModel
 
 
     /**
-     * 查询现有项目分页列表
+     * 查询现有项目会议分页列表
      * @author song.chaoxu
      * 2019.01.26
      */
@@ -113,10 +113,52 @@ class ItemImplementModel
           $result['count'] = $count;
           $result['data'] = $meetingList;
           return $result;
-        
 
-        
+     }
 
+
+    /**
+     * 查询现有项目事件分页列表
+     * @author song.chaoxu
+     * 2019.01.26
+     */
+     public function eventList($pro_code,$pag,$limit)
+     {
+
+        $app_majorevents = M("app_meeting"); // 实例化对象
+        $count = $app_majorevents ->where('pro_code'.$pCode) ->count();
+        
+        $sql = "
+               SELECT
+                  m.pro_code,
+                  m.event_name,
+                  m.event_content,
+                  m.happen_time,
+                  m.enclosure,
+                  m.remarks,
+                  e.etype,
+                  CASE `level`
+                WHEN '1' THEN
+                  '普通'
+                WHEN '2' THEN
+                  '严重'
+                ELSE
+                  `level`
+                END AS levels
+                FROM
+                  app_majorevents m
+                JOIN dm_etype e ON m.event_type = e.id
+                ";
+            $sql.="where pro_code = \"$pro_code\"  limit ".$pag.",".$limit;
+
+
+          $eventList = M()->query($sql);
+          $result = array();
+          $result['code'] = 0;
+          $result['msg'] = "";
+          $result['count'] = $count;
+          $result['data'] = $eventList;
+          return $result;
 
      }
 
