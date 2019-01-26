@@ -161,139 +161,264 @@
 				</div>
 			</div>
 			<div class="details_zhong">
-				<div>
-				<blockquote class="layui-elem-quote addThispro">项目信息采集</blockquote>
-				<button class="addThisPeo" id="btnzeng">项目试运行</button>
+				<div class="layui-row">
+					<div class="layui-col-md12">
+					<blockquote class="layui-elem-quote addThispro">事件信息列表</blockquote>
+					<button class="addThisPeo" lay-filter="addThisPeo">新增事件</button>
+					</div>
+					<div class="layui-col-md12">
+					<table class="layui-hide" id="peoples" lay-filter="peoples"></table>
+					</div>
 				</div>
-				<table class="layui-table">
-						<thead>
-								<tr>
-										<th>验收项目</th>
-										<th>验收地点</th>
-										<th>验收时间</th>
-										<th>验收人员</th>
-										<th>验收内容</th>
-										<th>验收评价</th>
-										<th>备注</th>
-								</tr>
-						</thead>
-						<tbody>
-								<tr v-for="item in arrList">
-										<td>{{item.theme}}</td>
-										<td>{{item.address}}</td>
-										<td>{{item.meeting_time}}</td>
-										<td>{{item.meeting_level}}</td>
-										<td>{{item.department_id}}</td>
-										<td>{{item.department_id}}</td>
-										<td style="cursor:pointer;" @click="openNew(item.id)">
-											<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-											<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-										</td>
-								</tr>
-						</tbody>
-				</table>
+			</div>
 			</div>
 		</div>
 		<!-- 新增功能弹框 -->
 		<div class="layui-row" id="addPeople" style="display: none;padding: 20px 30px;">
-			<div class="layui-col-md10">
+			<div class="layui-col-md12">
 					<form class="layui-form" id="addEmployeeForm">
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
 									<label class="layui-form-label">所属阶段：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<select name="add_jd" id="add_jd" lay-verify="required" lay-filter="see_depart">
+													<option value="">请选择所属阶段</option>
+											</select>
 									</div>
 							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
 									<label class="layui-form-label">事件名称：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+										<input type="text" name="event_name" class="layui-input" lay-verify="required">
 									</div>
 							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
 									<label class="layui-form-label">事件类别：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<select name="add_lb" id="add_lb" lay-verify="required" lay-filter="see_depart">
+													<option value="">请选择事件类别</option>
+											</select>
 									</div>
 							</div>
-							<div class="layui-form-item">
-									<label class="layui-form-label">事件内容：</label>
-									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
-									</div>
-							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
 									<label class="layui-form-label">事件级别：</label>
 									<div class="layui-input-block">
-										<input type="text" class="layui-input" id="test1" placeholder="yyyy年MM月dd日">
+											<select class="layui-input" name="level"  lay-verify="required">
+												<option value ="">请选择会议级别</option>
+												<option value ="1">一级</option>
+												<option value ="2">二级</option>
+												<option value ="3">三级</option>
+											</select>
 									</div>
 							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
 									<label class="layui-form-label">发生时间：</label>
 									<div class="layui-input-block">
-											<input type="text" class="layui-input" id="test2" placeholder="yyyy年MM月dd日">
+											<input name="conpany" id="test1" class="layui-input" lay-verify="required">
 									</div>
 							</div>
+						</div>
+						<div class="layui-col-md6">
 							<div class="layui-form-item">
 									<label class="layui-form-label">内部人员：</label>
 									<div class="layui-input-block">
-												<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="neiname" class="layui-input" lay-verify="required">
 									</div>
 							</div>
+						</div>
+						<div class="layui-col-md12">
+							<div class="layui-form-item">
+									<label class="layui-form-label">事件内容：</label>
+								<div class="layui-input-block">
+									<textarea name="" placeholder="" class="layui-textarea"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md12">
+						<div class="layui-form-item">
+							<label class="layui-form-label">相关备注：</label>
+							<div class="layui-input-block">
+								<textarea name="textject" placeholder="" class="layui-textarea"></textarea>
+							</div>
+						</div>
+						</div>
+						<div class="layui-col-md12">
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件上传：</label>
-								<button type="button" class="layui-btn" id="upwenjian">
+								<button type="button" class="layui-btn layui-btn-sm" id="upwenjian">
 									<i class="layui-icon">&#xe67c;</i>添加附件
+								</button>
+								<button type="button" class="layui-btn layui-btn-sm" id="uploadBtn">
+										<i class="layui-icon">&#xe67c;</i>上传文件
 								</button>
 								<span id="fileName"></span>
 							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">相关备注：</label>
-								<div class="layui-input-block">
-									<textarea name="textject" placeholder="" class="layui-textarea"></textarea>
-								</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-submit="" lay-filter="demoone">提交</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 							</div>
-							<div class="layui-form-item">
-								<div class="layui-input-block">
-									<button class="layui-btn" lay-submit="" lay-filter="demoone">提交</button>
-									<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-								</div>
-							</div>	
+						</div>	
 					</form>
 			</div>
 	</div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-xs" lay-event="edit">查看</a>
+</script>
 <script>
-	layui.use(['form', 'layedit', 'laydate'], function(){
-		var form = layui.form,
+	var  uptext;
+	var form,layedit,layer,laydate; 
+	layui.use(['form', 'layedit', 'laydate','table'], function(){
+	  form = layui.form,
 		layer = layui.layer,
 		layedit = layui.layedit,
 		laydate = layui.laydate;
-	//开始运行日期 
+		var table = layui.table;
+	//开始日期 
 		laydate.render({
 			elem: '#test1'
 			});
-	//结束时间
-		laydate.render({
-			elem: '#test2'
+
+			
+			form.on('submit(demoone)', function(data){	
+				var s_time=$("#test1").val();  
+				$.ajax({
+				url:"{:U('ItemImplement/eventAdd')}",
+				type: 'post',
+				data: {
+							pCode:"12",  //  项目id  后期添加
+							stage :data.field.add_jd,
+							event_name:data.field.event_name,
+							event_type:data.field.add_lb,
+							level :data.field.level,
+							happen_time :s_time,
+							event_content:data.field.content,
+							remarks:data.field.textject,
+							founder_id :'2222',  //后期登录后添加
+							filepath:uptext,
+				},
+				dataType: 'json',
+				success: function(res) {
+						if(res.code == 200) {
+							layui.use('layer', function() {	
+								layer.close(layer.index);
+								layer.alert('添加成功');
+							})
+						} else {
+							layui.use('layer', function() {
+								var layer = layui.layer;
+								layer.alert('添加失败');
+							})
+						}			
+				},
+				})
+				return false;
+			});	
+			
+			table.render({
+				elem: '#peoples',
+				url:"{:U('ItemMilepost/workPlanList')}",
+				where:{                     //  页面传值   项目经理id
+					pro_code:233
+				},
+				// even:true,
+				height: 270,
+				cellMinWidth: 110,
+				cols: [[
+					{field:'id',title: 'ID', sort: true},
+					{field:'plan_name', title: '计划名称',align:'center'},
+					{field:'task_content',title: '计划内容',align:'center'},
+					{field:'plan_stime',title: '开始时间'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+					{field:'plan_etime', title: '结束时间',align:'center'},
+					{field:'remarks', title: '备注',align:'center'},
+					{field:'right',title: '操作',toolbar: '#barDemo',align:'center'}
+				]],
+				page: true,//开启分页
+				limit:5,   //默认十条数据一页
+				limits:false,  //数据分页条
+			});
+			projectpStaus();  // 所属阶段
+		});
+		
+				function projectpStaus(){
+					$.ajax({
+					url:"{:U('ItemImplement/eventDropResult')}",
+					type: 'post',
+					data: {},
+					dataType: 'json',
+					success: function(data) {
+							if (data.code == 200) {
+									var result = data.data || [];
+									console.log(result);
+									var role = document.getElementById("add_jd");        //add_role_name给select定义的id     
+									var role1 = document.getElementById("add_lb");        //add_role_name给select定义的id              	               	      
+									for (var i = 0; i<result.pStaus.length; i++) {
+											var option = document.createElement("option");    // 创建添加option属性
+											option.setAttribute("value",result.pStaus[i].t_id);                  // 给option的value添加值
+											option.innerText= result.pStaus[i].stage;             // 打印option对应的纯文本 （超级管理员、管理员）
+											role.appendChild(option);                          // 给select 添加option子标签
+											form.render("select");                                // 刷性select，显示出数据        
+											} 
+									for (var i = 0; i<result.eType.length; i++) {
+											var option = document.createElement("option");    // 创建添加option属性
+											option.setAttribute("value",result.eType[i].id);                  // 给option的value添加值
+											option.innerText= result.eType[i].etype;             // 打印option对应的纯文本 （超级管理员、管理员）
+											role1.appendChild(option);                          // 给select 添加option子标签
+											form.render("select");                                // 刷性select，显示出数据        
+											} 		
+
+							}
+					}    
+					})
+				}		
+		// 文件上传
+		layui.use('upload', function(){
+			var upload = layui.upload;			 
+			//执行实例  但不执行上传功能
+			var uploadInst = upload.render({
+				elem: '#upwenjian', //绑定元素
+				url: "{:U('ItemAcceptance/fileUpload')}", //上传接口
+				accept:'file',
+				auto: false, 
+				bindAction: '#uploadBtn',
+				choose: function(obj) {
+					obj.preview(function(index, file, result) {
+						$("#fileName").html(file.name);
+					});
+				},
+				done: function(res) {
+					uptext =res.data.src;
+					console.log(uptext);
+					layer.msg(res.msg);
+				}
 			});
 		});
+		
 		// 添加项目组成员
 		$('.addThisPeo').on('click',function(){
 				layer.open({
 						type: 1,
-						title: '新增风险',
+						title: '新增项目验收',
 						closeBtn: 2,   // 关闭样式
 						shadeClose: true,  // 关闭方式
 						anim:5,    // 弹出样式
-						area: ['36vw', '90vh'],
+						area: ['48vw', '82vh'],
 						// btn:['确定','取消'],
 						isOutAnim:false,    // 关闭动画
 						content: $('#addPeople'),
 				})
 		}); 
-				
 
 </script>
 </html>
