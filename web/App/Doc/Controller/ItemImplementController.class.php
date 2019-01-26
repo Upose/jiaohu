@@ -257,6 +257,36 @@ class ItemImplementController extends BaseController {
 
     }
 
+
+
+    /**
+     * 会议查询
+     * @author song.chaoxu
+     * 2018.01.26
+     */
+    public function meetingList()
+    {
+
+      
+       //項目编号
+        $pro_code = I('pCode');
+       
+        //页数
+        $page=intval(I('page',1));
+
+        //每页显示条数
+        $limit=intval(I('limit',10));
+
+        $pag=($page-1)*$limit;
+
+        //项目列表
+        $meetingList=$this->meetingList=
+        ItemImplementModel::meetingList($pro_code,$pag,$limit);
+
+        $this->Response(200,$meetingList,'');
+
+    }
+
     /**
      * 周报新增
      * @author song.chaoxu
