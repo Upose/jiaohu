@@ -66,6 +66,66 @@ class ItemImplementModel
         return $result;
     }
 
+
+
+
+
+    /**
+     * 查询现有项目分页列表
+     * @author song.chaoxu
+     * 2018.11.21
+     */
+     public function meetingList($pro_code,$pag,$limit)
+     {
+        
+        $sql = "
+                SELECT
+                  m.meeting_id,
+                  s.stage,
+                  m.theme,
+                  m.address,
+                  m.inside,
+                  m.external,
+                  m.content,
+                  m.meeting_time,
+                  CASE m.meeting_mode
+                WHEN '1' THEN
+                  '内部会议'
+                WHEN '2' THEN
+                  '客户会议'
+                ELSE
+                  m.meeting_mode
+                END AS meeting_mode
+                FROM
+                  `app_meeting` m
+                JOIN dm_stage s ON m.stage = s.t_id
+                ";
+            $sql.="where pro_code = \"$pro_code\"  limit ".$pag.",".$limit;
+
+
+        $res = M()->query($sql);
+
+        $sqlCount = "
+                SELECT
+                count(m.meeting_id) total 
+                FROM
+                  `app_meeting` m
+                JOIN dm_stage s ON m.stage = s.t_id
+                where pro_code = \"$pro_code\"  
+                    ";
+
+
+
+        $total = M()->query($sqlCount);
+
+        $count =$total[0]['total'];
+        
+        $response = array('result' => $res,'count' =>$count);
+
+        return $response;
+
+     }
+
     /**
      * 风险查询
      * @author song.chaoxu
@@ -209,8 +269,8 @@ class ItemImplementModel
             $next1 = date('Y-m-d', strtotime('+1 monday', time())); //无论今天几号,+1 monday为下一个有效周未
 
             //下周日
-            $next7 = date('Y-m-d', strtotime('last Sunday')); //下一个有效周日,同样适用于其它星期
-
+            // $next7 = date('Y-m-d', strtotime('last Sunday')); //下一个有效周日,同样适用于其它星期
+            $next7 = date("Y-m-d",strtotime("+7 day",strtotime("next Sunday")));
             //插入下周报任务
             $data2['pro_code'] = $pro_code;
             $data2['weekly_name'] = $next1.'_'.$next7;
@@ -247,7 +307,8 @@ class ItemImplementModel
                 $next1 = date('Y-m-d', strtotime('+1 monday', time())); //无论今天几号,+1 monday为下一个有效周未
 
                 //下周日
-                $next7 = date('Y-m-d', strtotime('last Sunday')); //下一个有效周日,同样适用于其它星期
+                // $next7 = date("Y-m-d",strtotime("+7 day",strtotime("next Sunday"))); //下一个有效周日,同样适用于其它星期
+                $next7 = date("Y-m-d",strtotime("+7 day",strtotime("next Sunday")));
                 
                 //插入本周报任务
                 $data1['pro_code'] = $pro_code;
