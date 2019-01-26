@@ -383,10 +383,6 @@ class ItemStartUpModel
      */
     public function persionList($pCode,$page,$limit){
 
-      // $sql = "SELECT * FROM `app_project_persion` WHERE pro_code = $pCode";
-
-      // $res = M()->query($sql);
-
       $app_customer = M('app_project_persion');
       $count = $app_customer ->where('pro_code='.$pCode) ->count();
       $persionList = $app_customer ->field('id,member_name,dept,come_time,leave_time,operation_type,create_data')

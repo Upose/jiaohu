@@ -73,10 +73,13 @@ class ItemImplementModel
     /**
      * 查询现有项目分页列表
      * @author song.chaoxu
-     * 2018.11.21
+     * 2019.01.26
      */
      public function meetingList($pro_code,$pag,$limit)
      {
+
+        $app_meeting = M("app_meeting"); // 实例化对象
+        $count = $app_meeting ->where('pro_code'.$pCode) ->count();
         
         $sql = "
                 SELECT
@@ -103,26 +106,17 @@ class ItemImplementModel
             $sql.="where pro_code = \"$pro_code\"  limit ".$pag.",".$limit;
 
 
-        $res = M()->query($sql);
-
-        $sqlCount = "
-                SELECT
-                count(m.meeting_id) total 
-                FROM
-                  `app_meeting` m
-                JOIN dm_stage s ON m.stage = s.t_id
-                where pro_code = \"$pro_code\"  
-                    ";
-
-
-
-        $total = M()->query($sqlCount);
-
-        $count =$total[0]['total'];
+          $meetingList = M()->query($sql);
+          $result = array();
+          $result['code'] = 0;
+          $result['msg'] = "";
+          $result['count'] = $count;
+          $result['data'] = $meetingList;
+          return $result;
         
-        $response = array('result' => $res,'count' =>$count);
 
-        return $response;
+        
+
 
      }
 
