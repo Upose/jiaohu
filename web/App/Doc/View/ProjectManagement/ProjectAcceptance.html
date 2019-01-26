@@ -214,10 +214,10 @@
 							</div>
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件上传：</label>
-								<button type="button" class="layui-btn" id="upwenjian">
+								<button type="button" class="layui-btn layui-btn-sm" id="upwenjian">
 									<i class="layui-icon">&#xe67c;</i>添加附件
 								</button>
-								<button type="button" class="layui-btn" id="uploadBtn">
+								<button type="button" class="layui-btn layui-btn-sm" id="uploadBtn">
 										<i class="layui-icon">&#xe67c;</i>上传文件
 								</button>
 								<span id="fileName"></span>
@@ -233,6 +233,9 @@
 	</div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-xs" lay-event="edit">查看</a>
+</script>
 <script>
 	var  uptext;
 	layui.use(['form', 'layedit', 'laydate','table'], function(){
@@ -264,8 +267,9 @@
 			dataType: 'json',
 			success: function(res) {
 					if(res.code == 200) {
-						layui.use('layer', function() {
-							layer.alert('提交成功');
+						layui.use('layer', function() {	
+              layer.close(layer.index);
+							layer.alert('添加成功');
 						})
 					} else {
 						layui.use('layer', function() {
@@ -277,6 +281,30 @@
 			})
 			return false;
 		});	
+		
+		table.render({
+			elem: '#peoples',
+			url:"{:U('ItemAcceptance/acceptList')}",
+			where:{                     //  页面传值   项目经理id
+				pro_code:12
+			},
+			// even:true,
+			height: 270,
+			cellMinWidth: 110,
+			cols: [[
+				{field:'pro_id',title: 'ID', sort: true},
+				{field:'place', title: '验收地点',align:'center'},
+				{field:'j_time', title: '验收时间',align:'center'},
+				{field:'people',title: '验收人员',align:'center'},
+				{field:'content',title: '验收内容'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+				{field:'evaluate', title: '验收评价',align:'center'},
+				{field:'remarks', title: '验收备注',align:'center'},
+				{field:'right',title: '操作',toolbar: '#barDemo',align:'center'}
+			]],
+			page: true,//开启分页
+			limit:5,   //默认十条数据一页
+			limits:false,  //数据分页条
+		});
 		
 });
 
@@ -312,7 +340,7 @@
 						closeBtn: 2,   // 关闭样式
 						shadeClose: true,  // 关闭方式
 						anim:5,    // 弹出样式
-						area: ['36vw', '78vh'],
+						area: ['36vw', '84vh'],
 						// btn:['确定','取消'],
 						isOutAnim:false,    // 关闭动画
 						content: $('#addPeople'),

@@ -122,12 +122,14 @@ class ItemMilepostController extends BaseController {
      *2018.1.2
 	 */
 	public function workPlanAdd(){
+		//项目编号
+		$p['pro_code'] = I('pro_code');
 		//计划名称
 		$p['plan_name'] = I('plan_name');
 		//plan_code 计划编号 - 项目计划主表
 		$p['plan_code'] = I('plan_code');
 		//plan_id 计划id - 项目计划从表
-		$p['plan_id'] = I('plan_id');
+		$p['milepost_id'] = I('milepost_id');
 		//plan_type 计划类别 计划类别- （默认计划内）0计划内，1新增，2变更
 		$p['plan_type'] = I('plan_type');
 		//main_member 责任人
@@ -146,11 +148,7 @@ class ItemMilepostController extends BaseController {
 		$p['remarks'] = I('remarks');
 
 		$status=$this->status=ItemMilepostModel::workPlanAdd($p);
-            if ($status) {
-                $this->Response(200,$status,'数据新增成功');
-            } else {
-            	throw new Exception('数据插入失败');
-            }
+        echo json_encode($status);
 	}
 
 	/**
@@ -162,11 +160,7 @@ class ItemMilepostController extends BaseController {
 		//plan_code 计划编号 - 项目计划主表
 		$p['pro_code'] = I('pro_code');
 		$status=$this->status=ItemMilepostModel::workPlanList($p);
-            if ($status) {
-                $this->Response(200,$status,'数据查询成功');
-            } else {
-            	throw new Exception('数据插入失败');
-            }
+        echo json_encode($status);
 	}
 
 	/**
@@ -180,11 +174,7 @@ class ItemMilepostController extends BaseController {
 		//项目编号
 		$p['pro_code'] = I('pro_code');
 		$status=$this->status=ItemMilepostModel::selPlan($p);
-            if ($status) {
-                $this->Response(200,$status,'数据查询成功');
-            } else {
-            	throw new Exception('数据查询失败');
-            }
+        echo json_encode($status);
 	}
 
 
@@ -199,11 +189,7 @@ class ItemMilepostController extends BaseController {
 		//计划任务编号
 		$p['plan_code'] = I('plan_code');
 		$status=$this->status=ItemMilepostModel::selMile($p);
-            if ($status) {
-                $this->Response(200,$status,'数据查询成功');
-            } else {
-            	throw new Exception('数据查询失败');
-            }
+        echo json_encode($status);
 	}
 
 	/**
@@ -216,11 +202,7 @@ class ItemMilepostController extends BaseController {
 		//项目编号
 		$p['pro_code'] = I('pro_code');
 		$status=$this->status=ItemMilepostModel::selMember($p);
-            if ($status) {
-                $this->Response(200,$status,'数据查询成功');
-            } else {
-            	throw new Exception('数据查询失败');
-            }
+        echo json_encode($status);
 	}
 
 	/**
@@ -231,11 +213,7 @@ class ItemMilepostController extends BaseController {
 	 */
 	public function selJob() {
 		$status=$this->status=ItemMilepostModel::selJob();
-            if ($status) {
-                $this->Response(200,$status,'数据查询成功');
-            } else {
-            	throw new Exception('数据查询失败');
-            }
+        echo json_encode($status);
 	}
 
 

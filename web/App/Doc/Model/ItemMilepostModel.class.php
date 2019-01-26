@@ -65,7 +65,10 @@ class ItemMilepostModel{
 	public function workPlanAdd($p) {
 		try{
             $res =  M('app_member_plan')->add($p);
-            return $res;
+            $arr = [];
+            $arr['code'] = 200;
+			$arr['data'] = $res;
+			return $arr;
          
         }catch(Exception $e){
             return $e->getMessage();
@@ -75,7 +78,10 @@ class ItemMilepostModel{
 	public function workPlanList($p) {
 		try{
             $res =  M('app_member_plan')->where($p)->select();
-            return $res;
+            $arr = [];
+            $arr['code'] = 0;
+			$arr['data'] = $res;
+            return $arr;
          
         }catch(Exception $e){
             return $e->getMessage();
@@ -84,8 +90,11 @@ class ItemMilepostModel{
 
 	public function selPlan($p) {
 		try{
-	            $res =  M('app_project_plana')->field('pro_code,plan_code,plan_name')->where($p)->group('pro_code')->select();
-	            return $res;
+	            $res =  M('app_project_plana')->field('pro_code,plan_code,plan_name')->where($p)->group('plan_code')->select();
+	            $arr = [];
+	            $arr['code'] = 200;
+				$arr['data'] = $res;
+				return $arr;
         }catch(Exception $e){
             return $e->getMessage();
         }
@@ -93,8 +102,11 @@ class ItemMilepostModel{
 
 	public function selMile($p) {
 		try{
-	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id')->where($p)->group('plan_code')->select();
-	            return $res;
+	            $res =  M('app_project_planb')->field('pro_code,plan_code,milepost_id,plan_name')->where($p)->group('milepost_id')->select();
+	            $arr = [];
+	            $arr['code'] = 200;
+				$arr['data'] = $res;
+				return $arr;
         }catch(Exception $e){
             return $e->getMessage();
         }
@@ -103,7 +115,10 @@ class ItemMilepostModel{
 	public function selMember($p) {
 		try{
 	            $res =  M('app_project_persion')->field('user_code,member_name')->where($p)->group('user_code')->select();
-	            return $res;
+	            $arr = [];
+	            $arr['code'] = 200;
+				$arr['data'] = $res;
+				return $arr;
         }catch(Exception $e){
             return $e->getMessage();
         }
@@ -112,7 +127,10 @@ class ItemMilepostModel{
 	public function selJob($p) {
 		try{
 	            $res =  M('dm_jobtype')->select();
-	            return $res;
+	            $arr = [];
+	            $arr['code'] = 200;
+				$arr['data'] = $res;
+				return $arr;
         }catch(Exception $e){
             return $e->getMessage();
         }

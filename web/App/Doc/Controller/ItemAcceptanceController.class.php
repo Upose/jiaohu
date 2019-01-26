@@ -44,6 +44,28 @@ class ItemAcceptanceController extends BaseController {
                 }
 	}
 
+	/**
+	 *验收列表接口
+     *@author he.xiang
+     *2018.1.2
+	 */
+	public function acceptList() {
+		//项目id
+		$pro_code = I('pro_code');
+		$page = I('page');
+        $limit = I('limit');
+        $list=$this->list=
+        ItemAcceptanceModel::acceptList($pro_code,$page,$limit);
+        
+        echo json_encode($list);
+        
+	}
+
+	/**
+	 *文件上传
+     *@author he.xiang
+     *2018.1.2
+	 */
 	public function fileUpload() {
 		if($_FILES){
 			foreach ($_FILES as $key => $value) {
