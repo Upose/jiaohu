@@ -181,7 +181,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">测试目的：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="objective" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 						</div>
@@ -189,7 +189,11 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">测试类别：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<select class="layui-input" name="typeadd"  lay-verify="required">
+												<option value ="">请选择测试类别</option>
+												<option value ="1">人工测试</option>
+												<option value ="2">其他测试</option>
+											</select>
 									</div>
 							</div>
 						</div>
@@ -197,7 +201,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">操作系统：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="oSystem" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 						</div>
@@ -205,7 +209,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">CPU：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="cpu" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 						</div>
@@ -213,7 +217,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">内存：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="memory" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 						</div>
@@ -221,7 +225,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">存储：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="storage" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 						</div>
@@ -229,7 +233,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">系统名称：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="system_name" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 						</div>
@@ -237,7 +241,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">测试人员：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="testPeople" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 						</div>
@@ -245,7 +249,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">测试时间：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" id="test1" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 						</div>
@@ -262,7 +266,7 @@
 							<div class="layui-form-item">
 									<label class="layui-form-label">残留缺陷：</label>
 									<div class="layui-input-block">
-											<input type="text" name="conpany" class="layui-input" lay-verify="required">
+											<input type="text" name="defect" class="layui-input" lay-verify="required">
 									</div>
 							</div>
 						</div>
@@ -317,18 +321,24 @@
 			
 			form.on('submit(demoone)', function(data){	
 				var s_time=$("#test1").val();  
+				console.log(data);
 				$.ajax({
 				url:"{:U('ItemImplement/eventAdd')}",
 				type: 'post',
 				data: {
 							pCode:"12",  //  项目id  后期添加
-							stage :data.field.add_jd,
-							event_name:data.field.event_name,
-							event_type:data.field.add_lb,
-							level :data.field.level,
-							happen_time :s_time,
-							event_content:data.field.contentadd,
-							remarks:data.field.textject,
+							objective :data.field.objective,
+							type:data.field.typeadd,
+							oSystem:data.field.oSystem,
+							cpu :data.field.cpu,
+							memory:data.field.memory,
+							storage:data.field.storage,
+							system_name:data.field.system_name,
+							testPeople :data.field.testPeople,
+							testTime :s_time,
+							residual_defect :data.field.defect,
+							target :data.field.sex,
+							remarks :data.field.textject,
 							founder_id :'2222',  //后期登录后添加
 							filepath:uptext,
 				},
@@ -352,9 +362,9 @@
 			
 			table.render({
 				elem: '#peoples',
-				url:"{:U('ItemMilepost/workPlanList')}",
+				url:"{:U('ItemTestReport/testReportList')}",
 				where:{                     //  页面传值   项目经理id
-					pro_code:233
+					ppCode:12,
 				},
 				// even:true,
 				height: 270,
@@ -372,40 +382,9 @@
 				limit:5,   //默认十条数据一页
 				limits:false,  //数据分页条
 			});
-			projectpStaus();  // 所属阶段
 		});
 		
-				function projectpStaus(){
-					$.ajax({
-					url:"{:U('ItemImplement/eventDropResult')}",
-					type: 'post',
-					data: {},
-					dataType: 'json',
-					success: function(data) {
-							if (data.code == 200) {
-									var result = data.data || [];
-									console.log(result);
-									var role = document.getElementById("add_jd");        //add_role_name给select定义的id     
-									var role1 = document.getElementById("add_lb");        //add_role_name给select定义的id              	               	      
-									for (var i = 0; i<result.pStaus.length; i++) {
-											var option = document.createElement("option");    // 创建添加option属性
-											option.setAttribute("value",result.pStaus[i].t_id);                  // 给option的value添加值
-											option.innerText= result.pStaus[i].stage;             // 打印option对应的纯文本 （超级管理员、管理员）
-											role.appendChild(option);                          // 给select 添加option子标签
-											form.render("select");                                // 刷性select，显示出数据        
-											} 
-									for (var i = 0; i<result.eType.length; i++) {
-											var option = document.createElement("option");    // 创建添加option属性
-											option.setAttribute("value",result.eType[i].id);                  // 给option的value添加值
-											option.innerText= result.eType[i].etype;             // 打印option对应的纯文本 （超级管理员、管理员）
-											role1.appendChild(option);                          // 给select 添加option子标签
-											form.render("select");                                // 刷性select，显示出数据        
-											} 		
-
-							}
-					}    
-					})
-				}		
+		
 		// 文件上传
 		layui.use('upload', function(){
 			var upload = layui.upload;			 
@@ -429,7 +408,6 @@
 			});
 		});
 		
-		// 添加项目组成员
 		$('.addThisPeo').on('click',function(){
 				layer.open({
 						type: 1,
@@ -437,7 +415,7 @@
 						closeBtn: 2,   // 关闭样式
 						shadeClose: true,  // 关闭方式
 						anim:5,    // 弹出样式
-						area: ['48vw', '82vh'],
+						area: ['68vw', '82vh'],
 						// btn:['确定','取消'],
 						isOutAnim:false,    // 关闭动画
 						content: $('#addPeople'),
