@@ -65,7 +65,10 @@ class ItemMilepostModel{
 	public function workPlanAdd($p) {
 		try{
             $res =  M('app_member_plan')->add($p);
-            return $res;
+            $arr = [];
+            $arr['code'] = 200;
+			$arr['data'] = $res;
+			return $arr;
          
         }catch(Exception $e){
             return $e->getMessage();
