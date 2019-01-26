@@ -75,7 +75,10 @@ class ItemMilepostModel{
 	public function workPlanList($p) {
 		try{
             $res =  M('app_member_plan')->where($p)->select();
-            return $res;
+            $arr = [];
+            $arr['code'] = 0;
+			$arr['data'] = $res;
+            return $arr;
          
         }catch(Exception $e){
             return $e->getMessage();
