@@ -270,7 +270,6 @@ class ItemImplementController extends BaseController {
       
         //項目编号
         $pro_code = I('pCode');
-
         $page = I('page');
         $limit = I('limit');
 
@@ -281,6 +280,30 @@ class ItemImplementController extends BaseController {
         echo $result_json;
 
     }
+
+
+    /**
+     * 会议查询
+     * @author song.chaoxu
+     * 2019.01.26
+     */
+    public function eventList()
+    {
+
+      
+        //項目编号
+        $pro_code = I('pCode');
+        $page = I('page');
+        $limit = I('limit');
+
+        $eventList = $this->result=
+        ItemImplementModel::eventList($pro_code,$page,$limit);
+                
+        $result_json = json_encode($eventList);
+        echo $result_json;
+
+    }
+
 
     /**
      * 周报新增
