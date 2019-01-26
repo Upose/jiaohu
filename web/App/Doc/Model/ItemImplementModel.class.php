@@ -125,11 +125,12 @@ class ItemImplementModel
      public function eventList($pro_code,$pag,$limit)
      {
 
-        $app_majorevents = M("app_meeting"); // 实例化对象
+        $app_majorevents = M("app_majorevents"); // 实例化对象
         $count = $app_majorevents ->where('pro_code'.$pCode) ->count();
         
         $sql = "
                SELECT
+                  m.id,
                   m.pro_code,
                   m.event_name,
                   m.event_content,
