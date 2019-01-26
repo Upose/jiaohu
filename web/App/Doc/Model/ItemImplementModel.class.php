@@ -209,7 +209,7 @@ class ItemImplementModel
             $next1 = date('Y-m-d', strtotime('+1 monday', time())); //无论今天几号,+1 monday为下一个有效周未
 
             //下周日
-            $next7 = date('Y-m-d', strtotime('+1 sunday', time())); //下一个有效周日,同样适用于其它星期
+            $next7 = date('Y-m-d', strtotime('last Sunday')); //下一个有效周日,同样适用于其它星期
 
             //插入下周报任务
             $data2['pro_code'] = $pro_code;
@@ -247,7 +247,7 @@ class ItemImplementModel
                 $next1 = date('Y-m-d', strtotime('+1 monday', time())); //无论今天几号,+1 monday为下一个有效周未
 
                 //下周日
-                $next7 = date('Y-m-d', strtotime('+1 sunday', time())); //下一个有效周日,同样适用于其它星期
+                $next7 = date('Y-m-d', strtotime('last Sunday')); //下一个有效周日,同样适用于其它星期
                 
                 //插入本周报任务
                 $data1['pro_code'] = $pro_code;
