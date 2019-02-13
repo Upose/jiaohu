@@ -38,7 +38,7 @@ class LoginController extends BaseController{
     		//登陆成功,将用户信息保存在session
     		
     		$_SESSION['user_name']=$name;
-    		$_SESSION['user_id']=$ures[0]['id'];
+    		$_SESSION['user_id']=$ures[0]['user_id'];
     		//var_dump($_SESSION);die;
     		$this->Response(0,$ures,'登录成功');
     		
