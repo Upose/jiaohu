@@ -22,14 +22,14 @@ class LoginController extends BaseController{
     	$name=I('name');
     	$password=md5(I('password'));
     	//判断用户名是否存在
-    	$sql="SELECT * FROM user_member where member_name = '$name' ";
+    	$sql="SELECT * FROM user_member where member_email = '$name' ";
     	$res = M()->query($sql);
     	if(count($res)==0){
     		//用户名不存在返回1
     		$this->Response(1,'');
     	}
         //判断用户名密码是否正确
-    	$usql="select * from user_member where member_name = '$name' and password= '$password'";
+    	$usql="select * from user_member where member_email = '$name' and password= '$password'";
     	$ures = M()->query($usql);
     	if(count($ures)==0){
     		//用户名或密码错误返回2
@@ -38,7 +38,7 @@ class LoginController extends BaseController{
     		//登陆成功,将用户信息保存在session
     		
     		$_SESSION['user_name']=$name;
-    		$_SESSION['user_id']=$ures[0]['id'];
+    		$_SESSION['user_id']=$ures[0]['user_id'];
     		//var_dump($_SESSION);die;
     		$this->Response(0,$ures,'登录成功');
     		
