@@ -235,13 +235,34 @@
 		// 调用查询项目接口
 		chaProject();
 		}); 
-		
+		var plan_code;
+        // 获取url中的get参数
+        var getParam = function() {
+		var url = window.location.search.substr(1);
+		var param = url.split('&');
+		var arrzhi = [];
+		for (var index in param) {
+		var value = param[index];
+		value = value.split('=');
+		var key = value.shift();
+		value = value.shift();
+		arrzhi.push({key:key,value:value});
+		}
+		return arrzhi;
+		}
+        /*其他页面跳转过来带过来的参数*/
+        var arr = getParam();
+        for(var i=0;i<arr.length;i++){
+         if(arr[i].key=="plan_code"){
+         plan_code= arr[i].value;
+         }
+        }
 		function chaProject(){
 			$.ajax({
 			url:"{:U('ItemStartUp/pContent')}",
 			type: 'post',
 			data: {
-				pCode:1548211682
+				pCode:plan_code
 			},
 			dataType: 'json',
 			success: function(data) {

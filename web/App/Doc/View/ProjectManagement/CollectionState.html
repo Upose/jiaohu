@@ -125,7 +125,7 @@
                             <div class="tagItem">${data.deptname}</div>
                         </div>
                     </div>
-                    <div class="rating">
+                    <div class="rating" plan_code=${data.pro_code}>
                         <div class="rateWarning">
                             <div class="warnItem"><span class="sum">4</span>项未提交</div>
                         </div>
@@ -156,8 +156,12 @@
             }    
         })
     })
-    $(document).on('click', '.rating',function(){
-window.location.href="{:U('ProjectManagement/ProjectDisplay')}";
-});
+    $(document).on('click', '.rating',function(){ 
+        var tar = $(this);
+        var index = tar.index();
+        plan_code = tar.attr("plan_code");
+        window.location.href="{:U('ProjectManagement/ProjectDisplay')}"
+        +"&plan_code="+plan_code;
+    });
 </script>
 </html>
