@@ -22,14 +22,14 @@ class LoginController extends BaseController{
     	$name=I('name');
     	$password=md5(I('password'));
     	//判断用户名是否存在
-    	$sql="SELECT * FROM user_member where member_name = '$name' ";
+    	$sql="SELECT * FROM user_member where member_email = '$name' ";
     	$res = M()->query($sql);
     	if(count($res)==0){
     		//用户名不存在返回1
     		$this->Response(1,'');
     	}
         //判断用户名密码是否正确
-    	$usql="select * from user_member where member_name = '$name' and password= '$password'";
+    	$usql="select * from user_member where member_email = '$name' and password= '$password'";
     	$ures = M()->query($usql);
     	if(count($ures)==0){
     		//用户名或密码错误返回2
