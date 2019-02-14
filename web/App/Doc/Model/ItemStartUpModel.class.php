@@ -250,6 +250,7 @@ class ItemStartUpModel
                     p.pro_name,
                     d.deptName,
                     i.industry_name,
+                    p.logo_path,
                     p.create_date
                 FROM
                     `app_project` p
