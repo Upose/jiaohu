@@ -60,10 +60,10 @@
 					<div class="layui-col-md2">
 						<div class="grid-demo">
 							<ul>
-							<li class="layui-tab-zhong">
-								<a href="{:U('ProjectManagement/LCBplan')}">
+							<li class="layui-tab-zhong LCBbtn">
+								<!-- <a href="{:U('ProjectManagement/LCBplan')}"> -->
 								<h3 class="layui-cite">里程碑计划</h3>
-								</a>
+								<!-- </a> -->
 							</li>
 							<li class="layui-tab-zhong layui-tab-top">
 								<a href="{:U('ProjectManagement/ProjectWeekPlan')}">
@@ -167,55 +167,55 @@
 						<div class="layui-col-md6">
 							<label class="tit-tab">项目名称：</label>
 							<div class="layui-input-block">
-							<input type="text" id="projectname" placeholder="" class="layui-input">
+							<input type="text" id="projectname" placeholder="" class="layui-input" disabled>
 							</div>
 						</div>
 					<div class="layui-col-md6">
 							<label class="tit-tab">所属行业：</label>
 							<div class="layui-input-block">
-							<input type="text"  id="jobname" placeholder="" class="layui-input" >
+							<input type="text"  id="jobname" placeholder="" class="layui-input" disabled>
 							</div>
 						</div>
 					<div class="layui-col-md6">
 							<label class="tit-tab">项目来源：</label>
 							<div class="layui-input-block">
-							<input type="text"  id="pro_laiyuan" placeholder="" class="layui-input" >
+							<input type="text"  id="pro_laiyuan" placeholder="" class="layui-input" disabled>
 							</div>
 						</div>
 					<div class="layui-col-md6">
 							<label class="tit-tab">所属部门：</label>
 							<div class="layui-input-block">
-							<input type="text" id="depart_name" placeholder="" class="layui-input">
+							<input type="text" id="depart_name" placeholder="" class="layui-input" disabled>
 							</div>
 						</div>
 					<div class="layui-col-md6">
 							<label class="tit-tab">项目经理：</label>
 							<div class="layui-input-block">
-							<input type="text" id="pro_jl" placeholder="" class="layui-input" >
+							<input type="text" id="pro_jl" placeholder="" class="layui-input" disabled>
 							</div>
 						</div>
 					<div class="layui-col-md6">
 							<label class="tit-tab">项目地点：</label>
 							<div class="layui-input-block">
-							<input type="text" id="pro_dd" placeholder="" class="layui-input" >
+							<input type="text" id="pro_dd" placeholder="" class="layui-input" disabled>
 							</div>
 						</div>
 					<div class="layui-col-md6">
 							<label class="tit-tab">项目性质：</label>
 							<div class="layui-input-block">
-							<input type="text" id="pro_xz"  placeholder="" class="layui-input">
+							<input type="text" id="pro_xz"  placeholder="" class="layui-input" disabled>
 							</div>
 						</div>
 					<div class="layui-col-md6">
 							<label class="tit-tab">战略性质：</label>
 							<div class="layui-input-block">
-							<input type="text" id="pro_zl" placeholder=""  class="layui-input">
+							<input type="text" id="pro_zl" placeholder=""  class="layui-input" disabled>
 							</div>
 						</div>
 					<div class="layui-col-md12">
 							<label class="tit-tab">项目介绍：</label>
 							<div class="layui-input-block">
-							<textarea placeholder="请输入内容" id="pro_mess" class="layui-textarea"></textarea>
+							<textarea placeholder="请输入内容" id="pro_mess" class="layui-textarea" disabled></textarea>
 							</div>
 						</div>
 					</div>	
@@ -235,7 +235,7 @@
 		// 调用查询项目接口
 		chaProject();
 		}); 
-		var plan_code;
+		var pro_code;
         // 获取url中的get参数
         var getParam = function() {
 		var url = window.location.search.substr(1);
@@ -253,16 +253,18 @@
         /*其他页面跳转过来带过来的参数*/
         var arr = getParam();
         for(var i=0;i<arr.length;i++){
-         if(arr[i].key=="plan_code"){
-         plan_code= arr[i].value;
+         if(arr[i].key=="pro_code"){
+	         pro_code= arr[i].value;
          }
         }
+		console.log(arr,'arr');
+		console.log(pro_code,'pro_code');
 		function chaProject(){
 			$.ajax({
 			url:"{:U('ItemStartUp/pContent')}",
 			type: 'post',
 			data: {
-				pCode:plan_code
+				pCode:pro_code
 			},
 			dataType: 'json',
 			success: function(data) {
@@ -282,6 +284,14 @@
 			}    
 			})
 		}	
+		// 里程碑按钮跳转传值
+		$(".LCBbtn").click(function(){
+			console.log(pro_code);
+			console.log("{:U('ProjectManagement/LCBplan')}"
+        +"&pro_code="+pro_code);
+			window.location.href="{:U('ProjectManagement/LCBplan')}"
+        +"&pro_code="+pro_code;
+		}); 
 
 </script>
 </html>
