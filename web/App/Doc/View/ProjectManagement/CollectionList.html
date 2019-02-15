@@ -9,49 +9,98 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/collectionlist.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/jquery.pagination.min.js"></script>
     <style>
-    .page_con{
-        float: right;
-        width: 20%;
-        height: 7vh;
-        margin-right: 5vw;
-    }
-    .now_page{
-        float: left;
-        width: 35%;
-        height: 100%;
-    }
-    .now_page span{
-        float: left;
-        margin-top: 2vh;
-        margin-left: 5px;
-    }
-    .now_page p{
-        float: left;
-        text-align: center;
-        margin-top: 2.5vh;
-        margin-left: 5px;
-    }
-    .target_page span{
-        float: left;
-        margin-top: 2vh;
-        margin-left: 5px;
-    }
-    .target_page input {
-        width: 15px;
-        height: 15px;
-        margin-top: 2vh;
-        margin-left: 5px;
-        float: left;
-    }
-    .target_page button{
-        float: left;
-        margin-top: 2vh;
-        margin-left: 5px;
-        text-align: center;
-        width: 50px;
-        height: 20px;
-    }
+        .ui-pagination-container {
+            height: 34px;
+            line-height: 34px;
+        }
+
+        .ui-pagination-container .ui-pagination-page-item {
+            font-size: 14px;
+            padding: 4px 10px;
+            background: #fff;
+            border: 1px solid #c5b7b7;
+            color: #888;
+            margin: 0 3px;
+            text-decoration: none;
+        }
+
+        .ui-pagination-container .ui-pagination-page-item:hover {
+            border-color: #568dbd;
+            color: #568dbd;
+            text-decoration: none;
+        }
+
+        .ui-pagination-container .ui-pagination-page-item.active {
+            background: #568dbd;
+            border-color: #568dbd;
+            color: #fff;
+            cursor: default;
+        }
+
+        .page_con {
+            float: right;
+            width: 30%;
+            height: 7vh;
+            margin-right: 5vw;
+        }
+
+        .now_page {
+            float: left;
+            width: 45%;
+            height: 100%;
+        }
+
+        .now_page span {
+            float: left;
+            margin-top: 2vh;
+            margin-left: 5px;
+        }
+
+        .now_page p {
+            float: left;
+            text-align: center;
+            margin-top: 2.5vh;
+            margin-left: 5px;
+        }
+
+        .target_page {
+            margin-left: 5%;
+        }
+
+        .target_page span {
+            float: left;
+            margin-top: 2vh;
+            margin-left: 5px;
+        }
+
+        .target_page input {
+            width: 15px;
+            height: 15px;
+            margin-top: 2vh;
+            margin-left: 5px;
+            float: left;
+        }
+
+        .target_page button {
+            float: left;
+            margin-top: 2vh;
+            margin-left: 5px;
+            text-align: center;
+            width: 50px;
+            height: 20px;
+        }
+
+        .target_pre {
+            float: left;
+            margin-top: 2vh;
+        }
+
+        .target_next {
+            float: right;
+            margin-top: 2vh;
+        }
     </style>
 </head>
 
@@ -94,193 +143,206 @@
                     </tr>
                 </thead>
                 <tbody class="table_body">
-                   
+
                 </tbody>
             </table>
             <div class="page_con">
-               <div class="now_page">
-                    <span>第</span>
-                    <p class="nowpage_val">1</p>
-                    <span>页</span>
-               </div> 
-               <div class="target_page">
-                    <span>跳转到</span>
-                    <input type="text" class="page_val">
-                    <span>页</span>
-                    <button class="target_btn">跳转</button>
-               </div>
+                <div id="pagination2" class="page fl"></div>
             </div>
         </div>
     </div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
-    $(function(){
-        layui.use('form', function(){
+    var alldata = {
+        count: "",
+        totalPage: "",
+    }
+
+    $(function () {
+        layui.use('form', function () {
             var form = layui.form;
             // 解决form表单跳转问题
-            form.on('submit', function(data){
+            form.on('submit', function (data) {
                 return false
             })
             form.render();
         });
         // 创建数据表格
-        layui.use('table', function(){
+        layui.use('table', function () {
             var table = layui.table;
             //监听工具条
-            table.on('tool(demo)', function(obj){
+            table.on('tool(demo)', function (obj) {
                 var data = obj.data;
-                if(obj.event === 'detail'){
-                    
-                } else if(obj.event === 'del'){
-                    layer.confirm('真的删除行么', function(index){
+                if (obj.event === 'detail') {
+
+                } else if (obj.event === 'del') {
+                    layer.confirm('真的删除行么', function (index) {
                         obj.del();
                         layer.close(index);
                     });
-                } else if(obj.event === 'edit'){
-                    layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                } else if (obj.event === 'edit') {
+                    layer.alert('编辑行：<br>' + JSON.stringify(data))
                 }
             });
         });
     });
     //点击跳转到新建项目页面
-    $(".newProject").click(function(event){
+    $(".newProject").click(function (event) {
         event.preventDefault();
-        window.location.href="{:U('ProjectManagement/Supervision')}";         
+        window.location.href = "{:U('ProjectManagement/Supervision')}";
     })
     // 页面刚进入时获取表格数据
-    $(()=>{
+    $(() => {
         $.ajax({
-            url:"{:U('ItemStartUp/pList')}",
+            url: "{:U('ItemStartUp/pList')}",
             type: 'post',
-            data:{
+            sync: false,
+            data: {
 
             },
             dataType: 'json',
-            success: function(response) {
+            success: function (response) {
                 if (response.code == 200) {
-                    console.log(response,"response");
-                    $(".test2").html("<b>Hello world!</b>");
-                    for (var i = 0; i <response.data.result.length ; i++) {
-                        var data=response.data.result[i];
+                    alldata.count = response.data.count;
+                    console.log(alldata.count)
+                    for (var i = 0; i < response.data.result.length; i++) {
+                        var data = response.data.result[i];
                         $(".table_body").append(
-                            '<tr>'+
-                             '<td>'+data.pro_name+'</td>'+
-                             '<td>'+data.deptname+'</td>'+
-                             '<td>'+data.industry_name+'</td>'+
-                             '<td>'+data.create_date+'</td>'+
-                             '<td><button class="delete_btn" pro_code="'+data.pro_code+'">删除</button></td>'+
+                            '<tr class="count" count="' + response.data.count + '">' +
+                            '<td>' + data.pro_name + '</td>' +
+                            '<td>' + data.deptname + '</td>' +
+                            '<td>' + data.industry_name + '</td>' +
+                            '<td>' + data.create_date + '</td>' +
+                            '<td><button class="delete_btn" pro_code="' + data.pro_code + '">删除</button></td>' +
                             '</tr>'
                         )
                     }
                 }
-            },
-            error:function(){
+                    var currentPage = 1;
+                    alldata.totalPage = Math.ceil(alldata.count/10);
+                    console.log(alldata.totalPage)
+                    function page(currentPage, totalPage) {
+                    $("#pagination2").pagination({
+                        currentPage: currentPage,
+                        totalPage: alldata.totalPage,
+                        isShow: false,
+                        count: 3,
+                        prevPageText: "< 上一页",
+                        nextPageText: "下一页 >",
+                        callback: function (current) {
+                            // alert(alldata.count);
+                            // alert(alldata.totalPage);
+                            var page = current;
+                            $('.table_body').html("");
+                            $.ajax({
+                                url: "{:U('ItemStartUp/pList')}",
+                                type: 'post',
+                                data: {
+                                    page: page
+                                },
+                                dataType: 'json',
+                                success: function (response) {
+                                    if (response.code == 200) {
+                                        console.log(response, "response");
+                                        for (var i = 0; i < response.data.result.length; i++) {
+                                            var data = response.data.result[i];
+                                            $(".table_body").append(
+                                                '<tr class="count" count="' + response.data.count + '">' +
+                                                '<td>' + data.pro_name + '</td>' +
+                                                '<td>' + data.deptname + '</td>' +
+                                                '<td>' + data.industry_name + '</td>' +
+                                                '<td>' + data.create_date + '</td>' +
+                                                '<td><button class="delete_btn" pro_code="' + data.pro_code + '">删除</button></td>' +
+                                                '</tr>'
+                                            )
+                                        }
+                                    }
+                                },
+                    error: function () {
                         //console.log(1234);
-            }    
-        })
+                    }
+                })
+            },
+            onPageClick: function (event, currentPage) {
+
+            }
+        });
+    };
+                    page(currentPage, alldata.totalPage);
+                },
+                error: function () {
+
+                }
+            })
     })
     // 搜索框搜索的时候  search_btn
-    $(".search_btn").click(function(event){
+    $(".search_btn").click(function (event) {
         event.preventDefault();
         $('.table_body').html("");
-        var proName=$(" .seachCont").val();
+        var proName = $(" .seachCont").val();
         $.ajax({
-            url:"{:U('ItemStartUp/pList')}",
+            url: "{:U('ItemStartUp/pList')}",
             type: 'post',
-            data:{
-                proName:proName
+            data: {
+                proName: proName
             },
             dataType: 'json',
-            success: function(response) {
+            success: function (response) {
                 if (response.code == 200) {
-                    console.log(response,"response");
-                    for (var i = 0; i <response.data.result.length ; i++) {
-                        var data=response.data.result[i];
+                    console.log(response, "response");
+                    for (var i = 0; i < response.data.result.length; i++) {
+                        var data = response.data.result[i];
                         $(".table_body").append(
-                            '<tr>'+
-                             '<td>'+data.pro_name+'</td>'+
-                             '<td>'+data.deptname+'</td>'+
-                             '<td>'+data.industry_name+'</td>'+
-                             '<td>'+data.create_date+'</td>'+
-                             '<td><button class="delete_btn" pro_code="'+data.pro_code+'">删除</button></td>'+
+                            '<tr class="count" count="' + response.data.count + '">' +
+                            '<td>' + data.pro_name + '</td>' +
+                            '<td>' + data.deptname + '</td>' +
+                            '<td>' + data.industry_name + '</td>' +
+                            '<td>' + data.create_date + '</td>' +
+                            '<td><button class="delete_btn" pro_code="' + data.pro_code + '">删除</button></td>' +
                             '</tr>'
                         )
                     }
                 }
             },
-            error:function(){
-                        //console.log(1234);
-            }    
+            error: function () {
+                //console.log(1234);
+            }
         })
     })
-    // 点击页码按钮的时候
-    $(".target_btn").click(function(event){
-        event.preventDefault();
-        $('.table_body').html("");
-        var proName=$(".seachCont").val();
-        var page=$(".page_val").val();
-        $.ajax({
-            url:"{:U('ItemStartUp/pList')}",
-            type: 'post',
-            data:{
-                proName:proName,
-                page:page
-            },
-            dataType: 'json',
-            success: function(response) {
-                if (response.code == 200) {
-                    // 数据调用成功后添加数据改变当前页码
-                    $(".nowpage_val").html(page);
-                    for (var i = 0; i <response.data.result.length ; i++) {
-                        var data=response.data.result[i];
-                        $(".table_body").append(
-                            '<tr>'+
-                             '<td>'+data.pro_name+'</td>'+
-                             '<td>'+data.deptname+'</td>'+
-                             '<td>'+data.industry_name+'</td>'+
-                             '<td>'+data.create_date+'</td>'+
-                             '<td><button class="delete_btn" pro_code="'+data.pro_code+'">删除</button></td>'+
-                            '</tr>'
-                        )
-                    }
-                }
-            },
-            error:function(){
-                        //console.log(1234);
-            }    
-        })
-    })
+    // 页码切换
+    //分页显示
+    
     // 删除按钮操作
-    $(".table_body").on("click",".delete_btn",function(event){
+    $(".table_body").on("click", ".delete_btn", function (event) {
         event.preventDefault();
+        alldata.count = $(".count").attr("count");
+        alldata.totalPage = Math.ceil(alldata.count / 10);
         var tar = $(this);
         var index = tar.index();
         pro_code = tar.attr("pro_code");
         //判断是否删除弹出框
-        layer.confirm("确认删除?",function(){
+        layer.confirm("确认删除?", function () {
             $.ajax({
-            url:"{:U('ItemStartUp/deleteProject')}",
-            type: 'post',
-            data:{
-                pCode:pro_code
-            },
-            dataType: 'json',
-            success: function(res) {
-                   //console.log(response.data);
-                    if(res.data=="1"){
-                        layer.msg("删除成功!", {time: 1000}, function () {
+                url: "{:U('ItemStartUp/deleteProject')}",
+                type: 'post',
+                data: {
+                    pCode: pro_code
+                },
+                dataType: 'json',
+                success: function (res) {
+                    //console.log(response.data);
+                    if (res.data == "1") {
+                        layer.msg("删除成功!", { time: 1000 }, function () {
                             location.reload();
                         });
-                       
-                        
-                    }
-            }
-        })
-        })
-        
 
-       
+
+                    }
+                }
+            })
+        })
     })
 </script>
+
 </html>
