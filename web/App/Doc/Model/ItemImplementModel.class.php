@@ -170,17 +170,62 @@ class ItemImplementModel
      */
     public function riskResult($pCode,$page,$limit){
 
+
         $app_project_risk = M("app_project_risk"); // 实例化对象
-        $count = $app_project_risk ->where('pro_code'.$pCode) ->count();
-        $customerList = $app_project_risk ->field('id,pro_code,plan_code,stage,risk_content,risk_type,level,result,state,founder_id,create_data')
-            ->where('pro_code',$pCode)
-            ->page($page,$limit)
-            ->order('create_data desc')
-            ->select();
+        // $count = $app_project_risk ->where('pro_code',$pCode) ->count();
+
+        $countSql = "SELECT COUNT(id) AS total
+                            FROM
+                              app_project_risk 
+                            WHERE
+                              pro_code = $pCode
+                            ";
+
+        // $customerList = $app_project_risk->alias('r') ->field('r.id,r.pro_code,r.plan_code,ds.stage,r.risk_content,dr.rtype,(case when r.level = 1 then \'一级\' when r.level = 2 then \'二级\' else \'三级\' end) as level,r.result,r.state,r.founder_id,r.create_data')
+        //     ->join('dm_risktype dr','r.risk_type = dr.id')
+        //     ->join('dm_stage ds','r.stage = ds.t_id')
+        //     ->where('pro_code',$pCode)
+        //     ->page($page,$limit)
+        //     ->order('create_data desc')
+        //     ->select();
+          $querySql = "SELECT
+                              r.id,
+                              r.pro_code,
+                              r.plan_code,
+                              ds.stage,
+                              r.risk_content,
+                              dr.rtype as risk_type,
+                              (
+                                CASE
+                                WHEN r. LEVEL = 1 THEN
+                                  '一级'
+                                WHEN r. LEVEL = 2 THEN
+                                  '二级'
+                                ELSE
+                                  '三级'
+                                END
+                              ) AS level,
+                              r.result,
+                              r.state,
+                              r.founder_id,
+                              r.create_data
+                            FROM
+                              app_project_risk r
+                            JOIN dm_risktype dr ON r.risk_type = dr.id
+                            JOIN dm_stage ds ON r.stage = ds.t_id
+                            WHERE
+                              pro_code = $pCode
+                            ORDER BY
+                              create_data DESC
+                            LIMIT $page,$limit";
+
+          $count=M()->query($countSql); 
+          // echo $countSql;
+          $customerList = M()->query($querySql); 
           $result = array();
           $result['code'] = 0;
           $result['msg'] = "";
-          $result['count'] = $count;
+          $result['count'] = $count[0]['total'];
           $result['data'] = $customerList;
           return $result;
     }

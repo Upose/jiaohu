@@ -90,13 +90,12 @@ class ItemImplementController extends BaseController {
     public function riskResult(){
 
         //項目编号
-        $pro_code = I('pCode');
-
+        $pro_code  = I('pCode');
         $page = I('page');
         $limit = I('limit');
 
         $riskResult = $this->result=
-        ItemImplementModel::riskResult($pCode,$page,$limit);
+        ItemImplementModel::riskResult($pro_code,$page,$limit);
         
         $result_json = json_encode($riskResult);
         echo $result_json;
