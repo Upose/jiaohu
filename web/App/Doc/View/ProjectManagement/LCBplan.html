@@ -110,6 +110,7 @@
       .plan_list{
           width: 100%;
           height: 23%;
+          cursor:pointer;
           margin-bottom: 3vh;
           border: 1px solid #E6E6E6;
           border-left: 5px solid #009588;
@@ -629,7 +630,7 @@
                                     <input type="text" class="layui-input" id="lf_start_time" placeholder="yyyy年MM月dd日" lay-verify="required">
                                 </div>
                             </div>
-                            <div class="layui-inline">
+                            <div class="layui-inline" style="margin-left: 5%">
                                 <label class="layui-form-label plan-end">结束时间:</label>
                                 <div class="layui-input-inline">
                                     <input type="text" class="layui-input" id="lf_end_time" placeholder="yyyy年MM月dd日" lay-verify="required">
@@ -643,7 +644,7 @@
                                   <input type="text" placeholder="这里填写目标" class="layui-input" id="lf_deliver_target">
                                 </div>
                             </div>
-                            <div class="layui-inline">
+                            <div class="layui-inline" style="margin-left: 5%">
                                     <label class="layui-form-label plan-kinds">计划类型:</label>
                                     <div class="layui-input-inline">
                                       <select name="modules" lay-verify="required" lay-search="" id="lf_plan_type">
@@ -657,7 +658,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label messages">备注信息:</label>
                             <div class="layui-input-inline">
-                              <input type="text" placeholder="这里填写备注信息" class="layui-input" id="lf_remarks">
+                              <input type="text" placeholder="这里填写备注信息" class="layui-input" id="lf_remarks" style="padding-left: 18px;">
                             </div>
                         </div>
                         <div class="bottom_btn">
@@ -869,6 +870,9 @@
 		console.log(arr,'arr');
 		console.log(pro_code,'pro_code');
         var plan_code=null;
+
+
+        
         //左侧列表调用展示
         $(()=>{
         $.ajax({
@@ -1380,7 +1384,7 @@
                                             '<h2 class="data_null">暂无数据</h2>'
                                     )
                                     $('.ys_content_list').append(
-                                            '<h2 class="data_null">需求暂无数</h2>'
+                                            '<h2 class="data_null">暂无数据</h2>'
                                     )
                                     $('.gd_content_list').append(
                                             '<h2 class="data_null">暂无数据</h2>'
@@ -1396,7 +1400,9 @@
         //左侧弹窗点击事件提交
         $("#leftsubmit").click(function(event){
         event.preventDefault();
-        var pro_code=pro_code;//写死的数值  后期再从其他页面获取
+        
+        pro_code=pro_code;//写死的数值  后期再从其他页面获取
+        alert(pro_code);
         var type_id=1;//写死的数值  后期再从其他页面获取
         var plan_name = $(" #lf_plan_name").val();// 名称
         var plan_content= $(" #lf_plan_content").val();// 内容
@@ -1441,7 +1447,7 @@
             var tar = $(this);
             var index = tar.index();
             plan_code = tar.attr("leftvalue");
-            //alert(plan_code);
+            //alert(pro_code);
                 $.ajax({
                     url:"{:U('ItemMilepost/stageList')}",
                     type: 'post',
@@ -1932,7 +1938,7 @@
                                         '<h2 class="data_null">暂无数据</h2>'
                                 )
                                 $('.ys_content_list').append(
-                                        '<h2 class="data_null">需求暂无数</h2>'
+                                        '<h2 class="data_null">暂无数据</h2>'
                                 )
                                 $('.gd_content_list').append(
                                         '<h2 class="data_null">暂无数据</h2>'
@@ -1970,8 +1976,8 @@
                             }else if(topactive=="归档"){
                                 milepost_id=9
                         }
-                        var pro_code=pro_code;//写死的数值  后期再从其他页面获取
-                        //console.log(plan_code,'15511551');
+                        pro_code=pro_code;//写死的数值  后期再从其他页面获取
+                        alert( pro_code);
                         plan_code=plan_code==null?$(".left_list_main").children().first().attr("leftvalue"):plan_code;
                         var plan_name=$("#rg_plan_name").val();//计划名称
                         var plan_content =$("#rg_plan_content").val();//计划内容
@@ -2011,63 +2017,63 @@
                       }
          })
         // 鼠标滑动变化
-        $(".zc_btn").mousemove(function(){
-            $(".zc_btn>div>img").attr("src","__IMG__/select/zhuchang1.png");      
-        });
-        $(".zc_btn").mouseout(function(){
-            $(".zc_btn>div>img").attr("src","__IMG__/normal/zhuchang.png");
-        });  
-        $(".xq_btn").mousemove(function(){
-            $(".xq_btn>div>img").attr("src","__IMG__/select/xuqiu1.png");
-        });
-        $(".xq_btn").mouseout(function(){
-            $(".xq_btn>div>img").attr("src","__IMG__/normal/xuqiu.png");
-        });  
-        $(".sj_btn").mousemove(function(){
-            $(".sj_btn>div>img").attr("src","__IMG__/select/sheji1.png");    
-        });
-        $(".sj_btn").mouseout(function(){
-            $(".sj_btn>div>img").attr("src","__IMG__/normal/sheji.png");
-           
-        });  
-        $(".kf_btn").mousemove(function(){
-            $(".kf_btn>div>img").attr("src","__IMG__/select/kaifa1.png"); 
-        });
-        $(".kf_btn").mouseout(function(){
-            $(".kf_btn>div>img").attr("src","__IMG__/normal/kaifa.png");
-           
-        });  
-        $(".cs_btn").mousemove(function(){
-            $(".cs_btn>div>img").attr("src","__IMG__/select/ceshi1.png");  
-        });
-        $(".cs_btn").mouseout(function(){
-            $(".cs_btn>div>img").attr("src","__IMG__/normal/ceshi.png");
-           
-        });  
-        $(".sx_btn").mousemove(function(){
-            $(".sx_btn>div>img").attr("src","__IMG__/select/shixing1.png");
-        });
-        $(".sx_btn").mouseout(function(){
-            $(".sx_btn>div>img").attr("src","__IMG__/normal/shixing.png");
-        });  
-        $(".px_btn").mousemove(function(){
-            $(".px_btn>div>img").attr("src","__IMG__/select/peixun1.png");
-        });
-        $(".px_btn").mouseout(function(){
-            $(".px_btn>div>img").attr("src","__IMG__/normal/peixun.png");
-           
-        });  
-        $(".ys_btn").mousemove(function(){
-            $(".ys_btn>div>img").attr("src","__IMG__/select/yanshou1.png");
-        });
-        $(".ys_btn").mouseout(function(){
-            $(".ys_btn>div>img").attr("src","__IMG__/normal/yanshou.png");
-           
-        });  
-        $(".gd_btn").mousemove(function(){
-            $(".gd_btn>div>img").attr("src","__IMG__/select/guidang1.png");   
-        });
-        $(".gd_btn").mouseout(function(){
+            $(".zc_btn").mousemove(function(){
+                $(".zc_btn>div>img").attr("src","__IMG__/select/zhuchang1.png");      
+            });
+            $(".zc_btn").mouseout(function(){
+                $(".zc_btn>div>img").attr("src","__IMG__/normal/zhuchang.png");
+            });  
+            $(".xq_btn").mousemove(function(){
+                $(".xq_btn>div>img").attr("src","__IMG__/select/xuqiu1.png");
+            });
+            $(".xq_btn").mouseout(function(){
+                $(".xq_btn>div>img").attr("src","__IMG__/normal/xuqiu.png");
+            });  
+            $(".sj_btn").mousemove(function(){
+                $(".sj_btn>div>img").attr("src","__IMG__/select/sheji1.png");    
+            });
+            $(".sj_btn").mouseout(function(){
+                $(".sj_btn>div>img").attr("src","__IMG__/normal/sheji.png");
+            
+            });  
+            $(".kf_btn").mousemove(function(){
+                $(".kf_btn>div>img").attr("src","__IMG__/select/kaifa1.png"); 
+            });
+            $(".kf_btn").mouseout(function(){
+                $(".kf_btn>div>img").attr("src","__IMG__/normal/kaifa.png");
+            
+            });  
+            $(".cs_btn").mousemove(function(){
+                $(".cs_btn>div>img").attr("src","__IMG__/select/ceshi1.png");  
+            });
+            $(".cs_btn").mouseout(function(){
+                $(".cs_btn>div>img").attr("src","__IMG__/normal/ceshi.png");
+            
+            });  
+            $(".sx_btn").mousemove(function(){
+                $(".sx_btn>div>img").attr("src","__IMG__/select/shixing1.png");
+            });
+            $(".sx_btn").mouseout(function(){
+                $(".sx_btn>div>img").attr("src","__IMG__/normal/shixing.png");
+            });  
+            $(".px_btn").mousemove(function(){
+                $(".px_btn>div>img").attr("src","__IMG__/select/peixun1.png");
+            });
+            $(".px_btn").mouseout(function(){
+                $(".px_btn>div>img").attr("src","__IMG__/normal/peixun.png");
+            
+            });  
+            $(".ys_btn").mousemove(function(){
+                $(".ys_btn>div>img").attr("src","__IMG__/select/yanshou1.png");
+            });
+            $(".ys_btn").mouseout(function(){
+                $(".ys_btn>div>img").attr("src","__IMG__/normal/yanshou.png");
+            
+            });  
+            $(".gd_btn").mousemove(function(){
+                $(".gd_btn>div>img").attr("src","__IMG__/select/guidang1.png");   
+            });
+            $(".gd_btn").mouseout(function(){
             $(".gd_btn>div>img").attr("src","__IMG__/normal/guidang.png");
            
         });  
