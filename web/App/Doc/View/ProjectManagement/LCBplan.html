@@ -119,7 +119,7 @@
           height: 100%;
       }
       .right_top{
-          height: 10%;
+          height: 15%;
           width: 100%;
       }
       .rg_top_con{
@@ -261,7 +261,7 @@
      }
      .public_father{
          width: 100%;
-         height: 90%;
+         height: 85%;
      }
      .right_public{
          width: 100%;
@@ -269,6 +269,13 @@
      }
      .data_null{
          text-align: center;
+     }
+     .rigtop_name{
+        margin-left: 18%;
+        margin-top: 2vh;
+     }
+     .rigtop_img{
+         margin-top: 1vh;
      }
     </style>
 </head>
@@ -439,56 +446,56 @@
                             <ul class="top_list">
                                 <li class="rightTop_list zc_btn topactive">
                                     <div>
-                                        <img src="" alt="">
-                                        <p>驻场</p>
+                                        <img src="__IMG__/normal/zhuchang.png"  class="rigtop_img">
+                                        <p class="rigtop_name">驻场</p>
                                     </div>
                                 </li>
                                 <li class="rightTop_list xq_btn">
                                     <div>
-                                        <img src="" alt="">
-                                        <p>需求</p>
+                                        <img src="__IMG__/normal/xuqiu.png" class="rigtop_img">
+                                        <p class="rigtop_name">需求</p>
                                     </div>
                                 </li>
                                 <li class="rightTop_list sj_btn">
                                     <div>
-                                        <img src="" alt="">
-                                        <p>设计</p>
+                                        <img src="__IMG__/normal/sheji.png" class="rigtop_img">
+                                        <p class="rigtop_name">设计</p>
                                     </div>
                                 </li>
                                 <li class="rightTop_list kf_btn">
                                     <div>
-                                        <img src="" alt="">
-                                        <p>开发</p>
+                                        <img src="__IMG__/normal/kaifa.png" class="rigtop_img">
+                                        <p class="rigtop_name">开发</p>
                                     </div>
                                 </li>
                                 <li class="rightTop_list cs_btn">
                                     <div>
-                                        <img src="" alt="">
-                                        <p>测试</p>
+                                        <img src="__IMG__/normal/ceshi.png" class="rigtop_img">
+                                        <p class="rigtop_name">测试</p>
                                     </div>
                                 </li>
                                 <li class="rightTop_list sx_btn">
                                     <div>
-                                        <img src="" alt="">
-                                        <p>试行</p>
+                                        <img src="__IMG__/normal/shixing.png" class="rigtop_img">
+                                        <p class="rigtop_name">试行</p>
                                     </div>
                                 </li>
                                 <li class="rightTop_list px_btn">
                                     <div>
-                                        <img src="" alt="">
-                                        <p>培训</p>
+                                        <img src="__IMG__/normal/peixun.png" class="rigtop_img">
+                                        <p class="rigtop_name">培训</p>
                                     </div>
                                 </li>
                                 <li class="rightTop_list ys_btn">
                                     <div>
-                                        <img src="" alt="">
-                                        <p>验收</p>
+                                        <img src="__IMG__/normal/yanshou.png" class="rigtop_img">
+                                        <p class="rigtop_name">验收</p>
                                     </div>
                                 </li>
                                 <li class="rightTop_list gd_btn">
                                     <div>
-                                        <img src="" alt="">
-                                        <p>归档</p>
+                                        <img src="__IMG__/normal/zhuchang.png" class="rigtop_img">
+                                        <p class="rigtop_name">归档</p>
                                     </div>
                                 </li>
                             </ul>
@@ -835,6 +842,32 @@
 </script>
    <!-- 数据接口调用部分 -->
     <script>
+        // 获取上一个页面传的pro_code
+        var pro_code;
+        // 获取url中的get参数
+        var getParam = function() {
+		var url = window.location.search.substr(1);
+        console.log(url,"url");
+		var param = url.split('&');
+		var arrzhi = [];
+		for (var index in param) {
+		var value = param[index];
+		value = value.split('=');
+		var key = value.shift();
+		value = value.shift();
+		arrzhi.push({key:key,value:value});
+		}
+		return arrzhi;
+		}
+        /*其他页面跳转过来带过来的参数*/
+        var arr = getParam();
+        for(var i=0;i<arr.length;i++){
+         if(arr[i].key=="pro_code"){
+	         pro_code= arr[i].value;
+         }
+        }
+		console.log(arr,'arr');
+		console.log(pro_code,'pro_code');
         var plan_code=null;
         //左侧列表调用展示
         $(()=>{
@@ -871,7 +904,7 @@
                         url:"{:U('ItemMilepost/stageList')}",
                         type: 'post',
                         data:{
-                            pro_code:233,
+                            pro_code:pro_code,
                             plan_code:plan_code==null?$(".left_list_main").children().first().attr("leftvalue"):plan_code
                         },
                         dataType: 'json',
@@ -1363,7 +1396,7 @@
         //左侧弹窗点击事件提交
         $("#leftsubmit").click(function(event){
         event.preventDefault();
-        var pro_code=233;//写死的数值  后期再从其他页面获取
+        var pro_code=pro_code;//写死的数值  后期再从其他页面获取
         var type_id=1;//写死的数值  后期再从其他页面获取
         var plan_name = $(" #lf_plan_name").val();// 名称
         var plan_content= $(" #lf_plan_content").val();// 内容
@@ -1413,7 +1446,7 @@
                     url:"{:U('ItemMilepost/stageList')}",
                     type: 'post',
                     data:{
-                        pro_code:233,
+                        pro_code:pro_code,
                         plan_code:plan_code
                     },
                     dataType: 'json',
@@ -1937,7 +1970,7 @@
                             }else if(topactive=="归档"){
                                 milepost_id=9
                         }
-                        var pro_code=233;//写死的数值  后期再从其他页面获取
+                        var pro_code=pro_code;//写死的数值  后期再从其他页面获取
                         //console.log(plan_code,'15511551');
                         plan_code=plan_code==null?$(".left_list_main").children().first().attr("leftvalue"):plan_code;
                         var plan_name=$("#rg_plan_name").val();//计划名称
@@ -1976,7 +2009,68 @@
                              }
                         })
                       }
-         })  
+         })
+        // 鼠标滑动变化
+        $(".zc_btn").mousemove(function(){
+            $(".zc_btn>div>img").attr("src","__IMG__/select/zhuchang1.png");      
+        });
+        $(".zc_btn").mouseout(function(){
+            $(".zc_btn>div>img").attr("src","__IMG__/normal/zhuchang.png");
+        });  
+        $(".xq_btn").mousemove(function(){
+            $(".xq_btn>div>img").attr("src","__IMG__/select/xuqiu1.png");
+        });
+        $(".xq_btn").mouseout(function(){
+            $(".xq_btn>div>img").attr("src","__IMG__/normal/xuqiu.png");
+        });  
+        $(".sj_btn").mousemove(function(){
+            $(".sj_btn>div>img").attr("src","__IMG__/select/sheji1.png");    
+        });
+        $(".sj_btn").mouseout(function(){
+            $(".sj_btn>div>img").attr("src","__IMG__/normal/sheji.png");
+           
+        });  
+        $(".kf_btn").mousemove(function(){
+            $(".kf_btn>div>img").attr("src","__IMG__/select/kaifa1.png"); 
+        });
+        $(".kf_btn").mouseout(function(){
+            $(".kf_btn>div>img").attr("src","__IMG__/normal/kaifa.png");
+           
+        });  
+        $(".cs_btn").mousemove(function(){
+            $(".cs_btn>div>img").attr("src","__IMG__/select/ceshi1.png");  
+        });
+        $(".cs_btn").mouseout(function(){
+            $(".cs_btn>div>img").attr("src","__IMG__/normal/ceshi.png");
+           
+        });  
+        $(".sx_btn").mousemove(function(){
+            $(".sx_btn>div>img").attr("src","__IMG__/select/shixing1.png");
+        });
+        $(".sx_btn").mouseout(function(){
+            $(".sx_btn>div>img").attr("src","__IMG__/normal/shixing.png");
+        });  
+        $(".px_btn").mousemove(function(){
+            $(".px_btn>div>img").attr("src","__IMG__/select/peixun1.png");
+        });
+        $(".px_btn").mouseout(function(){
+            $(".px_btn>div>img").attr("src","__IMG__/normal/peixun.png");
+           
+        });  
+        $(".ys_btn").mousemove(function(){
+            $(".ys_btn>div>img").attr("src","__IMG__/select/yanshou1.png");
+        });
+        $(".ys_btn").mouseout(function(){
+            $(".ys_btn>div>img").attr("src","__IMG__/normal/yanshou.png");
+           
+        });  
+        $(".gd_btn").mousemove(function(){
+            $(".gd_btn>div>img").attr("src","__IMG__/select/guidang1.png");   
+        });
+        $(".gd_btn").mouseout(function(){
+            $(".gd_btn>div>img").attr("src","__IMG__/normal/guidang.png");
+           
+        });  
     </script> 
 </body>
 </html>
