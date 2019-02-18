@@ -266,7 +266,7 @@
      }
      .right_public{
          width: 100%;
-         height: 100%;
+         height: 105%;
      }
      .data_null{
          text-align: center;
@@ -623,28 +623,28 @@
                               <textarea placeholder="请输入内容" class="layui-textarea" id="lf_plan_content"></textarea>
                             </div>
                         </div>
-                        <div class="layui-form-item">
+                        <div class="layui-form-item" style="width: 190%">
                             <div class="layui-inline">
                                 <label class="layui-form-label plan-start">开始时间:</label>
                                 <div class="layui-input-inline">
                                     <input type="text" class="layui-input" id="lf_start_time" placeholder="yyyy年MM月dd日" lay-verify="required">
                                 </div>
                             </div>
-                            <div class="layui-inline" style="margin-left: 5%">
+                            <div class="layui-inline" style="margin-left: 6%">
                                 <label class="layui-form-label plan-end">结束时间:</label>
                                 <div class="layui-input-inline">
                                     <input type="text" class="layui-input" id="lf_end_time" placeholder="yyyy年MM月dd日" lay-verify="required">
                                 </div>
                             </div>
                         </div>
-                        <div class="layui-form-item">
+                        <div class="layui-form-item" style="width: 190%">
                             <div class="layui-inline">
                                 <label class="layui-form-label plan-main">交付目标:</label>
                                 <div class="layui-input-inline">
                                   <input type="text" placeholder="这里填写目标" class="layui-input" id="lf_deliver_target">
                                 </div>
                             </div>
-                            <div class="layui-inline" style="margin-left: 5%">
+                            <div class="layui-inline" style="margin-left: 6%">
                                     <label class="layui-form-label plan-kinds">计划类型:</label>
                                     <div class="layui-input-inline">
                                       <select name="modules" lay-verify="required" lay-search="" id="lf_plan_type">
@@ -809,7 +809,17 @@
             tar.parent().siblings().children(1).removeClass("layui-show");
           }  
     })
-    
+    // 箭头切换
+    var state=0;
+    $(document).on('click', '.addShow',function(){ 
+            if(state==0){
+                $(".jt_text").text("﹀");
+                 state=1;
+            }else  {
+                $(".jt_text").text("〉");
+                 state=0;
+            }
+    });
     //新的右侧列表点击切换
      $(()=>{
         $(".zc_content").show().siblings().hide();
@@ -913,17 +923,17 @@
                         },
                         dataType: 'json',
                         success: function(response) {
-                                //console.log(response,'1111111111');
+                                console.log(response,'1111111111');
                                 if (response.code == 200&&response.data!== '') {
                                     for (var i = 0; i <response.data.length ; i++) {
                                         var data=response.data[i];
-                                        if(data.milepost_id==1)
+                                        if(data.t_id==1)
                                     {
                                       $('.zc_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -966,13 +976,13 @@
                                     '</div>'
                                     )
                                  }
-                                     else if(data.milepost_id==2)
+                                     else if(data.t_id==2)
                                  {
                                     $('.xq_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1015,13 +1025,13 @@
                                     '</div>'
                                     )
                                  }
-                                     else if(data.milepost_id==3)
+                                     else if(data.t_id==3)
                                  {
                                     $('.sj_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1064,13 +1074,13 @@
                                     '</div>'
                                     )
                                  }
-                                     else if(data.milepost_id==4)
+                                     else if(data.t_id==4)
                                  {
                                     $('.kf_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1113,13 +1123,13 @@
                                     '</div>'
                                     )
                                  }
-                                     else if(data.milepost_id==5)
+                                     else if(data.t_id==5)
                                  {
                                     $('.cs_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1162,13 +1172,13 @@
                                     '</div>'
                                     )
                                  }
-                                     else if(data.milepost_id==6)
+                                     else if(data.t_id==6)
                                  {
                                     $('.sx_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1211,13 +1221,13 @@
                                     '</div>'
                                     )
                                  }
-                                     else if(data.milepost_id==7)
+                                     else if(data.t_id==7)
                                  {
                                     $('.px_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1260,13 +1270,13 @@
                                     '</div>'
                                     )
                                  }
-                                     else if(data.milepost_id==8)
+                                     else if(data.t_id==8)
                                  {
                                     $('.ys_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1309,13 +1319,13 @@
                                     '</div>'
                                     )
                                  }
-                                     else if(data.milepost_id==9)
+                                     else if(data.t_id==9)
                                  {
                                     $('.gd_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1399,10 +1409,9 @@
         })
         //左侧弹窗点击事件提交
         $("#leftsubmit").click(function(event){
-        event.preventDefault();
-        
+        event.preventDefault();   
         pro_code=pro_code;//写死的数值  后期再从其他页面获取
-        alert(pro_code);
+        //alert(pro_code);
         var type_id=1;//写死的数值  后期再从其他页面获取
         var plan_name = $(" #lf_plan_name").val();// 名称
         var plan_content= $(" #lf_plan_content").val();// 内容
@@ -1471,12 +1480,12 @@
                         if (response.code == 200&&response.data!= '') {
                                 for (var i = 0; i <response.data.length ; i++) {
                                     var data=response.data[i];
-                                    if(data.milepost_id==1){
+                                    if(data.t_id==1){
                                       $('.zc_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                          data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1519,13 +1528,13 @@
                                     '</div>'
                                     )
                                  }
-                                 else if(data.milepost_id==2)
+                                 else if(data.t_id==2)
                                  {
                                     $('.xq_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1568,13 +1577,13 @@
                                     '</div>'
                                     )
                                  }
-                                 else if(data.milepost_id==3)
+                                 else if(data.t_id==3)
                                  {
                                     $('.sj_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1617,13 +1626,13 @@
                                     '</div>'
                                     )
                                  }
-                                 else if(data.milepost_id==4)
+                                 else if(data.t_id==4)
                                  {
                                     $('.kf_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1666,13 +1675,13 @@
                                     '</div>'
                                     )
                                  }
-                                 else if(data.milepost_id==5)
+                                 else if(data.t_id==5)
                                  {
                                     $('.cs_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1715,13 +1724,13 @@
                                     '</div>'
                                     )
                                  }
-                                 else if(data.milepost_id==6)
+                                 else if(data.t_id==6)
                                  {
                                     $('.sx_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1764,13 +1773,13 @@
                                     '</div>'
                                     )
                                  }
-                                 else if(data.milepost_id==7)
+                                 else if(data.t_id==7)
                                  {
                                     $('.px_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1813,13 +1822,13 @@
                                     '</div>'
                                     )
                                  }
-                                 else if(data.milepost_id==8)
+                                 else if(data.t_id==8)
                                  {
                                     $('.ys_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1862,13 +1871,13 @@
                                     '</div>'
                                     )
                                  }
-                                 else if(data.milepost_id==9)
+                                 else if(data.t_id==9)
                                  {
                                     $('.gd_content_list').append(
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="layui-icon layui-colla-icon">></i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1911,9 +1920,6 @@
                                     '</div>'
                                     )
                                  }
-
-
-
                                 }
                             }else if(response.code == 200&&response.data== ''){
                                 $('.zc_content_list').append(
@@ -1955,29 +1961,29 @@
         $("#rightsubmit").click(function(event){
                         event.preventDefault();
                         var topactive=$(".topactive p").html();
-                        var milepost_id;
+                        var t_id;
                         if(topactive=="驻场"){
-                                milepost_id=1
+                                t_id=1
                             }else if(topactive=="需求"){
-                                milepost_id=2
+                                t_id=2
                             }
                             else if(topactive=="设计"){
-                                milepost_id=3
+                                t_id=3
                             }else if(topactive=="开发"){
-                                milepost_id=4
+                                t_id=4
                             }else if(topactive=="测试"){
-                                milepost_id=5
+                                t_id=5
                             }else if(topactive=="试行"){
-                                milepost_id=6
+                                t_id=6
                             }else if(topactive=="培训"){
-                                milepost_id=7
+                                t_id=7
                             }else if(topactive=="验收"){
-                                milepost_id=8
+                                t_id=8
                             }else if(topactive=="归档"){
-                                milepost_id=9
+                                t_id=9
                         }
                         pro_code=pro_code;//写死的数值  后期再从其他页面获取
-                        alert( pro_code);
+                        alert(t_id);
                         plan_code=plan_code==null?$(".left_list_main").children().first().attr("leftvalue"):plan_code;
                         var plan_name=$("#rg_plan_name").val();//计划名称
                         var plan_content =$("#rg_plan_content").val();//计划内容
@@ -2005,7 +2011,7 @@
                                    'plan_code':plan_code,
                                    'plan_type':plan_type,
                                    'plan_name':plan_name,
-                                   'milepost_id':milepost_id  
+                                   't_id':t_id  
                                 },
                              dataType:'json',
                              success:function(data){

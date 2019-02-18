@@ -8,8 +8,87 @@
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="__CSS__/collectionState.css" media="all">
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/jquery.pagination.min.js"></script>
     <style>
-    
+        .ui-pagination-container {
+            height: 34px;
+            line-height: 34px;
+        }
+
+        .ui-pagination-container .ui-pagination-page-item {
+            font-size: 14px;
+            padding: 4px 10px;
+            background: #fff;
+            border: 1px solid #c5b7b7;
+            color: #888;
+            margin: 0 3px;
+            text-decoration: none;
+        }
+
+        .ui-pagination-container .ui-pagination-page-item:hover {
+            border-color: #07C88D;
+            color: #07C88D;
+            text-decoration: none;
+        }
+
+        .ui-pagination-container .ui-pagination-page-item.active {
+            background: #07C88D;
+            border-color: #07C88D;
+            color: #fff;
+            cursor: default;
+        }
+
+        .page_con {
+            float: right;
+            width: 15%;
+            height: 7vh;
+            margin-right: 5vw;
+        }
+
+        .now_page {
+            float: left;
+            width: 45%;
+            height: 100%;
+        }
+
+        .now_page span {
+            float: left;
+            margin-top: 2vh;
+            margin-left: 5px;
+        }
+
+        .now_page p {
+            float: left;
+            text-align: center;
+            margin-top: 2.5vh;
+            margin-left: 5px;
+        }
+
+        .target_page {
+            margin-left: 5%;
+        }
+
+        .target_page span {
+            float: left;
+            margin-top: 2vh;
+            margin-left: 5px;
+        }
+
+        .target_page input {
+            width: 15px;
+            height: 15px;
+            margin-top: 2vh;
+            margin-left: 5px;
+            float: left;
+        }
+        .target_page button {
+            float: left;
+            margin-top: 2vh;
+            margin-left: 5px;
+            text-align: center;
+            width: 50px;
+            height: 20px;
+        } 
     </style>
 </head>
 
@@ -33,7 +112,7 @@
                 </form>
             </div>
             <div class="search">
-                <img src="__IMG__/search.png" alt="">
+                <img src="__IMG__/search.png" class="search_btn">
                 <input type="text" class="seachCont" placeholder="请输入项目名称">
             </div>
             <div class="inform">
@@ -41,7 +120,7 @@
                 <span class="tagging"></span>
             </div>
         </header>
-        <div class="container">
+        <div class="container">       
            <section class="contList">
                <!-- <div class="contItem">
                     <div class="logo">
@@ -78,11 +157,18 @@
                     </div>
                </div> -->
            </section> 
+           <div class="page_con">
+            <div id="pagination2" class="page fl"></div>
+           </div>
         </div>
     </div>
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
+     var alldata = {
+        count: "",
+        totalPage: "",
+    }
     $(function(){
         layui.use('form', function(){
             var form = layui.form;
@@ -99,7 +185,7 @@
         });
     });
     //数据接口调用
-        window.onload=$(()=>{
+        $(()=>{
         $.ajax({
             url:"{:U('ItemStartUp/pList')}",
             type: 'post',
@@ -109,6 +195,7 @@
             dataType: 'json',
             success: function(response) {
                 if (response.code == 200) {
+                    alldata.count = response.data.count;
                     //console.log(response,"response");
                     for (var i = 0; i <response.data.result.length ; i++) {
                         var data=response.data.result[i];
@@ -150,6 +237,84 @@
                         )
                     }
                 }
+                var currentPage = 1;
+                    alldata.totalPage = Math.ceil(alldata.count/10);
+                    console.log(alldata.totalPage)
+                    function page(currentPage, totalPage) {
+                    $("#pagination2").pagination({
+                        currentPage: currentPage,
+                        totalPage: alldata.totalPage,
+                        isShow: false,
+                        count: 3,
+                        prevPageText: "< 上一页",
+                        nextPageText: "下一页 >",
+                        callback: function (current) {
+                            // alert(alldata.count);
+                            // alert(alldata.totalPage);
+                            var page = current;
+                            $('.contList').html("");
+                            $.ajax({
+                                url: "{:U('ItemStartUp/pList')}",
+                                type: 'post',
+                                data: {
+                                    page: page
+                                },
+                                dataType: 'json',
+                                success: function (response) {
+                if (response.code == 200) {
+                    console.log(response, "response");
+                    for (var i = 0; i <response.data.result.length ; i++) {
+                        var data=response.data.result[i];
+                        $(".contList").append(
+                            `<div class="contItem">
+                    <div class="logo">
+                        <img src="${data.logo_path}" alt="">
+                    </div>
+                    <div class="infoCont">
+                        <div class="itemTitle">${data.pro_name}</div>
+                        <div class="itemTime">创建时间：<span class="createTime">${data.create_date}</span></div>
+                        <div class="tags">
+                            <div class="tagItem">${data.industry_name}</div>
+                            <div class="tagItem">${data.deptname}</div>
+                        </div>
+                    </div>
+                    <div class="rating" pro_code=${data.pro_code}>
+                        <div class="rateWarning">
+                            <div class="warnItem"><span class="sum">4</span>项未提交</div>
+                        </div>
+                        <div class="rateGroup">
+                            <div class="rateItem active"></div>
+                            <div class="rateItem"></div>
+                            <div class="rateItem"></div>
+                            <div class="rateItem"></div>
+                            <div class="rateItem"></div>
+                            <div class="rateItem"></div>
+                        </div>
+                        <div class="rateMessage">
+                            <div class="nameItem active">启动阶段</div>
+                            <div class="nameItem control-left">计划管理</div>
+                            <div class="nameItem">执行管理</div>
+                            <div class="nameItem">联调测试</div>
+                            <div class="nameItem control-right">试运行</div>
+                            <div class="nameItem">验收归档</div>
+                        </div>
+                    </div>
+               </div>`
+                        )
+                    }
+                }
+            },
+                    error: function () {
+                        //console.log(1234);
+                    }
+                })
+            },
+            onPageClick: function (event, currentPage) {
+
+            }
+        });
+    };
+            page(currentPage, alldata.totalPage);
             },
             error:function(){
                         //console.log(1234);
@@ -163,5 +328,66 @@
         window.location.href="{:U('ProjectManagement/ProjectDisplay')}"
         +"&pro_code="+pro_code;
     });
+    // 搜索框搜索按钮 search_btn
+    $(".search_btn").click(function (event) {
+        event.preventDefault();
+        $('.contList').html("");
+        var proName = $(".seachCont").val();
+        $.ajax({
+            url: "{:U('ItemStartUp/pList')}",
+            type: 'post',
+            data: {
+                proName: proName
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response.code == 200) {
+                    console.log(response, "response");
+                    for (var i = 0; i <response.data.result.length ; i++) {
+                        var data=response.data.result[i];
+                        $(".contList").append(
+                            `<div class="contItem">
+                    <div class="logo">
+                        <img src="${data.logo_path}" alt="">
+                    </div>
+                    <div class="infoCont">
+                        <div class="itemTitle">${data.pro_name}</div>
+                        <div class="itemTime">创建时间：<span class="createTime">${data.create_date}</span></div>
+                        <div class="tags">
+                            <div class="tagItem">${data.industry_name}</div>
+                            <div class="tagItem">${data.deptname}</div>
+                        </div>
+                    </div>
+                    <div class="rating" pro_code=${data.pro_code}>
+                        <div class="rateWarning">
+                            <div class="warnItem"><span class="sum">4</span>项未提交</div>
+                        </div>
+                        <div class="rateGroup">
+                            <div class="rateItem active"></div>
+                            <div class="rateItem"></div>
+                            <div class="rateItem"></div>
+                            <div class="rateItem"></div>
+                            <div class="rateItem"></div>
+                            <div class="rateItem"></div>
+                        </div>
+                        <div class="rateMessage">
+                            <div class="nameItem active">启动阶段</div>
+                            <div class="nameItem control-left">计划管理</div>
+                            <div class="nameItem">执行管理</div>
+                            <div class="nameItem">联调测试</div>
+                            <div class="nameItem control-right">试运行</div>
+                            <div class="nameItem">验收归档</div>
+                        </div>
+                    </div>
+               </div>`
+                        )
+                    }
+                }
+            },
+            error: function () {
+                //console.log(1234);
+            }
+        })
+    })
 </script>
 </html>
