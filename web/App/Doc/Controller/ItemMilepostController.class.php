@@ -109,7 +109,7 @@ class ItemMilepostController extends BaseController {
 		//plan_code 总体计划编号
 		$p['plan_code'] = I('plan_code');
 		//阶段id
-		$p['t_id'] = I('t_id');
+		// $p['t_id'] = I('t_id');
 		$status=$this->status=ItemMilepostModel::stageList($p);
             if ($status) {
                 $this->Response(200,$status,'数据查询成功');
