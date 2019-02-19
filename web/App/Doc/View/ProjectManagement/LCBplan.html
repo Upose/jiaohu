@@ -817,12 +817,14 @@
     var state;
     $(".right_content").on("click",".addShow",function(){
         var tar = $(this);
-        state=tar.attr("state");
+        state=tar.children(0).attr("state");
         if(state==0){
           tar.children(0).text("﹀");
+          //console.log("打开了了~");
           tar.children(0).attr('state','1');
           }else {
           tar.children(0).text("〉");
+          //console.log("关闭了~");
           tar.children(0).attr('state','0');
         }
     })
