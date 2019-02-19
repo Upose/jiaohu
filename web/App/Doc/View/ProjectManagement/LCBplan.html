@@ -883,8 +883,8 @@
 	         pro_code= arr[i].value;
          }
         }
-		console.log(arr,'arr');
-		console.log(pro_code,'pro_code');
+		//console.log(arr,'arr');
+		//console.log(pro_code,'pro_code');
         var plan_code=null;
 
 
@@ -929,7 +929,7 @@
                         },
                         dataType: 'json',
                         success: function(response) {
-                                console.log(response,'1111111111');
+                                //console.log(response,'1111111111');
                                 if (response.code == 200&&response.data!== '') {
                                     for (var i = 0; i <response.data.length ; i++) {
                                         var data=response.data[i];
