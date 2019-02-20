@@ -810,8 +810,6 @@
             tar.parent().children(1).addClass("layui-show");
             tar.parent().siblings().children(1).removeClass("layui-show");
           }  
-          //console.log(tar.parent().find(".jt_text"));
-          
     })
     // 箭头切换
     var state;
@@ -820,7 +818,8 @@
         state=tar.children(0).attr("state");
         if(state==0){
           tar.children(0).text("﹀");
-          //console.log("打开了了~");
+          tar.parent().siblings().children(0).children(".jt_text").text("〉");
+          tar.parent().siblings().children(0).children(".jt_text").attr('state','0');
           tar.children(0).attr('state','1');
           }else {
           tar.children(0).text("〉");
