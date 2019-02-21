@@ -290,7 +290,9 @@
 			success: function(data) {
 					if (data.code == 200) {
 							var result = data || [];
-							var role_peo = document.getElementById("add_peo");        //add_role_name给select定义的id  	      	      
+							var role_peo = document.getElementById("add_peo");  
+							$("#add_peo").empty();
+							// form.render("select");        //add_role_name给select定义的id  	      	      
 							for (var i = 0; i<result.data.length; i++) {
 									var option = document.createElement("option");    // 创建添加option属性
 									option.setAttribute("value",result.data[i].mid);                  // 给option的value添加值
@@ -358,7 +360,7 @@
 				{field:'come_time',title: '入场时间',align:'center'},
 				{field:'leave_time', title: '离职时间',align:'center'},
 				{field:'create_data', title: '创建时间',align:'center'},
-				{field:'right', title: '操作',toolbar: '#barDemo',align:'center'}
+				// {field:'right', title: '操作',toolbar: '#barDemo',align:'center'}
 				]],
 				page:true,
 				limit:6,   //默认6条数据一页

@@ -358,7 +358,7 @@
 					{field:'plan_stime',title: '开始时间'}, //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
 					{field:'plan_etime', title: '结束时间',align:'center'},
 					{field:'remarks', title: '备注',align:'center'},
-					{field:'right',title: '操作',toolbar: '#barDemo',align:'center'}
+					// {field:'right',title: '操作',toolbar: '#barDemo',align:'center'}
 				]],
 				page: true,//开启分页
 				limit:5,   //默认十条数据一页
@@ -378,7 +378,8 @@
 					success: function(data) {
 							if (data.code == 200) {
 									var result = data || [];
-									var role_peo = document.getElementById("licheng_add");        //add_role_name给select定义的id  	      	      
+									var role_peo = document.getElementById("licheng_add");  
+									$("#licheng_add").empty();      //add_role_name给select定义的id  	      	      
 									for (var i = 0; i<result.data.length; i++) {
 											var option = document.createElement("option");    // 创建添加option属性
 											option.setAttribute("value",result.data[i].milepost_id);                  // 给option的value添加值
@@ -399,7 +400,7 @@
 		$('.addThisPeo').on('click',function(){
 				layer.open({
 						type: 1,
-						title: '新增风险',
+						title: '新增计划',
 						closeBtn: 2,   // 关闭样式
 						shadeClose: true,  // 关闭方式
 						anim:5,    // 弹出样式
