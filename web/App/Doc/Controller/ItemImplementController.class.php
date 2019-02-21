@@ -35,11 +35,12 @@ class ItemImplementController extends BaseController {
         //项目所属阶段 - 页面下拉项内容
         $pStaus=$this->pStaus=
         ItemImplementModel::pStaus();
+        var_dump($pStaus);die;
 
         //风险类别 - 页面下拉项内容
         $rType=$this->rType=
         ItemImplementModel::rType();
-
+        var_dump($rType);die;
         $final['pStaus'] = $pStaus;
         $final['rType'] = $rType;
         $this->Response(200,$final,'');

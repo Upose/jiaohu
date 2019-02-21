@@ -14,7 +14,11 @@ class ItemImplementModel
 
         $dm_stage = M("dm_stage"); // 实例化User对象
         $result = $dm_stage->select();
-        return $result;
+        $arr = [];
+        for ($i=0; $i <count($result) ; $i++) { 
+          $arr[$i] = trim($result[$i]['stage']);
+        }
+        return $arr;
 
     }
 
