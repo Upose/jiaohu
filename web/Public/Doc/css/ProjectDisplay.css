@@ -48,11 +48,13 @@ body{
     display: block;
     width: 93%;
     padding-left: 10px;
+	background-color: rgba(195, 190, 190, 0.2);
 }
 .layui-textarea {
     display: block;
     width: 97%;
     padding-left: 10px;
+	background-color: rgba(195, 190, 190, 0.2);
 }
 .layui-form-select .layui-edge {
     position: absolute;

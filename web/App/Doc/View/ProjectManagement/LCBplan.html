@@ -12,7 +12,7 @@
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
     <script src="__STATIC__/vue.min.js"></script>
     <style>
-      弹框样式
+      /* 弹框样式 */
       .left_form{
           margin-top: 5%;
           margin-left: 5%;
@@ -510,7 +510,7 @@
                                 <button class="layui-btn layui-btn-radius layui-btn-lg rihtplan_btn create_newrequire" lay-filter="rihtplan_btn">新建计划</button>
                             </div>
                             <div class="right_content">
-                                <div class="layui-collapse zc_content_list" lay-accordion="">
+                                <div class="layui-collapse zc_content_list" lay-accordion>
                                    
                                 </div>
                             </div>
@@ -521,7 +521,7 @@
                                 <button class="layui-btn layui-btn-radius layui-btn-lg rihtplan_btn create_newrequire" lay-filter="rihtplan_btn">新建计划</button>
                             </div>
                             <div class="right_content">
-                                <div class="layui-collapse xq_content_list" lay-accordion="">
+                                <div class="layui-collapse xq_content_list" lay-accordion>
                         
                                 </div>
                             </div>
@@ -532,7 +532,7 @@
                                 <button class="layui-btn layui-btn-radius layui-btn-lg rihtplan_btn create_newrequire" lay-filter="rihtplan_btn">新建计划</button>
                             </div>
                             <div class="right_content">
-                                <div class="layui-collapse sj_content_list" lay-accordion="">
+                                <div class="layui-collapse sj_content_list" lay-accordion>
                                    
                                 </div>
                             </div>
@@ -543,7 +543,7 @@
                                 <button class="layui-btn layui-btn-radius layui-btn-lg rihtplan_btn create_newrequire" lay-filter="rihtplan_btn">新建计划</button>
                             </div>
                             <div class="right_content">
-                                <div class="layui-collapse kf_content_list" lay-accordion="">
+                                <div class="layui-collapse kf_content_list">
                                    
                                 </div>
                             </div>
@@ -554,7 +554,7 @@
                                 <button class="layui-btn layui-btn-radius layui-btn-lg rihtplan_btn create_newrequire" lay-filter="rihtplan_btn">新建计划</button>
                             </div>
                             <div class="right_content">
-                                <div class="layui-collapse cs_content_list" lay-accordion="">
+                                <div class="layui-collapse cs_content_list">
                                     
                                 </div>
                             </div>
@@ -565,7 +565,7 @@
                                 <button class="layui-btn layui-btn-radius layui-btn-lg rihtplan_btn create_newrequire" lay-filter="rihtplan_btn">新建计划</button>
                             </div>
                             <div class="right_content">
-                                <div class="layui-collapse sx_content_list" lay-accordion="">
+                                <div class="layui-collapse sx_content_list">
                                    
                                 </div>
                             </div>
@@ -576,7 +576,7 @@
                                 <button class="layui-btn layui-btn-radius layui-btn-lg rihtplan_btn create_newrequire" lay-filter="rihtplan_btn">新建计划</button>
                             </div>
                             <div class="right_content">
-                                <div class="layui-collapse px_content_list" lay-accordion="">
+                                <div class="layui-collapse px_content_list">
                                    
                                 </div>
                             </div>
@@ -587,7 +587,7 @@
                                 <button class="layui-btn layui-btn-radius layui-btn-lg rihtplan_btn create_newrequire" lay-filter="rihtplan_btn">新建计划</button>
                             </div>
                             <div class="right_content">
-                                <div class="layui-collapse ys_content_list" lay-accordion="">
+                                <div class="layui-collapse ys_content_list">
                                    
                                 </div>
                             </div>
@@ -598,7 +598,7 @@
                                 <button class="layui-btn layui-btn-radius layui-btn-lg rihtplan_btn create_newrequire" lay-filter="rihtplan_btn">新建计划</button>
                             </div>
                             <div class="right_content">
-                                <div class="layui-collapse gd_content_list" lay-accordion="">
+                                <div class="layui-collapse gd_content_list">
                                    
                                 </div>
                             </div>
@@ -743,6 +743,7 @@
 	  layedit = layui.layedit,
 	  laydate = layui.laydate;
       var element =layui.layer;
+      var element = layui.element;
 		var table = layui.table;
         //左侧开始日期 
 		laydate.render({
@@ -801,6 +802,7 @@
     //右侧折叠展开框点击事件
     $(".public_father").on("click",".addShow",function(){
           var tar = $(this);
+          var state=0;
           var index = tar.index();
           if(tar.parent().children(1).hasClass("layui-show")){
             tar.parent().children(1).removeClass("layui-show");
@@ -810,16 +812,21 @@
           }  
     })
     // 箭头切换
-    var state=0;
-    $(document).on('click', '.addShow',function(){ 
-            if(state==0){
-                $(".jt_text").text("﹀");
-                 state=1;
-            }else  {
-                $(".jt_text").text("〉");
-                 state=0;
-            }
-    });
+    var state;
+    $(".right_content").on("click",".addShow",function(){
+        var tar = $(this);
+        state=tar.children(0).attr("state");
+        if(state==0){
+          tar.children(0).text("﹀");
+          tar.parent().siblings().children(0).children(".jt_text").text("〉");
+          tar.parent().siblings().children(0).children(".jt_text").attr('state','0');
+          tar.children(0).attr('state','1');
+          }else {
+          tar.children(0).text("〉");
+          //console.log("关闭了~");
+          tar.children(0).attr('state','0');
+        }
+    })
     //新的右侧列表点击切换
      $(()=>{
         $(".zc_content").show().siblings().hide();
@@ -858,7 +865,7 @@
         // 获取url中的get参数
         var getParam = function() {
 		var url = window.location.search.substr(1);
-        console.log(url,"url");
+        //console.log(url,"url");
 		var param = url.split('&');
 		var arrzhi = [];
 		for (var index in param) {
@@ -877,8 +884,8 @@
 	         pro_code= arr[i].value;
          }
         }
-		console.log(arr,'arr');
-		console.log(pro_code,'pro_code');
+		//console.log(arr,'arr');
+		//console.log(pro_code,'pro_code');
         var plan_code=null;
 
 
@@ -923,7 +930,7 @@
                         },
                         dataType: 'json',
                         success: function(response) {
-                                console.log(response,'1111111111');
+                                //console.log(response,'1111111111');
                                 if (response.code == 200&&response.data!== '') {
                                     for (var i = 0; i <response.data.length ; i++) {
                                         var data=response.data[i];
@@ -933,7 +940,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -982,7 +989,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1031,7 +1038,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1080,7 +1087,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1129,7 +1136,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1178,7 +1185,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1227,7 +1234,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1276,7 +1283,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1325,7 +1332,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1485,7 +1492,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                          data.plan_name+
-                                         '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                         '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1534,7 +1541,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1583,7 +1590,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1632,7 +1639,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1681,7 +1688,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1730,7 +1737,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1779,7 +1786,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1828,7 +1835,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1877,7 +1884,7 @@
                                          '<div class="layui-colla-item">'+
                                          '<h2 class="layui-colla-title addShow">'+
                                                 data.plan_name+
-                                                '<i class="jt_text layui-icon layui-colla-icon">〉</i>'+
+                                                '<i class="jt_text layui-icon layui-colla-icon" state="0">〉</i>'+
                                          '</h2>'+
                                          '<div class="layui-colla-content">'+
                                            '<div class="plan_content">'+
@@ -1983,7 +1990,7 @@
                                 t_id=9
                         }
                         pro_code=pro_code;//写死的数值  后期再从其他页面获取
-                        alert(t_id);
+                        //alert(t_id);
                         plan_code=plan_code==null?$(".left_list_main").children().first().attr("leftvalue"):plan_code;
                         var plan_name=$("#rg_plan_name").val();//计划名称
                         var plan_content =$("#rg_plan_content").val();//计划内容
