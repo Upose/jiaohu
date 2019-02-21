@@ -23,11 +23,12 @@ class ItemMilepostModel{
 						A.plan_name,
 						DATE_FORMAT(A.plan_stime,'%Y-%m-%d') plan_stime,
 						DATE_FORMAT(A.plan_etime,'%Y-%m-%d') plan_etime,
+						A.create_data,
 						B.nature,
 						A.plan_type
 					FROM
 						`app_project_plana` A
-						LEFT JOIN dm_nature B ON A.type_id = B.id";
+						LEFT JOIN dm_nature B ON A.type_id = B.id order by A.create_data desc ";
             $res =  M('app_project_plana')->query($sql);
             return $res;
          

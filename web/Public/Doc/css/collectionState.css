@@ -215,7 +215,7 @@ img{
 .contItem > .infoCont {
     margin-left: 30px;
     margin-top: 28px;
-    width: 360px;
+    width: 20%;
 }
 .infoCont > .itemTitle {
     width: 100%;
@@ -250,7 +250,7 @@ img{
 }
 .contItem > .rating {
     margin-top: 28px;
-    width: 600px;
+    width: 60%;
     height: auto;
     margin-left: 20px;
 }

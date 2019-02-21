@@ -73,6 +73,8 @@ class ItemMilepostController extends BaseController {
 		$p['plan_code'] = I('plan_code');
 		// Milepost_id	里程碑id
 		$p['milepost_id'] = '100'.time();
+		// t_id	阶段id
+		$p['t_id'] = I('t_id');
 		// plan_content	内容
 		$p['plan_content'] = I('plan_content');
 		// plan_stime	开始时间
@@ -106,8 +108,8 @@ class ItemMilepostController extends BaseController {
 		$p['pro_code'] = I('pro_code');
 		//plan_code 总体计划编号
 		$p['plan_code'] = I('plan_code');
-		//milepost_id 里程碑id
-		// $p['milepost_id'] = I('milepost_id');
+		//阶段id
+		// $p['t_id'] = I('t_id');
 		$status=$this->status=ItemMilepostModel::stageList($p);
             if ($status) {
                 $this->Response(200,$status,'数据查询成功');

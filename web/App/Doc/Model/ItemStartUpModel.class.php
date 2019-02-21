@@ -383,18 +383,51 @@ class ItemStartUpModel
      * 2018.11.24
      */
     public function persionList($pCode,$page,$limit){
-
       $app_customer = M('app_project_persion');
-      $count = $app_customer ->where('pro_code='.$pCode) ->count();
-      $persionList = $app_customer ->field('id,member_name,dept,come_time,leave_time,operation_type,create_data')
-                                    ->where('pro_code',$pCode)
-                                    ->order('create_data desc')
-                                    ->page($page,$limit)
-                                    ->select();
+      // $count = $app_customer ->where('pro_code=',$pCode) ->count();
+      $countSql = "SELECT
+                count(id) as total
+            FROM
+                app_project_persion 
+            WHERE
+                pro_code=$pCode";
+      // $persionList = $app_customer ->field('id,member_name,dept,come_time,leave_time,(case when operation_type = 0 then \'计划内\' when operation_type = 1 then \'新增\' else \'离场\' end)as operation_type,create_data')
+      //                               ->join('dm_risktype dr','r.risk_type = dr.id')
+      //                               ->where('pro_code',$pCode)
+      //                               ->order('create_data desc')
+      //                               ->page($page,$limit)
+      //                               ->select();
+      $sql = "SELECT
+                appersion.id,
+                appersion.member_name,
+                dm.deptName as dept,
+                appersion.come_time,
+                appersion.leave_time,
+                (
+                    CASE
+                    WHEN appersion.operation_type = 0 THEN
+                        '计划内'
+                    WHEN appersion.operation_type = 1 THEN
+                        '新增'
+                    ELSE
+                        '离场'
+                    END
+                ) AS operation_type,
+                appersion.create_data
+            FROM
+                app_project_persion appersion
+            JOIN dm_department dm ON appersion.dept = dm.id
+            WHERE
+                pro_code=$pCode
+            ORDER BY
+                create_data DESC
+            LIMIT $page,$limit";  
+      $count=M()->query($countSql); 
+      $persionList=M()->query($sql);     
       $result = array();
       $result['code'] = 0;
       $result['msg'] = "";
-      $result['count'] = $count;
+      $result['count'] = $count[0]['total'];
       $result['data'] = $persionList;
       return $result;
 
