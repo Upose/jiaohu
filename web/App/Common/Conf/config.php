@@ -11,9 +11,9 @@ return array(
     // 'DB_HOST' => 'localhost', // 服务器地址
     'DB_HOST' => '211.144.114.26', // 服务器地址
     'DB_NAME' => 'itemapplication', // 数据库名
-    'DB_USER' => 'root', // 用户名
-    'DB_PWD' => 'daemon',  // 密码
-    'DB_PORT' => '3307', // 端口
+    'DB_USER' => 'datatom', // 用户名
+    'DB_PWD' => '123456',  // 密码
+    'DB_PORT' => '30803', // 端口
 
     'DEFAULT_MODULE' => 'Doc'
    

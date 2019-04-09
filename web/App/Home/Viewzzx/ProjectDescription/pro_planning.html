@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
+    <link rel="stylesheet" href="__CSS__/pro_planning.css">
+    <link rel="stylesheet" href="__STATIC__/bootstrap.min.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+    <script src="__STATIC__/bootstrap.min.js"></script>
+    <title>项目规划</title>
+</head>
+
+<body class="proPlanning">
+    <div id="pla-main">
+        <div class="pla-conent">
+            <div class="header">
+                <span class="stage-name">所处阶段:</span>
+                <span class="stage-code">{{stage}}</span>
+                <span class="target-name">当前目标:</span>
+                <span class="target-code">{{target}}</span>
+                <button class="addBtn float-right">新增</button>
+            </div>
+            <div class="plc-left" v-for="i in data">
+                <div class="tit"><span class="pro_name">{{i.name}}</span>
+                    <span class="chl-day">({{i.pstart_time}} 至 {{i.pend_time}})</span>
+                    <span class="more safety_span">收起更多&ensp;<img src="__IMG__/icon_retract.png"></span>
+                </div>
+                <div class="con-matter">
+                    <div class="befProject position-relative" v-if="isTmatter" v-for="j in i.child">
+                        <div class="circle position-absolute"></div>
+                        <div class="matter-info position-absolute" @click="show_infor(j.id)" v-bind:class="{'minfo-click':index==current}">
+                            <p>{{j.cstart_time}}</p>
+                            <p>{{j.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="plac-r position-relative">
+            <div class="par-conent">
+                <div class="tar-name">
+                    <span class="mt-0">目标名称</span>
+                    <span style="color:#000;font-weight: 500;">{{infor.name}}</span>
+                </div>
+                <div class="tar-describe">
+                    <span>目标描述</span>
+                    <span>
+                        <textarea name="describe" class="form-control describe" style="height:12.2vh" cols="10" rows="10" placeholder="请输入信息">{{infor.describe}}</textarea>
+                    </span>
+                </div>
+                <div class="result">
+                    <span>成果输出</span>
+                    <span>
+                        <textarea name="result" class="form-control achievements" style="height:12.2vh" cols="30" rows="10" placeholder="请输入信息">{{infor.achievements}}</textarea>
+                    </span>
+                </div>
+                <div class="predict-time">
+                    <span>预计完成时间</span>
+                    <span>{{infor.estimate_time}}</span>
+                </div>
+                <div class="actual-time">
+                    <span>实际完成时间</span>
+                    <span class="proceed">{{infor.actual_end_time}}</span>
+                </div>
+                <div class="state">
+                    <span>状态</span>
+                    <span class="proceed">{{infor.state}}</span>
+                </div>
+                <div class="button text-center position-absolute">
+                    <span class="m-0 d-inline">
+                        <!-- <button @click="car(infor.id)" v-show="infor.code == !1" class="btn cancel">完成目标</button> -->
+                        <button @click="save(infor.id)" class="btn sureBtn">保存修改</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="new_member">
+        <div class="member_tit">新增成员<img class="down_img" style="float:right;" src="__IMG__/close_normal.png"></div> 
+        <form action="{:U('ProjectPlan/StageTargetAdd')}" method="post" target="nm_iframe">
+            <div class="member_con">
+                <input type="hidden" name="project_id" :value="Uid"/>
+                <p><span>新增类型：</span>
+                    <input class="top1 in_input" type="radio" name="type" value="0" checked>阶段&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="top1 out_input" type="radio" name="type" value="1">目标
+                </p>
+                <div class="member_in">
+                    <p><span>阶段名称：</span>
+                        <input class="member_text" type="text" name="jie_name" autocomplete="off">
+                    </p>
+                    <p><span>开始时间：</span>
+                        <input class="member_text starttime" type="date" name="start_time1" value="">
+                    </p>
+                    <p><span>结束时间：</span>
+                        <input class="member_text endtime" type="date" name="end_time1" value="">
+                    </p>
+                </div>
+                <div class="member_out" style="display:none;">
+                    <p><span>目标名称：</span>
+                        <input class="member_text" type="text" name="mu_name" autocomplete="off">
+                    </p>
+                    <p><span>开始时间：</span>
+                        <input class="member_text" type="date" name="start_time2" value="">
+                    </p>
+                    <p><span>结束时间：</span>
+                        <input class="member_text" type="date" name="end_time2" value="">
+                    </p>
+                    <p><span>所属阶段：</span>
+                        <select class="member_select member_outcharacter" name="ps_id" id="">
+                            <option v-for="i in list" :value="i.ps_id">{{i.name}}</option>
+                        </select>
+                    </p>
+
+                </div>
+            </div>
+            <div class="btn_div">
+                <button @click="uu" class="down_btn" type="submit">确定</button>
+            </div>
+        </form>
+        <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+    </div>
+</body>
+<script>
+    var plamain = new Vue({
+        el: ".proPlanning",
+        data: {
+            current: 0,
+            currents: 0,
+            Uid:"",
+            isTmatter: true,
+            isBmatter: false,
+            stage: [],
+            target: [],
+            data: [],
+            infor: [],
+            list:[],
+        },
+        created: function () {
+            this.Uid = "{$pro_id}";
+            this.getdata(this.Uid);
+            // console.log(this.Uid);
+        },
+        methods: {
+            getdata(id) {
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectPlan/planList')}",
+                    dataType: "json",
+                    data: { project_id: id },
+                    success: function (data) {
+                        that.data = data.data;
+                        that.list = data.stageSelect;
+                        that.stage = data.curryState.stage;
+                        that.target = data.curryState.target;
+                        // console.log(data);
+                    }
+                })
+            },
+            show_infor(id) {
+                $(".pla-conent").attr("width","77%");
+                $(".plac-r").show();
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectPlan/projectTargetDetalis')}",
+                    dataType: "json",
+                    data: { id: id },
+                    success: function (data) {
+                        that.infor = data.data;
+                        // console.log(data.data);
+                    }
+                })
+            },
+            // car(id) {
+            //     var that = this;
+            //     $.ajax({
+            //         cache: false,
+            //         type: "post",
+            //         url: "{:U('ProjectPlan/projectTargetFinish')}",
+            //         dataType: "json",
+            //         data: { id: id },
+            //         success: function (data) {
+            //             $(".plac-r").hide();
+            //         }
+            //     })
+            // },
+            save(id) {
+                var that = this;
+                var describe = $('.describe').val();
+                var achievements = $('.achievements').val();
+                $(".plac-r").hide();
+                $(".pla-conent").attr("width","98%");
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectPlan/projectTargetUpdate')}",
+                    dataType: "json",
+                    data: { id: id, describe: describe, achievements: achievements },
+                    success: function (data) {
+                    }
+                })
+            },
+            uu(){
+                var starttime = $(".starttime").val();
+                var endtime = $(".endtime").val();
+                // console.log("111",starttime,endtime)
+            }
+        }
+    })
+    var num = 2;
+    $(document).on("click", ".safety_span", function () {
+        // console.log("111");
+        if (num % 2 == 0) {
+            $(this).html('展开更多&ensp;<img src="__IMG__/icon_unfold.png">');
+            $(this).parent().next().toggleClass('dis_none');
+            // console.log($(this).parent().next().attr("class"));
+            num = num + 1;
+            return num;
+        } else {
+            $(this).html('收起更多&ensp;<img src="__IMG__/icon_retract.png">');
+            $(this).parent().next().toggleClass('dis_none');
+            num = num - 1;
+            return num;
+        }
+    });
+    $(".addBtn").click(function () {
+        $(".new_member").show();
+    });
+    $(".down_btn").on('click', function () {
+        $(".new_member").hide();
+        location.reload();
+    });
+    $(".down_btn").on('click', function () {
+        $(".new_member").hide();
+        location.reload();
+    });
+    $(".down_img").on('click', function () {
+        $(".new_member").hide();
+    });
+    $(".in_input").on("click", function () {
+        $(".member_in").show();
+        $(".member_out").hide();
+    })
+    $(".out_input").on("click", function () {
+        $(".member_in").hide();
+        $(".member_out").show();
+    })
+</script>
+
+</html>

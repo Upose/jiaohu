@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>周报管理</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
+    <link rel="stylesheet" href="__CSS__/pro_weekly.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+</head>
+<body class="app">
+    <div class="url_div">
+        <span>2018年 第 22 周</span><br>
+        <span>2018-08-12 至 2018-08-1</span>
+        <button class="modify_button" @click="new_pro(Uid)">新增</button>
+    </div>
+    <table>
+        <tr class="tr1">
+            <td></td>
+            <td>开始时间</td>
+            <td>结束时间</td>
+            <td>周报数量</td>
+            <td>项目周报</td>
+            <td>项目阶段</td>
+            <td>项目进度</td>
+            <td>操作</td>
+        </tr>
+        <tr class="tr2" v-for="(idx, item) in data">
+            <td>{{ item.week }}</td>
+            <td>{{item.start_time}}</td>
+            <td>{{item.end_time}}</td>
+            <td>{{item.weeknum}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.stage}}</td>
+            <td>{{item.percentage}}</td>
+            <td><a @click="weekly_details(item.id)">详情</a></td>
+        </tr>
+    </table>
+    <div id="test1"></div>
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+    var app = new Vue({
+        el: ".app",
+        data: {
+            data:[],
+            Uid:"",
+            listCount: '',
+            page: 1
+        },
+        created: function () {
+            // 上一个页面(index)传id的方法不对, 已修改
+            var url = location.search;
+            var _this = this;
+            this.Uid = url.match(/id=\d+/g)[0].substring(3);
+            this.getWeeklyList();
+            // 分页初始化
+            layui.use('laypage', function(){
+                var laypage = layui.laypage;
+              
+                //执行一个laypage实例
+                laypage.render({
+                    elem: 'test1',
+                    count: _this.listCount,
+                    limit: 10,
+                    curr: 1,
+                    jump: function(obj, first) {
+                        if(first) {
+                            return false;
+                        }
+
+                        _this.page = obj.curr;
+                        _this.getEventList();
+                    }
+                });
+            });
+        },
+        methods: {
+            new_pro(id){
+                // '{:U('ProjectDescription/pro_weekly&id='.$pro_id)}'
+                window.location.href = "{:U('ProjectDescription/new_weekly&id="+ id +"')}";
+                // window.location.href = "{:U('ProjectDescription/new_weekly')}";
+            },
+            weekly_details(id){
+                // window.location.href = "{:U('ProjectDescription/new_weekly')}"+"&id="+ id;
+                var _this = this;
+                window.location.href = "{:U('ProjectDescription/weekly_details&id="+ _this.Uid +"&proId="+ id +"')}";
+            },
+            getWeeklyList: function() {
+                var _this = this;
+                $.ajax({
+                    cache: false,
+                    async: false,
+                    type: "POST",
+                    url: "{:U('ProjectWeekly/weeklyList')}",
+                    dataType: 'json',
+                    data: {project_id: _this.Uid, page: _this.page},
+                    success: function(res) {
+                        _this.data = res.data;
+                        _this.listCount = res.count;
+                    }
+                })
+            }
+        }
+    })
+</script>
+</html>

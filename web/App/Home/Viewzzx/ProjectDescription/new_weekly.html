@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/new_demand.css" media="all">
+    <script src="__STATIC__/vue.min.js"></script>
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+</head>
+
+<body class="app">
+    <form method="POST" enctype="multipart/form-data" id="new_weekly">
+        <button @click="return()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
+        <span class="new_span">2018年 第 22 周</span><br>
+        <span class="new_span">2018-08-12 至 2018-08-1</span>
+        <label class="tit">周报类型</label>
+        <span class="new_span">项目周报</span><br>
+        <div class="div1">
+            <div class="form_div2">
+                <label class="tit">上周工作内容</label>
+                <textarea name="xuqiu_back" cols="40" rows="7" placeholder="请输入信息" v-model="result.last_week_content"></textarea>
+            </div><br>
+            <div class="form_div2">
+                <label class="tit">本周工作计划</label>
+                <textarea name="xuqiu_back" cols="40" rows="7" placeholder="请输入信息"  v-model="result.this_week_plan"></textarea>
+            </div><br>
+        </div>
+
+        <div class="div1" style="position: absolute;bottom: 19vh;">
+            <div class="form_div1">
+                <label class="tit">项目阶段</label>
+                <select name="" v-model="result.stage_id" id="stage_id">
+                    <option :value="idx.id" :key="item" v-for="(item, idx) in projectList">{{ idx.name }}</option>
+                </select>
+            </div><br>
+            <div class="form_div1">
+                <label class="tit">项目进度</label>
+                <input class="name_input" type="text" name="title" placeholder="请输入数字" v-model="result.percentage">%
+            </div><br>
+            <div class="form_div2">
+                <label class="tit">项目进度说明</label>
+                <textarea name="xuqiu_back" cols="40" rows="7" placeholder="请输入信息" v-model="result.project_explain"></textarea>
+            </div><br>
+        </div>
+        <div class="line"></div>
+        <button class="but" type="button" @click="resetForm">取消</button>
+        <button class="but" type="button" @click="submit">保存</button>
+    </form>
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#new_weekly",
+        data: function() {
+            return {
+                projectList: [],
+                result: {
+                    project_id: '',
+                    name: '',
+                    last_week_content: '',
+                    this_week_plan: '',
+                    percentage: '',
+                    project_explain: '',
+                    stage_id: '1'
+                }
+            }
+        },
+        methods: {
+            // 表单重置
+            resetForm: function() {
+                this.result.last_week_content = '';
+                this.result.this_week_plan = '';
+                this.result.percentage = '';
+                this.result.project_explain = '';
+                this.result.stage_id = '1';
+            },
+            // 获取项目阶段list
+            getStageList: function() {
+                var _this = this;
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    data: {project_id: _this.result.project_id},
+                    url: "{:U('ProjectWeekly/projectStage')}",
+                    dataType: "json",
+                    success: function (res) {
+                        // _this.projectList.length = res.data.length;
+                        _this.projectList = res.data;
+                        layui.use('form', function() {
+                            var form = layui.form;
+
+                            form.render();
+                        })
+                    }
+                })
+            },
+            // 提交
+            submit: function() {
+                var _this = this;
+                var regExp = /\d+/;
+                // 表单验证
+                if( _this.result.last_week_content === '' ||
+                    _this.result.this_week_plan === '' ||
+                    _this.result.percentage === '' ||
+                    _this.result.project_explain === ''
+                ) {
+                    // 非空验证
+                    layui.use('layer', function() {
+                        var layer = layui.layer;
+                        layer.alert('请确保信息输入完整');
+                    })
+                } else if(
+                    // 项目进度验证
+                    !regExp.test(_this.result.percentage) ||
+                    Number(_this.result.percentage) > 100 ||
+                    Number(_this.result.percentage) < 0
+                ) {
+                    layui.use('layer', function() {
+                        var layer = layui.layer;
+                        layer.alert('项目进度只能为0-100之间的数字');
+                    })
+                } else {
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "{:U('ProjectWeekly/weeklyAdd')}",
+                        dataType: "json",
+                        data: _this.result,
+                        success: function (res) {
+                            if(res.code == 0) {
+                                layui.use('layer', function() {
+                                    var layer = layui.layer;
+                                    layer.alert('添加成功');
+                                })
+                            } else {
+                                layui.use('layer', function() {
+                                    var layer = layui.layer;
+                                    layer.alert('添加失败');
+                                })
+                            }
+                        }
+                    })
+                }
+            },
+            return: function() {
+                window.history.go(-1)
+            }
+        },
+        created: function () {
+            // 获取上个页面传递回来的ID
+            var url = location.search;
+            this.result.project_id = url.match(/id=\d+/g)[0].substring(3);
+            this.getStageList();
+        }
+    });
+</script>
+
+</html>

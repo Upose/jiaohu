@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>周报详情</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
+    <link rel="stylesheet" href="__CSS__/weekly_details.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body style="background: #fff;">
+    <div id="con">
+        <p class="tit">{{ projectDetail.name }}</p>
+        <div>
+            <button :class="activeFoucs == -1 ? 'one down' : 'one'" style="cursor: pointer;" @click="foucsProject">项目周报</button>
+            <button :class="activeFoucs == idx ? 'one down' : 'one'" style="margin: 5px; cursor: pointer;" v-for="(idx, item) in userList" @click="getUserWeekly(item.id, idx)">{{ item.name }}</button>
+        </div>
+        <div class="line"></div>
+        <div v-show="showProject === 'project'">
+            <div class="con_top">
+                <div class="left">
+                    <p class="con_tit">提交人</p>
+                    <p class="con_span">{{ projectDetail.personname }}</p>
+                    <p class="con_tit">提交时间</p>
+                    <p class="con_span">{{ projectDetail.submit_time }}</p>
+                </div>
+                <div class="top_c">
+                    <p class="con_tit">项目阶段</p>
+                    <p class="con_span">{{ projectDetail.stagename }}</p>
+                    <p class="con_tit">项目进度说明</p>
+                    <p class="con_span">{{ projectDetail.project_explain }}</p>
+                </div>
+                <div class="right">
+                    <p class="con_tit">项目进度</p>
+                    <p class="con_span">{{ projectDetail.percentage }} %</p>
+                </div>
+            </div>
+            <div class="con_but">
+                <div class="left">
+                    <p class="con_tit">上周工作内容</p>
+                    <span class="con_span wid">{{ projectDetail.last_week_content }}</span>
+                </div>
+                <div class="right">
+                    <p class="con_tit">本周工作计划</p>
+                    <span class="con_span wid">{{ projectDetail.this_week_plan }}</span>
+                </div>
+            </div>
+        </div>
+        <div v-show="showProject === 'person'">
+            <div class="con_top">
+                <div class="left">
+                    <p class="con_tit">提交人</p>
+                    <p class="con_span">{{ userItemDetail.personname }}</p>
+                    <br>
+                    <p class="con_tit">提交时间</p>
+                    <p class="con_span">{{ userItemDetail.submit_time }}</p>
+                </div>
+            </div>
+            <div class="con_but">
+                <div class="left">
+                    <p class="con_tit">上周工作内容</p>
+                    <span class="con_span wid">{{ userItemDetail.last_week_content }}</span>
+                </div>
+                <div class="right">
+                    <p class="con_tit">本周工作计划</p>
+                    <span class="con_span wid">{{ userItemDetail.this_week_plan }}</span>
+                </div>
+            </div>
+        </div>
+        <div v-show="showProject === 'no'" style="text-align: center; padding-top: 100px;">
+            <img src="__IMG__/noweekly.png" alt="">
+        </div>
+    </div>
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#con',
+        data: function() {
+            return {
+                project_id: '',
+                weekly_id: '',
+                userList: [],
+                projectDetail: {
+                    end_time: '',
+                    id: '',
+                    last_week_content: '',
+                    name: '',
+                    percentage: '',
+                    personname: '',
+                    project_explain: '',
+                    project_id: '',
+                    stage_id: '',
+                    stagename: '',
+                    start_time: '',
+                    submit_person_id: '',
+                    submit_time: '',
+                    this_week_plan: '',
+                    type: '',
+                    week_num: '',
+                },
+                userItemDetail: {
+                    company: '',
+                    end_time: '',
+                    id: '',
+                    label: '',
+                    last_week_content: '',
+                    name: '',
+                    percentage: '',
+                    person_id: '',
+                    phone: '',
+                    position: '',
+                    project_explain: '',
+                    project_id: '',
+                    stage_id: '',
+                    start_time: '',
+                    submit_person_id: '',
+                    submit_time: '',
+                    this_week_plan: '',
+                    type: '',
+                    week_num: '',
+                },
+                showProject: 'project',
+                activeFoucs: -1
+            }
+        },
+        methods: {
+            // 获取项目周报信息和人员信息
+            getDetail: function() {
+                var _this = this;
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "{:U('ProjectWeekly/weeklyDetails')}",
+                    dataType: "json",
+                    data: {
+                        project_id: _this.project_id,
+                        id: _this.weekly_id
+                    },
+                    success: function (res) {
+                        _this.userList = res.data.res;
+                        _this.projectDetail = res.data.ures[0];
+                    }
+                })
+            },
+            // 点击每个人获取每个人的周报
+            getUserWeekly: function(id, idx) {
+                var _this = this;
+                
+                this.activeFoucs = idx;
+
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "{:U('ProjectWeekly/personReport')}",
+                    dataType: "json",
+                    data: {
+                        id: id
+                    },
+                    success: function (res) {
+                        if(res.data.length == 0) {
+                            _this.showProject = 'no';
+                        } else {
+                            _this.userItemDetail = res.data[0];
+                            _this.showProject = 'person';
+                        }
+                    }
+                })  
+            },
+            // 点击项目周报
+            foucsProject: function() {
+                this.showProject = 'project';
+                this.activeFoucs = -1;
+            }
+        },
+        created: function() {
+            // 获取上个页面传递回来的ID
+            var url = location.search;
+            this.project_id = url.match(/[id=, proId=]\d+/g)[0].substring(1);
+            this.weekly_id = url.match(/[id=, proId=]\d+/g)[1].substring(1);
+            this.getDetail();
+        }
+    })
+</script>
+</html>

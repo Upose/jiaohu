@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Tea Party</title>
-    <link rel="stylesheet" href="/ProjectDelivery/web/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/ProjectDelivery/web/Public/Doc/doclay/build/css/app.css" media="all">
-    <link rel="stylesheet" href="/ProjectDelivery/web/Public/Doc/css/custom.css">
-    <script src="/ProjectDelivery/web/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/ProjectDelivery/web/Public/Doc/doclay/plugins/layui/layui.js"></script>
+    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/Public/Doc/css/custom.css">
+    <script src="/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script>
 </head>
 <style>
 
@@ -20,7 +20,7 @@ width: 80%;
 <body>
      <div class="layui-layout layui-layout-admin kit-layout-admin">
         <div class="layui-header">
-            <div class="layui-logo"><img src="/ProjectDelivery/web/Public/Doc/images/logo@2x.png" alt=""></div>
+            <div class="layui-logo"><img src="/Public/Doc/images/logo@2x.png" alt=""></div>
             <!-- <div class="layui-logo kit-logo-mobile">K</div> -->
             <div class="layui-col-md-offset2">
                 <ul class="layui-nav layui-col-md10" lay-filter="">
@@ -55,11 +55,11 @@ width: 80%;
             <ul class="layui-nav layui-layout-right kit-nav">
                 <li class="layui-nav-item">
                 <a href=" ">
-                <img src="/ProjectDelivery/web/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
+                <img src="/Public/Doc/images/a.jpg" class="layui-nav-img"><span id="user-name">Yukari</span>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
-                    <dd><a href="javascript:;">修改密码</a></dd>
+                    <dd><a class="newPsd" href="javascript:;">修改密码</a></dd>
                     <dd><a href="javascript:;" id="exitlogin">安全退出</a></dd>
                 </dl>
                 </li>
@@ -68,32 +68,32 @@ width: 80%;
         </div>
         <div class="layui-side layui-bg-black kit-side">
             <div class="layui-side-scroll">
-                <div class="kit-side-fold"><img src="/ProjectDelivery/web/Public/Doc/images/切换@2x.png" alt=""></div>
+                <div class="kit-side-fold"><img src="/Public/Doc/images/切换@2x.png" alt=""></div>
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <!-- 标志 点赞 &#xe6c6 重要 &#xe658;-->
                 <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                     <!--默认展开 layui-nav-itemed-->
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt=""><span>产品使用</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>产品使用</span></a>
                         <dl class="layui-nav-child">
 
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ComprehensiveAnalysis');?>',icon:'',title:'综合分析',id:'3'}">
-                                 <img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt="">
+                                 <img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt="">
                             <span>综合分析</span>
                                 </a>
                             </dd>
                             
                             <dd>
                                <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/MyFeedback');?>',icon:'',title:'我的反馈',id:'2'}">
-                                 <img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/3@2x.png" alt="">
+                                 <img class="cus-nav-icon" src="/Public/Doc/images/3@2x.png" alt="">
                             <span>我的反馈</span>
                                 </a>
                             </dd>
 
                             <dd>
                                  <a href="javascript:;" kit-target data-options="{url:'<?php echo U('Feedback/ProductChoice');?>',icon:'',title:'提交反馈',id:'1'}">
-                                 <img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/4@2x.png" alt="">
+                                 <img class="cus-nav-icon" src="/Public/Doc/images/4@2x.png" alt="">
                             <span>提交反馈</span>
                                  </a>
                             </dd>
@@ -105,25 +105,54 @@ width: 80%;
 
 
                     <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt=""><span>技术疑难</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>技术疑难</span></a>
                         
                     </li>
 
 
 
                      <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt=""><span>平台优化</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>平台优化</span></a>
                         
                     </li>
 
 
                      <li class="layui-nav-item">
-                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/ProjectDelivery/web/Public/Doc/images/2@2x.png" alt=""><span>体系信箱</span></a>
+                        <a class="" href="javascript:;"><img class="cus-nav-icon" src="/Public/Doc/images/2@2x.png" alt=""><span>体系信箱</span></a>
                         
                     </li>
 
                    
                 </ul>
+            </div>
+        </div>
+        <!-- 修改密码弹出层  -->
+        <div class="layui-row" id="changePassword" style="display: none;padding-top: 70px;padding-left:20px;height: 100%">
+            <div class="layui-col-md10" style="height: 100%;">
+                <form  class="layui-form left_form">
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+                        <label class="layui-form-label" style="width: 110px;">原密码:</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="oldPwd" lay-verify="required" autocomplete="off" placeholder="请输入原密码" class="layui-input input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+                         <label class="layui-form-label" style="width: 110px;">新密码:</label>
+                         <div class="layui-input-block">
+                           <input type="password" name="newPwd" lay-verify="required" autocomplete="off" placeholder="请输入新密码" class="layui-input input">
+                         </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="width: 110px;">确认新密码:</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="newPwdSub" lay-verify="required" autocomplete="off" placeholder="请再次输入新密码" class="layui-input input">
+                        </div>
+                    </div>
+                    <div class="bottom_btn layui-form-item" style="margin-top: 80px;">
+                        <button type="button" style="float: right;" class="layui-btn layui-btn-primary layui-btn-radius">取消</button>
+                        <button class="layui-btn layui-btn layui-btn-radius plan-true" lay-submit="" lay-filter="demo1" style="float: right;margin-right: 10px;">提交</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="layui-body" id="container">
@@ -141,7 +170,8 @@ width: 80%;
 
         $('#user-name').html(window.sessionStorage.getItem('name'));
 
-        var message;
+        // var message;
+        var message,layer,form;
         layui.config({
             base: 'Public/Doc/doclay/build/js/'
         }).use(['app', 'message'], function () {
@@ -155,6 +185,68 @@ width: 80%;
                 type: 'iframe'
             }).init();
         });
+        layui.use(['layer','form'], function(){
+            layer = layui.layer;
+            form = layui.form,
+            // 修改密码
+            $('.newPsd').on('click',function(){
+                layer.open({
+                        type: 1,
+                        title: '修改密码',
+                        closeBtn: 2,   // 关闭样式
+                        shadeClose: true,  // 关闭方式
+                        anim:5,    // 弹出样式
+                        area: ['36vw', '70vh'],
+                        // btn:['确定','取消'],
+                        isOutAnim:false,    // 关闭动画
+                        content: $('#changePassword'),
+                })								
+            });
+            form.on('submit(demo1)', function(data){
+                var {oldPwd, newPwd, newPwdSub} = data.field;
+                if(newPwd != newPwdSub){
+                    layer.alert('修改密码不一致',{time: 3000});
+                    $('.left_form').find('input').val("");
+                    return false;
+                }
+                if(oldPwd == newPwd){
+                    layer.alert('新密码不能与原密码相同',{time: 3000});
+                    $('.left_form').find('input').val("");
+                    return false;
+                }
+                var uid = window.sessionStorage.getItem('isLogin');
+                $.ajax({
+                    url:"<?php echo U('login/updpass');?>",
+                    type: 'post',
+                    data: {
+                        uid: uid,//用户ID
+                        oldPass: oldPwd,//原密码
+                        newPass: newPwd,//新密码
+                        repeatPass: newPwdSub//重复密码
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        var {code, data, errmsg} = res;
+                        if(code == 200){
+                            layer.alert("修改密码成功",{time: 3000});
+                            setTimeout(function(){
+                                layer.closeAll();
+                            },3000)
+                        }else if(code == 2){
+                            layer.alert(data,{time: 3000});
+                            $('.left_form').find('input').val("");
+                        }
+                    },
+                    error: function(err){
+                        console.error(err)
+                    }
+                });
+                return false;
+            });
+        });
+        $("#cancelPsdModal").on('click',function(){
+            layer.close(layer.index);
+        })
 
         $('#exitlogin').on('click', function() {
             layui.use('layer', function() {
@@ -184,9 +276,9 @@ width: 80%;
         $('.layui-side').on('click', '.kit-side-fold, .kit-side-fold img', function() {
             var lis = $('.layui-nav-tree').find('li.kit-side-folded');
             if(lis.length > 0) {
-                $('.kit-side-fold img').attr('src', '/ProjectDelivery/web/Public/Doc/images/切换2@2x.png');
+                $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换2@2x.png');
             } else {
-                $('.kit-side-fold img').attr('src', '/ProjectDelivery/web/Public/Doc/images/切换@2x.png');
+                $('.kit-side-fold img').attr('src', '/Public/Doc/images/切换@2x.png');
             }
         })
     })

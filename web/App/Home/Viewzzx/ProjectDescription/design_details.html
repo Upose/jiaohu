@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>设计详情</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/design_details.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body class="app">
+    <div class="details_left">
+        <button @click="return()" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
+        <span class="tit">需求详情</span>
+        <img v-show="is_handle==1" class="status_img" src="__IMG__/un_icon.png">
+        <img v-show="is_handle==2" class="status_img" src="__IMG__/on_icon.png">
+        <img v-show="is_handle==3" class="status_img" src="__IMG__/carry_icon.png">
+        <div><label class="tit_lab">需求名称</label><span class="con_span">{{data.name}}</span></div>
+        <div><label class="tit_lab">页面名称</label><span class="con_span">{{data.page}}</span></div>
+        <div><label class="tit_lab">需求描述</label><div class="div_sty">{{data.summary}}</div>
+        </div>
+        <div><label class="tit_lab">需求类型</label><span class="con_span">{{data.type}}</span></div>
+        <div><label class="tit_lab">界面截图</label><img class="page_img" :src="data.prototype_path[0]" alt=""></div>
+        <div><label class="tit_lab">参考页面</label><span v-for="j in data.refer_path"><img class="page_img" :src="j">&ensp;</span></div>
+    </div>
+    <div class="details_right">
+        <span class="tit">处理过程</span>
+        <div class="con">
+            <div v-for="i in list">
+                <div class="con1">
+                    <span class="circularity"></span><br>
+                </div>
+                <div class="con2">
+                    <p class="con_p1">{{i.handle_time}}</p>
+                    <p class="con_p2">{{i.name}}&nbsp;{{i.handle_state}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="btn_div">
+            <button @click="deal(Uid,1)">开始处理</button>
+            <button @click="deal(Uid,2)">处理完成</button>
+            <button @click="deal(Uid,3)">暂不处理</button>
+            <button @click="deal(Uid,4)">确认完成</button>
+        </div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: ".app",
+        data: {
+            Uid:"",
+            data: [],
+            list: [],
+            is_handle:"",
+        },
+        created: function () {
+            // // 获取上个页面传递回来的ID
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1); //substr()方法返回从参数值开始到结束的字符串；
+                var strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            this.Uid = theRequest.id;
+            this.getdata(this.Uid);
+        },
+        methods: {
+            getdata(id) { 
+                // console.log(id);
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectDesign/demandDetails')}",
+                    dataType: "json",
+                    data:{ demand_id:id },
+                    success: function (data) {
+                        // console.log(data);
+                        that.data=data.details;
+                        that.list=data.profess;
+                        that.is_handle=data.is_handle;
+                        // console.log(data.details.refer_path);
+                    }
+                })
+            },
+            return(){ 
+                window.history.go(-1) 
+            },
+            deal(id,num){
+                console.log(num);
+
+                var that = this;
+                $.ajax({
+                    cache: false,
+                    type: "post",
+                    url: "{:U('ProjectDesign/demandHandle')}",
+                    dataType: "json",
+                    data:{ demand_id:id, code:num },
+                    success: function (data) {
+                        location.reload();
+                        // console.log("yes",data);
+                    }
+                })
+            }
+        }
+    })
+</script>
+
+</html>

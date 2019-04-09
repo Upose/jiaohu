@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/ProjectPlan.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+		<script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body class="app">
+    <div class="main">
+        <h2>项目计划内容</h2>
+        <!-- <form class="layui-form" action=""> -->
+            <section class="info">
+                <div class="infoCont">
+                    <div class="infoLeft">
+											<div class="timeSelect">
+													<label class="name">项目名称：</label>
+													<input type="text" name="title" id="itemName" lay-verify="required" required="required" placeholder="请输入项目名称" class="layui-input">    
+											</div>
+											<div class="timeSelect">
+													<label class="name">开始日期：</label>
+													<input type="text"  required="required" class="layui-input" id="data">
+											</div>                    
+                    </div>
+                    <div class="infoRight">
+                            <div class="timeSelect">
+                                <label class="name">所属阶段：</label>
+                                <select name="stage" id='stageCont' lay-verify="" class="pro_select">
+                                    <option value="01" selected>初始阶段</option>
+                                    <option value="02">实施阶段</option>
+                                    <option value="03">交付阶段</option>
+                                </select>
+                            </div>
+                        <div class="timeSelect">
+                            <label class="title-stage">变更阶段原因：</label>
+                            <input type="text" name="title" id="itemRate" lay-verify="required" required="required" placeholder="请输入工作进度" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <section class="this-work">
+                <h3>计划内容</h3>
+                <button class="layui-btn addThisWork">添加</button>
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="100">
+                        <col width="100">
+                        <col>
+                        <col width="100">
+                        <col>
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>任务名称</th>
+                            <th>任务类型</th>
+                            <th>内容描述</th>
+                            <th>负责人</th>
+                            <th>完成率</th>
+														<th>问题描述</th>
+														<th>参与人</th>
+														<th>计划完成时间</th>
+														<th>变更完成时间</th>
+														<th>实际完成时间</th>
+														<th>处理状态</th>
+														<th>预期原因</th>
+														<th>是否重大事件</th>
+														<th>重大事件原因</th>
+                        </tr> 
+                    </thead>
+                    <tbody id="thisWorkList"></tbody>
+                </table>
+            </section>
+            
+            <div class="submitInfo">
+                <button type="button" class="layui-btn" id="submitWorkly" lay-submit lay-filter="formDemo">提交</button>
+            </div>
+       <!-- </form> -->
+			 <!-- 新增功能弹框 -->
+			 <div class="new_div">
+			 	<div class="new_tit"><span>新增项目计划</span><img @click='down()' src="__IMG__/close_normal.png"></div>
+			 		<div class="con_txt" style="float: left;">
+			 			<p>任务名称：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+			 			<p>任务类型：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+			 					<option value="">请选择</option>
+			 					<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
+			 				</select>
+			 			</p>
+			 			<p>内容描述：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>负责人名：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>已完成率：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>问题描述：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>参与人员：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+			 		</div>
+					<div class="con_txt" style="float: right;">
+						<p>计划完成时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+						<p>实际完成时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+						<p>处理状态：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+								<option value="">请选择</option>
+								<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
+							</select>
+						</p>
+						<p>预期原因：<input class="name_input" type="text" name="kname" placeholder="请输入信息"></p>
+						<p>是否重大事故：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+								<option value="">请选择</option>
+								<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
+							</select>
+						</p>
+						<p>重大事故原因： <textarea placeholder="请输入内容" class="layui-textarea" v-model="addList.other_person"></textarea></p>
+					</div>
+			 		<div class="btn_div"><button type="submit" @click='zeng()'>确定</button></div>
+			 </div>
+    </div>
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+  layui.use(['form', 'layedit', 'laydate'], function(){
+  	  var form = layui.form,
+  	  layer = layui.layer,
+  	  layedit = layui.layedit,
+  	  laydate = layui.laydate;
+  	 //日期 
+  	  laydate.render({
+  			elem: '#date',
+  			});
+  	  });
+  
+  	 // 选择全国
+      var app = new Vue({
+          el: ".app",
+  				data: function() {
+  					return {
+  						area:[],
+  						backFrame:[],
+  						projectmen: [],
+  						databaseFrame:[],
+  						zdepartment:[],
+  						zpostName:[],
+  						uiFrame:[],
+  						jsFrame:[],
+  						peoplemore:[],
+  						peoplelist:[],
+  						addList: {
+  							proname: '',
+  							proArea:'',
+  							uiFrame:'',
+  							jsFrame:'',
+  							backFrame:'',
+  							databaseFrame:'',
+  							stakeHolder:'',
+  							whether_ys:'',
+  							ys_date:'',
+  							persionRelease:'',
+  							departname: '',
+  							selectedpeople: '',
+  							peo_job: '',
+  							dao_data:''
+  						},
+  					}
+  				},
+  		created: function () {
+  			this.getdata();
+  			this.project();
+  			this.projectzeng();
+  		},
+          methods: {
+              getdata() {
+                  var that = this;
+                  $.ajax({
+                  		cache: false,
+                  		type: "post",
+                  		url: "{:U('ProjectDelivery/projectList')}",
+                  		dataType: "json",
+                  		success: function (data) {
+                  				that.rank = data.data.rank;
+                  		}
+                  })
+              },
+  						
+              project() {
+                  var that = this;
+                  $.ajax({
+                      type: "post",
+                      url: "{:U('ProjectDelivery/proDelivery')}",
+                      dataType: "json",
+  										data:{
+  											projectManagerId:875
+  										},
+                      success: function (data) {
+  												that.area = data.data.area;
+  												that.backFrame = data.data.backFrame;
+  												that.uiFrame = data.data.uiFrame;
+  												that.jsFrame = data.data.jsFrame;
+  												that.databaseFrame = data.data.databaseFrame;
+  												that.projectmen = data.data.projectList;
+                      }
+                  })
+  						},
+  						projectzeng() {
+  								var that = this;
+  								$.ajax({
+  										type: "post",
+  										url: "{:U('ProjectDelivery/addPersionDropOperation')}",
+  										dataType: "json",
+  										success: function (data) {
+  											that.zdepartment = data.data.department;
+  											that.zpostName = data.data.postName;
+  
+  										}
+  								})
+  						},
+  						depart_select(){
+                  var that = this;
+                  $.ajax({
+                      type: "post",
+                      url: "{:U('ProjectDelivery/departmentPersion')}",
+                      dataType: "json",
+  										data:{
+  											departmentName:this.addList.departname
+  										},
+                      success: function (data) {
+  											that.peoplemore = data.data;
+  
+                      }
+                  })
+  						},
+  						down() {
+  							$(".new_div").hide();
+  						},
+  						
+  						// 增加新的内部人员
+  						zeng() {
+  							var that = this;
+  							var dproId =$("#dpropeopleid").find("option:selected").text();
+  							var dpersionId= $('#dpeopleid').find("option:selected").text();;
+  							console.log(dproId);
+  							console.log(dpersionId);
+  							$.ajax({
+  									type: "post",
+  									url: "{:U('ProjectDelivery/proDeliveryPersionAdd')}",
+  									dataType: "json",
+  									data:{
+  										proId:this.addList.proname,
+  										proName:dproId,
+  										persionId:this.addList.selectedpeople,
+  										persionName:dpersionId,
+  										jobType:this.addList.peo_job,
+  										inTime:this.addList.dao_data
+  									},
+  									success: function (data) {
+  										that.laypeople();
+  									}
+  							})
+  							
+  							$(".new_div").hide();
+  						},
+  						//  查询增添新的人员
+  						laypeople(){
+  								var that = this;
+  								$.ajax({
+  										type: "post",
+  										url: "{:U('ProjectDelivery/projectPersion')}",
+  										dataType: "json",
+  										data:{
+  											projectId:this.addList.proname
+  										},
+  										success: function (data) {
+  											that.peoplelist = data.data;
+  										}
+  								})
+  						},
+  						
+  						 // 交付信息提交
+  						submitForm(){
+  								var that = this;
+  								var dproname =$("#dpropeopleid").find("option:selected").text();
+  								$.ajax({
+  										type: "post",
+  										url: "{:U('ProjectDelivery/proDeliveryAdd')}",
+  										dataType: "json",
+  										data:{
+  											proId:this.addList.proname,
+  											proName:dproname,
+  											proArea:this.addList.proArea,
+  											uiFrame:this.addList.uiFrame,
+  											jsFrame:this.addList.jsFrame,
+  											backFrame:this.addList.backFrame,
+  											databaseFrame:this.addList.databaseFrame,
+  											stakeHolder:this.addList.stakeHolder,
+  											whether_ys:this.addList.whether_ys,
+  											ys_date:this.addList.ys_date,
+  											persionRelease:this.addList.persionRelease
+  											
+  										},
+  										success: function (data) {
+  											if(res.code == 200) {
+  												layui.use('layer', function() {
+  													layer.alert('提交成功');
+  												})
+  											} else {
+  												layui.use('layer', function() {
+  													var layer = layui.layer;
+  													layer.alert('添加失败');
+  												})
+  											}
+  										}
+  								})
+  						},
+  						
+          }
+      })
+  		
+  		$(".addThisWork").on('click', function () {
+  			$(".new_div").show();
+  		});
+  
+</script>
+</html>

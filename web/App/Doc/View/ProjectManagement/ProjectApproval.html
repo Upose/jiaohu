@@ -8,7 +8,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
 		<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
-    <link rel="stylesheet" href="__CSS__/ProjectApproval.css" media="all">
+		<link rel="stylesheet" href="__CSS__/ProjectApproval.css" media="all">
+		<style>
+			.layui-select-disabled .layui-disabled{
+				background: #f3f2f2;
+				color: rgb(84, 84, 84) !important;
+			}
+			input:disabled,
+			input:disabled:hover,
+			select:disabled,
+			select:disabled:hover,
+			textarea:disabled,
+			textarea:disabled:hover{
+				background: rgba(195, 190, 190, 0.2);
+				color: rgb(84, 84, 84) !important;
+    		cursor: not-allowed!important;
+			}
+			/* rgba(195, 190, 190, 0.2) */
+		</style>
     <script src="__STATIC__/jquery-2.0.3.min.js"></script>
 		<script src="__STATIC__/vue.min.js"></script>
 </head>
@@ -183,7 +200,7 @@
 						<div class="layui-col-md4">
 							<label class="tit-tab">开始时间：</label>
 							<div class="layui-input-block">
-								<input  class="layui-input" id="testli" placeholder="yyyy年MM月dd日" lay-verify="required">
+								<input class="layui-input" id="testli1" placeholder="yyyy年MM月dd日" lay-verify="required">
 								</div>
 							</div>
 						<div class="layui-col-md4">
@@ -195,7 +212,7 @@
 						<div class="layui-col-md4">
 							<label class="tit-tab">密集程度：</label>
 							<div class="layui-input-block">
-								<select class="layui-input" name="see_mjcd"  lay-verify="required" lay-filter="see_mjcd">
+								<select class="layui-input" name="see_mjcd" id="see_mjcd" lay-verify="required" lay-filter="see_mjcd">
 									<option value ="">请选择密集程度</option>
 									<option value ="0">普通</option>
 									<option value ="1">紧急</option>
@@ -205,7 +222,7 @@
 						<div class="layui-col-md4">
 							<label class="tit-tab">难度等级：</label>
 							<div class="layui-input-block">
-								<select class="layui-input" name="see_nddj"  lay-verify="required" lay-filter="see_nddj">
+								<select class="layui-input" name="see_nddj" id="see_nddj" lay-verify="required" lay-filter="see_nddj">
 									<option value ="">请选择难度等级</option>
 									<option value ="0">容易</option>
 									<option value ="1">普通</option>
@@ -216,7 +233,7 @@
 						<div class="layui-col-md6">
 							<label class="tit-tab">合作单位：</label>
 							<div class="layui-input-block">
-							<input type="text" lay-verify="required" placeholder="请输入合作单位" name="see_hzdw"   class="layui-input" lay-filter="see_hzdw">
+							<input type="text" id="see_hzdw" lay-verify="required" placeholder="请输入合作单位" name="see_hzdw" class="layui-input" lay-filter="see_hzdw">
 							</div>
 						</div>
 						<div class="layui-col-md6 layui-upload" >
@@ -232,7 +249,7 @@
 						<div class="layui-col-md12">
 							<label class="tit-tab">项目介绍：</label>
 							<div class="layui-input-block">
-							<textarea placeholder="请输入内容" class="layui-textarea" lay-filter="see_xmjs"></textarea>
+							<textarea id="see_xmjs" placeholder="请输入内容" class="layui-textarea" name="see_xmjs" lay-filter="see_xmjs"></textarea>
 							</div>
 						</div>
 						<div class="layui-form-item">
@@ -249,8 +266,13 @@
 </body>
 <script src="__DOCLAY__/plugins/layui/layui.js"></script>
 <script>
+		$("input").attr("autocomplete","off");//解决input输入框有历史记录问题
+		var pro_code = window.sessionStorage.getItem("pro_code");//获取项目id
+		var pMid = window.sessionStorage.getItem('isLogin');//获取登录人的id
+
 		var  uptext;
 		var form,layedit,layer,laydate; 
+		
 		layui.use(['form', 'layedit', 'laydate','table'], function(){
 		  form = layui.form,
 		  layer = layui.layer,
@@ -260,7 +282,7 @@
 	
 		//开始日期 
 			laydate.render({
-				elem: '#testli'
+				elem: '#testli1'
 				});
 		//结束日期 
 			laydate.render({
@@ -268,24 +290,62 @@
 				});
 						
 			getsomorepeo();
+			//禁止提交数据
+			function setDisabled () {
+				$(".layui-form-item input").attr("disabled","disabled");
+				$(".layui-form-item textarea").attr("disabled","disabled");
+				$(".layui-form-item select").attr("disabled","disabled");
+				form.render("select");
+				// $(".layui-form-item input").attr("disabled","disabled");
+			}
+			getInfo();
+			//获取立项信息
+			function getInfo () {
+				var mjcd = {"0": "普通","1":"紧急"};
+				var nddj = {"0":"容易","1":"普通","2":"困难"};
+				$.ajax({
+					url:"{:U('ItemStartUp/approvalList')}",
+					type: 'post',
+					data: {
+						pCode: pro_code
+					},
+					dataType: 'json',
+					success: function(res) {
+						var {code, data, errmsg} = res;
+						// console.log(res)
+						if(code == 200){
+							setDisabled();
+							$("#add_shop").siblings("div").find("input").val(data.swName);//商务人员
+							$("#add_sq").siblings("div").find("input").val(data.sqName);//售前人员
+							$("#testli1").val(data.pro_stime);//开始时间
+							$("#testli2").val(data.pro_etime);//结束时间
+							$("#see_mjcd").siblings("div").find("input").val(mjcd[data.secrecy_grade]);//密集程度
+							$("#see_nddj").siblings("div").find("input").val(nddj[data.difficulty_rank]);//难度等级
+							$("#see_hzdw").val(data.cooperative_unit);//合作单位
+							$("#see_xmjs").val(data.pro_msg);//项目介绍
+						}
+					}    
+				});
+			}
 				//监听提交
 			form.on('submit(demo1)', function(data){
-				var s_time=$("#test1").val(); 				
-				var e_time =$("#test2").val();
+				
+				var s_time=$("#testli1").val(); 				
+				var e_time =$("#testli2").val();
 				$.ajax({
 				url:"{:U('ItemStartUp/approvalAdd')}",
 				type: 'post',
 				data: {
-						pCode:"12",  //  项目id  后期添加
-						swName:data.field.see_shop, 
-						sqName:data.field.see_sq,
+						pCode: pro_code,  //  项目id  后期添加
+						swName:data.field.add_shop, 
+						sqName:data.field.add_sq,
 						pStime :s_time,
 						pEtime :e_time,
 						sGrade :data.field.see_mjcd,
 						dRank  :data.field.see_nddj,
 						pMsg :data.field.see_hzdw,
 						cUtil  :data.field.see_xmjs,
-						pMid   :'222',  // 创建人id  后期根据登录获取
+						pMid   : pMid,  // 创建人id  后期根据登录获取
 						photo:data.field.file,
 						filepath:uptext,
 				},
@@ -294,6 +354,8 @@
 						if(res.code == 200) {
 							layui.use('layer', function() {
 								layer.alert('提交成功');
+								// setDisabled();
+								location.reload();
 							})
 						} else {
 							layui.use('layer', function() {
@@ -306,6 +368,7 @@
 				return false;
 			});	
 		});		
+		
 		// 文件上传
 		layui.use('upload', function(){
 			var upload = layui.upload;			 
@@ -339,7 +402,6 @@
 			success: function(data) {
 					if (data.code == 200) {
 							var result = data.data || [];
-							console.log(result);
 							var role = document.getElementById("add_shop");        //add_role_name给select定义的id  
 							var role_job = document.getElementById("add_sq");     	      	      
 							for (var i = 0; i<result.sqResult.length; i++) {

@@ -59,7 +59,7 @@ width: 80%;
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
-                    <dd><a href="javascript:;">修改密码</a></dd>
+                    <dd><a class="newPsd" href="javascript:;">修改密码</a></dd>
                     <dd><a href="javascript:;" id="exitlogin">安全退出</a></dd>
                 </dl>
                 </li>
@@ -133,6 +133,35 @@ width: 80%;
                 </ul>
             </div>
         </div>
+        <!-- 修改密码弹出层  -->
+        <div class="layui-row" id="changePassword" style="display: none;padding-top: 70px;padding-left:20px;height: 100%">
+            <div class="layui-col-md10" style="height: 100%;">
+                <form  class="layui-form left_form">
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+                        <label class="layui-form-label" style="width: 110px;">原密码:</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="oldPwd" lay-verify="required" autocomplete="off" placeholder="请输入原密码" class="layui-input input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+                         <label class="layui-form-label" style="width: 110px;">新密码:</label>
+                         <div class="layui-input-block">
+                           <input type="password" name="newPwd" lay-verify="required" autocomplete="off" placeholder="请输入新密码" class="layui-input input">
+                         </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="width: 110px;">确认新密码:</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="newPwdSub" lay-verify="required" autocomplete="off" placeholder="请再次输入新密码" class="layui-input input">
+                        </div>
+                    </div>
+                    <div class="bottom_btn layui-form-item" style="margin-top: 80px;">
+                        <button type="button" style="float: right;" class="layui-btn layui-btn-primary layui-btn-radius">取消</button>
+                        <button class="layui-btn layui-btn layui-btn-radius plan-true" lay-submit="" lay-filter="demo1" style="float: right;margin-right: 10px;">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="layui-body" id="container">
             <!-- 内容主体区域 -->
             <div style="padding: 15px;">主体内容加载中,请稍等...</div>
@@ -148,7 +177,8 @@ width: 80%;
 
         $('#user-name').html(window.sessionStorage.getItem('name'));
 
-        var message;
+        // var message;
+        var message,layer,form;
         layui.config({
             base: 'Public/Doc/doclay/build/js/'
         }).use(['app', 'message'], function () {
@@ -162,7 +192,68 @@ width: 80%;
                 type: 'iframe'
             }).init();
         });
-
+        layui.use(['layer','form'], function(){
+            layer = layui.layer;
+            form = layui.form,
+            // 修改密码
+            $('.newPsd').on('click',function(){
+                layer.open({
+                        type: 1,
+                        title: '修改密码',
+                        closeBtn: 2,   // 关闭样式
+                        shadeClose: true,  // 关闭方式
+                        anim:5,    // 弹出样式
+                        area: ['36vw', '70vh'],
+                        // btn:['确定','取消'],
+                        isOutAnim:false,    // 关闭动画
+                        content: $('#changePassword'),
+                })								
+            });
+            form.on('submit(demo1)', function(data){
+                var {oldPwd, newPwd, newPwdSub} = data.field;
+                if(newPwd != newPwdSub){
+                    layer.alert('修改密码不一致',{time: 3000});
+                    $('.left_form').find('input').val("");
+                    return false;
+                }
+                if(oldPwd == newPwd){
+                    layer.alert('新密码不能与原密码相同',{time: 3000});
+                    $('.left_form').find('input').val("");
+                    return false;
+                }
+                var uid = window.sessionStorage.getItem('isLogin');
+                $.ajax({
+                    url:"{:U('login/updpass')}",
+                    type: 'post',
+                    data: {
+                        uid: uid,//用户ID
+                        oldPass: oldPwd,//原密码
+                        newPass: newPwd,//新密码
+                        repeatPass: newPwdSub//重复密码
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        var {code, data, errmsg} = res;
+                        if(code == 200){
+                            layer.alert("修改密码成功",{time: 3000});
+                            setTimeout(function(){
+                                layer.closeAll();
+                            },3000)
+                        }else if(code == 2){
+                            layer.alert(data,{time: 3000});
+                            $('.left_form').find('input').val("");
+                        }
+                    },
+                    error: function(err){
+                        console.error(err)
+                    }
+                });
+                return false;
+            });
+        });
+        $("#cancelPsdModal").on('click',function(){
+            layer.close(layer.index);
+        })
         $('#exitlogin').on('click', function() {
             layui.use('layer', function() {
                 layer.confirm('确定退出登录?', {title:'提示'}, function(index){

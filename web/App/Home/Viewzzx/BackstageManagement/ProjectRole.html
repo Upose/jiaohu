@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>feedback</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/custom.css">
+	<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+	<script src="__STATIC__/jquery-2.0.3.min.js"></script>
+</head>
+<body>
+	<div class="cus-body">
+		<div class="layui-row">
+			<button type="button" id="add-feed" class="cus-btn">新增</button>
+		</div>
+		<div>
+			<table id="feed-table" class="layui-table cus-table">
+				<colgroup>
+					<col width="80">
+					<col width="200">
+					<col width="500">
+					<col width="80">
+					<col width="150">
+				</colgroup>
+				<thead>
+					<tr class="cus-tr-bold">
+						<th>序号</th>
+						<th>名称</th>
+						<th>描述</th>
+						<th>状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="feed-tbody"></tbody>
+			</table>
+			<div id="feed-page"></div>
+		</div>
+	</div>
+	<script>
+		var addFeed = document.getElementById('add-feed');
+		var pageIndex = 1, limit = 10; // 页面索引, 页面显示条数
+		
+		// 渲染列表数据
+		function tableInit(data) {
+			var tBody = document.getElementById('feed-tbody');
+			var str = '';
+			// 处理数据
+			data.forEach(function(item, idx) {
+				str += '<tr><td>'+ item.id +'</td><td>'+ item.name +'</td><td>'+ item.summary +'</td><td style="font-weight: bold;">'+ item.status +'</td><td><span class="cus-enable edit" _id="'+ item.id +'">编辑</span><span class="cus-disable delete" style="margin-left: 10px;" _id="'+ item.id +'">删除</span></td></tr>';
+			});
+
+			tBody.innerHTML = str;
+		}
+		
+		// 添加配置项
+		addFeed.onclick = function() {
+			var addContent = document.getElementById('add-content');
+			layui.use('layer', function() {
+				var layer = layui.layer;
+
+				layer.open({
+					title: '添加配置',
+					type: 2,
+					shadeClose: true,
+					closeBtn: 1,
+					area: ['500px', '350px'],
+					content: "{:U('BackstageManagement/AddRole')}"
+				});
+			})
+		};
+		
+		// 分页初始化
+		function layPageInit() {
+			layui.use('laypage', function() {
+				var laypage = layui.laypage;
+				laypage.render({
+					elem: 'feed-page',
+					limit: limit,
+					curr: 1,
+					count: 10,
+					jump: function(obj, first) {
+						if(first) {
+							return false;
+						}
+
+						pageIndex = obj.curr;
+						limit = obj.limit;
+
+						getFeedList(pageIndex, limit);
+					}
+				})
+			})
+		}
+		
+		// 获取数据
+		function getFeedList(pageIndex, limit) {
+			pageIndex = pageIndex || 1;
+			limit = limit || 10;
+
+			$.ajax({
+				cache: false,
+				type: "POST",
+				url: "{:U('BackstageManagement/ShowProjectrole')}",
+				dataType: "json",
+				data: {
+					pageIndex: pageIndex,
+					limit: limit
+				},
+				success: function(res) {
+					tableInit(res.data);
+					layPageInit();
+				},
+				fail: function(err) {
+					console.log(err);
+				}
+			});
+		};
+
+        // 删除
+        $('#feed-tbody').on('click', '.delete', function() {
+            var id = $(this).attr('_id');
+            layui.use('layer', function() {
+                layui.layer.confirm('确定删除?', {
+                  	btn: ['确定', '取消']
+                }, function(index, layero){
+                  	$.ajax({
+                  		cache: false,
+                  		async: false,
+                  		type: "POST",
+                  		url: "{:U('BackstageManagement/DeleteProjectrole')}",
+                  		dataType: "json",
+                  		data: {
+                  			id: id
+                  		},
+                  		success: function(res) {
+                  			layui.layer.alert('删除成功');
+                  			getFeedList();
+                  		},
+                  		fail: function(err) {
+                  			console.log(err);
+                  		}
+                  	});
+                }, function(index){
+                  	
+                });
+            })
+        })
+
+        // 编辑
+        $('#feed-tbody').on('click', '.edit', function() {
+            var id = $(this).attr('_id');
+            layui.use('layer', function() {
+                var layer = layui.layer;
+
+                layer.open({
+                    title: '编辑配置',
+                    type: 2,
+                    shadeClose: true,
+                    closeBtn: 1,
+                    area: ['500px', '350px'],
+                    content: "{:U('BackstageManagement/EditRole')}",
+                    success: function(layero, idx) {
+                        var body = layui.layer.getChildFrame('body', idx);
+                        $.ajax({
+                            cache: false,
+                            async: false,
+                            type: "POST",
+                            url: "{:U('BackstageManagement/UpdateeProjectrole')}",
+                            dataType: "json",
+                            data: {
+                                id: id
+                            },
+                            success: function(res) {
+                                var o = res.data[0];
+                                body.find('#product_name').val(o.name);
+                                body.find('#edit_id').val(id);
+                                body.find('#product_describe').val(o.summary);
+                                body.find('#edit_status').val(o.status);
+                            },
+                            fail: function(err) {
+                                console.log(err);
+                            }
+                        });
+                    }
+                });
+            })
+        })
+
+		getFeedList(pageIndex, limit);
+	</script>
+</body>
+</html>

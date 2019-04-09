@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>fankui</title>
-    <link rel="stylesheet" href="/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/Public/Doc/doclay/build/css/app.css" media="all">
-    <link rel="stylesheet" href="/Public/Doc/css/submit2.css" media="all">
-    <script src="/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/Public/Doc/doclay/plugins/layui/layui.js"></script> 
-    <script src="/Public/static/vue.min.js"></script>
+    <link rel="stylesheet" href="/pd/Public/Doc/doclay/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/pd/Public/Doc/doclay/build/css/app.css" media="all">
+    <link rel="stylesheet" href="/pd/Public/Doc/css/submit2.css" media="all">
+    <script src="/pd/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/pd/Public/Doc/doclay/plugins/layui/layui.js"></script> 
+    <script src="/pd/Public/static/vue.min.js"></script>
 </head>
 <body>
    <div class="new">
@@ -66,7 +66,7 @@
     <div id="test3"></div>
    </div>
 </body>
-  <!--<script src="/Public/Doc/doclay/plugins/layui/layui.js"></script> -->
+  <!--<script src="/pd/Public/Doc/doclay/plugins/layui/layui.js"></script> -->
 <script>
     var app = new Vue({
         el: '.new',

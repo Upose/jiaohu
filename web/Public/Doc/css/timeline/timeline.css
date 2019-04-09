@@ -1,0 +1,76 @@
+/* 横向时间轴 */
+.time-horizontal {
+  list-style-type: none;
+  border-top: 2px solid #ccc;
+  padding: 0px;
+  margin: 0px;
+  z-index: -1;
+}
+
+.time-horizontal li {
+  float: left;
+  position: relative;
+  text-align: right;
+  width: 15%;
+  padding-top: 10px;
+}
+
+.time-horizontal li b:before {
+  content: '';
+  position: absolute;
+  top: -1vh;
+  left: 30%;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+}
+/* 纵向时间轴 */
+.time-vertical {
+  list-style-type: none;
+  border-left: 1px solid #707070;
+  padding: 0px;
+  min-height: 25vh;
+  width: 50%;
+  margin-left: 49%;
+}
+
+.time-vertical li {
+  height: 12%;
+  position: relative;
+}
+
+.time-vertical li a {
+  display: inline-block;
+  margin-left: 2vw;
+  margin-top: 2.5vh;
+  text-decoration: none;
+  color: #000;
+}
+
+.time-vertical li b:before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: -8px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.time-vertical li span {
+  position: absolute;
+  top: 1.5vh;
+  left: -8vw;
+  color: #000;
+  font-size: 24px;
+  text-align: center;
+}
+.time-vertical li span h6{
+  font-size: 14px;
+  margin-top: 1vh;
+}

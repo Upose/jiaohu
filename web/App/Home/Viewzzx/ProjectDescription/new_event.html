@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新增事件</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/new_event.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__DOCLAY__/plugins/layui/layui.js"></script>
+    <script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body class="app">
+    <div id="addEvent">
+        <form>
+            <button @click="goBack()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
+            <span class="new_span">新增事件</span><br>
+            <div class="div1">
+                <div class="form_div2">
+                    <label class="tit">事件名称</label>
+                    <input class="name_input" type="text" name="title" placeholder="请输入信息" v-model="addList.name">
+                </div><br>
+                <div class="form_div1">
+                    <label class="tit">事件类型</label>
+                    <select name="" id="" v-model="addList.type_id">
+                        <option :value="item.id" v-for="(idx, item) in eventTypeList" :key="idx">{{ item.name }}</option>
+                    </select>
+                </div><br>
+                <div class="form_div1 time_div">
+                    <label class="tit">开始时间</label>
+                    <input class="tame_input" type="date" name="start_time" id="" v-model="addList.start_time">
+                </div><br>
+                <div class="form_div1 time_div">
+                    <label class="tit">结束时间</label>
+                    <input class="tame_input" type="date" name="end_time" id="" v-model="addList.end_time">
+                </div><br>
+                <div class="form_div1">
+                    <label class="tit">我方人员</label>
+                    <input class="name_input" type="text" name="kname" placeholder="请输入信息" v-model="addList.we_person">
+                </div>
+            </div>
+        
+            <div class="div1" style="position: absolute;">
+                <div class="form_div1">
+                    <label class="tit">甲方人员</label>
+                    <input class="name_input" type="text" name="kname" placeholder="请输入信息" v-model="addList.first_party_person">
+                </div><br>
+                <div class="form_div1">
+                    <label class="tit">其他人员</label>
+                    <input class="name_input" type="text" name="kname" placeholder="请输入信息" v-model="addList.other_person">
+                </div><br>
+                <div class="form_div2">
+                    <label class="tit">需求背景</label>
+                    <textarea name="xuqiu_back" cols="40" rows="3" placeholder="请输入信息" v-model="addList.summary"></textarea>
+                </div>
+                <div class="form_div2" style="vertical-align: top;">
+                    <label class="tit">上传文件</label>
+                    <div class="cus-files" id="cus-form">
+                        <input type="file" id="cus-ipt" name="photo" class="cus-files-input" multiple="multiple" ref="inputer" accept=".doc,.docx,.pdf" @change="updateFileList" />
+                        <div class="cus-files-content">
+                            <div class="cus-warning">
+                                <img class="img1" src="__IMG__/up@2x.png">
+                                <p class="cus-warning-item">点击选择文件</p>
+                                <p class="cus-warning-item">支持扩展名：.doc,.docx,.pdf 最多4个</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <button class="but" type="button" @click="resetForm">取消</button>
+            <button class="but" type="button" @click="submitForm">提交</button>
+        </form>
+    </div>
+</body>
+<script>
+        var vm = new Vue({
+            el: "#addEvent",
+            data: function() {
+                return {
+                    eventTypeList: [],
+                    addList: {
+                        project_id: '',
+                        name: '',
+                        summary: '',
+                        start_time: '',
+                        end_time: '',
+                        we_person: '',
+                        first_party_person: '',
+                        other_person: ''
+                    },
+                    maxFileSize: 10485760,
+                    maxFileLength: 4
+                }
+            },
+            created: function () {
+                // 获取上个页面传递回来的ID
+                var url = location.search;
+                this.addList.project_id = url.match(/id=\d+/g)[0].substring(3);
+                this.getEventTypeList();
+            },
+            methods: {
+                goBack: function() {
+                    window.history.go(-1)
+                },
+                submitFile() {
+                    var formData = new FormData();
+                    var fs = $('#cus-ipt')[0].files;
+                    var _this = this;
+                    for(var i = 0; i < fs.length; i++) {
+                        formData.append('photo[]', fs[i]);
+                    }
+                    formData.append('project_id', this.addList.project_id);
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "POST",
+                        url: "{:U('ProjectEvent/uploadFile')}",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(res) {
+                            if(res.code == 0) {
+                                window.location.href = "{:U('ProjectDescription/pro_event&id="+ _this.addList.project_id +"')}";
+                            }
+                        }
+                    })
+                },
+                resetUpload: function(msg) {
+                    $('.cus-files-content').find('.cus-img').remove();
+                    $('.cus-files-input')[0].value = '';
+                    $('.cus-warning').show();
+            
+                    layui.use('layer', function () {
+                        layui.layer.alert(msg);
+                    })
+                },
+                testUpload: function(files, maxFileLength, maxFileSize) {
+                    var result = true;
+                    var _this = this;
+                    // 未选择文件, 清空选择框
+                    if (files.length === 0) {
+                        _this.resetUpload('未选择任何文件');
+                    
+                        result = false;
+                    }
+                    
+                    // 文件个数超过限制, 重新选择
+                    if (files.length > _this.maxFileLength) {
+                        _this.resetUpload('上传文件个数不能超过'+ _this.maxFileLength +'个, 请重新上传!');
+                    
+                        result = false;
+                    }
+                    
+                    // 文件大小超过限制, 重新选择
+                    ;[].slice.call(files).forEach(function (item, idx) {
+                        if (item.size > _this.maxFileSize) {
+                            _this.resetUpload('上传文件最大不能超过10M, 请重新上传!');
+                    
+                            result = false;
+                        }
+                    })
+                    
+                    return result;
+                },
+                // 上传文件列表
+                updateFileList: function() {
+                    var files = $('#cus-ipt')[0].files;
+                    var _this = this;
+                    $('.cus-warning').show();
+            
+                    var res = _this.testUpload(files);
+                    if (res) {
+                        $('.cus-warning').hide();
+                        _this.showThumbnails(files, $('.cus-files-content'));
+                    }
+                },
+                // 显示缩略图
+                showThumbnails: function(files ,el) {
+                    $('.cus-files-content').html('');
+                    ;[].slice.call(files).forEach(function (item, idx) {
+                        var reader = new FileReader();
+                        var div = document.createElement('div');
+                        $(div).css({
+                            display: 'inline-block',
+                            verticalAlign: 'top',
+                            width: '50px',
+                            height: '50px',
+                            margin: '5px',
+                            border: '1px dashed #979797',
+                            'fontSize': '12px',
+                            'overFlow': 'hidden'
+                        }).html(item.name);
+                    
+                        $(el).append(div);
+                    })
+                },
+                // 获取事件类型列表
+                getEventTypeList: function() {
+                    var _this = this;
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "{:U('ProjectEvent/eventType')}",
+                        dataType: "json",
+                        data: {},
+                        success: function (res) {
+                            _this.eventTypeList = res.data;
+                        }
+                    })
+                },
+                // 上传文字内容
+                submitText: function() {
+                    var _this = this;
+                    $.ajax({
+                        cache: false,
+                        async: false,
+                        type: "POST",
+                        url: "{:U('ProjectEvent/eventAdd')}",
+                        dataType: "json",
+                        data: _this.addList,
+                        success: function (res) {
+                            if(res.code == 0) {
+                                layui.use('layer', function() {
+                                    var layer = layui.layer;
+                                    layer.alert('添加成功');
+                                })
+                            } else {
+                                layui.use('layer', function() {
+                                    var layer = layui.layer;
+                                    layer.alert('添加失败');
+                                })
+                            }
+                        }
+                    })
+                },
+                // 提交
+                submitForm: function() {
+                    // 表单验证
+                    if( this.addList.name == '' ||
+                        this.addList.num == '' ||
+                        this.addList.start_time == '' ||
+                        this.addList.end_time == '' ||
+                        this.addList.we_person == '' ||
+                        this.addList.first_party_person == '' ||
+                        this.addList.other_person == ''
+                    ) {
+                        layui.use('layer', function() {
+                            var layer = layui.layer;
+                            layer.alert('请确保信息输入完整!');
+                        })
+                    } else if(this.compareDate(this.start_time, this.end_time)) {
+                        layui.use('layer', function() {
+                            var layer = layui.layer;
+                            layer.alert('开始时间不能大于结束时间!');
+                        })
+                    } else {
+                        this.submitText();
+                        this.submitFile();
+                    }
+                },
+                // 比较时间
+                compareDate: function(s, e) {
+                    var sTime = new Date(s).getTime();
+                    var eTime = new Date(e).getTime();
+
+                    if(s < e) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        });
+    </script>
+</html>

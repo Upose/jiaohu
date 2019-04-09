@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/Delivery.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+		<script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body class="app">
+    <div id="event-view">
+			<div class="details_zong">
+			<div class="details_left">
+				<span class="tit">交付信息登记</span>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">项目名称：</label>
+						<div class="layui-input-block">
+						<div  class="search_div">							
+							<select id="dpropeopleid" class="pro_select"  v-model="addList.proname">
+							<option value="">请选择</option>
+								<option v-for="i in projectmen" :value="i.pro_id">{{i.pro_name}}</option>
+							</select>
+						</div>
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">施工地点：</label>
+						<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select"  v-model="addList.proArea" >
+								<option value="">请选择</option>
+									<option v-for="i in area" :value="i.pid">{{i.pname}}</option>
+								</select>	
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">UI框架：</label>
+						<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.uiFrame" >
+								<option value="">请选择</option>
+								<option v-for="i in uiFrame" :value="i.frameid">{{i.frame_name}}</option>
+								</select>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">WEB框架</label>
+						<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.jsFrame" >
+								<option value="">请选择</option>
+								<option v-for="i in jsFrame" :value="i.frameid">{{i.frame_name}}</option>
+								</select>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+							<label class="tit-tab">开发语言：</label>
+							<div class="layui-input-block">
+							<div  class="search_div">
+								<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.backFrame" >
+									<option value="">请选择</option>
+									<option v-for="i in backFrame" :value="i.frameid">{{i.frame_name}}</option>
+								</select>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class="details_tab">
+					<div class="layui-form-item">
+							<label class="tit-tab">数据库</label>
+							<div class="layui-input-block">
+								<div  class="search_div">
+									<select name="interest" lay-filter="aihao" class="pro_select" v-model="addList.databaseFrame">
+										<option value="">请选择</option>
+										<option v-for="i in databaseFrame" :value="i.frameid">{{i.frame_name}}</option>
+									</select>
+								</div>
+						</div>
+					</div>	
+				</div>
+
+
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">客户干系人</label>
+						<div class="layui-input-block">
+						<input type="text" name="identity" lay-verify="identity" placeholder="请输入合作单位名称" autocomplete="off" class="layui-input" v-model="addList.stakeHolder">
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="layui-form-label">是否验收</label>
+						<div class="layui-input-block" style="line-height: 2.5;">
+							<input type="radio" name="sex" value="1" title="是"  v-model="addList.whether_ys" >是&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="sex" value="2" title="否" checked=""  v-model="addList.whether_ys" >否
+						</div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="tit-tab">验收时间：</label>
+						  <div class="layui-input-block">
+								<input name="start_time" class="layui-input"  class="time_input" type="date" placeholder="请选择日期"  v-model="addList.ys_date">
+						  </div>
+					</div>	
+				</div>
+				<div class="details_tab">
+					<div class="layui-form-item">
+						<label class="layui-form-label">人员释放</label>
+						<div class="layui-input-block" style="line-height: 2.5;">
+							<input type="radio" name="wa" value="1" title="是" v-model="addList.persionRelease">是&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="wa" value="2" title="否" checked="" v-model="addList.persionRelease">否
+						</div>
+					</div>	
+				</div>
+			</div>
+			<div class="details_right">
+				<div  style="margin-top: 5vh;">					
+				  <div class="layui-form-item">
+					  <label class="layui-form-label">内部成员</label>
+					  <button class="btnzeng" type="button">增加</button>
+				  </div>
+					<table class="layui-table">
+							<thead>
+									<tr>
+											<th>人员姓名</th>										
+											<th>所属部门</th>
+											<th>所属职位</th>
+											<th>到岗时间</th>
+									</tr>
+							</thead>
+							<tbody>
+									<tr v-for="item in peoplelist">
+											<td>{{item.member_name}}</td>
+											<td>{{item.department}}</td>
+											<td>{{item.jobtype_name}}</td>
+											<td>{{item.come_time}}</td>
+									</tr>
+							</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+			
+			<div class="btn_mar">
+				<div class="layui-footer line"></div>
+				<button class="layui-btn layui-btn-primary" type="button">取消</button>
+				<button class="layui-btn" type="button" @click="submitForm()">提交</button>
+			</div>
+		</div>
+	
+	<!-- 新增功能弹框 -->
+	<div class="new_div">
+		<div class="new_tit"><span>新增项目成员</span><img @click='down()' src="__IMG__/close_normal.png"></div>
+			<div class="con_txt">
+				<p>所属部门：<select name="industry_id" class="industry_input" id="" v-model="addList.departname" @change="depart_select">
+						<option value="">请选择</option>
+						<option v-for='i in zdepartment'>{{i.department}}</option>
+					</select>
+				</p>
+				<p>人员姓名：<select name="interest" lay-filter="aihao"  class="client_input" id="dpeopleid" v-model="addList.selectedpeople">
+						<option value="">请选择</option>
+						<option v-for='i in peoplemore'  :value="i.member_id">{{i.member_name}}</option>
+					</select>
+				</p>
+				
+				<p>所属岗位：<select name="customer_type_id" class="client_input"  v-model="addList.peo_job">
+						<option value="">请选择</option>
+						<option v-for='i in zpostName' :value="i.jobtype_id">{{i.jobtype_name}}</option>
+					</select>
+				</p>
+				<p>到岗时间：<input name="start_time" class="time_input" type="date" id="" v-model="addList.dao_data"></p>
+			</div>
+			<div class="btn_div"><button type="submit" @click='zeng()'>确定</button></div>
+	</div>
+	
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+	layui.use(['form', 'layedit', 'laydate'], function(){
+	  var form = layui.form,
+	  layer = layui.layer,
+	  layedit = layui.layedit,
+	  laydate = layui.laydate;
+	 //日期 
+	  laydate.render({
+			elem: '#date',
+			});
+	  });
+
+	 // 选择全国
+    var app = new Vue({
+        el: ".app",
+				data: function() {
+					return {
+						area:[],
+						backFrame:[],
+						projectmen: [],
+						databaseFrame:[],
+						zdepartment:[],
+						zpostName:[],
+						uiFrame:[],
+						jsFrame:[],
+						
+						peoplemore:[],
+						peoplelist:[],
+						addList: {
+							proname: '',
+							proArea:'',
+							uiFrame:'',
+							jsFrame:'',
+							backFrame:'',
+							databaseFrame:'',
+							stakeHolder:'',
+							whether_ys:'',
+							ys_date:'',
+							persionRelease:'',
+							departname: '',
+							selectedpeople: '',
+							peo_job: '',
+							dao_data:''
+						},
+					}
+				},
+		created: function () {
+			// this.getdata();
+			this.project();
+			this.projectzeng();
+		},
+        methods: {
+						
+            project() {
+                var that = this;
+                $.ajax({
+                    type: "post",
+                    url: "{:U('ProjectDelivery/proDelivery')}",
+                    dataType: "json",
+										data:{
+											projectManagerId:875
+										},
+                    success: function (data) {
+												that.area = data.data.area;
+												that.backFrame = data.data.backFrame;
+												that.uiFrame = data.data.uiFrame;
+												that.jsFrame = data.data.jsFrame;
+												that.databaseFrame = data.data.databaseFrame;
+												that.projectmen = data.data.projectList;
+                    }
+                })
+						},
+						projectzeng() {
+								var that = this;
+								$.ajax({
+										type: "post",
+										url: "{:U('ProjectDelivery/addPersionDropOperation')}",
+										dataType: "json",
+										success: function (data) {
+											that.zdepartment = data.data.department;
+											that.zpostName = data.data.postName;
+
+										}
+								})
+						},
+						depart_select(){
+                var that = this;
+                $.ajax({
+                    type: "post",
+                    url: "{:U('ProjectDelivery/departmentPersion')}",
+                    dataType: "json",
+										data:{
+											departmentName:this.addList.departname
+										},
+                    success: function (data) {
+											that.peoplemore = data.data;
+
+                    }
+                })
+						},
+						down() {
+							$(".new_div").hide();
+						},
+						
+						// 增加新的内部人员
+						zeng() {
+							var that = this;
+							var dproId =$("#dpropeopleid").find("option:selected").text();
+							var dpersionId= $('#dpeopleid').find("option:selected").text();;
+							console.log(dproId);
+							console.log(dpersionId);
+							$.ajax({
+									type: "post",
+									url: "{:U('ProjectDelivery/proDeliveryPersionAdd')}",
+									dataType: "json",
+									data:{
+										proId:this.addList.proname,
+										proName:dproId,
+										persionId:this.addList.selectedpeople,
+										persionName:dpersionId,
+										jobType:this.addList.peo_job,
+										inTime:this.addList.dao_data
+									},
+									success: function (data) {
+										that.laypeople();
+									}
+							})
+							
+							$(".new_div").hide();
+						},
+						//  查询增添新的人员
+						laypeople(){
+								var that = this;
+								$.ajax({
+										type: "post",
+										url: "{:U('ProjectDelivery/projectPersion')}",
+										dataType: "json",
+										data:{
+											projectId:this.addList.proname
+										},
+										success: function (data) {
+											that.peoplelist = data.data;
+										}
+								})
+						},
+						
+						 // 交付信息提交
+						submitForm(){
+								var that = this;
+								var dproname =$("#dpropeopleid").find("option:selected").text();
+								$.ajax({
+										type: "post",
+										url: "{:U('ProjectDelivery/proDeliveryAdd')}",
+										dataType: "json",
+										data:{
+											proId:this.addList.proname,
+											proName:dproname,
+											proArea:this.addList.proArea,
+											uiFrame:this.addList.uiFrame,
+											jsFrame:this.addList.jsFrame,
+											backFrame:this.addList.backFrame,
+											databaseFrame:this.addList.databaseFrame,
+											stakeHolder:this.addList.stakeHolder,
+											whether_ys:this.addList.whether_ys,
+											ys_date:this.addList.ys_date,
+											persionRelease:this.addList.persionRelease
+											
+										},
+										success: function (data) {
+											if(data.code == 200) {
+												layui.use('layer', function() {
+													layer.alert('提交成功');
+												})
+											} else {
+												layui.use('layer', function() {
+													var layer = layui.layer;
+													layer.alert('添加失败');
+												})
+											}
+										}
+								})
+						},
+						
+        }
+    })
+		
+		$(".btnzeng").on('click', function () {
+			$(".new_div").show();
+		});
+</script>
+</html>

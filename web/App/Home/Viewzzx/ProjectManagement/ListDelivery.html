@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>实施交付查询</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__DOCLAY__/build/css/app.css" media="all">
+    <link rel="stylesheet" href="__CSS__/listquery.css" media="all">
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script src="__DOCLAY__/plugins/layui/layui.js"></script> 
+    <script src="__STATIC__/vue.min.js"></script>
+</head>
+<body>
+   <div class="new">
+    <!-- 最上层搜索栏 -->
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th>项目编号</th>
+                <th>项目名称</th>
+                <th>UI框架</th>
+                <th>JS框架</th>
+                <th>后台框架</th>
+                <th>数据库</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="item in arrList">
+                <td>{{item.pro_id}}</td>
+                <td>{{item.pro_name}}</td>
+                <td>{{item.uiframe}}</td>
+                <td>{{item.jsframe}}</td>
+                <td>{{item.backframe}}</td>
+                <td>{{item.databaseframe}}</td>
+                <td style="cursor:pointer;" @click="openNew(item.id)"><span style="color:rgba(74,144,226,1);">查看</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="test3"></div>
+   </div>
+</body>
+  <!--<script src="__DOCLAY__/plugins/layui/layui.js"></script> -->
+<script>
+      var app = new Vue({
+          el: '.new',
+          data: {
+  						province:[],
+              arrList: [],
+              pageIndex:1,
+              limit:10,
+              message:{},
+              counts:''
+          },
+          created:function() {
+              this.getList(); //进入页面获取数据
+          },
+          methods: {
+              //进入页面获取数据
+              getList() {
+                  // console.log('-----------')
+                  var that =this;
+                  $.ajax({
+                      cache: false,
+                      type: "POST",
+                      url: "{:U('ProjectDelivery/projectDeliveryContent')}",
+                      dataType: "json",
+                      data: {
+												projectManagerId:875,
+												pro_id:"",
+  											page: that.pageIndex || 1,
+  											limit:that.limit || 10,
+  										},
+                      success: function (res) {		
+													// that.province = res.data.projectList;
+                          that.arrList = res.data;
+//                           that.counts=res.data.meetingList.count;
+//                           that.layPage(); //分页
+                      }
+                  })
+              },
+  						getListyo() {
+                  // console.log('-----------')
+                  var that =this;
+                  $.ajax({
+                      cache: false,
+                      type: "POST",
+                      url: "{:U('ProjectMeeting/meetingList')}",
+                      dataType: "json",
+                      data: {
+												projectManagerId:875,
+												pro_id:"",
+  											page: that.pageIndex || 1,
+  											limit:that.limit || 10,
+  										},
+                      success: function (res) {		
+                          that.arrList = res.data.meetingList.result;
+                          that.counts=res.data.meetingList.count;
+                          that.layPage(); //分页
+                      }
+                  })
+  						},
+              // 分页
+              layPage() {
+                  var _this = this;
+                  layui.use('laypage', function () {
+                      var laypage = layui.laypage;
+                      laypage.render({
+                          elem: 'test3'
+                          , count:_this.counts
+                          , limit:10
+                          , curr:_this.pageIndex
+                          , jump: function (obj, first) {
+                              //obj包含了当前分页的所有参数
+                              //首次不执行
+                              if(first) {
+                                  return false;
+                              }
+                              _this.pageIndex = obj.curr;
+                              _this.limit = obj.limit;
+                               _this.getListyo();
+                          }
+                      });
+                  });        
+              },
+							
+          },
+      });
+  
+</script>
+</html>

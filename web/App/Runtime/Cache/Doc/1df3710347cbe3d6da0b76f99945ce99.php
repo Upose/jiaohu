@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>fankui</title>
-    <link rel="stylesheet" href="/Public/Doc/css/allmap.css" media="all">
-    <script src="/Public/static/jquery-2.0.3.min.js"></script>
-    <script src="/Public/static/vue.min.js"></script>
-    <script src="/Public/static/echarts.min.js"></script>
+    <link rel="stylesheet" href="/pd/Public/Doc/css/allmap.css" media="all">
+    <script src="/pd/Public/static/jquery-2.0.3.min.js"></script>
+    <script src="/pd/Public/static/vue.min.js"></script>
+    <script src="/pd/Public/static/echarts.min.js"></script>
 </head>
 
 <body>  

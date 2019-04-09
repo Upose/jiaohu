@@ -516,22 +516,12 @@ class ItemStartUpModel
      *@author songcx
      *2018.01.05
      */
-    public function approvalAdd($pro_code,$market_name,$pre_sale_name,$pro_stime,$pro_etime,$secrecy_grade,$difficulty_rank,$pro_enclosure,$pro_msg,$cooperative_unit,$founder_id)
+    public function approvalAdd( $data )
     {
 
         $app_project_approval = M('app_project_approval');
-        $data['pro_code'] = $department;
-        $data['market_name'] = $customer_type;
-        $data['pre_sale_name'] = $pro_code;
-        $data['pro_stime'] = $duty;
-        $data['pro_etime'] = $customer_name;
-        $data['secrecy_grade'] = $phone;
-        $data['difficulty_rank'] = $mailbox;
-        $data['pro_enclosure'] = $remarks;       
-        $data['pro_msg'] = $founder_id;
-        $data['cooperative_unit'] = $founder_id;
-        $data['founder_id'] = $founder_id;
-        $res = $app_project_approval->add($data);
+
+        $res = $app_project_approval->add( $data );
         return $res;
 
     }
@@ -546,8 +536,12 @@ class ItemStartUpModel
     {
 
         $app_project_approval = M('app_project_approval');
-        $result = $app_project_approval->where('pro_code',$pCode)->find();
-        
+        $result = $app_project_approval->where('pro_code = '.$pCode)->find();
+        // 获取商务人员名称
+        $result['swName'] = M('user_member')->field('member_name')->where('user_id = '.$result['market_name'])->find()['member_name'];
+        // 获取售前人员名称
+        $result['sqName'] = M('user_member')->field('member_name')->where('user_id = '.$result['pre_sale_name'])->find()['member_name'];
+
         return $result;
     }
 

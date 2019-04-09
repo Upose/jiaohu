@@ -327,6 +327,7 @@
         pro_code = tar.attr("pro_code");
         window.location.href="{:U('ProjectManagement/ProjectDisplay')}"
         +"&pro_code="+pro_code;
+        window.sessionStorage.setItem("pro_code",pro_code);
     });
     // 搜索框搜索按钮 search_btn
     $(".search_btn").click(function (event) {
@@ -342,7 +343,6 @@
             dataType: 'json',
             success: function (response) {
                 if (response.code == 200) {
-                    console.log(response, "response");
                     for (var i = 0; i <response.data.result.length ; i++) {
                         var data=response.data.result[i];
                         $(".contList").append(

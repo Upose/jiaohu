@@ -1,0 +1,46 @@
+.style3 .plan_left{
+  width: 49.5%;
+  height: 100%;
+  margin-right: 0.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+.style3 .plan_right{
+  height: 100%;
+  width: 49.5%;
+  margin-left: 0.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+.style3 .plan_left .plan_left_top,
+.style3 .plan_left .plan_left_bot,
+.style3 .plan_right .plan_right_top,
+.style3 .plan_right .plan_right_bot{
+  width: 100%;
+  height: 49%;
+  background-color: #ffffff
+}
+.style3 .plan_right .left_cont_tit,
+.style3 .plan_left .left_cont_tit{
+  height: 12%;
+  display: flex;
+  align-items: center;
+}
+.style3 .left_cont_tit .greenline{
+  width: 4px;
+  height: 15px;
+  background-color: #07C88D;
+  margin: 0 0.5vw 0 1vw; 
+}
+
+.style3 .common_table{
+  width: 96%;
+  height: 80%;
+  margin: 1% auto;
+}
+.style3 .layui-table, .style3 .layui-table-view{
+  margin: 0;
+  height: 100%;
+} 

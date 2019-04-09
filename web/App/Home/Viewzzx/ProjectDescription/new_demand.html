@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新增需求</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/new_demand.css" media="all">
+    <script src="__STATIC__/vue.min.js"></script>
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+</head>
+
+<body class="app">
+    <form action="{:U('ProjectNeed/needadd')}" method="POST" enctype="multipart/form-data">
+        <button @click="return()" type="button" class="rut_button"><i class="layui-icon">&#xe65c;</i> 返回</button><br>
+        <input type="hidden" name="pid" :value="Uid" />
+        <span class="new_span">新增需求</span>
+        <label class="tit">需求名称</label>
+        <input class="name_input" type="text" name="title" placeholder="请输入信息" required><br>
+        <div class="div1">
+            <div class="form_div2">
+                <label class="tit">需求背景</label>
+                <textarea name="xuqiu_back" cols="40" rows="7" placeholder="请输入信息" required></textarea>
+            </div><br>
+            <div class="form_div1">
+                <label class="tit">甲方对接人</label>
+                <input class="name_input" type="text" name="kname" placeholder="请输入信息" required>
+            </div>
+            <br>
+            <div class="form_div1">
+                <label class="tit">需求调研人</label>
+                <input class="name_input" type="text" name="dname" placeholder="请输入信息" required>
+            </div>
+        </div>
+
+        <div class="div1" style="position: absolute;">
+            <div class="form_div1 time_div">
+                <label class="tit">开始时间</label>
+                <input class="tame_input" type="date" name="start_time" id="">
+            </div><br>
+            <div class="form_div1 time_div">
+                <label class="tit">结束时间</label>
+                <input class="tame_input" type="date" name="end_time" id="">
+            </div>
+            <br>
+            <!-- <div class="form_div2" style="vertical-align: top;">
+                <label class="tit">上传文件</label>
+                <div class="cus-files" id="cus-form">
+                    <input type="file" name="photo[]" id="cus-ipt" class="cus-files-input" multiple="multiple" accept=".jpg,.png,.git" />
+                    <div class="cus-files-content">
+                        <img src="__IMG__/up@2x.png">
+                        <div class="cus-warning">
+                            <img class="img1" src="__IMG__/up@2x.png">
+                            <p class="cus-warning-item">点击或将文件拖拽到这里上传</p>
+                            <p class="cus-warning-item">文件最大不能超过: 10M</p>
+                            <p class="cus-warning-item">支持扩展名：.word.pdf 最多6个</p>
+                        </div>
+                    </div>
+                </div>
+            </div><br> -->
+            <div class="form_div1 tab_choose">
+                <div class="html">
+                    <label class="tit">上传文件:</label>
+                    <p class="input_div">
+                        <input class="file" name="content" value="" type="file" accept="file" id="picture">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <button class="but" type="button">取消</button>
+        <button class="but" type="submit" @click="submit">提交</button>
+    </form>
+</body>
+
+</html>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+    var app = new Vue({
+        el: ".app",
+        data: {
+            Uid: "",
+        },
+        created: function () {
+            // 获取上个页面传递回来的ID
+            var url = location.search;
+            console.log(url);
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1); //substr()方法返回从参数值开始到结束的字符串；
+                var strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                }
+            }
+            this.Uid = theRequest.id;
+            console.log(this.Uid);
+        },
+        methods: {
+            return() { window.history.go(-1) },
+        },
+    });
+
+    // var maxFileSize = 10485760; // 最大文件大小
+    // var maxFileLength = 6; // 文件个数
+
+    // // 重置文件上传
+    // function resetUpload(msg) {
+    //     $('.cus-files-content').find('.cus-img').remove();
+    //     $('.cus-files-input')[0].value = '';
+    //     $('.cus-warning').show();
+
+    //     layui.use('layer', function () {
+    //         layui.layer.alert(msg);
+    //     })
+    // }
+
+    // /**
+    //  * 对上传文件进行验证
+    //  * @param  {[object]} files         [文件对象]
+    //  * @param  {[number]} maxFileLength [文件个数]
+    //  * @param  {[number]} maxFileSize   [文件大小]
+    //  * @return {[bool]}   result [description]
+    //  */
+    // function testUpload(files, maxFileLength, maxFileSize) {
+    //     var result = true;
+
+    //     // 未选择文件, 清空选择框
+    //     if (files.length === 0) {
+    //         resetUpload('未选择任何文件');
+
+    //         result = false;
+    //     }
+
+    //     // 文件个数超过限制, 重新选择
+    //     if (files.length > maxFileLength) {
+    //         resetUpload('上传文件个数不能超过6个, 请重新上传!');
+
+    //         result = false;
+    //     }
+
+    //     // 文件大小超过限制, 重新选择
+    //     ;[].slice.call(files).forEach(function (item, idx) {
+    //         if (item.size > maxFileSize) {
+    //             resetUpload('上传文件最大不能超过10M, 请重新上传!');
+
+    //             result = false;
+    //         }
+    //     })
+
+    //     return result;
+    // }
+
+    // /**
+    //  * 显示文件缩略图
+    //  * @param  {[object]} files [文件对象]
+    //  * @param  {[element]} el    [缩略图显示的节点]
+    //  */
+    // function showThumbnails(files, el) {
+    //     ;[].slice.call(files).forEach(function (item, idx) {
+    //         var reader = new FileReader();
+    //         var img = document.createElement('img');
+
+    //         img.className = 'cus-img';
+
+    //         if (item) {
+    //             reader.readAsDataURL(item);
+    //         } else {
+    //             img.src = '';
+    //         }
+
+    //         reader.onloadend = function () {
+    //             img.src = reader.result;
+    //         }
+
+    //         $(el).append(img);
+    //     })
+    // }
+
+    // // 文件上传
+    // $('#cus-ipt').on('change', function () {
+    //     // 验证
+    //     var files = this.files;
+    //     $('.cus-warning').show();
+
+    //     var res = testUpload(files, maxFileLength, maxFileSize);
+
+    //     if (res) {
+    //         $('.cus-warning').hide();
+    //         showThumbnails(files, $('.cus-files-content'));
+    //     }
+    // })
+
+</script>

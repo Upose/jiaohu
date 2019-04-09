@@ -1,0 +1,341 @@
+<!--
+ * @Description: 可视化模块一
+ * @Author: tianjie
+ * @LastEditors: Please set LastEditors
+ * @Date: 2019-04-03 14:10:51
+ * @LastEditTime: 2019-04-09 16:17:36
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="__CSS__/projectCommon.css">
+  <link rel="stylesheet" href="__CSS__/projectCommonFirst.css">
+  <link rel="stylesheet" href="__CSS__/projectCommonSecond.css">
+  <link rel="stylesheet" href="__CSS__/projectCommonThird.css">
+  <link rel="stylesheet" href="__CSS__/timeline/timeline.css">
+  <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+  <script src="__JS__/projectBase.js"></script>
+	<script src="__STATIC__/echarts.min.js"></script>
+
+  <title>Document</title>
+</head>
+<body>
+  <div class="content_box">
+    <!-- 顶部提示区 -->
+    <div class="content_tips">
+      <p>你好哇!德小拓项目经理, 今天是进入青浦公安项目的第三天！当前日期 2000.2.22号</p>
+    </div>
+    <!-- 顶部项目菜单切换 -->
+    <div class="layui-row title">
+      <div class="layui-col-md4">
+        全部项目
+      </div>
+      <div class="layui-col-md4">
+        全部项目
+      </div>
+      <div class="layui-col-md4">
+        全部项目
+      </div>
+    </div>
+    <div class="common_box">
+      <!-- 公共模块顶部项目详情区-->
+      <div class="common_top">
+        <div class="common_box_cont">
+          <div class="project_name">
+            <div class="project layui-col-md3">
+              <img src="./../../../../Public/Doc/images/icon.png" alt=""><b>青浦公安项目</b>
+            </div>
+            <div class="common_desc layui-col-md3">项目启动日期：<b class="detail">2018.02.02</b></div>
+            <div class="common_desc layui-col-md3">倒计时：<b class="detail">122</b>天</div>
+            <div class="common_desc layui-col-md3">现在阶段：<b class="detail">实施开发</b></div>
+          </div>
+          <div class="project_detail">
+            <div class="layui-col-md3">
+              <p><img class="warning" src="./../../../../Public/Doc/images/projectBase/warning.png" alt="">预警<b class="margin_lr">3</b>项</p>
+            </div>
+            <div class="layui-col-md3">
+              <p><img src="./../../../../Public/Doc/images/projectBase/money.png" alt="">项目经营成本<b class="margin_lr">2600</b>元</p>
+            </div>
+            <div class="layui-col-md3">
+              <p><img src="./../../../../Public/Doc/images/projectBase/people.png" alt="">常驻人员<b class="margin_lr">6</b>人</p></div>
+            <div class="layui-col-md3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 公共模块顶部图片菜单切换区 -->
+      <div class="common_mid">
+        <div class="common_mid_box">
+          <div class="common_mid_items">
+              <p><img src="./../../../../Public/Doc/images/projectBase/businesschecked.png" alt=""></p>
+              <p>商务</p>
+          </div>
+          <div class="common_mid_img">
+          </div>
+          <div class="common_mid_items">
+              <p><img src="./../../../../Public/Doc/images/projectBase/start.png" alt=""></p>
+              <p>启动</p>
+          </div>
+          <div class="common_mid_img"></div>
+          <div class="common_mid_items">
+              <p><img src="./../../../../Public/Doc/images/projectBase/plan.png" alt=""></p>
+              <p>计划管理</p>
+          </div>
+          <div class="common_mid_img"></div>
+          <div class="common_mid_items">
+              <p><img src="./../../../../Public/Doc/images/projectBase/implement.png" alt=""></p>
+              <p>执行管理</p>
+          </div>
+          <div class="common_mid_img"></div>
+          <div class="common_mid_items">
+              <p><img src="./../../../../Public/Doc/images/projectBase/test.png" alt=""></p>
+              <p>测试联调</p>
+          </div>
+          <div class="common_mid_img"></div>
+          <div class="common_mid_items">
+              <p><img src="./../../../../Public/Doc/images/projectBase/testrun.png" alt=""></p>
+              <p>试运行</p>
+          </div>
+          <div class="common_mid_img"></div>
+          <div class="common_mid_items">
+              <p><img src="./../../../../Public/Doc/images/projectBase/file.png" alt=""></p>
+              <p>验收归档</p>
+          </div>
+        </div>
+      </div>
+      <!-- 底部公共模块 -->
+      <div class="common_bot">
+        <!-- 商务区 -->
+        <div class="common style0 common_active">
+          暂无模块
+        </div>
+        <!-- 启动区 -->
+        <div class="common style1">
+          <div class="layui-col-md3 common_bot_left">
+            <div class="left_cont">
+              <div class="left_cont_tit">
+                <p class="greenline"></p>
+                <p><b>项目基本信息</b></p>
+              </div>
+              <div class="left_cont_bot">
+                <ul>
+                  <li><p>项目名称：</p> <p>上海市青浦公安分局社会面 智能安防系统</p></li>
+                  <li><p>项目编号：</p> <p>02578097699</p></li>
+                  <li><p>项目密级：</p> <p>3级</p></li>
+                  <li><p>合作单位：</p> <p>XXXXXXXXXXXXXX</p></li>
+                  <li><p>项目来源：</p> <p>XXXXXXXXXXXXXX</p></li>
+                  <li><p>所属行业：</p> <p>互联网</p></li>
+                  <li><p>所属地区：</p> <p>上海</p></li>
+                  <li><p>部门经理：</p> <p>李高 156-7891-123</p></li>
+                  <li><p>项目经理：</p> <p>李高 156-7891-123</p></li>
+                  <li><p>合同：</p> <p> XXXX合同.doc 下载</p></li>
+                  <li><p>项目计划周期：</p> <p>2018.01.12—2019.01.12</p></li>
+                  <li><p>相关附件：</p> <p>XXXX合同.doc</p></li>
+                  <li><p>项目介绍：</p> <p>这里是简介</p></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md9 common_bot_right">
+            <div class="right_cont">
+              <div class="right_top">
+                <div class="right_cont_tit">
+                  <p class="greenline"></p>
+                  <p><b>立项</b></p>
+                </div>
+                <div class="right_top_cont">
+                  <table>
+                    <tr>
+                      <td>商务负责人：</td>
+                      <td>德小拓</td>
+                      <td>售前负责人：</td>
+                      <td>德小拓</td>
+                    </tr>
+                    <tr>
+                      <td>开始时间：</td>
+                      <td>2018-01-12</td>
+                      <td>结束时间：</td>
+                      <td>2018-01-12</td>
+                    </tr>
+                    <tr>
+                      <td>密级程度：</td>
+                      <td>紧急</td>
+                      <td>难度等级：</td>
+                      <td>普通</td>
+                    </tr>
+                    <tr>
+                      <td>合作单位：</td>
+                      <td>上海拓号信息技术有限公司</td>
+                      <td>相关附件：</td>
+                      <td>XXXX合同.doc 下载</td>
+                    </tr>
+                    <tr>
+                      <td>立项信息：</td>
+                      <td colspan="3">
+                        这里是个长文本，这里是个长文本这里是个长文本，这里是个长文本这里是个长文本，
+                        这里是个长文本这里是个长文本，这里是个长文本这里是个长文本，这里是个长文本
+                      </td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="right_bot">
+                <div class="right_cont_tit">
+                  <p class="greenline"></p>
+                  <p><b>客户关系</b></p>
+                </div>
+                <div class="right_bot_cont">
+                  <table id="userrelationship" lay-filter="test"></table>                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 计划管理区 -->
+        <div class="common style2">
+          <div class="layui-col-md3 common_bot_left">
+            <div class="left_cont">
+              <div class="left_cont_tit">
+                <p class="greenline"></p>
+                <p><b>里程碑计划</b></p>
+              </div>
+              <div class="left_cont_bot">
+                 <ul class="time-vertical">
+                     <li><b></b><span>12月 <h6>研发阶段</h6></span><a href="javascript:void(0)">第三周周报</a></li>
+                     <li><b></b><a href="javascript:void(0)">第三周周报</a></li>
+                     <li><b></b><a href="javascript:void(0)">第三周周报</a></li>
+                     <li><b></b><a href="javascript:void(0)">第三周周报</a></li>
+                 </ul>
+              </div>
+            </div>
+            <div class="right_menu_cont">
+            </div>
+            <div class="right_menu"></div>
+          </div>
+          <div class="layui-col-md9 common_bot_right">
+            <div class="right_cont">
+              <div class="right_top">
+                <div class="time_line">
+                   <ul class="time-horizontal">
+                       <li><b></b>驻场 1.1—1.20</li>
+                       <li><b></b>驻场 1.1—1.20</li>
+                       <li><b></b>驻场 1.1—1.20</li>
+                       <li><b></b>驻场 1.1—1.20</li>
+                       <li><b></b>驻场 1.1—1.20</li>
+                       <li><b></b>驻场 1.1—1.20</li>
+                   </ul>
+                </div>
+                <div class="echarts_box">
+                  <div class="right_cont_tit">
+                    <p class="greenline"></p>
+                    <p><b>人员分析</b></p>
+                  </div>
+                  <div class="right_top_cont">
+                    <div class="echarts_menu">
+                      <p class="menu_active">趋势分析</p>
+                      <p>占比分析</p>
+                    </div>
+                    <div class="echart_cont">
+                    <div class="line active">
+                        <div id="line"></div>
+                      
+                    </div>
+                    <div class="pie">
+                      <div id="pie"></div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="right_bot">
+                <div class="right_bot_cont_left">
+                   <div class="right_cont_tit">
+                     <p class="greenline"></p>
+                     <p><b>工作计划</b></p>
+                   </div>
+                   <div class="right_bot_cont">
+
+                   </div>
+                </div>
+                <div class="right_bot_cont_right">
+                   <div class="right_cont_tit">
+                     <p class="greenline"></p>
+                     <p><b>任务分解</b></p>
+                   </div>
+                   <div class="right_bot_cont">
+                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="left_menu"></div>
+          </div>
+        </div>
+        <!-- 执行管理区 -->
+        <div class="common style3 ">
+          <div class="layui-col-md6 plan_left">
+            <div class="plan_left_top">
+              <div class="left_cont_tit">
+                  <p class="greenline"></p>
+                  <p><b>风险管理</b></p>
+              </div>
+              <div class="common_table">
+                  <table id="danger" lay-filter="test"></table>
+              </div>
+            </div>
+            <div class="plan_left_bot">
+              <div class="left_cont_tit">
+                  <p class="greenline"></p>
+                  <p><b>需求管理</b></p>
+              </div>
+              <div class="common_table">
+                <table id="demand" lay-filter="test"></table>
+              </div>
+            </div>
+          </div>
+          <div class="layui-col-md6 plan_right">
+            <div class="plan_right_top">
+              <div class="left_cont_tit">
+                  <p class="greenline"></p>
+                  <p><b>会议管理</b></p>
+              </div>
+              <div class="common_table">
+                <table id="meeting" lay-filter="test"></table>
+              </div>
+            </div>
+            <div class="plan_right_bot">
+              <div class="left_cont_tit">
+                  <p class="greenline"></p>
+                  <p><b>重大事件</b></p>
+              </div>
+              <div class="common_table">
+                <table id="major" lay-filter="test"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 测试联调区 -->
+        <div class="common style0">
+            暂无模块
+        </div>
+        <!-- 试运行 -->
+        <div class="common style0">
+            暂无模块
+        </div>
+        <!-- 验收归档 -->
+        <div class="common style0">
+            暂无模块
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script src="__JS__/projectBaseData.js"></script>
+</html>

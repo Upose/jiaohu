@@ -261,6 +261,7 @@
   <a class="layui-btn layui-btn-xs btn-xiao" lay-event="edit">查看</a>
 </script>
 <script>
+	$("input").attr("autocomplete","off");//解决input输入框有历史记录问题
 	var form,layedit,layer,laydate; 
 	layui.use(['form', 'layedit', 'laydate','table'], function(){
 	  form = layui.form,
@@ -330,7 +331,8 @@
 						if(res.code == 200) {
 							layui.use('layer', function() {	
 								layer.close(layer.index);
-								layer.alert('添加成功');
+								layer.alert('添加成功',{time: 1000});
+								location.reload();
 							})
 						} else {
 							layui.use('layer', function() {

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="__DOCLAY__/plugins/layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="__CSS__/ProjectCollectiontitle.css" media="all">	
+		<link rel="stylesheet" href="__CSS__/ProjectApproval.css" media="all">
+		<style>
+			.layui-select-disabled .layui-disabled{
+				background: #f3f2f2;
+			}
+			input:disabled,
+			input:disabled:hover,
+			select:disabled,
+			select:disabled:hover,
+			textarea:disabled,
+			textarea:disabled:hover{
+				background: rgba(195, 190, 190, 0.2);
+				color: #d2d2d2!important;
+    		cursor: not-allowed!important;
+			}
+			/* rgba(195, 190, 190, 0.2) */
+		</style>
+    <script src="__STATIC__/jquery-2.0.3.min.js"></script>
+		<script src="__STATIC__/vue.min.js"></script>
+</head>
+
+<body id="app" >
+    <div id="event-view">
+			<div class="details_gao">
+				<blockquote class="layui-elem-quote">项目里程碑</blockquote>
+				<div class="layui-row layui-col-space1">
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+								<img  src="/Public/Doc/images/user.png" alt="">							
+						</div>
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">商务/售前</div>
+					</div>
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+						<ul>
+							<li class="layui-tab-zi">
+								<a href="{:U('ProjectManagement/ProjectDisplay')}">
+								  <h3 class="layui-cite">项目信息</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top layui-red">
+								<a href="{:U('ProjectManagement/ProjectApproval')}">
+								<h3 class="layui-cite">立项</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('ProjectManagement/ProjectCollection')}">
+								<h3 class="layui-cite">项目成员</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('ProjectManagement/ProjectCustomer')}">
+								<h3 class="layui-cite">客户关系</h3>
+								</a>
+							</li>
+						</ul>
+						</div>
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">启动</div>
+					</div>
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+							<ul>
+							<li class="layui-tab-zhong">
+								<a href="{:U('ProjectManagement/LCBplan')}">
+								<h3 class="layui-cite">里程碑计划</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zhong layui-tab-top">
+								<a href="{:U('ProjectManagement/ProjectWeekPlan')}">
+								<h3 class="layui-cite">工作计划</h3>
+								</a>
+							</li>
+						</ul>
+						</div>
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">计划管理</div>
+					</div>
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+						<ul>
+							<li class="layui-tab-zi">
+								<a href="{:U('ProjectManagement/WeeklyControl')}">
+								<h3 class="layui-cite">周报管理</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('ProjectManagement/ProjectMinutes')}">
+								<h3 class="layui-cite">会议管理</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('ProjectManagement/Projectrisk')}">
+								<h3 class="layui-cite">风险管理</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zi layui-tab-top">
+								<a href="{:U('ProjectManagement/ProjectEvent')}">
+								<h3 class="layui-cite">事件管理</h3>
+								</a>
+							</li>
+						</ul>
+						</div>
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">执行管理</div>
+					</div>
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+						<ul>
+							<li class="layui-tab-zhonging">
+								<a href="{:U('ProjectManagement/ProjectText')}">
+								<h3 class="layui-cite">测试报告</h3>
+								</a>
+							</li>
+						</ul>
+						</div>
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">测试联调</div>
+					</div>
+					<div class="layui-col-md2">
+						<div class="grid-demo">
+						<ul>
+							<li class="layui-tab-zhonging">
+								<a href="{:U('ProjectManagement/ProjectTextrun')}">
+								<h3 class="layui-cite">试运行记录</h3>
+								</a>
+							</li>
+						</ul>
+						</div>
+						<div class="style-agile-border">
+						<img  src="/Public/Doc/images/sty1.png" alt="">
+						</div>
+						<div class="layui_code">试运行</div>
+					</div>
+					<div class="layui-col-md2">
+						<div class="grid-demo">						<ul>
+							<li class="layui-tab-zhongpp ">
+								<a href="{:U('ProjectManagement/ProjectAcceptance')}">
+								<h3 class="layui-cite">项目验收</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zhongpp layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">成员考勤</h3>
+								</a>
+							</li>
+							<li class="layui-tab-zhongpp layui-tab-top">
+								<a href="{:U('KnowledgeSharing/index')}">
+								<h3 class="layui-cite">成员考核</h3>
+								</a>
+							</li>
+						</ul>
+						</div>
+						<div class="layui_code">验收归档</div>
+					</div>
+				</div>
+			</div>
+			<div class="details_zhong">
+					<blockquote class="layui-elem-quote">项目信息采集</blockquote>
+					<form class="layui-form">
+					<div class="layui-row layui-col-space10 layui-form-item">
+						<div class="layui-col-md4">
+							<label class="tit-tab">商务人员：</label>
+							<div class="layui-input-block">
+								<select name="add_shop" lay-verify="required" id="add_shop" lay-filter="see_shop">
+										<option value="">请选择商务人员</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<label class="tit-tab">售前人员：</label>
+							<div class="layui-input-block">
+								<select name="add_sq" lay-verify="required" id="add_sq" lay-filter="see_sq">
+										<option value="">请选择售前人员</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<label class="tit-tab">开始时间：</label>
+							<div class="layui-input-block">
+								<input class="layui-input" id="testli1" placeholder="yyyy年MM月dd日" lay-verify="required">
+								</div>
+							</div>
+						<div class="layui-col-md4">
+							<label class="tit-tab">结束时间：</label>
+							<div class="layui-input-block">
+								<input class="layui-input" id="testli2" placeholder="yyyy年MM月dd日" lay-verify="required">
+								</div>
+						</div>
+						<div class="layui-col-md4">
+							<label class="tit-tab">密集程度：</label>
+							<div class="layui-input-block">
+								<select class="layui-input" name="see_mjcd"  lay-verify="required" lay-filter="see_mjcd">
+									<option value ="">请选择密集程度</option>
+									<option value ="0">普通</option>
+									<option value ="1">紧急</option>
+								</select>
+						</div>
+						</div>
+						<div class="layui-col-md4">
+							<label class="tit-tab">难度等级：</label>
+							<div class="layui-input-block">
+								<select class="layui-input" name="see_nddj"  lay-verify="required" lay-filter="see_nddj">
+									<option value ="">请选择难度等级</option>
+									<option value ="0">容易</option>
+									<option value ="1">普通</option>
+									<option value ="2">困难</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-col-md6">
+							<label class="tit-tab">合作单位：</label>
+							<div class="layui-input-block">
+							<input type="text" lay-verify="required" placeholder="请输入合作单位" name="see_hzdw"   class="layui-input" lay-filter="see_hzdw">
+							</div>
+						</div>
+						<div class="layui-col-md6 layui-upload" >
+								<label class="layui-form-label">文件上传：</label>
+								<button type="button" class="layui-btn layui-btn-sm" id="upwenjian" >
+									<i class="layui-icon">&#xe67c;</i>添加附件
+								</button>
+								<button type="button" class="layui-btn layui-btn-sm" id="uploadBtn">
+										<i class="layui-icon">&#xe67c;</i>上传文件
+								</button>
+								<span id="fileName"></span>
+						</div>
+						<div class="layui-col-md12">
+							<label class="tit-tab">项目介绍：</label>
+							<div class="layui-input-block">
+							<textarea placeholder="请输入内容" class="layui-textarea" name="see_xmjs" lay-filter="see_xmjs"></textarea>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+							</div>
+						</div>	
+					</div>	
+					</form>
+			</div>	
+
+	</div>
+</body>
+<script src="__DOCLAY__/plugins/layui/layui.js"></script>
+<script>
+		$("input").attr("autocomplete","off");//解决input输入框有历史记录问题
+		var  uptext;
+		var form,layedit,layer,laydate; 
+		
+		layui.use(['form', 'layedit', 'laydate','table'], function(){
+		  form = layui.form,
+		  layer = layui.layer,
+		  layedit = layui.layedit,
+		  laydate = layui.laydate;
+			var table = layui.table;
+	
+		//开始日期 
+			laydate.render({
+				elem: '#testli1'
+				});
+		//结束日期 
+			laydate.render({
+				elem: '#testli2'
+				});
+						
+			getsomorepeo();
+			
+			function setReadonly () {
+				$(".layui-form-item input").attr("disabled","disabled");
+				$(".layui-form-item textarea").attr("disabled","disabled");
+				$(".layui-form-item select").attr("disabled","disabled");
+				form.render("select");
+				// $(".layui-form-item input").attr("disabled","disabled");
+			}
+				//监听提交
+			form.on('submit(demo1)', function(data){
+				
+				var s_time=$("#testli1").val(); 				
+				var e_time =$("#testli2").val();
+				// return false;
+				$.ajax({
+				url:"{:U('ItemStartUp/approvalAdd')}",
+				type: 'post',
+				data: {
+						pCode:"12",  //  项目id  后期添加
+						swName:data.field.add_shop, 
+						sqName:data.field.add_sq,
+						pStime :s_time,
+						pEtime :e_time,
+						sGrade :data.field.see_mjcd,
+						dRank  :data.field.see_nddj,
+						pMsg :data.field.see_hzdw,
+						cUtil  :data.field.see_xmjs,
+						pMid   :'222',  // 创建人id  后期根据登录获取
+						photo:data.field.file,
+						filepath:uptext,
+				},
+				dataType: 'json',
+				success: function(res) {
+						if(res.code == 200) {
+							layui.use('layer', function() {
+								layer.alert('提交成功');
+								setReadonly();
+								location.reload();
+								// window.location.href=window.location.search.split("?s=")[1];
+							})
+						} else {
+							layui.use('layer', function() {
+								var layer = layui.layer;
+								layer.alert('添加失败');
+							})
+						}			
+				},
+				})
+				return false;
+			});	
+		});		
+		// 文件上传
+		layui.use('upload', function(){
+			var upload = layui.upload;			 
+			//执行实例  但不执行上传功能
+			var uploadInst = upload.render({
+				elem: '#upwenjian', //绑定元素
+				url: "{:U('ItemAcceptance/fileUpload')}", //上传接口
+				accept:'file',
+				auto: false, 
+				bindAction: '#uploadBtn',
+				choose: function(obj) {
+					obj.preview(function(index, file, result) {
+						$("#fileName").html(file.name);
+					});
+				},
+				done: function(res) {
+					uptext =res.data.src;
+					console.log(uptext);
+					layer.msg(res.msg);
+				}
+			});
+		});
+		
+		
+		function getsomorepeo(){
+			$.ajax({
+			url:"{:U('ItemStartUp/approvalDropResult')}",
+			type: 'post',
+			data: {},
+			dataType: 'json',
+			success: function(data) {
+					if (data.code == 200) {
+							var result = data.data || [];
+							var role = document.getElementById("add_shop");        //add_role_name给select定义的id  
+							var role_job = document.getElementById("add_sq");     	      	      
+							for (var i = 0; i<result.sqResult.length; i++) {
+									var option = document.createElement("option");    // 创建添加option属性
+									option.setAttribute("value",result.sqResult[i].user_id);                  // 给option的value添加值
+									option.innerText= result.sqResult[i].member_name;             // 打印option对应的纯文本 （超级管理员、管理员）
+									role.appendChild(option);                          // 给select 添加option子标签
+									form.render("select");                                // 刷性select，显示出数据        
+									} 
+							for (var i = 0; i<result.swResult.length; i++) {
+									var option = document.createElement("option");    // 创建添加option属性
+									option.setAttribute("value",result.swResult[i].user_id);                  // 给option的value添加值
+									option.innerText= result.swResult[i].member_name;             // 打印option对应的纯文本 （超级管理员、管理员）
+									role_job.appendChild(option);                          // 给select 添加option子标签
+									form.render("select");                                // 刷性select，显示出数据        
+									} 
+					}
+			}    
+			})
+		}	
+		
+		
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

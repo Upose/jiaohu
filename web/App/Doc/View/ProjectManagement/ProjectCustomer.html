@@ -291,7 +291,8 @@
 					if(res.code == 200) {
 						layui.use('layer', function() {	
               layer.close(layer.index);
-							layer.alert('添加成功');
+							layer.alert('添加成功',{time: 1000});
+							location.reload();
 						})
 					} else {
 						layui.use('layer', function() {

@@ -400,7 +400,6 @@ class ItemStartUpController extends BaseController {
 
         //项目编号
         $pCode = I('pCode');
-
         $approvalList=$this->approvalList=
         ItemStartUpModel::approvalList($pCode);
 
@@ -415,43 +414,43 @@ class ItemStartUpController extends BaseController {
      */
     public function approvalAdd()
     {
+        $arr = I('post.');
 
         //项目编号 pro_code    
-        $pro_code = I('pCode');
+        $data['pro_code'] = $arr['pCode'];  
 
         // market_name 商务责任人
-        $market_name = I('swName');
+        $data['market_name'] = $arr['swName'];
 
         // Pre_sale_name   售前责任人
-        $pre_sale_name = I('sqName');
+        $data['pre_sale_name'] = $arr['sqName'];
 
         // pro_stime   项目计划开始时间
-        $pro_stime = I('pStime');
+        $data['pro_stime'] = $arr['pStime'];
 
         // pro_etime   项目计划结束时间
-        $pro_etime = I('pEtime');
+        $data['pro_etime'] = $arr['pEtime'];
 
         // secrecy_grade   密级程度（普通、紧急）
-        $secrecy_grade = I('sGrade');
+        $data['secrecy_grade'] = $arr['sGrade'];
 
         // difficulty_rank 项目难度等级
-        $difficulty_rank = I('dRank');
+        $data['difficulty_rank'] = $arr['dRank'];
 
         // pro_enclosure   项目相关附件
-        $pro_enclosure = I('filepath');
+        $data['pro_enclosure'] = $arr['filepath']; 
 
         // pro_msg     立项信息
-        $pro_msg = I('pMsg');
+        $data['pro_msg'] = $arr['pMsg'];
 
         // cooperative_unit    合作单位
-        $cooperative_unit = I('cUtil');
+        $data['cooperative_unit'] = $arr['cUtil'];
 
         // Founder_id  
-        $founder_id = I('pMid');
-
-
+        $data['founder_id'] = $arr['pMid'];
+ 
         $approvalAdd=$this->approvalAdd=
-        ItemStartUpModel::approvalAdd($pro_code,$market_name,$pre_sale_name,$pro_stime,$pro_etime,$secrecy_grade,$difficulty_rank,$pro_enclosure,$pro_msg,$cooperative_unit,$founder_id);
+        ItemStartUpModel::approvalAdd( $data );
 
         $this->Response(200,$approvalAdd,'');
 

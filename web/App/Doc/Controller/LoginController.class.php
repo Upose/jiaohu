@@ -60,5 +60,31 @@ class LoginController extends BaseController{
           $this->Response(0,'退出登录','');
     }
 
+        /**
+     * 修改密码
+     */
+    public function updPass () {
+        $uid = I('uid');
+        $ypassWord = I('oldPass');
+        $npassWord = I('newPass');
+        $rpassWord = I('repeatPass');
+        if ( !$npassWord ) {
+            $this->Response(2,'密码不能为空');
+        }
+        // 查询用户密码
+        $uinfo = M('user_member')->where('user_id = '.$uid)->find();
+        if ( !($uinfo['password'] == md5( $ypassWord )) ) {
+            $this->Response(2,'原密码不正确');
+        } 
+        if ( !( $npassWord == $rpassWord ) ) {
+            $this->Response(2,'新密码不一致');
+        }
+        // 修改密码
+        $res = M('user_member')->where("user_id = {$uid}")->save( ['password' => md5( $npassWord ) ] );
+        if ( $res ) {
+            $this->Response(200,'密码修改成功','');
+        }
+    }
+
 
 }

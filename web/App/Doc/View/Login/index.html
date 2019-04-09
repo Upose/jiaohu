@@ -48,7 +48,7 @@
         $.ajax({
             cache: false,
             type: "POST",
-            url: "{:U('Login/dologin')}",
+            url: "{:U('login/dologin')}",
             dataType: "json",
             data: {
                 name: name,
@@ -64,7 +64,7 @@
                         layui.layer.alert('密码错误!');
                     })
                 } else {
-                    window.sessionStorage.setItem('isLogin', data.data[0].id);
+                    window.sessionStorage.setItem('isLogin', data.data[0].user_id);
                     window.sessionStorage.setItem('name', data.data[0].member_name);
                     window.location.href = "{:U('Index/index')}";
                 }
